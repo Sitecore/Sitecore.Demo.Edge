@@ -76,7 +76,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
-    & $mkcert "*.edgewebsite.localhost"
+    & $mkcert "*.edge.localhost"
 
     # stash CAROOT path for messaging at the end of the script
     $caRoot = "$(& $mkcert -CAROOT)\rootCA.pem"
@@ -95,10 +95,10 @@ finally {
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
-Add-HostsEntry "cm.edgewebsite.localhost"
-Add-HostsEntry "cd.edgewebsite.localhost"
-Add-HostsEntry "id.edgewebsite.localhost"
-Add-HostsEntry "www.edgewebsite.localhost"
+Add-HostsEntry "cm.edge.localhost"
+Add-HostsEntry "cd.edge.localhost"
+Add-HostsEntry "id.edge.localhost"
+Add-HostsEntry "www.edge.localhost"
 
 
 ###############################
@@ -112,13 +112,13 @@ if ($InitEnv) {
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
     # CM_HOST
-    Set-EnvFileVariable "CM_HOST" -Value "cm.edgewebsite.localhost"
+    Set-EnvFileVariable "CM_HOST" -Value "cm.edge.localhost"
 
     # ID_HOST
-    Set-EnvFileVariable "ID_HOST" -Value "id.edgewebsite.localhost"
+    Set-EnvFileVariable "ID_HOST" -Value "id.edge.localhost"
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.edgewebsite.localhost"
+    Set-EnvFileVariable "RENDERING_HOST" -Value "www.edge.localhost"
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)

@@ -1,4 +1,4 @@
-# EdgeWebsite
+# Website
 
 ## About this Solution
 This solution is designed to help developers learn and get started quickly
@@ -58,8 +58,8 @@ See Sitecore Containers documentation for more information on system requirement
 
 1. Before you can run the solution, you will need to prepare the following
    for the Sitecore container environment:
-   * A valid/trusted wildcard certificate for `*.edgewebsite.localhost`
-   * Hosts file entries for `edgewebsite.localhost`
+   * A valid/trusted wildcard certificate for `*.edge.localhost`
+   * Hosts file entries for `edge.localhost`
    * Required environment variable values in `.env` for the Sitecore instance
      * (Can be done once, then checked into source control.)
 

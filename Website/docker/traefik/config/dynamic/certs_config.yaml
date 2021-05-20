@@ -1,4 +1,4 @@
 tls:
   certificates:
-    - certFile: C:\etc\traefik\certs\_wildcard.edgewebsite.localhost.pem
-      keyFile: C:\etc\traefik\certs\_wildcard.edgewebsite.localhost-key.pem
+    - certFile: C:\etc\traefik\certs\_wildcard.edge.localhost.pem
+      keyFile: C:\etc\traefik\certs\_wildcard.edge.localhost-key.pem
