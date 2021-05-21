@@ -13,7 +13,7 @@ const nextConfig = {
 
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,
-  
+
   // Allow specifying a distinct distDir when concurrently running app in a container
   distDir: process.env.NEXTJS_DIST_DIR || '.next',
 
@@ -25,9 +25,9 @@ const nextConfig = {
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.
-    locales: ['en', 'da-DK'],
+    locales: ['en'],
     // This is the locale that will be used when visiting a non-locale
-    // prefixed path e.g. `/styleguide`.
+    // prefixed path e.g. `/about`.
     defaultLocale: packageConfig.language,
   },
 
@@ -85,7 +85,7 @@ const nextConfig = {
       ];
     }
   },
-  
+
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 

@@ -12,7 +12,7 @@ you should review [Sitecore Helix](https://helix.sitecore.net/) and the
 on implementing a modular solution architecture.
 
 ## Configured for Sitecore-based workflow
-On first run, the JSS Styleguide sample will be imported via `jss deploy items`, then serialized via `sitecore ser pull`. It is intended that you work directly in Sitecore to define templates and renderings, instead of using the code-first approach. This is also known as "Sitecore-first" JSS workflow. To support this:
+On first run, the JSS website will be imported via `jss deploy items`, then serialized via `sitecore ser pull`. It is intended that you work directly in Sitecore to define templates and renderings, instead of using the code-first approach. This is also known as "Sitecore-first" JSS workflow. To support this:
 
 * The JSS content workflow is disabled
 * Imported items will not be marked as 'protected'

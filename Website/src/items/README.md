@@ -6,9 +6,9 @@ serialized paths are configured in `*.module.json` files in the parent directory
 * `InitItems.module.json` configures items which this template needs to
   push before deploying JSS items using `jss deploy`.
 * `EdgeWebsite.module.json` contains developer-owned configuration items
-  which are created by the JSS Styleguide sample.
+  which are created by the JSS website.
 * `EdgeWebsite-Content.module.json` contains content items which are
-  created by the JSS Styleguide sample. It's a good practice to put content
+  created by the JSS website. It's a good practice to put content
   into a separate module, so it can be excluded from packaging and deployment.
 
 You may wish to reorganize these items as appropriate for your solution, and/or

@@ -1,5 +1,4 @@
 import {
-  Field,
   ComponentParams,
   ComponentFactory,
   ComponentRendering,
@@ -8,38 +7,28 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
- * Styleguide sitecore context value shape
+ * Sitecore context value shape
  */
-export type StyleguideSitecoreContextValue = LayoutServiceContext & {
+export type SitecoreContextValue = LayoutServiceContext & {
   itemId?: string;
   route: RouteData;
 };
 
 /**
- * Shared styleguide specimen fields
+ * Shared component props
  */
-export type StyleguideSpecimenFields = {
-  fields: {
-    description: Field<string>;
-    heading: Field<string>;
-  };
-};
-
-/**
- * Shared styleguide component props
- */
-export type StyleguideComponentProps = {
+export type ComponentProps = {
   componentFactory: ComponentFactory;
   rendering: ComponentRendering;
   params: ComponentParams;
 };
 
 /**
- * Styleguide component props with context
+ * Component props with context
  * You can access `sitecoreContext` by withSitecoreContext/useSitecoreContext
  * @example withSitecoreContext()(ContentBlock)
  * @example const { sitecoreContext } = useSitecoreContext()
  */
-export type StyleguideComponentWithContextProps = StyleguideComponentProps & {
-  sitecoreContext: StyleguideSitecoreContextValue;
+export type ComponentWithContextProps = ComponentProps & {
+  sitecoreContext: SitecoreContextValue;
 };

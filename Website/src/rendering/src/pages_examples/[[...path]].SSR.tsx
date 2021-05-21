@@ -10,7 +10,7 @@ import Layout from 'src/Layout';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-import { StyleguideSitecoreContextValue } from 'lib/component-props';
+import { SitecoreContextValue } from 'lib/component-props';
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     return <NotFound />;
   }
 
-  const context: StyleguideSitecoreContextValue = {
+  const context: SitecoreContextValue = {
     route: layoutData.sitecore.route,
     itemId: layoutData.sitecore.route?.itemId,
     ...layoutData.sitecore.context,
@@ -31,7 +31,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext<StyleguideSitecoreContextValue>
+      <SitecoreContext<SitecoreContextValue>
         componentFactory={componentFactory}
         context={context}
       >
