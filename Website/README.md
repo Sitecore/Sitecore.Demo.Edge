@@ -36,10 +36,10 @@ defined in Sitecore's [scope of support](https://kb.sitecore.net/articles/463549
 See Sitecore Containers documentation for more information on system requirements.
 
 ## What's Included
-* A `docker-compose` environment for a Sitecore XP0 topology
+* A `docker-compose` environment for a Sitecore XM1 topology
   with a Next.js rendering host.
 
-  > The included `docker-compose.yml` is a stock XP0 environment from the Sitecore
+  > The included `docker-compose.yml` is a stock XM1 environment from the Sitecore
   > Container Support Package. All changes/additions for this solution are included
   > in the `docker-compose.override.yml`.
 
