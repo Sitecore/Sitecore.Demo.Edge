@@ -69,6 +69,7 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql:${SITECORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
+        SPE_ASSETS_IMAGE: ${SPE_ASSETS_IMAGE}
     volumes:
       - type: bind
         source: .\docker\data\sql
@@ -117,6 +118,7 @@ services:
         TOOLS_IMAGE: ${TOOLS_IMAGE}
         MANAGEMENT_SERVICES_IMAGE: ${MANAGEMENT_SERVICES_IMAGE}
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
+        SPE_ASSETS_IMAGE: ${SPE_ASSETS_IMAGE}
     depends_on:
       - solution
     volumes:
