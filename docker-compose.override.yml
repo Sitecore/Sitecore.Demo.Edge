@@ -64,16 +64,38 @@ services:
   # module data added. See Dockerfile for details.
   mssql:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xm1-mssql:${VERSION:-latest}
-    build:
-      context: ./docker/build/mssql
-      args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql:${SITECORE_VERSION}
-        HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
-        SPE_ASSETS_IMAGE: ${SPE_ASSETS_IMAGE}
+    healthcheck:
+      test: ["CMD", "dir"]
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    mem_limit: 2GB
     volumes:
       - type: bind
         source: .\docker\data\sql
-        target: c:\data
+        target: /var/opt/mssql/data
+
+  # Custom mssql init
+  mssql-init:
+    isolation: ${ISOLATION}
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xm1-mssql-init:${VERSION:-latest}
+    build:
+      context: ./docker/build/mssql-init
+      args:
+        BASE_IMAGE: scr.sitecore.com/sxp/sitecore-xm1-mssql-init:10.1-ltsc2019
+        HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
+        SPE_ASSETS_IMAGE: ${SPE_ASSETS_IMAGE}
+    environment:
+      SQL_SERVER: ${SQL_SERVER}
+      SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
+      SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      POST_DEPLOYMENT_WAIT_PERIOD: 300
+    healthcheck:
+      test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]
+      start_period: 300s
+      interval: 5s
+    depends_on:
+      mssql:
+        condition: service_healthy
 
   # Mount our Solr data folder and use our retagged Solr image.
   # Some modules (like SXA) also require additions to the Solr image.
@@ -96,10 +118,14 @@ services:
   # Configure for a mounted license file instead of using SITECORE_LICENSE.
   id:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-id:${VERSION:-latest}
+    depends_on:
+      mssql-init:
+        condition: service_healthy
     build:
       context: ./docker/build/id
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-id:${SITECORE_VERSION}
+        TOOLS_ASSETS: ${TOOLS_IMAGE}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
