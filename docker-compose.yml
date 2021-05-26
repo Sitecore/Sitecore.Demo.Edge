@@ -19,7 +19,7 @@ services:
       - source: \\.\pipe\docker_engine
         target: \\.\pipe\docker_engine
         type: npipe
-      - ./traefik:C:/etc/traefik
+      # DEMO TEAM CUSTOMIZATION - Removed default volume with host folder ./traefik
     depends_on:
       id:
         condition: service_healthy
@@ -37,19 +37,13 @@ services:
       ACCEPT_EULA: "Y"
     ports:
       - "14330:1433"
-    volumes:
-      - type: bind
-        source: .\mssql-data
-        target: c:\data
+    # DEMO TEAM CUSTOMIZATION - Removed default volume
   solr:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}nonproduction/solr:8.4.0-${SITECORE_VERSION}
     ports:
       - "8984:8983"
-    volumes:
-      - type: bind
-        source: .\solr-data
-        target: c:\data
+    # DEMO TEAM CUSTOMIZATION - Removed default volume
     environment:
       SOLR_MODE: solrcloud
   solr-init:

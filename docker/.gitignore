@@ -6,6 +6,3 @@
 !/data/sql/.gitkeep
 /data/solr/*
 !/data/solr/.gitkeep
-
-/deploy/platform/*
-!/deploy/platform/.gitkeep

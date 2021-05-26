@@ -26,7 +26,7 @@ services:
   solution:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-solution:${VERSION:-latest}
     build:
-      context: .
+      context: ./Website
       args:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8
@@ -40,7 +40,7 @@ services:
       args:
         PARENT_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
     volumes:
-      - .\src\rendering:C:\app
+      - .\Website\src\rendering:C:\app
     environment:
       SITECORE_API_HOST: "http://cm"
       NEXTJS_DIST_DIR: ".next-container"
@@ -122,7 +122,7 @@ services:
     depends_on:
       - solution
     volumes:
-      - ${LOCAL_DEPLOY_PATH}\platform:C:\deploy
+      - ${LOCAL_DEPLOY_PATH}:C:\deploy
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:

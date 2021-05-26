@@ -42,3 +42,7 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+
+# Deploy folder
+/deploy/*
+!/deploy/.gitkeep
