@@ -9,7 +9,7 @@ param (
 
     [Parameter(Mandatory)]
     [string]$SqlServer,
-    
+
     [string]$SqlAdminUser,
 
     [string]$SqlAdminPassword

@@ -26,7 +26,7 @@ BEGIN
 
   FETCH NEXT FROM uc
   INTO @UserId, @UserName
-  
+
 END
 CLOSE uc;
 DEALLOCATE uc;

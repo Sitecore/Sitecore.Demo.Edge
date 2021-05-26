@@ -1,7 +1,7 @@
 USE [Sitecore.Master]
 
 UPDATE [SharedFields]
-SET 
+SET
   Value = $(Value)
-WHERE 
+WHERE
   FieldId = $(FieldId) AND ItemId = $(ItemId)

@@ -63,10 +63,9 @@ services:
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
   mssql:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-xm1-mssql:${VERSION:-latest}
+    image: mcr.microsoft.com/mssql/server:2017-latest
     healthcheck:
       test: ["CMD", "dir"]
-    image: mcr.microsoft.com/mssql/server:2017-latest
     mem_limit: 2GB
     volumes:
       - type: bind
