@@ -38,6 +38,13 @@ services:
     ports:
       - "14330:1433"
     # DEMO TEAM CUSTOMIZATION - Removed default volume
+
+  # DEMO TEAM CUSTOMIZATION - Custom SQL init base
+  mssql-init:
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-xm1-mssql-init:${DEMO_VERSION:-latest}
+    depends_on:
+      - solution
+      
   solr:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.4.0-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
