@@ -27,10 +27,10 @@ services:
         condition: service_healthy
   redis:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sitecore-redis:${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-redis:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
   mssql:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-mssql:${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     environment:
       SA_PASSWORD: ${SQL_SA_PASSWORD}
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
@@ -40,7 +40,7 @@ services:
     # DEMO TEAM CUSTOMIZATION - Removed default volume
   solr:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}nonproduction/solr:8.4.0-${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.4.0-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     ports:
       - "8984:8983"
     # DEMO TEAM CUSTOMIZATION - Removed default volume
@@ -48,7 +48,7 @@ services:
       SOLR_MODE: solrcloud
   solr-init:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-solr-init:${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     environment:
       SITECORE_SOLR_CONNECTION_STRING: http://solr:8983/solr
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
@@ -57,7 +57,7 @@ services:
         condition: service_healthy
   id:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sitecore-id:${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     environment:
       Sitecore_Sitecore__IdentityServer__SitecoreMemberShipOptions__ConnectionString: Data Source=mssql;Initial Catalog=Sitecore.Core;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_Sitecore__IdentityServer__AccountOptions__PasswordRecoveryUrl: https://${CM_HOST}/sitecore/login?rc=1
@@ -80,7 +80,7 @@ services:
       - "traefik.http.routers.id-secure.tls=true"
   cm:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sitecore-xm1-cm:${SITECORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
     depends_on:
       mssql:
         condition: service_healthy
