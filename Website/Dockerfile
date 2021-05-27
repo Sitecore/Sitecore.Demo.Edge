@@ -26,6 +26,9 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 ENV NUGET_VERSION 5.8.1
 RUN Invoke-WebRequest "https://dist.nuget.org/win-x86-commandline/v$env:NUGET_VERSION/nuget.exe" -UseBasicParsing -OutFile "$env:ProgramFiles\NuGet\nuget.exe"
 
+# Install latest PackageProvider (required for Sitecore.Courier)
+RUN Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+
 WORKDIR /build
 
 # Copy prepped NuGet artifacts, and restore as distinct layer to take advantage of caching.
@@ -40,7 +43,12 @@ COPY src/ ./src/
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
+COPY scripts/Packaging/ ./packaging
+
+RUN .\packaging\generate-update-package.ps1 -target (Resolve-Path /build/src/items) -output /dacpac
+
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM mcr.microsoft.com/windows/nanoserver:1809
 WORKDIR /artifacts
 COPY --from=builder /build/deploy  ./sitecore/
+COPY --from=builder /dacpac/data  ./dacpac/
