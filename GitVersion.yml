@@ -1,0 +1,56 @@
+assembly-versioning-scheme: MajorMinorPatch
+mode: mainline
+continuous-delivery-fallback-tag: ''
+tag-prefix: '[vV]'
+next-version: 1010.0.0
+major-version-bump-message: '\+semver:\s?(dotnotuse)'
+minor-version-bump-message: '\+semver:\s?(breaking|major)'
+patch-version-bump-message: '\+semver:\s?(feature|minor)'
+no-bump-message: '\+semver:\s?(none|skip)'
+branches:
+  develop:
+    tag: beta
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    is-mainline: true
+  integration:
+    regex: ^integration
+    tag: alpha
+    increment: Inherit
+    is-mainline: false
+    source-branches:
+    - develop
+  main:
+    tag: ''
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+    regex: ^main$
+    source-branches:
+    - develop
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
+  upgrade:
+    tag: vnext
+    regex: ^upgrade.*
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    source-branches:
+    - develop
+    is-mainline: true
+  feature:
+    tag: ft
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    increment: Inherit
+    source-branches:
+    - develop
+    is-mainline: false
+  pull-request:
+    tag: pull
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+  release:
+    tag: ''
+    is-release-branch: true
+    increment: Inherit
+    is-mainline: true
+merge-message-formats: {}
