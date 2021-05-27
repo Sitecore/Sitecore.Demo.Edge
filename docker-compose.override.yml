@@ -79,7 +79,7 @@ services:
     build:
       context: ./docker/build/mssql-init
       args:
-        BASE_IMAGE: scr.sitecore.com/sxp/sitecore-xm1-mssql-init:10.1-ltsc2019
+        PARENT_IMAGE: scr.sitecore.com/sxp/sitecore-xm1-mssql-init:10.1-ltsc2019
         HEADLESS_SERVICES_IMAGE: ${HEADLESS_SERVICES_IMAGE}
         SPE_ASSETS_IMAGE: ${SPE_ASSETS_IMAGE}
     environment:
@@ -124,7 +124,7 @@ services:
       context: ./docker/build/id
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-id:${SITECORE_VERSION}
-        TOOLS_ASSETS: ${TOOLS_IMAGE}
+        TOOLS_IMAGE: ${TOOLS_IMAGE}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:

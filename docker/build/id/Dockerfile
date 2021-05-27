@@ -1,9 +1,9 @@
 # escape=`
 
 ARG PARENT_IMAGE
-ARG TOOLS_ASSETS
+ARG TOOLS_IMAGE
 
-FROM ${TOOLS_ASSETS} as tools
+FROM ${TOOLS_IMAGE} as tools
 FROM ${PARENT_IMAGE}
 
 COPY --from=tools /tools/ /tools/
