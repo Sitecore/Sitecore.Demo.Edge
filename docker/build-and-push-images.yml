@@ -50,7 +50,7 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY) -WindowsVersion $(osVersion)
+          ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
     - template: version.yml
     - task: DockerCompose@0
       displayName: "Build Images"

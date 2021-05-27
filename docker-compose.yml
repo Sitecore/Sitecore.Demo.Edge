@@ -2,7 +2,7 @@ version: "2.4"
 services:
   traefik:
     isolation: ${TRAEFIK_ISOLATION}
-    image: ${TRAEFIK_IMAGE}
+    image: traefik:v2.2.0-windowsservercore-1809
     command:
       - "--ping"
       - "--api.insecure=true"
