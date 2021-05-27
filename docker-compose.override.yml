@@ -16,7 +16,7 @@ services:
     build:
       context: ./docker/build/nodejs
       args:
-        PARENT_IMAGE: ${NODEJS_PARENT_IMAGE}
+        PARENT_IMAGE: mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
         NODEJS_VERSION: ${NODEJS_VERSION}
     scale: 0
 
