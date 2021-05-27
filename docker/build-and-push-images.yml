@@ -67,12 +67,6 @@ stages:
           WINDOWSSERVERCORE_VERSION=$(osVersion)
           NANOSERVER_VERSION=$(nanoserverVersion)
           SITECORE_VERSION=$(SITECORE_VERSION)
-          SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-          SITECORE_LICENSE=$(SITECORE_LICENSE)
-          TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-          INTERNAL_NUGET_SOURCE=$(INTERNAL_NUGET_SOURCE)
-          SYSTEM_ACCESSTOKEN=$(INTERNAL_NUGET_TOKEN)
-          SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
         qualifyImageNames: false
         action: 'Build services'
         additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
@@ -92,10 +86,6 @@ stages:
           WINDOWSSERVERCORE_VERSION=$(osVersion)
           NANOSERVER_VERSION=$(nanoserverVersion)
           SITECORE_VERSION=$(SITECORE_VERSION)
-          SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-          SITECORE_LICENSE=$(SITECORE_LICENSE)
-          TELERIK_ENCRYPTION_KEY=$(TELERIK_ENCRYPTION_KEY)
-          SITECORE_ID_CERTIFICATE=$(sitecore.id.certificate)
         action: 'Push services'
         additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
