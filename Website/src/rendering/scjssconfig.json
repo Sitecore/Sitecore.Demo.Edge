@@ -1,0 +1,9 @@
+{
+  "sitecore": {
+    "instancePath": "..\\..\\docker\\deploy\\platform\\",
+    "apiKey": "1047aee5-9bcd-4dbf-9744-a26e12b79ab6",
+    "deploySecret": "511cdfab92b7440db866ac0fb817b490",
+    "deployUrl": "https://cm.edge.localhost/sitecore/api/jss/import",
+    "layoutServiceHost": "https://cm.edge.localhost"
+  }
+}

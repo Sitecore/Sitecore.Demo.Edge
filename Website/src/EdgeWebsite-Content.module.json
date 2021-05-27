@@ -1,0 +1,16 @@
+{
+    "namespace": "EdgeWebsite-Content",
+    "references": [ "EdgeWebsite" ],
+    "items": {
+        "includes": [
+            {
+                "name": "content",
+                "path": "/sitecore/content/EdgeWebsite"
+            },
+            {
+                "name": "media",
+                "path": "/sitecore/media library/edgewebsite"
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "namespace": "EdgeWebsite",
+    "references": [ "InitItems" ],
+    "items": {
+        "includes": [
+            {
+                "name": "layouts",
+                "path": "/sitecore/layout/Layouts/Project/edgewebsite"
+            },
+            {
+                "name": "placeholders",
+                "path": "/sitecore/layout/Placeholder Settings/Project/edgewebsite"
+            },
+            {
+                "name": "renderings",
+                "path": "/sitecore/layout/Renderings/Project/edgewebsite"
+            },
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Project/edgewebsite"
+            }
+        ]
+    }
+}
