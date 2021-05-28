@@ -68,8 +68,8 @@ stages:
           NANOSERVER_VERSION=$(nanoserverVersion)
           SITECORE_VERSION=$(SITECORE_VERSION)
         qualifyImageNames: false
-        action: 'Build services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
+        action: 'Run a Docker Compose command'
+        dockerComposeCommand: 'build'
         arguments: 'solution'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
