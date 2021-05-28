@@ -70,7 +70,7 @@ stages:
         qualifyImageNames: false
         action: 'Build services'
         additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
-        arguments: '$(no.cache)'
+        arguments: '--parallel $(no.cache)'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
       displayName: "Push Images"
