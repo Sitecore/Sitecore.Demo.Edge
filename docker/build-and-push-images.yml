@@ -53,6 +53,26 @@ stages:
           ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
     - template: version.yml
     - task: DockerCompose@0
+      displayName: "Build Solution and NodeJS Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(azure.subscription)'
+        azureContainerRegistry: '$(container.registry)'
+        dockerComposeFile: 'docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: |
+          ISOLATION=process
+          DEMO_VERSION=$(tag)
+          REGISTRY=$(REGISTRY)
+          WINDOWSSERVERCORE_VERSION=$(osVersion)
+          NANOSERVER_VERSION=$(nanoserverVersion)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+        qualifyImageNames: false
+        action: 'Build services'
+        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
+        arguments: '--parallel $(no.cache) solution nodejs'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+    - task: DockerCompose@0
       displayName: "Build Images"
       inputs:
         containerregistrytype: 'Azure Container Registry'
