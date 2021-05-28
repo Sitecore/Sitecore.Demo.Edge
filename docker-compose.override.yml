@@ -95,6 +95,8 @@ services:
     depends_on:
       mssql:
         condition: service_healthy
+      solution:
+        condition: service_started
 
   # Mount our Solr data folder and use our retagged Solr image.
   # Some modules (like SXA) also require additions to the Solr image.
