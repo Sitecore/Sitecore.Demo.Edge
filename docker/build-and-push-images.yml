@@ -70,7 +70,7 @@ stages:
         qualifyImageNames: false
         action: 'Run a Docker Compose command'
         dockerComposeCommand: 'build'
-        arguments: 'solution'
+        arguments: '--parallel solution nodejs'
         currentWorkingDirectory: '$(Build.SourcesDirectory)'
     - task: DockerCompose@0
       displayName: "Build Images"
