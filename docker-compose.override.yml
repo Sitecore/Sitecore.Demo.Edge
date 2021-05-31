@@ -78,9 +78,9 @@ services:
     build:
       context: ./docker/build/mssql-init
       args:
-        PARENT_IMAGE: scr.sitecore.com/sxp/sitecore-xm1-mssql-init:10.1-${WINDOWSSERVERCORE_VERSION}
+        PARENT_IMAGE: scr.sitecore.com/sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:16.0.0-${NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
     environment:
       SQL_SERVER: ${SQL_SERVER}
@@ -126,7 +126,7 @@ services:
       context: ./docker/build/id
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.1.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -142,10 +142,10 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.1.0-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${NANOSERVER_VERSION}
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:3.0.0-${NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:16.0.0-${NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:

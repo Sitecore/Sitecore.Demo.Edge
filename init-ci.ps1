@@ -13,7 +13,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Process Isolation to use when building images")]
-  [string]$IsolationMode = "hyperv"
+  [string]$IsolationMode = "default"
   ,
   [Parameter(
     HelpMessage = "Windows image version")]
@@ -85,7 +85,6 @@ $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $Wi
 Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
 Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
-Set-DockerComposeEnvFileVariable "SMTP_CONTAINERS_COUNT" -Value 0
 Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
 Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
 Set-DockerComposeEnvFileVariable "NANOSERVER_VERSION" -Value $NanoserverVersion

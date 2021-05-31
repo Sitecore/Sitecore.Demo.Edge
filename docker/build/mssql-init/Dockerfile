@@ -22,6 +22,5 @@ COPY --from=solution /artifacts/dacpac /data
 
 COPY ./sql /sql
 COPY ./tools/scripts\ .\
-COPY ./data /data
 
 RUN .\InstallPrerequisites.ps1;

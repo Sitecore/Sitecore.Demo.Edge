@@ -37,18 +37,18 @@ COPY --from=nuget-prep ./nuget ./
 # Restore NuGet packages
 RUN nuget restore -Verbosity quiet
 
+COPY scripts/Packaging/ ./packaging
+
 # Copy remaining source code
 COPY src/ ./src/
+
+RUN .\packaging\generate-update-package.ps1 -target (Resolve-Path /build/src/items) -output /dacpac
 
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
-COPY scripts/Packaging/ ./packaging
-
-RUN .\packaging\generate-update-package.ps1 -target (Resolve-Path /build/src/items) -output /dacpac
-
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
-FROM mcr.microsoft.com/windows/nanoserver:1809
+FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
 COPY --from=builder /build/deploy  ./sitecore/
 COPY --from=builder /dacpac/data  ./dacpac/
