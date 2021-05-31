@@ -1,0 +1,111 @@
+# Build Sitecoredemo Docker images
+trigger:
+  branches:
+    include:
+    - develop
+
+resources:
+- repo: self
+  clean: true
+
+variables:
+  GitVersion.SemVer: ''
+  SITECORE_VERSION: '10.1.0'
+  GitVersion.PreReleaseLabel: ''
+  tag: '$(GitVersion.SemVer)'
+  additionalImageTags: ''
+
+stages:
+- stage: Docker_Windows
+  displayName: "Build Windows Images"
+  jobs:
+  - job: Build_Headless
+    timeoutInMinutes: 120
+    strategy:
+      matrix:
+        windows2004:
+          poolName: 'docker-2004-agents'
+          osVersion: '2004'
+          nanoserverVersion: '2004'
+        ltsc2019:
+          poolName: 'docker-ltsc2019-agents'
+          osVersion: 'ltsc2019'
+          nanoserverVersion: '1809'
+        20H2:
+          poolName: 'docker-20H2-agents'
+          osVersion: '20H2'
+          nanoserverVersion: '20H2'
+    displayName: 'Build Windows Docker Images'
+    pool:
+      name: $(poolName)
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.1.x'
+        installationPath: 'c:/program files/dotnet'
+        performMultiLevelLookup: true
+    - task: PowerShell@2
+      displayName: "Prepare .env file"
+      inputs:
+        targetType: 'inline'
+        script: |
+          ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
+    - template: version.yml
+    - task: DockerCompose@0
+      displayName: "Build Solution and NodeJS Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(azure.subscription)'
+        azureContainerRegistry: '$(container.registry)'
+        dockerComposeFile: 'docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: |
+          ISOLATION=process
+          DEMO_VERSION=$(tag)
+          REGISTRY=$(REGISTRY)
+          WINDOWSSERVERCORE_VERSION=$(osVersion)
+          NANOSERVER_VERSION=$(nanoserverVersion)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+        qualifyImageNames: false
+        action: 'Run a Docker Compose command'
+        dockerComposeCommand: 'build'
+        arguments: '--parallel solution nodejs'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+    - task: DockerCompose@0
+      displayName: "Build Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: '$(azure.subscription)'
+        azureContainerRegistry: '$(container.registry)'
+        dockerComposeFile: 'docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: |
+          ISOLATION=process
+          DEMO_VERSION=$(tag)
+          REGISTRY=$(REGISTRY)
+          WINDOWSSERVERCORE_VERSION=$(osVersion)
+          NANOSERVER_VERSION=$(nanoserverVersion)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+        qualifyImageNames: false
+        action: 'Build services'
+        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
+        arguments: '--parallel $(no.cache)'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+    - task: DockerCompose@0
+      displayName: "Push Images"
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: $(azure.subscription)
+        azureContainerRegistry: $(container.registry)
+        dockerComposeFile: 'docker-compose.yml'
+        additionalDockerComposeFiles: 'docker-compose.override.yml'
+        dockerComposeFileArgs: |
+          REGISTRY=$(REGISTRY)
+          DEMO_VERSION=$(tag)
+          WINDOWSSERVERCORE_VERSION=$(osVersion)
+          NANOSERVER_VERSION=$(nanoserverVersion)
+          SITECORE_VERSION=$(SITECORE_VERSION)
+        action: 'Push services'
+        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
+        currentWorkingDirectory: '$(Build.SourcesDirectory)'
