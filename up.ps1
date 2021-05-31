@@ -14,6 +14,11 @@ if ($LASTEXITCODE -ne 0) {
     Write-Error "Container build failed, see errors above."
 }
 
+# Install npm modules in rendering folder
+Push-Location .\Website\src\rendering
+npm install
+Pop-Location
+
 # Start the Sitecore instance
 Write-Host "Starting Sitecore environment..." -ForegroundColor Green
 docker-compose up -d
