@@ -9,7 +9,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Internal Sitecore ACR")]
-  [string]$SitecoreRegistry = "scr.sitecore.com/"
+  [string]$SitecoreRegistry = ""
   ,
   [Parameter(
     HelpMessage = "Process Isolation to use when building images")]
@@ -62,6 +62,7 @@ Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
 ###############################
 
 Write-Host "Populating required demo team .env file values..." -ForegroundColor Green
+
 if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
   $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
@@ -80,6 +81,24 @@ if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
     throw
   }
 }
+
+if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
+  # if it wasn't passed as a parameter, let's try to find it in environment
+  $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
+  if ($null -eq $SitecoreRegistry) {
+    # Environment variable not found. Try to set it using demo team function.
+    Set-DemoEnvironmentVariables
+    refreshenv
+  }
+
+  # Retry
+  $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
+  if ($null -eq $SitecoreRegistry) {
+    # Environment variable not found. Use public Sitecore Docker registry.
+    $SitecoreRegistry = "scr.sitecore.com/"
+  }
+}
+
 $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
 
 Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
