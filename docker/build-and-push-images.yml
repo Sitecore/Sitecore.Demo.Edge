@@ -46,11 +46,13 @@ stages:
         installationPath: 'c:/program files/dotnet'
         performMultiLevelLookup: true
     - task: PowerShell@2
-      displayName: "Prepare .env file"
+      displayName: "Login to ACR"
       inputs:
         targetType: 'inline'
         script: |
-          ./init-ci.ps1 -DemoTeamRegistry $(REGISTRY)
+          az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+
+          az acr login -n $(sitecore.internal.container.registry.short)
     - template: version.yml
     - task: DockerCompose@0
       displayName: "Build Solution and NodeJS Images"
@@ -64,6 +66,7 @@ stages:
           ISOLATION=process
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
+          SITECORE_DOCKER_REGISTRY=$(sitecore.internal.container.registry)
           WINDOWSSERVERCORE_VERSION=$(osVersion)
           NANOSERVER_VERSION=$(nanoserverVersion)
           SITECORE_VERSION=$(SITECORE_VERSION)
@@ -84,6 +87,7 @@ stages:
           ISOLATION=process
           DEMO_VERSION=$(tag)
           REGISTRY=$(REGISTRY)
+          SITECORE_DOCKER_REGISTRY=$(sitecore.internal.container.registry)
           WINDOWSSERVERCORE_VERSION=$(osVersion)
           NANOSERVER_VERSION=$(nanoserverVersion)
           SITECORE_VERSION=$(SITECORE_VERSION)
