@@ -26,15 +26,12 @@ stages:
         windows2004:
           poolName: 'docker-2004-agents'
           osVersion: '2004'
-          nanoserverVersion: '2004'
         ltsc2019:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
-          nanoserverVersion: '1809'
         20H2:
           poolName: 'docker-20H2-agents'
           osVersion: '20H2'
-          nanoserverVersion: '20H2'
     displayName: 'Build Windows Docker Images'
     pool:
       name: $(poolName)
@@ -45,71 +42,40 @@ stages:
         version: '3.1.x'
         installationPath: 'c:/program files/dotnet'
         performMultiLevelLookup: true
+    - template: version.yml
     - task: PowerShell@2
-      displayName: "Login to ACR"
+      displayName: "Build and Push Images"
       inputs:
         targetType: 'inline'
         script: |
-          az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+          $sitecoreRegistry = "$(sitecore.container.registry)"
 
-          az acr login -n $(sitecore.internal.container.registry.short)
-    - template: version.yml
-    - task: DockerCompose@0
-      displayName: "Build Solution and NodeJS Images"
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: '$(azure.subscription)'
-        azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
-        dockerComposeFileArgs: |
-          ISOLATION=process
-          DEMO_VERSION=$(tag)
-          REGISTRY=$(REGISTRY)
-          SITECORE_DOCKER_REGISTRY=$(sitecore.internal.container.registry)
-          WINDOWSSERVERCORE_VERSION=$(osVersion)
-          NANOSERVER_VERSION=$(nanoserverVersion)
-          SITECORE_VERSION=$(SITECORE_VERSION)
-        qualifyImageNames: false
-        action: 'Run a Docker Compose command'
-        dockerComposeCommand: 'build'
-        arguments: '--parallel solution nodejs'
-        currentWorkingDirectory: '$(Build.SourcesDirectory)'
-    - task: DockerCompose@0
-      displayName: "Build Images"
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: '$(azure.subscription)'
-        azureContainerRegistry: '$(container.registry)'
-        dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
-        dockerComposeFileArgs: |
-          ISOLATION=process
-          DEMO_VERSION=$(tag)
-          REGISTRY=$(REGISTRY)
-          SITECORE_DOCKER_REGISTRY=$(sitecore.internal.container.registry)
-          WINDOWSSERVERCORE_VERSION=$(osVersion)
-          NANOSERVER_VERSION=$(nanoserverVersion)
-          SITECORE_VERSION=$(SITECORE_VERSION)
-        qualifyImageNames: false
-        action: 'Build services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
-        arguments: '--parallel $(no.cache)'
-        currentWorkingDirectory: '$(Build.SourcesDirectory)'
-    - task: DockerCompose@0
-      displayName: "Push Images"
-      inputs:
-        containerregistrytype: 'Azure Container Registry'
-        azureSubscription: $(azure.subscription)
-        azureContainerRegistry: $(container.registry)
-        dockerComposeFile: 'docker-compose.yml'
-        additionalDockerComposeFiles: 'docker-compose.override.yml'
-        dockerComposeFileArgs: |
-          REGISTRY=$(REGISTRY)
-          DEMO_VERSION=$(tag)
-          WINDOWSSERVERCORE_VERSION=$(osVersion)
-          NANOSERVER_VERSION=$(nanoserverVersion)
-          SITECORE_VERSION=$(SITECORE_VERSION)
-        action: 'Push services'
-        additionalImageTags: '$(SITECORE_VERSION)-$(osVersion)-$(additionalImageTags)'
-        currentWorkingDirectory: '$(Build.SourcesDirectory)'
+          if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
+            az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+            az acr login -n "$(sitecore.container.registry.short)"
+          }
+
+          az acr login -n $(container.registry.short)
+
+          $params = @{}
+          $params.Add("DemoVersion", "$(tag)")
+          $params.Add("DemoTeamRegistry","$(REGISTRY)")
+          $params.Add("SitecoreRegistry","$sitecoreRegistry")
+          $params.Add("IsolationMode","process")
+          $params.Add("WindowsVersion","$(osVersion)")
+          $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
+
+          ./init-ci.ps1 @params
+
+          # Reset demo version to correct tag without build id
+          $env:DEMO_VERSION = "$(tag)"
+
+          docker-compose build --parallel $(no.cache)
+          docker-compose push
+
+          $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
+          if ($primaryBuild) {
+            $env:DEMO_VERSION = "$(additionalImageTags)"
+            docker-compose build --parallel
+            docker-compose push
+          }
