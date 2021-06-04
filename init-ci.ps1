@@ -1,15 +1,18 @@
+# init-ci.ps1 is a script for Sitecore employees and build pipeline.
+# Do not execute this script otherwise.
+
 Param (
   [Parameter(
     HelpMessage = "Demo version used in image tagging.")]
   [string]$DemoVersion = "latest"
   ,
   [Parameter(
-    HelpMessage = "Internal ACR use by the demo team")]
+    HelpMessage = "Internal ACR used by the demo team")]
   [string]$DemoTeamRegistry = ""
   ,
   [Parameter(
     HelpMessage = "Internal Sitecore ACR")]
-  [string]$SitecoreRegistry = "scr.sitecore.com/"
+  [string]$SitecoreRegistry = ""
   ,
   [Parameter(
     HelpMessage = "Process Isolation to use when building images")]
@@ -62,28 +65,31 @@ Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
 ###############################
 
 Write-Host "Populating required demo team .env file values..." -ForegroundColor Green
+
 if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
   $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-  if ($null -eq $DemoTeamRegistry) {
-    # Environment variable not found. Try to set it using demo team function.
-    Set-DemoEnvironmentVariables
-    refreshenv
-  }
-
-  # Retry
-  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-  if ($null -eq $DemoTeamRegistry) {
-    Write-Host "The DEMO_TEAM_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Red
-    Write-Host "  1. Ensure you are using the team's PowerShell profile." -ForegroundColor Red
-    Write-Host "  2. From a new PowerShell window, re-run this command." -ForegroundColor Red
-    throw
-  }
 }
+
+if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
+  Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
+} else {
+  Write-Host "The REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
+}
+
+if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
+  # if it wasn't passed as a parameter, let's try to find it in environment
+  $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
+}
+
+if ($false -eq [string]::IsNullOrEmpty($SitecoreRegistry)) {
+  Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
+} else {
+  Write-Host "The SITECORE_DOCKER_REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
+}
+
 $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
 
-Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
-Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
 Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
