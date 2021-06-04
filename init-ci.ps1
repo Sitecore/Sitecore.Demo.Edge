@@ -68,7 +68,7 @@ Write-Host "Populating required demo team .env file values..." -ForegroundColor 
 
 if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
-  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRYs
+  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
 
   if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
     Write-Host "The DEMO_TEAM_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Yellow
@@ -84,7 +84,7 @@ if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
 
 if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
-  $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRYs
+  $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
 
   if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
     Write-Host "The INTERNAL_SITECORE_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Yellow
