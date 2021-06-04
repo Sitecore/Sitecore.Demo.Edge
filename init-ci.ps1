@@ -69,33 +69,23 @@ Write-Host "Populating required demo team .env file values..." -ForegroundColor 
 if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
   $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-
-  if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
-    Write-Host "The DEMO_TEAM_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Yellow
-    Write-Host "  1. Ensure you have checked out the latest version of the team's PowerShell profile." -ForegroundColor Yellow
-    Write-Host "  2. Ensure you are using the team's PowerShell profile." -ForegroundColor Yellow
-    Write-Host "  3. From a new PowerShell window, re-run this command." -ForegroundColor Yellow
-  }
 }
 
 if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
   Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
+} else {
+  Write-Host "The REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
 }
 
 if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
   $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
-
-  if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
-    Write-Host "The INTERNAL_SITECORE_DOCKER_REGISTRY environment variable is not set. Please:" -ForegroundColor Yellow
-    Write-Host "  1. Ensure you have checked out the latest version of the team's PowerShell profile." -ForegroundColor Yellow
-    Write-Host "  2. Ensure you are using the team's PowerShell profile." -ForegroundColor Yellow
-    Write-Host "  3. From a new PowerShell window, re-run this command." -ForegroundColor Yellow
-  }
 }
 
 if ($false -eq [string]::IsNullOrEmpty($SitecoreRegistry)) {
   Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
+} else {
+  Write-Host "The SITECORE_DOCKER_REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
 }
 
 $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
