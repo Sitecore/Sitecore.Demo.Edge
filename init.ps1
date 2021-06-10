@@ -55,6 +55,8 @@ if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $docker
 Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
 Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
 Write-SitecoreDockerWelcome
+Write-Host "~~~~~~~~~~~~~~~~~~~~ Brought to you by Sitecore Demo Team ~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Blue
+Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Blue
 
 ##################################
 # Configure TLS/HTTPS certificates

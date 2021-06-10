@@ -32,6 +32,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@sitecore-jss/sitecore-jss-nextjs": "^16.0.0",
     "@sitecore-jss/sitecore-jss-tracking": "^16.0.0",
     "apollo-cache-inmemory": "~1.6.3",
