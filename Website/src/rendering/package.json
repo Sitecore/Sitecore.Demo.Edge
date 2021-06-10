@@ -6,7 +6,9 @@
   "config": {
     "appName": "edgewebsite",
     "rootPlaceholders": [
-      "jss-main"
+      "jss-header",
+      "jss-main",
+      "jss-footer"
     ],
     "sitecoreConfigPath": "/App_Config/Include/zzz",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
