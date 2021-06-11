@@ -39,8 +39,6 @@ placeholders:
         content: |
           <p>Thanks for using Sitecore.Demo.Edge!</p>
   jss-footer:
-    - componentName: ContentBlock
+    - componentName: Footer
       fields:
         heading: Footer
-        content: |
-          <p>Footer content</p>
