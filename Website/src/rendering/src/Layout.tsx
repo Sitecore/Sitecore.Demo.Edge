@@ -13,14 +13,6 @@ import { SitecoreContextValue } from 'lib/component-props';
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
-// This is boilerplate navigation for sample purposes. Most apps should throw this away and use their own navigation implementation.
-// Most apps may also wish to use GraphQL for their navigation construction; this sample does not simply to support disconnected mode.
-const Navigation = () => {
-  const { t } = useI18n();
-
-  return <nav>{t('Navigation')}</nav>;
-};
-
 type LayoutProps = {
   layoutData: LayoutServiceData;
 };
@@ -50,16 +42,14 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
-      <Navigation />
-
       {/* root placeholders for the app, which we add components to using route data */}
-      <header>
+      <header className="header">
         <Placeholder name="jss-header" rendering={route} />
       </header>
       <main>
         <Placeholder name="jss-main" rendering={route} />
       </main>
-      <footer>
+      <footer className="footer">
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
     </>
