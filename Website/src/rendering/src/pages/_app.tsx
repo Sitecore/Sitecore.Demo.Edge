@@ -10,6 +10,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 // TODO: Import Material UI here
 import 'assets/app.css';
+import 'assets/main.scss';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 

@@ -48,7 +48,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <main>
         <Placeholder name="jss-main" rendering={route} />
       </main>
-      <footer className="footer">
+      <footer>
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
     </>
