@@ -7,7 +7,6 @@ import {
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props';
-import Copyright from './components/Copyright';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -52,7 +51,6 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <footer className="footer">
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
-      <Copyright />
     </>
   );
 };

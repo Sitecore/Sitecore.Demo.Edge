@@ -26,6 +26,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
+    // jss here stands for CSS in JS, not Sitecore JSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
       jssStyles.parentElement?.removeChild(jssStyles);

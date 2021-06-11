@@ -1,5 +1,6 @@
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import Copyright from './Copyright';
 
 type FooterProps = ComponentProps & {
   fields: {
@@ -111,7 +112,7 @@ const Footer = (props: FooterProps): JSX.Element => (
     </footer>
     <div className="footer__content__legal">
       <div className="footer__content__legal__links">
-        <p>Copyright © 2014-2021 PLAY! Summit</p>
+        <Copyright {...props} />
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
       </div>

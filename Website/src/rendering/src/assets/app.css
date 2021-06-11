@@ -19,19 +19,9 @@ a[target='_blank']:after {
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
  @import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap);
- html {
-   line-height: 1.15;
-   /* 1 */
-   -webkit-text-size-adjust: 100%;
-   /* 2 */ }
 
  /* Sections
     ========================================================================== */
- /**
-  * Remove the margin in all browsers.
-  */
- body {
-   margin: 0; }
 
  /**
   * Render the `main` element consistently in IE.
@@ -318,12 +308,6 @@ a[target='_blank']:after {
    display: none; }
 
  /**
-  * Set up a decent box model on the root element
-  */
- html {
-   box-sizing: border-box; }
-
- /**
   * Make all elements from the DOM inherit from the parent box-sizing
   * Since `*` has a specificity of 0, it does not override the `html` value
   * making all elements inheriting from the root box-sizing value
@@ -349,14 +333,6 @@ a[target='_blank']:after {
  /**
   * Basic typography style for copy text
   */
- body {
-   font-family: "Source Sans Pro", sans-serif;
-   font-weight: normal; }
-
- html,
- body {
-   font-size: 16px !important; }
-
  h1 {
    font-size: 1.602em; }
 
