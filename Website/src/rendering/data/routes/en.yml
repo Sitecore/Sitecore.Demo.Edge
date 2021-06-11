@@ -25,20 +25,66 @@ fields:
 placeholders:
   jss-header:
     - componentName: Header
-      fields:
-        heading: Header
       placeholders:
         jss-header-content:
           - componentName: MainNavigation
-            fields:
-              heading: MainNavigation
   jss-main:
-    - componentName: ContentBlock
+    - componentName: HeroSection
+    - componentName: ThreeColumnsSection
+    - componentName: FullImageSection
       fields:
-        heading: Welcome to the Sitecore.Demo.Edge Website!
-        content: |
-          <p>Thanks for using Sitecore.Demo.Edge!</p>
+        cssClass: section__full-image--offer
+        position: left
+        title: PLAY! Summit Exclusive Offer
+        content: We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event.
+        callToActionText: Get Discount Code
+    - componentName: Section
+      fields:
+        cssClass: section__speakers
+        brightness: light
+        title: Speaker Line-up
+        content: Catch up with some of the world’s leading sports professionals, appearing in-person and online for exclusive interviews, workshops, and Q&As.
+        callToActionText: View All Speakers
+      placeholders:
+        jss-section-content:
+          - componentName: SpeakersGrid
+    - componentName: FullImageSection
+      fields:
+        cssClass: section__full-image--speaker
+        position: right
+        title: Chris Williams
+        subtitle: Guest Speaker
+        content: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
+        callToActionText: Book your seat
+    - componentName: Section
+      fields:
+        cssClass: section__products
+        brightness: light
+        title: Game Changers
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        callToActionText: Discover More
+      placeholders:
+        jss-section-content:
+          - componentName: ProductCategoriesGrid
+    - componentName: Section
+      fields:
+        cssClass: section__news
+        brightness: dark
+        title: News and Media
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        callToActionText: View All News
+      placeholders:
+        jss-section-content:
+          - componentName: NewsGrid
+    - componentName: Section
+      fields:
+        cssClass: section__sponsors
+        brightness: light
+        title: Premium Sponsors
+        content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.
+        callToActionText: Become an Sponsor
+      placeholders:
+        jss-section-content:
+          - componentName: SponsorsGrid
   jss-footer:
     - componentName: Footer
-      fields:
-        heading: Footer
