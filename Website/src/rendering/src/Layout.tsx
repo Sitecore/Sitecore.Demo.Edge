@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { useI18n } from 'next-localization';
 import { getPublicUrl } from 'lib/util';
 import {
   Placeholder,
