@@ -8,6 +8,10 @@
 # You may use equivalent JSON files instead of YAML if you prefer;
 # however YAML is simpler to read and allows comments like this one :)
 
+# to author content in YAML, use _multi-line values_ (prefixed with | + endline)
+# as long as the same indent is preserved at the beginning of each line, no escaping
+# is required at all in the value, making it easy to read
+
 # Setting an ID is optional, but it will allow referring to this item in internal links
 # the ID can be a app-wide-unique string, or a GUID value.
 id: home-page
@@ -16,15 +20,71 @@ id: home-page
 # Define route level fields in /sitecore/definitions/routes.sitecore
 fields:
   pageTitle: Welcome to the Sitecore.Demo.Edge Website!
-# Define the page layout starting at the root placeholder - in this case, 'jss-main'
+# Define the page layout starting at the root placeholders
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
+  jss-header:
+    - componentName: Header
+      placeholders:
+        jss-header-content:
+          - componentName: MainNavigation
   jss-main:
-    - componentName: ContentBlock
+    - componentName: HeroSection
+    - componentName: ThreeColumnsSection
+    - componentName: FullImageSection
       fields:
-        heading: Welcome to the Sitecore.Demo.Edge Website!
-        # to author content in YAML, use _multi-line values_ (prefixed with | + endline)
-        # as long as the same indent is preserved at the beginning of each line, no escaping
-        # is required at all in the value, making it easy to read
-        content: |
-          <p>Thanks for using Sitecore.Demo.Edge!</p>
+        cssClass: section__full-image--offer
+        position: left
+        title: PLAY! Summit Exclusive Offer
+        content: We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event.
+        callToActionText: Get Discount Code
+    - componentName: Section
+      fields:
+        cssClass: section__speakers
+        brightness: light
+        title: Speaker Line-up
+        content: Catch up with some of the world’s leading sports professionals, appearing in-person and online for exclusive interviews, workshops, and Q&As.
+        callToActionText: View All Speakers
+      placeholders:
+        jss-section-content:
+          - componentName: SpeakersGrid
+    - componentName: FullImageSection
+      fields:
+        cssClass: section__full-image--speaker
+        position: right
+        title: Chris Williams
+        subtitle: Guest Speaker
+        content: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
+        callToActionText: Book your seat
+    - componentName: Section
+      fields:
+        cssClass: section__products
+        brightness: light
+        title: Game Changers
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        callToActionText: Discover More
+      placeholders:
+        jss-section-content:
+          - componentName: ProductCategoriesGrid
+    - componentName: Section
+      fields:
+        cssClass: section__news
+        brightness: dark
+        title: News and Media
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        callToActionText: View All News
+      placeholders:
+        jss-section-content:
+          - componentName: NewsGrid
+    - componentName: Section
+      fields:
+        cssClass: section__sponsors
+        brightness: light
+        title: Premium Sponsors
+        content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.
+        callToActionText: Become an Sponsor
+      placeholders:
+        jss-section-content:
+          - componentName: SponsorsGrid
+  jss-footer:
+    - componentName: Footer

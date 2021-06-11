@@ -115,7 +115,7 @@ function scaffoldFile(rootPath: string, fileContent: string, filename: string): 
   }
 
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(outputFile, fileContent, 'utf8');
+  fs.writeFileSync(outputFile, fileContent.replace(/\n/g, '\r\n'), 'utf8');
   console.log(chalk.green(`File ${outputFile} has been scaffolded.`));
   return outputFile;
 }
