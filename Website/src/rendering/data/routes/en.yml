@@ -24,11 +24,14 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-header:
-    - componentName: ContentBlock
+    - componentName: Header
       fields:
-        heading: Header!
-        content: |
-          <p>Header content</p>
+        heading: Header
+      placeholders:
+        jss-header-content:
+          - componentName: MainNavigation
+            fields:
+              heading: MainNavigation
   jss-main:
     - componentName: ContentBlock
       fields:
