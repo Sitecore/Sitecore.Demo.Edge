@@ -25,53 +25,6 @@ a[target='_blank']:after {
    -webkit-text-size-adjust: 100%;
    /* 2 */ }
 
- /*************************************/
- /* Header (menu) */
- .header {
-   position: fixed;
-   top: 0;
-   z-index: 9999;
-   width: 100%; }
-   .header__eyebrow {
-     background-color: #006ef9;
-     height: 30px; }
-     .header__eyebrow__content {
-       width: 100%;
-       max-width: 1440px;
-       padding: 0 3%;
-       margin: 0 auto;
-       box-sizing: border-box;
-       display: -webkit-flex;
-       display: flex;
-       align-items: center;
-       justify-content: flex-end;
-       height: 100%; }
-       .header__eyebrow__content a:not(:last-child) {
-         margin-right: 0.75em; }
-   .header__container {
-     background: #232323;
-     background: linear-gradient(to left, #232323, #3c3c3c);
-     box-shadow: 0 1px 4px 0 rgba(23, 23, 23, 0.3); }
-     .header__container__content {
-       width: 100%;
-       max-width: 1440px;
-       padding: 0 3%;
-       margin: 0 auto;
-       box-sizing: border-box;
-       height: 72px;
-       display: flex;
-       align-items: center;
-       justify-content: space-between; }
-       .header__container__content__menu a:not(:last-child) {
-         margin-right: 0.75em; }
-   .header a {
-     color: #f7f7f7; }
-     .header a:hover {
-       color: #ffd31c; }
-
- .header__container__content__logo,
- .header__container__content__logo img {
-   height: 46px; }
 
  .section__hero {
    margin: 0;
@@ -518,23 +471,6 @@ a[target='_blank']:after {
    background-position: bottom;
    padding: 6%;
    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); }
-
- a.btn--main {
-   color: #232323;
-   background-color: #ffd31c;
-   font-weight: 600;
-   padding: 0.35em 0.75em;
-   border-radius: 5px;
-   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
-   transition: all .2s ease-in-out; }
-   a.btn--main:hover {
-     color: #232323;
-     background-color: #d7ad00;
-     box-shadow: 0 2px 3px rgba(23, 23, 23, 0.3); }
-   a.btn--main--big {
-     font-size: 1.25em;
-     padding: 0.7em 1em;
-     margin: 0; }
 
  /* Full bleed images based on layout/_full-image.scss */
  .section__full-image {

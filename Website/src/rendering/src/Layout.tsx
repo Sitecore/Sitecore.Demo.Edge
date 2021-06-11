@@ -42,7 +42,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       </Head>
 
       {/* root placeholders for the app, which we add components to using route data */}
-      <header className="header">
+      <header>
         <Placeholder name="jss-header" rendering={route} />
       </header>
       <main>

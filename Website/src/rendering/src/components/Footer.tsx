@@ -1,6 +1,6 @@
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import css from '../assets/footer.module.scss';
+import css from '../assets/styles/footer.module.scss';
 
 type FooterProps = ComponentProps & {
   fields: {

@@ -348,7 +348,27 @@ html {
 a {
   color: #006ef9;
   text-decoration: none;
+  &.btn--main {
+    color: #232323;
+    background-color: #ffd31c;
+    font-weight: 600;
+    padding: 0.35em 0.75em;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: #232323;
+      background-color: #d7ad00;
+      box-shadow: 0 2px 3px rgba(23, 23, 23, 0.3);
+    }
+  }
+  a.btn--main--big {
+    font-size: 1.25em;
+    padding: 0.7em 1em;
+    margin: 0;
+  }
 }
+
 a:hover,
 a:active,
 a:focus {
