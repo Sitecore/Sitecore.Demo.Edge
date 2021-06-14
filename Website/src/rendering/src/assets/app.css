@@ -194,10 +194,7 @@
   max-width: 1180px;
 
   /* 2 */
-  margin-left: auto;
-
-  /* 2 */
-  margin-right: auto;
+  @apply mx-auto;
 
   /* 3 */
   padding-left: 20px;
@@ -206,7 +203,7 @@
   padding-right: 20px;
 
   /* 1 */
-  width: 100%;
+  @apply w-full;
 }
 
 /**
@@ -215,12 +212,9 @@
   *    See: https://code.google.com/p/chromium/issues/detail?id=457146
   */
 .hide-text {
-  overflow: hidden;
+  @apply overflow-hidden p-0 whitespace-nowrap;
 
-  /* 1 */
-  padding: 0;
   text-indent: 101%;
-  white-space: nowrap;
 }
 
 /**
@@ -229,24 +223,18 @@
   * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
   */
 .visually-hidden {
-  border: 0;
+  @apply border-0 h-px -m-px overflow-hidden p-0 absolute w-px;
+
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
 }
 
 /************************************ */
 
 /* Header (menu) */
 .header {
-  position: fixed;
-  top: 0;
+  @apply fixed top-0 w-full;
+
   z-index: 9999;
-  width: 100%;
 }
 
 .header__eyebrow {
@@ -255,16 +243,13 @@
 }
 
 .header__eyebrow__content {
+  display: -webkit-flex;
+
+  @apply w-full my-0 mx-auto box-border flex items-center justify-end h-full;
+
   width: 100%;
   max-width: 1440px;
   padding: 0 3%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
 }
 
 .header__eyebrow__content a:not(:last-child) {
@@ -278,15 +263,11 @@
 }
 
 .header__container__content {
-  width: 100%;
+  @apply w-full my-0 mx-auto box-border flex items-center justify-between;
+
   max-width: 1440px;
   padding: 0 3%;
-  margin: 0 auto;
-  box-sizing: border-box;
   height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .header__container__content__menu a:not(:last-child) {
@@ -305,6 +286,8 @@
 .header__container__content__logo img {
   height: 46px;
 }
+
+/* Tailwind-ified to this point */
 
 /**************************************** */
 
