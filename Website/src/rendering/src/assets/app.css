@@ -238,7 +238,8 @@
 }
 
 .header__eyebrow {
-  background-color: #006ef9;
+  @apply bg-blue;
+
   height: 30px;
 }
 
@@ -257,8 +258,8 @@
 }
 
 .header__container {
-  background: #232323;
-  background: linear-gradient(to left, #232323, #3c3c3c);
+  @apply bg-black bg-gradient-to-l from-black to-black-light;
+
   box-shadow: 0 1px 4px 0 rgba(23, 23, 23, 0.3);
 }
 
@@ -275,11 +276,11 @@
 }
 
 .header a {
-  color: #f7f7f7;
+  @apply text-white;
 }
 
 .header a:hover {
-  color: #ffd31c;
+  @apply text-yellow;
 }
 
 .header__container__content__logo,
