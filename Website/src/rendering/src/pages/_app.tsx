@@ -9,8 +9,7 @@ import NProgress from 'nprogress';
 // Remove it in package.json as well if removed here.
 import 'nprogress/nprogress.css';
 // TODO: Import Material UI here
-import 'assets/app.css';
-import 'assets/main.scss';
+import 'assets/scss/main.scss';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 

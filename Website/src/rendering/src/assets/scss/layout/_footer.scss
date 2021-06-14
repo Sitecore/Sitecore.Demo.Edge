@@ -1,0 +1,78 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+/*****************************************/
+
+/* Footer */
+
+.footer {
+  background: linear-gradient(135deg, color(black, base), color(black, dark));
+
+  &__content {
+    @include content;
+
+    &__banner {
+      padding: 1.5em 0;
+      @include flex--sb;
+      a {
+        display: flex;
+        img {
+          height: 42px;
+        }
+      }
+    }
+
+    &__footer {
+      @include flex--fs-sb-w;
+      height: 100%;
+      padding: 3em 0;
+      border-top: 1px solid color(yellow, base);
+      border-bottom: 1px solid color(yellow, base);
+      &__col {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 3em;
+        min-width: 200px;
+        li {
+          margin: 10px 0;
+
+          &:first-child {
+            color: color(yellow, base);
+            font-weight: 600;
+            margin: 0 0 20px;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        a {
+          color: color(white, base);
+          text-decoration: none;
+          &:hover {
+            color: color(yellow, base);
+          }
+        }
+      }
+    }
+
+    &__legal {
+      color: color(white, base);
+      @include flex--sb;
+      padding: 0;
+      margin: 0;
+      &__links {
+        @include flex--center
+      }
+      a {
+        color: color(white, base);
+        text-decoration: none;
+        margin-left: 30px;
+        &:hover {
+          color: color(yellow, base);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// 3 columns section
+// -----------------------------------------------------------------------------
+
+.section {
+  &--3-col {
+    background: url(../../../assets/img/background-pattern-light.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    &__content {
+      @include flex--center--column;
+      text-align: center;
+
+      &__items {
+        @include flex--sa;
+        flex-wrap: wrap;
+        max-width: 100%;
+        .item {
+          margin: 2em 3em;
+          @include flex--center--column;
+          img {
+            max-height: 150px;
+          }
+          p {
+            color: color(black,base);
+            font-weight: 600;
+            margin: 1.5em 0 0.5em;
+          }
+          a {
+            color: color(blue,base);
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+              color: color(black,base);
+            }
+          }
+        }
+      }
+    }
+  }
+}

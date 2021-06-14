@@ -1,0 +1,52 @@
+// -----------------------------------------------------------------------------
+// Section with full bleed background image
+// -----------------------------------------------------------------------------
+
+.section__full-image {
+  background-color: color(white, base);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 7em 0;
+  box-shadow: 0 0 10px rgba(23,23,23,0.3);
+
+  &__content {
+    height: 100%;
+
+    &--left {
+      @include flex--fs-center;
+    }
+
+    &--right {
+      @include flex--fe-center;
+    }
+
+    &__card {
+      @include flex--center--column;
+      text-align: center;
+      background-color: color(white, light);
+      padding: 3em;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(23,23,23,0.3);
+
+      h2 {
+        color: color(black,base);
+        margin: 0;
+      }
+
+      h5 {
+        color: color(blue,base);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+        margin: 0 0 20px;
+      }
+
+      p {
+        margin: 20px 0 30px;
+        line-height: 1.4;
+        max-width: 500px;
+      }
+    }
+  }
+}

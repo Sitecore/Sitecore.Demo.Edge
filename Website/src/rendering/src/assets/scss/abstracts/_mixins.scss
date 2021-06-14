@@ -1,0 +1,101 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+@mixin flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex--center {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex--center--column {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin flex--sa {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flex--sb {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex--fs-sb-w {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@mixin flex--fe {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@mixin flex--fe-center {
+  display: -webkit-flex;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@mixin flex--fs {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex--fs-center {
+  display: -webkit-flex;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@mixin content {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 3%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}

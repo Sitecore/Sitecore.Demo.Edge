@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// Regular Section with title and paragraph
+// -----------------------------------------------------------------------------
+
+.section {
+  padding: 5em 0;
+  &__content {
+    @include content;
+    @include flex--center--column;
+    &__title {
+      text-transform: uppercase;
+      font-size: 3em;
+      margin: 0;
+      &--light {
+        color: color(blue,base);
+      }
+      &--dark {
+        color: color(yellow,base);
+      }
+    }
+  
+    &__p {
+      max-width: 40em;
+      line-height: 1.4;
+      text-align: center;
+      color: color(black,base);
+      &--dark {
+        color: color(white,base);
+      }
+    }
+  }
+}

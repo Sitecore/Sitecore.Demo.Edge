@@ -1,0 +1,58 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+/*************************************/
+/* Header (menu) */
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+
+  &__eyebrow {
+    background-color: color(blue, base);
+    height: 30px;
+    &__content {
+      @include content;
+      @include flex--fe;
+      height: 100%;
+      a:not(:last-child) {
+        margin-right: 0.75em;
+      }
+    }
+  }
+
+  &__container {
+    background: color(black, base);
+    background: linear-gradient(to left, color(black, base), color(black, light));
+    box-shadow: 0 1px 4px 0 rgba(23, 23, 23, 0.3);
+
+    &__content {
+      @include content;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__menu {
+        a:not(:last-child) {
+          margin-right: 0.75em;
+        }
+      }
+    }
+  }
+
+  a {
+    color: color(white, base);
+    &:hover {
+      color: color(yellow, base);
+    }
+  }
+}
+
+.header__container__content__logo,
+.header__container__content__logo img {
+  height: 46px;
+}

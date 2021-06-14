@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+/* Full bleed images based on layout/_full-image.scss */
+
+.section__full-image {
+
+  /* offer */
+  &--offer {
+    background-image: url(../../../assets/img/offer-background.jpg);
+  }
+
+  /* speaker */
+  &--speaker {
+    background-image: url(../../../assets/img/speaker-chris-williams-background.jpg);
+  }
+}

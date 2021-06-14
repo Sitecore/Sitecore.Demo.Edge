@@ -1,0 +1,55 @@
+// -----------------------------------------------------------------------------
+// Hero Section
+// -----------------------------------------------------------------------------
+
+.section__hero {
+  margin: 0;
+  margin-top: 102px;
+  background-image: url("../../../assets/img/home-hero-background.jpg");
+  background-color: color(black,base);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &__container {
+    @include flex--fe;
+    @include content;
+    overflow: hidden;
+    &__content {
+      width: 100%;
+      max-width: 600px;
+      background: color(black,light);
+      background: linear-gradient(135deg, color(black,light),color(black,base));
+      box-shadow: 0 0 20px color(black,base);
+      &__text {
+        padding: 6%;
+      }
+      img {
+        width: 240px;
+      }
+      .banner__title__eyebrow {
+        color: color(white, base);
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.5em;
+      }
+      .banner__title__title {
+        color: color(white, base);
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 3em;
+        margin: 0;
+      }
+      .banner__title__sub-title {
+        color: color(yellow, base);
+        font-weight: 600;
+        font-size: 1.5em;
+      }
+      .banner__title__p {
+        color: color(white, base);
+        font-size: 1.25em;
+        line-height: 1.4;
+      }
+    }
+  }
+}
