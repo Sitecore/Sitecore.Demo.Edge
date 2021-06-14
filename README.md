@@ -21,4 +21,6 @@ This repository is used for the primary Sitecore Edge for Content Hub and Experi
       ```
 
    6. Click the "Apply & Restart" button to restart your Windows Docker engine.
-3. Ensure NPM version 14.15.4 is installed and being used. 
+3. Ensure you are using the proper Node Version.
+   1. run `node -v`
+   2. Make sure you have installed and using version 14.17.0.
