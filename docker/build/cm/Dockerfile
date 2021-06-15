@@ -22,6 +22,9 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 WORKDIR C:\inetpub\wwwroot
 
+# Copy transform xdt files to container
+COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
+
 # Copy developer tools and entrypoint
 COPY --from=tools C:\tools C:\tools
 
@@ -45,3 +48,8 @@ COPY --from=sms_assets C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
+
+# Perform transform for connection strings
+RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/ConnectionStrings*.xdt' -Recurse ) | `
+    ForEach-Object { & '/tools/scripts/Invoke-XdtTransform.ps1' -Path '/inetpub/wwwroot/app_config/ConnectionStrings.config' -XdtPath $_.FullName `
+    -XdtDllPath '/tools/bin/Microsoft.Web.XmlTransform.dll'; };
