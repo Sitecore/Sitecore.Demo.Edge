@@ -37,7 +37,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.StartInfo.WorkingDirectory = "C:\\app\\rendering";
             cmd.Start();
 
-            cmd.StandardInput.WriteLine($"vercel --confirm --debug --token {token}");
+            cmd.StandardInput.WriteLine($"vercel --confirm --debug --prod --token {token}");
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
             cmd.WaitForExit();
