@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap);
+
+@layer base {
+  /**
+  * Basic typography style for copy text
+  */
+  body {
+    @apply font-normal;
+
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  /*
+    Resetting from the mobile up!
+
+    Dropping the root* element font size to 14px is something
+    I do on almost all projects, a 16px font size on mobiles
+    is not normally needed. --> Only my opinion of course!
+
+    At mobile size I used the scale "Major Second" from
+    type-cale.com to set out the heading sizes as well as the
+    "Major Third" scale for the .display-* classes however my
+    technique was to begin the scale from the h1's front size.
+    To do this simply do the h1 font size * scale size. So in
+    in this example it was 1.602 * 1.250 = 2.0025 I went with
+    2em to keep it simple.
+  */
+
+  /* ------------------------------------------------------------ */
+  html,
+  body {
+    font-size: 16px !important;
+  }
+
+  h1 {
+    font-size: 1.602em;
+  }
+
+  h2 {
+    font-size: 1.424em;
+  }
+
+  h3 {
+    font-size: 1.266em;
+  }
+
+  h4 {
+    font-size: 1.125em;
+  }
+
+  h5 {
+    font-size: 0.889em;
+  }
+
+  h6 {
+    font-size: 0.79em;
+  }
+
+  .display-1 {
+    font-size: 3.906em;
+  }
+
+  .display-2 {
+    font-size: 3.125em;
+  }
+
+  .display-3 {
+    font-size: 2.5em;
+  }
+
+  .display-4 {
+    font-size: 2em;
+  }
+
+  /*
+    Medium devices (tablets, 48em and up)
+
+    At this point you have overridden Bootstraps rem's and are
+    into module based font sizes should you require it.
+
+    I took a while over this change because I felt that there
+    is no reason why I cant use a modified scale on another
+    device size. So I did, the headings have now taken on
+    "Perfect Fourth" and the dislpay-* has been put to the
+    Bootstrap defaults.
+  */
+
+  /* ------------------------------------------------------------ */
+  @media (min-width: 48em) {
+    h1 {
+      font-size: 2.441em;
+    }
+
+    h2 {
+      font-size: 1.953em;
+    }
+
+    h3 {
+      font-size: 1.563em;
+    }
+
+    h4 {
+      font-size: 1.25em;
+    }
+
+    .display-1 {
+      font-size: 6em;
+    }
+
+    .display-2 {
+      font-size: 5.5em;
+    }
+
+    .display-3 {
+      font-size: 4.5em;
+    }
+
+    .display-4 {
+      font-size: 3.5em;
+    }
+
+    .medium {
+      font-size: 2em;
+    }
+
+    .small {
+      font-size: 0.8em;
+    }
+  }
+
+  /* Large devices (desktops, 62em and up) */
+  @media (min-width: 62em) {
+    html,
+    body {
+      font-size: 18px !important;
+    }
+  }
+
+  /* Extra large devices (large desktops, 75em and up) */
+  @media (min-width: 75em) {
+    html,
+    body {
+      font-size: 20px !important;
+    }
+  }
+}

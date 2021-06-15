@@ -1,295 +1,3 @@
-@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap);
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  /* Sitecore styles */
-
-  a[target='_blank']::after {
-    content: '\1F5D7';
-  }
-
-  /*
-    Hides Sitecore Experience Editor markup,
-    if you run the app in connected mode while the Sitecore cookies
-    are set to edit mode.
-  */
-  .scChromeData,
-  .scpm {
-    display: none !important;
-  }
-
-  /* Mockup base styles */
-
-  /**
-  * Set up a decent box model on the root element
-  */
-  html {
-    @apply box-border;
-  }
-
-  /**
-  * Make all elements from the DOM inherit from the parent box-sizing
-  * Since `*` has a specificity of 0, it does not override the `html` value
-  * making all elements inheriting from the root box-sizing value
-  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
-  */
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
-  /**
-  * Basic styles for links
-  */
-  a {
-    @apply no-underline;
-
-    color: #006ef9;
-  }
-
-  a:hover,
-  a:active,
-  a:focus {
-    @apply text-black;
-  }
-
-  /**
-  * Basic styles for sections
-  */
-
-  /**
-  * Basic typography style for copy text
-  */
-  body {
-    @apply font-normal;
-
-    font-family: 'Source Sans Pro', sans-serif;
-  }
-
-  html,
-  body {
-    font-size: 16px !important;
-  }
-
-  h1 {
-    font-size: 1.602em;
-  }
-
-  h2 {
-    font-size: 1.424em;
-  }
-
-  h3 {
-    font-size: 1.266em;
-  }
-
-  h4 {
-    font-size: 1.125em;
-  }
-
-  h5 {
-    font-size: 0.889em;
-  }
-
-  h6 {
-    font-size: 0.79em;
-  }
-
-  .display-1 {
-    font-size: 3.906em;
-  }
-
-  .display-2 {
-    font-size: 3.125em;
-  }
-
-  .display-3 {
-    font-size: 2.5em;
-  }
-
-  .display-4 {
-    font-size: 2em;
-  }
-
-  @media (min-width: 48em) {
-    h1 {
-      font-size: 2.441em;
-    }
-
-    h2 {
-      font-size: 1.953em;
-    }
-
-    h3 {
-      font-size: 1.563em;
-    }
-
-    h4 {
-      font-size: 1.25em;
-    }
-
-    .display-1 {
-      font-size: 6em;
-    }
-
-    .display-2 {
-      font-size: 5.5em;
-    }
-
-    .display-3 {
-      font-size: 4.5em;
-    }
-
-    .display-4 {
-      font-size: 3.5em;
-    }
-
-    .medium {
-      font-size: 2em;
-    }
-
-    .small {
-      font-size: 0.8em;
-    }
-  }
-
-  @media (min-width: 62em) {
-    html,
-    body {
-      font-size: 18px !important;
-    }
-  }
-
-  @media (min-width: 75em) {
-    html,
-    body {
-      font-size: 20px !important;
-    }
-  }
-}
-
-/* Mockup classes */
-
-/**
-  * Clear inner floats
-  */
-.clearfix::after {
-  @apply clear-both table;
-
-  content: '';
-}
-
-/**
-  * Main content containers
-  * 1. Make the container full-width with a maximum width
-  * 2. Center it in the viewport
-  * 3. Leave some space on the edges, especially valuable on small screens
-  */
-.container {
-  /* 1 */
-  max-width: 1180px;
-
-  /* 2 */
-  @apply mx-auto;
-
-  /* 3 */
-  padding-left: 20px;
-
-  /* 3 */
-  padding-right: 20px;
-
-  /* 1 */
-  @apply w-full;
-}
-
-/**
-  * Hide text while making it readable for screen readers
-  * 1. Needed in WebKit-based browsers because of an implementation bug;
-  *    See: https://code.google.com/p/chromium/issues/detail?id=457146
-  */
-.hide-text {
-  @apply overflow-hidden p-0 whitespace-nowrap;
-
-  text-indent: 101%;
-}
-
-/**
-  * Hide element while making it readable for screen readers
-  * Shamelessly borrowed from HTML5Boilerplate:
-  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
-  */
-.visually-hidden {
-  @apply border-0 h-px -m-px overflow-hidden p-0 absolute w-px;
-
-  clip: rect(0 0 0 0);
-}
-
-/************************************ */
-
-/* Header (menu) */
-.header {
-  @apply fixed top-0 w-full;
-
-  z-index: 9999;
-}
-
-.header__eyebrow {
-  @apply bg-blue;
-
-  height: 30px;
-}
-
-.header__eyebrow__content {
-  display: -webkit-flex;
-
-  @apply w-full my-0 mx-auto box-border flex items-center justify-end h-full;
-
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 3%;
-}
-
-.header__eyebrow__content a:not(:last-child) {
-  margin-right: 0.75em;
-}
-
-.header__container {
-  @apply bg-black bg-gradient-to-l from-black to-black-light;
-
-  box-shadow: 0 1px 4px 0 rgba(23, 23, 23, 0.3);
-}
-
-.header__container__content {
-  @apply w-full my-0 mx-auto box-border flex items-center justify-between;
-
-  max-width: 1440px;
-  padding: 0 3%;
-  height: 72px;
-}
-
-.header__container__content__menu a:not(:last-child) {
-  margin-right: 0.75em;
-}
-
-.header a {
-  @apply text-white;
-}
-
-.header a:hover {
-  @apply text-yellow;
-}
-
-.header__container__content__logo,
-.header__container__content__logo img {
-  height: 46px;
-}
-
-/* Tailwind-ified to this point */
-
 /**************************************** */
 
 /* Footer */
@@ -392,7 +100,7 @@
 .section__hero {
   margin: 0;
   margin-top: 102px;
-  background-image: url('img/home-hero-background.jpg');
+  background-image: url('../img/home-hero-background.jpg');
   background-color: #232323;
   background-position: left;
   background-repeat: no-repeat;
@@ -499,7 +207,7 @@
 }
 
 .section--3-col {
-  background: url(img/background-pattern-light.svg);
+  background: url(../img/background-pattern-light.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -553,7 +261,7 @@
 }
 
 .section__speakers {
-  background: url(img/background-pattern-light.svg);
+  background: url(../img/background-pattern-light.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -608,7 +316,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url(img/background-pattern-light.svg);
+  background: url(../img/background-pattern-light.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -639,7 +347,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url(img/background-pattern-dark.svg);
+  background: url(../img/background-pattern-dark.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -779,7 +487,7 @@
 }
 
 .section__products {
-  background: url(img/background-pattern-light.svg);
+  background: url(../img/background-pattern-light.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -969,7 +677,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(img/btn-background.png);
+  background-image: url(../img/btn-background.png);
   background-size: cover;
   background-position: bottom;
   padding: 6%;
@@ -1001,9 +709,9 @@ a.btn--main--big {
 /* Full bleed images based on layout/_full-image.scss */
 
 .section__full-image--offer {
-  background-image: url(img/offer-background.jpg);
+  background-image: url(../img/offer-background.jpg);
 }
 
 .section__full-image--speaker {
-  background-image: url(img/speaker-chris-williams-background.jpg);
+  background-image: url(../img/speaker-chris-williams-background.jpg);
 }

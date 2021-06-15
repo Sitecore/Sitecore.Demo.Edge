@@ -1,0 +1,14 @@
+@mixin flex--sb {
+  @apply flex items-center justify-between;
+}
+
+@mixin flex--fe {
+  @apply flex items-center justify-end;
+}
+
+@mixin content {
+  @apply w-full my-0 mx-auto box-border;
+
+  max-width: 1440px;
+  padding: 0 3%;
+}

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/* 1. Configuration and helpers */
+
+@import "./abstracts/mixins.css";
+
+/* 2. Tailwind base stuff */
+
+@import "tailwindcss/base";
+
+/* 3. Our base stuff */
+
+@import "./base/sitecore.css";
+@import "./base/base.css";
+@import "./base/typography.css";
+@import "./base/helpers.css";
+
+/* 4. Tailwind components */
+
+@import "tailwindcss/components";
+
+/* 5. Our components */
+
+@import "./layout/header.css";
+
+/* Tailwindify other components and pages from rest.css here */
+@import "./rest.css";
+
+/* 6. Our page-specific styles */
+
+/* 7. Tailwind utilities */
+
+@import "tailwindcss/utilities";
