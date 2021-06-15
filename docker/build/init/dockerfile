@@ -43,8 +43,6 @@ RUN Expand-Archive nodejs.zip -DestinationPath C:\;
 
 RUN Rename-Item "C:\node-v$($env:NODEJS_VERSION)-win-x64" c:\nodejs
 
-RUN ls C:
-
 FROM base AS final
 
 ENV DOTNET_RUNNING_IN_CONTAINER=true
