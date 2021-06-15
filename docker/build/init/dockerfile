@@ -57,7 +57,7 @@ WORKDIR /app
 
 COPY --from=downloadnodejs /nodejs /nodejs
 
-ENV PATH="$WindowsPATH;C:\nodejs"
+ENV PATH="C:\Windows\system32;C:\Windows;;C:\Program Files\dotnet;C:\nodejs"
 
 RUN npm i -g vercel
 
