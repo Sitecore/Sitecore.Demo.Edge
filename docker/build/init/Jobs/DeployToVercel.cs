@@ -15,11 +15,11 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
-            if (this.IsCompleted())
-            {
-                Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-                return;
-            }
+            //if (this.IsCompleted())
+            //{
+            //    Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+            //    return;
+            //}
 
             var token = Environment.GetEnvironmentVariable("VERCEL_TOKEN");
             if (string.IsNullOrEmpty(token))
@@ -34,10 +34,10 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.StartInfo.RedirectStandardOutput = true;
             cmd.StartInfo.CreateNoWindow = true;
             cmd.StartInfo.UseShellExecute = false;
-            cmd.StartInfo.WorkingDirectory = "/app/website";
+            cmd.StartInfo.WorkingDirectory = "C:\\app\\rendering";
             cmd.Start();
 
-            cmd.StandardInput.WriteLine($"vercel --confirm --prod --token {token}");
+            cmd.StandardInput.WriteLine($"vercel --confirm --debug --token {token}");
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
             cmd.WaitForExit();

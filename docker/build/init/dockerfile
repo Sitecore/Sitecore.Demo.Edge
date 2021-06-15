@@ -62,7 +62,7 @@ ENV PATH="C:\Windows\system32;C:\Windows;;C:\Program Files\dotnet;C:\nodejs"
 RUN npm i -g vercel
 
 COPY --from=publish /app/publish .
-COPY --from=solution /artifacts/website/ ./website
+COPY --from=solution /artifacts/website/ ./rendering
 
 RUN mkdir status
 ENTRYPOINT ["dotnet", "Sitecore.Demo.Init.dll"]
