@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
