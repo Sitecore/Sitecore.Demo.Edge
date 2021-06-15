@@ -34,7 +34,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.StartInfo.RedirectStandardOutput = true;
             cmd.StartInfo.CreateNoWindow = true;
             cmd.StartInfo.UseShellExecute = false;
-            cmd.StartInfo.WorkingDirectory = "C:\\website";
+            cmd.StartInfo.WorkingDirectory = "/app/website";
             cmd.Start();
 
             cmd.StandardInput.WriteLine($"vercel --confirm --prod --token {token}");
