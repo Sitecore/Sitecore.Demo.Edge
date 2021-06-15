@@ -1,3 +1,5 @@
+/* TODO: Try to remove some of these style to use Tailwind defaults and utilities */
+
 @layer base {
   /**
     * Clear inner floats

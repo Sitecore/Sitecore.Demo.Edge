@@ -22,6 +22,7 @@
 /* 5. Our components */
 
 @import "./layout/header.css";
+@import "./layout/speakers.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";

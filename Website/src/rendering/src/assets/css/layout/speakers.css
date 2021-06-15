@@ -1,0 +1,50 @@
+.section {
+  &__speakers {
+    @apply bg-cover bg-center bg-no-repeat;
+
+    background: url(../../img/background-pattern-light.svg);
+
+    &__grid {
+      @include flex--center;
+
+      @apply flex-wrap mx-auto;
+
+      max-width: 1024px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+
+      &__speaker {
+        @apply box-border;
+
+        width: 100px;
+        min-width: 220px;
+        padding: 10px;
+        margin: 10px;
+
+        &:hover img {
+          box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
+        }
+
+        img {
+          @apply w-full;
+        }
+
+        .speaker__name {
+          @apply mx-auto text-center font-semibold text-black;
+
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+
+        .speaker__role {
+          @apply mx-auto text-center font-medium uppercase text-blue;
+
+          margin-top: 5px;
+          margin-bottom: 5px;
+          font-size: 0.8em;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+}
