@@ -1,0 +1,27 @@
+{
+  "sitecore": [
+    {
+      "url": "/sitecore/shell"
+    },
+    {
+      "url": "/sitecore/client/Applications/Launchpad"
+    },
+    {
+      "url": "/sitecore/shell/Applications/Content%20Editor.aspx?sc_bw=1"
+    },
+    {
+      "url": "/sitecore/client/Applications/ControlPanel.aspx?sc_bw=1"
+    },
+    {
+      "url": "/sitecore/client/Applications/FormsBuilder/Pages/Forms"
+    },
+    {
+      "url": "/sitecore/shell/Applications/Workbox.aspx?sc_bw=1"
+    }
+  ],
+  "xp": [
+    {
+      "url": "/"
+    }
+  ]
+}
