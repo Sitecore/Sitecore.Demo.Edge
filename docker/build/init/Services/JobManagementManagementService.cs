@@ -35,6 +35,7 @@ namespace Sitecore.Demo.Init.Services
 				await stateService.SetState(InstanceState.Initializing);
 
 				await new WaitForContextDatabase(initContext).Run();
+                await new DeployToVercel(initContext).Run();
 				//await new PublishItems(initContext).Run();
 				//await new PopulateManagedSchema(initContext).Run();
 				//await new RestartCM(initContext).Run();
