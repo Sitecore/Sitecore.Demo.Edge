@@ -7,7 +7,6 @@ ARG MANAGEMENT_SERVICES_IMAGE
 ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
-ARG SMS_ASSETS_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
@@ -15,7 +14,6 @@ FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
-FROM ${SMS_ASSETS_IMAGE} AS sms_assets
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -42,9 +40,6 @@ COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy and init the Content Hub Connector Module
 COPY --from=ch_assets C:\module\cm\content C:\inetpub\wwwroot
-
-# Copy and init the Sitecore Management Services Module
-COPY --from=sms_assets C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./

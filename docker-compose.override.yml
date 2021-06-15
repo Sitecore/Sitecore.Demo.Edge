@@ -174,7 +174,6 @@ services:
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:16.0.0-${NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
-        SMS_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:3.0.0-${NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:
