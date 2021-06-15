@@ -52,3 +52,4 @@ FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
 COPY --from=builder /build/deploy  ./sitecore/
 COPY --from=builder /dacpac/data  ./dacpac/
+COPY src/rendering/ ./website
