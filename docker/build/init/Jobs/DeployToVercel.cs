@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
+using Sitecore.Demo.Init.Container;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -28,22 +28,16 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
 			}
 
-			var cmd = new Process();
-            cmd.StartInfo.FileName = "cmd.exe";
-            cmd.StartInfo.RedirectStandardInput = true;
-            cmd.StartInfo.RedirectStandardOutput = true;
-            cmd.StartInfo.CreateNoWindow = true;
-            cmd.StartInfo.UseShellExecute = false;
-            cmd.StartInfo.WorkingDirectory = "C:\\app\\rendering";
-            cmd.Start();
+            var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
+            var cmd = new WindowsCommandLine("C:\\app\\rendering");
 
-            cmd.StandardInput.WriteLine($"vercel --confirm --debug --prod --no-clipboard --token {token}");
-            cmd.StandardInput.Flush();
-            cmd.StandardInput.Close();
-            cmd.WaitForExit();
-            Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+            // Deploy project files
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token}");
 
-			await Complete();
+            // Configure env. variables
+            cmd.Run($"vercel --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}}");
+
+            await Complete();
 		}
 	}
 }
