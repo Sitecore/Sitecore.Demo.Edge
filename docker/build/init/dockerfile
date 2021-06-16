@@ -43,8 +43,6 @@ RUN Expand-Archive nodejs.zip -DestinationPath C:\;
 
 RUN Rename-Item "C:\node-v$($env:NODEJS_VERSION)-win-x64" c:\nodejs
 
-RUN ls C:
-
 FROM base AS final
 
 ENV DOTNET_RUNNING_IN_CONTAINER=true
@@ -59,12 +57,12 @@ WORKDIR /app
 
 COPY --from=downloadnodejs /nodejs /nodejs
 
-ENV PATH="$WindowsPATH;C:\nodejs"
+ENV PATH="C:\Windows\system32;C:\Windows;;C:\Program Files\dotnet;C:\nodejs"
 
 RUN npm i -g vercel
 
 COPY --from=publish /app/publish .
-COPY --from=solution /artifacts/website/ ./website
+COPY --from=solution /artifacts/website/ ./rendering
 
 RUN mkdir status
 ENTRYPOINT ["dotnet", "Sitecore.Demo.Init.dll"]

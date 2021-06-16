@@ -73,6 +73,7 @@ services:
       HOST_CM: "http://cm"
       HOST_ID: "http://id"
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
+      VERCEL_TOKEN: ${VERCEL_TOKEN}
     depends_on:
       mssql:
         condition: service_healthy
