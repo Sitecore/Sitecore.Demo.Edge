@@ -32,7 +32,12 @@ namespace Sitecore.Demo.Init.Jobs
             var cmd = new WindowsCommandLine("C:\\app\\rendering");
 
             // Deploy project files & configure env. variables
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}} --env TEST=TEST");
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}}");
+
+            cmd.Run($"vercel link --confirm  --token {token}");
+            cmd.Run($"echo {cm} | vercel env add SITECORE_API_HOST production --token {token}");
+            cmd.Run($"echo {{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}} | vercel env add SITECORE_API_KEY production  --token {token}");
+            cmd.Run($"echo 7QF3bkaKFD2EdFHqluHeRbi6ZjoQYXqQUrgonMQfdEwFqDHjY7Z55oaxeMRAFqHY | vercel env add JSS_EDITING_SECRET production --token {token}");
 
             await Complete();
 		}
