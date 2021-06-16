@@ -37,12 +37,8 @@ COPY --from=nuget-prep ./nuget ./
 # Restore NuGet packages
 RUN nuget restore -Verbosity quiet
 
-COPY scripts/Packaging/ ./packaging
-
 # Copy remaining source code
 COPY src/ ./src/
-
-RUN .\packaging\generate-update-package.ps1 -target (Resolve-Path /build/src/items) -output /dacpac
 
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
@@ -51,5 +47,4 @@ RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURA
 FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
 COPY --from=builder /build/deploy  ./sitecore/
-COPY --from=builder /dacpac/data  ./dacpac/
-COPY src/rendering/ ./website
+COPY src/ ./src
