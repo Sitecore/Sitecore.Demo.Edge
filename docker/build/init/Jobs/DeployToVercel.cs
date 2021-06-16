@@ -34,6 +34,11 @@ namespace Sitecore.Demo.Init.Jobs
 
             cmd.Run($"vercel link --confirm  --token {token}");
 
+            // Hack until domain mgmt. clarified
+            var whoami = cmd.Run($"vercel whoami --token {token}").Split(Environment.NewLine)[4].Trim();
+            var productionUrl = $"rendering-{whoami}.vercel.app";
+            cmd.Run($"echo {productionUrl} | vercel env add PUBLIC_URL production --token {token}");
+
             // Configure env. variables
             cmd.Run($"echo {cm} | vercel env add SITECORE_API_HOST production --token {token}");
             cmd.Run($"echo {{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}} | vercel env add SITECORE_API_KEY production --token {token}");
@@ -42,12 +47,6 @@ namespace Sitecore.Demo.Init.Jobs
             // Deploy project files
             var response = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}}");
             Console.WriteLine($"Log lines: { response.Split(Environment.NewLine).Length}");
-
-            // Hack until domain mgmt. clarified
-            var whoami = cmd.Run($"vercel whoami --token {token}").Split(Environment.NewLine)[4].Trim();
-            var productionUrl = $"rendering-{whoami}.vercel.app";
-            
-            cmd.Run($"echo {productionUrl} | vercel env add PUBLIC_URL production --token {token}");
 
             await Complete();
 		}
