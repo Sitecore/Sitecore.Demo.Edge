@@ -1,0 +1,19 @@
+{
+  "namespace": "Edge.Project.XM",
+  "items": {
+    "includes": [
+      {
+        "name": "Content Hub CMP Templates",
+        "path": "/sitecore/templates/Project/Content Hub Entity Types"
+      },
+      {
+        "name": "Content Hub CMP Entity Configurations",
+        "path": "/sitecore/system/Modules/CMP/Config"
+      },
+      {
+        "name": "Content Hub CMP Content",
+        "path": "/sitecore/content/CMP"
+      }
+    ]
+  }
+}
