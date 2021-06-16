@@ -42,13 +42,10 @@ namespace Sitecore.Demo.Init.Jobs
             // Deploy project files
             var response = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}}");
             Console.WriteLine($"Log lines: { response.Split(Environment.NewLine).Length}");
-            var productionUrl = response.Split(Environment.NewLine).FirstOrDefault(x => x.StartsWith("Production:"));
-            if (!string.IsNullOrEmpty(productionUrl))
-            {
-                Console.WriteLine($"Production Url string: {productionUrl}");
-                productionUrl = productionUrl.Split(" ")[1].Trim();
-            }
 
+            var whoami = cmd.Run($"vercel whoami --token {token}");
+            var productionUrl = $"rendering-{whoami}.vercel.app";
+            
             cmd.Run($"echo {productionUrl} | vercel env add PUBLIC_URL production --token {token}");
 
             await Complete();
