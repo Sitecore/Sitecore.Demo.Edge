@@ -1,8 +1,8 @@
 ﻿---
-ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
-Parent: "5c0cf77e-866a-4719-b119-819093b427e9"
+ID: "6749d2e1-4a86-4bb7-a89f-10313a1a92e1"
+Parent: "edf7d67c-afdf-4eb3-a58a-732ebe7f56e6"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/Content Hub Entity Types/play-venue-page/Data/name"
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/CMP Event/Data/name
 SharedFields:
 - ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
   Hint: Validate Button
@@ -18,7 +18,7 @@ SharedFields:
   Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
-  Value: 
+  Value: 1
 - ID: "9c903e29-650d-4af2-b9bd-526d5c14a1a5"
   Hint: Validator Bar
   Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
@@ -39,7 +39,7 @@ Languages:
     Value: Event Name
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Venue Name
+    Value: Event Name
   Versions:
   - Version: 1
     Fields:
@@ -52,11 +52,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "439dac0e-828e-4b42-bacf-e43f53608805"
+      Value: "272e29f7-78f1-4906-96b4-f5a21173bd13"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T123153Z
+      Value: 20210616T150544Z

@@ -2,7 +2,7 @@
 ID: "0ad2cbbc-3eaf-4209-847c-de470e29cb1b"
 Parent: "edf7d67c-afdf-4eb3-a58a-732ebe7f56e6"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Project/Content Hub Entity Types/play-event-page/Data/description"
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/CMP Event/Data/description
 SharedFields:
 - ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
   Hint: Validate Button
@@ -52,11 +52,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9a687f99-56de-4fb0-bde1-287e9ebd0ef0"
+      Value: "fdd29dcf-46ca-41b5-91d0-ba8e26932b95"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T123147Z
+      Value: 20210616T150544Z

@@ -18,6 +18,10 @@
             {
                 "name": "templates",
                 "path": "/sitecore/templates/Project/edgewebsite"
+            },
+            {
+                "name": "cmp-config",
+                "path": "/sitecore/system/Modules/CMP/Config"
             }
         ]
     }
