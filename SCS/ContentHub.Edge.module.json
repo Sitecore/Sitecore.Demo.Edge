@@ -1,5 +1,5 @@
 {
-  "namespace": "Edge.Project.XM",
+  "namespace": "ContentHub.Edge",
   "items": {
     "includes": [
       {
