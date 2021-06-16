@@ -44,6 +44,7 @@ namespace Sitecore.Demo.Init.Services
 
 				await stateService.SetState(InstanceState.WarmingUp);
                 await new WarmupCM(initContext).Run();
+                await new DeployToVercel(initContext).Run();
 
 				await stateService.SetState(InstanceState.Preparing);
 
