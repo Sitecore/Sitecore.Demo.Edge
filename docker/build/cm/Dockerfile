@@ -20,9 +20,6 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 
 WORKDIR C:\inetpub\wwwroot
 
-# Copy transform xdt files to container
-COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
-
 # Copy developer tools and entrypoint
 COPY --from=tools C:\tools C:\tools
 
