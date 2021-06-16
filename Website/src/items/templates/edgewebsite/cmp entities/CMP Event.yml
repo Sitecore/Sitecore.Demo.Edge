@@ -9,7 +9,9 @@ SharedFields:
   Value: Office/16x16/signal_flag_checkered.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
-  Value: "{1930BBEB-7805-471A-A3BE-4858AC7CF696}"
+  Value: |
+    {1930BBEB-7805-471A-A3BE-4858AC7CF696}
+    {0D17BE5B-EC2A-4296-8D3F-930EB60DFE7C}
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
   Value: "{9CFEAB6C-0DF8-4FC4-911E-88DD73637D9F}"
@@ -23,11 +25,11 @@ Languages:
       Value: 20190614T160624Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4cf4e39e-2037-4ce4-9655-93bb87dae53e"
+      Value: "47175d97-b728-4497-aee3-57d4148d8416"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T175258Z
+      Value: 20210616T183703Z
