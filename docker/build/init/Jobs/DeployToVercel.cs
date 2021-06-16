@@ -31,11 +31,8 @@ namespace Sitecore.Demo.Init.Jobs
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var cmd = new WindowsCommandLine("C:\\app\\rendering");
 
-            // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token}");
-
-            // Configure env. variables
-            cmd.Run($"vercel --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}} --token {token}");
+            // Deploy project files & configure env. variables
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}}");
 
             await Complete();
 		}
