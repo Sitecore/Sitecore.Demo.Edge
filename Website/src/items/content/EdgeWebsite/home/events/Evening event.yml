@@ -1,0 +1,44 @@
+﻿---
+ID: "fcceaa63-61b0-40a6-9c51-f91402b1edc1"
+Parent: "2f141356-39eb-4fe9-a19f-96c9d3ac59e3"
+Template: "5dcc4bd8-49e8-45e0-8f6f-7f458354fa54"
+Path: /sitecore/content/EdgeWebsite/home/events/Evening event
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: msmS2RwfUkmPLVObgMmCzA
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ad2cbbc-3eaf-4209-847c-de470e29cb1b"
+      Hint: description
+      Value: new description
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210616T143333Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "6749d2e1-4a86-4bb7-a89f-10313a1a92e1"
+      Hint: name
+      Value: Evening event
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a4731d06-cda2-40d1-be20-5e60eb8d10c0"
+    - ID: "9e228d0b-e743-40c2-806b-97e94ff87139"
+      Hint: Venue
+      Value: Barron Island
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210616T182609Z
