@@ -36,7 +36,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Hack until domain mgmt. clarified
             var whoami = cmd.Run($"vercel whoami --token {token}").Split(Environment.NewLine)[4].Trim();
-            var productionUrl = $"rendering-{whoami}.vercel.app";
+            var productionUrl = $"https://rendering-{whoami}.vercel.app";
             cmd.Run($"echo | set /p={productionUrl}| vercel env add PUBLIC_URL production --token {token}");
 
             // Configure env. variables
