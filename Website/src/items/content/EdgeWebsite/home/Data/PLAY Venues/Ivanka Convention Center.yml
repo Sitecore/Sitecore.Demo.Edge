@@ -1,0 +1,41 @@
+﻿---
+ID: "92041917-9fe9-4422-88f8-32969d0c1299"
+Parent: "fdc02515-0557-4708-9580-440efe30d270"
+Template: "a06b2851-c98a-4622-8773-98736daadb13"
+Path: /sitecore/content/EdgeWebsite/home/Data/PLAY Venues/Ivanka Convention Center
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: pbPyP_oHHUiutQlk5912sg
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210615T165533Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9dfa82a9-50b8-40e9-83fe-404584a8976b"
+    - ID: "91e38983-3229-41b3-9161-c1136039a209"
+      Hint: description
+      Value: Biggest convention center in USA
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210616T183217Z
+    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
+      Hint: name
+      Value: Ivanka Convention Center
