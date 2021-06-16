@@ -10,6 +10,10 @@
             {
                 "name": "media",
                 "path": "/sitecore/media library/edgewebsite"
+            },
+            {
+                "name": "cmp-content",
+                "path": "/sitecore/content/CMP"
             }
         ]
     }
