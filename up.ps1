@@ -61,7 +61,7 @@ try {
     ##
 
     # JSS sample has already been deployed and serialized, push the serialized items
-    if (Test-Path .\Website\src\items\content) {
+    if (Test-Path .\src\items\content) {
 
         Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
         dotnet sitecore ser push --publish
