@@ -36,10 +36,10 @@ Languages:
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Event Name
+    Value: Name
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Venue Name
+    Value: 
   Versions:
   - Version: 1
     Fields:
@@ -52,11 +52,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cba9d7dc-2b5d-47d3-a81b-999ee522fe11"
+      Value: "86ddcca5-f7d3-44a3-b7c5-17bc02d68298"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T183031Z
+      Value: 20210616T214138Z

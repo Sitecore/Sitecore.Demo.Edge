@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Play Speaker
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{3FA0C2A3-3B59-4D16-822C-89621F59784E}"
+  Value: "{DA00F1FD-0392-44CF-944A-B24952407013}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: PLAY.Speaker
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ad7724b9-bf17-4bbd-a3f9-0dc9ea9f9dd1"
+      Value: "6f1f4510-6737-4240-a859-e9577cb665e8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T011744Z
+      Value: 20210617T053134Z

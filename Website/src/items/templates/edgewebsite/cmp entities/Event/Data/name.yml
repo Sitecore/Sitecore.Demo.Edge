@@ -18,7 +18,7 @@ SharedFields:
   Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
-  Value: 1
+  Value: 
 - ID: "9c903e29-650d-4af2-b9bd-526d5c14a1a5"
   Hint: Validator Bar
   Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
@@ -36,10 +36,10 @@ Languages:
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Event Name
+    Value: Name
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Event Name
+    Value: 
   Versions:
   - Version: 1
     Fields:
@@ -52,11 +52,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "272e29f7-78f1-4906-96b4-f5a21173bd13"
+      Value: "b2d5ab89-1326-438b-a879-025f34f5789e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T150544Z
+      Value: 20210616T214208Z

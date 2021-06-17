@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Play Kiosk
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{39605563-7F22-4124-A972-5C0447643C38}"
+  Value: "{63F5F613-94D4-43FF-BD02-692C3ADC33B7}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: PLAY.Kiosk
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aadd47a8-40b7-4841-b913-58d554abbf91"
+      Value: "3f9f1e13-307d-47c3-ae22-d39d56f453ce"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T011502Z
+      Value: 20210617T053100Z
