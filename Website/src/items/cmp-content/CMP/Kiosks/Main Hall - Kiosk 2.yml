@@ -1,0 +1,35 @@
+﻿---
+ID: "0768fe73-68c5-4e96-a351-1bdfb0e7c164"
+Parent: "63f5f613-94d4-43ff-bd02-692c3adc33b7"
+Template: "0b96e47b-167c-4155-b0d3-9d75bc4c590c"
+Path: "/sitecore/content/CMP/Kiosks/Main Hall - Kiosk 2"
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "11_YUqBT-Em8hbUU14FjQQ"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210617T060609Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2b1ad9f0-070e-4f16-a874-0c4fb8e8d085"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210617T060609Z
