@@ -8,11 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="cat.bat" />
     <None Remove="data\publishingservice.json" />
     <None Remove="data\warmup-config.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="cat.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\publishingservice.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
