@@ -21,7 +21,6 @@ RUN Install-PackageProvider -Name NuGet -Force; `
 COPY --from=headless_services /module/db /jss_data
 COPY --from=spe_assets /module/db /spe_data
 COPY --from=ch_assets /module/db /ch_data
-COPY --from=solution /artifacts/dacpac /data
 
 COPY ./sql /sql
 COPY ./tools/scripts\ .\

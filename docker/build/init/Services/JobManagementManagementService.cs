@@ -38,6 +38,7 @@ namespace Sitecore.Demo.Init.Services
                 await new WaitForSitecoreToStart(initContext).Run();
 				await new PushSerialized(initContext).Run();
 				
+                //await new UpdateDamUri(initContext).Run();
 				//await new PublishItems(initContext).Run();
 				//await new RestartCM(initContext).Run();
 				//await new WaitForSitecoreToStart(initContext).Run();
