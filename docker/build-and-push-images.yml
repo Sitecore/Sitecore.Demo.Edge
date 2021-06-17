@@ -77,6 +77,7 @@ stages:
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
+            docker-compose build solution $(no.cache)
             docker-compose build --parallel
             docker-compose push
           }
