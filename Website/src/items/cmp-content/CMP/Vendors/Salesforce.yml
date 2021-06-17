@@ -1,0 +1,35 @@
+﻿---
+ID: "88198433-0ab0-4533-ae84-2d6a3a13a8e8"
+Parent: "631fd3ea-4aa7-40ba-9981-bd5975ed8140"
+Template: "c6b7c67a-b937-4da3-8e1d-d793f2b88871"
+Path: /sitecore/content/CMP/Vendors/Salesforce
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: KFhWz6ql9E2A4GRfIcqviA
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210617T060647Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bfb4d903-8771-433d-8b91-f2c8aa0cb105"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210617T060647Z
