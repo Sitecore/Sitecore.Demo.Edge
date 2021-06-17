@@ -1,0 +1,146 @@
+﻿---
+ID: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Parent: "6f510288-14c5-5dc8-a8e9-e4205fd03dd3"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{12933B4F-72B1-552A-9730-6B4C914F125B}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{04D6B23E-6CE3-51A1-9C9C-4CD56B29B6AA}"
+              p:after="r[@uid='{12933B4F-72B1-552A-9730-6B4C914F125B}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{12933B4F-72B1-552A-9730-6B4C914F125B}-0" />
+            <r
+              uid="{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}"
+              p:after="r[@uid='{04D6B23E-6CE3-51A1-9C9C-4CD56B29B6AA}']"
+              s:rname="HeroSection"
+              s:id="{C8BE3A17-798F-5054-B012-4772CB23AC88}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}"
+              p:after="r[@uid='{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}']"
+              s:rname="ThreeColumnsSection"
+              s:id="{279A5772-ADFA-5260-88E6-AB97D5C4D90A}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{45FCA8EC-2A99-531D-B270-0389AB473563}"
+              p:after="r[@uid='{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}']"
+              s:rname="FullImageSection"
+              s:ds="{D60C8391-1D54-58F8-9821-CBC3AF9AC322}"
+              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{E532127E-1D91-51EE-B517-B8CBBCC57A20}"
+              p:after="r[@uid='{45FCA8EC-2A99-531D-B270-0389AB473563}']"
+              s:rname="Section"
+              s:ds="{105AB476-3EDF-5A27-A49A-A5604BB6ACA2}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{680AC82A-ACB6-59D6-8ABB-322F20BFB873}"
+              p:after="r[@uid='{E532127E-1D91-51EE-B517-B8CBBCC57A20}']"
+              s:rname="SpeakersGrid"
+              s:id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{E532127E-1D91-51EE-B517-B8CBBCC57A20}-0" />
+            <r
+              uid="{9FEB8407-087F-50FC-BCDD-4741F69796CC}"
+              p:after="r[@uid='{680AC82A-ACB6-59D6-8ABB-322F20BFB873}']"
+              s:rname="FullImageSection"
+              s:ds="{3FDC9247-F940-5DE3-BB56-9242835DD87B}"
+              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}"
+              p:after="r[@uid='{9FEB8407-087F-50FC-BCDD-4741F69796CC}']"
+              s:rname="Section"
+              s:ds="{0EC6C306-FE31-5479-B740-8E4D7CA071F9}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{9C37536D-E2AA-5BF2-8103-FA15D43F5121}"
+              p:after="r[@uid='{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}']"
+              s:rname="ProductCategoriesGrid"
+              s:id="{9B5E1E18-FD8D-5E80-8028-861D007DCA15}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}-0" />
+            <r
+              uid="{4F8BE7D3-A694-596E-83A9-9C733D66D438}"
+              p:after="r[@uid='{9C37536D-E2AA-5BF2-8103-FA15D43F5121}']"
+              s:rname="Section"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{382E9BB0-78D5-525E-999B-7F7DBB4540D1}"
+              p:after="r[@uid='{4F8BE7D3-A694-596E-83A9-9C733D66D438}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{4F8BE7D3-A694-596E-83A9-9C733D66D438}-0" />
+            <r
+              uid="{3F68C696-7E3E-54D0-831B-9AB97806B471}"
+              p:after="r[@uid='{382E9BB0-78D5-525E-999B-7F7DBB4540D1}']"
+              s:rname="Section"
+              s:ds="{3D23D6D7-03DA-5CF7-A69B-B539C7398E66}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{EA09244A-29DB-5899-99C7-82FF0757BCFC}"
+              p:after="r[@uid='{3F68C696-7E3E-54D0-831B-9AB97806B471}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0" />
+            <r
+              uid="{541311F6-470C-5230-8425-3252C09B07BC}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210615T142052Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0b77d8b2-d6d4-44e5-abd4-4e44fe0211dc"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210615T142053Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Welcome to the Sitecore.Demo.Edge Website!"

@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "Sitecore.Demo.Init": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "HOST_ID": "https://id.lighthouse.localhost",
+        "HOST_CD": "https://cd.lighthouse.localhost",
+        "HOST_PS": "https://ps.lighthouse.localhost",
+        "ADMIN_USER_NAME": "superuser",
+        "HOST_CM": "https://cm.lighthouse.localhost",
+        "ADMIN_PASSWORD": "b"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

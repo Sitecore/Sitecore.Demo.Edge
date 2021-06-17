@@ -1,0 +1,47 @@
+﻿using System;
+using System.Threading.Tasks;
+using Sitecore.Demo.Init.Container;
+
+namespace Sitecore.Demo.Init.Jobs
+{
+	using Microsoft.Extensions.Logging;
+
+	class PushSerialized : TaskBase
+	{
+		public PushSerialized(InitContext initContext)
+			: base(initContext)
+		{
+		}
+
+		public async Task Run()
+		{
+            //if (this.IsCompleted())
+            //{
+            //    Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+            //    return;
+            //}
+
+            var token = Environment.GetEnvironmentVariable("ID_SERVER_DEMO_CLIENT_SECRET");
+            if (string.IsNullOrEmpty(token))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute ID_SERVER_DEMO_CLIENT_SECRET is not configured");
+                return;
+			}
+
+            var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
+            var id = Environment.GetEnvironmentVariable("PUBLIC_HOST_ID");
+            if (string.IsNullOrEmpty(cm) || string.IsNullOrEmpty(id))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute, PUBLIC_HOST_CM and PUBLIC_HOST_ID are not configured");
+                return;
+            }
+
+            var cmd = new WindowsCommandLine("C:\\app");
+            cmd.Run($"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t");
+            cmd.Run($"dotnet sitecore publish");
+            cmd.Run($"dotnet sitecore ser push --publish -t");
+
+            await Complete();
+		}
+	}
+}
