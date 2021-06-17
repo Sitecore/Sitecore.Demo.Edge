@@ -72,7 +72,6 @@ services:
       ADMIN_USER_NAME: "admin"
       HOST_CM: "http://cm"
       HOST_ID: "http://id"
-      DAM_URL: ${DAM_URL}
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
       VERCEL_TOKEN: ${VERCEL_TOKEN}
       ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
@@ -113,6 +112,7 @@ services:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:16.0.0-${NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
     environment:
       SQL_SERVER: ${SQL_SERVER}
@@ -179,6 +179,7 @@ services:
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:3.0.0-${NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:16.0.0-${NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:
@@ -193,4 +194,11 @@ services:
       ## Development Environment Optimizations
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff,RobotDetectionOff
       Sitecore_AppSettings_exmEnabled:define: "no" # remove to turn on EXM
+      Sitecore_ConnectionStrings_CMP.ContentHub: ${CMP_ContentHub}
+      Sitecore_ConnectionStrings_CMP.ServiceBusEntityPathIn: ${CMP_ServiceBusEntityPathIn}
+      Sitecore_ConnectionStrings_CMP.ServiceBusSubscription: ${CMP_ServiceBusSubscription}
+      Sitecore_ConnectionStrings_CMP.ServiceBusEntityPathOut: ${CMP_ServiceBusEntityPathOut}
+      Sitecore_ConnectionStrings_DAM.ContentHub: ${DAM_ContentHub}
+      Sitecore_ConnectionStrings_DAM.SearchPage: ${DAM_SearchPage}
+      Sitecore_ConnectionStrings_DAM.ExternalRedirectKey: ${DAM_ExternalRedirectKey}
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
