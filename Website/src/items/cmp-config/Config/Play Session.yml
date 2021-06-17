@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Play Session
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{24E8A595-3D63-4B91-A3FF-271965880241}"
+  Value: "{6CE6F007-24F7-43AA-9732-DDE2C19DE464}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: PLAY.Session
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f8186671-fe01-4379-be2d-bfc77e13ecf3"
+      Value: "ea0e91c6-606c-4c1e-bc84-36c34fa85239"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T011521Z
+      Value: 20210617T053115Z

@@ -6,13 +6,13 @@ Path: /sitecore/system/Modules/CMP/Config/Play Timeslot
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{9AB7A2F9-7BA6-42BE-A915-9146CA15AD3E}"
+  Value: "{B541C1AE-68E3-484B-BC05-73B574497189}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: PLAY.Timeslot
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Name
+  Value: TaxonomyName
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{0BC9237D-12EB-47A5-AFED-A65188324358}"
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "48b2549b-e00b-4c53-9304-4f27f256a571"
+      Value: "2e9e32bf-9a2c-4cec-8118-6bfeb26d1338"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T011818Z
+      Value: 20210617T053143Z

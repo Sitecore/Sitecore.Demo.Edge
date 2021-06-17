@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Play Vendor
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{89480742-926D-4487-9B06-D5C5724C96B1}"
+  Value: "{631FD3EA-4AA7-40BA-9981-BD5975ED8140}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: PLAY.Vendor
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e78e0431-db71-4d5d-b818-e54bf3f6723d"
+      Value: "5274518c-faa5-43fc-9cf4-56d111710114"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T011927Z
+      Value: 20210617T053150Z
