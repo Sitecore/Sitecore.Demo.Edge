@@ -70,6 +70,7 @@ stages:
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
+          docker-compose build solution $(no.cache)
           docker-compose build --parallel $(no.cache)
           docker-compose push
 
