@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type HeroSectionProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const HeroSection = (props: HeroSectionProps): JSX.Element => (
+const HeroSection = (): JSX.Element => (
   <section className="section__hero banner">
     <div className="section__hero__container">
       <div className="section__hero__container__content">

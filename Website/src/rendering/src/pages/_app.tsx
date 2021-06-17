@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import Router from 'next/router';
 import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import NProgress from 'nprogress';
@@ -13,11 +13,28 @@ import 'assets/app.css';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+function App({ Component, pageProps, router }: AppProps): JSX.Element {
+  useEffect(() => {
+    const nProgressStart = () => {
+      NProgress.start();
+    };
+    const nProgressDone = () => {
+      NProgress.done();
+    };
 
-function App({ Component, pageProps }: AppProps): JSX.Element {
+    router.events.on('routeChangeStart', nProgressStart);
+    router.events.on('routeChangeComplete', nProgressDone);
+    router.events.on('routeChangeError', nProgressDone);
+
+    // If the component is unmounted, unsubscribe
+    // from the events with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', nProgressStart);
+      router.events.off('routeChangeComplete', nProgressDone);
+      router.events.off('routeChangeError', nProgressDone);
+    };
+  }, [router]);
+
   const { dictionary, ...rest } = pageProps;
 
   return (

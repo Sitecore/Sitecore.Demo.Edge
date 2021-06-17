@@ -32,10 +32,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext<SitecoreContextValue>
-        componentFactory={componentFactory}
-        context={context}
-      >
+      <SitecoreContext<SitecoreContextValue> componentFactory={componentFactory} context={context}>
         <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>

@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type ProductCategoriesGridProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const ProductCategoriesGrid = (props: ProductCategoriesGridProps): JSX.Element => (
+const ProductCategoriesGrid = (): JSX.Element => (
   <div className="section__products__grid">
     <div className="section__products__grid__product">
       <a href="#">

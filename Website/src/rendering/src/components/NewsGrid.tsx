@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type NewsGridProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const NewsGrid = (props: NewsGridProps): JSX.Element => (
+const NewsGrid = (): JSX.Element => (
   <div className="section__news__grid">
     <div className="section__news__grid__tweet">
       <img
@@ -29,7 +19,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
           </div>
         </div>
         <p className="section__news__grid__tweet__content__tweet">
-          Hyped for this year's edition of Play! Summit
+          Hyped for this year&apos;s edition of Play! Summit
         </p>
         <p className="section__news__grid__tweet__content__link">#play! #sports</p>
         <p className="section__news__grid__tweet__content__comments">View all 50 comments</p>
