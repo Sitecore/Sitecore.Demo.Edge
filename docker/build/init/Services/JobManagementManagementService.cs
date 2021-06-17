@@ -36,8 +36,10 @@ namespace Sitecore.Demo.Init.Services
 
 				await new WaitForContextDatabase(initContext).Run();
         		await new DeployToVercel(initContext).Run();
+                await new WaitForSitecoreToStart(initContext).Run();
+				await new PushSerialized(initContext).Run();
+				
 				//await new PublishItems(initContext).Run();
-				//await new PopulateManagedSchema(initContext).Run();
 				//await new RestartCM(initContext).Run();
 				//await new WaitForSitecoreToStart(initContext).Run();
 				//await new RebuildLinkDatabase(initContext).Run();

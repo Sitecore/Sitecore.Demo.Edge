@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
+using Sitecore.Demo.Init.Container;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -28,22 +29,33 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
 			}
 
-			var cmd = new Process();
-            cmd.StartInfo.FileName = "cmd.exe";
-            cmd.StartInfo.RedirectStandardInput = true;
-            cmd.StartInfo.RedirectStandardOutput = true;
-            cmd.StartInfo.CreateNoWindow = true;
-            cmd.StartInfo.UseShellExecute = false;
-            cmd.StartInfo.WorkingDirectory = "C:\\app\\rendering";
-            cmd.Start();
+            var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
+            var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+            var sourceDirectory = "C:\\app\\rendering";
+            var targetDirectory = $"C:\\app\\rendering-{ns}";
 
-            cmd.StandardInput.WriteLine($"vercel --confirm --debug --prod --no-clipboard --token {token}");
-            cmd.StandardInput.Flush();
-            cmd.StandardInput.Close();
-            cmd.WaitForExit();
-            Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
 
-			await Complete();
-		}
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            cmd.Run($"vercel link --confirm --token {token} --debug");
+
+            // Hack until domain mgmt. clarified
+            var whoami = cmd.Run($"vercel whoami --token {token}").Split(Environment.NewLine)[4].Trim();
+            var productionUrl = $"https://rendering-{ns}-{whoami}.vercel.app";
+            cmd.Run($"echo | set /p={productionUrl}| vercel env add PUBLIC_URL production --token {token}");
+
+            // Configure env. variables
+            cmd.Run($"echo {cm} | vercel env add SITECORE_API_HOST production --token {token}");
+            cmd.Run($"echo {{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}} | vercel env add SITECORE_API_KEY production --token {token}");
+            cmd.Run($"echo 7QF3bkaKFD2EdFHqluHeRbi6ZjoQYXqQUrgonMQfdEwFqDHjY7Z55oaxeMRAFqHY | vercel env add JSS_EDITING_SECRET production --token {token}");
+
+            // Deploy project files
+            var response = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --env SITECORE_API_HOST={cm} --env SITECORE_API_KEY={{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}}");
+            Console.WriteLine($"Log lines: { response.Split(Environment.NewLine).Length}");
+
+            await Complete();
+        }
 	}
 }

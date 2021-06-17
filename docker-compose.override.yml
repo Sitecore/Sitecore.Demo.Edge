@@ -64,7 +64,7 @@ services:
       context: .\docker\build\init
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-        BASE_IMAGE: mcr.microsoft.com/dotnet/runtime:3.1-nanoserver-${NANOSERVER_VERSION}
+        BASE_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
         NODEJS_VERSION: ${NODEJS_VERSION}
     environment:
@@ -74,6 +74,10 @@ services:
       HOST_ID: "http://id"
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
       VERCEL_TOKEN: ${VERCEL_TOKEN}
+      ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
+      PUBLIC_HOST_CM: ${PUBLIC_HOST_CM}
+      PUBLIC_HOST_ID: ${PUBLIC_HOST_ID}
+      RELEASE_NAMESPACE: ${RELEASE_NAMESPACE:-local}
     depends_on:
       mssql:
         condition: service_healthy
@@ -159,6 +163,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
 
   # Use our custom CM (XM1 CM) image with added modules and solution code.
   # Folders are mounted below for code deployment and log output. See Dockerfile for details.
