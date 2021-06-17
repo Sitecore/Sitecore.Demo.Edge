@@ -28,7 +28,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       ...layoutData.sitecore.context,
     };
     updateSitecoreContext && updateSitecoreContext(context);
-  }, [layoutData]);
+  }, [layoutData, updateSitecoreContext]);
 
   const { route } = layoutData.sitecore;
 

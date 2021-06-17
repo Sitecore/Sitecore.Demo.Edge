@@ -1,11 +1,12 @@
 {
   "root": true,
   "extends": [
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
-    "plugin:yaml/recommended"
+    "plugin:yaml/recommended",
+    "next",
+    "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -17,7 +18,6 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "react",
     "prettier",
     "yaml"
   ],
@@ -43,6 +43,8 @@
     // needed for NextJS's in order to use jsx without react import
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "error",
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    // DEMO TEAM CUSTOMIZATION - Disable no-img-element validtion until Sitecore JSS supports the next/Image component
+    "@next/next/no-img-element": "off"
   }
 }
