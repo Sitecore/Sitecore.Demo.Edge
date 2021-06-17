@@ -78,6 +78,7 @@ services:
       ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
       PUBLIC_HOST_CM: ${PUBLIC_HOST_CM}
       PUBLIC_HOST_ID: ${PUBLIC_HOST_ID}
+      RELEASE_NAMESPACE: ${RELEASE_NAMESPACE:-local}
     depends_on:
       mssql:
         condition: service_healthy

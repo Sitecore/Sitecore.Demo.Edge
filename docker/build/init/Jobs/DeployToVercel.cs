@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
 using System.Threading.Tasks;
 using Sitecore.Demo.Init.Container;
 
@@ -30,13 +30,20 @@ namespace Sitecore.Demo.Init.Jobs
 			}
 
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
-            var cmd = new WindowsCommandLine("C:\\app\\rendering");
+            var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+            var sourceDirectory = "C:\\app\\rendering";
+            var targetDirectory = $"C:\\app\\rendering-{ns}";
 
-            cmd.Run($"vercel link --confirm  --token {token}");
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
+
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            cmd.Run($"vercel link --confirm --token {token} --debug");
 
             // Hack until domain mgmt. clarified
             var whoami = cmd.Run($"vercel whoami --token {token}").Split(Environment.NewLine)[4].Trim();
-            var productionUrl = $"https://rendering-{whoami}.vercel.app";
+            var productionUrl = $"https://rendering-{ns}-{whoami}.vercel.app";
             cmd.Run($"echo | set /p={productionUrl}| vercel env add PUBLIC_URL production --token {token}");
 
             // Configure env. variables
@@ -49,6 +56,6 @@ namespace Sitecore.Demo.Init.Jobs
             Console.WriteLine($"Log lines: { response.Split(Environment.NewLine).Length}");
 
             await Complete();
-		}
+        }
 	}
 }
