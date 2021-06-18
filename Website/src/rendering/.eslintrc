@@ -1,12 +1,15 @@
 {
   "root": true,
   "extends": [
+    // DEMO TEAM CUSTOMIZATION - Remove the React plugin to avoid loading it twice
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
     "plugin:yaml/recommended",
+    // DEMO TEAM CUSTOMIZATION - Add Next.js (based on React) and Web core vitals validators
     "next",
     "next/core-web-vitals"
+    // END CUSTOMIZATION
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -18,6 +21,7 @@
   },
   "plugins": [
     "@typescript-eslint",
+    // DEMO TEAM CUSTOMIZATION - Remove the React plugin to avoid loading it twice.
     "prettier",
     "yaml"
   ],

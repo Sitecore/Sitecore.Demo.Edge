@@ -12,6 +12,8 @@ import { SitecoreContextValue } from 'lib/component-props';
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
+// DEMO TEAM CUSTOMIZATION - Move navigation to a component
+
 type LayoutProps = {
   layoutData: LayoutServiceData;
 };
@@ -22,13 +24,17 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
+    // DEMO TEAM CUSTOMIZATION - Different type name
     const context: SitecoreContextValue = {
+      // END CUSTOMIZATION
       route: layoutData.sitecore.route,
       itemId: layoutData.sitecore.route.itemId,
       ...layoutData.sitecore.context,
     };
     updateSitecoreContext && updateSitecoreContext(context);
+    // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
   }, [layoutData, updateSitecoreContext]);
+  // END CUSTOMIZATION
 
   const { route } = layoutData.sitecore;
 
@@ -41,6 +47,9 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
+      {/* DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification and Navigation */}
+
+      {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
       <header className="header">
         <Placeholder name="jss-header" rendering={route} />
@@ -51,6 +60,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <footer className="footer">
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
+      {/* END CUSTOMIZATION*/}
     </>
   );
 };

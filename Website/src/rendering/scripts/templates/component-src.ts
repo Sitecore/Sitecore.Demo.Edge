@@ -1,3 +1,4 @@
+// DEMO TEAM CUSTOMIZATION - Change type name in template to remove styleguide references and add a semicolon to pass eslint validation.
 /**
  * Generates React boilerplate for a component under `src/components`
  * @param componentName - the component name
@@ -23,5 +24,6 @@ const ${componentName} = (props: ${componentName}Props): JSX.Element => (
 export default ${componentName};
 `;
 }
+// END CUSTOMIZATION
 
 export default generateComponentSrc;

@@ -10,7 +10,7 @@ import Layout from 'src/Layout';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
-import { SitecoreContextValue } from 'lib/component-props';
+import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 
 const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -23,7 +23,9 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     return <NotFound />;
   }
 
+  // DEMO TEAM CUSTOMIZATION - Different type name
   const context: SitecoreContextValue = {
+    // END CUSTOMIZATION
     route: layoutData.sitecore.route,
     itemId: layoutData.sitecore.route?.itemId,
     ...layoutData.sitecore.context,
@@ -31,7 +33,9 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   return (
     <ComponentPropsContext value={componentProps}>
+      {/* DEMO TEAM CUSTOMIZATION - Different type name. Linting on one line. */}
       <SitecoreContext<SitecoreContextValue> componentFactory={componentFactory} context={context}>
+        {/* END CUSTOMIZATION */}
         <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>

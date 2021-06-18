@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+// DEMO TEAM CUSTOMIZATION - Upgrade to next.js 11. Encapsulate router event handlers in useEffect.
+import { useEffect } from 'react';
+// END CUSTOMIZATION
 import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import NProgress from 'nprogress';
@@ -14,6 +16,7 @@ import 'assets/app.css';
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
 function App({ Component, pageProps, router }: AppProps): JSX.Element {
+  // DEMO TEAM CUSTOMIZATION - Upgrade to next.js 11. Encapsulate router event handlers in useEffect.
   useEffect(() => {
     const nProgressStart = () => {
       NProgress.start();
@@ -34,9 +37,11 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       router.events.off('routeChangeError', nProgressDone);
     };
   }, [router]);
+  // END CUSTOMIZATION
 
   const { dictionary, ...rest } = pageProps;
 
+  // DEMO TEAM CUSTOMIZATION - Add head section
   return (
     <>
       <Head>
@@ -60,6 +65,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       </I18nProvider>
     </>
   );
+  // END CUSTOMIZATION
 }
 
 export default App;

@@ -1,3 +1,4 @@
+// DEMO TEAM CUSTOMIZATION - Change template to a named exported const and add semicolon to pass eslint validations.
 /**
  * Generates manifest API boilerplate for a component under `sitecore/definitions/components`
  * @param componentName - the component name
@@ -30,3 +31,4 @@ export default ${componentName};
 }
 
 export default generateComponentManifest;
+// END CUSTOMIZATION
