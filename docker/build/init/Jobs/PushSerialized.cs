@@ -15,11 +15,18 @@ namespace Sitecore.Demo.Init.Jobs
 
 		public async Task Run()
 		{
-            //if (this.IsCompleted())
-            //{
-            //    Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-            //    return;
-            //}
+            if (this.IsCompleted())
+            {
+                Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+                return;
+            }
+
+            var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
+            if (string.IsNullOrEmpty(ns))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+                return;
+            }
 
             var token = Environment.GetEnvironmentVariable("ID_SERVER_DEMO_CLIENT_SECRET");
             if (string.IsNullOrEmpty(token))

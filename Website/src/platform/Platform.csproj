@@ -79,12 +79,14 @@
   <ItemGroup>
     <Compile Include="Utilities\IndexRebuild.aspx.cs">
       <DependentUpon>IndexRebuild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Utilities\IndexRebuild.aspx.designer.cs">
       <DependentUpon>IndexRebuild.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Restart.aspx.cs">
       <DependentUpon>Restart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Utilities\Restart.aspx.designer.cs">
       <DependentUpon>Restart.aspx</DependentUpon>
