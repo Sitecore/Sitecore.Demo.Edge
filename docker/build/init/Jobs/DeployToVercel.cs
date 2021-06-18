@@ -17,12 +17,12 @@ namespace Sitecore.Demo.Init.Jobs
 		}
 
 		public async Task Run()
-		{
-            //if (this.IsCompleted())
-            //{
-            //    Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-            //    return;
-            //}
+        {
+            if (this.IsCompleted())
+            {
+                Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
+                return;
+            }
 
             var token = Environment.GetEnvironmentVariable("VERCEL_TOKEN");
             if (string.IsNullOrEmpty(token))
