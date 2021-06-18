@@ -9,11 +9,12 @@ import {
   LayoutService,
   RestLayoutService,
   editingDataService,
+  EditingPreviewData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { componentModule } from 'temp/componentFactory';
-import { config as packageConfig } from '../../package.json';
-import config from 'temp/config';
+import packageJson from '../../package.json';
+import tempConfig from 'temp/config';
 
 /**
  * Extract normalized Sitecore item path from query
@@ -54,14 +55,14 @@ export class SitecorePagePropsFactory {
     // Note we're using our standard REST-based dictionary and layout services here,
     // but in the very near future we'll also have GraphQL-based counterparts available (for Sitecore Experience Edge).
     this.dictionaryService = new RestDictionaryService({
-      apiHost: config.sitecoreApiHost,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
+      apiHost: tempConfig.sitecoreApiHost,
+      apiKey: tempConfig.sitecoreApiKey,
+      siteName: tempConfig.jssAppName,
     });
     this.layoutService = new RestLayoutService({
-      apiHost: config.sitecoreApiHost,
-      apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
+      apiHost: tempConfig.sitecoreApiHost,
+      apiKey: tempConfig.sitecoreApiKey,
+      siteName: tempConfig.jssAppName,
     });
   }
 
@@ -84,7 +85,9 @@ export class SitecorePagePropsFactory {
        * Preview mode
        */
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      const data = await editingDataService.getEditingData(context.previewData);
+      const data = await editingDataService.getEditingData(
+        context.previewData as EditingPreviewData
+      );
       if (!data) {
         throw new Error(
           `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
@@ -101,7 +104,7 @@ export class SitecorePagePropsFactory {
       const path = extractPath(context.params);
 
       // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-      locale = context.locale ?? packageConfig.language;
+      locale = context.locale ?? packageJson.config.language;
 
       // Fetch layout data, passing on req/res for SSR
       layoutData = await this.layoutService

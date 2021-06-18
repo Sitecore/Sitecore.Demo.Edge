@@ -6,18 +6,18 @@ import {
   ManifestInstance,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GetStaticPathsContext } from 'next';
-import config from 'temp/config';
-import { config as packageConfig } from '../../package.json';
+import tempConfig from 'temp/config';
+import packageJson from '../../package.json';
 
 export class SitecoreSitemapFetcher {
-  private GRAPHQL_ROOT_ITEM_PATH = `/sitecore/content/${config.jssAppName}/home`;
+  private GRAPHQL_ROOT_ITEM_PATH = `/sitecore/content/${tempConfig.jssAppName}/home`;
 
   private _graphqlSitemapService: GraphQLSitemapService;
   private _disconnectedSitemapService: DisconnectedSitemapService;
 
   constructor() {
     this._graphqlSitemapService = new GraphQLSitemapService({
-      endpoint: config.graphQLEndpoint,
+      endpoint: tempConfig.graphQLEndpoint,
     });
 
     this._disconnectedSitemapService = new DisconnectedSitemapService(
@@ -52,7 +52,7 @@ export class SitecoreSitemapFetcher {
       return process.env.JSS_MODE === 'disconnected'
         ? this._disconnectedSitemapService.fetchExportSitemap()
         : this._graphqlSitemapService.fetchExportSitemap(
-            packageConfig.language,
+            packageJson.config.language,
             this.GRAPHQL_ROOT_ITEM_PATH
           );
     }
