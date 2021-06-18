@@ -36,13 +36,10 @@ namespace Sitecore.Demo.Init.Services
 
 				await new WaitForContextDatabase(initContext).Run();
                 await new WaitForSitecoreToStart(initContext).Run();
+                await new PopulateManagedSchema(initContext).Run();
+                await new RestartCM(initContext).Run();
+                await new WaitForSitecoreToStart(initContext).Run();
 				await new PushSerialized(initContext).Run();
-				
-                //await new UpdateDamUri(initContext).Run();
-				//await new PublishItems(initContext).Run();
-				//await new RestartCM(initContext).Run();
-				//await new WaitForSitecoreToStart(initContext).Run();
-				//await new RebuildLinkDatabase(initContext).Run();
 
 				await stateService.SetState(InstanceState.WarmingUp);
                 await new WarmupCM(initContext).Run();
@@ -50,43 +47,43 @@ namespace Sitecore.Demo.Init.Services
 
 				await stateService.SetState(InstanceState.Preparing);
 
-				//var indexRebuildAsyncJob = new IndexRebuild(initContext);
-				//await indexRebuildAsyncJob.Run();
+                var indexRebuildAsyncJob = new IndexRebuild(initContext);
+                await indexRebuildAsyncJob.Run();
 
-				//logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
-				//logger.LogInformation($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
+                logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
+                logger.LogInformation($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
 
-				//var asyncJobList = new List<TaskBase>
-				//                   {
-				//	                   indexRebuildAsyncJob,
-				//				   };
+                var asyncJobList = new List<TaskBase>
+                                   {
+                                       indexRebuildAsyncJob,
+                                   };
 
-				//var runningJobs = await JobStatus.Run();
-				//while (runningJobs.Any())
-				//{
-				//	var completedJobs = asyncJobList.Where(
-				//		asyncJob => runningJobs.All(runningJob => runningJob.Title != asyncJob.TaskName)).ToList();
-				//	foreach (var completedJob in completedJobs)
-				//	{
-				//		logger.LogInformation($"Writing job complete file to disk - {completedJob.TaskName}");
-				//		await completedJob.Complete();
-				//		asyncJobList.Remove(completedJob);
-				//	}
+                var runningJobs = await JobStatus.Run();
+                while (runningJobs.Any())
+                {
+                    var completedJobs = asyncJobList.Where(
+                        asyncJob => runningJobs.All(runningJob => runningJob.Title != asyncJob.TaskName)).ToList();
+                    foreach (var completedJob in completedJobs)
+                    {
+                        logger.LogInformation($"Writing job complete file to disk - {completedJob.TaskName}");
+                        await completedJob.Complete();
+                        asyncJobList.Remove(completedJob);
+                    }
 
-				//	await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
-				//	runningJobs = await JobStatus.Run();
-				//}
+                    await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+                    runningJobs = await JobStatus.Run();
+                }
 
-				//if (asyncJobList.Any())
-				//{
-				//	foreach (var job in asyncJobList)
-				//	{
-				//		logger.LogInformation($"Writing job complete file to disk - {job.TaskName}");
-				//		await job.Complete();
-				//	}
-				//}
+                if (asyncJobList.Any())
+                {
+                    foreach (var job in asyncJobList)
+                    {
+                        logger.LogInformation($"Writing job complete file to disk - {job.TaskName}");
+                        await job.Complete();
+                    }
+                }
 
-				logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
+                logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
 				await stateService.SetState(InstanceState.Ready);
 			}
 			catch (Exception ex)
