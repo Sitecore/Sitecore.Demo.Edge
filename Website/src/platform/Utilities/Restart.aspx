@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Restart.aspx.cs" Inherits="Sitecore.Demo.Fitness.Project.AppItems.Utilities.Restart" %>
