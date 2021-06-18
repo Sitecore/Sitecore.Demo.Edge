@@ -28,33 +28,34 @@ namespace Sitecore.Demo.Init.Services
 
 		protected override async Task ExecuteAsync(CancellationToken stoppingToken)
 		{
-			try
-			{
-				var startTime = DateTime.UtcNow;
-				logger.LogInformation($"{DateTime.UtcNow} Init started.");
-				await stateService.SetState(InstanceState.Initializing);
+            try
+            {
+                var startTime = DateTime.UtcNow;
+                logger.LogInformation($"{DateTime.UtcNow} Init started.");
+                await stateService.SetState(InstanceState.Initializing);
 
-				await new WaitForContextDatabase(initContext).Run();
+                await new WaitForContextDatabase(initContext).Run();
                 await new WaitForSitecoreToStart(initContext).Run();
                 await new PopulateManagedSchema(initContext).Run();
-				await new PushSerialized(initContext).Run();
+                await new PushSerialized(initContext).Run();
 
-				await stateService.SetState(InstanceState.WarmingUp);
+                await stateService.SetState(InstanceState.WarmingUp);
                 await new WarmupCM(initContext).Run();
                 await new DeployToVercel(initContext).Run();
 
-				await stateService.SetState(InstanceState.Preparing);
+                await stateService.SetState(InstanceState.Preparing);
 
                 var indexRebuildAsyncJob = new IndexRebuild(initContext);
                 await indexRebuildAsyncJob.Run();
 
-                logger.LogInformation($"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
+                logger.LogInformation(
+                    $"{DateTime.UtcNow} All init tasks complete. See the background jobs status below.");
                 logger.LogInformation($"Elapsed time: {(DateTime.UtcNow - startTime):c}");
 
                 var asyncJobList = new List<TaskBase>
-                                   {
-                                       indexRebuildAsyncJob,
-                                   };
+                {
+                    indexRebuildAsyncJob,
+                };
 
                 var runningJobs = await JobStatus.Run();
                 while (runningJobs.Any())
@@ -82,12 +83,12 @@ namespace Sitecore.Demo.Init.Services
                 }
 
                 logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
-				await stateService.SetState(InstanceState.Ready);
-			}
-			catch (Exception ex)
-			{
-				logger.LogError(ex, "An error has occurred when running JobManagementManagementService");
-			}
-		}
+                await stateService.SetState(InstanceState.Ready);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "An error has occurred when running JobManagementManagementService");
+            }
+        }
 	}
 }
