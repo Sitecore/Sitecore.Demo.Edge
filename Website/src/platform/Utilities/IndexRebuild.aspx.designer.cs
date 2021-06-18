@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sitecore.Demo.Fitness.Project.AppItems.Utilities
+namespace Sitecore.Demo.Edge.Website.Utilities
 {
 
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IndexRebuild.aspx.cs" Inherits="Sitecore.Demo.Fitness.Project.AppItems.Utilities.IndexRebuild" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IndexRebuild.aspx.cs" Inherits="Sitecore.Demo.Edge.Website.Utilities.IndexRebuild" %>
 <%@ Register TagPrefix="sc" Namespace="Sitecore.Web.UI.WebControls" Assembly="Sitecore.Kernel" %>
 <%@ Import Namespace="Sitecore.Globalization" %>
 

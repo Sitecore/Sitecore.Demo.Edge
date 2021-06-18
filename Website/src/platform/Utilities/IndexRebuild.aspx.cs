@@ -2,7 +2,7 @@
 using Sitecore.ContentSearch;
 using Sitecore.ContentSearch.Maintenance;
 
-namespace Sitecore.Demo.Fitness.Project.AppItems.Utilities
+namespace Sitecore.Demo.Edge.Website.Utilities
 {
     public partial class IndexRebuild : System.Web.UI.Page
     {
