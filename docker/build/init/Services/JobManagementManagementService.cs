@@ -33,16 +33,13 @@ namespace Sitecore.Demo.Init.Services
                 var startTime = DateTime.UtcNow;
                 logger.LogInformation($"{DateTime.UtcNow} Init started.");
                 await stateService.SetState(InstanceState.Initializing);
-
                 await new WaitForContextDatabase(initContext).Run();
                 await new WaitForSitecoreToStart(initContext).Run();
                 await new PopulateManagedSchema(initContext).Run();
-                await new PushSerialized(initContext).Run();
-
                 await stateService.SetState(InstanceState.WarmingUp);
+                await new PushSerialized(initContext).Run();
                 await new WarmupCM(initContext).Run();
                 await new DeployToVercel(initContext).Run();
-
                 await stateService.SetState(InstanceState.Preparing);
 
                 var indexRebuildAsyncJob = new IndexRebuild(initContext);
