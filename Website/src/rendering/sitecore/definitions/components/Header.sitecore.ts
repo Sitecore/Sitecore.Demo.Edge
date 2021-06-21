@@ -6,11 +6,13 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * This function is invoked by convention (*.sitecore.ts) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function (manifest: Manifest): void {
+const Header = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'Header',
     icon: SitecoreIcon.DocumentTag,
     fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
     placeholders: ['jss-header-content'],
   });
-}
+};
+
+export default Header;

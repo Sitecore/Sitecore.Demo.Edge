@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type SponsorsGridProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => (
+const SponsorsGrid = (): JSX.Element => (
   <div className="section__sponsors__grid">
     <a href="#" className="section__sponsors__grid__sponsor">
       <img src="assets/img/sponsors-fitbit.svg" alt="Fitbit" />

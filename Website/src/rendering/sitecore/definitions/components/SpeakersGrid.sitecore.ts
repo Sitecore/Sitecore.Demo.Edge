@@ -6,7 +6,7 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
  * This function is invoked by convention (*.sitecore.ts) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-export default function (manifest: Manifest): void {
+const SpeakersGrid = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'SpeakersGrid',
     icon: SitecoreIcon.DocumentTag,
@@ -17,4 +17,6 @@ export default function (manifest: Manifest): void {
     placeholders: ['exposed-placeholder-name']
     */
   });
-}
+};
+
+export default SpeakersGrid;

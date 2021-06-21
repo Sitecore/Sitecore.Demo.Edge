@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type FooterProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const Footer = (props: FooterProps): JSX.Element => (
+const Footer = (): JSX.Element => (
   <div className="footer__content">
     <div className="footer__content__banner">
       <a href="#">

@@ -1,4 +1,5 @@
 import {
+  // DEMO TEAM CUSTOMIZATION - Removed unused import
   ComponentParams,
   ComponentFactory,
   ComponentRendering,
@@ -6,6 +7,7 @@ import {
   RouteData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
+// DEMO TEAM CUSTOMIZATION - Rename types to remove references to Styleguide. Remove StyleguideSpecimenFields.
 /**
  * Sitecore context value shape
  */
@@ -32,3 +34,4 @@ export type ComponentProps = {
 export type ComponentWithContextProps = ComponentProps & {
   sitecoreContext: SitecoreContextValue;
 };
+// END CUSTOMIZATION

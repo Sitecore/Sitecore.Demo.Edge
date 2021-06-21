@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type SpeakersGridProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
+const SpeakersGrid = (): JSX.Element => (
   <div className="section__speakers__grid">
     <a href="" className="section__speakers__grid__speaker">
       <img src="assets/img/speaker-mary-asada.jpeg" alt="Mary Asada" />

@@ -1,14 +1,4 @@
-// @ts-nocheck
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type ThreeColumnsSectionProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const ThreeColumnsSection = (props: ThreeColumnsSectionProps): JSX.Element => (
+const ThreeColumnsSection = (): JSX.Element => (
   <section className="section section--3-col">
     <div className="section__content section--3-col__content">
       <h2 className="section__content__title section__content__title--light">Go the Distance</h2>

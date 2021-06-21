@@ -7,7 +7,7 @@ import {
   ComponentPropsContext,
   handleExperienceEditorFastRefresh,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecoreContextValue } from 'lib/component-props';
+import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
@@ -32,10 +32,9 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
 
   return (
     <ComponentPropsContext value={componentProps}>
-      <SitecoreContext<SitecoreContextValue>
-        componentFactory={componentFactory}
-        context={context}
-      >
+      {/* DEMO TEAM CUSTOMIZATION - Different type name. Linting on one line. */}
+      <SitecoreContext<SitecoreContextValue> componentFactory={componentFactory} context={context}>
+        {/* END CUSTOMIZATION */}
         <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>
