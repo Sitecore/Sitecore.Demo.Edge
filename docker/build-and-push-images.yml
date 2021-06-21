@@ -170,8 +170,7 @@ stages:
 
 - stage: Redeploy_Nightly_Instance
   displayName: "Redeploy 'nightly' test instance"
-  dependsOn:
-    - Release_Notes
+  dependsOn: []
   #condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Redeploy
