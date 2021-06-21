@@ -1,12 +1,8 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { getPublicUrl } from 'lib/util';
-import {
-  Placeholder,
-  LayoutServiceData,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecoreContextValue } from 'lib/component-props';
+import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -15,35 +11,24 @@ const publicUrl = getPublicUrl();
 // DEMO TEAM CUSTOMIZATION - Move navigation to a component
 
 type LayoutProps = {
-  layoutData: LayoutServiceData;
+  context: SitecoreContextValue; // DEMO TEAM CUSTOMIZATION - Different type name
 };
 
-const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+const Layout = ({ context }: LayoutProps): JSX.Element => {
   const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
 
   // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
-    // DEMO TEAM CUSTOMIZATION - Different type name
-    const context: SitecoreContextValue = {
-      // END CUSTOMIZATION
-      route: layoutData.sitecore.route,
-      itemId: layoutData.sitecore.route.itemId,
-      ...layoutData.sitecore.context,
-    };
     updateSitecoreContext && updateSitecoreContext(context);
-    // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
-  }, [layoutData, updateSitecoreContext]);
-  // END CUSTOMIZATION
+  }, [context, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
 
-  const { route } = layoutData.sitecore;
+  const { route } = context;
 
   return (
     <>
       <Head>
-        <title>
-          {(route.fields && route.fields.pageTitle && route.fields.pageTitle.value) || 'Page'}
-        </title>
+        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 

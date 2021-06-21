@@ -12,10 +12,6 @@ import packageJson from '../../package.json';
 // END CUSTOMIZATION
 
 export class SitecoreSitemapFetcher {
-  // DEMO TEAM CUSTOMIZATION - Rename import names to fix linting issues
-  private GRAPHQL_ROOT_ITEM_PATH = `/sitecore/content/${tempConfig.jssAppName}/home`;
-  // END CUSTOMIZATION
-
   private _graphqlSitemapService: GraphQLSitemapService;
   private _disconnectedSitemapService: DisconnectedSitemapService;
 
@@ -23,7 +19,15 @@ export class SitecoreSitemapFetcher {
     this._graphqlSitemapService = new GraphQLSitemapService({
       // DEMO TEAM CUSTOMIZATION - Rename import names to fix linting issues
       endpoint: tempConfig.graphQLEndpoint,
+      apiKey: tempConfig.sitecoreApiKey,
+      siteName: tempConfig.jssAppName,
       // END CUSTOMIZATION
+      /*
+      The Sitemap Service needs a root item ID in order to fetch the list of pages for the current
+      app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;
+      otherwise, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
+      rootItemId: '{GUID}'
+      */
     });
 
     this._disconnectedSitemapService = new DisconnectedSitemapService(
@@ -57,18 +61,10 @@ export class SitecoreSitemapFetcher {
     if (process.env.EXPORT_MODE) {
       return process.env.JSS_MODE === 'disconnected'
         ? this._disconnectedSitemapService.fetchExportSitemap()
-        : this._graphqlSitemapService.fetchExportSitemap(
-            // DEMO TEAM CUSTOMIZATION - Rename import names to fix linting issues
-            packageJson.config.language,
-            // END CUSTOMIZATION
-            this.GRAPHQL_ROOT_ITEM_PATH
-          );
+        : this._graphqlSitemapService.fetchExportSitemap(packageJson.config.language); // DEMO TEAM CUSTOMIZATION - Rename import names to fix linting issues
     }
 
-    return this._graphqlSitemapService.fetchSSGSitemap(
-      context?.locales || [],
-      this.GRAPHQL_ROOT_ITEM_PATH
-    );
+    return this._graphqlSitemapService.fetchSSGSitemap(context?.locales || []);
   }
 }
 
