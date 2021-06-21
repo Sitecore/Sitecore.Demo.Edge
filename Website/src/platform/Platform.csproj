@@ -69,10 +69,28 @@
     <Content Include="App_Config\Include\Sitecore.Media.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.config" />
     <Content Include="App_Config\Include\Sitecore.Owin.Authentication.ClientCredentialsMapping.Mvp.config" />
+    <Content Include="Utilities\IndexRebuild.aspx" />
+    <Content Include="Utilities\Restart.aspx" />
     <None Include="Platform.wpp.targets" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="README.md" />
     <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Utilities\IndexRebuild.aspx.cs">
+      <DependentUpon>IndexRebuild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\IndexRebuild.aspx.designer.cs">
+      <DependentUpon>IndexRebuild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\Restart.aspx.cs">
+      <DependentUpon>Restart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utilities\Restart.aspx.designer.cs">
+      <DependentUpon>Restart.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
