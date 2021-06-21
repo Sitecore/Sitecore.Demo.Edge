@@ -172,7 +172,7 @@ stages:
   displayName: "Redeploy 'nightly' test instance"
   dependsOn:
     - Update_Portal_Databases_Nightly
-  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  condition: and(succeeded('Update_Portal_Databases_Nightly'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Redeploy
       displayName: "Redeploy"
@@ -193,7 +193,7 @@ stages:
   displayName: "Redeploy 'stable' test instance"
   dependsOn:
     - Update_DEV_Portal_Databases_Stable
-  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  condition: and(succeeded('Update_DEV_Portal_Databases_Stable'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Redeploy
       displayName: "Redeploy"
