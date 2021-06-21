@@ -133,7 +133,7 @@ stages:
 - stage: Update_Portal_Databases_Nightly
   displayName: "Update 'nightly' version in portal databases"
   dependsOn:
-    - Release_Notes
+    - Docker_Windows
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Update_Tags
@@ -156,7 +156,7 @@ stages:
 - stage: Update_DEV_Portal_Databases_Stable
   displayName: "Update 'stable' version in the DEV portal database"
   dependsOn:
-    - Release_Notes
+    - Docker_Windows
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Dev_Database
@@ -178,7 +178,7 @@ stages:
 - stage: Update_PROD_Portal_Database_Stable
   displayName: "Update 'stable' version in the PROD portal database"
   dependsOn:
-    - Release_Notes
+    - Docker_Windows
   condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Production_Database
