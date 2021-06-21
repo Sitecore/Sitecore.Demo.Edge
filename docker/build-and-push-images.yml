@@ -170,8 +170,9 @@ stages:
 
 - stage: Redeploy_Nightly_Instance
   displayName: "Redeploy 'nightly' test instance"
-  dependsOn: []
-  #condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  dependsOn:
+    - Release_Notes
+  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Redeploy
       displayName: "Redeploy"
@@ -187,6 +188,27 @@ stages:
             targetType: "inline"
             script: |
               Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/RedeployInstance" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', instanceId: $(NIGHTLY_TEST_INSTANCE_ID) }" -ContentType "application/json"
+
+- stage: Redeploy_Stable_Instance
+  displayName: "Redeploy 'stable' test instance"
+  dependsOn:
+    - Release_Notes
+  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+    - job: Redeploy
+      displayName: "Redeploy"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "3.1.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - task: PowerShell@2
+          inputs:
+            targetType: "inline"
+            script: |
+              Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/RedeployInstance" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', instanceId: $(STABLE_TEST_INSTANCE_ID) }" -ContentType "application/json"
 
 - stage: Update_Portal_Databases_Nightly
   displayName: "Update 'nightly' version in portal databases"
