@@ -22,7 +22,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: docker-linux-agents
+          vmImage: 'windows-latest'
       steps:
         - task: NodeTool@0
           inputs:
@@ -32,6 +32,11 @@ stages:
         - script: |
             npm install
           displayName: 'npm install'
+          workingDirectory: Website/src/rendering
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
           workingDirectory: Website/src/rendering
 
 - stage: Docker_Windows
