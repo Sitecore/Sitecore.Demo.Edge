@@ -16,8 +16,27 @@ variables:
   additionalImageTags: ''
 
 stages:
+- stage: Build
+  displayName: "Run 'npm run build'"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        name: docker-linux-agents
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: /Website/src/rendering
+
 - stage: Docker_Windows
   displayName: "Build Windows Images"
+  dependsOn: Build
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
