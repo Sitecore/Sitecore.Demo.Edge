@@ -32,7 +32,7 @@ stages:
         - script: |
             npm install
           displayName: 'npm install'
-          workingDirectory: /Website/src/rendering
+          workingDirectory: Website/src/rendering
 
 - stage: Docker_Windows
   displayName: "Build Windows Images"
