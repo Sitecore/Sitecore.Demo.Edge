@@ -14,7 +14,7 @@ FROM ${BUILD_IMAGE} AS nuget-prep
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 COPY *.sln nuget.config Directory.Build.targets Packages.props /nuget/
 COPY src/ /temp/
-RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s *.csproj *.scproj packages.config'
+RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s /ndl /njh /njs *.csproj *.scproj packages.config'
 
 FROM ${BUILD_IMAGE} AS builder
 ARG BUILD_CONFIGURATION
