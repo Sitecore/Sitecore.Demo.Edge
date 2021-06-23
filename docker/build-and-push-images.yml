@@ -70,15 +70,13 @@ stages:
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker-compose build solution $(no.cache)
-          docker-compose build --parallel $(no.cache)
+          docker-compose build $(no.cache)
           docker-compose push
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build solution
-            docker-compose build --parallel
+            docker-compose build
             docker-compose push
           }
 
