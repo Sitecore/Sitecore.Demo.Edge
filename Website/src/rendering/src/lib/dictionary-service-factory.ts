@@ -1,8 +1,23 @@
-import { DictionaryService, GraphQLDictionaryService } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  DictionaryService,
+  GraphQLDictionaryService,
+  RestDictionaryService,
+  JSS_MODE_DISCONNECTED,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
 export class DictionaryServiceFactory {
   create(): DictionaryService {
+    // DEMO TEAM CUSTOMIZATION - Switch to REST endpoint if we are in disconnected mode
+    if (process.env.JSS_MODE === JSS_MODE_DISCONNECTED) {
+      return new RestDictionaryService({
+        apiHost: `http://localhost:${process.env.PROXY_PORT || 3042}`,
+        apiKey: config.sitecoreApiKey,
+        siteName: config.jssAppName,
+      });
+    }
+    // END CUSTOMIZATION
+
     return new GraphQLDictionaryService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
