@@ -18,7 +18,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
     handleExperienceEditorFastRefresh();
   }, []);
 
-  if (notFound || !layoutData) {
+  if (notFound || !layoutData?.sitecore?.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
   }
@@ -36,7 +36,7 @@ const SitecorePage = ({ notFound, layoutData, componentProps }: SitecorePageProp
       {/* DEMO TEAM CUSTOMIZATION - Different type name. Linting on one line. */}
       <SitecoreContext<SitecoreContextValue> componentFactory={componentFactory} context={context}>
         {/* END CUSTOMIZATION */}
-        <Layout layoutData={layoutData} />
+        <Layout context={context} />
       </SitecoreContext>
     </ComponentPropsContext>
   );

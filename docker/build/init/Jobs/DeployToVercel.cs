@@ -47,12 +47,12 @@ namespace Sitecore.Demo.Init.Jobs
             // Hack until domain mgmt. clarified
             var whoami = cmd.Run($"vercel whoami --token {token}").Split(Environment.NewLine)[4].Trim();
             var productionUrl = $"https://rendering-{ns}-{whoami}.vercel.app";
-            cmd.Run($"echo | set /p={productionUrl}| vercel env add PUBLIC_URL production --token {token}");
 
             // Configure env. variables
-            cmd.Run($"echo {cm} | vercel env add SITECORE_API_HOST production --token {token}");
-            cmd.Run($"echo {SitecoreApiKey} | vercel env add SITECORE_API_KEY production --token {token}");
-            cmd.Run($"echo {js} | vercel env add JSS_EDITING_SECRET production --token {token}");
+            cmd.Run($"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token}");
+            cmd.Run($"echo | set /p=\"{cm}\" | vercel env add SITECORE_API_HOST production --token {token}");
+            cmd.Run($"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token}");
+            cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token}");
 
             // Deploy project files
             var response =

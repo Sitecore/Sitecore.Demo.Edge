@@ -14,6 +14,7 @@ if ($LASTEXITCODE -ne 0) {
     Write-Error "Container build failed, see errors above."
 }
 
+# DEMO TEAM CUSTOMIZATION - Install npm modules before starting the development rendering container.
 # Install npm modules in rendering folder
 Push-Location .\Website\src\rendering
 npm install
@@ -41,6 +42,7 @@ if (-not $status.status -eq "enabled") {
     Write-Error "Timeout waiting for Sitecore CM to become available via Traefik proxy. Check CM container logs."
 }
 
+# DEMO TEAM CUSTOMIZATION - Moved the Docker files up one level. Must run the Sitecore CLI commands in the .\Website folder.
 Push-Location .\Website
 
 try {
@@ -97,11 +99,9 @@ try {
         Write-Host "Pulling JSS deployed items..." -ForegroundColor Green
         dotnet sitecore ser pull
     }
-}
-catch {
+} catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
-}
-finally {
+} finally {
     Pop-Location
 }
 
