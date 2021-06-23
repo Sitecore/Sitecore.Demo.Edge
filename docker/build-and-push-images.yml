@@ -16,8 +16,32 @@ variables:
   additionalImageTags: ''
 
 stages:
+- stage: Build
+  displayName: "Run 'npm run build'"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+          vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: Website/src/rendering
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: Website/src/rendering
+
 - stage: Docker_Windows
   displayName: "Build Windows Images"
+  dependsOn: Build
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
@@ -80,60 +104,11 @@ stages:
             docker-compose push
           }
 
-- stage: Docker_Linux
-  displayName: "Build Linux Images"
-  dependsOn: []
-  jobs:
-    - job: Build_Linux_Images
-      displayName: "Build Linux Images"
-      pool:
-        name: docker-linux-agents
-      steps:
-        - task: UseDotNet@2
-          inputs:
-            packageType: "sdk"
-            version: "3.1.x"
-        - template: version.yml     
-        - task: DockerCompose@0
-          displayName: "Docker Compose Build"
-          inputs:
-            containerregistrytype: "Azure Container Registry"
-            azureSubscription: "$(azure.subscription)"
-            azureContainerRegistry: "$(container.registry)"
-            dockerComposeFile: "docker-compose-linux.yml"
-            dockerComposeFileArgs: |
-              DEMO_VERSION=$(tag)
-              REGISTRY=$(REGISTRY)
-              SITECORE_VERSION=$(SITECORE_VERSION)
-              SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-              SITECORE_LICENSE=$(SITECORE_LICENSE)
-            qualifyImageNames: false
-            action: "Build services"
-            additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
-            arguments: "$(no.cache)"
-            currentWorkingDirectory: "$(Build.SourcesDirectory)"
-        - task: DockerCompose@0
-          displayName: "Push Images"
-          inputs:
-            containerregistrytype: "Azure Container Registry"
-            azureSubscription: $(azure.subscription)
-            azureContainerRegistry: $(container.registry)
-            dockerComposeFile: "docker-compose-linux.yml"
-            dockerComposeFileArgs: |
-              REGISTRY=$(REGISTRY)
-              DEMO_VERSION=$(tag)
-              SITECORE_VERSION=$(SITECORE_VERSION)
-              SQL_SA_PASSWORD=$(SQL_SA_PASSWORD}
-            action: "Push services"
-            additionalImageTags: "$(SITECORE_VERSION)-linux-$(additionalImageTags)"
-            currentWorkingDirectory: "$(Build.SourcesDirectory)"
-
 - stage: Release_Notes
   displayName: "Create Release Notes"
   dependsOn:
     - Docker_Windows
-    - Docker_Linux
-  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+  condition: and(succeeded('Docker_Windows'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
   jobs:
     - job: Generate_Release_Notes
       pool:
@@ -212,7 +187,7 @@ stages:
   displayName: "Update 'nightly' version in portal databases"
   dependsOn:
     - Release_Notes
-  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Update_Tags
       displayName: "Update Tags"
@@ -235,7 +210,7 @@ stages:
   displayName: "Update 'stable' version in the DEV portal database"
   dependsOn:
     - Release_Notes
-  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Dev_Database
       displayName: "Update Dev Database"
@@ -257,7 +232,7 @@ stages:
   displayName: "Update 'stable' version in the PROD portal database"
   dependsOn:
     - Release_Notes
-  condition: and(succeeded('Docker_Windows'), succeeded('Docker_Linux'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Production_Database
       displayName: "Update Production Database"
