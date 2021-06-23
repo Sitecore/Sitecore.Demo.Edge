@@ -52,7 +52,8 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   // ahead of time (non-development mode in this example).
   // See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
-  if (process.env.NODE_ENV !== 'development') {
+  // DEMO TEAM CUSTOMIZATION (next line) - Inverted the condition on NODE_ENV. Also avoid using the sitemap when CI='true', such as when running the build:ci script to build in 100% ISG mode.
+  if (process.env.NODE_ENV === 'production' && process.env.CI !== 'true') {
     // Note: Next.js runs export in production mode
     const paths = await sitemapFetcher.fetch(context);
 
