@@ -23,7 +23,7 @@ const Section = (props: SectionProps): JSX.Element => {
         <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
         <RichText tag="p" field={props.fields.content} className={contentCssClasses} />
         <Placeholder name="jss-section-content" rendering={props.rendering} />
-        <a href="#" className="btn--main btn--main--big">
+        <a href="#" className="btn--main btn--main--round btn--main--big">
           <Text field={props.fields.callToActionText} />
         </a>
       </div>

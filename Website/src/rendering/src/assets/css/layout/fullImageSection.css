@@ -1,0 +1,13 @@
+.section__full-image--offer {
+  background-image: url(../../img/offer-background.jpg);
+}
+
+.section__full-image--speaker {
+  background-image: url(../../img/speaker-chris-williams-background.jpg);
+}
+
+.section__full-image--map {
+  @apply h-96;
+
+  background-image: url(../../img/play-venue-map.jpg);
+}

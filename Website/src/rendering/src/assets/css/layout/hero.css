@@ -1,0 +1,67 @@
+.section__hero {
+  margin: 0;
+  margin-top: 102px;
+  background-image: url('../../img/home-hero-background.jpg');
+  background-color: #232323;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.section__hero__container {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 3%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.section__hero__container__content {
+  width: 100%;
+  max-width: 600px;
+  background: #3c3c3c;
+  background: linear-gradient(135deg, #3c3c3c, #232323);
+  box-shadow: 0 0 20px #232323;
+}
+
+.section__hero__container__content__text {
+  padding: 6%;
+}
+
+.section__hero__container__content img {
+  width: 240px;
+}
+
+.section__hero__container__content .banner__title__eyebrow {
+  color: #f7f7f7;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.section__hero__container__content .banner__title__title {
+  @apply text-5xl;
+
+  color: #f7f7f7;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+.section__hero__container__content .banner__title__sub-title {
+  color: #ffd31c;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.section__hero__container__content .banner__title__p {
+  color: #f7f7f7;
+  font-size: 1.25em;
+  line-height: 1.4;
+}

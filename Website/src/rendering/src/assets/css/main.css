@@ -21,8 +21,12 @@
 
 /* 5. Our components */
 
+@import "./layout/buttons.css";
 @import "./layout/header.css";
+@import "./layout/hero.css";
+@import "./layout/fullImageSection.css";
 @import "./layout/speakers.css";
+@import "./layout/sponsors.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";

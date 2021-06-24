@@ -50,6 +50,9 @@ module.exports = {
         darkest: '#8f0044',
       }
     },
+    fontFamily: {
+      'sans': 'Saira, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'
+    },
     extend: {},
   },
   variants: {

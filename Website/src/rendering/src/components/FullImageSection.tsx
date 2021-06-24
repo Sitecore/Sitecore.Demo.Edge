@@ -23,7 +23,7 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
           <RichText tag="p" field={fields.content} />
-          <a href="#" className="btn--main btn--main--big">
+          <a href="#" className="btn--main btn--main--round btn--main--big">
             <Text field={fields.callToActionText} />
           </a>
         </div>

@@ -66,6 +66,7 @@ placeholders:
       placeholders:
         jss-section-content:
           - componentName: ProductCategoriesGrid
+    - componentName: FullImageCTASection
     - componentName: Section
       fields:
         cssClass: section__news
