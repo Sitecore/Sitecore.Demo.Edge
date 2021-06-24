@@ -1,6 +1,6 @@
 {
   "name": "edgewebsite",
-  "description": "Application utilizing Sitecore JavaScript Services and Next.js",
+  "description": "PLAY! Summit website",
   "version": "1.0.0",
   "private": true,
   "config": {
@@ -20,15 +20,15 @@
     "yarn": "yarn is not supported, please use npm"
   },
   "author": {
-    "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "name": "Sitecore Demo Team",
+    "url": "https://www.sitecore.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sitecore/jss.git"
+    "url": "git+https://github.com/Sitecore/Sitecore.Demo.Edge.git"
   },
   "bugs": {
-    "url": "https://github.com/sitecore/jss/issues"
+    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge/issues"
   },
   "license": "Apache-2.0",
   "dependencies": {
