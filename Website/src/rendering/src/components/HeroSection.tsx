@@ -13,7 +13,7 @@ const HeroSection = (): JSX.Element => (
           <h3 className="banner__title__sub-title">August 24th – 25th</h3>
         </div>
         <div className="btn__area">
-          <a href="#" className="btn--main btn--main--big">
+          <a href="#" className="btn--main btn--main--round btn--main--big">
             Book tickets
           </a>
         </div>

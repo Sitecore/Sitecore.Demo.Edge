@@ -1,6 +1,6 @@
 {
   "name": "edgewebsite",
-  "description": "Application utilizing Sitecore JavaScript Services and Next.js",
+  "description": "PLAY! Summit website",
   "version": "1.0.0",
   "private": true,
   "config": {
@@ -20,15 +20,15 @@
     "yarn": "yarn is not supported, please use npm"
   },
   "author": {
-    "name": "Sitecore Corporation",
-    "url": "https://jss.sitecore.net"
+    "name": "Sitecore Demo Team",
+    "url": "https://www.sitecore.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sitecore/jss.git"
+    "url": "git+https://github.com/Sitecore/Sitecore.Demo.Edge.git"
   },
   "bugs": {
-    "url": "https://github.com/sitecore/jss/issues"
+    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge/issues"
   },
   "license": "Apache-2.0",
   "dependencies": {
@@ -39,6 +39,9 @@
     "next": "^11.0.0",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
+    "postcss-import": "^14.0.2",
+    "postcss-nested": "^5.0.5",
+    "postcss-sassy-mixins": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -59,6 +62,7 @@
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "autoprefixer": "^10.2.6",
     "axios": "^0.21.1",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
@@ -72,7 +76,11 @@
     "eslint-plugin-yaml": "^0.2.0",
     "graphql-let": "^0.16.2",
     "npm-run-all": "~4.1.5",
+    "postcss": "^8.3.4",
     "prettier": "^2.1.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
+    "tailwindcss": "^2.1.4",
     "ts-node": "^9.0.0",
     "typescript": "^4.3.2",
     "yaml-loader": "^0.6.0"

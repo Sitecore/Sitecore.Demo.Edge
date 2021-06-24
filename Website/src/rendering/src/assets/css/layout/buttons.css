@@ -1,0 +1,36 @@
+.btn__area {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url(../../img/btn-background.png);
+  background-size: cover;
+  background-position: bottom;
+  padding: 6%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+a.btn--main {
+  @apply hover:shadow-md;
+
+  font-weight: 600;
+  padding: 0.35em 0.75em;
+  box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+a.btn--main--big {
+  font-size: 1.25em;
+  padding: 0.7em 1em;
+  margin: 0;
+}
+
+a.btn--main--round {
+  @apply bg-yellow text-black rounded-md;
+  @apply hover:bg-yellow-dark hover:text-black;
+}
+
+a.btn--main--square {
+  @apply bg-white-light text-blue px-24;
+  @apply hover:bg-white;
+}

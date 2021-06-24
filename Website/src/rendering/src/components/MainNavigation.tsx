@@ -6,7 +6,7 @@ const MainNavigation = (): JSX.Element => (
     <a href="#">Map</a>
     <a href="#">Shop</a>
     <a href="#">News</a>
-    <a href="#" className="btn--main">
+    <a href="#" className="btn--main btn--main--round">
       Book Tickets
     </a>
   </nav>
