@@ -12,7 +12,6 @@
 
 a.btn--main {
   @apply hover:shadow-md;
-
   font-weight: 600;
   padding: 0.35em 0.75em;
   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);

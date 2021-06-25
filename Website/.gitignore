@@ -46,3 +46,6 @@ packages/
 # Deploy folder
 /deploy/*
 !/deploy/.gitkeep
+
+# Misc
+.DS_Store

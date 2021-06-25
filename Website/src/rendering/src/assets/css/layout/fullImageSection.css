@@ -7,7 +7,7 @@
 }
 
 .section__full-image--map {
-  @apply h-96;
+  @apply h-96 brightness-50;
 
   background-image: url(../../img/play-venue-map.jpg);
 }
