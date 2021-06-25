@@ -1,12 +1,12 @@
 id: motorsports
 fields:
-  pageTitle: PLAY! Summit - MotorSports
+  pageTitle: PLAY! Summit - Motor Sports
 placeholders:
   jss-header:
     - componentName: Header
       placeholders:
         jss-header-content:
-          - componentName: Main Navigation
+          - componentName: MainNavigation
   jss-main:
     - componentName: Section
       fields:
