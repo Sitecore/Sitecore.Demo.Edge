@@ -1,9 +1,13 @@
+import Link from 'next/link';
+
 const Footer = (): JSX.Element => (
   <div className="footer__content">
     <div className="footer__content__banner">
-      <a href="/">
-        <img src="/assets/img/play-logo.svg" alt="Play! Summit logo" />
-      </a>
+      <Link href="/" passHref>
+        <a>
+          <img src="/assets/img/play-logo.svg" alt="Play! Summit logo" />
+        </a>
+      </Link>
     </div>
     <footer className="footer__content__footer">
       <ul className="footer__content__footer__col">
@@ -27,34 +31,34 @@ const Footer = (): JSX.Element => (
       <ul className="footer__content__footer__col">
         <li>Workshops</li>
         <li>
-          <a href="/workshops/one">PLAY workshop 1</a>
+          <Link href="/workshops/one">PLAY workshop 1</Link>
         </li>
         <li>
-          <a href="/workshops/one">PLAY workshop 2</a>
+          <Link href="/workshops/one">PLAY workshop 2</Link>
         </li>
         <li>
-          <a href="/workshops/one">PLAY workshop 3</a>
+          <Link href="/workshops/one">PLAY workshop 3</Link>
         </li>
         <li>
-          <a href="/workshops/one">PLAY workshop 4</a>
+          <Link href="/workshops/one">PLAY workshop 4</Link>
         </li>
         <li>
-          <a href="/workshops/one">PLAY workshop 5</a>
+          <Link href="/workshops/one">PLAY workshop 5</Link>
         </li>
         <li>
-          <a href="/workshops/one">PLAY workshop 6</a>
+          <Link href="/workshops/one">PLAY workshop 6</Link>
         </li>
         <li>
-          <a href="/workshops/one">PLAY workshop 7</a>
+          <Link href="/workshops/one">PLAY workshop 7</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
         <li>Schedule</li>
         <li>
-          <a href="/speakers">Key speakers</a>
+          <Link href="/speakers">Key speakers</Link>
         </li>
         <li>
-          <a href="/workshops">Event workshops</a>
+          <Link href="/workshops">Event workshops</Link>
         </li>
         <li>
           <a href="#">Event Specials</a>
@@ -63,25 +67,25 @@ const Footer = (): JSX.Element => (
           <a href="#">Featured Products</a>
         </li>
         <li>
-          <a href="/vendors">Vendors</a>
+          <Link href="/vendors">Vendors</Link>
         </li>
         <li>
-          <a href="/sponsors">Sponsors</a>
+          <Link href="/sponsors">Sponsors</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
         <li>News</li>
         <li>
-          <a href="/news">Latest</a>
+          <Link href="/news">Latest</Link>
         </li>
         <li>
-          <a href="/aboutus">About Us</a>
+          <Link href="/aboutus">About Us</Link>
         </li>
         <li>
-          <a href="/media/center">Media Center</a>
+          <Link href="/media/center">Media Center</Link>
         </li>
         <li>
-          <a href="/media/assets">Media Assets</a>
+          <Link href="/media/assets">Media Assets</Link>
         </li>
         <li>
           <a href="#">Inquires</a>
@@ -90,21 +94,21 @@ const Footer = (): JSX.Element => (
       <ul className="footer__content__footer__col">
         <li>Get Support</li>
         <li>
-          <a href="/support">Tech Support</a>
+          <Link href="/support">Tech Support</Link>
         </li>
         <li>
-          <a href="/contactus">Mail Us</a>
+          <Link href="/contactus">Mail Us</Link>
         </li>
         <li>
-          <a href="/faq">FAQ</a>
+          <Link href="/faq">FAQ</Link>
         </li>
       </ul>
     </footer>
     <div className="footer__content__legal">
       <div className="footer__content__legal__links">
         <p>Copyright © 2014-2021 PLAY! Summit</p>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Use</a>
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/terms">Terms of Use</Link>
       </div>
       <div className="footer__content__legal__region">
         <a href="#">Region</a>

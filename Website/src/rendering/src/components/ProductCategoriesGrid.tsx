@@ -3,7 +3,10 @@ const ProductCategoriesGrid = (): JSX.Element => (
     <div className="section__products__grid__product">
       <a href="#">
         <figure>
-          <img src="/assets/img/products-team-sports.jpg" alt="Team sports product category image" />
+          <img
+            src="/assets/img/products-team-sports.jpg"
+            alt="Team sports product category image"
+          />
         </figure>
         <h3 className="product__category">Team Sports</h3>
       </a>
