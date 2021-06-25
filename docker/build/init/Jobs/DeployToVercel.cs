@@ -42,14 +42,14 @@ namespace Sitecore.Demo.Init.Jobs
             var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
             var sourceDirectory = "C:\\app\\rendering";
-            var targetDirectory = $"C:\\app\\rendering-{ns}";
+            var targetDirectory = $"C:\\app\\{ns}-website";
 
             // Needed to ensure that Vercel project has unique name per namespace
             Directory.Move(sourceDirectory, targetDirectory);
 
             var cmd = new WindowsCommandLine(targetDirectory);
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
-            var productionUrl = $"https://rendering-{ns}-{scope}.vercel.app";
+            var productionUrl = $"https://{ns}-website-{scope}.vercel.app";
 
             // Configure env. variables
             cmd.Run($"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
@@ -58,8 +58,10 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
 
             // Deploy project files
-            var response = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
-            Console.WriteLine($"Log lines: {response.Split(Environment.NewLine).Length}");
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+
+            // Assign custom domain name
+            cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com rendering-{ns} --scope {scope}");
 
             await Complete();
         }
