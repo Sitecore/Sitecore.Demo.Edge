@@ -1,18 +1,18 @@
-id: schedule
+id: motorsports
 fields:
-  pageTitle: PLAY! Summit - Schedule
+  pageTitle: PLAY! Summit - MotorSports
 placeholders:
   jss-header:
     - componentName: Header
       placeholders:
         jss-header-content:
-          - componentName: MainNavigation
+          - componentName: Main Navigation
   jss-main:
     - componentName: Section
       fields:
         cssClass: none
         brightness: light
-        title: Schedule
+        title: Motor Sports
         content: Implement this page by replacing this component.
         callToActionLink:
           href: /

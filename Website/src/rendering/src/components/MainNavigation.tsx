@@ -8,9 +8,9 @@ const MainNavigation = (): JSX.Element => (
     <Link href="/map">Map</Link>
     <Link href="/shop">Shop</Link>
     <Link href="/news">News</Link>
-    <a href="#" className="btn--main btn--main--round">
-      Book Tickets
-    </a>
+    <Link href="/tickets">
+      <a className="btn--main btn--main--round">Book Tickets</a>
+    </Link>
   </nav>
 );
 

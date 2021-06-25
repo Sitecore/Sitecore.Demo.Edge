@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const HeroSection = (): JSX.Element => (
   <section className="section__hero banner">
     <div className="section__hero__container">
@@ -13,9 +15,9 @@ const HeroSection = (): JSX.Element => (
           <h3 className="banner__title__sub-title">August 24th – 25th</h3>
         </div>
         <div className="btn__area">
-          <a href="#" className="btn--main btn--main--round btn--main--big">
-            Book tickets
-          </a>
+          <Link href="/tickets">
+            <a className="btn--main btn--main--round btn--main--big">Book tickets</a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
-id: schedule
+id: teamsports
 fields:
-  pageTitle: PLAY! Summit - Schedule
+  pageTitle: PLAY! Summit - Team Sports
 placeholders:
   jss-header:
     - componentName: Header
@@ -12,7 +12,7 @@ placeholders:
       fields:
         cssClass: none
         brightness: light
-        title: Schedule
+        title: Team Sports
         content: Implement this page by replacing this component.
         callToActionLink:
           href: /

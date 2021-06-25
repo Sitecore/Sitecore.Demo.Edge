@@ -1,4 +1,4 @@
-import { Field, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Link, LinkField, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type FullImageSectionProps = ComponentProps & {
@@ -8,7 +8,7 @@ type FullImageSectionProps = ComponentProps & {
     title: Field<string>;
     subtitle: Field<string>;
     content: Field<string>;
-    callToActionText: Field<string>;
+    callToActionLink: LinkField;
   };
 };
 
@@ -23,9 +23,10 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
           <RichText tag="p" field={fields.content} />
-          <a href="#" className="btn--main btn--main--round btn--main--big">
-            <Text field={fields.callToActionText} />
-          </a>
+          <Link
+            field={fields.callToActionLink}
+            className="btn--main btn--main--round btn--main--big"
+          ></Link>
         </div>
       </div>
     </section>

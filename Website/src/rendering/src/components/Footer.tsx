@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Footer = (): JSX.Element => (
   <div className="footer__content">
     <div className="footer__content__banner">
-      <Link href="/" passHref>
+      <Link href="/">
         <a>
           <img src="/assets/img/play-logo.svg" alt="Play! Summit logo" />
         </a>
@@ -64,7 +64,7 @@ const Footer = (): JSX.Element => (
           <a href="#">Event Specials</a>
         </li>
         <li>
-          <a href="#">Featured Products</a>
+          <Link href="/shop">Featured Products</Link>
         </li>
         <li>
           <Link href="/vendors">Vendors</Link>
@@ -88,7 +88,7 @@ const Footer = (): JSX.Element => (
           <Link href="/media/assets">Media Assets</Link>
         </li>
         <li>
-          <a href="#">Inquires</a>
+          <Link href="/inquires">Inquires</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">

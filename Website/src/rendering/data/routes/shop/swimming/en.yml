@@ -1,6 +1,6 @@
-id: schedule
+id: swimming
 fields:
-  pageTitle: PLAY! Summit - Schedule
+  pageTitle: PLAY! Summit - Swimming
 placeholders:
   jss-header:
     - componentName: Header
@@ -12,7 +12,7 @@ placeholders:
       fields:
         cssClass: none
         brightness: light
-        title: Schedule
+        title: Swimming
         content: Implement this page by replacing this component.
         callToActionLink:
           href: /

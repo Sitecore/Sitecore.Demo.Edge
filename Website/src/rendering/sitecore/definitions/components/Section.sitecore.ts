@@ -15,7 +15,7 @@ const Section = function (manifest: Manifest): void {
       { name: 'brightness', type: CommonFieldTypes.SingleLineText },
       { name: 'title', type: CommonFieldTypes.SingleLineText },
       { name: 'content', type: CommonFieldTypes.SingleLineText },
-      { name: 'callToActionText', type: CommonFieldTypes.SingleLineText },
+      { name: 'callToActionLink', type: CommonFieldTypes.GeneralLink },
     ],
     placeholders: ['jss-section-content'],
   });

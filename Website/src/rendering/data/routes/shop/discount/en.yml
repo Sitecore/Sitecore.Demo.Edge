@@ -1,6 +1,6 @@
-id: schedule
+id: discount
 fields:
-  pageTitle: PLAY! Summit - Schedule
+  pageTitle: PLAY! Summit - Discount
 placeholders:
   jss-header:
     - componentName: Header
@@ -12,7 +12,7 @@ placeholders:
       fields:
         cssClass: none
         brightness: light
-        title: Schedule
+        title: Discount
         content: Implement this page by replacing this component.
         callToActionLink:
           href: /
