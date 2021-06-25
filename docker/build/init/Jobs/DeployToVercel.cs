@@ -48,7 +48,7 @@ namespace Sitecore.Demo.Init.Jobs
             Directory.Move(sourceDirectory, targetDirectory);
 
             var cmd = new WindowsCommandLine(targetDirectory);
-            cmd.Run($"vercel link --confirm --token {token} --debug");
+            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
             var productionUrl = $"https://rendering-{ns}-{scope}.vercel.app";
 
             // Configure env. variables
