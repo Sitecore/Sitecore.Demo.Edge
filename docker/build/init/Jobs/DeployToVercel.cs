@@ -48,6 +48,11 @@ namespace Sitecore.Demo.Init.Jobs
             Directory.Move(sourceDirectory, targetDirectory);
 
             var cmd = new WindowsCommandLine(targetDirectory);
+
+            // Remove project if already exists
+            cmd.Run($"vercel remove {ns}-website --token {token} --scope {scope} --yes");
+
+            // Create new project
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
             var productionUrl = $"https://{ns}-website-{scope}.vercel.app";
 
@@ -61,7 +66,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
 
             // Assign custom domain name
-            cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com rendering-{ns} --scope {scope}");
+            cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com {ns}-website --token {token} --scope {scope}");
 
             await Complete();
         }
