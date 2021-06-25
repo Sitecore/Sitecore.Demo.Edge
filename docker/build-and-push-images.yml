@@ -34,11 +34,10 @@ stages:
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
 
-        # TODO: Fix CI build failure caused by JSS upgrade
-        # - script: |
-        #     npm run build
-        #   displayName: 'npm run build'
-        #   workingDirectory: Website/src/rendering
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: Website/src/rendering
 
 - stage: Docker_Windows
   displayName: "Build Windows Images"
