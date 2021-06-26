@@ -1,0 +1,94 @@
+﻿---
+ID: "272032ba-8698-5212-ba98-eff484a4cb31"
+Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/shop/motorsports
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{F6B4E6BB-6B9F-5D4D-95A6-17D4889A8D6B}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{8B35532C-A54C-5E56-9F34-6DF35B35EFDE}"
+              p:after="r[@uid='{F6B4E6BB-6B9F-5D4D-95A6-17D4889A8D6B}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{F6B4E6BB-6B9F-5D4D-95A6-17D4889A8D6B}-0" />
+            <r
+              uid="{DAD2AFB0-EFE2-5A4A-A9EB-8028547360D7}"
+              p:after="r[@uid='{8B35532C-A54C-5E56-9F34-6DF35B35EFDE}']"
+              s:rname="Section"
+              s:ds="{EA60062F-22A6-5EF4-A479-DC1CE8B1830F}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{657C8FED-39FA-5747-B756-8757A9929B52}"
+              p:after="r[@uid='{DAD2AFB0-EFE2-5A4A-A9EB-8028547360D7}']"
+              s:rname="Section"
+              s:ds="{21C861D3-E5B8-5A70-8DC5-FA34035902F9}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{2A10B0C9-EE4A-54B4-BD23-A086DCAE8300}"
+              p:after="r[@uid='{657C8FED-39FA-5747-B756-8757A9929B52}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{657C8FED-39FA-5747-B756-8757A9929B52}-0" />
+            <r
+              uid="{7B9343DF-2446-5EDB-8043-4D944374C849}"
+              p:after="r[@uid='{2A10B0C9-EE4A-54B4-BD23-A086DCAE8300}']"
+              s:rname="Section"
+              s:ds="{4B73B703-FEA3-5C50-A68F-C0196A906C37}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{36A3DD8B-3AE7-51A2-BC67-74F6FF846F55}"
+              p:after="r[@uid='{7B9343DF-2446-5EDB-8043-4D944374C849}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{7B9343DF-2446-5EDB-8043-4D944374C849}-0" />
+            <r
+              uid="{83374AA5-634C-5724-BDA1-350143FEEC1F}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201838Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9dbda64a-802c-49a0-856b-5b85371452b7"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201839Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Motor Sports"

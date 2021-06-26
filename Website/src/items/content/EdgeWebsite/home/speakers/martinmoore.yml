@@ -1,0 +1,94 @@
+﻿---
+ID: "ecd0c19f-9d15-5923-b274-54595f669cd1"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/speakers/martinmoore
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{530F2692-D1B8-5CD9-89E5-5F1B6DC426EE}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{D1F20085-2BAF-5285-9955-C3A5DD932C3F}"
+              p:after="r[@uid='{530F2692-D1B8-5CD9-89E5-5F1B6DC426EE}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{530F2692-D1B8-5CD9-89E5-5F1B6DC426EE}-0" />
+            <r
+              uid="{CF72A965-D7CD-5B8C-ADCC-919C9514663C}"
+              p:after="r[@uid='{D1F20085-2BAF-5285-9955-C3A5DD932C3F}']"
+              s:rname="Section"
+              s:ds="{3630A9EA-1987-5F4C-8D4D-316D295DD9EA}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{51D3BC6E-76C1-5373-8114-BF95C60BA177}"
+              p:after="r[@uid='{CF72A965-D7CD-5B8C-ADCC-919C9514663C}']"
+              s:rname="Section"
+              s:ds="{3C4AEC5C-813C-55B7-BA68-63CE3BCEDBE3}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{9FAFD273-089C-53D3-BCF8-4B8CF89BC64B}"
+              p:after="r[@uid='{51D3BC6E-76C1-5373-8114-BF95C60BA177}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{51D3BC6E-76C1-5373-8114-BF95C60BA177}-0" />
+            <r
+              uid="{2C38C56D-4E6B-5951-87D1-5C6D4EB87748}"
+              p:after="r[@uid='{9FAFD273-089C-53D3-BCF8-4B8CF89BC64B}']"
+              s:rname="Section"
+              s:ds="{9DDA421C-0C96-5164-94A3-4769DE3477F8}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{53569840-09F4-5A98-BB41-A5EF91721C30}"
+              p:after="r[@uid='{2C38C56D-4E6B-5951-87D1-5C6D4EB87748}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{2C38C56D-4E6B-5951-87D1-5C6D4EB87748}-0" />
+            <r
+              uid="{696DDC02-CF51-5237-9AC1-897D913D7427}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201844Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "847c77c8-1a50-4eff-90e7-3e3005e3de7d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201844Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Martin Moore"

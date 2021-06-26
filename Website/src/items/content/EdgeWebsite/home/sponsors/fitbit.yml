@@ -1,0 +1,94 @@
+﻿---
+ID: "94bfd65e-af07-5895-a001-854cd94380d4"
+Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/sponsors/fitbit
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{BD444CC8-1B39-574D-BC0A-7EBEA2A00CCA}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{E7A40B4E-0CBB-5ACA-BC0A-AE9C516F9A16}"
+              p:after="r[@uid='{BD444CC8-1B39-574D-BC0A-7EBEA2A00CCA}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{BD444CC8-1B39-574D-BC0A-7EBEA2A00CCA}-0" />
+            <r
+              uid="{CA3ECFD8-640F-552F-ADFD-8D10EEBF12F3}"
+              p:after="r[@uid='{E7A40B4E-0CBB-5ACA-BC0A-AE9C516F9A16}']"
+              s:rname="Section"
+              s:ds="{CCA89319-ED11-52B4-8B52-4D9C833D1FD3}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{39B3C163-7899-514F-BD5D-9A2BA978CAFA}"
+              p:after="r[@uid='{CA3ECFD8-640F-552F-ADFD-8D10EEBF12F3}']"
+              s:rname="Section"
+              s:ds="{B35D34FF-F3D5-58E7-8836-97BC8FA1C1E1}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{40CA6EAF-B669-5AAB-8082-AB3DA668ED2D}"
+              p:after="r[@uid='{39B3C163-7899-514F-BD5D-9A2BA978CAFA}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{39B3C163-7899-514F-BD5D-9A2BA978CAFA}-0" />
+            <r
+              uid="{0987914F-AA60-5AE4-A1F1-1DBB2F537269}"
+              p:after="r[@uid='{40CA6EAF-B669-5AAB-8082-AB3DA668ED2D}']"
+              s:rname="Section"
+              s:ds="{28AB4103-C568-5A60-A058-3677D401881F}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D87370B5-0278-549A-B6D9-BDC04D27580F}"
+              p:after="r[@uid='{0987914F-AA60-5AE4-A1F1-1DBB2F537269}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{0987914F-AA60-5AE4-A1F1-1DBB2F537269}-0" />
+            <r
+              uid="{0F155417-BC93-5839-BF97-860E5DA7D287}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201846Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1bdd4264-52e5-486e-9114-12253092c774"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201846Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Fitbit"

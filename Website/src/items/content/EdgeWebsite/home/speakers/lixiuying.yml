@@ -1,0 +1,94 @@
+﻿---
+ID: "8c667d6c-2498-5681-9317-8e6fec786afd"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/speakers/lixiuying
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{4D4C1EF3-AE8A-5605-BA9B-A2668CFECCB8}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{AA2F3DEB-F64E-5681-BFB6-C407DC748A57}"
+              p:after="r[@uid='{4D4C1EF3-AE8A-5605-BA9B-A2668CFECCB8}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{4D4C1EF3-AE8A-5605-BA9B-A2668CFECCB8}-0" />
+            <r
+              uid="{7A6DBD31-E9C6-591B-9DDC-90EB3BD31451}"
+              p:after="r[@uid='{AA2F3DEB-F64E-5681-BFB6-C407DC748A57}']"
+              s:rname="Section"
+              s:ds="{D456451A-F139-5619-BDCD-F23200A78FDB}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{71888309-142E-5289-AEDE-B07786FB82DD}"
+              p:after="r[@uid='{7A6DBD31-E9C6-591B-9DDC-90EB3BD31451}']"
+              s:rname="Section"
+              s:ds="{F0BCE475-A7F1-5914-9955-763E20A498DB}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{02D21E4C-D9D4-5BEF-A744-46F4D4D1052B}"
+              p:after="r[@uid='{71888309-142E-5289-AEDE-B07786FB82DD}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{71888309-142E-5289-AEDE-B07786FB82DD}-0" />
+            <r
+              uid="{D107C741-A8DA-5813-808C-27E8A1BE6CF2}"
+              p:after="r[@uid='{02D21E4C-D9D4-5BEF-A744-46F4D4D1052B}']"
+              s:rname="Section"
+              s:ds="{7CF567F9-941B-5D22-AF96-AEC9A4503DB8}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{730CB290-617F-57F3-A89E-BAA5450AE368}"
+              p:after="r[@uid='{D107C741-A8DA-5813-808C-27E8A1BE6CF2}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{D107C741-A8DA-5813-808C-27E8A1BE6CF2}-0" />
+            <r
+              uid="{6B6BC8A6-99CB-503D-BACB-F3DE6DB74186}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201843Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cc728179-44dc-42fc-a5de-c7e01915b187"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201844Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Li Xiu Ying"
