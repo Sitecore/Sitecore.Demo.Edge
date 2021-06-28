@@ -46,7 +46,6 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
-            var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
