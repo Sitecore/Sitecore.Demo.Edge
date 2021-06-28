@@ -1,0 +1,94 @@
+﻿---
+ID: "09108803-1c9b-54f2-a5f7-7c8c48fd629f"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/speakers/sophiataylor
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{2C75508C-1C34-584F-9B69-3496D386DACE}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{CB853DDF-47A0-5691-8998-BE9CCB913526}"
+              p:after="r[@uid='{2C75508C-1C34-584F-9B69-3496D386DACE}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{2C75508C-1C34-584F-9B69-3496D386DACE}-0" />
+            <r
+              uid="{5E902D34-6198-5221-81EA-331B81466C09}"
+              p:after="r[@uid='{CB853DDF-47A0-5691-8998-BE9CCB913526}']"
+              s:rname="Section"
+              s:ds="{A7F93BF2-29A7-5E6A-990E-74B2D6B9C157}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{AA0D1767-CA85-5F04-867D-4375C53BCC3B}"
+              p:after="r[@uid='{5E902D34-6198-5221-81EA-331B81466C09}']"
+              s:rname="Section"
+              s:ds="{2CF307CC-D1D9-59E3-81F7-883A104F7C06}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{A228056D-2188-5790-B415-ADA91C41E95D}"
+              p:after="r[@uid='{AA0D1767-CA85-5F04-867D-4375C53BCC3B}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{AA0D1767-CA85-5F04-867D-4375C53BCC3B}-0" />
+            <r
+              uid="{F5D70D26-EEC2-58F9-BFA4-1C41E763A100}"
+              p:after="r[@uid='{A228056D-2188-5790-B415-ADA91C41E95D}']"
+              s:rname="Section"
+              s:ds="{AD84B115-65D7-5013-BEDE-04018AA3CA2B}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{CE183AB1-3AA1-5D90-A345-160AAAC119A0}"
+              p:after="r[@uid='{F5D70D26-EEC2-58F9-BFA4-1C41E763A100}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{F5D70D26-EEC2-58F9-BFA4-1C41E763A100}-0" />
+            <r
+              uid="{53F26F19-1A27-5DFB-A710-1B89E28030C8}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201845Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "aea96b94-ed97-44d6-b9a1-c0f68c528ecc"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201845Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Sophia Taylor"

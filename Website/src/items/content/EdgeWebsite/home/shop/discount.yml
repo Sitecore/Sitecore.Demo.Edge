@@ -1,0 +1,94 @@
+﻿---
+ID: "a3424072-f489-503e-b070-daefadfb1187"
+Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/shop/discount
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{06C0C153-8BBC-5B9E-ADA0-9C3325BBD5FC}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{034397EC-0F48-569A-AF9E-511DCFC0193A}"
+              p:after="r[@uid='{06C0C153-8BBC-5B9E-ADA0-9C3325BBD5FC}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{06C0C153-8BBC-5B9E-ADA0-9C3325BBD5FC}-0" />
+            <r
+              uid="{B5453B96-4228-5143-BFB7-25129E91276C}"
+              p:after="r[@uid='{034397EC-0F48-569A-AF9E-511DCFC0193A}']"
+              s:rname="Section"
+              s:ds="{58BB8EE3-781F-504E-8D07-907028D4CCC3}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{C18863D3-AE93-526E-9E47-EC1DBDF8A6F7}"
+              p:after="r[@uid='{B5453B96-4228-5143-BFB7-25129E91276C}']"
+              s:rname="Section"
+              s:ds="{832B7962-654B-5EA9-AFA3-9BC9AFE950BD}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{EBB90334-233A-5A01-97E0-7214DE915F57}"
+              p:after="r[@uid='{C18863D3-AE93-526E-9E47-EC1DBDF8A6F7}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{C18863D3-AE93-526E-9E47-EC1DBDF8A6F7}-0" />
+            <r
+              uid="{4715DF55-BA71-5A26-871B-7AA3E2447C9C}"
+              p:after="r[@uid='{EBB90334-233A-5A01-97E0-7214DE915F57}']"
+              s:rname="Section"
+              s:ds="{E983E57C-1E82-5EB2-9733-5D491B88EF99}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{724E5A49-B032-5864-887A-9E44F6DF8C3D}"
+              p:after="r[@uid='{4715DF55-BA71-5A26-871B-7AA3E2447C9C}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{4715DF55-BA71-5A26-871B-7AA3E2447C9C}-0" />
+            <r
+              uid="{42EBBD13-6CCE-56B2-84CA-2F7044BFEC00}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201837Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "959c16d5-2870-4470-ae86-a9e90822dc80"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201837Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Discount"

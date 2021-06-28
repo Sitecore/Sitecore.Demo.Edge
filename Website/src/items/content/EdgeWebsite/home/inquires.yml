@@ -1,0 +1,94 @@
+﻿---
+ID: "e40a4d49-216e-55c2-8654-91adae333f20"
+Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/inquires
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{0EA94B3D-B1A1-5F83-A7E4-09AE449F0DF7}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{AA77FD75-6AA0-5664-B41A-D008BB8B6728}"
+              p:after="r[@uid='{0EA94B3D-B1A1-5F83-A7E4-09AE449F0DF7}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{0EA94B3D-B1A1-5F83-A7E4-09AE449F0DF7}-0" />
+            <r
+              uid="{B1980D53-C2AC-593C-AF37-ABACAC8E71DD}"
+              p:after="r[@uid='{AA77FD75-6AA0-5664-B41A-D008BB8B6728}']"
+              s:rname="Section"
+              s:ds="{2660DB7F-CFB3-59D4-B1CA-A34B937A8240}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{65ABD3B7-7E0D-5E2E-A278-0257D4A16C7C}"
+              p:after="r[@uid='{B1980D53-C2AC-593C-AF37-ABACAC8E71DD}']"
+              s:rname="Section"
+              s:ds="{E65CAB7A-98BD-53A3-917F-F83BCA8888C0}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{F534D52C-6E07-57C3-B603-0628C1E64D2D}"
+              p:after="r[@uid='{65ABD3B7-7E0D-5E2E-A278-0257D4A16C7C}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{65ABD3B7-7E0D-5E2E-A278-0257D4A16C7C}-0" />
+            <r
+              uid="{101D37C9-EB56-54E4-B73C-DA03916F7175}"
+              p:after="r[@uid='{F534D52C-6E07-57C3-B603-0628C1E64D2D}']"
+              s:rname="Section"
+              s:ds="{D7950C53-8FC9-5E9C-9106-F420D18D8984}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{B46B05B7-EC45-5945-9E13-E5CF84CA586F}"
+              p:after="r[@uid='{101D37C9-EB56-54E4-B73C-DA03916F7175}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{101D37C9-EB56-54E4-B73C-DA03916F7175}-0" />
+            <r
+              uid="{5D531D83-DC3C-532A-ADDA-9D94E1722AC1}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201832Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "37608c4b-921c-40a0-9001-b2eea4410760"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201832Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Inquires"

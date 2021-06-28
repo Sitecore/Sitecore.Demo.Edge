@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const ThreeColumnsSection = (): JSX.Element => (
   <section className="section section--3-col">
     <div className="section__content section--3-col__content">
@@ -9,19 +11,19 @@ const ThreeColumnsSection = (): JSX.Element => (
       </p>
       <div className="section--3-col__content__items">
         <div className="item item--1">
-          <img src="assets/img/headline-icon-schedule.svg" alt="Schedule" />
+          <img src="/assets/img/headline-icon-schedule.svg" alt="Schedule" />
           <p>48 Talks and Workshops</p>
-          <a href="">View Schedule &gt;</a>
+          <Link href="/schedule">View Schedule &gt;</Link>
         </div>
         <div className="item item--2">
-          <img src="assets/img/headline-icon-speakers.svg" alt="Speakers" />
+          <img src="/assets/img/headline-icon-speakers.svg" alt="Speakers" />
           <p>32 Speakers and Guest Speakers</p>
-          <a href="">View Speakers &gt;</a>
+          <Link href="/speakers">View Speakers &gt;</Link>
         </div>
         <div className="item item--3">
-          <img src="assets/img/headline-icon-vendors.svg" alt="Vendors" />
+          <img src="/assets/img/headline-icon-vendors.svg" alt="Vendors" />
           <p>60 Vendors with VIP Products</p>
-          <a href="">View Vendors &gt;</a>
+          <Link href="/vendors">View Vendors &gt;</Link>
         </div>
       </div>
     </div>

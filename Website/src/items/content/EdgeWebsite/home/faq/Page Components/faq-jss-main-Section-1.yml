@@ -1,0 +1,43 @@
+﻿---
+ID: "146574c3-dcf9-534f-b4b9-4bfc951ab24e"
+Parent: "d0071630-c333-523e-879d-95fa3a1d40c6"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: "/sitecore/content/EdgeWebsite/home/faq/Page Components/faq-jss-main-Section-1"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Section-1"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: FAQ
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201832Z
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: Implement this page by replacing this component.
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: |
+        <link text="Home" linktype="internal" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "fa42dd9d-247a-478b-96ae-0dd8c539446f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: none
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: light
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210625T201832Z

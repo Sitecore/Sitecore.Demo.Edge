@@ -16,7 +16,7 @@ const FullImageSection = function (manifest: Manifest): void {
       { name: 'title', type: CommonFieldTypes.SingleLineText },
       { name: 'subtitle', type: CommonFieldTypes.SingleLineText },
       { name: 'content', type: CommonFieldTypes.RichText },
-      { name: 'callToActionText', type: CommonFieldTypes.SingleLineText },
+      { name: 'callToActionLink', type: CommonFieldTypes.GeneralLink },
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,

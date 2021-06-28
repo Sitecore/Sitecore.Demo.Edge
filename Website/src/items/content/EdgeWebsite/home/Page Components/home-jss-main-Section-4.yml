@@ -21,12 +21,21 @@ Languages:
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: "Catch up with some of the world’s leading sports professionals, appearing in-person and online for exclusive interviews, workshops, and Q&As."
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: |
+        <link text="View All Speakers" linktype="internal" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5420f5ee-87ac-4b18-8a9a-a1b274f9c30e"
-    - ID: "92f26325-40c6-543e-8a91-e952c86fc49c"
-      Hint: callToActionText
-      Value: View All Speakers
+      Value: "e5d94625-518a-4f5f-b7ef-55126c9ed452"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -39,4 +48,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T142052Z
+      Value: 20210625T201829Z

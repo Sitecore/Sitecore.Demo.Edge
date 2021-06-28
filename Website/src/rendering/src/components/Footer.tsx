@@ -1,9 +1,13 @@
+import Link from 'next/link';
+
 const Footer = (): JSX.Element => (
   <div className="footer__content">
     <div className="footer__content__banner">
-      <a href="#">
-        <img src="assets/img/play-logo.svg" alt="Play! Summit logo" />
-      </a>
+      <Link href="/">
+        <a>
+          <img src="/assets/img/play-logo.svg" alt="Play! Summit logo" />
+        </a>
+      </Link>
     </div>
     <footer className="footer__content__footer">
       <ul className="footer__content__footer__col">
@@ -27,84 +31,84 @@ const Footer = (): JSX.Element => (
       <ul className="footer__content__footer__col">
         <li>Workshops</li>
         <li>
-          <a href="#">PLAY workshop 1</a>
+          <Link href="/workshops/one">PLAY workshop 1</Link>
         </li>
         <li>
-          <a href="#">PLAY workshop 2</a>
+          <Link href="/workshops/one">PLAY workshop 2</Link>
         </li>
         <li>
-          <a href="#">PLAY workshop 3</a>
+          <Link href="/workshops/one">PLAY workshop 3</Link>
         </li>
         <li>
-          <a href="#">PLAY workshop 4</a>
+          <Link href="/workshops/one">PLAY workshop 4</Link>
         </li>
         <li>
-          <a href="#">PLAY workshop 5</a>
+          <Link href="/workshops/one">PLAY workshop 5</Link>
         </li>
         <li>
-          <a href="#">PLAY workshop 6</a>
+          <Link href="/workshops/one">PLAY workshop 6</Link>
         </li>
         <li>
-          <a href="#">PLAY workshop 7</a>
+          <Link href="/workshops/one">PLAY workshop 7</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
         <li>Schedule</li>
         <li>
-          <a href="#">Key speakers</a>
+          <Link href="/speakers">Key speakers</Link>
         </li>
         <li>
-          <a href="#">Event workshops</a>
+          <Link href="/workshops">Event workshops</Link>
         </li>
         <li>
           <a href="#">Event Specials</a>
         </li>
         <li>
-          <a href="#">Featured Products</a>
+          <Link href="/shop">Featured Products</Link>
         </li>
         <li>
-          <a href="#">Vendors</a>
+          <Link href="/vendors">Vendors</Link>
         </li>
         <li>
-          <a href="#">Sponsors</a>
+          <Link href="/sponsors">Sponsors</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
         <li>News</li>
         <li>
-          <a href="#">Latest</a>
+          <Link href="/news">Latest</Link>
         </li>
         <li>
-          <a href="#">About Us</a>
+          <Link href="/aboutus">About Us</Link>
         </li>
         <li>
-          <a href="#">Media Center</a>
+          <Link href="/media/center">Media Center</Link>
         </li>
         <li>
-          <a href="#">Media Assets</a>
+          <Link href="/media/assets">Media Assets</Link>
         </li>
         <li>
-          <a href="#">Inquires</a>
+          <Link href="/inquires">Inquires</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
         <li>Get Support</li>
         <li>
-          <a href="#">Tech Support</a>
+          <Link href="/support">Tech Support</Link>
         </li>
         <li>
-          <a href="#">Mail Us</a>
+          <Link href="/contactus">Mail Us</Link>
         </li>
         <li>
-          <a href="#">FAQ</a>
+          <Link href="/faq">FAQ</Link>
         </li>
       </ul>
     </footer>
     <div className="footer__content__legal">
       <div className="footer__content__legal__links">
         <p>Copyright © 2014-2021 PLAY! Summit</p>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/terms">Terms of Use</Link>
       </div>
       <div className="footer__content__legal__region">
         <a href="#">Region</a>

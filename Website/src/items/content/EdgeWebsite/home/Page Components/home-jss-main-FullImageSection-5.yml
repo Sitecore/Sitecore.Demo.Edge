@@ -12,6 +12,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0f531c03-8501-5776-be06-03ac387d1076"
+      Hint: callToActionLink
+      Value: |
+        <link text="Book your seat" linktype="internal" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
     - ID: "229909da-5f0b-55fc-8e0e-4f5a70f90913"
       Hint: subtitle
       Value: Guest Speaker
@@ -21,12 +25,17 @@ Languages:
     - ID: "46dd92a7-c1e9-566c-99e7-1b63c9eeafcf"
       Hint: position
       Value: right
-    - ID: "78c842d8-d778-5619-b685-a877660d3dd3"
-      Hint: callToActionText
-      Value: Book your seat
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5e502627-6e03-41db-a61e-59caefeaf15a"
+      Value: "36ad0532-c7e9-4610-b36a-99b7058aec88"
     - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
       Hint: content
       Value: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
@@ -39,7 +48,7 @@ Languages:
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T142052Z
+      Value: 20210625T201829Z
     - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
       Hint: title
       Value: Chris Williams

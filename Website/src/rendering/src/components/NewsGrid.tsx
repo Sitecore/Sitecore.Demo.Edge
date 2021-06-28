@@ -3,14 +3,14 @@ const NewsGrid = (): JSX.Element => (
     <div className="section__news__grid__tweet">
       <img
         className="section__news__grid__tweet__img"
-        src="assets/img/tweet-conference-image.jpg"
+        src="/assets/img/tweet-conference-image.jpg"
         alt="Play! Summit conference"
       />
       <div className="section__news__grid__tweet__content">
         <div className="section__news__grid__tweet__content__profile">
           <img
             className="section__news__grid__tweet__content__profile__pic"
-            src="assets/img/tweet-profile-pic.jpg"
+            src="/assets/img/tweet-profile-pic.jpg"
             alt="Profile pic"
           />
           <div className="section__news__grid__tweet__content__profile__content">

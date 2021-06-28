@@ -1,20 +1,17 @@
 ﻿---
-ID: "92f26325-40c6-543e-8a91-e952c86fc49c"
-Parent: "0507f25d-e494-5967-8000-73849de0fcdb"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/Section/Data/callToActionText
+ID: "d0071630-c333-523e-879d-95fa3a1d40c6"
+Parent: "6b8b51cf-3d58-57aa-802b-2788424b2fd8"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/EdgeWebsite/home/faq/Page Components
 SharedFields:
-- ID: "39847666-389d-409b-95bd-f2016f11eed5"
-  Hint: Unversioned
-  Value: 0
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: "Single-Line Text"
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/box_into.png
+- ID: "a791f095-2521-4b4d-bef9-21dda221f608"
+  Hint: __Style
+  Value: "font-style:italic; font-size:0.85em; color: gray;"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 500
-- ID: "be351a73-fcb0-4213-93fa-c302d8ab4f51"
-  Hint: Shared
   Value: 0
 Languages:
 - Language: en
@@ -23,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210615T142046Z
+      Value: 20210625T201831Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,11 +31,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5f017d3f-b500-43a2-b4de-02ded9248adf"
+      Value: "5e7acbd0-28d1-4e37-9b5d-51436fc6e3eb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T142046Z
+      Value: 20210625T201832Z

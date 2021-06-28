@@ -97,6 +97,7 @@
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "next:start": "next start",
     "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts",
+    "newpage": "ts-node --project tsconfig.scripts.json scripts/scaffold-page.ts",
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",

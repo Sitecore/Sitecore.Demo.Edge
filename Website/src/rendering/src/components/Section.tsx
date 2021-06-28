@@ -1,4 +1,11 @@
-import { Text, RichText, Field, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  RichText,
+  Field,
+  Link,
+  Placeholder,
+  LinkField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type SectionProps = ComponentProps & {
@@ -7,7 +14,7 @@ type SectionProps = ComponentProps & {
     brightness: Field<string>;
     title: Field<string>;
     content: Field<string>;
-    callToActionText: Field<string>;
+    callToActionLink: LinkField;
   };
 };
 
@@ -23,9 +30,10 @@ const Section = (props: SectionProps): JSX.Element => {
         <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
         <RichText tag="p" field={props.fields.content} className={contentCssClasses} />
         <Placeholder name="jss-section-content" rendering={props.rendering} />
-        <a href="#" className="btn--main btn--main--round btn--main--big">
-          <Text field={props.fields.callToActionText} />
-        </a>
+        <Link
+          field={props.fields.callToActionLink}
+          className="btn--main btn--main--round btn--main--big"
+        ></Link>
       </div>
     </section>
   );
