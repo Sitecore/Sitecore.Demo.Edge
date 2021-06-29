@@ -2,6 +2,10 @@
 
 This repository is used for the primary Sitecore Edge for Content Hub and Experience Management
 
+## Prerequisites
+
+* Nodejs version 14.17.0.
+
 ## Preparing Docker
 
 1. Ensure you are running Windows containers:
