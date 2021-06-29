@@ -6,6 +6,10 @@
 
   z-index: 9999;
 
+  &.experience-editor-active {
+    position: unset;
+  }
+
   &__eyebrow {
     @apply bg-blue;
 
