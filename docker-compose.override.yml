@@ -39,6 +39,7 @@ services:
       target: ${BUILD_CONFIGURATION}
       args:
         PARENT_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+    mem_limit: 2GB
     volumes:
       - .\Website\src\rendering:C:\app
     environment:
@@ -46,6 +47,7 @@ services:
       NEXTJS_DIST_DIR: ".next-container"
       PUBLIC_URL: "https://${RENDERING_HOST}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
+      #DEBUG: ${DEBUG} # Uncomment this line and set the DEBUG environment variable value in the .env file to enable debug logging
     depends_on:
       - cm
       - nodejs

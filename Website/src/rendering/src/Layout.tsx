@@ -1,7 +1,11 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import { getPublicUrl } from 'lib/util';
-import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Placeholder,
+  useSitecoreContext,
+  LayoutServicePageState,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
@@ -25,6 +29,16 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
   const { route } = context;
 
+  // DEMO TEAM CUSTOMIZATION - Add CSS classes when Experience Editor is active
+  const isExperienceEditorActiveCssClass =
+    context.pageState === LayoutServicePageState.Edit ||
+    context.pageState === LayoutServicePageState.Preview
+      ? 'experience-editor-active'
+      : '';
+  const headerCssClasses = `header ${isExperienceEditorActiveCssClass}`;
+  const mainCssClasses = isExperienceEditorActiveCssClass;
+  // END CUSTOMIZATION
+
   return (
     <>
       <Head>
@@ -36,10 +50,10 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
       {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
-      <header className="header">
+      <header className={headerCssClasses}>
         <Placeholder name="jss-header" rendering={route} />
       </header>
-      <main>
+      <main className={mainCssClasses}>
         <Placeholder name="jss-main" rendering={route} />
       </main>
       <footer className="footer">
