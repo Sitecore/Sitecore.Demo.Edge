@@ -14,7 +14,13 @@ param (
     [string]$SqlAdminPassword,
 
     [Parameter(Mandatory)]
+    [string]$SitecoreAdminUser,
+
+    [Parameter(Mandatory)]
     [string]$SitecoreAdminPassword,
+
+    [Parameter(Mandatory)]
+    [string]$SitecoreUserPassword,
 
     [string]$SqlElasticPoolName,
     [object[]]$DatabaseUsers,
@@ -68,17 +74,10 @@ if (-not $ready) {
     Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql"
 
     # Create sitecore\superuser
-	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUser "superuser" -SitecoreAdminPassword $SitecoreAdminPassword
+	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUser $SitecoreAdminUser -SitecoreAdminPassword $SitecoreAdminPassword
 
-    Write-Host "Set user passwords"
-    # alter demo users, and set new password
-    $userinfo = ./HashPassword.ps1 "b"
-    $passwordParam = ("EncodedPassword='" + $userinfo.Password + "'")
-    $saltParam = ("EncodedSalt='" + $userinfo.Salt + "'")
-    $paramsUser = $passwordParam, $saltParam
-
-    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\ResetDemoUsers.sql" -Variable $paramsUser
-    Write-Verbose "$(Get-Date -Format $timeFormat): Invoke ResetDemoUsers.sql"
+    # Alter demo users, and set new password
+	.\ResetDemoUsers.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreUserPassword $SitecoreUserPassword
 
     Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "create database platform_init_ready"
 
