@@ -14,7 +14,7 @@ param (
     [string]$SqlAdminPassword,
 
     [Parameter(Mandatory)]
-    [string]$SitecoreAdminUser,
+    [string]$SitecoreAdminUsername,
 
     [Parameter(Mandatory)]
     [string]$SitecoreAdminPassword,
@@ -74,7 +74,7 @@ if (-not $ready) {
     Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql"
 
     # Create sitecore\superuser
-	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUser $SitecoreAdminUser -SitecoreAdminPassword $SitecoreAdminPassword
+	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
 
     # Alter demo users, and set new password
 	.\ResetDemoUsers.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreUserPassword $SitecoreUserPassword
