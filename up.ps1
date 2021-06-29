@@ -4,7 +4,14 @@ $ErrorActionPreference = "Stop";
 $envCheckVariable = "HOST_LICENSE_FOLDER"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
-    throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
+    if (Test-Path "C:\License"){
+        Write-Host "Initializing environment using default values" -ForegroundColor Yellow
+        & .\init.ps1 -InitEnv -AdminPassword b -LicenseXmlPath C:\License\license.xml
+        & .\init-ci.ps1
+    }
+    else {
+        throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
+    }
 }
 
 # Build all containers in the Sitecore instance, forcing a pull of latest base containers
@@ -42,11 +49,16 @@ if (-not $status.status -eq "enabled") {
     Write-Error "Timeout waiting for Sitecore CM to become available via Traefik proxy. Check CM container logs."
 }
 
+# DEMO TEAM CUSTOMIZATION - Non-interactive CLI login
+$clientSecretVariable = "ID_SERVER_DEMO_CLIENT_SECRET"
+$clientSecret = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$clientSecretVariable=.+" } 
+$clientSecret = $clientSecret.Split("=")[1]
+
 # DEMO TEAM CUSTOMIZATION - Moved the Docker files up one level. Must run the Sitecore CLI commands in the .\Website folder.
 Push-Location .\Website
 
 try {
-    dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true
+    dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true --client-credentials true --client-id "Demo_Automation" --client-secret $clientSecret
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
     }

@@ -49,64 +49,6 @@ See Sitecore Containers documentation for more information on system requirement
 * An MSBuild project for deploying configuration and code into
   the Sitecore Content Management role. (see `src\platform`).
 
-## Running this Solution
-1. If your local IIS is listening on port 443, you'll need to stop it.
-   > This requires an elevated PowerShell or command prompt.
-   ```
-   iisreset /stop
-   ```
-
-1. Before you can run the solution, you will need to prepare the following
-   for the Sitecore container environment:
-   * A valid/trusted wildcard certificate for `*.edge.localhost`
-   * Hosts file entries for `edge.localhost`
-   * Required environment variable values in `.env` for the Sitecore instance
-     * (Can be done once, then checked into source control.)
-
-   See Sitecore Containers documentation for more information on these
-   preparation steps. The provided `init.ps1` will take care of them,
-   but **you should review its contents before running.**
-
-   > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for
-   > this command, PowerShell 7 is not supported at this time.
-
-    ```ps1
-    .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
-    ```
-
-    If you check your `.env` into source control, other developers
-    can prepare a certificate and hosts file entries by simply running:
-
-    ```ps1
-    .\init.ps1
-    ```
-
-    > Out of the box, this example does not include `.env` in the `.gitignore`.
-    > Individual users may override values using process or system environment variables.
-    > This file does contain passwords that would provide access to the running containers
-    > in the developer's environment. If your Sitecore solution and/or its data are sensitive,
-    > you may want to exclude these from source control and provide another
-    > means of centrally configuring the information within.
-
-1. If this is your first time using `mkcert` with NodeJs, you will
-   need to set the `NODE_EXTRA_CA_CERTS` environment variable. This variable
-   must be set in your user or system environment variables. The `init.ps1`
-   script will provide instructions on how to do this.
-    * Be sure to restart your terminal or VS Code for the environment variable
-      to take effect.
-
-1. After completing this environment preparation, run the startup script
-   from the solution root:
-    ```ps1
-    .\up.ps1
-    ```
-
-1. When prompted, log into Sitecore via your browser, and
-   accept the device authorization.
-
-1. Wait for the startup script to open browser tabs for the rendered site
-   and Sitecore Launchpad.
-
 ## Using the Solution
 * A Visual Studio / MSBuild publish of the `Platform` project will update the running `cm` service.
 * The running `rendering` service uses `next dev` against the mounted Next.js application, and will recompile automatically for any changes you make.

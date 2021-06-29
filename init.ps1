@@ -152,6 +152,10 @@ if ($InitEnv) {
     Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
     # DEMO TEAM CUSTOMIZATION - Moved the Docker files up one level.
     Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path .\Website\src\rendering\.env
+
+    # DEMO TEAM CUSTOMIZATION - Non-interactive CLI login
+    $clientSecret = Get-SitecoreRandomString 64 -DisallowSpecial
+    Set-EnvFileVariable "ID_SERVER_DEMO_CLIENT_SECRET" -Value $clientSecret
 }
 
 Write-Host "Done!" -ForegroundColor Green
