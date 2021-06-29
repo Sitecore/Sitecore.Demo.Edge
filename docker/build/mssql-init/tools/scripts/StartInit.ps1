@@ -73,7 +73,7 @@ if (-not $ready) {
     # Disable sitecore\admin
     Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql" -Verbose
 
-    # Create sitecore\superuser
+    # Create custom admin user
 	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
 
     # Alter demo users, and set new password
