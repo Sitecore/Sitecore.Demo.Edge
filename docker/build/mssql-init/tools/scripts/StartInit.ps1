@@ -14,7 +14,13 @@ param (
     [string]$SqlAdminPassword,
 
     [Parameter(Mandatory)]
+    [string]$SitecoreAdminUsername,
+
+    [Parameter(Mandatory)]
     [string]$SitecoreAdminPassword,
+
+    [Parameter(Mandatory)]
+    [string]$SitecoreUserPassword,
 
     [string]$SqlElasticPoolName,
     [object[]]$DatabaseUsers,
@@ -64,30 +70,17 @@ if ($deployDatabases) {
 $ready = Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "select name from sys.databases where name = 'platform_init_ready'"
 if (-not $ready) {
 
-    Write-Host "Set admin password"
-    # reset OOB admin password, to match SHA512 *and* in case a new one was specified
-    $userinfoAdmin = ./HashPassword.ps1 $SitecoreAdminPassword
+    # Disable sitecore\admin
+    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql" -Verbose
 
-    $passwordParamAdmin = ("EncodedPassword='" + $userinfoAdmin.Password + "'")
-    $saltParamAdmin = ("EncodedSalt='" + $userinfoAdmin.Salt + "'")
-    $paramsAdmin = $passwordParamAdmin, $saltParamAdmin
+    # Create custom admin user
+	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
 
-    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\SetAdminPassword.sql" -Variable $paramsAdmin
-    Write-Verbose "$(Get-Date -Format $timeFormat): Invoke SetAdminPassword.sql"
+    # Alter demo users, and set new password
+	.\ResetDemoUsers.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreUserPassword $SitecoreUserPassword
 
-    Write-Host "Set user passwords"
-    # alter demo users, and set new password
-    $userinfo = ./HashPassword.ps1 "b"
-    $passwordParam = ("EncodedPassword='" + $userinfo.Password + "'")
-    $saltParam = ("EncodedSalt='" + $userinfo.Salt + "'")
-    $paramsUser = $passwordParam, $saltParam
-
-    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\ResetDemoUsers.sql" -Variable $paramsUser
-    Write-Verbose "$(Get-Date -Format $timeFormat): Invoke ResetDemoUsers.sql"
-
-    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "create database platform_init_ready"
-
-    Write-Host "Created database platform_init_ready"
+    # Create platform_init_ready database to indicate that init script is complete
+    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "create database platform_init_ready" -Verbose
 }
 
 [System.Environment]::SetEnvironmentVariable("DatabasesDeploymentStatus", "Complete", "Machine")

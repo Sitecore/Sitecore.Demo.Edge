@@ -69,7 +69,7 @@ services:
         NODEJS_VERSION: ${NODEJS_VERSION}
     environment:
       ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
-      ADMIN_USER_NAME: "admin"
+      ADMIN_USER_NAME: "sitecore\\superuser"
       HOST_CM: "http://cm"
       HOST_ID: "http://id"
       INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -117,7 +117,9 @@ services:
       SQL_SERVER: ${SQL_SERVER}
       SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
       SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
+      SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      SITECORE_USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
       POST_DEPLOYMENT_WAIT_PERIOD: 300
     healthcheck:
       test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]
