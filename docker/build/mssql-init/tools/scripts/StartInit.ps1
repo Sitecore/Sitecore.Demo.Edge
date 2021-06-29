@@ -71,7 +71,7 @@ $ready = Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Passw
 if (-not $ready) {
 
     # Disable sitecore\admin
-    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql"
+    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\DisableSitecoreAdminUser.sql" -Verbose
 
     # Create sitecore\superuser
 	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
@@ -79,9 +79,8 @@ if (-not $ready) {
     # Alter demo users, and set new password
 	.\ResetDemoUsers.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreUserPassword $SitecoreUserPassword
 
-    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "create database platform_init_ready"
-
-    Write-Host "Created database platform_init_ready"
+    # Create platform_init_ready database to indicate that init script is complete
+    Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "create database platform_init_ready" -Verbose
 }
 
 [System.Environment]::SetEnvironmentVariable("DatabasesDeploymentStatus", "Complete", "Machine")
