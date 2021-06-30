@@ -28,10 +28,16 @@ COPY --from=tools C:\tools C:\tools
 # Copy the Sitecore Management Services Module
 COPY --from=management_services C:\module\cm\content C:\inetpub\wwwroot
 
+# Copy the Experience Edge Connector Module
+COPY --from=edge_assets C:\module\cm\content C:\inetpub\wwwroot
+COPY --from=edge_assets C:\module\cm\xdt C:\module\xdt
+
 # Copy and init the JSS / Headless Services Module
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=headless_services C:\module\tools C:\module\tools
+
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
+    C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
     Remove-Item -Path C:\module -Recurse -Force;
 
 # Copy the SPE Module
@@ -41,9 +47,6 @@ COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=ch_assets C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
-
-# Copy the Experience Edge Connector Module
-COPY --from=edge_assets C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy transform to container for DAM CSP access
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
