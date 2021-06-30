@@ -183,6 +183,7 @@ services:
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:18.0.0-${NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
+        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xp1-assets:2.26-${SITECORE_ASSET_NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:
@@ -193,6 +194,7 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
+      Sitecore_Horizon_ClientHost: https://${SH_HOST}
       ## Custom variable to allow override in AKS
       RENDERING_HOST_ENDPOINT_URI: "http://rendering:3000/api/editing/render"
       RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
@@ -207,3 +209,45 @@ services:
       Sitecore_ConnectionStrings_DAM.SearchPage: ${DAM_SearchPage}
       Sitecore_ConnectionStrings_DAM.ExternalRedirectKey: ${DAM_ExternalRedirectKey}
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+
+  # Horizon
+  authoringhost:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
+    image: ${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    isolation: ${ISOLATION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_FederatedUI__HostBaseUrl: http://authoringhost
+      Sitecore_SitecorePlatform__ContentManagementUrl: https://${CM_HOST}
+      Sitecore_SitecorePlatform__ContentManagementInternalUrl: http://cm
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__RequireHttpsMetadata: "false"
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__Authority: https://${ID_HOST}
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__CallbackAuthority: https://${SH_HOST}
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__InternalAuthority: http://id
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__Authority: https://${ID_HOST}
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__InternalAuthority: http://id
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__RequireHttpsMetadata: "false"
+      Sitecore_Plugins__Filters__ExperienceAccelerator: +SXA
+      Sitecore_Plugins__Filters__ContentHub: +ContentHub
+      Sitecore_Sitecore__Logging__Serilog__MinimumLevel__Default: Debug
+    depends_on:
+      id:
+        condition: service_healthy
+      cm:
+        condition: service_started
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.sh-secure.entrypoints=websecure"
+      - "traefik.http.routers.sh-secure.rule=Host(`${SH_HOST}`)"
+      - "traefik.http.routers.sh-secure.tls=true"
+      - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
+      - "traefik.http.services.sh.loadbalancer.server.port=80"
+    networks:
+      demo:
+        aliases:
+          - ${SH_HOST}

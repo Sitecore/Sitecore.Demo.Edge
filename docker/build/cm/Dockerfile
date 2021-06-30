@@ -7,6 +7,7 @@ ARG MANAGEMENT_SERVICES_IMAGE
 ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
+ARG HORIZON_INTEGRATION_ASSETS
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
@@ -15,6 +16,7 @@ FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${PARENT_IMAGE}
+FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -25,6 +27,9 @@ COPY --from=tools C:\tools C:\tools
 
 # Copy the Sitecore Management Services Module
 COPY --from=management_services C:\module\cm\content C:\inetpub\wwwroot
+
+# Copy the Sitecore Horizon Module
+COPY --from=horizon_integration_assets /module/cm/content /inetpub/wwwroot
 
 # Copy and init the JSS / Headless Services Module
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
