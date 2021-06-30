@@ -212,9 +212,13 @@ services:
 
   # Horizon
   authoringhost:
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
-    image: ${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    build:
+      context: ./docker/build/authoringhost
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:2.26.0-${WINDOWSSERVERCORE_VERSION}
     isolation: ${ISOLATION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
