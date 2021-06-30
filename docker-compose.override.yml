@@ -168,6 +168,7 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
+      Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
 
   # Use our custom CM (XM1 CM) image with added modules and solution code.
   # Folders are mounted below for code deployment and log output. See Dockerfile for details.
