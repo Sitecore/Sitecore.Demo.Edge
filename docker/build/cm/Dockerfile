@@ -15,8 +15,8 @@ FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
-FROM ${PARENT_IMAGE}
 FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
+FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
