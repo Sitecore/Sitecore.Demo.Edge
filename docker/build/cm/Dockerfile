@@ -29,7 +29,7 @@ COPY --from=tools C:\tools C:\tools
 COPY --from=management_services C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy the Sitecore Horizon Module
-COPY --from=horizon_integration_assets /module/cm/content /inetpub/wwwroot
+COPY --from=horizon_integration_assets /module/cm/content C:\inetpub\wwwroot
 
 # Copy and init the JSS / Headless Services Module
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
