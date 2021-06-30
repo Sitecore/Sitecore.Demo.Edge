@@ -247,7 +247,3 @@ services:
       - "traefik.http.routers.sh-secure.tls=true"
       - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
       - "traefik.http.services.sh.loadbalancer.server.port=80"
-    networks:
-      demo:
-        aliases:
-          - ${SH_HOST}
