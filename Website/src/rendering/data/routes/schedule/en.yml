@@ -8,6 +8,7 @@ placeholders:
         jss-header-content:
           - componentName: MainNavigation
   jss-main:
+    - componentName: FeaturedEvent
     - componentName: Section
       fields:
         cssClass: none
