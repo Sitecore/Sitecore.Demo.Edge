@@ -9,6 +9,8 @@ placeholders:
           - componentName: MainNavigation
   jss-main:
     - componentName: FeaturedEvent
+      fields:
+        heading: Ready | Steady | Play!
     - componentName: Section
       fields:
         cssClass: none

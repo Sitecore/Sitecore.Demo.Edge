@@ -33,6 +33,7 @@ Languages:
               uid="{AE055A74-8964-551F-9C40-58D3FE99A358}"
               p:after="r[@uid='{159B4C52-2540-5D79-8A4E-EB76279EB7FC}']"
               s:rname="FeaturedEvent"
+              s:ds="{4950B6DE-18A6-5658-A508-F4994921FBA6}"
               s:id="{C1E45B3A-429D-53FE-9640-1581E24A1447}"
               s:par=""
               s:ph="/jss-main" />
@@ -88,14 +89,14 @@ Languages:
       Value: 20210625T201836Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9d9b7d90-38ae-4050-8fad-d7545493e484"
+      Value: "82e28904-8327-4d4b-9fde-2a0c7a275af7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210705T174128Z
+      Value: 20210705T180439Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Schedule"
