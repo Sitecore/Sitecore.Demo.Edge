@@ -17,9 +17,7 @@ const FeaturedEvent = (props: FeaturedEventProps): JSX.Element => (
           <h1 className="banner__title__sub-title">Featured Event</h1>
           <h3 className="banner__title__title">STRIVA</h3>
           <h3 className="banner__title__sub-title">Mon, 24th | 9:00 AM</h3>
-          <p className="banner__title__p">
-            Train Smarter, Not Harder, John Johnson
-          </p>
+          <p className="banner__title__p">Train Smarter, Not Harder, John Johnson</p>
         </div>
         <div className="btn__area">
           <Link href="/tickets">
