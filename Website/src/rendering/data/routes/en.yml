@@ -30,6 +30,15 @@ placeholders:
           - componentName: MainNavigation
   jss-main:
     - componentName: HeroSection
+      fields:
+        eyebrow: Ready | Steady | Play!
+        title: Raise Your Game
+        subtitle: Sports and Leisure Expo
+        content: Join us in person or online for the fifth annual PLAY! Summit.
+        subcontent: August 24th – 25th
+        callToActionLink:
+          href: /tickets
+          text: Book tickets
     - componentName: ThreeColumnsSection
     - componentName: FullImageSection
       fields:
