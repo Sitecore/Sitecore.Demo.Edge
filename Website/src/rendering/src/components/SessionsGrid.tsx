@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const SessionsGrid = (): JSX.Element => (
   <section>
-    <div className="max-w-screen-2xl my-0 mx-auto box-border overflow-hidden">
+    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         <div className="rounded overflow-hidden bg-white">
           <img className="w-full" src="/assets/img/sessions-grid-1.jpg" alt="Mountain" />
