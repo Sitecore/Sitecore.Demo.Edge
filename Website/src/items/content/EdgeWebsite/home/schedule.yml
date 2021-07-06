@@ -45,15 +45,8 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{AFD9948E-EEC4-503A-BFED-4E48CE55C043}"
-              p:after="r[@uid='{1D9E88EF-734A-5944-B531-86B9C3259C1E}']"
-              s:rname="NewsGrid"
-              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{1D9E88EF-734A-5944-B531-86B9C3259C1E}-0" />
-            <r
               uid="{7EDCF861-5F73-5751-8E43-4B30D9DC6188}"
-              p:after="r[@uid='{AFD9948E-EEC4-503A-BFED-4E48CE55C043}']"
+              p:after="r[@uid='{1D9E88EF-734A-5944-B531-86B9C3259C1E}']"
               s:rname="SessionsGrid"
               s:id="{1059A458-3C21-5A98-ABD0-A65629F4DE1A}"
               s:par=""
@@ -110,14 +103,14 @@ Languages:
         sitecore\eMbVFkFYqa
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "106bbc15-2e20-43a9-a26f-9f245e5eb21f"
+      Value: "2961992f-1254-48fb-8079-1cc99c8127ea"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210706T162011Z
+      Value: 20210706T183608Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Schedule"
