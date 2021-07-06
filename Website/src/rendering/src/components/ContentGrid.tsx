@@ -15,6 +15,7 @@ const ContentBlocks = ({ fields }) => (
         </style>
         <Text className="h2" field={listItem.fields.title} />
         <RichText className="p" field={listItem.fields.subtitle} />
+        {!!listItem.fields.content && <RichText className="p" field={listItem.fields.content} />}
         <div>
           {!!listItem.fields.callToActionLink && (
             <Link
