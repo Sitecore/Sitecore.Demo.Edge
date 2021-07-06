@@ -10,7 +10,7 @@ type HeaderBannerProps = ComponentProps & {
 const HeaderBanner = (props: HeaderBannerProps): JSX.Element => (
   <section className="section section__full-image">
     <div className="section__content section__full-image__content section__full-image__content--center">
-      <Text className="bottom-0 absolute left-0" tag="h2" field={props.fields.heading} />
+      <Text className="" tag="h2" field={props.fields.heading} />
     </div>
   </section>
 );
