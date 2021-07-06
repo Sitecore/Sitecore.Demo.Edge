@@ -1,35 +1,28 @@
 .section__featured__event {
   background-image: url('../../img/featured-event-background.jpg');
 
-  &__container {
-    &__content {
-      max-width: 600px;
-      position: relative;
-      background: linear-gradient(135deg, #3c3c3c, #232323);
-      box-shadow: 0 0 20px #232323;
+  .triangle {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-color: transparent;
+      border-style: solid;
+    }
 
-      &::before,
-      &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          border-color: transparent;
-          border-style: solid;
-      }
-  
-      &::before {
-          border-width: 2.5em;
-          border-right-color: #006ef9;
-          border-top-color: #006ef9;
-      }
-  
-      &::after {
-          border-radius: 0.4em;
-          border-width: 1.35em;
-          border-right-color: #006ef9;
-          border-top-color: #006ef9;
-      }
+    &::before {
+      border-width: 2.5em;
+      border-right-color: #006ef9;
+      border-top-color: #006ef9;
+    }
+
+    &::after {
+      border-radius: 0.4em;
+      border-width: 1.35em;
+      border-right-color: #006ef9;
+      border-top-color: #006ef9;
     }
   }
 }
