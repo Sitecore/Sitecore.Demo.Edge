@@ -2,19 +2,15 @@
 import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore-jss-manifest';
 
 /**
- * Adds the ContentGrid component to the disconnected manifest.
+ * Adds the RegistrationGrid component to the disconnected manifest.
  * This function is invoked by convention (*.sitecore.ts) when 'jss manifest' is run.
  * @param {Manifest} manifest Manifest instance to add components to
  */
-const ContentGrid = function (manifest: Manifest): void {
+const RegistrationGrid = function (manifest: Manifest): void {
   manifest.addComponent({
-    name: 'ContentGrid',
+    name: 'RegistrationGrid',
     icon: SitecoreIcon.DocumentTag,
-    fields: [
-      { name: 'contentBlocks', type: CommonFieldTypes.ContentList },
-      { name: 'gridCssClass', type: CommonFieldTypes.SingleLineText },
-      { name: 'blockCssClass', type: CommonFieldTypes.SingleLineText },
-    ],
+    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:
@@ -23,4 +19,4 @@ const ContentGrid = function (manifest: Manifest): void {
   });
 };
 
-export default ContentGrid;
+export default RegistrationGrid;

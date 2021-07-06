@@ -28,57 +28,7 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          - componentName: ContentGrid
-            fields:
-              gridCssClass: grid grid-cols-3 gap-4 p-10
-              blockCssClass: section h-60 text-center space-y-6 align-bottom has-bg-image
-              contentBlocks:
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Attendee
-                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: /news
-                      text: Register Now
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Vendor
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: /news
-                      text: Register Now
-                - componentName: ContentBlock
-                  fields:
-                    title: Sponsor
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: /news
-                      text: Register Now
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Press
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: /news
-                      text: Register Now
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Speaker
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: /news
-                      text: Register Now
-                - componentName: ContentBlock
-                  fields:
-                    title: Guest
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: /news
-                      text: Register Now
+          - componentName: RegistrationGrid
     - componentName: CountdownSection
     - componentName: Section
       fields:
@@ -89,9 +39,9 @@ placeholders:
         callToActionLink:
           href: /news
           text: Register now to view full agenda
-      # placeholders:
-      #   jss-section-content:
-      #     - componentName: AgendaGrid
+      placeholders:
+        jss-section-content:
+          - componentName: RegistrationGrid
     - componentName: Section
       fields:
         cssClass: section
@@ -103,55 +53,7 @@ placeholders:
           text: View full gallery
       placeholders:
         jss-section-content:
-          - componentName: ContentGrid
-            fields:
-              contentBlocks:
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Attendee
-                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href:
-                      text:
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Vendor
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href:
-                      text:
-                - componentName: ContentBlock
-                  fields:
-                    title: Sponsor
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href:
-                      text:
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Press
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href:
-                      text:
-                - componentName: ContentBlock
-                  fields:
-                    bgimage: /assets/img/products-team-sports.jpg
-                    title: Speaker
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href:
-                      text:
-                - componentName: ContentBlock
-                  fields:
-                    title: Guest
-                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href:
-                      text:
+          - componentName: RegistrationGrid
     - componentName: Section
       fields:
         cssClass: section__sponsors

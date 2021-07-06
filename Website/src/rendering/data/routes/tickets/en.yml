@@ -10,15 +10,6 @@ placeholders:
   jss-main:
     - componentName: Section
       fields:
-        cssClass: none
-        brightness: light
-        title: Registration
-        content:
-        callToActionLink:
-          href:
-          text:
-    - componentName: Section
-      fields:
         cssClass: section__products
         brightness: light
         title: Don't miss the super early bird offer
@@ -28,62 +19,7 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          - componentName: ContentGrid
-            fields:
-              gridCssClass: grid grid-cols-3 gap-4 p-10
-              blockCssClass: section h-96 text-center space-y-6 align-bottom has-bg-image
-              contentBlocks:
-                - componentName: ContentBlock
-                  fields:
-                    title: VIP Ticket
-                    subtitle: Save 20% on early bird!
-                    content: |
-                      <h2>$249</h2>
-                      <ul>
-                      <li>All access pass</li>
-                      <li>Exclusive network lunches</li>
-                      <li>20% off all thousands of goods</li>
-                      <li>Free online catalog</li>
-                      <li>Print and digital ticket</li>
-                      <li>Unlimited customize your agenda</li>
-                      </ul>
-                    callToActionLink:
-                      href: /news
-                      text: Register
-                - componentName: ContentBlock
-                  fields:
-                    title: Regular Ticket
-                    subtitle: Save 20% on early bird!
-                    content: |
-                      <h2>$199</h2>
-                      <ul>
-                      <li>All access pass</li>
-                      <li>Exclusive network lunches</li>
-                      <li>20% off all thousands of goods</li>
-                      <li>Free online catalog</li>
-                      <li>Print and digital ticket</li>
-                      <li>Unlimited customize your agenda</li>
-                      </ul>
-                    callToActionLink:
-                      href: /news
-                      text: Register
-                - componentName: ContentBlock
-                  fields:
-                    title: Guest Ticket
-                    subtitle: Save 20% on early bird!
-                    content: |
-                      <h2>$149</h2>
-                      <ul>
-                      <li>All access pass</li>
-                      <li>Exclusive network lunches</li>
-                      <li>20% off all thousands of goods</li>
-                      <li>Free online catalog</li>
-                      <li>Print and digital ticket</li>
-                      <li>Unlimited customize your agenda</li>
-                      </ul>
-                    callToActionLink:
-                      href: /news
-                      text: Register
+          - componentName: RegistrationGrid
     - componentName: CountdownSection
     - componentName: Section
       fields:
