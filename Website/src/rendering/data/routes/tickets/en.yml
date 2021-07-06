@@ -28,7 +28,6 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          # - componentName: RegistrationGrid
           - componentName: ContentGrid
             fields:
               gridCssClass: grid grid-cols-3 gap-4 p-10
@@ -89,6 +88,49 @@ placeholders:
                       href: /news
                       text: Register
     - componentName: CountdownSection
+    - componentName: Promo
+      fields:
+        cssClass: section__promo--offer
+        position: left
+        subtitle: FEATURED WORKSHOP
+        title: Quisque pretium sollicitudin
+        content: We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event.
+        callToActionLink:
+          href: /shop/discount
+          text: Save the date
+    - componentName: Section
+      fields:
+        cssClass: section__testimonies
+        brightness: light
+        title: Testimonies
+        content: Lorem ipsum doler sit amit naga tjam akasdlkajhdawe.
+        callToActionLink:
+          href:
+          text:
+      placeholders:
+        jss-section-content:
+          - componentName: ContentList
+            fields:
+              cssClass: section content-list w-full p-10
+              contentBlocks:
+                - componentName: ContentBlock
+                  fields:
+                    id: vipticket
+                    cssClass: Content-block h-60 w-full text-left
+                    title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius dolor non mi ornare pulvinar. 
+                    image: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: regularticker
+                    cssClass: Content-block h-60 w-full text-right
+                    title: Praesent porta eleifend ligula, at varius mauris sodales in. Pellentesque feugiat libero vitae ligula eleifend, at vehicula lectus ornare. 
+                    image: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: guestticker
+                    cssClass: Content-block h-60 w-full text-left
+                    title:  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum accumsan ornare. Suspendisse eleifend luctus congue. Curabitur eu tellus metus.
+                    image: /assets/img/products-team-sports.jpg
     - componentName: Section
       fields:
         cssClass: section__sponsors

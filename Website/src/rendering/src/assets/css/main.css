@@ -28,6 +28,8 @@
 @import "./layout/fullImageSection.css";
 @import "./layout/speakers.css";
 @import "./layout/sponsors.css";
+@import "./layout/promo.css";
+@import "./layout/content-list.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";

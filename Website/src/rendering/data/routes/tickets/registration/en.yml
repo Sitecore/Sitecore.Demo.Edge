@@ -112,18 +112,41 @@ placeholders:
         jss-section-content:
           - componentName: ContentGrid
             fields:
-              gridCssClass: grid grid-cols-4 gap-4 p-10
+              gridCssClass: grid grid-cols-4 gap-2 p-10 min-w-full
               blockCssClass: section h-60 text-center space-y-6 align-bottom has-bg-image
               contentBlocks:
                 - componentName: ContentBlock
                   fields:
-                    id: attendee
+                    id: 1
                     bgimage: /assets/img/products-team-sports.jpg
-                    title: Attendee
-                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
-                    callToActionLink:
-                      href: 
-                      text: 
+                - componentName: ContentBlock
+                  fields:
+                    id: 2
+                    bgimage: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: 3
+                    bgimage: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: 4
+                    bgimage: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: 5
+                    bgimage: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: 6
+                    bgimage: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: 7
+                    bgimage: /assets/img/products-team-sports.jpg
+                - componentName: ContentBlock
+                  fields:
+                    id: 8
+                    bgimage: /assets/img/products-team-sports.jpg
     - componentName: Section
       fields:
         cssClass: section__sponsors
