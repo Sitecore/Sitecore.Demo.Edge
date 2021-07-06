@@ -13,22 +13,143 @@ placeholders:
         cssClass: none
         brightness: light
         title: registration
-        content: Implement this page by replacing this component.
+        content:
         callToActionLink:
           href:
           text:
     - componentName: Section
       fields:
+        cssClass: section__products
+        brightness: light
+        title: Don't miss the super early bird offer
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        callToActionLink:
+          href:
+          text:
+      placeholders:
+        jss-section-content:
+          - componentName: ContentGrid
+            fields:
+              contentBlocks:
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Attendee
+                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Vendor
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    title: Sponsor
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Press
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Speaker
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    title: Guest
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+    - componentName: CountdownSection
+    - componentName: Section
+      fields:
         cssClass: section__news
         brightness: dark
-        title: News and Media
+        title: Expo Agenda
         content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
         callToActionLink:
           href: /news
-          text: View All News
+          text: Register now to view full agenda
+      # placeholders:
+      #   jss-section-content:
+      #     - componentName: AgendaGrid
+    - componentName: Section
+      fields:
+        cssClass: section
+        brightness: dark
+        title: Experience our event gallery
+        content: Asdas fasfwe aerg sdeg sCheck out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        callToActionLink:
+          href: /news
+          text: View full gallery
       placeholders:
         jss-section-content:
-          - componentName: NewsGrid
+          - componentName: ContentGrid
+            fields:
+              contentBlocks:
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Attendee
+                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href:
+                      text:
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Vendor
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href:
+                      text:
+                - componentName: ContentBlock
+                  fields:
+                    title: Sponsor
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href:
+                      text:
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Press
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href:
+                      text:
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Speaker
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href:
+                      text:
+                - componentName: ContentBlock
+                  fields:
+                    title: Guest
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href:
+                      text:
     - componentName: Section
       fields:
         cssClass: section__sponsors

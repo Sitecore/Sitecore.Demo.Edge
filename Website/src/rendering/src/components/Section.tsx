@@ -29,7 +29,9 @@ const Section = (props: SectionProps): JSX.Element => {
       <div className={sectionContentCssClasses}>
         <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
         <RichText tag="p" field={props.fields.content} className={contentCssClasses} />
-        <Placeholder name="jss-section-content" rendering={props.rendering} />
+        {!!props.rendering && (
+          <Placeholder name="jss-section-content" rendering={props.rendering} />
+        )}
         {!!props.fields.callToActionLink && (
           <Link
             field={props.fields.callToActionLink}
