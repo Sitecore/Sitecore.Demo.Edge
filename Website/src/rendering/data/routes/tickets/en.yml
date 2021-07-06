@@ -10,6 +10,15 @@ placeholders:
   jss-main:
     - componentName: Section
       fields:
+        cssClass: section
+        brightness: light
+        title: Registration
+        content:
+        callToActionLink:
+          href:
+          text:
+    - componentName: Section
+      fields:
         cssClass: section__products
         brightness: light
         title: Don't miss the super early bird offer
