@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Text, RichText, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 
-const ContentBlocks = ({ fields }) => (
+const ContentBlocks = ({ ...fields }) => (
   <div className={fields.gridCssClass?.value}>
-    {fields.contentBlocks.map((listItem: unknown, index) => (
-      <div key={index} className={fields.blockCssClass?.value}>
+    {fields.contentBlocks.map((listItem: any) => (
+      <div key={listItem.title} className={fields.blockCssClass?.value}>
         <style jsx>
           {`
             .has-bg-image {
@@ -29,9 +30,9 @@ const ContentBlocks = ({ fields }) => (
   </div>
 );
 
-const ContentGrid = ({ fields }) => (
+const ContentGrid = ({ ...props }) => (
   <section>
-    <ContentBlocks fields={fields} />
+    <ContentBlocks fields={props.fields} />
   </section>
 );
 

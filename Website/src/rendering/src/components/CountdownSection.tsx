@@ -1,13 +1,4 @@
-import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type CountdownSectionProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const CountdownSection = (props: CountdownSectionProps): JSX.Element => (
+const CountdownSection = (
   <section className="section bg-gradient-to-b text-yellow flex text-center">
     <div className="flex-1">
       <h2>298</h2>Day(s)
