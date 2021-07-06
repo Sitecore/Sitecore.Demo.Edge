@@ -10,13 +10,14 @@ placeholders:
   jss-main:
     - componentName: FeaturedEvent
       fields:
-        heading: Ready | Steady | Play!
+        heading: 
     - componentName: Section
       fields:
         cssClass: none
         brightness: light
         title: SET YOUR SCHEDULE
         content: Browse our session catalog to explore all Expo opportunities available and sign in to build a schedule that’s unique to you and your interests. Having a personalized agenda is the best, and most efficient way, to maximize your Summit experience.
+    - componentName: SessionsGrid
     - componentName: Section
       fields:
         cssClass: section__news
