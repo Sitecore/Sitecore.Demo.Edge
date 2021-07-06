@@ -28,7 +28,64 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          - componentName: RegistrationGrid
+          # - componentName: RegistrationGrid
+          - componentName: ContentGrid
+            fields:
+              gridCssClass: grid grid-cols-3 gap-4 p-10
+              blockCssClass: section h-60 text-center space-y-6 align-bottom has-bg-image
+              contentBlocks:
+                - componentName: ContentBlock
+                  fields:
+                    id: attendee
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Attendee
+                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    id: vendor
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Vendor
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    id: Sponsor
+                    title: Sponsor
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    id: Press
+                    title: Press
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    bgimage: /assets/img/products-team-sports.jpg
+                    id: Speaker
+                    title: Speaker
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
+                - componentName: ContentBlock
+                  fields:
+                    id: Guest
+                    title: Guest
+                    subtitle: Asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: /news
+                      text: Register Now
     - componentName: CountdownSection
     - componentName: Section
       fields:
@@ -41,7 +98,7 @@ placeholders:
           text: Register now to view full agenda
       placeholders:
         jss-section-content:
-          - componentName: RegistrationGrid
+          - componentName: RegistrationGrid #TODO
     - componentName: Section
       fields:
         cssClass: section
@@ -49,11 +106,24 @@ placeholders:
         title: Experience our event gallery
         content: Asdas fasfwe aerg sdeg sCheck out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
         callToActionLink:
-          href: /news
+          href: /news #TODO
           text: View full gallery
       placeholders:
         jss-section-content:
-          - componentName: RegistrationGrid
+          - componentName: ContentGrid
+            fields:
+              gridCssClass: grid grid-cols-4 gap-4 p-10
+              blockCssClass: section h-60 text-center space-y-6 align-bottom has-bg-image
+              contentBlocks:
+                - componentName: ContentBlock
+                  fields:
+                    id: attendee
+                    bgimage: /assets/img/products-team-sports.jpg
+                    title: Attendee
+                    subtitle: asdjf halsdjk hflasjd falkjsd hflaksd hf
+                    callToActionLink:
+                      href: 
+                      text: 
     - componentName: Section
       fields:
         cssClass: section__sponsors

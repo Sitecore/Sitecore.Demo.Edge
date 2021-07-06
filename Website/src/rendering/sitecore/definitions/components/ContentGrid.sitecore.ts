@@ -10,7 +10,11 @@ const ContentGrid = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'ContentGrid',
     icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
+    fields: [
+      { name: 'gridCssClass', type: CommonFieldTypes.SingleLineText },
+      { name: 'blockCssClass', type: CommonFieldTypes.SingleLineText },
+      { name: 'contentBlocks', type: CommonFieldTypes.ContentList },
+    ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:
