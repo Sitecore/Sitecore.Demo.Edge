@@ -8,15 +8,9 @@ placeholders:
         jss-header-content:
           - componentName: MainNavigation
   jss-main:
-    - componentName: Section
+    - componentName: HeaderBanner
       fields:
-        cssClass: none
-        brightness: light
-        title: registration
-        content:
-        callToActionLink:
-          href:
-          text:
+        heading: Registration
     - componentName: Section
       fields:
         cssClass: section__products

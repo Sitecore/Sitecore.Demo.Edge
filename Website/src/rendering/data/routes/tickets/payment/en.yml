@@ -1,6 +1,6 @@
-id: account
+id: payment
 fields:
-  pageTitle: PLAY! Summit - Account
+  pageTitle: PLAY! Summit - payment
 placeholders:
   jss-header:
     - componentName: Header
@@ -10,7 +10,7 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        heading: Account
+        heading: Payment
     - componentName: Section
       fields:
         cssClass: section__news
