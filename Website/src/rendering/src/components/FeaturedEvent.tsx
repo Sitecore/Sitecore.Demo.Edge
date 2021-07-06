@@ -9,15 +9,15 @@ type FeaturedEventProps = ComponentProps & {
 };
 
 const FeaturedEvent = (props: FeaturedEventProps): JSX.Element => (
-  <section className="section__featured__event banner">
-    <div className="section__featured__event__container">
-      <div className="section__featured__event__container__content">
-        <div className="section__featured__event__container__content__text">
+  <section className="mt-20 section__featured__event banner bg-black bg-left bg-no-repeat bg-cover relative">
+    <div className="px-14 max-w-screen-2xl flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden">
+      <div className="section__featured__event__container__content w-full bg-black-light">
+        <div className="p-14">
           <Text field={props.fields.heading} />
-          <h1 className="banner__title__sub-title">Featured Event</h1>
-          <h3 className="banner__title__title">STRIVA</h3>
-          <h3 className="banner__title__sub-title">Mon, 24th | 9:00 AM</h3>
-          <p className="banner__title__p">Train Smarter, Not Harder, John Johnson</p>
+          <h1 className="text-2xl text-yellow font-semibold">Featured Event</h1>
+          <h3 className="text-5xl font-semibold text-white uppercase m-0">STRIVA</h3>
+          <h3 className="text-2xl text-yellow font-semibold">Mon, 24th | 9:00 AM</h3>
+          <p className="text-1xl text-white">Train Smarter, Not Harder, John Johnson</p>
         </div>
         <div className="btn__area">
           <Link href="/tickets">
