@@ -1,13 +1,19 @@
-import { RichText, Link } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, RichText, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 
-const ContentBlocks = ({ contentBlocks }) => (
-  <div className="grid grid-cols-3 gap-4 p-10">
-    {contentBlocks.map((listItem: unknown, index) => (
-      <div key={index} className="h-60 text-center space-y-6 align-bottom">
-        {/* <figure className="">
-          <img src={listItem.fields.bgimage} alt="" />
-        </figure> */}
-        <RichText className="h2" field={listItem.fields.title} />
+const ContentBlocks = ({ fields }) => (
+  <div className={fields.gridCssClass?.value}>
+    {fields.contentBlocks.map((listItem: unknown, index) => (
+      <div key={index} className={fields.blockCssClass?.value}>
+        <style jsx>
+          {`
+            .has-bg-image {
+              background-size: cover;
+              background-position: center;
+              background-image: url(${listItem.fields.bgimage?.value});
+            }
+          `}
+        </style>
+        <Text className="h2" field={listItem.fields.title} />
         <RichText className="p" field={listItem.fields.subtitle} />
         <div>
           {!!listItem.fields.callToActionLink && (
@@ -24,7 +30,7 @@ const ContentBlocks = ({ contentBlocks }) => (
 
 const ContentGrid = ({ fields }) => (
   <section>
-    <ContentBlocks contentBlocks={fields.contentBlocks} />
+    <ContentBlocks fields={fields} />
   </section>
 );
 

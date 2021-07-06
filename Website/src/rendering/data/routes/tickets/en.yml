@@ -12,11 +12,11 @@ placeholders:
       fields:
         cssClass: none
         brightness: light
-        title: Tickets
-        content: Implement this page by replacing this component.
+        title: Registration
+        content:
         callToActionLink:
-          href: /
-          text: Home
+          href:
+          text:
     - componentName: Section
       fields:
         cssClass: section__news

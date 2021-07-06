@@ -30,6 +30,8 @@ placeholders:
         jss-section-content:
           - componentName: ContentGrid
             fields:
+              gridCssClass: grid grid-cols-3 gap-4 p-10
+              blockCssClass: section h-60 text-center space-y-6 align-bottom has-bg-image
               contentBlocks:
                 - componentName: ContentBlock
                   fields:
