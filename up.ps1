@@ -58,7 +58,7 @@ $clientSecret = $clientSecret.Split("=")[1]
 Push-Location .\Website
 
 try {
-    dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true --client-credentials true --client-id "Demo_Automation" --client-secret $clientSecret
+    dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
     }
