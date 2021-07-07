@@ -1,11 +1,4 @@
-import {
-  Text,
-  RichText,
-  Field,
-  Link,
-  Placeholder,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Link, Placeholder, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type SectionProps = ComponentProps & {

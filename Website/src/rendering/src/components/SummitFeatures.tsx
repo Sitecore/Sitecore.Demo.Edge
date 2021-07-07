@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const SummitFeatures = (): JSX.Element => (
   <div className="grid grid-cols-4 gap-10">
     <div className="">
