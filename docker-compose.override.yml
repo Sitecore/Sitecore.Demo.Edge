@@ -116,6 +116,7 @@ services:
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:18.0-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:2.26-${NANOSERVER_VERSION}
     environment:
       SQL_SERVER: ${SQL_SERVER}
       SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
@@ -168,6 +169,7 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
+      Sitecore_Sitecore__IdentityServer__Clients__DefaultClient__AllowedCorsOrigins__AllowedCorsOriginsGroup2: https://${SH_HOST}|http://${SH_HOST}
 
   # Use our custom CM (XM1 CM) image with added modules and solution code.
   # Folders are mounted below for code deployment and log output. See Dockerfile for details.
@@ -185,6 +187,7 @@ services:
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:18.0-${NANOSERVER_VERSION}
+        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:2.26-${NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:
@@ -195,6 +198,7 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
+      Sitecore_Horizon_ClientHost: https://${SH_HOST}
       ## Custom variable to allow override in AKS
       RENDERING_HOST_ENDPOINT_URI: "http://rendering:3000/api/editing/render"
       RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
@@ -222,3 +226,45 @@ services:
       Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "false"
       Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+
+  # Horizon
+  authoringhost:
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
+    build:
+      context: ./docker/build/authoringhost
+      args:
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:2.26.0-${WINDOWSSERVERCORE_VERSION}
+    isolation: ${ISOLATION}
+    volumes:
+      - ${HOST_LICENSE_FOLDER}:c:\license
+    environment:
+      SITECORE_LICENSE_LOCATION: c:\license\license.xml
+      Sitecore_FederatedUI__HostBaseUrl: http://authoringhost
+      Sitecore_SitecorePlatform__ContentManagementUrl: https://${CM_HOST}
+      Sitecore_SitecorePlatform__ContentManagementInternalUrl: http://cm
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__RequireHttpsMetadata: "false"
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__Authority: https://${ID_HOST}
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__CallbackAuthority: https://${SH_HOST}
+      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__InternalAuthority: http://id
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__Authority: https://${ID_HOST}
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__InternalAuthority: http://id
+      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__RequireHttpsMetadata: "false"
+      Sitecore_Plugins__Filters__ExperienceAccelerator: +SXA
+      Sitecore_Plugins__Filters__ContentHub: +ContentHub
+      Sitecore_Sitecore__Logging__Serilog__MinimumLevel__Default: Debug
+    depends_on:
+      id:
+        condition: service_healthy
+      cm:
+        condition: service_started
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
+      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
+      - "traefik.http.routers.sh-secure.entrypoints=websecure"
+      - "traefik.http.routers.sh-secure.rule=Host(`${SH_HOST}`)"
+      - "traefik.http.routers.sh-secure.tls=true"
+      - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
+      - "traefik.http.services.sh.loadbalancer.server.port=80"

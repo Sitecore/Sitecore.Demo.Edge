@@ -6,12 +6,14 @@ ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
 ARG EXPERIENCE_EDGE_ASSETS_IMAGE
+ARG HORIZON_INTEGRATION_ASSETS
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${EXPERIENCE_EDGE_ASSETS_IMAGE} AS edge_assets
+FROM ${HORIZON_INTEGRATION_ASSETS} AS horizon_integration_assets
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -24,6 +26,7 @@ COPY --from=headless_services /module/db /jss_data
 COPY --from=spe_assets /module/db /spe_data
 COPY --from=ch_assets /module/db /ch_data
 COPY --from=edge_assets /module/db /edge_data
+COPY --from=horizon_integration_assets /module/db /sh_data
 
 COPY ./sql /sql
 COPY ./tools/scripts\ .\
