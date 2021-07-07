@@ -11,13 +11,6 @@ placeholders:
     - componentName: FeaturedEvent
       fields:
         heading:
-    - componentName: Breadcrumb
-    - componentName: Section
-      fields:
-        cssClass: none
-        brightness: light
-        title: SET YOUR SCHEDULE
-        content: Browse our session catalog to explore all Expo opportunities available and sign in to build a schedule that’s unique to you and your interests. Having a personalized agenda is the best, and most efficient way, to maximize your Summit experience.
     - componentName: SessionsFilters
     - componentName: SessionsGrid
     - componentName: Section
@@ -26,9 +19,6 @@ placeholders:
         brightness: dark
         title: News and Media
         content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
-        callToActionLink:
-          href: /news
-          text: View All News
       placeholders:
         jss-section-content:
           - componentName: NewsGrid
