@@ -17,9 +17,6 @@ placeholders:
         brightness: light
         title: Don't miss the super early bird offer
         content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
-        callToActionLink:
-          href:
-          text:
       placeholders:
         jss-section-content:
           - componentName: RegistrationGrid
