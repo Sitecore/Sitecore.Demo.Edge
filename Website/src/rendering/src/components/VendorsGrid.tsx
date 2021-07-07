@@ -3,7 +3,7 @@ import Link from 'next/link';
 const VendorsGrid = (): JSX.Element => (
   <section>
     <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
-      <h1 className="text-center uppercase text-blue-light pt-10 text-4xl font-semibold">
+      <h1 className="text-center uppercase text-blue pt-10 text-4xl font-semibold">
         All event vendors
       </h1>
 

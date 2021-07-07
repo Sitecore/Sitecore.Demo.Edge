@@ -30,31 +30,22 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{3C6A1A92-98F5-509A-8B4D-897041CE042C}-0" />
             <r
-              uid="{E3FBBBC0-8320-59E5-B22B-3E2DEA9F5DAB}"
+              uid="{DC97D398-D7B5-5407-B2B2-B28516EB743F}"
               p:after="r[@uid='{C2AA52E9-20A3-5AE5-880C-E4F88B051708}']"
-              s:rname="Section"
-              s:ds="{F74F7DCD-540E-595E-8BA8-542104892A8B}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="HeroImage"
+              s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{BC6AFDF9-BC33-5CD4-92E0-7997DE578235}"
-              p:after="r[@uid='{E3FBBBC0-8320-59E5-B22B-3E2DEA9F5DAB}']"
-              s:rname="Section"
-              s:ds="{4529A5E8-805D-5B6F-BE96-DC15461AA57C}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              uid="{96AE225F-3A4E-59F3-948F-0169B39C3BE8}"
+              p:after="r[@uid='{DC97D398-D7B5-5407-B2B2-B28516EB743F}']"
+              s:rname="FeaturedSpeakers"
+              s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
               s:par=""
               s:ph="/jss-main" />
-            <r
-              uid="{54A45A2C-3672-5CBD-B981-D7AAEB133C3B}"
-              p:after="r[@uid='{BC6AFDF9-BC33-5CD4-92E0-7997DE578235}']"
-              s:rname="NewsGrid"
-              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{BC6AFDF9-BC33-5CD4-92E0-7997DE578235}-0" />
             <r
               uid="{BBD28B06-7DB9-51F9-920B-F357F8004852}"
-              p:after="r[@uid='{54A45A2C-3672-5CBD-B981-D7AAEB133C3B}']"
+              p:after="r[@uid='{96AE225F-3A4E-59F3-948F-0169B39C3BE8}']"
               s:rname="Section"
               s:ds="{D9534E6B-D95E-5069-97D7-83703B1D9E71}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -79,16 +70,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201840Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "427705d9-1eaf-40d9-9bf8-e441fe6b51e5"
+      Value: "8d273b36-2b59-4612-85fd-3e9f8ca6a691"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201841Z
+      Value: 20210707T163320Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Speakers"
