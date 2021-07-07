@@ -1,0 +1,125 @@
+﻿---
+ID: "df136825-30be-5e96-9b53-c240f337a09a"
+Parent: "23d1c784-e28e-5dc3-9515-2325d45c499e"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/tickets/registration/attendee
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{B9D9CB3A-734D-51BD-B67B-F72AB1BFF427}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{ED4A5CB9-75EF-55E2-AF2B-023BE6352A42}"
+              p:after="r[@uid='{B9D9CB3A-734D-51BD-B67B-F72AB1BFF427}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{B9D9CB3A-734D-51BD-B67B-F72AB1BFF427}-0" />
+            <r
+              uid="{68B377B9-8357-5E7C-B9CC-76765D5BB50D}"
+              p:after="r[@uid='{ED4A5CB9-75EF-55E2-AF2B-023BE6352A42}']"
+              s:rname="HeaderBanner"
+              s:ds="{8CCD7EBC-7A09-5359-B2F1-7727F37970AE}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{E5BDD100-669E-51E7-9921-7E6DA4B79B52}"
+              p:after="r[@uid='{68B377B9-8357-5E7C-B9CC-76765D5BB50D}']"
+              s:rname="Section"
+              s:ds="{AE94E96F-38AC-5D4B-B0F3-0129C0509A57}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{413589EF-68DC-58F2-8F1D-E796C83897A9}"
+              p:after="r[@uid='{E5BDD100-669E-51E7-9921-7E6DA4B79B52}']"
+              s:rname="AttendeeForm"
+              s:id="{9D27B323-AD63-54C8-A9BD-2DED29DFAF1D}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{E5BDD100-669E-51E7-9921-7E6DA4B79B52}-0" />
+            <r
+              uid="{24DD7E1D-D1D9-5368-95D3-BD50B44CC92C}"
+              p:after="r[@uid='{413589EF-68DC-58F2-8F1D-E796C83897A9}']"
+              s:rname="CountdownSection"
+              s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{4037073D-D71A-5401-9D83-38B01F131988}"
+              p:after="r[@uid='{24DD7E1D-D1D9-5368-95D3-BD50B44CC92C}']"
+              s:rname="Promo"
+              s:ds="{72D3859D-DCB6-5A17-A177-29BBF2870990}"
+              s:id="{34D68789-D03C-5299-8787-E5CDB2889E31}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{EDA939C2-64B2-5712-91BF-60B720AAF7C1}"
+              p:after="r[@uid='{4037073D-D71A-5401-9D83-38B01F131988}']"
+              s:rname="Section"
+              s:ds="{5C61D174-6612-5E87-9DA8-D723C6AC9EE0}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{AE0792D2-7A74-57AF-B1D3-4B0C23435443}"
+              p:after="r[@uid='{EDA939C2-64B2-5712-91BF-60B720AAF7C1}']"
+              s:rname="ContentList"
+              s:ds="{3623B27F-E8F1-532B-9A92-84C1E63AA466}"
+              s:id="{60B7BE26-12DA-5ED5-B4BD-542E8174DDFE}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{EDA939C2-64B2-5712-91BF-60B720AAF7C1}-0" />
+            <r
+              uid="{79170954-7881-5289-AA07-E6B6EE422EA7}"
+              p:after="r[@uid='{AE0792D2-7A74-57AF-B1D3-4B0C23435443}']"
+              s:rname="Section"
+              s:ds="{0789456F-A666-5722-A6C7-AD37DABEF4D2}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{73C271F8-4CE5-5380-A2EE-17A059FB6C1C}"
+              p:after="r[@uid='{79170954-7881-5289-AA07-E6B6EE422EA7}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{79170954-7881-5289-AA07-E6B6EE422EA7}-0" />
+            <r
+              uid="{0AECC14D-E4D7-56AB-9626-6592D41FCCD0}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152629Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "547d1496-b6f8-4027-ab01-b0523668a8bd"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T172854Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - attendee"

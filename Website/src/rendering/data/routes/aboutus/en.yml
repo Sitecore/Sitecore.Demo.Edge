@@ -17,13 +17,57 @@ placeholders:
     - componentName: Breadcrumb
     - componentName: Section
       fields:
-        cssClass: none
+        cssClass: left
         brightness: light
-        title: About Us
-        content: Implement this page by replacing this component.
+        title: A global gathering of fitness brands, sports professionals, and you
+        content: |
+          <p>
+          Now in its fifth year, the theme of this year’s PLAY! Summit is ‘Raise Your Game’. We’re bringing together the world’s leading fitness brands, sports stars, and innovators for our most epic event to date.
+          </p><p>Look forward to thought-provoking sessions from world-famous sports pros including Jacob Gonzalez, Michelle Smith,and Juan Carlos, and exclusive news and product launches from brands such as Striva, Yellow Jersey, and Pro staff.As all PLAY! Summit content will be available to attendees on-demand, there’s no reason to miss out on any of the action.
+          </p><p>To celebrate the fifth anniversary of PLAY! Summit,all online and in-person attendees will receive exclusive discounts on a range of sports apparel and equipment. In-person attendees will also have the opportunity to road-test new product releases in our Exhibition Hall, where around 300 exhibitors will be demonstrating the latest in fitness tech, wearables and more.
+          </p>
         callToActionLink:
           href: /
-          text: Home
+          text: Vendor Registration
+    - componentName: FullImageCTASection
+    - componentName: Section
+      fields:
+        cssClass: section__news
+        brightness: dark
+        title:
+        content: |
+          <div class="grid grid-cols-3 gap-5 w-full">
+          <div class="">
+          <div>200,000+</div>
+          <div>VISITORS</div>
+          </div>
+          <div class="border-l-2 border-white">
+          <div>90+</div>
+          <div>GLOBALLY RECOGNIZED SPEAKERS</div>
+          </div>
+          <div class="border-l-2 border-white">
+          <div>300+</div>
+          <div>EXHIBITORS</div>
+          </div>
+          </div>
+    - componentName: Section
+      fields:
+        cssClass: section
+        brightness: light
+        title: SUMMIT FEATURES
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+      placeholders:
+        jss-section-content:
+          - componentName: SummitFeatures
+    - componentName: Section
+      fields:
+        cssClass: bg-black
+        brightness: dark
+        title:
+        content:
+      placeholders:
+        jss-section-content:
+          - componentName: RequestInfoForm
     - componentName: Section
       fields:
         cssClass: section__news

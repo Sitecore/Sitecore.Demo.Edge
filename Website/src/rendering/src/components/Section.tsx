@@ -28,7 +28,11 @@ const Section = (props: SectionProps): JSX.Element => {
     <section className={sectionCssClasses}>
       <div className={sectionContentCssClasses}>
         <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
-        <RichText tag="p" field={props.fields.content} className={contentCssClasses} />
+        <div
+          className={contentCssClasses}
+          dangerouslySetInnerHTML={{ __html: props.fields.content?.value }}
+        ></div>
+        {/* <RichText tag="p" field={props.fields.content} className={contentCssClasses} /> */}
         {!!props.rendering && (
           <Placeholder name="jss-section-content" rendering={props.rendering} />
         )}

@@ -1,0 +1,133 @@
+﻿---
+ID: "23d1c784-e28e-5dc3-9515-2325d45c499e"
+Parent: "a7bdfbda-d5cc-5388-a039-f262bc768721"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/tickets/registration
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{4626EC95-09AB-5F23-9E6C-A4E5CE7E4755}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{F139ACCD-946B-5468-B380-B38A2B0B70FC}"
+              p:after="r[@uid='{4626EC95-09AB-5F23-9E6C-A4E5CE7E4755}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{4626EC95-09AB-5F23-9E6C-A4E5CE7E4755}-0" />
+            <r
+              uid="{86C8A5B0-4A7F-55CD-87DD-765DEC81833D}"
+              p:after="r[@uid='{F139ACCD-946B-5468-B380-B38A2B0B70FC}']"
+              s:rname="HeaderBanner"
+              s:ds="{BD786D95-3316-5B3B-8224-BECD301935A5}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{31ABE5D7-E584-5681-AD53-70F5482CCBA4}"
+              p:after="r[@uid='{86C8A5B0-4A7F-55CD-87DD-765DEC81833D}']"
+              s:rname="Section"
+              s:ds="{D555534F-101E-5475-BD5F-3E58520145AA}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{CB1C296D-C8B5-53A9-AAF4-360572E860A1}"
+              p:after="r[@uid='{31ABE5D7-E584-5681-AD53-70F5482CCBA4}']"
+              s:rname="ContentGrid"
+              s:ds="{9395724D-4119-592D-8935-2145AA97A3CC}"
+              s:id="{638E459D-B9E7-5CED-8D29-1999DB735FE8}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{31ABE5D7-E584-5681-AD53-70F5482CCBA4}-0" />
+            <r
+              uid="{5AA8DE34-5026-5F51-88B9-AF52885000FD}"
+              p:after="r[@uid='{CB1C296D-C8B5-53A9-AAF4-360572E860A1}']"
+              s:rname="CountdownSection"
+              s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{8EFB4F95-E278-55C6-990B-E798F2109E17}"
+              p:after="r[@uid='{5AA8DE34-5026-5F51-88B9-AF52885000FD}']"
+              s:rname="Section"
+              s:ds="{B0BFF4A0-6396-562E-8D7B-05C81064771B}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{F1272B90-0CE2-5797-95D6-F19E4BC3897D}"
+              p:after="r[@uid='{8EFB4F95-E278-55C6-990B-E798F2109E17}']"
+              s:rname="RegistrationGrid"
+              s:id="{BA4CA0AB-DA56-57DA-A1DB-DCB73B87C735}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{8EFB4F95-E278-55C6-990B-E798F2109E17}-0" />
+            <r
+              uid="{363D55C8-300C-58C3-BBC0-30493863245E}"
+              p:after="r[@uid='{F1272B90-0CE2-5797-95D6-F19E4BC3897D}']"
+              s:rname="Section"
+              s:ds="{3BE19CA9-2E8B-55FB-9DF1-AF71470DFE06}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{F8F01F13-FB4B-5D05-9CB2-9BA9DC2790F1}"
+              p:after="r[@uid='{363D55C8-300C-58C3-BBC0-30493863245E}']"
+              s:rname="ContentGrid"
+              s:ds="{1B6958BF-8D88-56C9-98AF-6044BE66055E}"
+              s:id="{638E459D-B9E7-5CED-8D29-1999DB735FE8}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{363D55C8-300C-58C3-BBC0-30493863245E}-0" />
+            <r
+              uid="{8AEDF579-7851-5D37-A145-B5834A076A2B}"
+              p:after="r[@uid='{F8F01F13-FB4B-5D05-9CB2-9BA9DC2790F1}']"
+              s:rname="Section"
+              s:ds="{BADA60EE-7043-5750-ACAE-D4E620754F1F}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{057608B1-2491-54D7-B579-BF0C28804EAE}"
+              p:after="r[@uid='{8AEDF579-7851-5D37-A145-B5834A076A2B}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{8AEDF579-7851-5D37-A145-B5834A076A2B}-0" />
+            <r
+              uid="{7027777A-2615-59BE-B05F-3CFA3753D011}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152626Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "de3efd37-c760-4574-906f-54972dc4e86b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T172854Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - registration"
