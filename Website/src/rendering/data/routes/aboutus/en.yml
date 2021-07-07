@@ -34,6 +34,44 @@ placeholders:
       fields:
         cssClass: section__news
         brightness: dark
+        title:
+        content: |
+          <div class="grid grid-cols-3 gap-5 w-full">
+          <div class="">
+          <div>200,000+</div>
+          <div>VISITORS</div>
+          </div>
+          <div class="border-l-2 border-white">
+          <div>90+</div>
+          <div>GLOBALLY RECOGNIZED SPEAKERS</div>
+          </div>
+          <div class="border-l-2 border-white">
+          <div>300+</div>
+          <div>EXHIBITORS</div>
+          </div>
+          </div>
+    - componentName: Section
+      fields:
+        cssClass: section
+        brightness: light
+        title: SUMMIT FEATURES
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+      placeholders:
+        jss-section-content:
+          - componentName: SummitFeatures
+    - componentName: Section
+      fields:
+        cssClass: bg-black
+        brightness: dark
+        title:
+        content:
+      placeholders:
+        jss-section-content:
+          - componentName: RequestInfoForm
+    - componentName: Section
+      fields:
+        cssClass: section__news
+        brightness: dark
         title: News and Media
         content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
         callToActionLink:
