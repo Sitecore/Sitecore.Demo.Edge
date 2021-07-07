@@ -37,7 +37,7 @@ placeholders:
         content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.
         callToActionLink:
           href: /sponsors/sponsorize
-          text: Become an Sponsor
+          text: Become a Sponsor
       placeholders:
         jss-section-content:
           - componentName: SponsorsGrid
