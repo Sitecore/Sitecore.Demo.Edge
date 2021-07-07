@@ -1,6 +1,10 @@
 const SessionsFilters = (): JSX.Element => (
   <section>
     <div className="max-w-screen-2xl my-0 mx-auto box-border overflow-hidden">
+      <h1 className="text-center uppercase text-blue py-10 text-3xl font-bold">
+        Set your schedule
+      </h1>
+
       <div className="px-10 flex flex-wrap overflow-hidden">
         <div className="w-full overflow-hidden sm:w-full md:w-1/2">
           <input

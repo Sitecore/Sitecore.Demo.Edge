@@ -1,8 +1,8 @@
 ﻿---
-ID: "7abe956c-4835-5c2c-b331-34fbfaa39d33"
+ID: "50e74ac2-cc2c-51c1-883f-fc6e8ed07cb3"
 Parent: "58a24f8c-f3f1-58b9-b895-2cb0007929e2"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/Components/VendorsGrid
+Path: /sitecore/content/EdgeWebsite/Components/FeaturedSpeakers
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -11,7 +11,7 @@ SharedFields:
   Hint: __Masters
   Value: |
     {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
-    {15A09FA9-2D36-5367-B526-21312D486B10}
+    {FDF43AAD-C5D1-54E4-9909-59BFDDC86689}
 Languages:
 - Language: en
   Versions:
@@ -19,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210707T154701Z
+      Value: 20210707T163223Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -30,11 +30,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b6b1cb26-adb2-414a-bb30-5b9e21c65aad"
+      Value: "aa3ae824-f2ee-43f4-92d4-1b2f7408c035"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T154701Z
+      Value: 20210707T163223Z
