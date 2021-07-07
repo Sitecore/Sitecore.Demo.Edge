@@ -14,7 +14,7 @@ const HeaderBanner = function (manifest: Manifest): void {
       { name: 'eyebrow', type: CommonFieldTypes.SingleLineText },
       { name: 'title', type: CommonFieldTypes.SingleLineText },
       { name: 'subtitle', type: CommonFieldTypes.SingleLineText },
-      { name: 'backgroundImage', type: CommonFieldTypes.SingleLineText },
+      { name: 'backgroundImage', type: CommonFieldTypes.Image },
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,

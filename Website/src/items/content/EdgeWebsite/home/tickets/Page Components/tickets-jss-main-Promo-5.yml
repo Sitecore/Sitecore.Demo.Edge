@@ -1,0 +1,46 @@
+﻿---
+ID: "e59e453d-c7f0-5346-bd0f-35dbd6e1c30d"
+Parent: "a97d9e9b-67c9-59f3-ab03-d14c66278624"
+Template: "77c8aac4-aac3-55b9-810c-896e8f321a12"
+Path: "/sitecore/content/EdgeWebsite/home/tickets/Page Components/tickets-jss-main-Promo-5"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Promo-5"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T195701Z
+    - ID: "4db68bc4-e995-5b5b-9341-016d37322e1a"
+      Hint: content
+      Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
+    - ID: "5e56d361-36b3-5ecc-98c5-b32acb415f56"
+      Hint: subtitle
+      Value: FEATURED WORKSHOP
+    - ID: "8c64b176-115d-5a29-8547-b9c529e2a0fb"
+      Hint: position
+      Value: left
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7644ab7e-c1c5-4fbd-85dd-283f8c65f41c"
+    - ID: "b85bf947-5ccc-5af3-a556-b4a05685b893"
+      Hint: title
+      Value: Quisque pretium sollicitudin
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "bbf85231-f65a-517c-8129-5131407f3ad4"
+      Hint: cssClass
+      Value: "section__promo--offer"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T195702Z
+    - ID: "fe1c53f3-3152-5536-a8a1-06b6c2709486"
+      Hint: callToActionLink
+      Value: |
+        <link text="Save the date" url="/shop/discount" linktype="external" />

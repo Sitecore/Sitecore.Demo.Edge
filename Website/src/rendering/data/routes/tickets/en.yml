@@ -11,6 +11,7 @@ placeholders:
     - componentName: HeaderBanner
       fields:
         title: Registration
+    - componentName: Breadcrumb
     - componentName: Section
       fields:
         cssClass: section__products

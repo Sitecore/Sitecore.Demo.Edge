@@ -1,5 +1,6 @@
 .breadcrumb {
-  background-color: white;
+  @apply max-w-screen-2xl mx-auto overflow-hidden bg-transparent p-2;
+
   font-size: small;
   li {
     display: inline;
