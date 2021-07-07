@@ -8,24 +8,17 @@ placeholders:
         jss-header-content:
           - componentName: MainNavigation
   jss-main:
-    - componentName: Section
+    - componentName: FeaturedEvent
       fields:
-        cssClass: none
-        brightness: light
-        title: Schedule
-        content: Implement this page by replacing this component.
-        callToActionLink:
-          href: /
-          text: Home
+        heading:
+    - componentName: SessionsFilters
+    - componentName: SessionsGrid
     - componentName: Section
       fields:
         cssClass: section__news
         brightness: dark
         title: News and Media
         content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
-        callToActionLink:
-          href: /news
-          text: View All News
       placeholders:
         jss-section-content:
           - componentName: NewsGrid
@@ -37,7 +30,7 @@ placeholders:
         content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.
         callToActionLink:
           href: /sponsors/sponsorize
-          text: Become an Sponsor
+          text: Become a Sponsor
       placeholders:
         jss-section-content:
           - componentName: SponsorsGrid

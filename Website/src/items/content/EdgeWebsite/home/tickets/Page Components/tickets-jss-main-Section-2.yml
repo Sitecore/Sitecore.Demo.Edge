@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: News and Media
+      Value: Don't miss the super early bird offer
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201849Z
@@ -27,17 +27,17 @@ Languages:
         <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a09ff07f-7ceb-4f97-94e0-f6908bacb0cf"
+      Value: "175f12e5-bbb6-4c8b-8718-d3ec43283a57"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section__news
+      Value: section__products
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
-      Value: dark
+      Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201849Z
+      Value: 20210707T152621Z

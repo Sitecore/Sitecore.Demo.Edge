@@ -30,16 +30,16 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{ACE77D7B-014D-5B82-A363-B94312BF59A5}-0" />
             <r
-              uid="{9DEF1CAA-65B1-5D10-80D9-4C6DD878820D}"
+              uid="{16050FE2-D05F-521C-BA28-7D795F03B9FB}"
               p:after="r[@uid='{BE2E87A7-5166-5CE0-A7E9-FE9A7B8520FD}']"
-              s:rname="Section"
-              s:ds="{0F9011AE-480A-5B82-8956-EB60C1A9F585}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="HeaderBanner"
+              s:ds="{53AF7B73-957A-5112-8E53-1F7D7E90C115}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
               s:par=""
               s:ph="/jss-main" />
             <r
               uid="{BB75B37D-AA75-52DD-A6AC-84CAA1FD0DE8}"
-              p:after="r[@uid='{9DEF1CAA-65B1-5D10-80D9-4C6DD878820D}']"
+              p:after="r[@uid='{16050FE2-D05F-521C-BA28-7D795F03B9FB}']"
               s:rname="Section"
               s:ds="{B6398DCE-43DC-5653-8847-5CF7AD935237}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -81,14 +81,14 @@ Languages:
       Value: 20210625T201830Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4cd66594-5328-4df9-b31a-c881a06f65b9"
+      Value: "50ed15d7-0a35-44e3-aaf0-0b19f6bc70a9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201831Z
+      Value: 20210707T172845Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Login"

@@ -1,0 +1,42 @@
+﻿---
+ID: "cad56af3-b19f-5d67-9991-12f637a97a9b"
+Parent: "f0c77235-5000-532c-a61c-e5f11947760d"
+Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
+Path: "/sitecore/content/EdgeWebsite/home/speakers/Page Components/speakers-jss-main-HeroImage-1"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "HeroImage-1"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T174910Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\eMbVFkFYqa
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\eMbVFkFYqa
+    - ID: "7f1d47cf-4525-5f3e-b8fe-4c6ddbcefa39"
+      Hint: hero
+      Value: |
+        <image mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" alt="Sample Image" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3b0feae2-7220-4bc8-9e35-a3b93d73c65c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "bdb828c7-fbbd-5bbf-9248-f1bb60d2cc63"
+      Hint: heading
+      Value: Image
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T183637Z

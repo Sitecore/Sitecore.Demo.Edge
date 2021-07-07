@@ -1,0 +1,102 @@
+﻿---
+ID: "4a3e83ca-824e-5f3b-8a33-c6ea5c9c8091"
+Parent: "8d9013bc-618f-5ef1-bbe6-4fdb3a41e913"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/tickets/payment/confirmed
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{6EDB31A2-5AF7-5D7A-BBCA-FF23654E2C88}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{CAF7A494-424F-5FD7-9CBF-C57E4DC7F960}"
+              p:after="r[@uid='{6EDB31A2-5AF7-5D7A-BBCA-FF23654E2C88}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{6EDB31A2-5AF7-5D7A-BBCA-FF23654E2C88}-0" />
+            <r
+              uid="{E0626D73-FB56-55FA-A243-28F346FA84A1}"
+              p:after="r[@uid='{CAF7A494-424F-5FD7-9CBF-C57E4DC7F960}']"
+              s:rname="HeaderBanner"
+              s:ds="{5D0B4957-862A-5712-B292-8E6910C175FA}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{B0FA86A2-6448-5056-B525-D70C6074074F}"
+              p:after="r[@uid='{E0626D73-FB56-55FA-A243-28F346FA84A1}']"
+              s:rname="Section"
+              s:ds="{5340F7EE-94D5-5B28-B736-96BFCC920755}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{81211BFD-537B-54AB-AE2C-E039389065D4}"
+              p:after="r[@uid='{B0FA86A2-6448-5056-B525-D70C6074074F}']"
+              s:rname="PaymentConfirmed"
+              s:id="{7828DB2C-6882-5044-95E3-8D2A542E7116}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{B0FA86A2-6448-5056-B525-D70C6074074F}-0" />
+            <r
+              uid="{D29929D4-3DBA-5E78-B6C2-39BD6A40E314}"
+              p:after="r[@uid='{81211BFD-537B-54AB-AE2C-E039389065D4}']"
+              s:rname="FullImageSection"
+              s:ds="{C4D9FAC9-FE44-5D23-9386-73BA4A0F8E68}"
+              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{E1093A3E-55B2-58AE-8E0A-475B8D59D23F}"
+              p:after="r[@uid='{D29929D4-3DBA-5E78-B6C2-39BD6A40E314}']"
+              s:rname="Section"
+              s:ds="{11A82043-9BF4-54EE-86EC-6A090C39AB26}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{95A41B4A-6217-58B3-A179-4104BB21F263}"
+              p:after="r[@uid='{E1093A3E-55B2-58AE-8E0A-475B8D59D23F}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{E1093A3E-55B2-58AE-8E0A-475B8D59D23F}-0" />
+            <r
+              uid="{75863DD3-388E-53BB-80AE-331FC542C2A3}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152624Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0376aa37-6082-4750-bf6c-d9b6d29b1777"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T172853Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - payment confirmed"

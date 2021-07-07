@@ -30,16 +30,16 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{F4488A9B-43D2-5C33-A5F2-9646A1FFBEE7}-0" />
             <r
-              uid="{374A79C4-3661-5F58-9295-983022B4C4A8}"
+              uid="{6DAE88AF-EAE6-5EDD-B553-C74DC02F312E}"
               p:after="r[@uid='{21D380F0-E659-51D0-9CF9-E307B26F1999}']"
-              s:rname="Section"
-              s:ds="{D69181BA-5061-5869-85C0-7C9E03D77071}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="HeaderBanner"
+              s:ds="{7C21B93C-6370-56A6-81F5-82D54CE3C258}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
               s:par=""
               s:ph="/jss-main" />
             <r
               uid="{9BB0FD49-002F-5550-A3B2-C208402E1F42}"
-              p:after="r[@uid='{374A79C4-3661-5F58-9295-983022B4C4A8}']"
+              p:after="r[@uid='{6DAE88AF-EAE6-5EDD-B553-C74DC02F312E}']"
               s:rname="Section"
               s:ds="{7F7A3D98-DFA4-52CE-A0C2-2133DCB15AF3}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -81,14 +81,14 @@ Languages:
       Value: 20210625T201830Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a2e01184-fecb-4089-94b1-1ffea23cb9a8"
+      Value: "e9cdf1f7-1727-404e-aaec-0440916d3939"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201830Z
+      Value: 20210707T172845Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Account"

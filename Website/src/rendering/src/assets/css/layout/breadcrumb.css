@@ -1,0 +1,17 @@
+.breadcrumb {
+  @apply max-w-screen-2xl mx-auto overflow-hidden bg-transparent p-2;
+
+  font-size: small;
+  li {
+    display: inline;
+    padding-left: 5px;
+  }
+  li:not(:first-of-type):before {
+    content: '>';
+    padding-left: 5px;
+    padding-right: 3px;
+  }
+  .active {
+    @apply font-bold;
+  }
+}

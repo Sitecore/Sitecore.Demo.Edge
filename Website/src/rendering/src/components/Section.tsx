@@ -1,11 +1,4 @@
-import {
-  Text,
-  RichText,
-  Field,
-  Link,
-  Placeholder,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Link, Placeholder, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type SectionProps = ComponentProps & {
@@ -19,8 +12,8 @@ type SectionProps = ComponentProps & {
 };
 
 const Section = (props: SectionProps): JSX.Element => {
-  const sectionCssClasses = `section ${props.fields.cssClass.value}`;
-  const sectionContentCssClasses = `section__content ${props.fields.cssClass.value}__content`;
+  const sectionCssClasses = `section ${props.fields.cssClass?.value}`;
+  const sectionContentCssClasses = `section__content ${props.fields.cssClass?.value}__content`;
   const titleCssClasses = `section__content__title section__content__title--${props.fields.brightness.value}`;
   const contentCssClasses = `section__content__p section__content__p--${props.fields.brightness.value}`;
 
@@ -28,12 +21,20 @@ const Section = (props: SectionProps): JSX.Element => {
     <section className={sectionCssClasses}>
       <div className={sectionContentCssClasses}>
         <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
-        <RichText tag="p" field={props.fields.content} className={contentCssClasses} />
-        <Placeholder name="jss-section-content" rendering={props.rendering} />
-        <Link
-          field={props.fields.callToActionLink}
-          className="btn--main btn--main--round btn--main--big"
-        ></Link>
+        <div
+          className={contentCssClasses}
+          dangerouslySetInnerHTML={{ __html: props.fields.content?.value }}
+        ></div>
+        {/* <RichText tag="p" field={props.fields.content} className={contentCssClasses} /> */}
+        {!!props.rendering && (
+          <Placeholder name="jss-section-content" rendering={props.rendering} />
+        )}
+        {!!props.fields.callToActionLink && (
+          <Link
+            field={props.fields.callToActionLink}
+            className="btn--main btn--main--round btn--main--big"
+          ></Link>
+        )}
       </div>
     </section>
   );

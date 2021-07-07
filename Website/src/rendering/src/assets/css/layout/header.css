@@ -11,7 +11,7 @@
   }
 
   &__eyebrow {
-    @apply bg-blue;
+    @apply bg-black-lightest text-white;
 
     height: 30px;
 
@@ -45,8 +45,6 @@
   }
 
   a {
-    @apply text-white;
-
     &:hover {
       @apply text-yellow;
     }

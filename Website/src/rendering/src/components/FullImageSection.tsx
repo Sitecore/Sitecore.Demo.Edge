@@ -23,10 +23,12 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
           <RichText tag="p" field={fields.content} />
-          <Link
-            field={fields.callToActionLink}
-            className="btn--main btn--main--round btn--main--big"
-          ></Link>
+          {fields.callToActionLink && (
+            <Link
+              field={fields.callToActionLink}
+              className="btn--main btn--main--round btn--main--big"
+            ></Link>
+          )}
         </div>
       </div>
     </section>
