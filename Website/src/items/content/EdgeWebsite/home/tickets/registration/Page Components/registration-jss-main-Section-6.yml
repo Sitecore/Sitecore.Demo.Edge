@@ -24,7 +24,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="Become an Sponsor" url="/sponsors/sponsorize" linktype="external" />
+        <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "0f5dd2e3-fb85-48c0-810f-b6ed1bf0b4af"
