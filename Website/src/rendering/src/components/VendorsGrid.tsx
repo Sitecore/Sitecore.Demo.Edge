@@ -8,7 +8,7 @@ const VendorsGrid = (): JSX.Element => (
       </h1>
 
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -21,7 +21,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -34,7 +34,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -47,7 +47,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -60,7 +60,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -73,7 +73,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -86,7 +86,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -99,7 +99,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -112,7 +112,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
@@ -125,7 +125,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets">
+        <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
