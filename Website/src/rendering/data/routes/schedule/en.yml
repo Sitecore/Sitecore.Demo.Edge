@@ -11,7 +11,6 @@ placeholders:
     - componentName: FeaturedEvent
       fields:
         heading:
-    - componentName: Breadcrumb
     - componentName: Section
       fields:
         cssClass: none

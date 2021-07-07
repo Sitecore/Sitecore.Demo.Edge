@@ -14,28 +14,20 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: SET YOUR SCHEDULE
+      Value: Schedule
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201836Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
-      Value: Browse our session catalog to explore all Expo opportunities available and sign in to build a schedule that’s unique to you and your interests. Having a personalized agenda is the best, and most efficient way, to maximize your Summit experience.
+      Value: Implement this page by replacing this component.
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
         <link text="Home" linktype="internal" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" />
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\superuser
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1ec66ed7-0d09-449a-91c1-c7a6a465af99"
+      Value: "3848cbf4-a343-48ca-8f4c-e19203c8b61c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -48,4 +40,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210706T183608Z
+      Value: 20210705T174128Z
