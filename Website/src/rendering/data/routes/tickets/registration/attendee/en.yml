@@ -45,28 +45,7 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          - componentName: ContentList
-            fields:
-              cssClass: section content-list w-full p-10
-              contentBlocks:
-                - componentName: ContentBlock
-                  fields:
-                    id: vipticket
-                    cssClass: Content-block h-60 w-full text-left
-                    title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius dolor non mi ornare pulvinar.
-                    image: /assets/img/products-team-sports.jpg
-                - componentName: ContentBlock
-                  fields:
-                    id: regularticker
-                    cssClass: Content-block h-60 w-full text-right
-                    title: Praesent porta eleifend ligula, at varius mauris sodales in. Pellentesque feugiat libero vitae ligula eleifend, at vehicula lectus ornare.
-                    image: /assets/img/products-team-sports.jpg
-                - componentName: ContentBlock
-                  fields:
-                    id: guestticker
-                    cssClass: Content-block h-60 w-full text-left
-                    title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum accumsan ornare. Suspendisse eleifend luctus congue. Curabitur eu tellus metus.
-                    image: /assets/img/products-team-sports.jpg
+          - componentName: TestimonyList
     - componentName: Section
       fields:
         cssClass: section__sponsors

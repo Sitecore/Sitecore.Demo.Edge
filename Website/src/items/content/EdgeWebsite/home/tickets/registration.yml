@@ -46,16 +46,15 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{CB1C296D-C8B5-53A9-AAF4-360572E860A1}"
+              uid="{9676CD9D-501A-5213-AACF-7D92582B3002}"
               p:after="r[@uid='{31ABE5D7-E584-5681-AD53-70F5482CCBA4}']"
-              s:rname="ContentGrid"
-              s:ds="{9395724D-4119-592D-8935-2145AA97A3CC}"
-              s:id="{638E459D-B9E7-5CED-8D29-1999DB735FE8}"
+              s:rname="RegistrationGrid"
+              s:id="{BA4CA0AB-DA56-57DA-A1DB-DCB73B87C735}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{31ABE5D7-E584-5681-AD53-70F5482CCBA4}-0" />
             <r
               uid="{5AA8DE34-5026-5F51-88B9-AF52885000FD}"
-              p:after="r[@uid='{CB1C296D-C8B5-53A9-AAF4-360572E860A1}']"
+              p:after="r[@uid='{9676CD9D-501A-5213-AACF-7D92582B3002}']"
               s:rname="CountdownSection"
               s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
               s:par=""
@@ -69,31 +68,30 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{F1272B90-0CE2-5797-95D6-F19E4BC3897D}"
+              uid="{CCDCBB5A-9B4D-536D-9FE8-AF4C2C4DB017}"
               p:after="r[@uid='{8EFB4F95-E278-55C6-990B-E798F2109E17}']"
-              s:rname="RegistrationGrid"
-              s:id="{BA4CA0AB-DA56-57DA-A1DB-DCB73B87C735}"
+              s:rname="AgendaGrid"
+              s:id="{31BC70C9-09B7-5D3A-ABF8-15988FA85FD8}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{8EFB4F95-E278-55C6-990B-E798F2109E17}-0" />
             <r
               uid="{363D55C8-300C-58C3-BBC0-30493863245E}"
-              p:after="r[@uid='{F1272B90-0CE2-5797-95D6-F19E4BC3897D}']"
+              p:after="r[@uid='{CCDCBB5A-9B4D-536D-9FE8-AF4C2C4DB017}']"
               s:rname="Section"
               s:ds="{3BE19CA9-2E8B-55FB-9DF1-AF71470DFE06}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{F8F01F13-FB4B-5D05-9CB2-9BA9DC2790F1}"
+              uid="{C3766BC7-2DF4-5B26-82D3-7D3CBB33ABE7}"
               p:after="r[@uid='{363D55C8-300C-58C3-BBC0-30493863245E}']"
-              s:rname="ContentGrid"
-              s:ds="{1B6958BF-8D88-56C9-98AF-6044BE66055E}"
-              s:id="{638E459D-B9E7-5CED-8D29-1999DB735FE8}"
+              s:rname="GalleryGrid"
+              s:id="{8C958A09-DE7B-50BE-A0BD-12B6A2F2FCA3}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{363D55C8-300C-58C3-BBC0-30493863245E}-0" />
             <r
               uid="{8AEDF579-7851-5D37-A145-B5834A076A2B}"
-              p:after="r[@uid='{F8F01F13-FB4B-5D05-9CB2-9BA9DC2790F1}']"
+              p:after="r[@uid='{C3766BC7-2DF4-5B26-82D3-7D3CBB33ABE7}']"
               s:rname="Section"
               s:ds="{BADA60EE-7043-5750-ACAE-D4E620754F1F}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -120,14 +118,14 @@ Languages:
       Value: 20210707T152626Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "de3efd37-c760-4574-906f-54972dc4e86b"
+      Value: "c36791c5-2c55-4826-b3dc-0b55d212c79d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T172854Z
+      Value: 20210707T182045Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - registration"

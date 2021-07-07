@@ -22,65 +22,7 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          - componentName: ContentGrid
-            fields:
-              gridCssClass: grid grid-cols-3 gap-4 p-10
-              blockCssClass: section h-96 text-center space-y-6 align-bottom has-bg-image
-              contentBlocks:
-                - componentName: ContentBlock
-                  fields:
-                    id: vipticket
-                    title: VIP Ticket
-                    subtitle: Save 20% on early bird!
-                    content: |
-                      <h2>$249</h2>
-                      <ul>
-                      <li>All access pass</li>
-                      <li>Exclusive network lunches</li>
-                      <li>20% off all thousands of goods</li>
-                      <li>Free online catalog</li>
-                      <li>Print and digital ticket</li>
-                      <li>Unlimited customize your agenda</li>
-                      </ul>
-                    callToActionLink:
-                      href: /news
-                      text: Register
-                - componentName: ContentBlock
-                  fields:
-                    id: regularticker
-                    title: Regular Ticket
-                    subtitle: Save 20% on early bird!
-                    content: |
-                      <h2>$199</h2>
-                      <ul>
-                      <li>All access pass</li>
-                      <li>Exclusive network lunches</li>
-                      <li>20% off all thousands of goods</li>
-                      <li>Free online catalog</li>
-                      <li>Print and digital ticket</li>
-                      <li>Unlimited customize your agenda</li>
-                      </ul>
-                    callToActionLink:
-                      href: /news
-                      text: Register
-                - componentName: ContentBlock
-                  fields:
-                    id: guestticker
-                    title: Guest Ticket
-                    subtitle: Save 20% on early bird!
-                    content: |
-                      <h2>$149</h2>
-                      <ul>
-                      <li>All access pass</li>
-                      <li>Exclusive network lunches</li>
-                      <li>20% off all thousands of goods</li>
-                      <li>Free online catalog</li>
-                      <li>Print and digital ticket</li>
-                      <li>Unlimited customize your agenda</li>
-                      </ul>
-                    callToActionLink:
-                      href: /news
-                      text: Register
+          - componentName: TicketGrid
     - componentName: CountdownSection
     - componentName: Promo
       fields:
@@ -103,28 +45,7 @@ placeholders:
           text:
       placeholders:
         jss-section-content:
-          - componentName: ContentList
-            fields:
-              cssClass: section content-list w-full p-10
-              contentBlocks:
-                - componentName: ContentBlock
-                  fields:
-                    id: vipticket
-                    cssClass: Content-block h-60 w-full text-left
-                    title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius dolor non mi ornare pulvinar. 
-                    image: /assets/img/products-team-sports.jpg
-                - componentName: ContentBlock
-                  fields:
-                    id: regularticker
-                    cssClass: Content-block h-60 w-full text-right
-                    title: Praesent porta eleifend ligula, at varius mauris sodales in. Pellentesque feugiat libero vitae ligula eleifend, at vehicula lectus ornare. 
-                    image: /assets/img/products-team-sports.jpg
-                - componentName: ContentBlock
-                  fields:
-                    id: guestticker
-                    cssClass: Content-block h-60 w-full text-left
-                    title:  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum accumsan ornare. Suspendisse eleifend luctus congue. Curabitur eu tellus metus.
-                    image: /assets/img/products-team-sports.jpg
+          - componentName: TestimonyList
     - componentName: Section
       fields:
         cssClass: section__sponsors

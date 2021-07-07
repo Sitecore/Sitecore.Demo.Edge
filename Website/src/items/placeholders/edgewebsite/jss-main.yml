@@ -25,6 +25,7 @@ SharedFields:
     {2C13DBC0-415C-5DAA-A7D9-56928F1271C4}
     {18D56CF9-81D3-50C2-A8C3-19349D36074D}
     {DCC3725E-8F7E-58DF-A17B-FE153FBCE627}
+    {2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}
 Languages:
 - Language: en
   Fields:
@@ -47,11 +48,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "631217df-723c-471a-a509-6037caca051a"
+      Value: "828959f3-9135-46d7-acde-be52fe0c8efc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T160640Z
+      Value: 20210707T180823Z

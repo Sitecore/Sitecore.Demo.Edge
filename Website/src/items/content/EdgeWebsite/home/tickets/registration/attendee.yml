@@ -76,16 +76,15 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{AE0792D2-7A74-57AF-B1D3-4B0C23435443}"
+              uid="{E0C3F317-FB62-5B86-A401-47929730A51B}"
               p:after="r[@uid='{EDA939C2-64B2-5712-91BF-60B720AAF7C1}']"
-              s:rname="ContentList"
-              s:ds="{3623B27F-E8F1-532B-9A92-84C1E63AA466}"
-              s:id="{60B7BE26-12DA-5ED5-B4BD-542E8174DDFE}"
+              s:rname="TestimonyList"
+              s:id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{EDA939C2-64B2-5712-91BF-60B720AAF7C1}-0" />
             <r
               uid="{79170954-7881-5289-AA07-E6B6EE422EA7}"
-              p:after="r[@uid='{AE0792D2-7A74-57AF-B1D3-4B0C23435443}']"
+              p:after="r[@uid='{E0C3F317-FB62-5B86-A401-47929730A51B}']"
               s:rname="Section"
               s:ds="{0789456F-A666-5722-A6C7-AD37DABEF4D2}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -112,14 +111,14 @@ Languages:
       Value: 20210707T152629Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "547d1496-b6f8-4027-ab01-b0523668a8bd"
+      Value: "0c8d7ab9-1dab-4e31-80d1-d2c3a1d96395"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T172854Z
+      Value: 20210707T182045Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - attendee"
