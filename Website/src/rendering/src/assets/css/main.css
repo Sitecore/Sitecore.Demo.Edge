@@ -21,6 +21,7 @@
 
 /* 5. Our components */
 
+@import "./layout/breadcrumb.css";
 @import "./layout/buttons.css";
 @import "./layout/header.css";
 @import "./layout/hero.css";

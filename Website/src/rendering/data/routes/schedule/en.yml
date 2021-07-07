@@ -10,7 +10,8 @@ placeholders:
   jss-main:
     - componentName: FeaturedEvent
       fields:
-        heading: 
+        heading:
+    - componentName: Breadcrumb
     - componentName: Section
       fields:
         cssClass: none

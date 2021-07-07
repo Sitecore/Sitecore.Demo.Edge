@@ -12,8 +12,9 @@ placeholders:
       fields:
         eyebrow: READY | STEADY | PLAY!
         title: The World's Largest sports & leisure expo
-        subtitle: an action-packed agenda of workshops, keynotes, product demos, and exclusive content 
-        backgroundImage: 
+        subtitle: an action-packed agenda of workshops, keynotes, product demos, and exclusive content
+        backgroundImage:
+    - componentName: Breadcrumb
     - componentName: Section
       fields:
         cssClass: none
