@@ -18,7 +18,7 @@ const TicketGrid = (): JSX.Element => (
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
-        <Link href="/registration">
+        <Link href="/tickets/registration">
           <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
@@ -39,7 +39,7 @@ const TicketGrid = (): JSX.Element => (
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
-        <Link href="/registration">
+        <Link href="/tickets/registration">
           <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
@@ -60,7 +60,7 @@ const TicketGrid = (): JSX.Element => (
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
-        <Link href="/registration">
+        <Link href="/tickets/registration">
           <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
