@@ -27,6 +27,8 @@
 @import "./layout/fullImageSection.css";
 @import "./layout/speakers.css";
 @import "./layout/sponsors.css";
+@import "./layout/threeColumnsSection.css";
+@import "./layout/newsGrid.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";

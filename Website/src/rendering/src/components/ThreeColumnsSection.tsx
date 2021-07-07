@@ -1,5 +1,5 @@
 const ThreeColumnsSection = (): JSX.Element => (
-  <section className="section section--3-col">
+  <section className="section light section--3-col">
     <div className="section__content section--3-col__content">
       <h2 className="section__content__title section__content__title--light">Go the Distance</h2>
       <p className="section__content__p">

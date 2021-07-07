@@ -1,5 +1,5 @@
 const NewsGrid = (): JSX.Element => (
-  <div className="section__news__grid">
+  <div className="section__news__grid dark">
     <div className="section__news__grid__tweet">
       <img
         className="section__news__grid__tweet__img"
