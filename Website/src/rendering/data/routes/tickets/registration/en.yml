@@ -40,7 +40,7 @@ placeholders:
         title: Experience our event gallery
         content: Asdas fasfwe aerg sdeg sCheck out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
         callToActionLink:
-          href: /news #TODO
+          href: /news
           text: View full gallery
       placeholders:
         jss-section-content:
