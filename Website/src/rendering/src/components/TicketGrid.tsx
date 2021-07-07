@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 const TicketGrid = (): JSX.Element => (
-  <div className="grid grid-cols-3 gap-4 p-10">
-    <div className="section h-96 text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--blue">
+  <div className="grid grid-cols-3 gap-4">
+    <div className="section h-auto text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--blue">
       <div className="slanted-spacer"></div>
       <h2>VIP Ticket</h2>
       <span>Save 20% on early bird!</span>
