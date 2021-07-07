@@ -7,6 +7,8 @@ ARG MANAGEMENT_SERVICES_IMAGE
 ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
+ARG EXPERIENCE_EDGE_ASSETS_IMAGE
+ARG HORIZON_INTEGRATION_ASSETS
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
@@ -14,6 +16,8 @@ FROM ${MANAGEMENT_SERVICES_IMAGE} AS management_services
 FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
+FROM ${EXPERIENCE_EDGE_ASSETS_IMAGE} AS edge_assets
+FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -26,16 +30,26 @@ COPY --from=tools C:\tools C:\tools
 # Copy the Sitecore Management Services Module
 COPY --from=management_services C:\module\cm\content C:\inetpub\wwwroot
 
+# Copy the Experience Edge Connector Module
+COPY --from=edge_assets C:\module\cm\content C:\inetpub\wwwroot
+COPY --from=edge_assets C:\module\cm\xdt C:\module\xdt
+
+# Copy the Sitecore Horizon Module
+COPY --from=horizon_integration_assets /module/cm/content C:\inetpub\wwwroot
+
+
 # Copy and init the JSS / Headless Services Module
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=headless_services C:\module\tools C:\module\tools
+
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
+    C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
     Remove-Item -Path C:\module -Recurse -Force;
 
-# Copy and init the SPE Module
+# Copy the SPE Module
 COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 
-# Copy and init the Content Hub Connector Module
+# Copy the Content Hub Connector Module
 COPY --from=ch_assets C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt

@@ -98,6 +98,7 @@ Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 Add-HostsEntry "cm.edge.localhost"
 Add-HostsEntry "cd.edge.localhost"
 Add-HostsEntry "id.edge.localhost"
+Add-HostsEntry "sh.edge.localhost"
 Add-HostsEntry "www.edge.localhost"
 
 
