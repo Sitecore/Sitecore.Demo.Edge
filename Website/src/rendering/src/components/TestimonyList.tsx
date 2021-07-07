@@ -6,9 +6,9 @@ const TestimonyList = (): JSX.Element => (
       </div>
       <div>
         <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
-          accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius
-          dolor non mi ornare pulvinar."
+          &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in
+          magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed
+          varius dolor non mi ornare pulvinar.&quot;
           <br />
           <strong>Alba</strong>
         </p>
@@ -17,9 +17,9 @@ const TestimonyList = (): JSX.Element => (
     <div className="Content-block h-40 w-full text-right flex flex-row-reverse gap-10">
       <img className="image h-20 w-30" src="/assets/img/logo/striva.svg" alt=""></img>
       <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
+        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
         accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius
-        dolor non mi ornare pulvinar."
+        dolor non mi ornare pulvinar.&quot;
         <br />
         <strong>Striva</strong>
       </p>
@@ -27,9 +27,9 @@ const TestimonyList = (): JSX.Element => (
     <div className="Content-block h-40 w-full text-left flex flex-row gap-10">
       <img className="image h-20 w-30" src="/assets/img/logo/onthegreen.svg" alt=""></img>
       <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
+        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
         accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius
-        dolor non mi ornare pulvinar. "
+        dolor non mi ornare pulvinar. &quot;
         <br />
         <strong>On The Green</strong>
       </p>
