@@ -10,7 +10,7 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        heading: Payment
+        title: Payment
     - componentName: Section
       fields:
         cssClass: section__news
@@ -19,6 +19,16 @@ placeholders:
       placeholders:
         jss-section-content:
           - componentName: PaymentForm
+    - componentName: FullImageSection
+      fields:
+        cssClass: section__full-image--speaker
+        position: right
+        title: Chris Williams
+        subtitle: Guest Speaker
+        content: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
+        callToActionLink:
+          href: /tickets
+          text: Book your seat
     - componentName: Section
       fields:
         cssClass: section__sponsors

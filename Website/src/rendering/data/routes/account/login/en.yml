@@ -10,7 +10,7 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        heading: Login
+        title: Login
     - componentName: Section
       fields:
         cssClass: section__news

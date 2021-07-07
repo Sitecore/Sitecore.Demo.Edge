@@ -10,7 +10,7 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        heading: Attendee Registration
+        title: Attendee Registration
     - componentName: Section
       fields:
         cssClass: section__vertical
