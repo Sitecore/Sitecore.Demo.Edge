@@ -9,6 +9,11 @@ placeholders:
           - componentName: MainNavigation
   jss-main:
     - componentName: HeroImage
+      fields:
+        heading: Image
+        hero:
+          src: /data/media/img/golf.jpg
+          alt: Sample Image
     - componentName: FeaturedSpeakers
     - componentName: Section
       fields:

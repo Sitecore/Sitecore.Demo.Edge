@@ -1,0 +1,34 @@
+﻿---
+ID: "e521a6f1-9c1b-50fd-ab79-333f31af229a"
+Parent: "6b207e5e-bf08-54e2-a08f-e00c5a942968"
+Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
+Path: "/sitecore/content/EdgeWebsite/home/vendors/Page Components/vendors-jss-main-HeroImage-1"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "HeroImage-1"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T174912Z
+    - ID: "7f1d47cf-4525-5f3e-b8fe-4c6ddbcefa39"
+      Hint: hero
+      Value: |
+        <image alt="Sample Image" mediaid="{DD687A71-67BA-53B8-BFCA-A9AD6E61A4AD}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0c57bc34-f8fb-47ee-9aa7-04287a8f9737"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "bdb828c7-fbbd-5bbf-9248-f1bb60d2cc63"
+      Hint: heading
+      Value: Image
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T174913Z

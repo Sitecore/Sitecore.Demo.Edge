@@ -9,6 +9,11 @@ placeholders:
           - componentName: MainNavigation
   jss-main:
     - componentName: HeroImage
+      fields:
+        heading: Image
+        hero:
+          src: /data/media/img/swimmer.jpg
+          alt: Sample Image
     - componentName: FeaturedVendors
     - componentName: VendorsGrid
     - componentName: Section
