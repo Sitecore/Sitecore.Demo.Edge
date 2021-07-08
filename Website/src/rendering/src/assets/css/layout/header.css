@@ -9,49 +9,4 @@
   &.experience-editor-active {
     position: unset;
   }
-
-  &__eyebrow {
-    @apply bg-black-lightest text-white;
-
-    height: 30px;
-
-    &__content {
-      @include content;
-      @include flex--fe;
-
-      @apply h-full;
-
-      a:not(:last-child) {
-        margin-right: 0.75em;
-      }
-    }
-  }
-
-  &__container {
-    @apply bg-black bg-gradient-to-l from-black to-black-light;
-
-    box-shadow: 0 1px 4px 0 rgba(23, 23, 23, 0.3);
-
-    &__content {
-      @include content;
-      @include flex--sb;
-
-      height: 72px;
-
-      &__menu a:not(:last-child) {
-        margin-right: 0.75em;
-      }
-    }
-  }
-
-  a {
-    &:hover {
-      @apply text-yellow;
-    }
-  }
-}
-
-.header__container__content__logo,
-.header__container__content__logo img {
-  height: 46px;
 }
