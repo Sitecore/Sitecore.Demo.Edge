@@ -1,0 +1,29 @@
+id: cycling
+fields:
+  pageTitle: PLAY! Summit - Cycling
+placeholders:
+  jss-header:
+    - componentName: Header
+      placeholders:
+        jss-header-content:
+          - componentName: MainNavigation
+  jss-main:
+    - componentName: Section
+      fields:
+        cssClass: section__top-spacer
+    - componentName: Breadcrumb
+    - componentName: FullImageCTASection
+    - componentName: Section
+      fields:
+        cssClass: section__sponsors
+        brightness: light
+        title: Premium Sponsors
+        content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.
+        callToActionLink:
+          href: /sponsors/sponsorize
+          text: Become a Sponsor
+      placeholders:
+        jss-section-content:
+          - componentName: SponsorsGrid
+  jss-footer:
+    - componentName: Footer

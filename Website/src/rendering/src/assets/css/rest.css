@@ -99,6 +99,9 @@
 
 .section {
   padding: 5em 0;
+  &__top-spacer {
+    padding-bottom: 0px;
+  }
 }
 
 .section__content {
