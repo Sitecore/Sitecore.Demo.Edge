@@ -8,7 +8,7 @@ export default {
   component: MainNavigation,
 } as ComponentMeta<typeof MainNavigation>;
 
-const Template: ComponentStory<typeof MainNavigation> = (args) => <MainNavigation {...args} />;
+const Template: ComponentStory<typeof MainNavigation> = () => <MainNavigation />;
 
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {
