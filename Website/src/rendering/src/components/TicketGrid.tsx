@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
 const TicketGrid = (): JSX.Element => (
-  <div className="grid grid-cols-3 gap-4 p-10">
-    <div className="section h-96 text-center space-y-6 align-bottom has-bg-image">
+  <div className="grid grid-cols-3 gap-4">
+    <div className="section h-auto text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--blue">
+      <div className="slanted-spacer"></div>
       <h2>VIP Ticket</h2>
-      <p>Save 20% on early bird!</p>
+      <span>Save 20% on early bird!</span>
       <p>
         <h2>$249</h2>
         <ul>
@@ -17,14 +18,15 @@ const TicketGrid = (): JSX.Element => (
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
-        <Link href="/registration">
-          <a className="btn--main btn--main--round">Register</a>
+        <Link href="/tickets/attendee">
+          <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
     </div>
-    <div className="section h-96 text-center space-y-6 align-bottom has-bg-image">
+    <div className="section h-96 text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--yellow">
+      <div className="slanted-spacer"></div>
       <h2>Regular Ticket</h2>
-      <p>Save 20% on early bird!</p>
+      <span>Save 20% on early bird!</span>
       <p>
         <h2>$199</h2>
         <ul>
@@ -37,14 +39,15 @@ const TicketGrid = (): JSX.Element => (
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
-        <Link href="/registration">
-          <a className="btn--main btn--main--round">Register</a>
+        <Link href="/tickets/attendee">
+          <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
     </div>
-    <div className="section h-96 text-center space-y-6 align-bottom has-bg-image">
+    <div className="section h-96 text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--pink">
+      <div className="slanted-spacer"></div>
       <h2>Guest Ticket</h2>
-      <p>Save 20% on early bird!</p>
+      <span>Save 20% on early bird!</span>
       <p>
         <h2>$149</h2>
         <ul>
@@ -57,8 +60,8 @@ const TicketGrid = (): JSX.Element => (
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
-        <Link href="/registration">
-          <a className="btn--main btn--main--round">Register</a>
+        <Link href="/tickets/attendee">
+          <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
     </div>

@@ -11,30 +11,33 @@ placeholders:
     - componentName: HeaderBanner
       fields:
         title: Registration
+        backgroundImage:
+          src: /data/media/img/parking-banner.jpg
+          alt: Sample Image
     - componentName: Breadcrumb
+    - componentName: Section
+      fields:
+        cssClass: section__news
+        brightness: dark
+        title: Don't miss the super early bird offer
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
     - componentName: Section
       fields:
         cssClass: section__products
         brightness: light
-        title: Don't miss the super early bird offer
-        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
-        callToActionLink:
-          href:
-          text:
       placeholders:
         jss-section-content:
           - componentName: TicketGrid
     - componentName: CountdownSection
-    - componentName: Promo
+    - componentName: FullImageSection
       fields:
-        cssClass: section__promo--offer
+        cssClass: section__full-image--offer
         position: left
-        subtitle: FEATURED WORKSHOP
-        title: Quisque pretium sollicitudin
+        title: PLAY! Summit Exclusive Offer
         content: We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event.
         callToActionLink:
           href: /shop/discount
-          text: Save the date
+          text: Get Discount Code
     - componentName: Section
       fields:
         cssClass: section__testimonies

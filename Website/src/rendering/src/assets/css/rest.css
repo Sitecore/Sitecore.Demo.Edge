@@ -112,6 +112,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  &--left{
+    align-items: start;
+    justify-content: left;
+  }
 }
 
 .section__content__title {
