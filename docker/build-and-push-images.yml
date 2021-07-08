@@ -70,7 +70,9 @@ stages:
 
 - stage: Docker_Windows
   displayName: "Build Windows Images"
-  dependsOn: Build
+  dependsOn:
+  - Build
+  - Build_Storybook
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
