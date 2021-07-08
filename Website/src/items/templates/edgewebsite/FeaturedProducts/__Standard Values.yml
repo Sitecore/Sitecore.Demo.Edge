@@ -1,0 +1,31 @@
+﻿---
+ID: "af0e52a5-97d2-5fc6-a566-f1d293aa4319"
+Parent: "58e461c3-9795-5e94-be65-df37e5861895"
+Template: "58e461c3-9795-5e94-be65-df37e5861895"
+Path: /sitecore/templates/Project/edgewebsite/FeaturedProducts/__Standard Values
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T143221Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\JssImport
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8022e79b-5794-4942-871a-c32c60f60f3e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210708T143221Z

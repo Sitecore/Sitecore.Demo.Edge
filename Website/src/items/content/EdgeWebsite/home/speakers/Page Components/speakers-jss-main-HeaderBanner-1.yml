@@ -17,7 +17,7 @@ Languages:
       Value: 20210707T195655Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8b730aea-871e-4fdc-8ad7-a3f53ce38b79"
+      Value: "d59a9043-3b9f-437a-a19b-a9f4b80c6896"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -27,8 +27,8 @@ Languages:
       Value: Speakers
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T195659Z
+      Value: 20210708T135721Z
     - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
       Hint: backgroundImage
       Value: |
-        <image alt="Sample Image" mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" />
+        <image mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" alt="Sample Image" />

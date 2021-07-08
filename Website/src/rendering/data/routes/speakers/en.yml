@@ -10,7 +10,7 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        title: Speakers
+        title:
         backgroundImage:
           src: /data/media/img/golf.jpg
           alt: Sample Image

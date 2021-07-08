@@ -53,57 +53,65 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{38FC5F0F-69BF-5FAF-AD38-3EF1912544BE}"
+              uid="{AF99470C-DF35-5511-A1DD-502ECE3C9E5B}"
               p:after="r[@uid='{A4DCA744-59A4-59DF-AF47-173A3234B88C}']"
+              s:rname="Section"
+              s:ds="{4B822D1C-0DC9-54E0-BC4B-F6D7C72F45C0}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{BABD9AD5-52DB-5670-924D-F17BA4F9B968}"
+              p:after="r[@uid='{AF99470C-DF35-5511-A1DD-502ECE3C9E5B}']"
               s:rname="TicketGrid"
               s:id="{298D16E7-CFB2-5BE9-8B8C-BBC10A72597F}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{A4DCA744-59A4-59DF-AF47-173A3234B88C}-0" />
+              s:ph="/jss-main/jss-section-content-{AF99470C-DF35-5511-A1DD-502ECE3C9E5B}-0" />
             <r
-              uid="{1C7D4B14-D9D4-5D4D-989A-D0E89535AB55}"
-              p:after="r[@uid='{38FC5F0F-69BF-5FAF-AD38-3EF1912544BE}']"
+              uid="{662843E5-4419-5F2C-9D17-207E807C5293}"
+              p:after="r[@uid='{BABD9AD5-52DB-5670-924D-F17BA4F9B968}']"
               s:rname="CountdownSection"
               s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{A2D781BB-44F1-554D-9DEF-5104D1A62EB6}"
-              p:after="r[@uid='{1C7D4B14-D9D4-5D4D-989A-D0E89535AB55}']"
-              s:rname="Promo"
-              s:ds="{E59E453D-C7F0-5346-BD0F-35DBD6E1C30D}"
-              s:id="{34D68789-D03C-5299-8787-E5CDB2889E31}"
+              uid="{34CDA3FD-BFC5-583D-8720-100D5EE194D7}"
+              p:after="r[@uid='{662843E5-4419-5F2C-9D17-207E807C5293}']"
+              s:rname="FullImageSection"
+              s:ds="{7D158C80-2364-5FB1-A1D6-9829B8F6628C}"
+              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
               s:par=""
               s:ph="/jss-main" />
-            <r
-              uid="{74E7BF4A-5DD7-570E-9EAA-2E9C8C0266D7}"
-              p:after="r[@uid='{A2D781BB-44F1-554D-9DEF-5104D1A62EB6}']"
-              s:rname="Section"
-              s:ds="{CAD57E1E-2F25-5710-8918-EF7159597115}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{5BC3873C-0697-54CA-9D92-B84AE0123FD0}"
-              p:after="r[@uid='{74E7BF4A-5DD7-570E-9EAA-2E9C8C0266D7}']"
-              s:rname="TestimonyList"
-              s:id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{74E7BF4A-5DD7-570E-9EAA-2E9C8C0266D7}-0" />
             <r
               uid="{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}"
-              p:after="r[@uid='{5BC3873C-0697-54CA-9D92-B84AE0123FD0}']"
+              p:after="r[@uid='{34CDA3FD-BFC5-583D-8720-100D5EE194D7}']"
               s:rname="Section"
               s:ds="{1914388D-42EE-5156-AD57-E60D5E8846E4}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{0F3D463A-CF83-5D91-98F6-92CA7BF46435}"
+              uid="{7CE7FF1B-EE7C-5885-B4C6-9560F0828013}"
               p:after="r[@uid='{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}']"
+              s:rname="TestimonyList"
+              s:id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}-0" />
+            <r
+              uid="{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}"
+              p:after="r[@uid='{7CE7FF1B-EE7C-5885-B4C6-9560F0828013}']"
+              s:rname="Section"
+              s:ds="{15E7680F-B359-5DA7-9AA0-8858E19D3B56}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D8261F40-D92C-58BB-AC19-F819CC4E4E7F}"
+              p:after="r[@uid='{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}-0" />
+              s:ph="/jss-main/jss-section-content-{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}-0" />
             <r
               uid="{D93E4738-4E44-593B-A2EF-7CD131ED6072}"
               p:after="*[1=2]"
@@ -118,14 +126,14 @@ Languages:
       Value: 20210625T201849Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5e1f47eb-cdf3-4c9a-8c63-44459518c206"
+      Value: "0698a3b5-2061-4f01-b17c-6880008703e4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T195702Z
+      Value: 20210708T135724Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Tickets"

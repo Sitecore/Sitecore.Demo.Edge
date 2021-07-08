@@ -38,43 +38,57 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{859BC0CE-A022-5401-B18D-5E9D1CDE7239}"
+              uid="{F6C0C10B-6D97-574D-8444-C1DC78911C29}"
               p:after="r[@uid='{14184D5E-DE53-5069-BA1F-52D83B92A6A6}']"
-              s:rname="Section"
-              s:ds="{1F632868-B01E-5972-93C9-B30165216036}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{7D8213FE-1D5C-51CC-B6CF-20F45733012A}"
-              p:after="r[@uid='{859BC0CE-A022-5401-B18D-5E9D1CDE7239}']"
-              s:rname="PaymentForm"
-              s:id="{F859E00E-592B-5304-927F-B79BD48A90FB}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{859BC0CE-A022-5401-B18D-5E9D1CDE7239}-0" />
-            <r
-              uid="{2284DF86-A36D-5451-9737-A4468E987857}"
-              p:after="r[@uid='{7D8213FE-1D5C-51CC-B6CF-20F45733012A}']"
-              s:rname="FullImageSection"
-              s:ds="{48509E52-73AD-5DCA-990C-8710A80D2826}"
-              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+              uid="{B73E562E-2A68-52C9-94DB-B31CB25AF451}"
+              p:after="r[@uid='{F6C0C10B-6D97-574D-8444-C1DC78911C29}']"
+              s:rname="Section"
+              s:ds="{4678636C-7152-5BF3-933C-F163A5E09B9D}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
               uid="{A3BEBB67-94E3-5B86-8630-32674C1E9DCA}"
-              p:after="r[@uid='{2284DF86-A36D-5451-9737-A4468E987857}']"
+              p:after="r[@uid='{B73E562E-2A68-52C9-94DB-B31CB25AF451}']"
               s:rname="Section"
-              s:ds="{0C9A087F-0740-5DC6-8DB0-0B44B3BF3EBD}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{7BB64D7B-C0B3-5C5A-8923-31F79F2B3C0A}"
+              uid="{A224DC32-33DA-5633-833E-67F714DD0FD9}"
               p:after="r[@uid='{A3BEBB67-94E3-5B86-8630-32674C1E9DCA}']"
+              s:rname="PaymentForm"
+              s:id="{F859E00E-592B-5304-927F-B79BD48A90FB}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{A3BEBB67-94E3-5B86-8630-32674C1E9DCA}-0" />
+            <r
+              uid="{C5E5EB54-1DA0-57D4-B31B-C498CA333FEF}"
+              p:after="r[@uid='{A224DC32-33DA-5633-833E-67F714DD0FD9}']"
+              s:rname="FullImageSection"
+              s:ds="{42A06FE8-EDE5-5012-A8E0-CBC15DE99E25}"
+              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{F48C3458-995B-5442-83A0-25668A2A86B0}"
+              p:after="r[@uid='{C5E5EB54-1DA0-57D4-B31B-C498CA333FEF}']"
+              s:rname="Section"
+              s:ds="{86D30587-0728-59A0-BB46-6FBE5D5CE6E5}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{01C2AD2B-0F89-56EB-9DF4-FF19569C4D56}"
+              p:after="r[@uid='{F48C3458-995B-5442-83A0-25668A2A86B0}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{A3BEBB67-94E3-5B86-8630-32674C1E9DCA}-0" />
+              s:ph="/jss-main/jss-section-content-{F48C3458-995B-5442-83A0-25668A2A86B0}-0" />
             <r
               uid="{29386F99-11D5-5C07-8F01-E8BAF623B43F}"
               p:after="*[1=2]"
@@ -89,14 +103,14 @@ Languages:
       Value: 20210707T152623Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c32c4ecc-19d7-429e-9621-788ad6baad89"
+      Value: "b5238475-7781-458f-b32f-ba3d615e2374"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T172853Z
+      Value: 20210708T135726Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - payment"
