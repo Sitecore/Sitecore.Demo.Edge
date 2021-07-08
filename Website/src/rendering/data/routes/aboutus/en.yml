@@ -14,17 +14,19 @@ placeholders:
         title: The World's Largest sports & leisure expo
         subtitle: an action-packed agenda of workshops, keynotes, product demos, and exclusive content
         backgroundImage:
+          src: /data/media/img/conference.jpg
+          alt: Sample Image
     - componentName: Breadcrumb
     - componentName: Section
       fields:
-        cssClass: left
+        cssClass: left-full
         brightness: light
         title: A global gathering of fitness brands, sports professionals, and you
         content: |
-          <p>
+          <p class="text-sm font-bold">
           Now in its fifth year, the theme of this year’s PLAY! Summit is ‘Raise Your Game’. We’re bringing together the world’s leading fitness brands, sports stars, and innovators for our most epic event to date.
-          </p><p>Look forward to thought-provoking sessions from world-famous sports pros including Jacob Gonzalez, Michelle Smith,and Juan Carlos, and exclusive news and product launches from brands such as Striva, Yellow Jersey, and Pro staff.As all PLAY! Summit content will be available to attendees on-demand, there’s no reason to miss out on any of the action.
-          </p><p>To celebrate the fifth anniversary of PLAY! Summit,all online and in-person attendees will receive exclusive discounts on a range of sports apparel and equipment. In-person attendees will also have the opportunity to road-test new product releases in our Exhibition Hall, where around 300 exhibitors will be demonstrating the latest in fitness tech, wearables and more.
+          </p><p class="text-sm">Look forward to thought-provoking sessions from world-famous sports pros including Jacob Gonzalez, Michelle Smith,and Juan Carlos, and exclusive news and product launches from brands such as Striva, Yellow Jersey, and Pro staff.As all PLAY! Summit content will be available to attendees on-demand, there’s no reason to miss out on any of the action.
+          </p><p class="text-sm">To celebrate the fifth anniversary of PLAY! Summit,all online and in-person attendees will receive exclusive discounts on a range of sports apparel and equipment. In-person attendees will also have the opportunity to road-test new product releases in our Exhibition Hall, where around 300 exhibitors will be demonstrating the latest in fitness tech, wearables and more.
           </p>
         callToActionLink:
           href: /
@@ -32,22 +34,22 @@ placeholders:
     - componentName: FullImageCTASection
     - componentName: Section
       fields:
-        cssClass: section__news
+        cssClass: bg-black
         brightness: dark
         title:
         content: |
-          <div class="grid grid-cols-3 gap-5 w-full">
-          <div class="">
-          <div>200,000+</div>
-          <div>VISITORS</div>
+          <div class="grid grid-flow-col grid-cols-3 gap-2 w-full">
+          <div>
+          <h2 class="text-blue">200,000+</h2>
+          <h2 style="transform: scale(.7);">VISITORS</h2>
           </div>
           <div class="border-l-2 border-white">
-          <div>90+</div>
-          <div>GLOBALLY RECOGNIZED SPEAKERS</div>
+          <h2 class="text-blue">90+</h2>
+          <h2 style="transform: scale(.7);">GLOBALLY RECOGNIZED SPEAKERS</h2>
           </div>
           <div class="border-l-2 border-white">
-          <div>300+</div>
-          <div>EXHIBITORS</div>
+          <h2 class="text-blue">300+</h2>
+          <h2 style="transform: scale(.7);">EXHIBITORS</h2>
           </div>
           </div>
     - componentName: Section
