@@ -1,0 +1,116 @@
+﻿---
+ID: "ae6db3e2-5aa1-5876-b2d0-74d5beddfa27"
+Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/vendors/striva
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{F966B56F-A772-5676-9145-1CB48E76727D}"
+              p:after="r[@uid='{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}-0" />
+            <r
+              uid="{4BA27A1F-B1E3-52CA-B056-C751D65D225A}"
+              p:after="r[@uid='{F966B56F-A772-5676-9145-1CB48E76727D}']"
+              s:rname="HeaderBanner"
+              s:ds="{A9FB0FD1-37CD-52C1-BAE1-C2BB42F04E41}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{6E015E42-B3DE-5C03-8B35-5C2EC06BDBE4}"
+              p:after="r[@uid='{4BA27A1F-B1E3-52CA-B056-C751D65D225A}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{CD67317D-CF1A-51DB-B98B-CCB5C42C4877}"
+              p:after="r[@uid='{6E015E42-B3DE-5C03-8B35-5C2EC06BDBE4}']"
+              s:rname="VendorInformation"
+              s:id="{CD870284-AF1A-5BF5-AD99-5143C989BA47}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{EDB3797F-DC0A-5297-85E8-908AD08353F0}"
+              p:after="r[@uid='{CD67317D-CF1A-51DB-B98B-CCB5C42C4877}']"
+              s:rname="Section"
+              s:ds="{FA6FB7F8-199B-52C2-A743-CC7565C6C67E}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{C0A528E4-8FB5-5B85-8C41-4579787F7428}"
+              p:after="r[@uid='{EDB3797F-DC0A-5297-85E8-908AD08353F0}']"
+              s:rname="Section"
+              s:ds="{D41212F3-79DB-528A-B852-018E09099A52}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{BC8ED905-AB0E-596E-89B9-708BF6891DE9}"
+              p:after="r[@uid='{C0A528E4-8FB5-5B85-8C41-4579787F7428}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{C0A528E4-8FB5-5B85-8C41-4579787F7428}-0" />
+            <r
+              uid="{6BD4962E-4505-50B5-A875-20C15257B9C7}"
+              p:after="r[@uid='{BC8ED905-AB0E-596E-89B9-708BF6891DE9}']"
+              s:rname="Section"
+              s:ds="{4CCEE062-6AB3-5217-B43D-2F3B595FFEE0}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{EC6F840A-5C9A-5B28-899D-012D144FF609}"
+              p:after="r[@uid='{6BD4962E-4505-50B5-A875-20C15257B9C7}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{6BD4962E-4505-50B5-A875-20C15257B9C7}-0" />
+            <r
+              uid="{FD4F4C0E-D809-5161-832A-66B3F93584E5}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T201312Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bd4d8e85-46e0-4b9e-8a78-42d43edf727c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210708T201313Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - striva"
