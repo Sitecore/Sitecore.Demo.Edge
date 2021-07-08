@@ -5,11 +5,10 @@
     .product-image {
       @apply col-span-2;
       img {
-        width: 100%;
       }
     }
     .product-description {
-      @apply w-full;
+      @apply w-full space-y-3 text-sm pr-10;
     }
   }
 }
