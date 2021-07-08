@@ -20,7 +20,7 @@ const HeroSection = (): JSX.Element => (
         </div>
         <div className="btn__area">
           <Link href="/tickets">
-            <a className="btn--main btn--main--round btn--main--big">Book tickets</a>
+            <a className="btn--main btn--main--round btn--main--big">Book Tickets</a>
           </Link>
         </div>
       </div>
