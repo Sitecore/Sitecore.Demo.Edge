@@ -17,14 +17,18 @@ Languages:
       Value: 20210707T152630Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "97059fb8-b637-4e4a-84ac-a8d7675db2c6"
+      Value: "22e4f3f1-209b-415a-9607-1e7d14ac3973"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
       Hint: title
-      Value: Attendee Registration
+      Value: Registration
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T152630Z
+      Value: 20210708T135725Z
+    - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
+      Hint: backgroundImage
+      Value: |
+        <image alt="Sample Image" mediaid="{8743580F-0103-5F0F-B5F3-6451B7E72AA2}" />

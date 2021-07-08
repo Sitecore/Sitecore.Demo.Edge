@@ -24,20 +24,20 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
+        <link text="Become an Sponsor" url="/sponsors/sponsorize" linktype="external" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7621a002-de75-48a2-92fb-ecb6bf06b1d1"
+      Value: "393ecfc2-5fe9-49e4-85a2-386869b97983"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section__products
+      Value: section__news
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
-      Value: light
+      Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T195701Z
+      Value: 20210708T135723Z

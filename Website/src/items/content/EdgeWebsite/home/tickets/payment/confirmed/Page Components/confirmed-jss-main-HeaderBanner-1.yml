@@ -17,7 +17,7 @@ Languages:
       Value: 20210707T152625Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b1e2e584-68e4-49a8-bc41-f5a79dbc74da"
+      Value: "85dcf803-a5b1-4bfd-9b85-3e55074b7bed"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -27,4 +27,8 @@ Languages:
       Value: Payment Confirmed
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T152625Z
+      Value: 20210708T135727Z
+    - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
+      Hint: backgroundImage
+      Value: |
+        <image alt="Sample Image" mediaid="{8743580F-0103-5F0F-B5F3-6451B7E72AA2}" />
