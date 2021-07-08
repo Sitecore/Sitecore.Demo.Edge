@@ -10,30 +10,32 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        title: Attendee Registration
+        title: Registration
+        backgroundImage:
+          src: /data/media/img/parking-banner.jpg
+          alt: Sample Image
+    - componentName: Breadcrumb
     - componentName: Section
       fields:
-        cssClass: section__vertical
-        brightness: light
-        title: Don't Miss the super early bird offer
-        content: Lorem ipsum doler sit amit naga tjam akasdlkaj hdawe.
-        callToActionLink:
-          href:
-          text:
+        cssClass: section__news
+        brightness: dark
+        title: Don't miss the super early bird offer
+        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+    - componentName: Section
       placeholders:
         jss-section-content:
           - componentName: AttendeeForm
     - componentName: CountdownSection
-    - componentName: Promo
+    - componentName: FullImageSection
       fields:
-        cssClass: section__promo--offer
-        position: left
-        subtitle: FEATURED WORKSHOP
-        title: Quisque pretium sollicitudin
-        content: We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event.
+        cssClass: section__full-image--speaker
+        position: right
+        title: Chris Williams
+        subtitle: Guest Speaker
+        content: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
         callToActionLink:
-          href: /shop/discount
-          text: Save the date
+          href: /tickets
+          text: Book your seat
     - componentName: Section
       fields:
         cssClass: section__testimonials

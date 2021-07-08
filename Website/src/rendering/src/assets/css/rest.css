@@ -117,6 +117,9 @@
     align-items: start;
     justify-content: left;
   }
+  &--top{
+    justify-content: start;
+  }
 }
 
 .section__content__title {

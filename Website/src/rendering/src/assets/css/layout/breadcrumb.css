@@ -1,5 +1,5 @@
 .breadcrumb {
-  @apply max-w-screen-2xl mx-auto overflow-hidden bg-transparent p-2;
+  @apply max-w-screen-2xl mx-auto overflow-hidden bg-transparent p-2 capitalize;
 
   font-size: small;
   li {
