@@ -1,14 +1,40 @@
 .product {
   @apply max-w-screen-2xl my-0 mx-auto box-border overflow-hidden;
   .product-detail {
-    @apply grid grid-cols-3 gap-10;
+    @apply grid md:grid-cols-3 sm:grid-cols-2 gap-10;
     .product-image {
-      @apply col-span-2;
+      @apply md:col-span-2 sm:col-span-1;
       img {
       }
     }
     .product-description {
-      @apply w-full space-y-3 text-sm pr-10;
+      @apply w-full space-y-3 text-sm pr-10 p-5;
+    }
+  }
+  .product-info {
+    @apply w-full;
+
+    .product-info-header {
+      @apply mx-auto gap-5 w-2/3 grid grid-flow-col grid-cols-5 text-center p-10 uppercase;
+    }
+
+    .product-specs {
+      @apply bg-black-light text-white p-5 md:p-20 text-sm space-y-2;
+      .product-specs-row {
+        @apply grid grid-cols-6 w-full border-white	border-b-2 p-1;
+        :nth-child(even) {
+          @apply col-span-2;
+        }
+      }
+    }
+    .product-highlight {
+      @apply p-5 md:p-20 text-sm space-y-5;
+    }
+    .product-other {
+      @apply p-5 md:p-20 text-sm text-left space-y-5;
+    }
+    .product-events {
+      @apply p-5 md:p-20 text-sm text-left space-y-5;
     }
   }
 }

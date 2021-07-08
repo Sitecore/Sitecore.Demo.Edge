@@ -12,6 +12,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 // TODO: Import Material UI here
 import 'assets/css/main.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 

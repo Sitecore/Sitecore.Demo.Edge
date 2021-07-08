@@ -45,27 +45,34 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{3ECDD738-7A01-5B0A-A9D9-06F08713AA73}"
+              uid="{387DB9D1-F359-5E17-ABF3-96F70FF63317}"
               p:after="r[@uid='{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}']"
+              s:rname="ProductDetail"
+              s:id="{9E28A6C1-7D05-5C7F-81AF-1AF94C7A2F4D}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}"
+              p:after="r[@uid='{387DB9D1-F359-5E17-ABF3-96F70FF63317}']"
               s:rname="FullImageCTASection"
               s:id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{3679E024-7531-58BE-AA5F-AE5E29DC2187}"
-              p:after="r[@uid='{3ECDD738-7A01-5B0A-A9D9-06F08713AA73}']"
+              uid="{794BC956-E900-5DCF-B609-170F413C058C}"
+              p:after="r[@uid='{D7CDBBDF-4B71-5FF6-A320-C313888678F9}']"
               s:rname="Section"
-              s:ds="{14A9312D-7868-517B-B214-A998ED9D4F79}"
+              s:ds="{3C0C8FCD-5C56-58A2-AE2C-64C733F55496}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{A0BA1BC1-A631-5723-A4B5-57F2807E38BC}"
-              p:after="r[@uid='{3679E024-7531-58BE-AA5F-AE5E29DC2187}']"
+              uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}"
+              p:after="r[@uid='{794BC956-E900-5DCF-B609-170F413C058C}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{3679E024-7531-58BE-AA5F-AE5E29DC2187}-0" />
+              s:ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0" />
             <r
               uid="{8C98BB69-A969-5159-8B4D-C609D3E114D2}"
               p:after="*[1=2]"
@@ -80,14 +87,14 @@ Languages:
       Value: 20210708T154811Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c080fc23-8983-41b4-bcf3-579fa48f1603"
+      Value: "513b12d5-6c24-4d2a-8666-35e6b0273aa9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T154812Z
+      Value: 20210708T194346Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Cycling"
