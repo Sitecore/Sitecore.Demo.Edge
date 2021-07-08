@@ -17,7 +17,7 @@ Languages:
       Value: 20210707T152613Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6a6eec78-e7b9-49fc-80cc-ec60947a74eb"
+      Value: "5be479b3-889f-4d89-9087-bea22499de58"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -30,11 +30,11 @@ Languages:
       Value: "READY | STEADY | PLAY!"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135715Z
+      Value: 20210708T143232Z
     - ID: "e85a8061-ab10-54ce-b74a-6a9d2e71b554"
       Hint: subtitle
       Value: "an action-packed agenda of workshops, keynotes, product demos, and exclusive content"
     - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
       Hint: backgroundImage
       Value: |
-        <image alt="Sample Image" mediaid="{A214FBBE-F1CD-5911-AA4E-CD2C71EBA3C2}" />
+        <image mediaid="{A214FBBE-F1CD-5911-AA4E-CD2C71EBA3C2}" alt="Sample Image" />

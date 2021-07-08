@@ -38,20 +38,41 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{C49F2931-C23F-53D1-A428-55F38BCC8B80}"
+              uid="{E27FB923-418A-5B78-9872-B309F6128352}"
               p:after="r[@uid='{4D938807-FE21-5D3D-B42E-B190954A1A7E}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{5082BC0A-8283-5CD6-BF8C-BB02975BDFA3}"
+              p:after="r[@uid='{E27FB923-418A-5B78-9872-B309F6128352}']"
+              s:rname="FeaturedProducts"
+              s:id="{293B0B5B-0851-5D74-A670-43F2FE66DF89}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D857AA45-2083-5D6E-9CFA-E339C31C80D3}"
+              p:after="r[@uid='{5082BC0A-8283-5CD6-BF8C-BB02975BDFA3}']"
+              s:rname="AllProducts"
+              s:id="{0E8498A2-E3D3-518F-A880-67B60F4439C7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}"
+              p:after="r[@uid='{D857AA45-2083-5D6E-9CFA-E339C31C80D3}']"
               s:rname="Section"
-              s:ds="{02158DD1-7583-50B6-8708-9D93C3A592FE}"
+              s:ds="{66AD9BD5-7E2C-5181-A77F-4629EDDD8ED5}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{11EFBCED-DAC7-5AB6-A895-9046EBC96A09}"
-              p:after="r[@uid='{C49F2931-C23F-53D1-A428-55F38BCC8B80}']"
+              uid="{6FDCFD14-6EC9-5FFC-8B03-8B0DCFF520B6}"
+              p:after="r[@uid='{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{C49F2931-C23F-53D1-A428-55F38BCC8B80}-0" />
+              s:ph="/jss-main/jss-section-content-{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}-0" />
             <r
               uid="{B33954C0-7033-5FEA-B3D9-25914A8C7146}"
               p:after="*[1=2]"
@@ -66,14 +87,14 @@ Languages:
       Value: 20210625T201836Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "de1c001c-55da-468b-b71b-358e2f80121f"
+      Value: "23ce8ccd-c224-4f2b-a7da-b9d0da194427"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135718Z
+      Value: 20210708T150541Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Shop"

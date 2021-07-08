@@ -17,7 +17,7 @@ Languages:
       Value: 20210708T135717Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c2129161-da62-4423-99c6-e33162d5c0f5"
+      Value: "148396dc-a5ec-4820-93d7-5af1e62b3187"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -27,8 +27,8 @@ Languages:
       Value: Shop
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135718Z
+      Value: 20210708T143240Z
     - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
       Hint: backgroundImage
       Value: |
-        <image alt="Sample Image" mediaid="{09085896-2355-53E8-8F71-BB9761E60380}" />
+        <image mediaid="{09085896-2355-53E8-8F71-BB9761E60380}" alt="Sample Image" />

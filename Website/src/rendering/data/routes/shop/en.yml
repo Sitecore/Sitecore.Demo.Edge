@@ -14,6 +14,9 @@ placeholders:
         backgroundImage:
           src: /data/media/img/shop-banner.jpg
           alt: Sample Image
+    - componentName: Breadcrumb
+    - componentName: FeaturedProducts
+    - componentName: AllProducts
     - componentName: Section
       fields:
         cssClass: section__sponsors
