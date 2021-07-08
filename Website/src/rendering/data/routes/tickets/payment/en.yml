@@ -11,11 +11,16 @@ placeholders:
     - componentName: HeaderBanner
       fields:
         title: Payment
+        backgroundImage:
+          src: /data/media/img/parking-banner.jpg
+          alt: Sample Image
+    - componentName: Breadcrumb
     - componentName: Section
       fields:
         cssClass: section__news
         brightness: dark
-        title: Creadit / Debit Card
+        title: Credit / Debit Card
+    - componentName: Section
       placeholders:
         jss-section-content:
           - componentName: PaymentForm
