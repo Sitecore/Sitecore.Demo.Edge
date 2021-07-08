@@ -21,18 +21,18 @@ Languages:
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: |
-        <div class="grid grid-cols-3 gap-5 w-full">
-        <div class="">
-        <div>200,000+</div>
-        <div>VISITORS</div>
+        <div class="grid grid-flow-col grid-cols-3 gap-2 w-full">
+        <div>
+        <h2 class="text-blue">200,000+</h2>
+        <h2 style="transform: scale(.7); line-height:1;">VISITORS</h2>
         </div>
         <div class="border-l-2 border-white">
-        <div>90+</div>
-        <div>GLOBALLY RECOGNIZED SPEAKERS</div>
+        <h2 class="text-blue">90+</h2>
+        <h2 style="transform: scale(.7); line-height:1;">GLOBALLY RECOGNIZED SPEAKERS</h2>
         </div>
         <div class="border-l-2 border-white">
-        <div>300+</div>
-        <div>EXHIBITORS</div>
+        <h2 class="text-blue">300+</h2>
+        <h2 style="transform: scale(.7); line-height:1;">EXHIBITORS</h2>
         </div>
         </div>
         
@@ -42,17 +42,17 @@ Languages:
         <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8794f0da-d94e-4414-8d6f-4d22753e71ff"
+      Value: "7759e4e3-f8b7-47c4-a47c-2c14a74a1457"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section__news
+      Value: "bg-black"
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
       Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T172844Z
+      Value: 20210708T135716Z

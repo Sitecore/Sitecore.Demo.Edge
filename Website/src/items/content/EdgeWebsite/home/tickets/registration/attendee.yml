@@ -38,65 +38,79 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{E5BDD100-669E-51E7-9921-7E6DA4B79B52}"
+              uid="{2B2065DB-5D18-53F5-8605-B5F7CC9ADEBB}"
               p:after="r[@uid='{68B377B9-8357-5E7C-B9CC-76765D5BB50D}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{AD4AB779-25CD-5901-8385-4AA7AFEEAE68}"
+              p:after="r[@uid='{2B2065DB-5D18-53F5-8605-B5F7CC9ADEBB}']"
               s:rname="Section"
-              s:ds="{AE94E96F-38AC-5D4B-B0F3-0129C0509A57}"
+              s:ds="{FFC44113-0826-506C-B6D8-B7F4BC94E9A4}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{413589EF-68DC-58F2-8F1D-E796C83897A9}"
-              p:after="r[@uid='{E5BDD100-669E-51E7-9921-7E6DA4B79B52}']"
+              uid="{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}"
+              p:after="r[@uid='{AD4AB779-25CD-5901-8385-4AA7AFEEAE68}']"
+              s:rname="Section"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D67366CF-9958-52E7-A9B1-7C38A02E06EE}"
+              p:after="r[@uid='{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}']"
               s:rname="AttendeeForm"
               s:id="{9D27B323-AD63-54C8-A9BD-2DED29DFAF1D}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{E5BDD100-669E-51E7-9921-7E6DA4B79B52}-0" />
+              s:ph="/jss-main/jss-section-content-{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}-0" />
             <r
-              uid="{24DD7E1D-D1D9-5368-95D3-BD50B44CC92C}"
-              p:after="r[@uid='{413589EF-68DC-58F2-8F1D-E796C83897A9}']"
+              uid="{31D2B39F-656D-5821-9EDA-30F8FCB41910}"
+              p:after="r[@uid='{D67366CF-9958-52E7-A9B1-7C38A02E06EE}']"
               s:rname="CountdownSection"
               s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{4037073D-D71A-5401-9D83-38B01F131988}"
-              p:after="r[@uid='{24DD7E1D-D1D9-5368-95D3-BD50B44CC92C}']"
-              s:rname="Promo"
-              s:ds="{72D3859D-DCB6-5A17-A177-29BBF2870990}"
-              s:id="{34D68789-D03C-5299-8787-E5CDB2889E31}"
+              uid="{F503ED27-48D6-5198-9B04-64136F91868B}"
+              p:after="r[@uid='{31D2B39F-656D-5821-9EDA-30F8FCB41910}']"
+              s:rname="FullImageSection"
+              s:ds="{D5569E0F-3EE5-5214-BD67-CCF9B8814B31}"
+              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{EDA939C2-64B2-5712-91BF-60B720AAF7C1}"
-              p:after="r[@uid='{4037073D-D71A-5401-9D83-38B01F131988}']"
+              uid="{539A33B7-FA3F-5E86-90CA-EF4EDEB4468C}"
+              p:after="r[@uid='{F503ED27-48D6-5198-9B04-64136F91868B}']"
               s:rname="Section"
-              s:ds="{5C61D174-6612-5E87-9DA8-D723C6AC9EE0}"
+              s:ds="{53317CF8-1B65-5687-BA54-E8969203EEFD}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{E0C3F317-FB62-5B86-A401-47929730A51B}"
-              p:after="r[@uid='{EDA939C2-64B2-5712-91BF-60B720AAF7C1}']"
+              uid="{A244C1C4-34A1-5196-A27B-6B787A759794}"
+              p:after="r[@uid='{539A33B7-FA3F-5E86-90CA-EF4EDEB4468C}']"
               s:rname="TestimonyList"
               s:id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{EDA939C2-64B2-5712-91BF-60B720AAF7C1}-0" />
+              s:ph="/jss-main/jss-section-content-{539A33B7-FA3F-5E86-90CA-EF4EDEB4468C}-0" />
             <r
-              uid="{79170954-7881-5289-AA07-E6B6EE422EA7}"
-              p:after="r[@uid='{E0C3F317-FB62-5B86-A401-47929730A51B}']"
+              uid="{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}"
+              p:after="r[@uid='{A244C1C4-34A1-5196-A27B-6B787A759794}']"
               s:rname="Section"
-              s:ds="{0789456F-A666-5722-A6C7-AD37DABEF4D2}"
+              s:ds="{0F39CE8C-AD22-5EAA-AAB5-F8F1116E089C}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{73C271F8-4CE5-5380-A2EE-17A059FB6C1C}"
-              p:after="r[@uid='{79170954-7881-5289-AA07-E6B6EE422EA7}']"
+              uid="{2BE9597F-BD91-57D2-BA9B-4A9F5058DE74}"
+              p:after="r[@uid='{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{79170954-7881-5289-AA07-E6B6EE422EA7}-0" />
+              s:ph="/jss-main/jss-section-content-{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}-0" />
             <r
               uid="{0AECC14D-E4D7-56AB-9626-6592D41FCCD0}"
               p:after="*[1=2]"
@@ -111,14 +125,14 @@ Languages:
       Value: 20210707T152629Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0c8d7ab9-1dab-4e31-80d1-d2c3a1d96395"
+      Value: "a85be007-13c9-4b35-a351-ffce06ded122"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T182045Z
+      Value: 20210708T135725Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - attendee"

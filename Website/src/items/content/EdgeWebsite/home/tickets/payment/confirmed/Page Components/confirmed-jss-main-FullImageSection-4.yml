@@ -1,0 +1,43 @@
+﻿---
+ID: "f4f64fbe-63ad-56e7-9b9c-c66741a95597"
+Parent: "5c69838d-c969-5b91-ad16-6df7c56848a0"
+Template: "5954b01b-2adb-53d6-85ee-e8408d2cc2a4"
+Path: "/sitecore/content/EdgeWebsite/home/tickets/payment/confirmed/Page Components/confirmed-jss-main-FullImageSection-4"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "FullImageSection-4"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f531c03-8501-5776-be06-03ac387d1076"
+      Hint: callToActionLink
+      Value: |
+        <link text="Get Discount Code" url="/shop/discount" linktype="external" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T135727Z
+    - ID: "46dd92a7-c1e9-566c-99e7-1b63c9eeafcf"
+      Hint: position
+      Value: left
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a7ceff10-be70-44f5-afc0-943708664089"
+    - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
+      Hint: content
+      Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
+    - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
+      Hint: cssClass
+      Value: "section__full-image--offer"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210708T135727Z
+    - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
+      Hint: title
+      Value: "PLAY! Summit Exclusive Offer"

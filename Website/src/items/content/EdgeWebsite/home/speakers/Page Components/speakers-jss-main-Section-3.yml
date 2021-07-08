@@ -24,10 +24,10 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
+        <link text="Become an Sponsor" url="/sponsors/sponsorize" linktype="external" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "05bf4a8b-004a-4a1e-a8f1-6c7f4ceb4ebf"
+      Value: "d4e834a3-50e3-4b88-ba09-ed2093c5dee0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -40,4 +40,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201841Z
+      Value: 20210707T183637Z

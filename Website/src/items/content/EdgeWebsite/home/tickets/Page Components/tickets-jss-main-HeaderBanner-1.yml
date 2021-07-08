@@ -17,7 +17,7 @@ Languages:
       Value: 20210707T152621Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "249f392c-b375-462b-9ecc-273eb53f8251"
+      Value: "dd0d40c0-99d0-45d0-9754-8519b0c62176"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -27,4 +27,8 @@ Languages:
       Value: Registration
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T152621Z
+      Value: 20210708T143251Z
+    - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
+      Hint: backgroundImage
+      Value: |
+        <image mediaid="{8743580F-0103-5F0F-B5F3-6451B7E72AA2}" alt="Sample Image" />
