@@ -8,10 +8,10 @@ placeholders:
         jss-header-content:
           - componentName: MainNavigation
   jss-main:
-    - componentName: HeaderBanner
+    - componentName: HeroImage
       fields:
-        title:
-        backgroundImage:
+        heading: Image
+        hero:
           src: /data/media/img/golf.jpg
           alt: Sample Image
     - componentName: Breadcrumb

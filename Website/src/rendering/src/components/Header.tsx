@@ -1,5 +1,6 @@
 import { Field, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+
 import Link from 'next/link';
 
 type HeaderProps = ComponentProps & {
@@ -8,27 +9,25 @@ type HeaderProps = ComponentProps & {
   };
 };
 
-const Header = (props: HeaderProps): JSX.Element => (
-  <>
-    <div className="header__eyebrow">
-      <div className="header__eyebrow__content">
-        <a href="#" className="small">
-          EN
-        </a>
-        <Link href="/account/login">
-          <a className="small">Login</a>
-        </Link>
+const Header = (props: HeaderProps): JSX.Element => {
+  return (
+    <>
+      <div className="bg-black-lightest text-white">
+        <div
+          className="lg:container lg:mx-auto flex flex-wrap justify-end content-center px-4"
+          style={{ height: '30px' }}
+        >
+          <a href="#" className="small">
+            EN
+          </a>
+          <Link href="/account/login">
+            <a className="small ml-1">Login</a>
+          </Link>
+        </div>
       </div>
-    </div>
-    <div className="header__container">
-      <div className="header__container__content">
-        <a className="header__container__content__logo" href="/">
-          <img src="/assets/img/play-logo-stacked-light.svg" alt="PLAY! Summit logo" />
-        </a>
-        <Placeholder name="jss-header-content" rendering={props.rendering} />
-      </div>
-    </div>
-  </>
-);
+      <Placeholder name="jss-header-content" rendering={props.rendering} />
+    </>
+  );
+};
 
 export default Header;
