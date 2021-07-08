@@ -15,7 +15,7 @@ const Header = (props: HeaderProps): JSX.Element => {
     <>
       <div className="bg-black-lightest text-white">
         <div
-          className="lg:container lg:mx-auto flex flex-wrap justify-end content-center px-4 lg:px-0"
+          className="lg:container lg:mx-auto flex flex-wrap justify-end content-center px-4"
           style={{ height: '30px' }}
         >
           <a href="#" className="small">
@@ -61,7 +61,7 @@ const Header = (props: HeaderProps): JSX.Element => {
           </div>
           <div
             className={
-              'lg:flex flex-grow bg-black-light lg:bg-transparent px-4 pb-5 lg:px-0 lg:pb-0' +
+              'lg:flex flex-grow bg-black-light lg:bg-transparent px-4 pb-5 lg:pb-0' +
               (navbarOpen ? ' flex' : ' hidden')
             }
           >
