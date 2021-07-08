@@ -17,7 +17,7 @@ Languages:
       Value: 20210708T201312Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3f1c50fb-cd99-48f5-9b27-7199228af676"
+      Value: "d2cdc023-610c-48dc-843f-b91d5744305b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -27,8 +27,8 @@ Languages:
       Value: Vendor
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T201312Z
+      Value: 20210708T213917Z
     - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
       Hint: backgroundImage
       Value: |
-        <image alt="Sample Image" mediaid="{8743580F-0103-5F0F-B5F3-6451B7E72AA2}" />
+        <image mediaid="{8743580F-0103-5F0F-B5F3-6451B7E72AA2}" alt="Sample Image" />
