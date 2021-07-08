@@ -1,0 +1,15 @@
+.product {
+  @apply max-w-screen-2xl my-0 mx-auto box-border overflow-hidden;
+  .product-detail {
+    @apply grid grid-cols-3 gap-10;
+    .product-image {
+      @apply col-span-2;
+      img {
+        width: 100%;
+      }
+    }
+    .product-description {
+      @apply w-full;
+    }
+  }
+}

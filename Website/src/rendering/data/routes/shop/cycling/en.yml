@@ -12,6 +12,7 @@ placeholders:
       fields:
         cssClass: section__top-spacer
     - componentName: Breadcrumb
+    - componentName: ProductDetail
     - componentName: FullImageCTASection
     - componentName: Section
       fields:
