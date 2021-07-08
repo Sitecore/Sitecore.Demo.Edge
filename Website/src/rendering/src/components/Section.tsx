@@ -14,18 +14,21 @@ type SectionProps = ComponentProps & {
 const Section = (props: SectionProps): JSX.Element => {
   const sectionCssClasses = `section ${props.fields.cssClass?.value}`;
   const sectionContentCssClasses = `section__content ${props.fields.cssClass?.value}__content`;
-  const titleCssClasses = `section__content__title section__content__title--${props.fields.brightness.value}`;
-  const contentCssClasses = `section__content__p section__content__p--${props.fields.brightness.value}`;
+  const titleCssClasses = `section__content__title section__content__title--${props.fields.brightness?.value}`;
+  const contentCssClasses = `section__content__p section__content__p--${props.fields.brightness?.value}`;
 
   return (
     <section className={sectionCssClasses}>
       <div className={sectionContentCssClasses}>
-        <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
-        <div
-          className={contentCssClasses}
-          dangerouslySetInnerHTML={{ __html: props.fields.content?.value }}
-        ></div>
-        {/* <RichText tag="p" field={props.fields.content} className={contentCssClasses} /> */}
+        {props.fields && (
+          <>
+            <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
+            <div
+              className={contentCssClasses}
+              dangerouslySetInnerHTML={{ __html: props.fields.content?.value }}
+            ></div>
+          </>
+        )}
         {!!props.rendering && (
           <Placeholder name="jss-section-content" rendering={props.rendering} />
         )}

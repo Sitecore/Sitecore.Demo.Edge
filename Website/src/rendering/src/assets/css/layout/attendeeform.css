@@ -1,0 +1,33 @@
+.attendee-form {
+  .attendee-form-content {
+    h2 {
+      @apply text-blue;
+    }
+    ul {
+      text-align: left;
+      padding-left: 40px;
+      padding-right: 20px;
+      list-style: none;
+      font-size: medium;
+      height: auto;
+      line-height: 3rem;
+      margin-bottom: 30px;
+      li:before {
+        content: '';
+        display: inline-block;
+        height: 1em;
+        width: 1em;
+        background-image: url(/assets/img/tickets/check.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 0.5em;
+        fill: red;
+      }
+    }
+  }
+  .attendee-form-form {
+    h2 {
+      @apply text-blue;
+    }
+  }
+}
