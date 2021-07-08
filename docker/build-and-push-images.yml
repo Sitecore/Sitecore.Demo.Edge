@@ -39,6 +39,35 @@ stages:
           displayName: 'npm run build'
           workingDirectory: Website/src/rendering
 
+- stage: Build_Storybook
+  displayName: "Run 'npm run build-storybook'"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+          vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: Website/src/rendering
+
+        - script: |
+            npm run build-storybook
+          displayName: 'npm run build-storybook'
+          workingDirectory: Website/src/rendering
+
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: "Website/src/rendering/storybook-static"
+            artifact: "Storybook"
+            publishLocation: "pipeline"
+
 - stage: Docker_Windows
   displayName: "Build Windows Images"
   dependsOn: Build
