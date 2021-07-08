@@ -74,35 +74,35 @@ const Header = (props: HeaderProps): JSX.Element => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/schedule">
+                <Link href="/speakers">
                   <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                     Speakers
                   </a>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/schedule">
+                <Link href="/vendors">
                   <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                     Vendors
                   </a>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/schedule">
+                <Link href="/map">
                   <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                     Map
                   </a>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/schedule">
+                <Link href="/shop">
                   <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                     Shop
                   </a>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href="/schedule">
+                <Link href="/news">
                   <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                     News
                   </a>
