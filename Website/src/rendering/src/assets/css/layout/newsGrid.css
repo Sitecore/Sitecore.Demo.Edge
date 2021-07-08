@@ -1,24 +1,27 @@
 .section__news {
-@include flex--center;
-@apply flex-col bg-cover bg-center bg-no-repeat;
-background-image: url(../../img/background-pattern-dark.svg);
+  @include flex--center;
+  @apply flex-col bg-cover bg-center bg-no-repeat;
 
+  &--light {
+    background-image: url(../../img/background-pattern-light.svg);
+  }
+  
+  &--dark {
+    background-image: url(../../img/background-pattern-dark.svg);
+  }
 }
 
 .section__news__grid {
-  @apply flex;
+  @apply flex flex-col md:flex-row;
   margin: 1em auto 2em;
 }
 
 .section__news__grid__tweet {
-  @apply bg-white border-solid border border-gray;
-  width: 30%;
-  margin: 5px;
-  padding: 5px;
+  @apply bg-white border-solid border border-gray w-full md:w-1/4 lg:w-1/3 my-1 mx-0 md:mx-1;;
 }
 
 .section__news__grid__tweet__img {
-  max-width: 100%;
+  @apply max-w-full;
 }
 
 .section__news__grid__tweet__content {
@@ -26,8 +29,9 @@ background-image: url(../../img/background-pattern-dark.svg);
 }
 
 .section__news__grid__tweet__content p {
-  margin: 5px 0;
+  @apply my-1 mx-0 md:mx-1;
 }
+
 
 .section__news__grid__tweet__content__profile {
   @include flex--center;
@@ -50,20 +54,15 @@ background-image: url(../../img/background-pattern-dark.svg);
 }
 
 .section__news__grid__news {
-  width: 70%;
-  display: flex;
-  flex-wrap: wrap;
+  @apply w-full md:w-3/4 lg:w-2/3 flex flex-wrap;
 }
 
 .section__news__grid__news__item {
   @include flex--center;
-  @apply text-blue bg-white-light rounded-sm;
+  @apply text-blue text-center bg-white-light rounded-sm no-underline box-border;
   width: calc(50% - 10px);
   margin: 5px;
-  text-align: center;
   padding: 20px 5%;
-  box-sizing: border-box;
-  text-decoration: none;
   line-height: 1.2;
   font-size: 1.25em;
   font-weight: 600;
@@ -71,20 +70,15 @@ background-image: url(../../img/background-pattern-dark.svg);
 }
 
 .section__news__grid__news__item:hover {
-  color: #f7f7f7;
-  background-color: #006ef9;
+  @apply text-white bg-blue;
 }
 
 .news__item {
+  @include flex--center;
+  @apply no-underline box-border;
   width: calc(50% - 10px);
   margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   padding: 20px 5%;
-  box-sizing: border-box;
-  text-decoration: none;
   font-weight: 400;
   font-size: var(--fs--medium);
   line-height: 1.35;

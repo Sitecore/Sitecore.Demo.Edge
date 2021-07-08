@@ -69,7 +69,7 @@ placeholders:
     - componentName: FullImageCTASection
     - componentName: Section
       fields:
-        cssClass: section__news
+        cssClass: section__news section__news--dark
         brightness: dark
         title: News and Media
         content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
@@ -79,7 +79,7 @@ placeholders:
           - componentName: NewsGrid
     - componentName: Section
       fields:
-        cssClass: section__sponsors
+        cssClass: section__sponsors section__sponsors--light
         brightness: light
         title: Premium Sponsors
         content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.

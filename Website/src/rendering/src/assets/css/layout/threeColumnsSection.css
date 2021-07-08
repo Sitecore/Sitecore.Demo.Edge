@@ -1,11 +1,11 @@
 .section--3-col {
   @apply bg-cover bg-center bg-no-repeat;
 
-    &.light {
+    &--light {
       background-image: url(../../img/background-pattern-light.svg);
     }
 
-    &.dark {
+    &--dark {
       background-image: url(../../img/background-pattern-dark.svg);
     }
 }
