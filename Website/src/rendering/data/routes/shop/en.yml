@@ -10,7 +10,7 @@ placeholders:
   jss-main:
     - componentName: HeaderBanner
       fields:
-        title: Shop
+        title:
         backgroundImage:
           src: /data/media/img/shop-banner.jpg
           alt: Sample Image
