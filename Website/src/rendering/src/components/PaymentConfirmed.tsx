@@ -1,37 +1,35 @@
 import Link from 'next/link';
 
 const PaymentConfirmed = (): JSX.Element => (
-  <div className="section gap-4 w-full bg-white flex item-start text-left">
-    <div className="section__content p-10 space-y-6 border border-gray-300 ml-4">
-      <h2>Payment Confirmed</h2>
-      <p className="text-left">
-        Thank you for your order. We look forward to seeing you at the PLAY! Summit.Use the
+  <div className="grid justify-items-stretch w-full grid-cols-5 attendee-form gap-10">
+    <div className="section__content--top text-center space-y-5 attendee-form-content col-span-3 border border-gray-300 ml-4">
+      <div className="p-5">
+        <h2>Payment Confirmed</h2>
+      </div>
+      <p className="text-left m-5">
+        Thank you for your order. We look forward to seeing you at the PLAY! Summit. Use the
         following Code to check-in during the event.
       </p>
       <div className="w-full">
-        <img
-          className="h-60 w-60 mx-auto"
-          src="/assets/img/payment/Moe_Epsilon_QR_code_vector.svg"
-          alt="confirmed"
-        />
+        <img className="h-60 w-60 mx-auto" src="/assets/img/payment/qr.png" alt="confirmed" />
       </div>
       <div className="px-6 pt-4 pb-4">
         <Link href="/tickets">
           <a className="btn--main btn--main--round">Download Ticket</a>
         </Link>
       </div>
-      <div className="px-6 pt-4 pb-4">
+      <div className="px-6 pt-4 pb-4 pb-10">
         <Link href="/tickets">
           <a className="btn--main btn--main--round">Contact Support</a>
         </Link>
       </div>
     </div>
-    <div className="section__content">
+    <div className="section__content--top attendee-form-form col-span-2 space-y-5">
       <div className="w-full align-top">
         <div className="bg-black p-5 text-white">
           <h2>Order Summary</h2>
         </div>
-        <div className="bg-gray p-5 space-y-5">
+        <div className="bg-gray-light text-sm p-5 space-y-5">
           <div>
             <strong>Details</strong>
           </div>

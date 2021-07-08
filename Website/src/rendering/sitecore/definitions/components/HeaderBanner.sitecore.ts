@@ -16,11 +16,6 @@ const HeaderBanner = function (manifest: Manifest): void {
       { name: 'subtitle', type: CommonFieldTypes.SingleLineText },
       { name: 'backgroundImage', type: CommonFieldTypes.Image },
     ],
-    /*
-    If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
-    register it here, or components added to that placeholder will not be returned by Sitecore:
-    placeholders: ['exposed-placeholder-name']
-    */
   });
 };
 

@@ -11,11 +11,11 @@ placeholders:
     - componentName: HeaderBanner
       fields:
         title: Payment Confirmed
+        backgroundImage:
+          src: /data/media/img/parking-banner.jpg
+          alt: Sample Image
+    - componentName: Breadcrumb
     - componentName: Section
-      fields:
-        cssClass: section__news
-        brightness: light
-        title:
       placeholders:
         jss-section-content:
           - componentName: PaymentConfirmed
