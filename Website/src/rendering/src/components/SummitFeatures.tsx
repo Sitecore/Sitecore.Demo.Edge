@@ -1,7 +1,11 @@
 const SummitFeatures = (): JSX.Element => (
   <div className="grid grid-cols-4 gap-3 pt-10">
     <div>
-      <img className="h-40" src="/assets/img/aboutus/Play-Summit-Speaking-Hall2.jpg" alt="expo" />
+      <img
+        className="w-full h-52"
+        src="/assets/img/aboutus/Play-Summit-Speaking-Hall2.jpg"
+        alt="expo"
+      />
       <div className="bg-gray-light p-5">
         <strong>The Expo</strong>
         <p className="text-sm pt-5">
@@ -11,7 +15,7 @@ const SummitFeatures = (): JSX.Element => (
       </div>
     </div>
     <div className="item item--2">
-      <img className="h-40" src="/assets/img/aboutus/fitbit-logo.png" alt="Speakers" />
+      <img className="w-full h-52" src="/assets/img/aboutus/fitbit-logo.png" alt="Speakers" />
       <div className="bg-gray-light p-5">
         <strong>Leading brands</strong>
         <p className="text-sm pt-5">
@@ -22,7 +26,7 @@ const SummitFeatures = (): JSX.Element => (
     </div>{' '}
     <div className="item item--3">
       <img
-        className="h-40"
+        className="w-full h-52"
         src="/assets/img/aboutus/crowds-people-at-cycling-exhibition-BKK44X.jpeg"
         alt="Vendors"
       />
@@ -36,7 +40,7 @@ const SummitFeatures = (): JSX.Element => (
       </div>{' '}
     </div>
     <div className="item item--3">
-      <img className="h-40" src="/assets/img/aboutus/P1220073.jpeg" alt="Vendors" />
+      <img className="w-full h-52" src="/assets/img/aboutus/P1220073.jpeg" alt="Vendors" />
       <div className="bg-gray-light p-5">
         <strong>Speakers</strong>
         <p className="text-sm pt-5">

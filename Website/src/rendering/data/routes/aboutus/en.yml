@@ -41,15 +41,15 @@ placeholders:
           <div class="grid grid-flow-col grid-cols-3 gap-2 w-full">
           <div>
           <h2 class="text-blue">200,000+</h2>
-          <h2 style="transform: scale(.7);">VISITORS</h2>
+          <h2 style="transform: scale(.7); line-height:1;">VISITORS</h2>
           </div>
           <div class="border-l-2 border-white">
           <h2 class="text-blue">90+</h2>
-          <h2 style="transform: scale(.7);">GLOBALLY RECOGNIZED SPEAKERS</h2>
+          <h2 style="transform: scale(.7); line-height:1;">GLOBALLY RECOGNIZED SPEAKERS</h2>
           </div>
           <div class="border-l-2 border-white">
           <h2 class="text-blue">300+</h2>
-          <h2 style="transform: scale(.7);">EXHIBITORS</h2>
+          <h2 style="transform: scale(.7); line-height:1;">EXHIBITORS</h2>
           </div>
           </div>
     - componentName: Section
