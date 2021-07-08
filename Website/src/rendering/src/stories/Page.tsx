@@ -3,16 +3,9 @@ import React from 'react';
 import MainNavigation  from '../components/MainNavigation';
 import './page.css';
 
-interface PageProps {
-  user?: {};
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
-}
-
-export const Page = ({ user, onLogin, onLogout, onCreateAccount }: PageProps) => (
+export const Page = () => (
   <article>
-    <MainNavigation user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />
+    <MainNavigation />
 
     <section>
       <h2>Pages in Storybook</h2>
