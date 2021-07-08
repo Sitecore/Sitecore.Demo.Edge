@@ -1,15 +1,7 @@
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-type HeaderProps = ComponentProps & {
-  fields: {
-    heading: Field<string>;
-  };
-};
-
-const Header = (props: HeaderProps): JSX.Element => {
+const Header = (): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <>
