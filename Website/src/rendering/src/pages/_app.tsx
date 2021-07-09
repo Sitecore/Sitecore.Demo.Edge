@@ -49,7 +49,6 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <meta name="description" content="Play! Summit" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
 
       {/*
