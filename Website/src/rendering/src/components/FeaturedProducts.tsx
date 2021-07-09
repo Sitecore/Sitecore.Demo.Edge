@@ -15,7 +15,7 @@ const FeaturedProducts = (): JSX.Element => (
         <Link href="/shop" passHref>
           <div className="rounded overflow-hidden">
             <img
-              className="w-full border b-1 border-gray-dark h-40"
+              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
               src="/assets/img/shop/featured-watch.jpeg"
               alt="Mountain"
             />
@@ -34,7 +34,7 @@ const FeaturedProducts = (): JSX.Element => (
         <Link href="/shop" passHref>
           <div className="rounded overflow-hidden">
             <img
-              className="w-full border b-1 border-gray-dark h-40"
+              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
               src="/assets/img/shop/featured-shoe.jpeg"
               alt="Mountain"
             />
@@ -53,7 +53,7 @@ const FeaturedProducts = (): JSX.Element => (
         <Link href="/shop" passHref>
           <div className="rounded overflow-hidden">
             <img
-              className="w-full border b-1 border-gray-dark h-40"
+              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
               src="/assets/img/shop/helmet.jpeg"
               alt="Mountain"
             />
@@ -72,7 +72,7 @@ const FeaturedProducts = (): JSX.Element => (
         <Link href="/shop" passHref>
           <div className="rounded overflow-hidden">
             <img
-              className="w-full border b-1 border-gray-dark h-40"
+              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
               src="/assets/img/shop/luxe-bike.jpeg"
               alt="Mountain"
             />
@@ -91,7 +91,7 @@ const FeaturedProducts = (): JSX.Element => (
         <Link href="/shop" passHref>
           <div className="rounded overflow-hidden">
             <img
-              className="w-full border b-1 border-gray-dark h-40"
+              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
               src="/assets/img/shop/center-top.jpeg"
               alt="Mountain"
             />
