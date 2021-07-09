@@ -156,7 +156,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets" passHref>
+        <Link href="/vendors/striva" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"

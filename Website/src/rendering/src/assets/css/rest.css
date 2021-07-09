@@ -568,3 +568,8 @@
   line-height: 1.4;
   max-width: 500px;
 }
+
+.icon {
+  margin: 10px;
+  color: #006ef9;
+}
