@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const SpeakersGrid = (): JSX.Element => (
   <div className="section__speakers__grid">
-    <Link href="/speakers/maryasada">
+    <Link href="/speakers/mary-asada">
       <a className="section__speakers__grid__speaker">
         <img src="/assets/img/speaker-mary-asada.jpeg" alt="Mary Asada" />
         <p className="speaker__name">Mary Asada</p>

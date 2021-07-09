@@ -1,0 +1,100 @@
+﻿---
+ID: "148dcad0-afc9-5e2c-8a2e-ad57d650a7cc"
+Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/EdgeWebsite/home/shop/cycling
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{9B9A789D-4B84-5E15-81D6-E0F05459F29C}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:rname="Header"
+              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+              s:par=""
+              s:ph="/jss-header" />
+            <r
+              uid="{86519445-70A0-59EA-A5D6-F628B01D3E0B}"
+              p:after="r[@uid='{9B9A789D-4B84-5E15-81D6-E0F05459F29C}']"
+              s:rname="MainNavigation"
+              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+              s:par=""
+              s:ph="/jss-header/jss-header-content-{9B9A789D-4B84-5E15-81D6-E0F05459F29C}-0" />
+            <r
+              uid="{67F7F38F-31A6-5129-8BED-377263C91F95}"
+              p:after="r[@uid='{86519445-70A0-59EA-A5D6-F628B01D3E0B}']"
+              s:rname="Section"
+              s:ds="{3BD0C7F8-E49D-5FC0-B324-0840D54450DA}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}"
+              p:after="r[@uid='{67F7F38F-31A6-5129-8BED-377263C91F95}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{387DB9D1-F359-5E17-ABF3-96F70FF63317}"
+              p:after="r[@uid='{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}']"
+              s:rname="ProductDetail"
+              s:id="{9E28A6C1-7D05-5C7F-81AF-1AF94C7A2F4D}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}"
+              p:after="r[@uid='{387DB9D1-F359-5E17-ABF3-96F70FF63317}']"
+              s:rname="FullImageCTASection"
+              s:id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{794BC956-E900-5DCF-B609-170F413C058C}"
+              p:after="r[@uid='{D7CDBBDF-4B71-5FF6-A320-C313888678F9}']"
+              s:rname="Section"
+              s:ds="{3C0C8FCD-5C56-58A2-AE2C-64C733F55496}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}"
+              p:after="r[@uid='{794BC956-E900-5DCF-B609-170F413C058C}']"
+              s:rname="SponsorsGrid"
+              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0" />
+            <r
+              uid="{8C98BB69-A969-5159-8B4D-C609D3E114D2}"
+              p:after="*[1=2]"
+              s:rname="Footer"
+              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+              s:par=""
+              s:ph="/jss-footer" />
+          </d>
+        </r>
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T154811Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "caa93a60-a15e-4c62-a288-eb1bc50b66f2"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210708T213908Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit - Cycling"
