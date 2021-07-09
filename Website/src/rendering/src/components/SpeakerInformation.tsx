@@ -11,7 +11,7 @@ const SpeakerInformation = (): JSX.Element => (
     <div className="section__content left__content">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="col-span-1 md:col-span-1">
-          <img src="/assets/img/speaker-mary-asada.jpeg" alt="Mary Asada" />
+          <img src="/data/media/img/speakers/mary-asada.jpeg" alt="Mary Asada" />
           <div>
             <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faFacebookF} />
             <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faTwitter} />

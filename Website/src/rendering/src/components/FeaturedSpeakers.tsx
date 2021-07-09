@@ -16,7 +16,7 @@ const FeaturedSpeakers = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-mary-asada.jpeg"
+              src="/data/media/img/speakers/mary-asada.jpeg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -29,7 +29,7 @@ const FeaturedSpeakers = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-martin-moore.jpeg"
+              src="/data/media/img/speakers/martin-moore.jpeg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -42,7 +42,7 @@ const FeaturedSpeakers = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-ed-jones.jpeg"
+              src="/data/media/img/speakers/ed-jones.jpeg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -55,7 +55,7 @@ const FeaturedSpeakers = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-sophia-taylor.jpeg"
+              src="/data/media/img/speakers/sophia-taylor.jpeg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -68,7 +68,7 @@ const FeaturedSpeakers = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-li-xiu-ying.jpeg"
+              src="/data/media/img/speakers/li-xiu-ying.jpeg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
