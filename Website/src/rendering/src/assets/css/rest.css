@@ -99,6 +99,9 @@
 
 .section {
   padding: 5em 0;
+  &__top-spacer {
+    padding-bottom: 0px;
+  }
 }
 
 .section__content {
@@ -564,4 +567,9 @@
   margin: 20px 0 30px;
   line-height: 1.4;
   max-width: 500px;
+}
+
+.icon {
+  margin: 10px;
+  color: #006ef9;
 }

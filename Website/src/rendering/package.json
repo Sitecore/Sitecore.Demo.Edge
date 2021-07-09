@@ -32,6 +32,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@sitecore-jss/sitecore-jss-nextjs": "^18.0.0-canary.1",
     "@sitecore-jss/sitecore-jss-tracking": "^18.0.0-canary.1",
     "graphql": "~15.4.0",

@@ -3,6 +3,50 @@ import Link from 'next/link';
 const VendorsGrid = (): JSX.Element => (
   <section>
     <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
+      <div className="mx-auto gap-10 w-2/3 grid grid-flow-col grid-cols-5 pt-10">
+        <span>Filter by</span>
+        <button
+          type="button"
+          className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          id="menu-button"
+          aria-expanded="true"
+          aria-haspopup="true"
+        >
+          Schedule
+          <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
+        </button>
+        <button
+          type="button"
+          className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          id="menu-button"
+          aria-expanded="true"
+          aria-haspopup="true"
+        >
+          Speakers
+          <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
+        </button>
+        <button
+          type="button"
+          className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          id="menu-button"
+          aria-expanded="true"
+          aria-haspopup="true"
+        >
+          Category
+          <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
+        </button>
+        <button
+          type="button"
+          className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          id="menu-button"
+          aria-expanded="true"
+          aria-haspopup="true"
+        >
+          Sport
+          <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
+        </button>
+      </div>
+
       <h1 className="text-center uppercase text-blue pt-10 text-4xl font-semibold">
         All event vendors
       </h1>
@@ -112,7 +156,7 @@ const VendorsGrid = (): JSX.Element => (
           </div>
         </Link>
 
-        <Link href="/tickets" passHref>
+        <Link href="/vendors/striva" passHref>
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
