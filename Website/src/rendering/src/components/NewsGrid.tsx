@@ -26,18 +26,20 @@ const NewsGrid = (): JSX.Element => (
       </div>
     </div>
     <div className="section__news__grid__news">
-      <a className="section__news__grid__news__item" href="#">
-        PLAY! Summit Goes Live
-      </a>
-      <a className="section__news__grid__news__item" href="#">
-        Momentum to premiere new fitness app at PLAY! Summit
-      </a>
-      <a className="section__news__grid__news__item" href="#">
-        Jacob Gonzalez announced as latest speaker at PLAY! Summit
-      </a>
-      <a className="section__news__grid__news__item" href="#">
-        Organizers expect record attendance at PLAY! Summit
-      </a>
+      <div className="grid grid-cols-2 gap-2.5 h-full">
+        <a className="section__news__grid__news__item" href="#">
+          PLAY! Summit Goes Live
+        </a>
+        <a className="section__news__grid__news__item" href="#">
+          Momentum to premiere new fitness app at PLAY! Summit
+        </a>
+        <a className="section__news__grid__news__item" href="#">
+          Jacob Gonzalez announced as latest speaker at PLAY! Summit
+        </a>
+        <a className="section__news__grid__news__item" href="#">
+          Organizers expect record attendance at PLAY! Summit
+        </a>
+      </div>
     </div>
   </div>
 );

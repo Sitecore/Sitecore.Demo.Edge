@@ -3,7 +3,7 @@ import Link from 'next/link';
 const VendorsGrid = (): JSX.Element => (
   <section>
     <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
-      <div className="mx-auto gap-10 w-2/3 grid grid-flow-col grid-cols-5 pt-10">
+      <div className="mx-auto gap-5 md:gap-10 w-2/3 grid grid-cols-1 md:grid-cols-5 pt-10">
         <span>Filter by</span>
         <button
           type="button"

@@ -3,7 +3,7 @@ import Link from 'next/link';
 const FeaturedSpeakers = (): JSX.Element => (
   <section className="">
     <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
-      <h1 className="text-center uppercase text-blue pt-10 text-4xl font-semibold">
+      <h1 className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold">
         Featured Speakers
       </h1>
       <p className="text-center">
