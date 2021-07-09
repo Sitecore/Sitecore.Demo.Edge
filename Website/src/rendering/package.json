@@ -50,6 +50,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
     "@graphql-codegen/cli": "^1.19.1",
     "@graphql-codegen/plugin-helpers": "^1.18.1",
     "@graphql-codegen/typed-document-node": "^1.18.4",
@@ -60,6 +61,10 @@
     "@sitecore-jss/sitecore-jss-cli": "^18.0.0-canary.1",
     "@sitecore-jss/sitecore-jss-dev-tools": "^18.0.0-canary.1",
     "@sitecore-jss/sitecore-jss-manifest": "^18.0.0-canary.1",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/react": "^6.3.4",
     "@types/node": "^14.6.4",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.0",
@@ -68,6 +73,7 @@
     "@typescript-eslint/parser": "^4.28.0",
     "autoprefixer": "^10.2.6",
     "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
     "constant-case": "^3.0.4",
@@ -106,6 +112,8 @@
     "start": "cross-env-shell JSS_MODE=disconnected \"npm-run-all --serial bootstrap --parallel next:dev start:disconnected-proxy start:watch-components\"",
     "start:disconnected-proxy": "ts-node --project tsconfig.scripts.json ./scripts/disconnected-mode-proxy.ts",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
+    "storybook": "start-storybook -p 6006 -s ./public,./src",
+    "build-storybook": "build-storybook -s ./public,./src"
   }
 }
