@@ -16,7 +16,7 @@ const FeaturedVendors = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/RobinFitness.jpg"
+              src="/data/media/img/vendors/RobinFitness.jpg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -29,7 +29,7 @@ const FeaturedVendors = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Gameday.jpg"
+              src="/data/media/img/vendors/Gameday.jpg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -42,7 +42,7 @@ const FeaturedVendors = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Outrace.jpg"
+              src="/data/media/img/vendors/Outrace.jpg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -55,7 +55,7 @@ const FeaturedVendors = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/RunRightThrough.jpg"
+              src="/data/media/img/vendors/RunRightThrough.jpg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
@@ -68,7 +68,7 @@ const FeaturedVendors = (): JSX.Element => (
           <div className="rounded overflow-hidden">
             <img
               className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/OnTheGreen.jpg"
+              src="/data/media/img/vendors/OnTheGreen.jpg"
               alt="Mountain"
             />
             <div className="px-6 py-4">
