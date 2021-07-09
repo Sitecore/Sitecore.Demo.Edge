@@ -18,10 +18,10 @@ Languages:
     - ID: "7f1d47cf-4525-5f3e-b8fe-4c6ddbcefa39"
       Hint: hero
       Value: |
-        <image alt="Sample Image" mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" />
+        <image mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" alt="Sample Image" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "42dadab9-fb39-4cfb-a6a3-231a2d042d61"
+      Value: "08227230-2324-4332-b421-4dfb6a48e559"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -31,4 +31,4 @@ Languages:
       Value: Image
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210709T013350Z
+      Value: 20210709T135420Z
