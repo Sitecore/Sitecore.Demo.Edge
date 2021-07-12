@@ -74,24 +74,6 @@ const Footer = (): JSX.Element => (
         </li>
       </ul>
       <ul className="footer__content__footer__col">
-        <li>News</li>
-        <li>
-          <Link href="/news">Latest</Link>
-        </li>
-        <li>
-          <Link href="/aboutus">About Us</Link>
-        </li>
-        <li>
-          <Link href="/media/center">Media Center</Link>
-        </li>
-        <li>
-          <Link href="/media/assets">Media Assets</Link>
-        </li>
-        <li>
-          <Link href="/inquires">Inquires</Link>
-        </li>
-      </ul>
-      <ul className="footer__content__footer__col">
         <li>Get Support</li>
         <li>
           <Link href="/support">Tech Support</Link>

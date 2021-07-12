@@ -64,9 +64,9 @@ const MainNavigation = (): JSX.Element => {
               </Link>
             </li>
             <li>
-              <Link href="/map">
+              <Link href="/aboutus">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Map
+                  About Us
                 </a>
               </Link>
             </li>
@@ -74,13 +74,6 @@ const MainNavigation = (): JSX.Element => {
               <Link href="/shop">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                   Shop
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/news">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  News
                 </a>
               </Link>
             </li>
