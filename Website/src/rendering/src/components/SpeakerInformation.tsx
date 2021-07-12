@@ -29,8 +29,8 @@ const SpeakerInformation = (): JSX.Element => (
           </div>
         </div>
         <div className="col-span-1 md:col-span-3 space-y-5">
-          <h3>SPEAKER</h3>
-          <h2>Mary Asada</h2>
+          <h3 className="">SPEAKER</h3>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-blue">Mary Asada</h2>
           <p className="text-base">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
             invidunt ut labore et dolore magna aliquyam erat, sed.

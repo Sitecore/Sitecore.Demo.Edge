@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const AttendeeForm = (): JSX.Element => (
-  <div className="grid justify-items-stretch w-full grid-cols-5 attendee-form gap-10">
+  <div className="grid justify-items-stretch w-full grid-cols-1 md:grid-cols-5 attendee-form gap-0 md:gap-10">
     <div className="section__content--top text-center space-y-10 attendee-form-content col-span-2 bg-gray-light">
       <div>
         <h2>VIP Ticket</h2>

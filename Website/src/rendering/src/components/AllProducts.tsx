@@ -4,7 +4,7 @@ const AllProducts = (): JSX.Element => (
   <div className="max-w-screen-2xl my-0 mx-auto box-border overflow-hidden">
     <h1 className="text-center uppercase text-blue py-10 text-3xl font-bold">All Products</h1>
 
-    <div className="mx-auto gap-10 w-2/3 grid grid-flow-col grid-cols-5">
+    <div className="mx-auto gap-5 md:gap-10 w-2/3 grid grid-cols-1 md:grid-cols-5 pt-10">
       <span>Filter by:</span>
       <button
         type="button"
@@ -52,7 +52,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-alba-hydration-pack.jpeg"
             alt="Mountain"
           />
@@ -71,7 +71,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-centercycle-speed-track-helmet.jpeg"
             alt="Mountain"
           />
@@ -89,7 +89,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-centercycle-womens-biking-top.jpeg"
             alt="Mountain"
           />
@@ -107,7 +107,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-habitat-striva5.jpeg"
             alt="Mountain"
           />
@@ -125,7 +125,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-striva-activity-tracker.jpeg"
             alt="Mountain"
           />
@@ -141,7 +141,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/speedsensor.jpeg"
             alt="Mountain"
           />
@@ -159,7 +159,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-striva-cycling-computer.jpeg"
             alt="Mountain"
           />
@@ -177,7 +177,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-centercycle-tire-repair-kit.jpeg"
             alt="Mountain"
           />
@@ -195,7 +195,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-mens-biking-shorts.jpeg"
             alt="Mountain"
           />
@@ -213,7 +213,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/tickets" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/helmet.jpeg"
             alt="Mountain"
           />
@@ -231,7 +231,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/tickets" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/featured-shoe.jpeg"
             alt="Mountain"
           />
@@ -249,7 +249,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/tickets" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/luxe-bike.jpeg"
             alt="Mountain"
           />
@@ -267,7 +267,7 @@ const AllProducts = (): JSX.Element => (
       <Link href="/shop" passHref>
         <div className="rounded overflow-hidden">
           <img
-            className="w-full border b-1 border-gray-dark h-40"
+            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
             src="/assets/img/shop/prod-habitat-stationary-bike.jpg"
             alt="Mountain"
           />

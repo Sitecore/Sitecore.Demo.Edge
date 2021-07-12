@@ -20,7 +20,7 @@ const VendorInformation = (): JSX.Element => (
           </div>
         </div>
         <div className="col-span-1 md:col-span-3 space-y-5">
-          <h2>Striva</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-blue">Striva</h2>
           <p className="text-base">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
             invidunt ut labore et dolore magna aliquyam erat, sed.

@@ -3,7 +3,7 @@ import Link from 'next/link';
 const RequestInfoForm = (): JSX.Element => (
   <div className="section__content text-white">
     <h2 className="text-blue uppercase">Request Further information:</h2>
-    <div className="flex w-2/3 gap-10 pt-10">
+    <div className="flex grid grid-cols-1 md:grid-cols-2 w-2/3 gap-2 md:gap-10 pt-2 md:pt-10">
       <input
         className="w-full rounded p-2 border border-white-dark text-sm font-medium"
         type="text"
@@ -15,7 +15,7 @@ const RequestInfoForm = (): JSX.Element => (
         placeholder="Last Name"
       />
     </div>
-    <div className="flex w-2/3 gap-10 pt-4">
+    <div className="flex w-2/3 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 pt-2 md:pt-3">
       <input
         className="w-full rounded p-2 border border-white-dark text-sm font-medium"
         type="text"
@@ -27,7 +27,7 @@ const RequestInfoForm = (): JSX.Element => (
         placeholder="Company"
       />
     </div>
-    <div className="flex w-2/3 gap-10 pt-4">
+    <div className="flex w-2/3 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 pt-2 md:pt-3">
       <input
         className="w-full rounded p-2 border border-white-dark text-sm font-medium"
         type="text"
@@ -39,7 +39,7 @@ const RequestInfoForm = (): JSX.Element => (
         placeholder="Contact no"
       />
     </div>
-    <div className="flex w-2/3 gap-10 pt-4">
+    <div className="flex w-2/3  grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 pt-2 md:pt-3">
       <div className="w-full">
         <label className="inline-flex items-center pl-5">
           <input type="checkbox" className="form-checkbox align-top inline-block" />
