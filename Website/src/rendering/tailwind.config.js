@@ -57,7 +57,10 @@ module.exports = {
     extend: {
       maxWidth: {
         '30': '30rem',
-      }
+      },
+      backgroundImage: theme => ({
+        'home-hero': "url('/assets/img/home-hero-background.jpg')",
+       })
     },
   },
   variants: {

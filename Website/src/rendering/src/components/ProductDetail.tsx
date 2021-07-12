@@ -35,6 +35,7 @@ const ProductDetail = (): JSX.Element => (
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
+            aria-label="Select Size"
           >
             <span className="w-5 text-left">L</span>{' '}
             <span className="w-1 text-yellow-dark">Limited&nbsp;Stock</span>

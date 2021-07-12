@@ -12,6 +12,7 @@ const AllProducts = (): JSX.Element => (
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
+        aria-label="featured"
       >
         Featured
         <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -22,6 +23,7 @@ const AllProducts = (): JSX.Element => (
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
+        aria-label="vendor"
       >
         Vendor
         <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -32,6 +34,7 @@ const AllProducts = (): JSX.Element => (
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
+        aria-label="category"
       >
         Category
         <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -42,6 +45,7 @@ const AllProducts = (): JSX.Element => (
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
+        aria-label="sport"
       >
         Sport
         <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />

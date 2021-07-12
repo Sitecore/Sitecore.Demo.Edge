@@ -1,15 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../assets/img/play-logo-wide-light.svg';
 
 const HeroSection = (): JSX.Element => (
   <section className="section__hero banner">
     <div className="section__hero__container">
       <div className="section__hero__container__content">
         <div className="section__hero__container__content__text">
-          <img
-            src="/assets/img/play-logo-wide-light.svg"
-            className="hidden md:block"
-            alt="PLAY! Summit"
-          />
+          <div className="hidden md:block">
+            <Image src={logo} alt="PLAY! Summit" />
+          </div>
           <p className="banner__title__eyebrow">Ready | Steady | Play!</p>
           <h1 className="banner__title__sub-title">Sports and Leisure Expo</h1>
           <h3 className="banner__title__title">Raise Your Game</h3>

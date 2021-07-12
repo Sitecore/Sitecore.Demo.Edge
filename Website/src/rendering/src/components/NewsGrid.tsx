@@ -1,17 +1,19 @@
+import Image from 'next/image';
+
+import news1 from '../../data/media/img/news/conference-image.jpg';
+import news2 from '../../data/media/img/news/profile-pic.jpg';
+
 const NewsGrid = (): JSX.Element => (
   <div className="section__news__grid">
     <div className="section__news__grid__tweet">
-      <img
-        className="section__news__grid__tweet__img"
-        src="/assets/img/tweet-conference-image.jpg"
-        alt="Play! Summit conference"
-      />
+      <Image src={news1} alt="News" className="section__news__grid__tweet__img" />
       <div className="section__news__grid__tweet__content">
         <div className="section__news__grid__tweet__content__profile">
-          <img
+          <Image
+            src={news2}
+            alt="News"
+            width="60px"
             className="section__news__grid__tweet__content__profile__pic"
-            src="/assets/img/tweet-profile-pic.jpg"
-            alt="Profile pic"
           />
           <div className="section__news__grid__tweet__content__profile__content">
             <p>John Doe - @jdoe</p>
