@@ -20,6 +20,7 @@ const SessionsFilters = (): JSX.Element => (
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
+            aria-label="Results"
           >
             Results
             <svg
@@ -50,6 +51,7 @@ const SessionsFilters = (): JSX.Element => (
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
+            aria-label="Chronological"
           >
             Chronological
             <svg

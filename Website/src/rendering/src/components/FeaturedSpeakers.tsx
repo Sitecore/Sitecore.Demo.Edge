@@ -1,4 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+import speaker1 from '../../data/media/img/speakers/mary-asada.jpeg';
+import speaker2 from '../../data/media/img/speakers/martin-moore.jpeg';
+import speaker3 from '../../data/media/img/speakers/ed-jones.jpeg';
+import speaker4 from '../../data/media/img/speakers/sophia-taylor.jpeg';
+import speaker5 from '../../data/media/img/speakers/li-xiu-ying.jpeg';
 
 const FeaturedSpeakers = (): JSX.Element => (
   <section className="">
@@ -14,11 +21,7 @@ const FeaturedSpeakers = (): JSX.Element => (
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
         <Link href="/speakers/mary-asada" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-mary-asada.jpeg"
-              alt="Mountain"
-            />
+            <Image src={speaker1} alt="Speaker" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Mary Asada</p>
             </div>
@@ -27,11 +30,7 @@ const FeaturedSpeakers = (): JSX.Element => (
 
         <Link href="/speakers/jacobgonzalez" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-martin-moore.jpeg"
-              alt="Mountain"
-            />
+            <Image src={speaker2} alt="Speaker" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Jacob Gonzalez</p>
             </div>
@@ -40,11 +39,7 @@ const FeaturedSpeakers = (): JSX.Element => (
 
         <Link href="/speakers/edjones" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-ed-jones.jpeg"
-              alt="Mountain"
-            />
+            <Image src={speaker3} alt="Speaker" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Ed Jones</p>
             </div>
@@ -53,11 +48,7 @@ const FeaturedSpeakers = (): JSX.Element => (
 
         <Link href="/speakers/sophiataylor" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-sophia-taylor.jpeg"
-              alt="Mountain"
-            />
+            <Image src={speaker4} alt="Speaker" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Sophia Taylor</p>
             </div>
@@ -66,11 +57,7 @@ const FeaturedSpeakers = (): JSX.Element => (
 
         <Link href="/speakers/lixiuying" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/speaker-li-xiu-ying.jpeg"
-              alt="Mountain"
-            />
+            <Image src={speaker5} alt="Speaker" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Li Xiu Ying</p>
             </div>

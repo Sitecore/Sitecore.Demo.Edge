@@ -1,4 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
+
+import vendor1 from '../../data/media/img/vendors/RobinFitness.jpg';
+import vendor2 from '../../data/media/img/vendors/Gameday.jpg';
+import vendor3 from '../../data/media/img/vendors/Outrace.jpg';
+import vendor4 from '../../data/media/img/vendors/RunRightThrough.jpg';
+import vendor5 from '../../data/media/img/vendors/OnTheGreen.jpg';
 
 const VendorsGrid = (): JSX.Element => (
   <section>
@@ -11,6 +18,7 @@ const VendorsGrid = (): JSX.Element => (
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
+          aria-label="scheduled"
         >
           Schedule
           <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -21,6 +29,7 @@ const VendorsGrid = (): JSX.Element => (
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
+          aria-label="speakers"
         >
           Speakers
           <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -31,6 +40,7 @@ const VendorsGrid = (): JSX.Element => (
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
+          aria-label="category"
         >
           Category
           <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -41,6 +51,7 @@ const VendorsGrid = (): JSX.Element => (
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
+          aria-label="sport"
         >
           Sport
           <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
@@ -54,11 +65,7 @@ const VendorsGrid = (): JSX.Element => (
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Outrace.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor1} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Outrace</p>
             </div>
@@ -67,11 +74,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/RunRightThrough.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor2} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Run Right Through</p>
             </div>
@@ -80,11 +83,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/OnTheGreen.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor3} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">On The Green</p>
             </div>
@@ -93,11 +92,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/RobinFitness.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor4} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Robin</p>
             </div>
@@ -106,11 +101,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Gameday.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor5} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Gameday</p>
             </div>
@@ -119,11 +110,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Dwell.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor1} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Dwell</p>
             </div>
@@ -132,11 +119,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/OverUnder.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor2} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Over Under</p>
             </div>
@@ -145,11 +128,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Alba.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor3} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Alba</p>
             </div>
@@ -158,11 +137,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/vendors/striva" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/Striva.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor4} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Striva</p>
             </div>
@@ -171,11 +146,7 @@ const VendorsGrid = (): JSX.Element => (
 
         <Link href="/tickets" passHref>
           <div className="rounded overflow-hidden">
-            <img
-              className="w-full border b-1 border-white-dark"
-              src="/assets/img/vendors/ProStaff.jpg"
-              alt="Mountain"
-            />
+            <Image src={vendor5} alt="Vendor" width={265} height={265} />
             <div className="px-6 py-4">
               <p className="text-gray-700 text-base text-center">Pro Staff</p>
             </div>

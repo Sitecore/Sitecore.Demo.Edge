@@ -23,6 +23,7 @@ const MainNavigation = (): JSX.Element => {
           </a>
           <button
             className="text-white cursor-pointer text-xl leading-none border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none w-8"
+            aria-label="open menu"
             type="button"
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
