@@ -157,7 +157,6 @@
   @apply text-2xl md:text-3xl font-extrabold;
 
   text-transform: uppercase;
-  /* font-size: 3em; */
   margin: 0;
 }
 
@@ -258,11 +257,8 @@
 }
 
 .section__news__grid__tweet {
-  /* @apply col-span-1; */
   border: 1px solid #ccc;
   background-color: #f7f7f7;
-  /* margin: 5px;
-  padding: 5px; */
 }
 
 .section__news__grid__tweet__img {
@@ -300,7 +296,6 @@
 
 .section__news__grid__news {
   @apply col-span-1 md:col-span-2;
-  /* flex-wrap: wrap; */
 }
 
 .section__news__grid__news__item {
@@ -308,10 +303,7 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  /* width: calc(50% - 10px); */
-  /* margin: 5px; */
   text-align: center;
-  /* padding: 20px 5%; */
   box-sizing: border-box;
   text-decoration: none;
   line-height: 1.2;
