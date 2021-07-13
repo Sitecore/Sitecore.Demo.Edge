@@ -1,5 +1,5 @@
 .ticket-grid-block {
-  @apply bg-white-lighter px-5 lg:px-10;
+  @apply bg-white-lighter px-3 lg:px-10;
 
   ul {
     @apply py-5;
