@@ -1,8 +1,8 @@
 .ticket-grid-block {
-  span {
-    font-weight: bold;
-  }
+  @apply bg-white-lighter px-10;
+
   ul {
+    @apply py-5;
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
@@ -19,48 +19,51 @@
       margin-right: 0.5em;
       fill: red;
     }
+
+    li {
+      @apply my-4;
+    }
   }
   &--red {
     .slanted-spacer {
-      width: 0;
-      height: 0;
-      border-top: 40px solid red;
-      border-right: 320px solid transparent;
+      width: 100%;
+      height: 20px;
+      background-color: red;
     }
-    h2 {
+    .price {
       color: red;
     }
   }
   &--yellow {
     .slanted-spacer {
-      width: 0;
-      height: 0;
-      border-top: 40px solid #FFD41C;
-      border-right: 320px solid transparent;
+      width: 100%;
+      height: 20px;
+      background-color: #FFD41C;
     }
-    h2 {
+    .price {
+      @apply text-6xl;
       color: #FFD41C;
     }
   }
   &--blue {
     .slanted-spacer {
-      width: 0;
-      height: 0;
-      border-top: 40px solid #1C80FF;
-      border-right: 320px solid transparent;
+      width: 100%;
+      height: 20px;
+      background-color: #1C80FF;
     }
-    h2 {
+    .price {
+      @apply text-6xl;
       color: #1C80FF;
     }
   }
   &--pink {
     .slanted-spacer {
-      width: 0;
-      height: 0;
-      border-top: 40px solid #FF1787;
-      border-right: 320px solid transparent;
+      width: 100%;
+      height: 20px;
+      background-color: #FF1787;
     }
-    h2 {
+    .price {
+      @apply text-6xl;
       color: #FF1787;
     }
   }

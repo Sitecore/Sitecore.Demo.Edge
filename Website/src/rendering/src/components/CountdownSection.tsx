@@ -13,18 +13,20 @@ const CountdownSection = (): JSX.Element => {
   }, [seconds]);
 
   return (
-    <section className="section text-yellow flex text-center bg-black p-10">
-      <div className="flex-1">
-        <h2>298</h2>Day(s)
-      </div>
-      <div className="flex-1">
-        <h2>01</h2>Hour(s)
-      </div>
-      <div className="flex-1">
-        <h2>15</h2>Minute(s)
-      </div>
-      <div className="flex-1">
-        <h2>{seconds}</h2>Second(s)
+    <section className="section text-yellow text-center bg-black py-12">
+      <div className="container justify-center text-xl hidden md:flex">
+        <div className="mx-8">
+          <h2 className="text-blue-lightest">298</h2><h3 className="uppercase text-white">Day(s)</h3>
+        </div>
+        <div className="mx-8">
+          <h2 className="text-blue-lightest">01</h2><h3 className="uppercase text-white">Hour(s)</h3>
+        </div>
+        <div className="mx-8">
+          <h2 className="text-blue-lightest">15</h2><h3 className="uppercase text-white">Minute(s)</h3>
+        </div>
+        <div className="mx-8">
+          <h2 className="text-blue-lightest">{seconds}</h2><h3 className="uppercase text-white">Second(s)</h3>
+        </div>
       </div>
     </section>
   );
