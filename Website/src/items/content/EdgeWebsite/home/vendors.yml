@@ -38,34 +38,41 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{D1307D97-3C84-5886-B8AB-49D81EAC4A37}"
+              uid="{277CD221-59FF-5D75-9631-2A7CB8DCEA36}"
               p:after="r[@uid='{C4649C6C-3E27-5BFC-8400-E9BD730B4BB9}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{E55A9120-E831-53FD-94C0-5B09ABB1A27C}"
+              p:after="r[@uid='{277CD221-59FF-5D75-9631-2A7CB8DCEA36}']"
               s:rname="FeaturedVendors"
               s:id="{18D56CF9-81D3-50C2-A8C3-19349D36074D}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{2BC66788-BC1D-5F83-8C18-952138EAA1D3}"
-              p:after="r[@uid='{D1307D97-3C84-5886-B8AB-49D81EAC4A37}']"
+              uid="{79CC0F9C-2903-58F8-8DAE-EC4605BA9197}"
+              p:after="r[@uid='{E55A9120-E831-53FD-94C0-5B09ABB1A27C}']"
               s:rname="VendorsGrid"
               s:id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{99FF4A1B-7C92-512B-BA48-62590AD504C3}"
-              p:after="r[@uid='{2BC66788-BC1D-5F83-8C18-952138EAA1D3}']"
+              uid="{DF5E9EFA-6620-56DA-B0EF-E23C829ABE9E}"
+              p:after="r[@uid='{79CC0F9C-2903-58F8-8DAE-EC4605BA9197}']"
               s:rname="Section"
-              s:ds="{82E5A083-70DE-50E1-9F74-6810213A5A04}"
+              s:ds="{BD06643E-1610-5AFA-BCC9-8FF3DAE94483}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{272FF5EE-AC64-59C1-A5AE-A2D124725423}"
-              p:after="r[@uid='{99FF4A1B-7C92-512B-BA48-62590AD504C3}']"
+              uid="{3DCAFD47-447B-5312-A12B-AC1D7C2FD591}"
+              p:after="r[@uid='{DF5E9EFA-6620-56DA-B0EF-E23C829ABE9E}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{99FF4A1B-7C92-512B-BA48-62590AD504C3}-0" />
+              s:ph="/jss-main/jss-section-content-{DF5E9EFA-6620-56DA-B0EF-E23C829ABE9E}-0" />
             <r
               uid="{5E850687-330B-5617-B388-F9E662464565}"
               p:after="*[1=2]"
@@ -80,14 +87,14 @@ Languages:
       Value: 20210625T201849Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2b606ada-851d-40ce-a0fb-92a5ec4459e7"
+      Value: "41169839-d285-4b55-9576-535aba259662"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T174913Z
+      Value: 20210713T011600Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Vendors"
