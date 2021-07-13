@@ -15,8 +15,7 @@ const TextCta = (props: TextCtaProps): JSX.Element => (
         <Text field={props.fields.title} />
       </h1>
       <p className="text-white text-lg">
-      <Text field={props.fields.subTitle} />
-
+        <Text field={props.fields.subTitle} />
       </p>
     </div>
   </section>
