@@ -15,12 +15,10 @@ placeholders:
           src: /data/media/img/parking-banner.jpg
           alt: Sample Image
     - componentName: Breadcrumb
-    - componentName: Section
+    - componentName: TextCta
       fields:
-        cssClass: section__news
-        brightness: dark
         title: Don't miss the super early bird offer
-        content: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+        subTitle: Check out over 2000 sports brands and test drive the latest fitness equipment and technology.
     - componentName: TicketGrid
     - componentName: CountdownSection
     - componentName: FullImageSection

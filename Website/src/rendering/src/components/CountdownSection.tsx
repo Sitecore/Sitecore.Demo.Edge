@@ -16,16 +16,16 @@ const CountdownSection = (): JSX.Element => {
     <section className="section text-yellow text-center bg-black py-12">
       <div className="container justify-center text-xl hidden md:flex">
         <div className="mx-8">
-          <h2 className="text-blue-lightest">298</h2><h3 className="uppercase text-white">Day(s)</h3>
+          <h2 className="text-blue-lightest">298</h2><h3 className="uppercase text-white font-bold">Day(s)</h3>
         </div>
         <div className="mx-8">
-          <h2 className="text-blue-lightest">01</h2><h3 className="uppercase text-white">Hour(s)</h3>
+          <h2 className="text-blue-lightest">01</h2><h3 className="uppercase text-white font-bold">Hour(s)</h3>
         </div>
         <div className="mx-8">
-          <h2 className="text-blue-lightest">15</h2><h3 className="uppercase text-white">Minute(s)</h3>
+          <h2 className="text-blue-lightest">15</h2><h3 className="uppercase text-white font-bold">Minute(s)</h3>
         </div>
         <div className="mx-8">
-          <h2 className="text-blue-lightest">{seconds}</h2><h3 className="uppercase text-white">Second(s)</h3>
+          <h2 className="text-blue-lightest">{seconds}</h2><h3 className="uppercase text-white font-bold">Second(s)</h3>
         </div>
       </div>
     </section>
