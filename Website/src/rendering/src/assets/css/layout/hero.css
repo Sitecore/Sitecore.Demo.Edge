@@ -8,17 +8,15 @@
     @apply flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden;
 
     max-width: 1440px;
-    padding: 0 3%;
 
     &__content {
-      @apply w-full bg-black-light;
+      @apply w-full bg-black-light w-full md:w-1/2;
 
-      max-width: 600px;
-      background: linear-gradient(135deg, #3c3c3c, #232323);
+      background: linear-gradient(135deg, rgba(80,80,80,1) 0%, rgba(60,60,60,1) 50%, rgba(50,50,50,1) 100%);
       box-shadow: 0 0 20px #232323;
 
       &__text {
-        padding: 6%;
+        padding: 3rem;
       }
 
       img {
@@ -26,16 +24,13 @@
       }
 
       .banner__title__eyebrow {
-        @apply text-white uppercase;
+        @apply text-white uppercase pt-4 pb-5 font-extrabold;
 
-        font-weight: 600;
         font-size: 1.5em;
       }
 
       .banner__title__title {
-        @apply text-5xl text-white uppercase m-0;
-
-        font-weight: 600;
+        @apply text-5xl text-white uppercase py-3 m-0 font-bold;
       }
 
       .banner__title__sub-title {
@@ -46,9 +41,9 @@
       }
 
       .banner__title__p {
-        @apply text-white;
+        @apply text-white py-2;
 
-        font-size: 1.25em;
+        font-size: 0.8em;
         line-height: 1.4;
       }
     }
