@@ -4,10 +4,10 @@ const TicketGrid = (): JSX.Element => (
   <section className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-14">
     <div className="text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--blue">
       <div className="slanted-spacer"></div>
-      <h2 className="text-4xl font-semibold text-blue">VIP Ticket</h2>
+      <h2 className="text-4xl font-semibold text-pink">Online Ticket</h2>
       <span className="text-xl py-2 font-semibold">Save 20% on early bird!</span>
       <p>
-        <span className="price">$249</span>
+        <span className="price">$99</span>
         <ul>
           <li>All access pass</li>
           <li>Exclusive network lunches</li>
@@ -25,7 +25,7 @@ const TicketGrid = (): JSX.Element => (
     </div>
     <div className="text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--yellow">
       <div className="slanted-spacer"></div>
-      <h2 className="text-4xl font-semibold text-yellow">Regular Ticket</h2>
+      <h2 className="text-4xl font-semibold text-orange">Regular Ticket</h2>
       <span className="text-xl py-2 font-semibold">Save 20% on early bird!</span>
       <p>
         <span className="price">$199</span>
@@ -46,10 +46,10 @@ const TicketGrid = (): JSX.Element => (
     </div>
     <div className="text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--pink">
       <div className="slanted-spacer"></div>
-      <h2 className="text-4xl font-semibold text-pink">Guest Ticket</h2>
+      <h2 className="text-4xl font-semibold text-blue">VIP Ticket</h2>
       <span className="text-xl py-2 font-semibold">Save 20% on early bird!</span>
       <p>
-        <span className="price">$149</span>
+        <span className="price">$399</span>
         <ul>
           <li>All access pass</li>
           <li>Exclusive network lunches</li>
