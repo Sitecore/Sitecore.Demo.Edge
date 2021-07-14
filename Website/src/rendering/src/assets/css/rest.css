@@ -154,7 +154,7 @@
 }
 
 .section__content__title {
-  @apply text-2xl md:text-4.5xl font-bold pb-5;
+  @apply text-2xl md:text-4xl font-bold pb-5;
 
   text-transform: uppercase;
   margin: 0;

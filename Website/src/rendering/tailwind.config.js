@@ -62,9 +62,6 @@ module.exports = {
       backgroundImage: theme => ({
         'home-hero': "url('/assets/img/home-hero-background.jpg')",
        }),
-      fontSize: {
-        '4.5xl': '2.8rem',
-      },
       width: {
         '45': '45%',
       }
