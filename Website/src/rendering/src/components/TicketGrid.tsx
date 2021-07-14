@@ -1,7 +1,5 @@
 import Link from 'next/link';
-import {
-  faCheck
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TicketGrid = (): JSX.Element => (
@@ -13,12 +11,26 @@ const TicketGrid = (): JSX.Element => (
       <p>
         <span className="price">$99</span>
         <ul>
-          <li><FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> All access pass</li>
-          <li><FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Exclusive network lunches</li>
-          <li><FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 20% off all thousands of goods</li>
-          <li><FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free online catalog</li>
-          <li><FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Print and digital ticket</li>
-          <li><FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Unlimited customize your agenda</li>
+          <li>
+            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> All access pass
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Exclusive network lunches
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 20% off all thousands of
+            goods
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free online catalog
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Print and digital ticket
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Unlimited customize your
+            agenda
+          </li>
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
@@ -34,12 +46,27 @@ const TicketGrid = (): JSX.Element => (
       <p>
         <span className="price">$199</span>
         <ul>
-          <li><FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> All access pass</li>
-          <li><FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Exclusive network lunches</li>
-          <li><FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> 20% off all thousands of goods</li>
-          <li><FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Free online catalog</li>
-          <li><FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Print and digital ticket</li>
-          <li><FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Unlimited customize your agenda</li>
+          <li>
+            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> All access pass
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Exclusive network
+            lunches
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> 20% off all thousands of
+            goods
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Free online catalog
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Print and digital ticket
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Unlimited customize your
+            agenda
+          </li>
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
@@ -55,12 +82,26 @@ const TicketGrid = (): JSX.Element => (
       <p>
         <span className="price">$399</span>
         <ul>
-          <li><FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> All access pass</li>
-          <li><FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Exclusive network lunches</li>
-          <li><FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> 20% off all thousands of goods</li>
-          <li><FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Free online catalog</li>
-          <li><FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Print and digital ticket</li>
-          <li><FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Unlimited customize your agenda</li>
+          <li>
+            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> All access pass
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Exclusive network lunches
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> 20% off all thousands of
+            goods
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Free online catalog
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Print and digital ticket
+          </li>
+          <li>
+            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Unlimited customize your
+            agenda
+          </li>
         </ul>
       </p>
       <div className="px-6 pt-4 pb-10">
