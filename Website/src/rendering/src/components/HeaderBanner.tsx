@@ -12,7 +12,7 @@ type HeaderBannerProps = ComponentProps & {
 
 const HeaderBanner = (props: HeaderBannerProps): JSX.Element => (
   <section
-    className="section pt-60 pb-10 bg-gradient-to-r from-gray-50 to-transparent"
+    className="section pt-80 pb-10 bg-gradient-to-r from-gray-50 to-transparent"
     style={{
       backgroundImage:
         'linear-gradient(to right, rgba(50,50,50,.6), rgba(255,0,0,0)), url("' +
@@ -24,7 +24,7 @@ const HeaderBanner = (props: HeaderBannerProps): JSX.Element => (
   >
     <div className="section__content section__content--left text-white flex flex-wrap content-start w-full font-extrabold pl-0">
       <Text className="eyebrow pb-10" tag="h4" field={props.fields.eyebrow} />
-      <Text className="uppercase" tag="h2" field={props.fields.title} />
+      <Text className="uppercase text-5xl" tag="h2" field={props.fields.title} />
       <Text className="text-yellow" tag="p" field={props.fields.subtitle} />
     </div>
   </section>

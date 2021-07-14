@@ -13,22 +13,22 @@ const CountdownSection = (): JSX.Element => {
   }, [seconds]);
 
   return (
-    <section className="section text-yellow text-center bg-black py-12 hidden md:block">
+    <section className="section text-yellow text-center bg-black py-10 hidden md:block">
       <div className="container justify-center text-xl flex">
         <div className="mx-8">
-          <h2 className="text-blue-lightest">298</h2>
+          <h2 className="text-blue-lightest text-4.5xl font-bold py-2">298</h2>
           <h3 className="uppercase text-white font-bold">Day(s)</h3>
         </div>
         <div className="mx-8">
-          <h2 className="text-blue-lightest">01</h2>
+          <h2 className="text-blue-lightest text-4.5xl font-bold py-2">01</h2>
           <h3 className="uppercase text-white font-bold">Hour(s)</h3>
         </div>
         <div className="mx-8">
-          <h2 className="text-blue-lightest">15</h2>
+          <h2 className="text-blue-lightest text-4.5xl font-bold py-2">15</h2>
           <h3 className="uppercase text-white font-bold">Minute(s)</h3>
         </div>
         <div className="mx-8">
-          <h2 className="text-blue-lightest">{seconds}</h2>
+          <h2 className="text-blue-lightest text-4.5xl font-bold py-2">{seconds}</h2>
           <h3 className="uppercase text-white font-bold">Second(s)</h3>
         </div>
       </div>

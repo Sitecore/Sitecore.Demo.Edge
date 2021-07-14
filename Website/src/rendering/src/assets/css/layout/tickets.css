@@ -2,12 +2,12 @@
   @apply bg-white-lighter px-3 lg:px-10;
 
   ul {
-    @apply py-5;
+    @apply py-5 text-base;
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
     list-style: none;
-    font-size: medium;
+
     li:before {
       content: '';
       display: inline-block;
@@ -16,7 +16,7 @@
       background-image: url(/assets/img/tickets/check.svg);
       background-size: contain;
       background-repeat: no-repeat;
-      margin-right: 0.5em;
+      margin-right: 1em;
       fill: red;
     }
 
@@ -41,8 +41,7 @@
       background-color: #FFD41C;
     }
     .price {
-      @apply text-6xl;
-      color: #FFD41C;
+      @apply text-6xl text-yellow font-semibold;
     }
   }
   &--blue {
@@ -52,8 +51,7 @@
       background-color: #1C80FF;
     }
     .price {
-      @apply text-6xl;
-      color: #1C80FF;
+      @apply text-6xl text-blue font-semibold;
     }
   }
   &--pink {
@@ -63,8 +61,7 @@
       background-color: #FF1787;
     }
     .price {
-      @apply text-6xl;
-      color: #FF1787;
+      @apply text-6xl text-pink font-semibold;
     }
   }
 }
