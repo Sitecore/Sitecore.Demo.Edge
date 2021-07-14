@@ -9,10 +9,10 @@ SharedFields:
   Value: "{DA00F1FD-0392-44CF-944A-B24952407013}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: PLAY.Speaker
+  Value: EG.Speaker
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Name
+  Value: TaxonomyName
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{94CFB440-5ED3-47C1-99B4-74CE15028FFD}"
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6f1f4510-6737-4240-a859-e9577cb665e8"
+      Value: "969efdca-9f51-453a-a0a6-9145878f366f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T053134Z
+      Value: 20210714T171753Z

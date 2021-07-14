@@ -7,16 +7,26 @@ import speaker3 from '../../data/media/img/speakers/ed-jones.jpeg';
 import speaker4 from '../../data/media/img/speakers/sophia-taylor.jpeg';
 import speaker5 from '../../data/media/img/speakers/li-xiu-ying.jpeg';
 
-const FeaturedSpeakers = (): JSX.Element => (
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
+
+type ContentListProps = ComponentProps & {
+  fields: {
+    Title: Field<string>;
+    Subtitle: Field<string>;
+  };
+};
+
+const FeaturedSpeakers = (props: ContentListProps): JSX.Element => (
   <section className="">
     <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
-      <h1 className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold">
-        Featured Speakers
-      </h1>
-      <p className="text-center">
-        Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000
-        brands at this year’s PLAY! Summit.
-      </p>
+      <Text
+        tag="h1"
+        className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold"
+        field={props.fields?.Title}
+      />
+      <Text tag="p" className="text-center" field={props.fields?.Subtitle} />
 
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
         <Link href="/speakers/mary-asada" passHref>

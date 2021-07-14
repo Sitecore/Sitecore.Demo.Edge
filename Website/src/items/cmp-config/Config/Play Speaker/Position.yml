@@ -1,18 +1,18 @@
 ﻿---
-ID: "c9fca219-245f-4c75-92d5-d96376ec2a90"
+ID: "223b87c6-f0c2-4057-8220-767c1419348c"
 Parent: "5944f27f-3987-4eeb-8e1c-4753a5ee0483"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Play Speaker/Venue Description
+Path: /sitecore/system/Modules/CMP/Config/Play Speaker/Position
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 175
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Description
+  Value: Position
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{91E38983-3229-41B3-9161-C1136039A209}"
+  Value: "{982A54FA-39BC-4256-9B93-88A8AA2DCAC4}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: 
@@ -26,11 +26,11 @@ Languages:
       Value: 20190614T174224Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cb2b2678-3ea4-4b50-b2d9-2ca7ca3d631d"
+      Value: "84017445-fc7c-4a39-baf0-de62b6b08897"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T165241Z
+      Value: 20210714T174836Z

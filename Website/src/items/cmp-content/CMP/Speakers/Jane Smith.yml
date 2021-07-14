@@ -1,0 +1,61 @@
+﻿---
+ID: "492bc895-7703-4781-aa3a-45dae5978b55"
+Parent: "da00f1fd-0392-44cf-944a-b24952407013"
+Template: "94cfb440-5ed3-47c1-99b4-74ce15028ffd"
+Path: /sitecore/content/CMP/Speakers/Jane Smith
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: EG.Speaker.JaneSmith
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "13b11932-f455-40e0-967f-024c01840356"
+      Hint: description
+      Value: |
+        <p>Miss Jane Smith</p>
+        
+    - ID: "1d6fe691-4922-4c2e-86c3-f0351bdb2694"
+      Hint: Company
+      Value: Microsoft
+    - ID: "225b2edd-d5af-4399-b0ff-95c2c2a40a34"
+      Hint: Facebook
+      Value: facebook.com/janesmith
+    - ID: "22e6cfa1-9de6-4f10-aaad-9363d9344cd8"
+      Hint: Country
+      Value: Canada
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210714T171828Z
+    - ID: "32da1f4b-e232-431a-9daf-b097473c4110"
+      Hint: name
+      Value: Jane Smith
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5e9eaecc-2e5b-444f-b543-d01122802d37"
+    - ID: "8dfcc5c3-3207-4b82-9fb3-b8fd3258547f"
+      Hint: Twitter
+      Value: twitter.com/janesmith
+    - ID: "94659dbd-8f14-463d-b0fe-d89bd053c368"
+      Hint: Linkedin
+      Value: linkedin.com/janesmith
+    - ID: "982a54fa-39bc-4256-9b93-88a8aa2dcac4"
+      Hint: Position
+      Value: Manager
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210714T180534Z

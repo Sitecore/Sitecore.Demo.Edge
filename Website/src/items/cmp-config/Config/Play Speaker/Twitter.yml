@@ -1,15 +1,18 @@
 ﻿---
-ID: "d3f17892-107c-4bd6-b203-aa974ba849de"
+ID: "22d16467-be4b-4055-bfa4-1388d04fe427"
 Parent: "5944f27f-3987-4eeb-8e1c-4753a5ee0483"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Play Speaker/Venue Name
+Path: /sitecore/system/Modules/CMP/Config/Play Speaker/Twitter
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Name
+  Value: Twitter
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{FC3B2A6C-042B-421C-9C3D-88C83186CEB9}"
+  Value: "{8DFCC5C3-3207-4B82-9FB3-B8FD3258547F}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: 
@@ -20,14 +23,14 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190614T174144Z
+      Value: 20190614T174224Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d87a5364-31a0-46aa-bad7-1810e18cd565"
+      Value: "0d381d1d-43b7-4e30-a948-a6881f508abd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T165230Z
+      Value: 20210714T175000Z
