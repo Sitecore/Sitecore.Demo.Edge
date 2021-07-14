@@ -35,6 +35,7 @@
 @import "./layout/attendeeform.css";
 @import "./layout/product-detail.css";
 @import "./layout/session-list.css";
+@import "./layout/section-news.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";

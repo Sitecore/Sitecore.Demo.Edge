@@ -10,5 +10,5 @@ export default {
 
 const Template: ComponentStory<typeof VendorsGrid> = () => <VendorsGrid />;
 
-export const Deafult = Template.bind({});
-Deafult.args = {};
+export const Default = Template.bind({});
+Default.args = {};

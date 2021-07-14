@@ -38,35 +38,42 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{92E381A6-D108-5DC0-9636-2AD27352D820}"
+              uid="{C6780963-A230-5283-8A7E-72D0F57E331D}"
               p:after="r[@uid='{57D32753-10A4-5AEF-98E1-197CC0F738B0}']"
-              s:rname="Section"
-              s:ds="{EC3C427C-A6C9-5D65-A59E-1F3B8FCD9718}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{C04CD2D8-A7FA-5B22-9104-0CD47015CE47}"
-              p:after="r[@uid='{92E381A6-D108-5DC0-9636-2AD27352D820}']"
-              s:rname="NewsGrid"
-              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{92E381A6-D108-5DC0-9636-2AD27352D820}-0" />
-            <r
               uid="{67037D6A-7C0D-5E66-81F1-C9BF17AAEE89}"
-              p:after="r[@uid='{C04CD2D8-A7FA-5B22-9104-0CD47015CE47}']"
+              p:after="r[@uid='{C6780963-A230-5283-8A7E-72D0F57E331D}']"
               s:rname="Section"
               s:ds="{97F7B388-6E95-5845-B228-8FFE752644B4}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{1184BC7A-5DBB-54A1-BEEA-1F05B9924586}"
+              uid="{FE19B618-DCAA-5547-96B1-6B2F0D4659C4}"
               p:after="r[@uid='{67037D6A-7C0D-5E66-81F1-C9BF17AAEE89}']"
+              s:rname="NewsGrid"
+              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{67037D6A-7C0D-5E66-81F1-C9BF17AAEE89}-0" />
+            <r
+              uid="{0D7B9241-1A9B-5679-B448-FAC52B8E29AC}"
+              p:after="r[@uid='{FE19B618-DCAA-5547-96B1-6B2F0D4659C4}']"
+              s:rname="Section"
+              s:ds="{F4698760-CE28-52BA-9C22-27A910A554FD}"
+              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{455A08C7-8574-5C2C-A63E-8447690E1BAC}"
+              p:after="r[@uid='{0D7B9241-1A9B-5679-B448-FAC52B8E29AC}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{67037D6A-7C0D-5E66-81F1-C9BF17AAEE89}-0" />
+              s:ph="/jss-main/jss-section-content-{0D7B9241-1A9B-5679-B448-FAC52B8E29AC}-0" />
             <r
               uid="{8D1F29B8-FD35-539A-8723-ECEFE1EC3E74}"
               p:after="*[1=2]"
@@ -81,14 +88,14 @@ Languages:
       Value: 20210625T201834Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0e3c6422-3ea4-4adf-b9bd-45fae21547b5"
+      Value: "47a58b1e-49ce-4d01-ac0a-d067c424d69d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201835Z
+      Value: 20210713T011550Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Media Center"

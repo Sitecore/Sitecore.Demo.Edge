@@ -45,31 +45,23 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{A4DCA744-59A4-59DF-AF47-173A3234B88C}"
+              uid="{83FBFB26-33B4-584A-BA89-B102C8E69527}"
               p:after="r[@uid='{BA51EB3B-6425-5226-8A60-9DFD2EF4CC23}']"
-              s:rname="Section"
-              s:ds="{1784F7D5-C862-5D40-987D-D6762357976F}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="TextCta"
+              s:ds="{2B4D4FE1-EC28-59DA-8ACA-C0ADADF00E21}"
+              s:id="{CC9984B5-432C-5A1A-9ED0-E8F88E26E5A2}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{AF99470C-DF35-5511-A1DD-502ECE3C9E5B}"
-              p:after="r[@uid='{A4DCA744-59A4-59DF-AF47-173A3234B88C}']"
-              s:rname="Section"
-              s:ds="{4B822D1C-0DC9-54E0-BC4B-F6D7C72F45C0}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{BABD9AD5-52DB-5670-924D-F17BA4F9B968}"
-              p:after="r[@uid='{AF99470C-DF35-5511-A1DD-502ECE3C9E5B}']"
+              uid="{7B4BD8CF-E172-562E-A156-BEC3B399E3D0}"
+              p:after="r[@uid='{83FBFB26-33B4-584A-BA89-B102C8E69527}']"
               s:rname="TicketGrid"
               s:id="{298D16E7-CFB2-5BE9-8B8C-BBC10A72597F}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{AF99470C-DF35-5511-A1DD-502ECE3C9E5B}-0" />
+              s:ph="/jss-main" />
             <r
               uid="{662843E5-4419-5F2C-9D17-207E807C5293}"
-              p:after="r[@uid='{BABD9AD5-52DB-5670-924D-F17BA4F9B968}']"
+              p:after="r[@uid='{7B4BD8CF-E172-562E-A156-BEC3B399E3D0}']"
               s:rname="CountdownSection"
               s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
               s:par=""
@@ -124,16 +116,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201849Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0698a3b5-2061-4f01-b17c-6880008703e4"
+      Value: "0969ee80-e528-47f0-82e4-beaaa9c4663f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135724Z
+      Value: 20210713T180731Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Tickets"

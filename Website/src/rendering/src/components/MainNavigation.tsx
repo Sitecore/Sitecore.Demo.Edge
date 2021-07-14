@@ -5,14 +5,11 @@ const MainNavigation = (): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="bg-black bg-gradient-to-l from-black to-black-light" style={{ height: '72px' }}>
+    <nav className="bg-black" style={{ height: '92px' }}>
       <div className="w-full lg:container lg:mx-auto flex flex-wrap items-center justify-between">
-        <div
-          className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start px-6"
-          style={{ height: '72px' }}
-        >
+        <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start px-6">
           <a
-            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+            className="text-sm font-bold leading-relaxed inline-block py-4 whitespace-nowrap uppercase text-white"
             href="/"
           >
             <img
@@ -65,9 +62,9 @@ const MainNavigation = (): JSX.Element => {
               </Link>
             </li>
             <li>
-              <Link href="/map">
+              <Link href="/aboutus">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Map
+                  About Us
                 </a>
               </Link>
             </li>
@@ -75,13 +72,6 @@ const MainNavigation = (): JSX.Element => {
               <Link href="/shop">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                   Shop
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/news">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  News
                 </a>
               </Link>
             </li>

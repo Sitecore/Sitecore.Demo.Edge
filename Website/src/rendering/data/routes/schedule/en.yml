@@ -11,6 +11,7 @@ placeholders:
     - componentName: FeaturedEvent
       fields:
         heading:
+    - componentName: Breadcrumb
     - componentName: SessionsFilters
     - componentName: SessionsGrid
     - componentName: Section

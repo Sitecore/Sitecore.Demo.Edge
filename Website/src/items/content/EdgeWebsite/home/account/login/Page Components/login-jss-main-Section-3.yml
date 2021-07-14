@@ -14,30 +14,30 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: Premium Sponsors
+      Value: News and Media
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201831Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
-      Value: "Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible."
+      Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
+        <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1aadc1ae-5bcf-49e0-8ac6-9961f3a55ba7"
+      Value: "d7172661-bd15-48df-90f4-834d00b14f25"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section__sponsors
+      Value: section__news
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
-      Value: light
+      Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201831Z
+      Value: 20210713T011547Z

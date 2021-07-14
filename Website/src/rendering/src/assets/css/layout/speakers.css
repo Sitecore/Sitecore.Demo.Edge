@@ -6,10 +6,8 @@
 
     &__grid {
       @include flex--center;
-
       @apply flex-wrap mx-auto;
 
-      max-width: 1024px;
       margin-top: 20px;
       margin-bottom: 40px;
 
@@ -17,7 +15,7 @@
         @apply box-border;
 
         width: 100px;
-        min-width: 220px;
+        min-width: 260px;
         padding: 10px;
         margin: 10px;
 

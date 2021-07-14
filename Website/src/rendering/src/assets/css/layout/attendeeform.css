@@ -12,17 +12,6 @@
       height: auto;
       line-height: 3rem;
       margin-bottom: 30px;
-      li:before {
-        content: '';
-        display: inline-block;
-        height: 1em;
-        width: 1em;
-        background-image: url(/assets/img/tickets/check.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-        margin-right: 0.5em;
-        fill: red;
-      }
     }
   }
   .attendee-form-form {

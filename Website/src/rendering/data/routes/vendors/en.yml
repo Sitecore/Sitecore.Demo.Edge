@@ -14,6 +14,7 @@ placeholders:
         hero:
           src: /data/media/img/swimmer.jpg
           alt: Sample Image
+    - componentName: Breadcrumb
     - componentName: FeaturedVendors
     - componentName: VendorsGrid
     - componentName: Section

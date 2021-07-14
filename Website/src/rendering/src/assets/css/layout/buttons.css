@@ -11,10 +11,9 @@
 }
 
 .btn--main {
-  @apply hover:shadow-md;
+  @apply font-medium hover:shadow-md;
 
-  font-weight: 600;
-  padding: 0.35em 0.75em;
+  padding: 0.5em 1.55em;
   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
   transition: all 0.2s ease-in-out;
 }

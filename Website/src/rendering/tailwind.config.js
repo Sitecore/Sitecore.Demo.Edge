@@ -7,6 +7,7 @@ module.exports = {
       current: 'currentColor',
       white: {
         DEFAULT: '#f7f7f7',
+        lighter: '#fafafa',
         light: '#ffffff',
         dark: '#efefef',
       },
@@ -25,7 +26,7 @@ module.exports = {
       blue: {
         DEFAULT: '#006ef9',
         light: '#3e93ff',
-        lightest: '#82b9ff',
+        lightest: '#1c80ff',
         dark: '#0050b5',
         darkest: '#003271',
       },
@@ -60,7 +61,10 @@ module.exports = {
       },
       backgroundImage: theme => ({
         'home-hero': "url('/assets/img/home-hero-background.jpg')",
-       })
+       }),
+      width: {
+        '45': '45%',
+      }
     },
   },
   variants: {

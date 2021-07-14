@@ -154,14 +154,14 @@
 }
 
 .section__content__title {
-  @apply text-2xl md:text-3xl font-extrabold;
+  @apply text-2xl md:text-5xl font-bold pb-5;
 
   text-transform: uppercase;
   margin: 0;
 }
 
 .section__content__title--light {
-  color: #006ef9;
+  @apply text-blue-light;
 }
 
 .section__content__title--dark {
@@ -169,6 +169,8 @@
 }
 
 .section__content__p {
+  @apply text-sm pb-8;
+
   max-width: 40em;
   line-height: 1.4;
   text-align: center;
@@ -203,6 +205,7 @@
 }
 
 .section--3-col__content__items {
+  @apply text-sm;
   display: -webkit-flex;
   display: flex;
   align-items: center;
@@ -238,142 +241,6 @@
 
 .section--3-col__content__items .item a:hover {
   color: #232323;
-}
-
-.section__news {
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: url(../img/background-pattern-dark.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.section__news__grid {
-  @apply grid grid-cols-2 md:grid-cols-3 w-full gap-2.5 my-5;
-}
-
-.section__news__grid__tweet {
-  border: 1px solid #ccc;
-  background-color: #f7f7f7;
-}
-
-.section__news__grid__tweet__img {
-  max-width: 100%;
-}
-
-.section__news__grid__tweet__content {
-  padding: 10px;
-}
-
-.section__news__grid__tweet__content p {
-  margin: 5px 0;
-}
-
-.section__news__grid__tweet__content__profile {
-  display: flex;
-  align-items: center;
-}
-
-.section__news__grid__tweet__content__profile__pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 10px;
-  box-shadow: 0 0 2px rgba(23, 23, 23, 0.2);
-}
-
-.section__news__grid__tweet__content__tweet {
-  margin-top: 20px;
-}
-
-.section__news__grid__tweet__content__comments {
-  color: #b3b3b3;
-}
-
-.section__news__grid__news {
-  @apply col-span-1 md:col-span-2;
-}
-
-.section__news__grid__news__item {
-  @apply w-full border rounded content-center p-5 align-middle;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-sizing: border-box;
-  text-decoration: none;
-  line-height: 1.2;
-  font-size: 1.25em;
-  font-weight: 600;
-  border-radius: 5px;
-  color: #006ef9;
-  background-color: #fff;
-}
-
-.section__news__grid__news__item:hover {
-  color: #f7f7f7;
-  background-color: #006ef9;
-}
-
-.news__item {
-  width: calc(50% - 10px);
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 5%;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-weight: 400;
-  font-size: var(--fs--medium);
-  line-height: 1.35;
-  border-radius: 5px;
-  border: 1px solid var(--gray-light);
-}
-
-.news__item--1 {
-  background-color: var(--yellow-light);
-  color: var(--black);
-}
-
-.news__item--1:hover {
-  background-color: var(--yellow);
-  color: var(--black);
-}
-
-.news__item--2 {
-  background-color: var(--pink-light);
-  color: var(--black);
-}
-
-.news__item--2:hover {
-  background-color: var(--pink);
-  color: var(--pink-light);
-}
-
-.news__item--3 {
-  background-color: var(--blue-light);
-  color: var(--black);
-}
-
-.news__item--3:hover {
-  background-color: var(--blue);
-  color: var(--blue-light);
-}
-
-.news__item--4 {
-  background-color: var(--orange-light);
-  color: var(--black);
-}
-
-.news__item--4:hover {
-  background-color: var(--orange);
-  color: var(--orange-light);
 }
 
 .section__products {
@@ -543,7 +410,7 @@
 }
 
 .section__full-image__content__card h2 {
-  @apply text-3xl font-extrabold;
+  @apply text-2xl font-bold;
   color: #232323;
   margin: 0;
 }
@@ -557,6 +424,7 @@
 }
 
 .section__full-image__content__card p {
+  @apply text-sm;
   margin: 20px 0 30px;
   line-height: 1.4;
   max-width: 500px;

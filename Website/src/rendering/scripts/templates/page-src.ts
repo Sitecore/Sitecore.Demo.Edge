@@ -24,6 +24,7 @@ placeholders:
         callToActionLink:
           href: /
           text: Home
+    - componentName: Breadcrumb
     - componentName: Section
       fields:
         cssClass: section__news

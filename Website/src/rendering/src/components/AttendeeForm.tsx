@@ -1,18 +1,31 @@
 import Link from 'next/link';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AttendeeForm = (): JSX.Element => (
   <div className="grid justify-items-stretch w-full grid-cols-1 md:grid-cols-5 attendee-form gap-0 md:gap-10">
-    <div className="section__content--top text-center space-y-10 attendee-form-content col-span-2 bg-gray-light">
+    <div className="section__content--top text-center space-y-10 attendee-form-content col-span-2 bg-white-lighter p-10">
       <div>
-        <h2>VIP Ticket</h2>
+        <h2 className="text-4xl px-4">VIP Ticket</h2>
         <span>Save 20% with early bird!</span>
       </div>
       <ul>
-        <li>10% off workshops</li>
-        <li>Free speaker events</li>
-        <li>Discounts on thousands of products</li>
-        <li>Free online catalog</li>
-        <li>20% off VIP upgrade</li>
+        <li>
+          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 10% off workshops
+        </li>
+        <li>
+          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free speaker events
+        </li>
+        <li>
+          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Discounts on thousands of
+          products
+        </li>
+        <li>
+          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free online catalog
+        </li>
+        <li>
+          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 20% off VIP upgrade
+        </li>
       </ul>
       <div className="px-6 pt-4 pb-10">
         <Link href="/tickets">
@@ -20,8 +33,8 @@ const AttendeeForm = (): JSX.Element => (
         </Link>
       </div>
     </div>
-    <div className="section__content--top attendee-form-form col-span-3 space-y-5">
-      <h2>Attendee Registration</h2>
+    <div className="section__content--top attendee-form-form col-span-3 space-y-5  p-10">
+      <h2 className="text-4xl">Attendee Registration</h2>
       <input
         className="w-full md:w-3/5 rounded p-2 border border-white-dark text-sm font-medium"
         type="text"

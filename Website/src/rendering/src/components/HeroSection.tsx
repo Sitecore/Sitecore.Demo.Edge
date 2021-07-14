@@ -4,7 +4,7 @@ import logo from '../assets/img/play-logo-wide-light.svg';
 
 const HeroSection = (): JSX.Element => (
   <section className="section__hero banner">
-    <div className="section__hero__container">
+    <div className="section__hero__container container">
       <div className="section__hero__container__content">
         <div className="section__hero__container__content__text">
           <div className="hidden md:block">

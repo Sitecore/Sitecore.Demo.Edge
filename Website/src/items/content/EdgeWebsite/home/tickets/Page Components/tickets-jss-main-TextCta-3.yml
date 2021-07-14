@@ -1,0 +1,33 @@
+﻿---
+ID: "2b4d4fe1-ec28-59da-8aca-c0adadf00e21"
+Parent: "a97d9e9b-67c9-59f3-ab03-d14c66278624"
+Template: "05178a6e-4135-58f1-8755-3bdf8f857872"
+Path: "/sitecore/content/EdgeWebsite/home/tickets/Page Components/tickets-jss-main-TextCta-3"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "TextCta-3"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210713T180731Z
+    - ID: "502bf440-201f-5d7d-89ed-3d060385d1f7"
+      Hint: subTitle
+      Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology.
+    - ID: "651caae9-2237-5f88-a398-cbaa79939f2b"
+      Hint: title
+      Value: Don't miss the super early bird offer
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "240d1057-62db-4e5f-a099-942ce0f47195"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210713T180731Z
