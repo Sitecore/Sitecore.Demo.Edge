@@ -30,7 +30,7 @@
       }
 
       .banner__title__title {
-        @apply text-5xl text-white uppercase py-3 m-0 font-bold;
+        @apply text-4xl md:text-5xl text-white uppercase py-3 m-0 font-bold;
       }
 
       .banner__title__sub-title {
