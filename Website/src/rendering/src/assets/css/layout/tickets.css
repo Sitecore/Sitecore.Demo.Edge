@@ -8,18 +8,6 @@
     padding-right: 10px;
     list-style: none;
 
-    li:before {
-      content: '';
-      display: inline-block;
-      height: 1em;
-      width: 1em;
-      background-image: url(/assets/img/tickets/check.svg);
-      background-size: contain;
-      background-repeat: no-repeat;
-      margin-right: 1em;
-      fill: red;
-    }
-
     li {
       @apply my-4;
     }
