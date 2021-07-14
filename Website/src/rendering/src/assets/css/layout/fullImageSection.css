@@ -1,9 +1,13 @@
 .section__full-image--offer {
-  background-image: url(../../img/offer-background.jpg);
+  @media (min-width: 768px) {
+    background-image: url(../../img/offer-background.jpg);
+  }
 }
 
 .section__full-image--speaker {
-  background-image: url(../../img/speaker-chris-williams-background.jpg);
+  @media (min-width: 768px) {
+    background-image: url(../../img/speaker-chris-williams-background.jpg);
+  }
 }
 
 .section__full-image--map {
