@@ -64,6 +64,9 @@ module.exports = {
        }),
       fontSize: {
         '4.5xl': '2.8rem',
+      },
+      width: {
+        '45': '45%',
       }
     },
   },

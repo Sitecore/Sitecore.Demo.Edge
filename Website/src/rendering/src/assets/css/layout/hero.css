@@ -10,13 +10,13 @@
     max-width: 1440px;
 
     &__content {
-      @apply w-full bg-black-light w-full md:w-1/2;
+      @apply w-full bg-black-light w-full md:w-45;
 
       background: linear-gradient(135deg, rgba(80,80,80,1) 0%, rgba(60,60,60,1) 50%, rgba(50,50,50,1) 100%);
       box-shadow: 0 0 20px #232323;
 
       &__text {
-        padding: 3rem;
+        @apply p-6 md:p-12
       }
 
       img {
