@@ -12,14 +12,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = (): JSX.Element => (
   <div className="footer__content">
-    <div className="footer__content__banner">
+    <div className="footer__content__banner container">
       <Link href="/">
         <a>
           <Image src={logo} alt="PLAY! Summit" height="80" width="280" />
         </a>
       </Link>
     </div>
-    <footer className="footer__content__footer">
+    <footer className="footer__content__footer container">
       <ul className="footer__content__footer__col">
         <li>Follow us</li>
         <li>
@@ -101,7 +101,7 @@ const Footer = (): JSX.Element => (
         </li>
       </ul>
     </footer>
-    <div className="footer__content__legal">
+    <div className="footer__content__legal container">
       <div className="footer__content__legal__links flex flex-wrap w-full justify-start">
         <div className="w-full md:w-auto pr-8 pt-4 md:pb-4">
           <p>Copyright © 2014-2021 PLAY! Summit</p>

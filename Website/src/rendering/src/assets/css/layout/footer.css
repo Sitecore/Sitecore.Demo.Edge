@@ -8,30 +8,23 @@
 }
 
 .footer__content {
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 3%;
+  @apply w-full px-3 box-border;
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .footer__content__banner {
-  @apply flex items-center justify-between;
-  padding: 1.5em 0;
+  @apply flex items-center justify-between py-6;
 }
 
 .footer__content__footer {
-  @apply flex items-start justify-between h-full flex-wrap;
-  padding: 3em 2em;
+  @apply flex items-start justify-between h-full flex-wrap py-10 px-4 md:px-8;
   border-top: 1px solid #ffd31c;
   border-bottom: 1px solid #ffd31c;
 }
 
 .footer__content__footer__col {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 0 3em;
-  min-width: 100px;
+  @apply px-2 list-none;
+  min-width: 140px;
 }
 
 .footer__content__footer__col li {
