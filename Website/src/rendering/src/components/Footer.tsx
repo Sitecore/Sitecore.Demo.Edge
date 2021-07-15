@@ -27,17 +27,20 @@ const Footer = (): JSX.Element => (
           <a href="#">Facebook</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faYoutube} /> <a href="#">YouTube</a>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faYoutube} />{' '}
+          <a href="#">YouTube</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faTwitter} /> <a href="#">Twitter</a>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faTwitter} />{' '}
+          <a href="#">Twitter</a>
         </li>
         <li>
           <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faInstagram} />{' '}
           <a href="#">Instagram</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faLinkedin} /> <a href="#">LinkedIn</a>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faLinkedin} />{' '}
+          <a href="#">LinkedIn</a>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
