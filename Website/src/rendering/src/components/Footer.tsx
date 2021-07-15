@@ -1,11 +1,21 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../assets/img/play-logo-wide-light.svg';
+import {
+  faFacebookF,
+  faYoutube,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = (): JSX.Element => (
   <div className="footer__content">
     <div className="footer__content__banner">
       <Link href="/">
         <a>
-          <img src="/assets/img/play-logo.svg" alt="Play! Summit logo" />
+          <Image src={logo} alt="PLAY! Summit" height="80" width="280" />
         </a>
       </Link>
     </div>
@@ -13,19 +23,21 @@ const Footer = (): JSX.Element => (
       <ul className="footer__content__footer__col">
         <li>Follow us</li>
         <li>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faFacebookF} />{' '}
           <a href="#">Facebook</a>
         </li>
         <li>
-          <a href="#">YouTube</a>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faYoutube} /> <a href="#">YouTube</a>
         </li>
         <li>
-          <a href="#">Twitter</a>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faTwitter} /> <a href="#">Twitter</a>
         </li>
         <li>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faInstagram} />{' '}
           <a href="#">Instagram</a>
         </li>
         <li>
-          <a href="#">LinkedIn</a>
+          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faLinkedin} /> <a href="#">LinkedIn</a>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
@@ -87,12 +99,18 @@ const Footer = (): JSX.Element => (
       </ul>
     </footer>
     <div className="footer__content__legal">
-      <div className="footer__content__legal__links">
-        <p>Copyright © 2014-2021 PLAY! Summit</p>
-        <Link href="/privacy">Privacy Policy</Link>
-        <Link href="/terms">Terms of Use</Link>
+      <div className="footer__content__legal__links flex flex-wrap w-full justify-start">
+        <div className="w-full md:w-auto pr-8 pt-4 md:pb-4">
+          <p>Copyright © 2014-2021 PLAY! Summit</p>
+        </div>
+        <div className="w-full md:w-auto pr-8 pt-4 md:pb-4">
+          <Link href="/privacy">Privacy Policy</Link>
+        </div>
+        <div className="w-full md:w-auto py-4">
+          <Link href="/terms">Terms of Use</Link>
+        </div>
       </div>
-      <div className="footer__content__legal__region">
+      <div className="footer__content__legal__region hidden md:block">
         <a href="#">Region</a>
       </div>
     </div>
