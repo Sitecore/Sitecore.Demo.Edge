@@ -48,6 +48,7 @@ Languages:
               uid="{802F702F-5CCF-5AE5-B9F1-BE82A2BE6777}"
               p:after="r[@uid='{1AD90955-9DD5-52F6-83A3-A54AE4F0FBDF}']"
               s:rname="FeaturedSpeakers"
+              s:ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
               s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
               s:par=""
               s:ph="/jss-main" />
@@ -88,14 +89,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "53e30a80-f26d-4475-b15f-6b81ec17492a"
+      Value: "98e8387a-dd12-4c3a-a7b6-161330f35e51"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T170152Z
+      Value: 20210714T203229Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Speakers"

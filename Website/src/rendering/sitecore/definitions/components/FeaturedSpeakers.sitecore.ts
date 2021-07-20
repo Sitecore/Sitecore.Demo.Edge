@@ -9,10 +9,15 @@ import { CommonFieldTypes, SitecoreIcon, Manifest } from '@sitecore-jss/sitecore
 const FeaturedSpeakers = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'FeaturedSpeakers',
-    icon: SitecoreIcon.DocumentTag,
+    icon: SitecoreIcon.Person,
     fields: [
       { name: 'Title', type: CommonFieldTypes.SingleLineText },
       { name: 'Subtitle', type: CommonFieldTypes.SingleLineText },
+      {
+        name: 'Speakers',
+        type: CommonFieldTypes.ContentList,
+        source: '/sitecore/content/CMP/Speakers',
+      },
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,

@@ -1,0 +1,54 @@
+﻿---
+ID: "d060d77c-d48e-4e3f-82a1-d4f099cc19cb"
+Parent: "da00f1fd-0392-44cf-944a-b24952407013"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/CMP/Speakers/Mary Asada
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "QRU-a06uPk65tshufL89Bg"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210719T202742Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b841e543-0207-42cf-be02-2c099acf2534"
+    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
+      Hint: Company
+      Value: Microsoft
+    - ID: "9918e001-7869-44b7-add9-c863bac4b1ed"
+      Hint: Country
+      Value: Canada
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: description
+      Value: "<p>&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed.&lt;/p&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;- Lorem ipsum dolor sit amet&lt;/li&gt;&lt;li&gt;- consetetur sadipscing elitr&lt;/li&gt;&lt;li&gt;- sed diam nonumy eirmod tempor&lt;/li&gt;&lt;li&gt;- invidunt ut labore et dolore&lt;/li&gt;&lt;li&gt;- magna aliquyam erat&lt;/li&gt;&lt;li&gt;- sed diam voluptua&lt;/li&gt;&lt;/ul&gt;ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgd</p>"
+    - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
+      Hint: Position
+      Value: Manager
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210720T010049Z
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: name
+      Value: Mary Asada
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="35423" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35423/thumbnail" src="https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8acfa39e" mediaid="" stylelabs-content-type="Image" alt="mary-asada.jpeg" height="200" width="200" />
