@@ -1,0 +1,32 @@
+id: maryasada
+fields:
+  pageTitle: PLAY! Summit - Mary Asada
+placeholders:
+  jss-header:
+    - componentName: Header
+      placeholders:
+        jss-header-content:
+          - componentName: MainNavigation
+  jss-main:
+    - componentName: HeroImage
+      fields:
+        heading: Image
+        hero:
+          src: /data/media/img/golf.jpg
+          alt: Sample Image
+    - componentName: Breadcrumb
+    - componentName: SpeakerInformation
+    - componentName: Section
+      fields:
+        cssClass: section__sponsors
+        brightness: light
+        title: Premium Sponsors
+        content: Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible.
+        callToActionLink:
+          href: /sponsors/sponsorize
+          text: Become a Sponsor
+      placeholders:
+        jss-section-content:
+          - componentName: SponsorsGrid
+  jss-footer:
+    - componentName: Footer

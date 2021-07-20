@@ -31,7 +31,7 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
                   <div className="rounded overflow-hidden cursor-pointer mx-auto">
                     <img
                       src={speaker?.fields?.Image?.value?.src}
-                      alt="Speaker"
+                      alt={speaker?.name}
                       width={265}
                       height={265}
                     />
