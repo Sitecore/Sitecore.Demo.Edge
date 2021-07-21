@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TestimonyList  from '../components/TestimonyList';
+import TestimonyList from '../components/TestimonyList';
 
 export default {
   title: 'Example/TestimonyList',
