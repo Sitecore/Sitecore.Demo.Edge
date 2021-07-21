@@ -53,8 +53,13 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{5667C874-385E-5AD2-9D21-57F15F768989}"
+              uid="{FEA6367D-427C-44E9-B789-5876A6093332}"
               p:after="r[@uid='{802F702F-5CCF-5AE5-B9F1-BE82A2BE6777}']"
+              s:id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
+              s:ph="/jss-main" />
+            <r
+              uid="{5667C874-385E-5AD2-9D21-57F15F768989}"
+              p:after="r[@uid='{FEA6367D-427C-44E9-B789-5876A6093332}']"
               s:rname="Section"
               s:ds="{5F70E48B-0A08-5E8B-8E23-0468164BC012}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -89,14 +94,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "98e8387a-dd12-4c3a-a7b6-161330f35e51"
+      Value: "c8d2a6bd-deb8-451c-a11a-f54a364158a8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T203229Z
+      Value: 20210721T181037Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Speakers"

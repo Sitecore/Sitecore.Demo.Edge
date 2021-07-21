@@ -12,7 +12,6 @@ type ContentListProps = ComponentProps & {
 };
 
 const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
-  console.log(props.fields.Speakers.length);
   return (
     <section className="">
       <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
@@ -25,7 +24,6 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
         <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {props.fields.Speakers &&
             props.fields.Speakers.map((speaker, index) => {
-              console.log(speaker);
               return (
                 <Link key={index} href={'/speakers/' + speaker.name.replace(' ', '')} passHref>
                   <div className="rounded overflow-hidden cursor-pointer mx-auto">
