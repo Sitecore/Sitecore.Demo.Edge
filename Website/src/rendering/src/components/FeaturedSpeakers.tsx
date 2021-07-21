@@ -1,13 +1,20 @@
 import Link from 'next/link';
 
-import { Text, Field, Item } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+
+type Speaker = {
+  fields: {
+    name: Field<string>;
+    Image: ImageField;
+  };
+};
 
 type ContentListProps = ComponentProps & {
   fields: {
     Title: Field<string>;
     Subtitle: Field<string>;
-    Speakers: Item[];
+    Speakers: Speaker[];
   };
 };
 
@@ -24,12 +31,13 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
         <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {props.fields.Speakers &&
             props.fields.Speakers.map((speaker, index) => {
+              console.log(speaker.fields);
               return (
-                <Link key={index} href={'/speakers/' + speaker.name.replace(' ', '')} passHref>
+                <Link key={index} href={'/speakers/' + speaker.fields.name} passHref>
                   <div className="rounded overflow-hidden cursor-pointer mx-auto">
                     <img
-                      src={speaker?.fields?.Image?.value?.src}
-                      alt={speaker?.name}
+                      src={speaker.fields.Image.value?.src}
+                      alt={speaker?.fields?.name.value}
                       width={265}
                       height={265}
                     />
