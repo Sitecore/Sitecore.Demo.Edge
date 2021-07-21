@@ -48,7 +48,7 @@ Languages:
               uid="{11567105-C634-5BE6-83CF-DA0BB070C623}"
               p:after="r[@uid='{D8EB93B4-8560-59D5-9E32-51E92882BA5A}']"
               s:rname="SpeakerInformation"
-              s:ds="{859C8CC1-A317-47F4-9805-12D78A808367}"
+              s:ds="{0A65B8EB-40A6-4F09-ACB8-56DC5512605A}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
@@ -60,7 +60,8 @@ Languages:
               s:ds="{6135CCB6-FA34-5FBA-9250-A8B28452CD9F}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{7E6FC8E9-1F3C-52D9-AAB1-EA77D534940B}"
               p:after="r[@uid='{DC32516F-5966-5C32-9D83-567A48195802}']"
@@ -82,14 +83,14 @@ Languages:
       Value: 20210625T201843Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "21dae925-8e3a-4a63-a91e-ea2dd288eeb0"
+      Value: "14de30e6-f1d8-43ba-961b-1639469e60fd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T180227Z
+      Value: 20210721T222338Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Li Xiu Ying"

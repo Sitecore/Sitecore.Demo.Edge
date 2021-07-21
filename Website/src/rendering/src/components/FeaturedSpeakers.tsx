@@ -35,7 +35,7 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
               return (
                 <Link
                   key={index}
-                  href={'/speakers/' + speaker.fields.name.value.replace(' ', '')}
+                  href={'/speakers/' + speaker.fields.name.value.replace(/ /g, '')}
                   passHref
                 >
                   <div className="rounded overflow-hidden cursor-pointer mx-auto">
