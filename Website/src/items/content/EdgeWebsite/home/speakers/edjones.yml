@@ -30,43 +30,44 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{38F589D5-8CEB-588C-B826-B1AE9117D513}-0" />
             <r
-              uid="{0223228A-B209-50C5-9FD8-E62114E7138D}"
+              uid="{99E5FBEA-6C7E-5124-A5A5-2F1DADCE8C2E}"
               p:after="r[@uid='{D6A30C4F-E83E-515B-A2F1-B914BF0301D6}']"
+              s:rname="HeroImage"
+              s:ds="{24BAADF6-0254-58A0-A0BD-301EF9CA5E7A}"
+              s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{0FC57298-409B-5CE7-ACCC-9305475D575D}"
+              p:after="r[@uid='{99E5FBEA-6C7E-5124-A5A5-2F1DADCE8C2E}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
+              s:par=""
+              s:ph="/jss-main" />
+            <r
+              uid="{4AF7A8D9-41F8-59BF-B9E8-AD7F62D7F3AE}"
+              p:after="r[@uid='{0FC57298-409B-5CE7-ACCC-9305475D575D}']"
+              s:rname="SpeakerInformation"
+              s:ds="{592006DB-9B53-47B6-A527-9B05D896B212}"
+              s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
+              s:par=""
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{E82DCF47-767E-56E6-8387-A9E25AB0E156}"
+              p:after="r[@uid='{4AF7A8D9-41F8-59BF-B9E8-AD7F62D7F3AE}']"
               s:rname="Section"
-              s:ds="{6FBE858A-40D7-5253-94CC-E6D8E0B96DF6}"
+              s:ds="{FAAECE04-3305-5918-AA69-06626B958484}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{6B9E4A5B-E530-5FD1-930C-35387F87B153}"
-              p:after="r[@uid='{0223228A-B209-50C5-9FD8-E62114E7138D}']"
-              s:rname="Section"
-              s:ds="{533F93FF-6654-59A4-BB6B-E4D86ABB7F04}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{51A604F9-C0EA-5F6C-BB78-BAF518A860E2}"
-              p:after="r[@uid='{6B9E4A5B-E530-5FD1-930C-35387F87B153}']"
-              s:rname="NewsGrid"
-              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{6B9E4A5B-E530-5FD1-930C-35387F87B153}-0" />
-            <r
-              uid="{24195CE3-9352-5640-958F-757776987A16}"
-              p:after="r[@uid='{51A604F9-C0EA-5F6C-BB78-BAF518A860E2}']"
-              s:rname="Section"
-              s:ds="{BE47358A-B9AC-5B82-A8BD-91C50240E86B}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{0B47C0DF-BF52-5EA1-A3B3-7B18CB811659}"
-              p:after="r[@uid='{24195CE3-9352-5640-958F-757776987A16}']"
+              uid="{A372A14E-3F54-59F9-8968-7D4AF49DF092}"
+              p:after="r[@uid='{E82DCF47-767E-56E6-8387-A9E25AB0E156}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{24195CE3-9352-5640-958F-757776987A16}-0" />
+              s:ph="/jss-main/jss-section-content-{E82DCF47-767E-56E6-8387-A9E25AB0E156}-0" />
             <r
               uid="{042D0B6C-8E53-5CD3-BFEB-0C70DEFB8ED3}"
               p:after="*[1=2]"
@@ -81,14 +82,14 @@ Languages:
       Value: 20210625T201841Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "52d72098-39c9-40b3-97ee-7e83adb72557"
+      Value: "9eb59f4e-1344-4feb-bc38-57994ba22bfb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201841Z
+      Value: 20210721T180317Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Ed Jones"
