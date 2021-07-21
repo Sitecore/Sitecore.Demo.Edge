@@ -23,24 +23,19 @@ const Footer = (): JSX.Element => (
       <ul className="footer__content__footer__col">
         <li>Follow us</li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faFacebookF} />{' '}
-          <a href="#">Facebook</a>
+          <FontAwesomeIcon fixedWidth icon={faFacebookF} /> <a href="#">Facebook</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faYoutube} />{' '}
-          <a href="#">YouTube</a>
+          <FontAwesomeIcon fixedWidth icon={faYoutube} /> <a href="#">YouTube</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faTwitter} />{' '}
-          <a href="#">Twitter</a>
+          <FontAwesomeIcon fixedWidth icon={faTwitter} /> <a href="#">Twitter</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faInstagram} />{' '}
-          <a href="#">Instagram</a>
+          <FontAwesomeIcon fixedWidth icon={faInstagram} /> <a href="#">Instagram</a>
         </li>
         <li>
-          <FontAwesomeIcon className="text-gray-lighter mr-1" fixedWidth icon={faLinkedin} />{' '}
-          <a href="#">LinkedIn</a>
+          <FontAwesomeIcon fixedWidth icon={faLinkedin} /> <a href="#">LinkedIn</a>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
@@ -102,18 +97,18 @@ const Footer = (): JSX.Element => (
       </ul>
     </footer>
     <div className="footer__content__legal">
-      <div className="footer__content__legal__links flex flex-wrap w-full justify-start">
-        <div className="w-full md:w-auto pr-8 pt-4 md:pb-4">
+      <div className="footer__content__legal__links">
+        <div>
           <p>Copyright © 2014-2021 PLAY! Summit</p>
         </div>
-        <div className="w-full md:w-auto pr-8 pt-4 md:pb-4">
+        <div>
           <Link href="/privacy">Privacy Policy</Link>
         </div>
-        <div className="w-full md:w-auto py-4">
+        <div>
           <Link href="/terms">Terms of Use</Link>
         </div>
       </div>
-      <div className="footer__content__legal__region hidden md:block">
+      <div className="footer__content__legal__region">
         <a href="#">Region</a>
       </div>
     </div>

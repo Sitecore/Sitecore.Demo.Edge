@@ -6,8 +6,16 @@
   @apply flex items-center justify-between;
 }
 
+@mixin flex--fs-sb-w {
+  @apply flex items-start justify-between flex-wrap;
+}
+
 @mixin flex--fe {
   @apply flex items-center justify-end;
+}
+
+@mixin flex--fs-w {
+  @apply flex items-center justify-start flex-wrap;
 }
 
 @mixin content {
