@@ -33,7 +33,11 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
             props.fields.Speakers.map((speaker, index) => {
               console.log(speaker.fields);
               return (
-                <Link key={index} href={'/speakers/' + speaker.fields.name} passHref>
+                <Link
+                  key={index}
+                  href={'/speakers/' + speaker.fields.name.value.replace(' ', '')}
+                  passHref
+                >
                   <div className="rounded overflow-hidden cursor-pointer mx-auto">
                     <img
                       src={speaker.fields.Image.value?.src}

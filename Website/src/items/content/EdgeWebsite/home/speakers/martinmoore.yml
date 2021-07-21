@@ -1,8 +1,8 @@
 ﻿---
-ID: "2b8b0808-c1dc-53ec-89f5-2b98a064190c"
+ID: "ecd0c19f-9d15-5923-b274-54595f669cd1"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
-Path: /sitecore/content/EdgeWebsite/home/speakers/jacobgonzalez
+Path: /sitecore/content/EdgeWebsite/home/speakers/martinmoore
 Languages:
 - Language: en
   Versions:
@@ -16,60 +16,62 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{C114B24F-9139-5CB5-93E1-60920EA83928}"
+              uid="{530F2692-D1B8-5CD9-89E5-5F1B6DC426EE}"
               p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
               s:rname="Header"
               s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
               s:par=""
               s:ph="/jss-header" />
             <r
-              uid="{416CFF59-BA72-573F-A1D3-36EA08ECCD62}"
-              p:after="r[@uid='{C114B24F-9139-5CB5-93E1-60920EA83928}']"
+              uid="{D1F20085-2BAF-5285-9955-C3A5DD932C3F}"
+              p:after="r[@uid='{530F2692-D1B8-5CD9-89E5-5F1B6DC426EE}']"
               s:rname="MainNavigation"
               s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
               s:par=""
-              s:ph="/jss-header/jss-header-content-{C114B24F-9139-5CB5-93E1-60920EA83928}-0" />
+              s:ph="/jss-header/jss-header-content-{530F2692-D1B8-5CD9-89E5-5F1B6DC426EE}-0" />
             <r
-              uid="{2041F3B1-5F77-5026-8D36-43A3F8BD414E}"
-              p:after="r[@uid='{416CFF59-BA72-573F-A1D3-36EA08ECCD62}']"
+              uid="{0E075014-F0CA-58D9-9261-9206E598257A}"
+              p:after="r[@uid='{D1F20085-2BAF-5285-9955-C3A5DD932C3F}']"
               s:rname="HeroImage"
-              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
+              s:ds="{558BD276-EE64-577D-9F10-C42B0A6F94AD}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
-              uid="{E435F6E6-73DF-53C3-9057-63258026F8A9}"
-              p:after="r[@uid='{2041F3B1-5F77-5026-8D36-43A3F8BD414E}']"
+              uid="{6C84E3BF-7369-5E91-9ABE-3D91FDAA784F}"
+              p:after="r[@uid='{0E075014-F0CA-58D9-9261-9206E598257A}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{9AC331AA-78F2-5964-B5ED-665554B2A155}"
-              p:after="r[@uid='{E435F6E6-73DF-53C3-9057-63258026F8A9}']"
+              uid="{346ED546-85C0-5373-A62B-72FC1BB233E2}"
+              p:after="r[@uid='{6C84E3BF-7369-5E91-9ABE-3D91FDAA784F}']"
               s:rname="SpeakerInformation"
-              s:ds="{7449CE19-278C-47FE-B47D-DB6241C1EA4D}"
+              s:ds="{0BF37D10-D6D2-4FC5-AB95-3E51FD2BF272}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
               s:ccb="Clear on publish" />
             <r
-              uid="{6331B8D7-A47C-520E-A145-F75E0320E84B}"
-              p:after="r[@uid='{9AC331AA-78F2-5964-B5ED-665554B2A155}']"
+              uid="{31E968A8-A13F-5E18-A714-695892D015E0}"
+              p:after="r[@uid='{346ED546-85C0-5373-A62B-72FC1BB233E2}']"
               s:rname="Section"
-              s:ds="{9E073E97-97A0-5ED7-A00C-B16FDC140E9D}"
+              s:ds="{9DDA421C-0C96-5164-94A3-4769DE3477F8}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
-              uid="{72FF2693-1A0A-55A3-BFB5-232863EA718B}"
-              p:after="r[@uid='{6331B8D7-A47C-520E-A145-F75E0320E84B}']"
+              uid="{371C1B5C-2277-5D82-B02F-68DBB24FF574}"
+              p:after="r[@uid='{31E968A8-A13F-5E18-A714-695892D015E0}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{6331B8D7-A47C-520E-A145-F75E0320E84B}-0" />
+              s:ph="/jss-main/jss-section-content-{31E968A8-A13F-5E18-A714-695892D015E0}-0" />
             <r
-              uid="{8D0E036D-3974-5BB6-8372-9025857576AA}"
+              uid="{696DDC02-CF51-5237-9AC1-897D913D7427}"
               p:after="*[1=2]"
               s:rname="Footer"
               s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
@@ -79,17 +81,17 @@ Languages:
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210625T201841Z
+      Value: 20210625T201844Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5b68be63-4161-4ebd-a963-e10f299ddf1b"
+      Value: "b674d72e-1a20-4e83-9236-ab4a53e268e5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T210338Z
+      Value: 20210721T211914Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "PLAY! Summit - Jacob Gonzalez"
+      Value: "PLAY! Summit - Martin Moore"
