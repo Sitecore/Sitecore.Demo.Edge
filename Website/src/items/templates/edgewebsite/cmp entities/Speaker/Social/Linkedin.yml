@@ -12,6 +12,10 @@ SharedFields:
   Value: 300
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Linkedin Profile Link
   Versions:
   - Version: 1
     Fields:
@@ -28,11 +32,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e52a4398-779b-4dfb-87e1-a4dd89e607fa"
+      Value: "68351095-4278-4be3-b5b4-c1e5be2f2a69"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T174147Z
+      Value: 20210722T001827Z
