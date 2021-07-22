@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bfb5766a-3c9f-49c3-9260-c90539ddf7ff"
+      Value: "f6eceb02-1d4a-4f3f-b715-a4f0023d44ae"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Microsoft
@@ -43,16 +43,19 @@ Languages:
       Value: |
         sitecore\superuser
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
-      Hint: description
+      Hint: Description
       Value: "<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed.</p><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>sed diam nonumy eirmod tempor&lt;/li&gt;&lt;li&gt;- invidunt ut labore et dolore&lt;/li&gt;&lt;li&gt;- magna aliquyam erat&lt;/li&gt;&lt;li&gt;- sed diam voluptua</li></ul>"
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: Position
       Value: Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T205803Z
+      Value: 20210722T001056Z
+    - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
+      Hint: Role
+      Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
-      Hint: name
+      Hint: Name
       Value: Jalen Williams
     - ID: "f5944338-eec3-4f86-a7d3-3b8bda5b4702"
       Hint: Facebook

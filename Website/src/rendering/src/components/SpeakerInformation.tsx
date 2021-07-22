@@ -10,12 +10,13 @@ import { Field, ImageField, Image, RichText } from '@sitecore-jss/sitecore-jss-n
 
 type SpeakerInformationProps = ComponentProps & {
   fields: {
-    name: Field<string>;
+    Name: Field<string>;
+    Role: Field<string>;
     Image: ImageField;
     Position: Field<string>;
     Company: Field<string>;
     Country: Field<string>;
-    description: Field<string>;
+    Description: Field<string>;
     Facebook: Field<string>;
     Twitter: Field<string>;
     Linkedin: Field<string>;
@@ -27,7 +28,7 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
     <div className="section__content left__content">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="col-span-1 md:col-span-1">
-          <Image field={props.fields?.Image} alt={props.fields?.name.value} />
+          <Image field={props.fields?.Image} alt={props.fields?.Name.value} />
           <div>
             {/* TODO: To be turned into links */}
             <a href={props.fields.Facebook.value}>
@@ -55,11 +56,11 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
         </div>
         <div className="col-span-1 md:col-span-3 space-y-5">
           {/* TODO: Add speaker type in content hub */}
-          <h3 className="">SPEAKER</h3>
+          <h3 className="uppercase">{props.fields.Role.value}</h3>
           <h2 className="text-2xl md:text-3xl font-extrabold text-blue">
-            {props.fields.name.value}
+            {props.fields.Name.value}
           </h2>
-          <RichText field={props.fields.description} />
+          <RichText field={props.fields.Description} />
           {/* TODO: Link sessions with speakers and show info here */}
           <div>
             <div>

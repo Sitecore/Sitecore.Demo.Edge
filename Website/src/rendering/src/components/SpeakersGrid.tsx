@@ -4,7 +4,8 @@ import { ComponentProps } from 'lib/component-props';
 
 type Speaker = {
   fields: {
-    name: Field<string>;
+    Name: Field<string>;
+    Role: Field<string>;
     Image: ImageField;
   };
 };
@@ -25,13 +26,13 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
           return (
             <Link
               key={index}
-              href={'/speakers/' + speaker.fields.name.value.replace(/ /g, '')}
+              href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
               passHref
             >
               <a className="section__speakers__grid__speaker">
-                <Image field={speaker.fields.Image} alt={speaker.fields.name} />
-                <Text className="speaker__name" tag="p" field={speaker.fields.name}></Text>
-                <p className="speaker__role">Athlete</p>
+                <Image field={speaker.fields.Image} alt={speaker.fields.Name} />
+                <Text className="speaker__name" tag="p" field={speaker.fields.Name}></Text>
+                <Text className="speaker__role" tag="p" field={speaker.fields.Role}></Text>
               </a>
             </Link>
           );

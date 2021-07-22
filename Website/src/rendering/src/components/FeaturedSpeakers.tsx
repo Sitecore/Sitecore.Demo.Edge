@@ -5,7 +5,8 @@ import { ComponentProps } from 'lib/component-props';
 
 type Speaker = {
   fields: {
-    name: Field<string>;
+    Name: Field<string>;
+    Role: Field<string>;
     Image: ImageField;
   };
 };
@@ -31,17 +32,16 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
         <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
           {props.fields.Speakers &&
             props.fields.Speakers.map((speaker, index) => {
-              console.log(speaker.fields);
               return (
                 <Link
                   key={index}
-                  href={'/speakers/' + speaker.fields.name.value.replace(/ /g, '')}
+                  href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
                   passHref
                 >
                   <div className="rounded overflow-hidden cursor-pointer mx-auto">
                     <img
                       src={speaker.fields.Image.value?.src}
-                      alt={speaker?.fields?.name.value}
+                      alt={speaker?.fields?.Name.value}
                       width={265}
                       height={265}
                     />
@@ -49,7 +49,7 @@ const FeaturedSpeakers = (props: ContentListProps): JSX.Element => {
                       <Text
                         className="text-gray-700 text-base text-center"
                         tag="p"
-                        field={speaker?.fields?.name}
+                        field={speaker?.fields?.Name}
                       ></Text>
                     </div>
                   </div>
