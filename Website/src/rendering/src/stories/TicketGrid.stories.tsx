@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TicketGrid  from '../components/TicketGrid';
+import TicketGrid from '../components/TicketGrid';
 
 export default {
   title: 'Example/TicketGrid',
