@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Edge Speaker/Name
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: 55c25_Name
+  Value: e31bd_Name
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{E91669E4-7A60-495F-B868-47F9B15C28B3}"
@@ -23,11 +23,11 @@ Languages:
       Value: 20190614T174144Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "af83b762-9ad8-465a-bd47-232d37f5bc4a"
+      Value: "83de446d-7ede-4ccc-ac8d-a80268817c5d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210715T214842Z
+      Value: 20210725T111423Z

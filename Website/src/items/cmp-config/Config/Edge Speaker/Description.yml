@@ -9,7 +9,7 @@ SharedFields:
   Value: 150
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: 55c25_Description
+  Value: e31bd_Description
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{D0B11041-4E9D-4066-B833-2FB20C0CC47D}"
@@ -26,11 +26,11 @@ Languages:
       Value: 20190614T174224Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "eb0442ac-ce8d-48f6-b7df-5f5fba37337c"
+      Value: "344182a1-40b5-4b38-baf0-0a2f0fdbb9c8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210715T214838Z
+      Value: 20210725T111427Z

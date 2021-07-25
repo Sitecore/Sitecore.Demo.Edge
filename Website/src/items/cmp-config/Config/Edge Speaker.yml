@@ -9,7 +9,7 @@ SharedFields:
   Value: "{DA00F1FD-0392-44CF-944A-B24952407013}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: 15MA7Q7WfEmcNThWHXSWRg
+  Value: "5Ll1UEgUgEWi7SGbO-z3UQ"
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: Content.Name
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7d15bb2c-519c-4973-b0d1-e6b3014b1de8"
+      Value: "7a5ac713-7a56-4072-a7a5-002222544ed9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210719T202637Z
+      Value: 20210725T105923Z

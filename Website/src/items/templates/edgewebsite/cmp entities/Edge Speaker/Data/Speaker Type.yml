@@ -1,15 +1,18 @@
 ﻿---
-ID: "f5944338-eec3-4f86-a7d3-3b8bda5b4702"
-Parent: "b82dfeac-780e-45eb-a121-d8252c4ec4e2"
+ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
+Parent: "efbac9b0-5354-45ab-9bc4-cb42591cd08f"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Speaker/Social/Facebook
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Speaker/Data/Speaker Type
 SharedFields:
+- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
+  Hint: Source
+  Value: /sitecore/content/CMP/Speaker Type
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: "Single-Line Text"
+  Value: Droplist
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 100
+  Value: 400
 Languages:
 - Language: en
   Versions:
@@ -17,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210719T222931Z
+      Value: 20210721T235859Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "751aaab1-487f-4c3c-96a9-4482f9419f14"
+      Value: "aff1666d-131f-4b16-b995-18acaeccef0d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210720T005057Z
+      Value: 20210725T111940Z

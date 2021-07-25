@@ -1,18 +1,18 @@
 ﻿---
-ID: "36b058e6-74f4-4c42-9651-e894268d5444"
+ID: "2d6d1728-44b0-4bf1-ac38-8bf513f8bb60"
 Parent: "6b835483-0d83-4a75-a4f2-7743cd6d588e"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Edge Speaker/Linkedin
+Path: /sitecore/system/Modules/CMP/Config/Edge Speaker/Facebook Profile Link
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 200
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Linkedin
+  Value: e31bd_FacebookProfileLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{02A6144F-E48C-4305-A1C4-93B39B965BCB}"
+  Value: "{F5944338-EEC3-4F86-A7D3-3B8BDA5B4702}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: 
@@ -26,11 +26,11 @@ Languages:
       Value: 20190614T174224Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0d4519ef-1996-4e77-ad4d-1263b72bd1ad"
+      Value: "ade6e97d-a8ef-4ac3-be42-f99c98c81f46"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210720T004557Z
+      Value: 20210725T111642Z

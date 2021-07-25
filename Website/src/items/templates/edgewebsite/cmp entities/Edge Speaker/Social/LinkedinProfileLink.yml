@@ -1,27 +1,27 @@
 ﻿---
-ID: "8dfcc5c3-3207-4b82-9fb3-b8fd3258547f"
-Parent: "af3253e2-6a15-4e4f-9ac7-b2c827522bb9"
+ID: "02a6144f-e48c-4305-a1c4-93b39b965bcb"
+Parent: "b82dfeac-780e-45eb-a121-d8252c4ec4e2"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Speaker/Social/Twitter
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Speaker/Social/LinkedinProfileLink
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 300
 Languages:
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Twitter Profile Link
+    Value: Linkedin Profile Link
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210714T174147Z
+      Value: 20210719T222931Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,11 +32,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b580bf8e-cefd-439a-bad2-d68bc29e7a6e"
+      Value: "8ab2c7d4-63ab-4c34-bdd4-41917195b8ff"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T001821Z
+      Value: 20210725T131341Z
