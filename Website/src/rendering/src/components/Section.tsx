@@ -32,7 +32,7 @@ const Section = (props: SectionProps): JSX.Element => {
         {!!props.rendering && (
           <Placeholder name="jss-section-content" rendering={props.rendering} />
         )}
-        {!!props.fields?.callToActionLink && (
+        {!!props.fields?.callToActionLink?.value.href && (
           <Link
             field={props.fields.callToActionLink}
             className="btn--main btn--main--round btn--main--big"
