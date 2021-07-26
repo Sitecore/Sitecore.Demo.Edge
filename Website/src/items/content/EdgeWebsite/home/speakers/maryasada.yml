@@ -48,7 +48,7 @@ Languages:
               uid="{312C7213-8D72-524F-B32F-507797A28952}"
               p:after="r[@uid='{5D0AB62F-799B-5EFC-9524-7042FE197448}']"
               s:rname="SpeakerInformation"
-              s:ds="{D060D77C-D48E-4E3F-82A1-D4F099CC19CB}"
+              s:ds="{61AC52CB-DC91-4791-A1AE-71D9CF675083}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
@@ -90,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d9a49a81-2a90-4210-9f31-00d1d4661060"
+      Value: "6838f02d-dbde-4907-be20-33caa53da5b6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210720T223359Z
+      Value: 20210726T180644Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Mary Asada"

@@ -49,7 +49,7 @@ Languages:
               uid="{346ED546-85C0-5373-A62B-72FC1BB233E2}"
               p:after="r[@uid='{6C84E3BF-7369-5E91-9ABE-3D91FDAA784F}']"
               s:rname="SpeakerInformation"
-              s:ds="{0BF37D10-D6D2-4FC5-AB95-3E51FD2BF272}"
+              s:ds="{40C14FCE-DE1B-4336-84D0-D8F8257A6FBA}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
@@ -92,14 +92,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b674d72e-1a20-4e83-9236-ab4a53e268e5"
+      Value: "e4565113-e4d9-4092-9ae8-80155173a548"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T211914Z
+      Value: 20210726T180658Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Martin Moore"

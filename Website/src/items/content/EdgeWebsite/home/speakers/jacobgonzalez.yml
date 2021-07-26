@@ -48,7 +48,7 @@ Languages:
               uid="{9AC331AA-78F2-5964-B5ED-665554B2A155}"
               p:after="r[@uid='{E435F6E6-73DF-53C3-9057-63258026F8A9}']"
               s:rname="SpeakerInformation"
-              s:ds="{7449CE19-278C-47FE-B47D-DB6241C1EA4D}"
+              s:ds="{299F3543-4808-4D84-81A5-359C01814C3B}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
@@ -90,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5b68be63-4161-4ebd-a963-e10f299ddf1b"
+      Value: "f0dfced5-385d-422c-a091-6c235d1a78ed"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T210338Z
+      Value: 20210726T180754Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Jacob Gonzalez"

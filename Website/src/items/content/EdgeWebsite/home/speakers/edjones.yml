@@ -48,7 +48,7 @@ Languages:
               uid="{4AF7A8D9-41F8-59BF-B9E8-AD7F62D7F3AE}"
               p:after="r[@uid='{0FC57298-409B-5CE7-ACCC-9305475D575D}']"
               s:rname="SpeakerInformation"
-              s:ds="{592006DB-9B53-47B6-A527-9B05D896B212}"
+              s:ds="{35D340E9-48F7-4515-B930-74CD3ABC22C6}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
@@ -90,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9eb59f4e-1344-4feb-bc38-57994ba22bfb"
+      Value: "fdbbea54-fe57-407d-a039-8ccee6670d7b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T180317Z
+      Value: 20210726T180806Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Ed Jones"

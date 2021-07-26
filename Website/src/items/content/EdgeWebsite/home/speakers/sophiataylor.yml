@@ -48,7 +48,7 @@ Languages:
               uid="{C188AF30-3FE2-5450-AFE3-B207EFCEDFB1}"
               p:after="r[@uid='{99503209-8F2B-563A-B886-A5131C9C4131}']"
               s:rname="SpeakerInformation"
-              s:ds="{E1C7D4B4-D165-49A4-A913-E45B43CFD2E5}"
+              s:ds="{D24592E4-60F7-4C93-8E70-E313DC3F4432}"
               s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
               s:par=""
               s:ph="/jss-main"
@@ -90,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e702b3a0-d477-4526-bc38-760da3fa2599"
+      Value: "975210fe-3203-4151-ba8e-c854f6148fef"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T180159Z
+      Value: 20210726T180631Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Sophia Taylor"
