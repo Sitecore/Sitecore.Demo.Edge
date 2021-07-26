@@ -1,12 +1,8 @@
 ﻿---
-ID: "61d8540c-3183-4b4b-a595-f6b1667a2086"
-Parent: "631fd3ea-4aa7-40ba-9981-bd5975ed8140"
-Template: "c6b7c67a-b937-4da3-8e1d-d793f2b88871"
-Path: /sitecore/content/CMP/Vendors/Microsoft
-SharedFields:
-- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
-  Hint: EntityIdentifier
-  Value: PEjtfMGLakmsEDXRt2OkLg
+ID: "39442d44-9f0f-426b-ab2a-4f6ced73dd73"
+Parent: "316fafd3-7971-44d2-b833-d1ed729748e3"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Shared/Social Links
 Languages:
 - Language: en
   Versions:
@@ -14,22 +10,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210617T060626Z
+      Value: 20210726T231136Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "438b72ce-e322-410b-adc0-864eeaf18607"
+      Value: "9a57d785-4373-4f6b-a341-e4c12b210f23"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T060626Z
+      Value: 20210726T231136Z

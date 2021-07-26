@@ -1,18 +1,15 @@
 ﻿---
-ID: "36288362-9494-4174-a8a2-d846d958149d"
-Parent: "3715f124-6d1e-4ad0-9b80-0e905fabd66e"
+ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
+Parent: "a53eeb3c-5b14-4585-9418-a1b7b57d0fda"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Vendor/Data/Level
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Shared/Social Links/Social/Instagram Profile Link
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: /sitecore/content/CMP/Vendor Levels
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Droplist
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 600
+  Value: 400
 Languages:
 - Language: en
   Versions:
@@ -20,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210722T194719Z
+      Value: 20210722T164812Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,11 +28,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "662ded38-e696-4ff9-b8b7-110ee3d96e90"
+      Value: "6c399838-003f-40f6-a4db-afc71e95d152"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T202528Z
+      Value: 20210722T202529Z

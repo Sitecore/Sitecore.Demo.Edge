@@ -1,115 +1,66 @@
 ﻿---
-ID: "ae6db3e2-5aa1-5876-b2d0-74d5beddfa27"
+ID: "9e937c5e-e22d-4022-84cf-946cf3ded72f"
 Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
-Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
-Path: /sitecore/content/EdgeWebsite/home/vendors/striva
+Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
+Path: /sitecore/content/EdgeWebsite/home/vendors/Striva
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: n_No1b4e3UWFQ75A1cAvDw
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
-            <r
-              uid="{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}"
-              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
-              s:rname="Header"
-              s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
-              s:par=""
-              s:ph="/jss-header" />
-            <r
-              uid="{F966B56F-A772-5676-9145-1CB48E76727D}"
-              p:after="r[@uid='{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}']"
-              s:rname="MainNavigation"
-              s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
-              s:par=""
-              s:ph="/jss-header/jss-header-content-{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}-0" />
-            <r
-              uid="{4BA27A1F-B1E3-52CA-B056-C751D65D225A}"
-              p:after="r[@uid='{F966B56F-A772-5676-9145-1CB48E76727D}']"
-              s:rname="HeaderBanner"
-              s:ds="{A9FB0FD1-37CD-52C1-BAE1-C2BB42F04E41}"
-              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{6E015E42-B3DE-5C03-8B35-5C2EC06BDBE4}"
-              p:after="r[@uid='{4BA27A1F-B1E3-52CA-B056-C751D65D225A}']"
-              s:rname="Breadcrumb"
-              s:id="{780D897C-7065-585F-8585-28118565FA00}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{CD67317D-CF1A-51DB-B98B-CCB5C42C4877}"
-              p:after="r[@uid='{6E015E42-B3DE-5C03-8B35-5C2EC06BDBE4}']"
-              s:rname="VendorInformation"
-              s:id="{CD870284-AF1A-5BF5-AD99-5143C989BA47}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{249AFDB7-AD92-5914-9F9A-AE69F7154B96}"
-              p:after="r[@uid='{CD67317D-CF1A-51DB-B98B-CCB5C42C4877}']"
-              s:rname="VendorsGrid"
-              s:id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{2F7D660B-CF5C-5C64-A791-1457AC3B7376}"
-              p:after="r[@uid='{249AFDB7-AD92-5914-9F9A-AE69F7154B96}']"
-              s:rname="SessionList"
-              s:id="{2BCFA87E-B224-546E-9247-80B2ABAE98B9}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{3432F634-A3D1-5AA8-855A-1DB9431880E4}"
-              p:after="r[@uid='{2F7D660B-CF5C-5C64-A791-1457AC3B7376}']"
-              s:rname="FullImageSection"
-              s:ds="{BD8B0390-574A-57F3-B801-1C3A4F42B3D6}"
-              s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}"
-              p:after="r[@uid='{3432F634-A3D1-5AA8-855A-1DB9431880E4}']"
-              s:rname="Section"
-              s:ds="{B2347F97-3650-5C95-8C70-A6FDD340BBD4}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{7F6D3984-3875-54C9-A6A6-7AFC7E9D3C6D}"
-              p:after="r[@uid='{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}']"
-              s:rname="SponsorsGrid"
-              s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}-0" />
-            <r
-              uid="{FD4F4C0E-D809-5161-832A-66B3F93584E5}"
-              p:after="*[1=2]"
-              s:rname="Footer"
-              s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
-              s:par=""
-              s:ph="/jss-footer" />
-          </d>
-        </r>
+    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
+      Hint: TwitterProfileLink
+      Value: "https://twitter.com/striva"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210708T201312Z
+      Value: 20210722T172214Z
+    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
+      Hint: InstagramProfileLink
+      Value: "https://instagram.com/striva"
+    - ID: "36288362-9494-4174-a8a2-d846d958149d"
+      Hint: Level
+      Value: Platinum
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="35421" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35421/thumbnail" src="https://mint.stylelabs.io/api/public/content/4b034f1b321b46f5be2235353e040aab?v=c535b6d0" mediaid="" stylelabs-content-type="Image" alt="sophia-taylor.jpeg" height="200" width="200" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "09b646a1-1240-4855-9dec-8ef72b5d8d81"
+      Value: "d09b8fbc-c4e2-456f-96d5-f997c520543a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
+    - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
+      Hint: Description
+      Value: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum eu facilisis sed odio morbi. Arcu dictum varius duis at consectetur. Integer vitae justo eget magna fermentum. Felis eget velit aliquet sagittis id consectetur purus ut faucibus. Imperdiet proin fermentum leo vel orci porta non. Ut tellus elementum sagittis vitae et. Nunc sed id semper risus. Gravida rutrum quisque non tellus. At in tellus integer feugiat scelerisque varius morbi. Faucibus interdum posuere lorem ipsum dolor. At tellus at urna condimentum mattis pellentesque id.</p><p>Arcu dictum varius duis at. Rutrum tellus pellentesque eu tincidunt. At urna condimentum mattis pellentesque id nibh tortor. Dictum sit amet justo donec enim diam vulputate ut pharetra. Nulla aliquet enim tortor at auctor. Sem viverra aliquet eget sit amet tellus cras adipiscing enim. Dictumst vestibulum rhoncus est pellentesque. Tincidunt vitae semper quis lectus nulla at. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Imperdiet massa tincidunt nunc pulvinar.</p><p>Id cursus metus aliquam eleifend mi. Sed euismod nisi porta lorem mollis aliquam ut porttitor. Diam maecenas sed enim ut sem viverra aliquet eget sit. Tincidunt arcu non sodales neque sodales ut. Eros in cursus turpis massa tincidunt dui ut. Gravida neque convallis a cras semper auctor neque vitae. Gravida cum sociis natoque penatibus et magnis dis parturient. Arcu non odio euismod lacinia at quis risus. Ultrices eros in cursus turpis. Lobortis elementum nibh tellus molestie nunc. Vitae congue eu consequat ac felis donec. Et leo duis ut diam quam. At elementum eu facilisis sed odio morbi quis.</p><p>asdlfa hlkewafw awelfiahwlieufahwleifh alwie alwuhela</p>
+    - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
+      Hint: Name
+      Value: Striva
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T213917Z
+      Value: 20210726T232814Z
+    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
+      Hint: FacebookProfileLink
+      Value: "https://facebook.com/striva"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "PLAY! Summit - striva"
+      Value: "Play! Summit - Striva"
+    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
+      Hint: LinkedinProfileLink
+      Value: "https://linkedin.com/striva"

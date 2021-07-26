@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Edge Vendor
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{631FD3EA-4AA7-40BA-9981-BD5975ED8140}"
+  Value: "{774E44E8-0F30-5879-B847-AD233FFB41AA}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: FG5x9UhCr0GtuNpQz8dSGw
@@ -27,13 +27,21 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T173120Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2f2064c5-e7c6-4ee0-9d62-e9e6920839cd"
+      Value: "252ce667-b958-44f4-a6e5-f7ed859eaa83"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T164945Z
+      Value: 20210726T212137Z

@@ -1,8 +1,8 @@
 ﻿---
 ID: "c13624de-6693-509b-ad1b-57e96bff2972"
-Parent: "ae6db3e2-5aa1-5876-b2d0-74d5beddfa27"
+Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/home/vendors/striva/Page Components
+Path: /sitecore/content/EdgeWebsite/home/vendors/Common Components
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -12,7 +12,7 @@ SharedFields:
   Value: "font-style:italic; font-size:0.85em; color: gray;"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 0
+  Value: 25
 Languages:
 - Language: en
   Versions:
@@ -31,11 +31,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0226f1fe-677d-4a1e-8d40-cbeedce2ffd4"
+      Value: "f2652397-d15a-47fe-9627-ae1b6681c0fe"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T201312Z
+      Value: 20210726T213307Z

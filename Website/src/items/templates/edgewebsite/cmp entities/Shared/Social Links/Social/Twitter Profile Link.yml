@@ -2,7 +2,7 @@
 ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
 Parent: "a53eeb3c-5b14-4585-9418-a1b7b57d0fda"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Vendor/Social/Twitter Profile Link
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Shared/Social Links/Social/Twitter Profile Link
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
