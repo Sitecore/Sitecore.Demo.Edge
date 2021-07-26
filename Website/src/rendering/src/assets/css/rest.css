@@ -20,6 +20,7 @@
   flex-direction: column;
 
   &--left {
+    @apply sm:pl-10 sm:w-full md:w-3/5 md:ml-0;
     align-items: start;
     justify-content: left;
   }

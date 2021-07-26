@@ -3,12 +3,16 @@ ID: "5a399b54-1294-59ac-bffb-769cd0288111"
 Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
 Path: "/sitecore/content/EdgeWebsite/home/aboutus/Page Components/aboutus-jss-main-Section-9"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 700
 Languages:
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: "Section-9"
+    Value: "Premium-sponsors"
   Versions:
   - Version: 1
     Fields:
@@ -27,11 +31,11 @@ Languages:
         <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6ea2a615-c45f-4bd1-b793-08e80aaa6f68"
+      Value: "0d2aac16-14c3-4a0a-aae8-c471cb85d064"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: section__sponsors
@@ -40,4 +44,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T172845Z
+      Value: 20210722T012730Z
