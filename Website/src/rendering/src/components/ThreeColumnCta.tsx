@@ -14,7 +14,7 @@ type ThreeColumnCtaProps = ComponentProps & {
 
 const ThreeColumnCta = (props: ThreeColumnCtaProps): JSX.Element => (
   <section className="section text-center bg-black py-10 hidden md:block">
-    <div className="container justify-between text-xl flex">
+    <div className="container justify-evenly text-xl flex">
       <div>
         <h2 className="text-blue-lightest text-5xl font-bold py-2">
           <Text field={props.fields.leftHeading} />
@@ -23,7 +23,7 @@ const ThreeColumnCta = (props: ThreeColumnCtaProps): JSX.Element => (
           <Text field={props.fields.leftDescription} />
         </h3>
       </div>
-      <div>
+      <div className="border-l border-r border-gray px-3 lg:px-8">
         <h2 className="text-blue-lightest text-5xl font-bold py-2">
           <Text field={props.fields.middleHeading} />
         </h2>
