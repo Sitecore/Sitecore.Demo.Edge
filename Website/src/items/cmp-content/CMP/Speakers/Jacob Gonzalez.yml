@@ -1,5 +1,5 @@
 ﻿---
-ID: "7449ce19-278c-47fe-b47d-db6241c1ea4d"
+ID: "299f3543-4808-4d84-81a5-359c01814c3b"
 Parent: "da00f1fd-0392-44cf-944a-b24952407013"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/CMP/Speakers/Jacob Gonzalez
@@ -13,14 +13,14 @@ Languages:
   - Version: 1
     Fields:
     - ID: "02a6144f-e48c-4305-a1c4-93b39b965bcb"
-      Hint: Linkedin
-      Value: "https://linkedin.com/jgonzalez"
+      Hint: LinkedinProfileLink
+      Value: "https://linkedin.com/JacobGonzalez"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210721T204015Z
+      Value: 20210726T172718Z
     - ID: "2a659163-cd5a-4026-8256-d2acc7ab11c6"
-      Hint: Twitter
-      Value: "https://twitter.com/jgonzalez"
+      Hint: TwitterProfileLink
+      Value: "https://twitter.com/JacobGonzalez"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,36 +31,39 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4878c982-62e0-452e-8497-49f1b84f437d"
+      Value: "84ad824b-69ce-41fa-8d45-1cc8d939b52c"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Microsoft
     - ID: "9918e001-7869-44b7-add9-c863bac4b1ed"
       Hint: Country
-      Value: Canada
+      Value: USA
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
+    - ID: "cba0963a-f0da-4ab1-a996-5bc727c9d9f1"
+      Hint: InstagramProfileLink
+      Value: "https://instagram.com/JacobGonzalez"
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value: <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&nbsp;</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>sed diam nonumy eirmod tempor</li><li>invidunt ut labore et dolore</li><li>magna aliquyam erat</li><li>sed diam voluptua</li></ul><p>ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgd</p>
+      Value: <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&nbsp;</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>invidunt ut labore et dolore</li><li>magna aliquyam erat</li><li>sed diam voluptua</li></ul><p>ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgd</p>
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: Position
       Value: Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T001051Z
+      Value: 20210726T172805Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
-      Hint: Role
-      Value: Athlete
+      Hint: Speaker Type
+      Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: Jacob Gonzalez
     - ID: "f5944338-eec3-4f86-a7d3-3b8bda5b4702"
-      Hint: Facebook
-      Value: "https://facebook.com/jgonzalez"
+      Hint: FacebookProfileLink
+      Value: "https://facebook.com/JacobGonzalez"
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="35410" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35410/thumbnail" src="https://mint.stylelabs.io/api/public/content/e15e67a31ed04481bb0fc4ef4eb7c84a?v=765206e2" mediaid="" stylelabs-content-type="Image" alt="jacob-gonzalez.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="35410" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35410/thumbnail" src="https://mint.stylelabs.io/api/public/content/e15e67a31ed04481bb0fc4ef4eb7c84a?v=0cc258a6" mediaid="" stylelabs-content-type="Image" alt="jacob-gonzalez.jpeg" height="200" width="200" />

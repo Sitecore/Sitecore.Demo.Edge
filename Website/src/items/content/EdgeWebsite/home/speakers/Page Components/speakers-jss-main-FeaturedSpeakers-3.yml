@@ -18,24 +18,33 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210714T203228Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "83401b48-7ea2-5365-bb09-0e4a75ca7b06"
       Hint: Subtitle
       Value: "Road-test the world's most trusted sports and fitness equipment – we'll be welcoming 2,000 brands at this year's PLAY! Summit."
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1fddff11-ab51-4146-8522-ec7f42e6aa97"
+      Value: "1659a02f-cf6f-46de-a826-036cde3adc90"
     - ID: "9ddba344-5267-4dab-9427-f6a440d61606"
       Hint: Speakers
       Value: |
-        {D060D77C-D48E-4E3F-82A1-D4F099CC19CB}
-        {592006DB-9B53-47B6-A527-9B05D896B212}
-        {0BF37D10-D6D2-4FC5-AB95-3E51FD2BF272}
-        {960C534C-A165-43C9-9C20-3ED5962288A2}
-        {859C8CC1-A317-47F4-9805-12D78A808367}
+        {61AC52CB-DC91-4791-A1AE-71D9CF675083}
+        {0BC9AFA6-8B09-4B11-98C5-7542E89533A5}
+        {90BD7C87-6039-4A67-9034-5EEAB1480C36}
+        {414CA3B1-125B-4451-8DB0-18AA7CF21D2B}
+        {299F3543-4808-4D84-81A5-359C01814C3B}
+        {7C120693-A8FD-4060-9E11-A6C5542C8234}
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210720T175616Z
+      Value: 20210726T174047Z
