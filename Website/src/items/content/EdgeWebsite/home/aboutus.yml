@@ -60,16 +60,16 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{1B40FFB7-FF53-5D3B-B754-B49197671A6F}"
+              uid="{467625EA-A518-59FE-8DA7-39EE5833A223}"
               p:after="r[@uid='{DE75C067-CF50-599C-97E7-A02BB1E3712A}']"
-              s:rname="Section"
-              s:ds="{EFB34AD1-4EBC-53E4-B80C-7EAEE5A07C18}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="ThreeColumnCta"
+              s:ds="{23CB91FD-DAF7-5715-B5A4-1B806B3031C5}"
+              s:id="{4BE56F57-7867-5E91-8991-37464315D86B}"
               s:par=""
               s:ph="/jss-main" />
             <r
               uid="{EACCECDD-63DE-525D-ACD9-17943F70386E}"
-              p:after="r[@uid='{1B40FFB7-FF53-5D3B-B754-B49197671A6F}']"
+              p:after="r[@uid='{467625EA-A518-59FE-8DA7-39EE5833A223}']"
               s:rname="Section"
               s:ds="{F1F5E547-7884-548C-9EF5-6C122EA327F9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -139,16 +139,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201829Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c8f02d0e-919b-41c7-94a2-e66cafbe7535"
+      Value: "6d529216-a701-4194-9ec9-3155acc82396"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T172845Z
+      Value: 20210726T155126Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - About Us"
