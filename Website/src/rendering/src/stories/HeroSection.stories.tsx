@@ -8,7 +8,7 @@ export default {
   component: HeroSection,
 } as ComponentMeta<typeof HeroSection>;
 
-const Template: ComponentStory<typeof HeroSection> = (args) => <HeroSection {...args} />;
+const Template: ComponentStory<typeof HeroSection> = (args: HeroProps) => <HeroSection {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
