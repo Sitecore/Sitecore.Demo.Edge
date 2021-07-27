@@ -40,10 +40,7 @@ const HeroSection = ({ fields }: HeroProps): JSX.Element => {
             </h3>
           </div>
           <div className="btn__area">
-            <Link
-              field={fields.Link}
-              className="btn--main btn--main--round btn--main--big"
-            />
+            <Link field={fields.Link} className="btn--main btn--main--round btn--main--big" />
           </div>
         </div>
       </div>
