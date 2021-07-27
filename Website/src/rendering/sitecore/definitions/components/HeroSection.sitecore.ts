@@ -15,7 +15,7 @@ const HeroSection = function (manifest: Manifest): void {
       { name: 'Expo', type: CommonFieldTypes.SingleLineText },
       { name: 'Title', type: CommonFieldTypes.SingleLineText },
       { name: 'Subtitle', type: CommonFieldTypes.SingleLineText },
-      { name: 'Dates', type: CommonFieldTypes.SingleLineText },
+      { name: 'When', type: CommonFieldTypes.SingleLineText },
       { name: 'CallToActionLink', type: CommonFieldTypes.SingleLineText },
     ],
     /*

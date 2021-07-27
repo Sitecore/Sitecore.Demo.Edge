@@ -25,10 +25,10 @@ Default.args = {
     Subtitle: {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
     },
-    Dates: {
+    When: {
       value: 'August 24th – 25th',
     },
-    CallToActionLink: {
+    Link: {
       value: {
         href: '/tickets',
         text: 'Book Tickets',

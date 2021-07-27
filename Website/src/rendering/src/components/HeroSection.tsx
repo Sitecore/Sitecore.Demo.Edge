@@ -9,8 +9,8 @@ export type HeroProps = ComponentProps & {
     Expo: Field<string>;
     Title: Field<string>;
     Subtitle: Field<string>;
-    Dates: Field<string>;
-    CallToActionLink: LinkField;
+    When: Field<string>;
+    Link: LinkField;
   };
 };
 
@@ -36,12 +36,12 @@ const HeroSection = ({ fields }: HeroProps): JSX.Element => {
               <Text field={fields.Subtitle} />
             </p>
             <h3 className="expo">
-              <Text field={fields.Dates} />
+              <Text field={fields.When} />
             </h3>
           </div>
           <div className="btn__area">
             <Link
-              field={fields.CallToActionLink}
+              field={fields.Link}
               className="btn--main btn--main--round btn--main--big"
             />
           </div>
