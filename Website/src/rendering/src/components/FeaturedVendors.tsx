@@ -1,14 +1,6 @@
 import Link from 'next/link';
-//import Image from 'next/image';
-
-import vendor1 from '../../data/media/img/vendors/RobinFitness.jpg';
-import vendor2 from '../../data/media/img/vendors/Gameday.jpg';
-import vendor3 from '../../data/media/img/vendors/Outrace.jpg';
-import vendor4 from '../../data/media/img/vendors/RunRightThrough.jpg';
-import vendor5 from '../../data/media/img/vendors/OnTheGreen.jpg';
 import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { faCommentDollar } from '@fortawesome/free-solid-svg-icons';
 
 type Vendor = {
   fields: {
