@@ -46,13 +46,13 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
             </a>
           </div>
           <div className="pt-5">
-            <strong>Position:</strong> {props.fields.Position.value}
+            <strong>Position:</strong> <Text field={props.fields.Position}></Text>
           </div>
           <div className="pt-5">
-            <strong>Company:</strong> {props.fields.Company.value}
+            <strong>Company:</strong> <Text field={props.fields.Company}></Text>
           </div>
           <div className="pt-5">
-            <strong>Country:</strong> {props.fields.Country.value}
+            <strong>Country:</strong> <Text field={props.fields.Country}></Text>
           </div>
         </div>
         <div className="col-span-1 md:col-span-3 space-y-5">
