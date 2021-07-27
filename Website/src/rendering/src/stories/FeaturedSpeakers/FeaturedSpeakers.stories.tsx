@@ -33,10 +33,10 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     Title: {
-      value: 'Title',
+      value: 'FEATURED SPEAKERS',
     },
     Subtitle: {
-      value: 'Subtitle',
+      value: 'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
     },
     Speakers: [speaker],
   },
