@@ -18,6 +18,19 @@ Languages:
     - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
       Hint: TwitterProfileLink
       Value: "https://twitter.com/striva"
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{249AFDB7-AD92-5914-9F9A-AE69F7154B96}"
+              s:ccb="Clear on publish"
+              s:ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210722T172214Z
@@ -36,12 +49,12 @@ Languages:
       Value: |
         default\Anonymous
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
-      Hint: Image
+      Hint: Logo
       Value: |
         <image stylelabs-content-id="35421" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35421/thumbnail" src="https://mint.stylelabs.io/api/public/content/4b034f1b321b46f5be2235353e040aab?v=c535b6d0" mediaid="" stylelabs-content-type="Image" alt="sophia-taylor.jpeg" height="200" width="200" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d09b8fbc-c4e2-456f-96d5-f997c520543a"
+      Value: "4313ae05-acc9-49b8-b2be-1903c8557fc2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -54,7 +67,7 @@ Languages:
       Value: Striva
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T232814Z
+      Value: 20210727T220649Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://facebook.com/striva"

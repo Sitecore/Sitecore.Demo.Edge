@@ -9,11 +9,13 @@ type Vendor = {
     Logo: ImageField;
   };
 };
+
 type VendorsGridProps = ComponentProps & {
   fields: {
     items: Vendor[];
   };
 };
+
 const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
   console.log(props.fields);
   return (
@@ -104,4 +106,6 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
     </section>
   );
 };
+
+export type { Vendor };
 export default VendorsGrid;

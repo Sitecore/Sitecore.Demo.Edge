@@ -24,11 +24,11 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => (
       <Text
         className="text-center uppercase text-blue pt-10 text-4xl font-semibold"
         tag="h1"
-        field={props.fields.Title}
+        field={props.fields?.Title}
       ></Text>
-      <Text className="text-center" tag="p" field={props.fields.Subtitle}></Text>
+      <Text className="text-center" tag="p" field={props.fields?.Subtitle}></Text>
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        {props.fields.Vendors &&
+        {props.fields?.Vendors &&
           props.fields.Vendors.map((vendor, index) => (
             <Link
               key={index}

@@ -7,6 +7,19 @@ SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
   Value: "-D50Vqe60E232rj13BDq7w"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{249AFDB7-AD92-5914-9F9A-AE69F7154B96}"
+          s:ccb="Clear on publish"
+          s:ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -31,11 +44,11 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "65fd5091-08a2-42d7-aeb5-f4e8a57eccc0"
+      Value: "ad421d0b-5c1c-4dd0-877f-fa41d649d210"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
       Value: |
@@ -45,7 +58,7 @@ Languages:
       Value: Run Right Through
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T200737Z
+      Value: 20210727T221435Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://facebook.com"
