@@ -16,7 +16,7 @@ const HeroSection = function (manifest: Manifest): void {
       { name: 'Title', type: CommonFieldTypes.SingleLineText },
       { name: 'Subtitle', type: CommonFieldTypes.SingleLineText },
       { name: 'When', type: CommonFieldTypes.SingleLineText },
-      { name: 'Link', type: CommonFieldTypes.SingleLineText },
+      { name: 'Link', type: CommonFieldTypes.GeneralLink },
     ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
