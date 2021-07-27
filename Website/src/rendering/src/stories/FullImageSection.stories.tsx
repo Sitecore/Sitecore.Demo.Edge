@@ -14,25 +14,26 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--offer'
+      value: 'section__full-image--offer',
     },
     callToActionLink: {
       value: {
         href: '/shop/discount',
-        text: 'Get Discount Code'
-      }
+        text: 'Get Discount Code',
+      },
     },
     content: {
-      value: ''
+      value: '',
     },
     position: {
-      value: 'left'
+      value: 'left',
     },
     subtitle: {
-      value: 'PLAY! Summit Exclusive Offer'
+      value: 'PLAY! Summit Exclusive Offer',
     },
     title: {
-      value: 'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a 20% discount on all online and in-person purchases made during this year’s event.'
-    }
+      value:
+        'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a 20% discount on all online and in-person purchases made during this year’s event.',
+    },
   },
 };

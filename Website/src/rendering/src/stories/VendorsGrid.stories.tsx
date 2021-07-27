@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import VendorsGrid  from '../components/VendorsGrid';
+import VendorsGrid from '../components/VendorsGrid';
 
 export default {
   title: 'Example/VendorsGrid',
