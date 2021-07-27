@@ -12,7 +12,7 @@ type SpeakerInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Role: Field<string>;
-    Image: ImageField;
+    Picture: ImageField;
     Position: Field<string>;
     Company: Field<string>;
     Country: Field<string>;
@@ -29,7 +29,7 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
     <div className="section__content left__content">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="col-span-1 md:col-span-1">
-          <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
+          <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
           <div>
             {/* TODO: To be turned into links */}
             <a href={props.fields.FacebookProfileLink?.value}>

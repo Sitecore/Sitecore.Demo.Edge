@@ -6,7 +6,7 @@ type Speaker = {
   fields: {
     Name: Field<string>;
     Role: Field<string>;
-    Image: ImageField;
+    Picture: ImageField;
   };
 };
 
@@ -26,7 +26,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
           passHref
         >
           <a className="section__speakers__grid__speaker">
-            <Image field={speaker.fields.Image} alt={speaker.fields.Name.value} />
+            <Image field={speaker.fields.Picture} alt={speaker.fields.Name.value} />
             <Text className="speaker__name" tag="p" field={speaker.fields.Name}></Text>
             <Text className="speaker__role" tag="p" field={speaker.fields.Role}></Text>
           </a>

@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type Speaker = {
   fields: {
     Name: Field<string>;
     Role: Field<string>;
-    Image: ImageField;
+    Picture: ImageField;
   };
 };
 
@@ -36,9 +36,9 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
               passHref
             >
               <a className="rounded overflow-hidden mx-auto">
-                <img
-                  src={speaker.fields.Image.value?.src}
-                  alt={speaker.fields.Name.value}
+                <Image
+                  field={speaker.fields.Picture}
+                  alt={speaker.fields.Name?.value}
                   width={265}
                   height={265}
                 />
