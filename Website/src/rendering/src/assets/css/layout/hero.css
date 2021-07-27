@@ -42,24 +42,24 @@
         width: 240px;
       }
 
-      .banner__title__eyebrow {
+      .slogan {
         @apply text-white uppercase pt-4 pb-5 font-extrabold;
 
         font-size: 1.5em;
       }
 
-      .banner__title__title {
+      .title {
         @apply text-4xl md:text-5xl text-white uppercase py-3 m-0 font-bold;
       }
 
-      .banner__title__sub-title {
+      .expo {
         @apply text-yellow;
 
         font-weight: 600;
         font-size: 1.5em;
       }
 
-      .banner__title__p {
+      .subtitle {
         @apply text-white py-2;
 
         font-size: 0.8em;
