@@ -1,0 +1,43 @@
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import FeaturedSpeakers from '../../components/FeaturedSpeakers';
+import { Speaker } from '../../components/FeaturedSpeakers';
+
+export default {
+  title: 'Example/FeaturedSpeakers',
+  component: FeaturedSpeakers,
+} as ComponentMeta<typeof FeaturedSpeakers>;
+
+const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
+
+let speaker = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: 'Speaker Name',
+    },
+    Role: {
+      value: 'Speaker Role',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
+      },
+    },
+  },
+} as Speaker;
+
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    Title: {
+      value: 'Title',
+    },
+    Subtitle: {
+      value: 'Subtitle',
+    },
+    Speakers: [speaker],
+  },
+};
