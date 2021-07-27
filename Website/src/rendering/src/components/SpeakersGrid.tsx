@@ -17,7 +17,7 @@ type SpeakersGridProps = ComponentProps & {
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
-  <div className="section__speakers__grid">
+  <div className="section__speakers__grid container">
     {props.fields.items &&
       props.fields.items.map((speaker, index) => (
         <Link
