@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TextCta  from '../components/TextCta';
+import TextCta from '../components/TextCta';
 
 export default {
   title: 'Example/TextCta',
@@ -14,10 +14,11 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     title: {
-      value: 'PLAY! Summit Exclusive Offer'
+      value: 'PLAY! Summit Exclusive Offer',
     },
     subTitle: {
-      value: 'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a 20% discount.'
-    }
+      value:
+        'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a 20% discount.',
+    },
   },
 };

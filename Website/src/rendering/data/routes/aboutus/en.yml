@@ -32,26 +32,14 @@ placeholders:
           href: /
           text: Vendor Registration
     - componentName: FullImageCTASection
-    - componentName: Section
+    - componentName: ThreeColumnCta
       fields:
-        cssClass: bg-black
-        brightness: dark
-        title:
-        content: |
-          <div class="grid grid-flow-col grid-cols-3 gap-2 w-full">
-          <div>
-          <h2 class="text-blue">200,000+</h2>
-          <h2 style="transform: scale(.7); line-height:1;">VISITORS</h2>
-          </div>
-          <div class="border-l-2 border-white">
-          <h2 class="text-blue">90+</h2>
-          <h2 style="transform: scale(.7); line-height:1;">GLOBALLY RECOGNIZED SPEAKERS</h2>
-          </div>
-          <div class="border-l-2 border-white">
-          <h2 class="text-blue">300+</h2>
-          <h2 style="transform: scale(.7); line-height:1;">EXHIBITORS</h2>
-          </div>
-          </div>
+        leftHeading: 200,000+
+        leftDescription: Visitors
+        middleHeading: 90+
+        middleDescription: Globally recognised speakers
+        rightHeading: 300+
+        rightDescription: Exhibitors
     - componentName: Section
       fields:
         cssClass: section
