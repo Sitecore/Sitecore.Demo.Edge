@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../components/Header';
+import { HeaderProps } from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import MainNavigation from '../components/MainNavigation';
 import ThreeColumnsSection from '../components/ThreeColumnsSection';
