@@ -15,7 +15,10 @@ Languages:
       Hint: Vendors
       Value: |
         {9E937C5E-E22D-4022-84CF-946CF3DED72F}
-        {B773C86C-FB4E-4D35-8246-D2D1A22E45EF}
+        {6EAE18D2-248E-49E7-A0E7-90DC3EF0A2A9}
+        {8F738CE8-3811-4EBA-ABEC-F10FDF8476E6}
+        {44CB1538-7BF1-43C6-9A8C-00D6F3C177AF}
+        {6950468D-4D16-4C59-96AD-39B2820B68EE}
     - ID: "4a849808-6c4e-483e-9bf3-e9ae01d7db6b"
       Hint: Subtitle
       Value: "Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit."
@@ -32,11 +35,11 @@ Languages:
       Value: FEATURED VENDORS
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "44db3149-f8f2-40c4-92f0-49ab68ac6654"
+      Value: "eb19903c-94dd-4382-8593-ac9bc74eb416"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T152714Z
+      Value: 20210727T200850Z
