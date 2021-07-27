@@ -57,4 +57,5 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => (
   </section>
 );
 
+export type { Vendor };
 export default FeaturedVendors;
