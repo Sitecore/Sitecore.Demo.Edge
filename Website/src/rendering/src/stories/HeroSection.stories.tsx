@@ -13,6 +13,11 @@ const Template: ComponentStory<typeof HeroSection> = (args: HeroProps) => <HeroS
 export const Default = Template.bind({});
 Default.args = {
   fields: {
+    Logo: {
+      value: {
+        src: '/assets/img/play-logo-wide-light.svg',
+      },
+    },
     Slogan: {
       value: 'READY | STEADY | PLAY!',
     },

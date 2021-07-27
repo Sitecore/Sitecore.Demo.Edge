@@ -1,10 +1,9 @@
-import Image from 'next/image';
-import logo from '../assets/img/play-logo-wide-light.svg';
 import { ComponentProps } from 'lib/component-props';
-import { Text, Field, LinkField, Link } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, LinkField, Link, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type HeroProps = ComponentProps & {
   fields: {
+    Logo: ImageField;
     Slogan: Field<string>;
     Expo: Field<string>;
     Title: Field<string>;
@@ -21,7 +20,7 @@ const HeroSection = ({ fields }: HeroProps): JSX.Element => {
         <div className="section__hero__container__content">
           <div className="section__hero__container__content__text">
             <div className="hidden md:block">
-              <Image src={logo} alt="PLAY! Summit" />
+              <Image field={fields.Logo} />
             </div>
             <p className="slogan">
               <Text field={fields.Slogan} />

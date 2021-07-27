@@ -11,6 +11,7 @@ const HeroSection = function (manifest: Manifest): void {
     name: 'HeroSection',
     icon: SitecoreIcon.DocumentTag,
     fields: [
+      { name: 'Logo', type: CommonFieldTypes.Image },
       { name: 'Slogan', type: CommonFieldTypes.SingleLineText },
       { name: 'Expo', type: CommonFieldTypes.SingleLineText },
       { name: 'Title', type: CommonFieldTypes.SingleLineText },

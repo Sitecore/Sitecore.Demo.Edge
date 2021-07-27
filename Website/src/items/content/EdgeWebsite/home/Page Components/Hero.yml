@@ -31,20 +31,24 @@ Languages:
       Value: Sports and Leisure Expo
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3700af3e-caa1-4828-b920-c88f773bfe2b"
+      Value: "aab9a6ad-f315-4003-9fbc-070f77de57bb"
     - ID: "a32cd274-1db8-5448-9727-87d275cef3f8"
       Hint: Slogan
       Value: "READY | STEADY | PLAY!"
     - ID: "b179796b-322e-5859-9226-d0a25a12eeb5"
       Hint: Title
       Value: RAISE YOUR GAME
+    - ID: "b929602e-dc90-513b-9437-a6b675d5851c"
+      Hint: Logo
+      Value: |
+        <image mediaid="{CF10D16E-E903-4303-A580-63D615B14001}" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T181511Z
+      Value: 20210727T183322Z
     - ID: "e82805ef-5ecb-5cec-8608-b049848c22bb"
       Hint: Subtitle
       Value: "Join us in person or online for the fifth annual PLAY! Summit."
