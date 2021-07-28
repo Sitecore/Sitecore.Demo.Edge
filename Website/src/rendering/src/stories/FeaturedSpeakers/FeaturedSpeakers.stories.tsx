@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
 
-let speaker = {
+const speaker = {
   Name: 'Item Name',
   fields: {
     Name: {
@@ -20,7 +20,7 @@ let speaker = {
     Role: {
       value: 'Speaker Role',
     },
-    Image: {
+    Picture: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
@@ -36,7 +36,8 @@ Default.args = {
       value: 'FEATURED SPEAKERS',
     },
     Subtitle: {
-      value: 'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
+      value:
+        'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
     },
     Speakers: [speaker],
   },
