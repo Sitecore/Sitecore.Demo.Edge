@@ -1,0 +1,69 @@
+﻿---
+ID: "6eae18d2-248e-49e7-a0e7-90dc3ef0a2a9"
+Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
+Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
+Path: /sitecore/content/EdgeWebsite/home/vendors/Alba
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: n8dQ5E8q_Uea4qhd6oJh2Q
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{249AFDB7-AD92-5914-9F9A-AE69F7154B96}"
+          s:ccb="Clear on publish"
+          s:ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
+      Hint: TwitterProfileLink
+      Value: "https://twiiter.com"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210727T185337Z
+    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
+      Hint: InstagramProfileLink
+      Value: "https://instagram.com"
+    - ID: "36288362-9494-4174-a8a2-d846d958149d"
+      Hint: Level
+      Value: Platinum
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dbd50317-b549-4f6a-a484-90964fad447e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
+      Hint: Description
+      Value: <p>sd;iaf; oldiajosewi fawieo;a jwe;fajldkjf halksdjhfla jkdkjhsjf klasjhf aiewfajel a lk alkhflakhwef aweihflajdzxcnv lkjshlkaejwhlfajewhfl auwhf laf akjnldkjzkjv kjlakjrl akjrehlkajdffhvxcjnvlkjalkrejhfga lkjhr&nbsp;</p>
+    - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
+      Hint: Name
+      Value: Alba
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210727T221255Z
+    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
+      Hint: FacebookProfileLink
+      Value: "https://facebook.com"
+    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
+      Hint: LinkedinProfileLink
+      Value: "https://linkedin.com"
