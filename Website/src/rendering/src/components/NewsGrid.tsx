@@ -4,7 +4,12 @@ import profile from '../../data/media/img/news/profile-pic.jpg';
 const NewsGrid = (): JSX.Element => (
   <div className="section__news__grid">
     <div className="section__news__grid__tweet">
-      <img src="/assets/img/news/conference-image.jpg" alt="News" width="100%" className="section__news__grid__tweet__img" />
+      <img
+        src="/assets/img/news/conference-image.jpg"
+        alt="News"
+        width="100%"
+        className="section__news__grid__tweet__img"
+      />
       <div className="section__news__grid__tweet__content">
         <div className="section__news__grid__tweet__content__profile">
           <Image
