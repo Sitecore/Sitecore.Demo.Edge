@@ -27,7 +27,7 @@ Languages:
         <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "13c6c606-2b78-44f8-8d78-4399009708b3"
+      Value: "b8fd4c17-47eb-446e-8230-fa8493fabbf4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -40,4 +40,4 @@ Languages:
       Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210713T011550Z
+      Value: 20210714T191714Z
