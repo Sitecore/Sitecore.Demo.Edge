@@ -1,20 +1,25 @@
 ﻿---
-ID: "f76c5e25-0ec3-4b1b-b409-1b6e819b31e3"
+ID: "d98948e0-fe3a-4a97-a5ef-6af74f178a29"
 Parent: "6ce6f007-24f7-43aa-9732-dde2c19de464"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/CMP/Sessions/Morning Session 1
+Path: /sitecore/content/CMP/Sessions/TRAIN SMARTER NOT Harder
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: ZUkBnAWbE0WRKNH663cZtQ
+  Value: CrT3zRfQ80uyiNG6kpazgw
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>TRAIN SMARTER, NOT HARDER always</p>
+        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210617T054924Z
+      Value: 20210728T155939Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,13 +28,19 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
+      Hint: Date
+      Value: "20210903T060000:637662456000000000Z"
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: TRAIN SMARTER, not Harder
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6b0dfe9d-ce80-4081-8d64-897c8460453a"
+      Value: "469444e8-a85a-495e-bc0f-5cc19f3441ce"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T054925Z
+      Value: 20210728T160222Z

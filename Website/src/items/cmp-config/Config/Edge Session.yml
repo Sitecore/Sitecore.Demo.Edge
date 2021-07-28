@@ -2,14 +2,14 @@
 ID: "d30ddb56-a0f7-4750-8a3a-79c58bf5162b"
 Parent: "f8843bf7-a31a-4f71-8900-abd56b8fe34c"
 Template: "e022206a-3482-46c2-8ddf-2f1c2c6c7b69"
-Path: /sitecore/system/Modules/CMP/Config/Play Session
+Path: /sitecore/system/Modules/CMP/Config/Edge Session
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
   Value: "{6CE6F007-24F7-43AA-9732-DDE2C19DE464}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: PLAY.Session
+  Value: Edge.Session
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: Name
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ea0e91c6-606c-4c1e-bc84-36c34fa85239"
+      Value: "45225782-58b7-49e8-a0f7-ec127aad33c7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T053115Z
+      Value: 20210728T155839Z

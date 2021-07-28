@@ -2,7 +2,7 @@
 ID: "3172b355-8856-4159-92d7-479b6669a02a"
 Parent: "d30ddb56-a0f7-4750-8a3a-79c58bf5162b"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Play Session/Venue Name
+Path: /sitecore/system/Modules/CMP/Config/Edge Session/Venue Name
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
