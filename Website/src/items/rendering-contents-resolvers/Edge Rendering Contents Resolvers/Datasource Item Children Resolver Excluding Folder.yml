@@ -2,7 +2,7 @@
 ID: "fc5201c0-7e5f-483c-818b-bfe8a55a5a0f"
 Parent: "33b97084-9b0b-4f01-9b4a-531e70b72c7a"
 Template: "814c1dbb-b118-4511-ba2b-7288ed3d490b"
-Path: /sitecore/system/Modules/Layout Service/Edge Rendering Contents Resolvers/Datasource Item Children Resolver Excluding Folder
+Path: /sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Edge Rendering Contents Resolvers/Datasource Item Children Resolver Excluding Folder
 SharedFields:
 - ID: "23b859e1-34f9-4711-a46a-dc0d616584ce"
   Hint: ItemSelectorQuery
