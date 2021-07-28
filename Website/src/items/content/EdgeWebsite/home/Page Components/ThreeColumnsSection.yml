@@ -17,7 +17,7 @@ Languages:
     - ID: "0c09865d-f9e6-564a-8dc9-f46c7e49a687"
       Hint: RightLogo
       Value: |
-        <image mediaid="{15698482-5A2E-4BA2-AF6C-1807BED4B59E}" />
+        <image mediaid="{D6AECB2C-9006-450A-ABD7-CFE9AF3C7136}" />
     - ID: "1db8dbf5-944f-562d-ab5f-66e91325a159"
       Hint: MiddleTitle
       Value: 32 Speakers and Guest Speakers
@@ -43,14 +43,14 @@ Languages:
     - ID: "676de5cb-067f-50d4-b1e9-3a51f2c973c2"
       Hint: MiddleLogo
       Value: |
-        <image mediaid="{6BFC0C0C-4F91-4915-B375-5494D68457AB}" />
+        <image mediaid="{CCAA3DA2-F72A-4AED-8B44-674BBD9DC5A6}" />
     - ID: "69c79660-030e-5751-a31b-b095949d2126"
       Hint: LeftLogo
       Value: |
-        <image mediaid="{0E1D6B4C-2787-48C3-968E-8EEECE58CF92}" />
+        <image mediaid="{21C5D87C-3E77-4AFA-82FF-665B15EA7806}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "75da2cbc-78b4-4a9d-a99f-7b3a06164d8f"
+      Value: "74d13897-9b24-4023-8a02-92db98225766"
     - ID: "a8282684-a5d5-57be-b6f6-a509c6ccdbe3"
       Hint: LeftTitle
       Value: 48 Talks and Workshops
@@ -64,7 +64,7 @@ Languages:
         <link text="View Speakers" anchor="" linktype="internal" class="" title=""  querystring="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T194722Z
+      Value: 20210728T134902Z
     - ID: "da225a0d-6c21-5207-9510-6089e5352730"
       Hint: Subtitle
       Value: "Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages."
