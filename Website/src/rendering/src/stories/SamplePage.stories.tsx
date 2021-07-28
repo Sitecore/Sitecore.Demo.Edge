@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../components/Header';
 import { HeaderProps } from '../components/Header';
-import HeroSection from '../components/HeroSection';
+import HeroSection, { HeroProps } from '../components/HeroSection';
 import MainNavigation from '../components/MainNavigation';
 import ThreeColumnsSection from '../components/ThreeColumnsSection';
 import SponsorsGrid from '../components/SponsorsGrid';
@@ -13,6 +13,36 @@ export default {
 } as ComponentMeta<typeof HeroSection>;
 
 let headerProps = {} as HeaderProps;
+let heroData = {
+  fields: {
+    Logo: {
+      value: {
+        src: '/assets/img/play-logo-wide-light.svg',
+      },
+    },
+    Slogan: {
+      value: 'READY | STEADY | PLAY!',
+    },
+    Expo: {
+      value: 'Sports and Leisure Expo',
+    },
+    Title: {
+      value: 'RAISE YOUR GAME',
+    },
+    Subtitle: {
+      value: 'Join us in person or online for the fifth annual PLAY! Summit.',
+    },
+    When: {
+      value: 'August 24th – 25th',
+    },
+    Link: {
+      value: {
+        href: '/tickets',
+        text: 'Book Tickets',
+      },
+    },
+  },
+} as HeroProps;
 
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
@@ -21,7 +51,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
         <Header {...headerProps} />
         <MainNavigation />
       </div>
-      <HeroSection />
+      <HeroSection {...heroData} />
       <ThreeColumnsSection />
       <SponsorsGrid />
     </>
