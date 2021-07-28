@@ -10,7 +10,15 @@ const HeroSection = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'HeroSection',
     icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
+    fields: [
+      { name: 'Logo', type: CommonFieldTypes.Image },
+      { name: 'Slogan', type: CommonFieldTypes.SingleLineText },
+      { name: 'Expo', type: CommonFieldTypes.SingleLineText },
+      { name: 'Title', type: CommonFieldTypes.SingleLineText },
+      { name: 'Subtitle', type: CommonFieldTypes.SingleLineText },
+      { name: 'When', type: CommonFieldTypes.SingleLineText },
+      { name: 'Link', type: CommonFieldTypes.GeneralLink },
+    ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:
