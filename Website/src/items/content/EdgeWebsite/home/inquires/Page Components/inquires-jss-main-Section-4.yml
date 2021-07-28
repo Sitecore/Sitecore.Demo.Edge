@@ -17,7 +17,7 @@ Languages:
       Value: Premium Sponsors
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210713T011549Z
+      Value: 20210714T191713Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: "Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible."
@@ -27,7 +27,7 @@ Languages:
         <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d5463a20-73da-479f-84c0-30498978e15f"
+      Value: "fe2f8189-192a-4b32-89a0-848b4df9637a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -40,4 +40,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210713T011549Z
+      Value: 20210714T191713Z

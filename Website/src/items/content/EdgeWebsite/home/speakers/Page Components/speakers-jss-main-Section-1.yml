@@ -25,6 +25,14 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link text="Home" linktype="internal" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "e6c85c3b-59f4-4bf1-b08d-13726d56a1ce"

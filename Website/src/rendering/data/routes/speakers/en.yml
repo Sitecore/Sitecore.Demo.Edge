@@ -16,6 +16,9 @@ placeholders:
           alt: Sample Image
     - componentName: Breadcrumb
     - componentName: FeaturedSpeakers
+      fields:
+        Title: Featured Speakers
+        Subtitle: Road-test the world's most trusted sports and fitness equipment – we'll be welcoming 2,000 brands at this year's PLAY! Summit.
     - componentName: Section
       fields:
         cssClass: section__sponsors
