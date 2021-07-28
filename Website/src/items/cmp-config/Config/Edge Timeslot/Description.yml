@@ -2,7 +2,7 @@
 ID: "d7adc4e5-2ad6-4fad-acb7-248011305e11"
 Parent: "4e9b9f13-7613-44c9-8402-2943fec94906"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Play Timeslot/Description
+Path: /sitecore/system/Modules/CMP/Config/Edge Timeslot/Description
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder

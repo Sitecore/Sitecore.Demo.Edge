@@ -1,0 +1,38 @@
+﻿---
+ID: "b720030c-7ac3-4ddf-91ef-af5b1c7a4cd9"
+Parent: "866e6ad1-34b6-479d-b75d-6ea1eeb01f98"
+Template: "83eb835d-82a1-4c9e-a879-2968f1f4750b"
+Path: /sitecore/content/CMP/Days/Day3
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: HRL3URMlR0yhP40IV2Y7eg
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210728T194008Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f4c8d581-9de4-42f5-b7d9-083776b9b695"
+    - ID: "b6af0052-40eb-43a2-8fa5-96a528636feb"
+      Hint: Name
+      Value: Day Three
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210728T204905Z

@@ -1,9 +1,12 @@
 ﻿---
-ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
-Parent: "92298800-b22f-4d3b-a7bb-75dfe66b78ef"
+ID: "fcecd089-4681-4f91-bb3d-1446819e7a11"
+Parent: "135e226e-63e3-47d8-801a-b7ef257a9207"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Session/Data/Name
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Day/Data/Timeslots
 SharedFields:
+- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
+  Hint: Source
+  Value: 
 - ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
   Hint: Validate Button
   Value: "{59D4EE10-627C-4FD3-A964-61A88B092CBC}"
@@ -27,7 +30,7 @@ SharedFields:
   Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 100
+  Value: 200
 - ID: "be351a73-fcb0-4213-93fa-c302d8ab4f51"
   Hint: Shared
   Value: 
@@ -36,7 +39,7 @@ Languages:
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Name
+    Value: Timeslots
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
     Value: 
@@ -46,17 +49,21 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20181027T230927Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "86ddcca5-f7d3-44a3-b7c5-17bc02d68298"
+      Value: "388fe423-d319-4bab-b3fa-9de7275961e7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T214138Z
+      Value: 20210728T212557Z

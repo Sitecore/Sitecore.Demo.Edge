@@ -1,8 +1,8 @@
 ﻿---
-ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
-Parent: "92298800-b22f-4d3b-a7bb-75dfe66b78ef"
+ID: "62545186-56cf-4614-bcdc-2ecb3947ea4c"
+Parent: "ab4198b5-0ef0-45b0-b9fa-1a48ba2b2cf9"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Session/Data/Name
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Timeslot/Data/name
 SharedFields:
 - ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
   Hint: Validate Button
@@ -52,11 +52,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "86ddcca5-f7d3-44a3-b7c5-17bc02d68298"
+      Value: "f0ac032c-b60b-4e46-8db6-9aa48e7862a9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\Admin
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T214138Z
+      Value: 20210616T214039Z

@@ -1,15 +1,15 @@
 ﻿---
-ID: "8df89b5c-b86a-47e4-b8e3-dfc37fa979ef"
-Parent: "4e9b9f13-7613-44c9-8402-2943fec94906"
+ID: "9d61523d-34ca-405a-8742-80d7015e1665"
+Parent: "c7d179b3-6775-4742-84d4-3aa8374173e4"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Play Timeslot/Name
+Path: /sitecore/system/Modules/CMP/Config/Edge Day/Name
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: TaxonomyName
+  Value: Name
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{62545186-56CF-4614-BCDC-2ECB3947EA4C}"
+  Value: "{B6AF0052-40EB-43A2-8FA5-96A528636FEB}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: 
@@ -23,11 +23,11 @@ Languages:
       Value: 20190614T174144Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "29255bd1-5f9f-4bc6-a063-4e05eb78f59f"
+      Value: "eddc1b45-6180-4653-8b3f-1e2f80524655"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T204415Z
+      Value: 20210728T190744Z

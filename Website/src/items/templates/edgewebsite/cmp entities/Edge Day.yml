@@ -1,8 +1,8 @@
 ﻿---
-ID: "0bc9237d-12eb-47a5-afed-a65188324358"
+ID: "83eb835d-82a1-4c9e-a879-2968f1f4750b"
 Parent: "58acc437-36f0-4b23-abca-58827fe3a01e"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Timeslot
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Day
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -17,7 +17,7 @@ SharedFields:
   Value: 700
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{E19540B4-34D5-4B25-A65D-93F441D02EC7}"
+  Value: "{0973A602-0779-4672-AD77-6F42F85DD4B0}"
 Languages:
 - Language: en
   Versions:
@@ -28,11 +28,11 @@ Languages:
       Value: 20190614T160624Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4311cb5e-9acf-4d4a-b0ef-24b39ad89f97"
+      Value: "90173a1d-e61b-4d5a-ab2a-1867a46a787a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210616T185117Z
+      Value: 20210728T184930Z

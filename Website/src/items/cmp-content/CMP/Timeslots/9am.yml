@@ -1,12 +1,12 @@
 ﻿---
-ID: "2baabfb1-65f6-4e18-9e7c-876aba658580"
+ID: "6363284e-37cb-4d44-8276-07e2bdec6bee"
 Parent: "b541c1ae-68e3-484b-bc05-73b574497189"
 Template: "0bc9237d-12eb-47a5-afed-a65188324358"
-Path: "/sitecore/content/CMP/Timeslots/11am-12noon"
+Path: /sitecore/content/CMP/Timeslots/9am
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: PLAY.Timeslot.1112noon
+  Value: Edge.TimeSlot.9am
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210617T055919Z
+      Value: 20210728T195206Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,13 +23,16 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "62545186-56cf-4614-bcdc-2ecb3947ea4c"
+      Hint: Name
+      Value: 9am
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8bda8e8f-8862-4bff-92ca-829d1678c17b"
+      Value: "cce6730d-4e8e-468b-9bec-1e8d50725862"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T055919Z
+      Value: 20210728T195206Z
