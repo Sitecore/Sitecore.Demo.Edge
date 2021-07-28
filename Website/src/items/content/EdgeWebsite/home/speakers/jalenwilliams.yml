@@ -30,43 +30,46 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{9D676E3B-0396-5AF4-B50F-52692916F1EF}-0" />
             <r
-              uid="{7FE5CFBF-7E2E-574D-93BB-1C884697FCA6}"
+              uid="{21331296-E428-5D35-8D94-F9FFB42F4B13}"
               p:after="r[@uid='{C384A528-1394-5ACE-9BF0-7DF88F33F3D9}']"
-              s:rname="Section"
-              s:ds="{CFF1E039-7175-55A9-AF34-1B6C23B1FCF9}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+              s:rname="HeroImage"
+              s:ds="{38D7833E-15DF-5FE9-AD21-A8D999F5B82A}"
+              s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
+              s:par=""
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{97158FD1-4083-5EBF-9FCB-C9814480E61B}"
+              p:after="r[@uid='{21331296-E428-5D35-8D94-F9FFB42F4B13}']"
+              s:rname="Breadcrumb"
+              s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{84F5C45B-D135-5427-AC3B-1419736E5790}"
-              p:after="r[@uid='{7FE5CFBF-7E2E-574D-93BB-1C884697FCA6}']"
+              uid="{2BB4EFF7-D228-50B9-A728-195A72DB0D01}"
+              p:after="r[@uid='{97158FD1-4083-5EBF-9FCB-C9814480E61B}']"
+              s:rname="SpeakerInformation"
+              s:ds="{414CA3B1-125B-4451-8DB0-18AA7CF21D2B}"
+              s:id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
+              s:par=""
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
+            <r
+              uid="{9C157B2E-793B-54BE-9BAF-4DAD2C1026DF}"
+              p:after="r[@uid='{2BB4EFF7-D228-50B9-A728-195A72DB0D01}']"
               s:rname="Section"
-              s:ds="{649314F6-89AA-50F2-AA9B-1E26BF0D116C}"
+              s:ds="{7500343F-6630-51FD-8D3E-7FE9FB6CF99D}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
-              uid="{31E8FCCB-A415-5351-BDEC-1350F0AE13B1}"
-              p:after="r[@uid='{84F5C45B-D135-5427-AC3B-1419736E5790}']"
-              s:rname="NewsGrid"
-              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{84F5C45B-D135-5427-AC3B-1419736E5790}-0" />
-            <r
-              uid="{8F03302D-6858-5F25-9269-E9C7482E8119}"
-              p:after="r[@uid='{31E8FCCB-A415-5351-BDEC-1350F0AE13B1}']"
-              s:rname="Section"
-              s:ds="{1AD0BD88-3505-55DA-8611-EFD6102C7EB9}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{EB942A9F-417D-5443-88FC-C1A188DF31DE}"
-              p:after="r[@uid='{8F03302D-6858-5F25-9269-E9C7482E8119}']"
+              uid="{415CE1C7-54D1-5CE6-A666-572A0AC2B18B}"
+              p:after="r[@uid='{9C157B2E-793B-54BE-9BAF-4DAD2C1026DF}']"
               s:rname="SponsorsGrid"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{8F03302D-6858-5F25-9269-E9C7482E8119}-0" />
+              s:ph="/jss-main/jss-section-content-{9C157B2E-793B-54BE-9BAF-4DAD2C1026DF}-0" />
             <r
               uid="{7AC1C776-AD16-5A85-B205-1093D34C2CBB}"
               p:after="*[1=2]"
@@ -79,16 +82,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201842Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "af68a5c1-ffd2-4297-bac3-5fa89db0e3ac"
+      Value: "152debef-4727-44b4-9017-cda04da62752"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201843Z
+      Value: 20210726T180740Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Jalen Williams"
