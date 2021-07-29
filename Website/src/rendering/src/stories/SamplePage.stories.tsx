@@ -150,7 +150,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
         <Header {...headerProps} />
         <MainNavigation />
       </div>
-      <HeroSection {...heroData} />
+      <HeroSection {...heroProps} />
       <ThreeColumnsSection {...threeColProps} />
       <SponsorsGrid {...sponsorProps} />
     </>
