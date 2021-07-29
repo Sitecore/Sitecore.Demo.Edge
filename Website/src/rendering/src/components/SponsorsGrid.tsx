@@ -39,4 +39,5 @@ const SponsorsGrid = (props: SponsorsProps): JSX.Element => (
   </div>
 );
 
+export type { Sponsor };
 export default SponsorsGrid;

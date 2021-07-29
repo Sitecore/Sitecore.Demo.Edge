@@ -11,8 +11,10 @@ export default {
 const Template: ComponentStory<typeof SponsorsGrid> = (args) => <SponsorsGrid {...args} />;
 
 const sponsor1 = {
-  Name: 'Item Name',
   fields: {
+    Name: {
+      value: 'Fitbit',
+    },
     Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
@@ -24,6 +26,9 @@ const sponsor1 = {
 const sponsor2 = {
   Name: 'Item Name',
   fields: {
+    Name: {
+      value: 'Sports',
+    },
     Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-sports.svg',
@@ -32,10 +37,12 @@ const sponsor2 = {
   },
 } as Sponsor;
 
-
 const sponsor3 = {
   Name: 'Item Name',
   fields: {
+    Name: {
+      value: 'Fitbit',
+    },
     Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
@@ -43,7 +50,6 @@ const sponsor3 = {
     },
   },
 } as Sponsor;
-
 
 export const Default = Template.bind({});
 Default.args = {
