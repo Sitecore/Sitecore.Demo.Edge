@@ -1,12 +1,12 @@
 ﻿---
-ID: "adcf96b9-145b-4859-935f-833111314e01"
+ID: "9a638ac1-5365-4a1e-a817-c94b891ed923"
 Parent: "6ce6f007-24f7-43aa-9732-dde2c19de464"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/CMP/Sessions/Mindset strategies
+Path: /sitecore/content/CMP/Sessions/Fuel for life
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "Hjn-MV8qGUi36Px1BMgqnA"
+  Value: 1jkU6wrglkWFbl0EjnWq6Q
 Languages:
 - Language: en
   Versions:
@@ -15,15 +15,15 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>7 MINDSET STRATEGIES TO RAISE YOUR GAME</p>
+        <p>FUEL FOR LIFE: NUTRITION 101</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210729T195718Z
+      Value: 20210729T195023Z
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="35983" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35983/thumbnail" src="https://mint.stylelabs.io/api/public/content/5ad4b0bcf48d4bdb90291cd42abfa0a9?v=7cb7c1a7" mediaid="" stylelabs-content-type="Image" alt="session-4.jpg" height="400" width="600" />
+        <image stylelabs-content-id="35981" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35981/thumbnail" src="https://mint.stylelabs.io/api/public/content/8e3aecf3a750454d98cea2b4d837bc28?v=469f370c" mediaid="" stylelabs-content-type="Image" alt="session-2.jpg" height="400" width="600" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,14 +34,14 @@ Languages:
         default\Anonymous
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: 7 MINDSET STRATEGIES TO RAISE YOUR GAME
+      Value: "FUEL FOR LIFE: NUTRITION 101"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f55322d2-71d7-4459-836c-c923dfd9d6a2"
+      Value: "321158aa-96f6-4326-bae9-220d0b6732ae"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T200013Z
+      Value: 20210729T195951Z
