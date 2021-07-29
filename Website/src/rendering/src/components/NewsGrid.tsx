@@ -1,16 +1,19 @@
 import Image from 'next/image';
-
-import news1 from '../../data/media/img/news/conference-image.jpg';
-import news2 from '../../data/media/img/news/profile-pic.jpg';
+import profile from '../../data/media/img/news/profile-pic.jpg';
 
 const NewsGrid = (): JSX.Element => (
   <div className="section__news__grid">
     <div className="section__news__grid__tweet">
-      <Image src={news1} alt="News" className="section__news__grid__tweet__img" />
+      <img
+        src="/assets/img/news/conference-image.jpg"
+        alt="News"
+        width="100%"
+        className="section__news__grid__tweet__img"
+      />
       <div className="section__news__grid__tweet__content">
         <div className="section__news__grid__tweet__content__profile">
           <Image
-            src={news2}
+            src={profile}
             alt="News"
             width="60px"
             className="section__news__grid__tweet__content__profile__pic"
