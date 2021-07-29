@@ -1,51 +1,41 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
 
-const SponsorsGrid = (): JSX.Element => (
-  <div className="section__sponsors__grid">
-    <Link href="/sponsors/fitbit">
-      <a className="section__sponsors__grid__sponsor">
-        <div className="m-3">
-          <Image src="/assets/img/sponsors-fitbit.svg" alt="Fitbit" width={180} height={80} />
-        </div>
-      </a>
-    </Link>
-    <Link href="/sponsors/sports">
-      <a className="section__sponsors__grid__sponsor">
-        <div className="m-3">
-          <Image src="/assets/img/sponsors-sports.svg" alt="Sports" width={180} height={80} />
-        </div>
-      </a>
-    </Link>
-    <Link href="/sponsors/fitbit">
-      <a className="section__sponsors__grid__sponsor">
-        <div className="m-3">
-          <Image src="/assets/img/sponsors-fitbit.svg" alt="Fitbit" width={180} height={80} />
-        </div>
-      </a>
-    </Link>
-    <Link href="/sponsors/sports">
-      <a className="section__sponsors__grid__sponsor">
-        <div className="m-3">
-          <Image src="/assets/img/sponsors-sports.svg" alt="Sports" width={180} height={80} />
-        </div>
-      </a>
-    </Link>
-    <Link href="/sponsors/fitbit">
-      <a className="section__sponsors__grid__sponsor">
-        <div className="m-3">
-          <Image src="/assets/img/sponsors-fitbit.svg" alt="Fitbit" width={180} height={80} />
-        </div>
-      </a>
-    </Link>
-    <Link href="/sponsors/sports">
-      <a className="section__sponsors__grid__sponsor">
-        <div className="m-3">
-          <Image src="/assets/img/sponsors-sports.svg" alt="Sports" width={180} height={80} />
-        </div>
-      </a>
-    </Link>
-  </div>
-);
+export type Sponsor = {
+  fields: {
+    Picture: ImageField;
+  };
+};
+
+type SponsorsProps = ComponentProps & {
+  fields: {
+    Title: Field<string>;
+    Subtitle: Field<string>;
+    Sponsors: Sponsor[];
+  };
+};
+
+const SponsorsGrid = (props: SponsorsProps): JSX.Element => {
+  return (
+    <div className="section__sponsors__grid">
+      {props.fields.Sponsors &&
+        props.fields.Sponsors.map((sponsor, index) => (
+          <Link key={index} href="#">
+            <a className="section__sponsors__grid__sponsor">
+              <div className="m-3">
+              <Image
+                  field={sponsor.fields.Picture}
+                  alt="Sponsor"
+                  width={180}
+                  height={80}
+                />
+              </div>
+            </a>
+          </Link>
+        ))}
+    </div>
+  );
+};
 
 export default SponsorsGrid;
