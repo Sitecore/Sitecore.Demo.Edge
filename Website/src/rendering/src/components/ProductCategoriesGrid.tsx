@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type Category = {
@@ -27,12 +26,7 @@ const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
             <Link href="/shop/teamsports">
               <a>
                 <figure>
-                  <Image
-                    src={category.fields.Picture.value?.src}
-                    alt="Category"
-                    width={350}
-                    height={250}
-                  />
+                  <Image field={category.fields.Picture} alt="Category" width={265} height={265} />
                 </figure>
                 <h3 className="product__category">
                   <Text field={category.fields.Title} />
