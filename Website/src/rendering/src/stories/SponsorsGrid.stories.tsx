@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof SponsorsGrid> = (args) => <SponsorsGrid {.
 const sponsor1 = {
   Name: 'Item Name',
   fields: {
-    Picture: {
+    Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
       },
@@ -24,7 +24,7 @@ const sponsor1 = {
 const sponsor2 = {
   Name: 'Item Name',
   fields: {
-    Picture: {
+    Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-sports.svg',
       },
@@ -36,7 +36,7 @@ const sponsor2 = {
 const sponsor3 = {
   Name: 'Item Name',
   fields: {
-    Picture: {
+    Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
       },

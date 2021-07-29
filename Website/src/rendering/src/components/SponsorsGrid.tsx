@@ -4,7 +4,7 @@ import { ComponentProps } from 'lib/component-props';
 
 export type Sponsor = {
   fields: {
-    Picture: ImageField;
+    Logo: ImageField;
   };
 };
 
@@ -26,7 +26,7 @@ const SponsorsGrid = (props: SponsorsProps): JSX.Element => {
           <Link key={index} href="#">
             <a className="section__sponsors__grid__sponsor">
               <div className="m-3">
-                <Image field={sponsor.fields.Picture} alt="Sponsor" width={180} height={80} />
+                <Image field={sponsor.fields.Logo} alt="Sponsor" width={180} height={80} />
               </div>
             </a>
           </Link>
