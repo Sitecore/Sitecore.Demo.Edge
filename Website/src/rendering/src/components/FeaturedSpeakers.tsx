@@ -1,71 +1,61 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
 
-import speaker1 from '../../data/media/img/speakers/mary-asada.jpeg';
-import speaker2 from '../../data/media/img/speakers/martin-moore.jpeg';
-import speaker3 from '../../data/media/img/speakers/ed-jones.jpeg';
-import speaker4 from '../../data/media/img/speakers/sophia-taylor.jpeg';
-import speaker5 from '../../data/media/img/speakers/li-xiu-ying.jpeg';
+type Speaker = {
+  fields: {
+    Name: Field<string>;
+    Role: Field<string>;
+    Picture: ImageField;
+  };
+};
 
-const FeaturedSpeakers = (): JSX.Element => (
+type FeaturedSpeakersProps = ComponentProps & {
+  fields: {
+    Title: Field<string>;
+    Subtitle: Field<string>;
+    Speakers: Speaker[];
+  };
+};
+
+const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
   <section className="">
     <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
-      <h1 className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold">
-        Featured Speakers
-      </h1>
-      <p className="text-center">
-        Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000
-        brands at this year’s PLAY! Summit.
-      </p>
-
+      <Text
+        tag="h1"
+        className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold"
+        field={props.fields.Title}
+      />
+      <Text tag="p" className="text-center" field={props.fields.Subtitle} />
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        <Link href="/speakers/mary-asada" passHref>
-          <div className="rounded overflow-hidden">
-            <Image src={speaker1} alt="Speaker" width={265} height={265} />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">Mary Asada</p>
-            </div>
-          </div>
-        </Link>
-
-        <Link href="/speakers/jacobgonzalez" passHref>
-          <div className="rounded overflow-hidden">
-            <Image src={speaker2} alt="Speaker" width={265} height={265} />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">Jacob Gonzalez</p>
-            </div>
-          </div>
-        </Link>
-
-        <Link href="/speakers/edjones" passHref>
-          <div className="rounded overflow-hidden">
-            <Image src={speaker3} alt="Speaker" width={265} height={265} />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">Ed Jones</p>
-            </div>
-          </div>
-        </Link>
-
-        <Link href="/speakers/sophiataylor" passHref>
-          <div className="rounded overflow-hidden">
-            <Image src={speaker4} alt="Speaker" width={265} height={265} />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">Sophia Taylor</p>
-            </div>
-          </div>
-        </Link>
-
-        <Link href="/speakers/lixiuying" passHref>
-          <div className="rounded overflow-hidden">
-            <Image src={speaker5} alt="Speaker" width={265} height={265} />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">Li Xiu Ying</p>
-            </div>
-          </div>
-        </Link>
+        {props.fields.Speakers &&
+          props.fields.Speakers.map((speaker, index) => (
+            <Link
+              key={index}
+              href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
+              passHref
+            >
+              <a className="rounded overflow-hidden mx-auto">
+                <Image
+                  field={speaker.fields.Picture}
+                  alt={speaker.fields.Name?.value}
+                  width={265}
+                  height={265}
+                />
+                <div className="px-6 py-4">
+                  <Text
+                    className="text-gray-700 text-base text-center"
+                    tag="p"
+                    field={speaker.fields.Name}
+                  ></Text>
+                </div>
+              </a>
+            </Link>
+          ))}
       </div>
     </div>
   </section>
 );
 
+export type { Speaker };
 export default FeaturedSpeakers;

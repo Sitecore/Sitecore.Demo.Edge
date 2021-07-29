@@ -55,9 +55,11 @@ Languages:
               uid="{898EDF77-2C9E-500D-885B-F76090F9E66F}"
               p:after="r[@uid='{F8C599B7-FA3B-5FCF-925D-C7CA8DA8778B}']"
               s:rname="VendorsGrid"
+              s:ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}"
               s:id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{40EA4B6E-70BB-5182-A2B5-8CD1A5A235B5}"
               p:after="r[@uid='{898EDF77-2C9E-500D-885B-F76090F9E66F}']"
@@ -87,14 +89,14 @@ Languages:
       Value: 20210625T201845Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5b077ed1-4f74-48c1-a06f-8e6e77736eda"
+      Value: "4c7da4ad-4df3-43b6-8d46-ebdfca370308"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210713T011557Z
+      Value: 20210714T191725Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Sponsors"

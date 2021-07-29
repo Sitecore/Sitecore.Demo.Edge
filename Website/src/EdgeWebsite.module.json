@@ -16,6 +16,10 @@
                 "path": "/sitecore/layout/Renderings/Project/edgewebsite"
             },
             {
+                "name": "rendering-contents-resolvers",
+                "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Edge Rendering Contents Resolvers"
+            },
+            {
                 "name": "templates",
                 "path": "/sitecore/templates/Project/edgewebsite"
             },

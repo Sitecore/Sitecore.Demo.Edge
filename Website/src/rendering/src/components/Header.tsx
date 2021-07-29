@@ -3,7 +3,7 @@ import { ComponentProps } from 'lib/component-props';
 
 import Link from 'next/link';
 
-type HeaderProps = ComponentProps & {
+export type HeaderProps = ComponentProps & {
   fields: {
     heading: Field<string>;
   };

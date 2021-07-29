@@ -48,16 +48,20 @@ Languages:
               uid="{E55A9120-E831-53FD-94C0-5B09ABB1A27C}"
               p:after="r[@uid='{277CD221-59FF-5D75-9631-2A7CB8DCEA36}']"
               s:rname="FeaturedVendors"
+              s:ds="{1AEB0850-24F1-4298-BFAC-F3A5C8146E88}"
               s:id="{18D56CF9-81D3-50C2-A8C3-19349D36074D}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{79CC0F9C-2903-58F8-8DAE-EC4605BA9197}"
               p:after="r[@uid='{E55A9120-E831-53FD-94C0-5B09ABB1A27C}']"
               s:rname="VendorsGrid"
+              s:ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}"
               s:id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{DF5E9EFA-6620-56DA-B0EF-E23C829ABE9E}"
               p:after="r[@uid='{79CC0F9C-2903-58F8-8DAE-EC4605BA9197}']"
@@ -85,16 +89,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201849Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "41169839-d285-4b55-9576-535aba259662"
+      Value: "4fb30358-7223-4353-b632-6d2ca88959a9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210713T011600Z
+      Value: 20210714T191731Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Vendors"

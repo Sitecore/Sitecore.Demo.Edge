@@ -25,9 +25,17 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link text="Become a Sponsor" url="/sponsors/sponsorize" linktype="external" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "59ce7d9c-7b1e-4832-9816-b695d99dd44b"
+      Value: "d2bcf062-8938-4931-a967-50e6d4606797"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -40,4 +48,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201844Z
+      Value: 20210720T221933Z
