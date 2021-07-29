@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import { HeaderProps } from '../components/Header';
 import HeroSection, { HeroProps } from '../components/HeroSection';
 import MainNavigation from '../components/MainNavigation';
-import ThreeColumnsSection from '../components/ThreeColumnsSection';
+import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 import SponsorsGrid from '../components/SponsorsGrid';
 
 export default {
@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof HeroSection>;
 
 let headerProps = {} as HeaderProps;
-let heroData = {
+let heroProps = {
   fields: {
     Logo: {
       value: {
@@ -44,6 +44,60 @@ let heroData = {
   },
 } as HeroProps;
 
+let threeColProps = {
+  fields: {
+    Title: {
+      value: 'GO THE DISTANCE',
+    },
+    Subtitle: {
+      value:
+        'Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages.',
+    },
+    LeftLogo: {
+      value: {
+        src: '/assets/img/headline-icon-schedule.svg',
+      },
+    },
+    LeftTitle: {
+      value: '48 Talks and Workshops',
+    },
+    LeftLink: {
+      value: {
+        href: '/schedule',
+        text: 'View Schedule',
+      },
+    },
+    MiddleLogo: {
+      value: {
+        src: '/assets/img/headline-icon-speakers.svg',
+      },
+    },
+    MiddleTitle: {
+      value: '32 Speakers and Guest Speakers',
+    },
+    MiddleLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speackers',
+      },
+    },
+    RightLogo: {
+      value: {
+        src: '/assets/img/headline-icon-vendors.svg',
+      },
+    },
+    RightTitle: {
+      value: '60 Vendors with VIP Products',
+    },
+    RightLink: {
+      value: {
+        href: '/vendors',
+        text: 'View Vendors',
+      },
+    },
+  },
+} as ThreeColumnsSectionProps;
+
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
     <>
@@ -51,8 +105,8 @@ const Template: ComponentStory<typeof HeroSection> = () => {
         <Header {...headerProps} />
         <MainNavigation />
       </div>
-      <HeroSection {...heroData} />
-      <ThreeColumnsSection />
+      <HeroSection {...heroProps} />
+      <ThreeColumnsSection {...threeColProps} />
       <SponsorsGrid />
     </>
   );
