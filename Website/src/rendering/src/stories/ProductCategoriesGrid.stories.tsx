@@ -9,7 +9,9 @@ export default {
   component: ProductCategoriesGrid,
 } as ComponentMeta<typeof ProductCategoriesGrid>;
 
-const Template: ComponentStory<typeof ProductCategoriesGrid> = (args) => <ProductCategoriesGrid {...args} />;
+const Template: ComponentStory<typeof ProductCategoriesGrid> = (args) => (
+  <ProductCategoriesGrid {...args} />
+);
 
 const category1 = {
   Name: 'Item Name',

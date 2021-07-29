@@ -21,13 +21,18 @@ type ProductCategoriesProps = ComponentProps & {
 const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
   return (
     <div className="section__products__grid">
-       {props.fields.Categories &&
-          props.fields.Categories.map((category, index) => (
-            <div className="section__products__grid__product">
+      {props.fields.Categories &&
+        props.fields.Categories.map((category) => (
+          <div className="section__products__grid__product">
             <Link href="/shop/teamsports">
               <a>
                 <figure>
-                  <Image src={category.fields.Picture.value?.src} alt="Category" width={350} height={250} />
+                  <Image
+                    src={category.fields.Picture.value?.src}
+                    alt="Category"
+                    width={350}
+                    height={250}
+                  />
                 </figure>
                 <h3 className="product__category">
                   <Text field={category.fields.Title} />
@@ -35,7 +40,7 @@ const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
               </a>
             </Link>
           </div>
-          ))}
+        ))}
     </div>
   );
 };
