@@ -1,15 +1,18 @@
 ﻿---
-ID: "bcc65382-97cc-556e-92a6-b424bef2aa07"
+ID: "5ab24ab7-c4bb-5f03-8ce5-16c14e3e04bd"
 Parent: "c9b3f585-fe76-5310-819f-c8ea308401db"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/SponsorsGrid/Data/heading
+Path: /sitecore/templates/Project/edgewebsite/SponsorsGrid/Data/Sponsors
 SharedFields:
+- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
+  Hint: Source
+  Value: /sitecore/content/EdgeWebsite/home/sponsors
 - ID: "39847666-389d-409b-95bd-f2016f11eed5"
   Hint: Unversioned
   Value: 0
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: "Single-Line Text"
+  Value: Treelist
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
@@ -23,7 +26,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210615T142047Z
+      Value: 20210729T181235Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8e9746fa-9d0d-4bf9-ad04-4b9ed4a8851b"
+      Value: "a44b395d-aa68-4b46-8742-7be6a1b3751f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T142047Z
+      Value: 20210729T181235Z
