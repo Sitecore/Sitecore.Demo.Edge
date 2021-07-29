@@ -1,0 +1,47 @@
+﻿---
+ID: "15c5e646-b51a-4eb5-bb7b-006e2e7625d5"
+Parent: "6ce6f007-24f7-43aa-9732-dde2c19de464"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/CMP/Sessions/Mountain biking
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: XEeAPlOWG0CrYU68XCpbDw
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>MOUNTAIN BIKING: TALES FROM THE TRAIL</p>
+        
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210729T195434Z
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="35979" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35979/thumbnail" src="https://mint.stylelabs.io/api/public/content/999dafb6ab3e4b5393e71dd2fe168c8e?v=a601d435" mediaid="" stylelabs-content-type="Image" alt="session-3.jpg" height="401" width="600" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: "MOUNTAIN BIKING: TALES FROM THE Trail"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "990729da-e566-43cb-9a74-c3cb48a593ea"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210729T200037Z

@@ -1,8 +1,8 @@
 ﻿---
-ID: "d98948e0-fe3a-4a97-a5ef-6af74f178a29"
+ID: "f5809647-ccca-420a-8b49-f30184476231"
 Parent: "6ce6f007-24f7-43aa-9732-dde2c19de464"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/CMP/Sessions/TRAIN SMARTER NOT Harder
+Path: /sitecore/content/CMP/Sessions/Train smarter
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -19,7 +19,11 @@ Languages:
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210728T155939Z
+      Value: 20210729T194040Z
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="35977" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35977/thumbnail" src="https://mint.stylelabs.io/api/public/content/c65200dcdd944b67b75797fa2b9b9953?v=3280464e" mediaid="" stylelabs-content-type="Image" alt="session-1.jpg" height="400" width="600" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,19 +32,16 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
-      Hint: Date
-      Value: "20210903T060000:637662456000000000Z"
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: TRAIN SMARTER, not Harder
+      Value: Train smarter, not harder
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "469444e8-a85a-495e-bc0f-5cc19f3441ce"
+      Value: "1b3a1906-51e4-43fd-8334-bafbe05a5ebe"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T160222Z
+      Value: 20210729T200104Z

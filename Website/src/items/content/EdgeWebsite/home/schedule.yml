@@ -54,9 +54,11 @@ Languages:
               uid="{F83C4F85-EC5B-560F-AE09-F26FF00023DE}"
               p:after="r[@uid='{695F77F3-8EFA-57B0-B4E5-725CA7DFDF3B}']"
               s:rname="SessionsGrid"
+              s:ds="{6CE6F007-24F7-43AA-9732-DDE2C19DE464}"
               s:id="{1059A458-3C21-5A98-ABD0-A65629F4DE1A}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{262EED4A-2C61-556C-8A20-0586DE1ED56B}"
               p:after="r[@uid='{F83C4F85-EC5B-560F-AE09-F26FF00023DE}']"
@@ -109,14 +111,14 @@ Languages:
         sitecore\eMbVFkFYqa
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "785f24bf-11df-450f-8657-8da1eec2d38d"
+      Value: "4cfae898-7b17-4c64-a63a-d107637cf232"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191715Z
+      Value: 20210729T185621Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Schedule"
