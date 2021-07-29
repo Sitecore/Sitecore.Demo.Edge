@@ -70,9 +70,11 @@ Languages:
               uid="{6FDCFD14-6EC9-5FFC-8B03-8B0DCFF520B6}"
               p:after="r[@uid='{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}-0" />
+              s:ph="/jss-main/jss-section-content-{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{B33954C0-7033-5FEA-B3D9-25914A8C7146}"
               p:after="*[1=2]"
