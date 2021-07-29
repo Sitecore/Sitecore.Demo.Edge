@@ -8,7 +8,7 @@ export type Sponsor = {
   };
 };
 
-type SponsorsProps = ComponentProps & {
+export type SponsorsProps = ComponentProps & {
   fields: {
     Title: Field<string>;
     Subtitle: Field<string>;
