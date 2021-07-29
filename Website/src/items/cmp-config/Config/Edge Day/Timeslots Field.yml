@@ -1,13 +1,12 @@
 ﻿---
 ID: "3cd359de-3030-4ef7-93e8-eb7ea1e6bb4f"
 Parent: "c7d179b3-6775-4742-84d4-3aa8374173e4"
-Template: "e43e2773-7a50-4145-a266-312024f27382"
+Template: "1c18fef2-0603-4012-9c03-f9ed654854c4"
 Path: /sitecore/system/Modules/CMP/Config/Edge Day/Timeslots Field
-BranchID: "70eb42ee-92b2-4246-bc65-aa920bb7f322"
 SharedFields:
-- ID: "da990633-7884-44a2-8638-94389c5cbfec"
-  Hint: CMP Field Name
-  Value: Timeslots
+- ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
+  Hint: CMP Relation
+  Value: Timeslot_Day
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{FCECD089-4681-4F91-BB3D-1446819E7A11}"
@@ -32,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1eab076e-83d0-46ed-9f76-019d4fd2b42f"
+      Value: "19f15337-9578-4d9f-9121-4284f28481d6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T211511Z
+      Value: 20210729T173608Z
