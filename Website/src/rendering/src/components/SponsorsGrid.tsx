@@ -19,7 +19,9 @@ export type SponsorsProps = ComponentProps & {
 const SponsorsGrid = (props: SponsorsProps): JSX.Element => {
   return (
     <div className="section__sponsors__grid">
-      {props.fields.Sponsors &&
+      {props &&
+        props.fields &&
+        props.fields.Sponsors &&
         props.fields.Sponsors.map((sponsor, index) => (
           <Link key={index} href="#">
             <a className="section__sponsors__grid__sponsor">
