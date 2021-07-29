@@ -118,9 +118,11 @@ Languages:
               uid="{EA09244A-29DB-5899-99C7-82FF0757BCFC}"
               p:after="r[@uid='{3F68C696-7E3E-54D0-831B-9AB97806B471}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0" />
+              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{541311F6-470C-5230-8425-3252C09B07BC}"
               p:after="*[1=2]"
@@ -143,14 +145,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "88e9cfa0-007c-4a08-8b73-b2f4ebe1a358"
+      Value: "6c24e2c3-cd1d-4fdc-8af6-ea19eecc07ad"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191709Z
+      Value: 20210729T181919Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit"

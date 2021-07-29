@@ -12,6 +12,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
+      Hint: Logo
+      Value: |
+        <image mediaid="{D68089BF-1CAA-472A-9DF5-5BE65EB32B17}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210729T050154Z
@@ -28,14 +32,14 @@ Languages:
       Value: Striva
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8c7a002f-9255-4650-bdf2-f1dfc42c9c9d"
+      Value: "1b59cbfb-5b46-450c-a486-7c8d01a6a5c0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "cf42c29f-ee3a-4f06-92ac-10fc51a42099"
       Hint: Level
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T050154Z
+      Value: 20210729T182240Z
