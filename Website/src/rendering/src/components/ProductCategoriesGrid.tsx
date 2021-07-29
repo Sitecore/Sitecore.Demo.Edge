@@ -21,8 +21,8 @@ const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
   return (
     <div className="section__products__grid">
       {props.fields.Categories &&
-        props.fields.Categories.map((category) => (
-          <div className="section__products__grid__product">
+        props.fields.Categories.map((category, index) => (
+          <div key={index} className="section__products__grid__product">
             <Link href="/shop/teamsports">
               <a>
                 <figure>
