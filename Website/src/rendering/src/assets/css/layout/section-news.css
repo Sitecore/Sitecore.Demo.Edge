@@ -21,7 +21,7 @@
 }
 
 .section__news__grid__tweet__img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .section__news__grid__tweet__content {
@@ -58,7 +58,7 @@
 }
 
 .section__news__grid__news__item {
-  @apply w-full border rounded content-center p-5 align-middle;
+  @apply w-full border shadow content-center p-5 align-middle text-blue-light;
   overflow: hidden;
   align-items: center;
   justify-content: center;
@@ -68,8 +68,6 @@
   line-height: 1.2;
   font-size: 1.25em;
   font-weight: 600;
-  border-radius: 5px;
-  color: #006ef9;
   background-color: #fff;
 }
 
@@ -91,7 +89,6 @@
   font-weight: 400;
   font-size: var(--fs--medium);
   line-height: 1.35;
-  border-radius: 5px;
   border: 1px solid var(--gray-light);
 }
 

@@ -42,9 +42,11 @@ Languages:
               uid="{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}"
               p:after="r[@uid='{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}']"
               s:rname="ThreeColumnsSection"
+              s:ds="{5F6ADEE8-F8E2-4A92-85E3-0C1D0A82FAF1}"
               s:id="{279A5772-ADFA-5260-88E6-AB97D5C4D90A}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{45FCA8EC-2A99-531D-B270-0389AB473563}"
               p:after="r[@uid='{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}']"
@@ -145,14 +147,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "203dc791-fc68-4af7-b190-891897f9221f"
+      Value: "68b8098d-0160-491d-b17f-d08a0809964d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T134848Z
+      Value: 20210728T134457Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit"
