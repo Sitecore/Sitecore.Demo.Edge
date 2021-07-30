@@ -13,7 +13,7 @@ type Session = {
   fields: {
     Name: Field<string>;
     Image: ImageField;
-    Date: DateField;
+    Date: Field<string>;
     Duration: Field<string>;
     Speakers: Speaker[];
   };
@@ -43,7 +43,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
                 <div className="px-6 py-4">
                   <Text
                     tag="div"
-                    className="font-bold text-base mb-2 h-20 uppercase"
+                    className="font-bold text-base mb-2 h-18 uppercase"
                     field={session.fields.Name}
                   ></Text>
                   <DateField
