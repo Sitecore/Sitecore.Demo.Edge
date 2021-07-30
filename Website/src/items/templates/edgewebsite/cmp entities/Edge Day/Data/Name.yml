@@ -1,6 +1,6 @@
 ﻿---
-ID: "b6af0052-40eb-43a2-8fa5-96a528636feb"
-Parent: "135e226e-63e3-47d8-801a-b7ef257a9207"
+ID: "8b5b10d2-7531-496b-afce-c0f7e51348c2"
+Parent: "c815d7a0-6a25-4b35-88cd-bfd5c7faf666"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
 Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Day/Data/Name
 SharedFields:
@@ -56,11 +56,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f861c888-2974-4a1e-a949-492e4a08cd7f"
+      Value: "2de27870-269c-409d-b47a-a8fc4534787c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T212557Z
+      Value: 20210730T154833Z

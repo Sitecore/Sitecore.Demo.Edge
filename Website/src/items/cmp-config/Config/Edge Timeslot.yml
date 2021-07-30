@@ -12,7 +12,7 @@ SharedFields:
   Value: Edge.TimeSlot
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Name
+  Value: Title
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{0BC9237D-12EB-47A5-AFED-A65188324358}"
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "255a4202-8bc7-48ba-b499-8b5b8c8f1ba5"
+      Value: "98e1c062-31d8-42b3-ae60-7455548cff3d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T195022Z
+      Value: 20210730T155750Z

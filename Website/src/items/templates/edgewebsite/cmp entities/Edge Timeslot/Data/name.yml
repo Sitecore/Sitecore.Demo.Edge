@@ -2,7 +2,7 @@
 ID: "62545186-56cf-4614-bcdc-2ecb3947ea4c"
 Parent: "ab4198b5-0ef0-45b0-b9fa-1a48ba2b2cf9"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Timeslot/Data/name
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Timeslot/Data/Name
 SharedFields:
 - ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
   Hint: Validate Button

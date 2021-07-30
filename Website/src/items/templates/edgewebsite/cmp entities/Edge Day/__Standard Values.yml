@@ -1,7 +1,7 @@
 ﻿---
-ID: "0973a602-0779-4672-ad77-6f42f85dd4b0"
-Parent: "83eb835d-82a1-4c9e-a879-2968f1f4750b"
-Template: "83eb835d-82a1-4c9e-a879-2968f1f4750b"
+ID: "1010f67b-bfbf-4f73-b881-6f770e19a539"
+Parent: "32b4ee0d-7860-4ace-bc20-e4b40d9491a7"
+Template: "32b4ee0d-7860-4ace-bc20-e4b40d9491a7"
 Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Day/__Standard Values
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
@@ -31,11 +31,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4ec9212b-c52e-4d51-ba3a-37685f0cca0f"
+      Value: "0cf4a852-77c1-4b48-ad75-9dec13401097"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T184930Z
+      Value: 20210730T154824Z

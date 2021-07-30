@@ -12,10 +12,10 @@ SharedFields:
   Value: Edge.Day
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Name
+  Value: Title
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
-  Value: "{83EB835D-82A1-4C9E-A879-2968F1F4750B}"
+  Value: "{32B4EE0D-7860-4ACE-BC20-E4B40D9491A7}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{74999BBB-92D6-4485-8168-3B32790768FC}"
@@ -27,13 +27,21 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T173120Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "804cdb3c-5ed9-457f-b12d-65d3e81ffd6e"
+      Value: "65c2beb8-80dc-4816-b739-fd180d3dbec8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T190432Z
+      Value: 20210730T154911Z

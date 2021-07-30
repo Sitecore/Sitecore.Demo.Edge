@@ -1,7 +1,7 @@
 ﻿---
-ID: "a4f9aba2-ba09-4001-b223-635aa1056521"
+ID: "417a7a6f-c1d8-499d-b59e-de0c7e778d56"
 Parent: "866e6ad1-34b6-479d-b75d-6ea1eeb01f98"
-Template: "83eb835d-82a1-4c9e-a879-2968f1f4750b"
+Template: "32b4ee0d-7860-4ace-bc20-e4b40d9491a7"
 Path: /sitecore/content/CMP/Days/Day 4
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210729T201343Z
+      Value: 20210730T160209Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,16 +23,16 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "5d9df57e-053b-4c4e-b6c3-6f1cdc53915f"
-    - ID: "b6af0052-40eb-43a2-8fa5-96a528636feb"
+    - ID: "8b5b10d2-7531-496b-afce-c0f7e51348c2"
       Hint: Name
       Value: Day 4
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0f4a6347-c223-406d-8e30-53e45092f6a7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T201344Z
+      Value: 20210730T160210Z

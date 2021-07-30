@@ -1,8 +1,8 @@
 ﻿---
-ID: "8c5ec6e2-7841-4f4d-8e41-d4a417d75928"
+ID: "bfa29732-9c9a-4ab5-9384-cb78c1626266"
 Parent: "866e6ad1-34b6-479d-b75d-6ea1eeb01f98"
-Template: "83eb835d-82a1-4c9e-a879-2968f1f4750b"
-Path: /sitecore/content/CMP/Days/Day One
+Template: "32b4ee0d-7860-4ace-bc20-e4b40d9491a7"
+Path: /sitecore/content/CMP/Days/Day 1
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210728T210857Z
+      Value: 20210730T160136Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,13 +23,16 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "8b5b10d2-7531-496b-afce-c0f7e51348c2"
+      Hint: Name
+      Value: Day 1
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f0da835e-ba7e-4f05-b84f-88fa67cfabc1"
+      Value: "ca115fcf-a2eb-4abd-8ebd-dc0a070ce26c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T210857Z
+      Value: 20210730T160136Z
