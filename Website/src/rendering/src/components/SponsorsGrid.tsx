@@ -2,14 +2,14 @@ import Link from 'next/link';
 import { Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-export type Sponsor = {
+type Sponsor = {
   fields: {
     Name: Field<string>;
     Logo: ImageField;
   };
 };
 
-export type SponsorsProps = ComponentProps & {
+type SponsorsProps = ComponentProps & {
   fields: {
     Title: Field<string>;
     Subtitle: Field<string>;
@@ -40,4 +40,5 @@ const SponsorsGrid = (props: SponsorsProps): JSX.Element => (
 );
 
 export type { Sponsor };
+export type { SponsorsProps };
 export default SponsorsGrid;
