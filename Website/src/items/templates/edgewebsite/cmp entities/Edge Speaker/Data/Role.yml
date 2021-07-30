@@ -2,7 +2,7 @@
 ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
 Parent: "efbac9b0-5354-45ab-9bc4-cb42591cd08f"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Speaker/Data/Speaker Type
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Speaker/Data/Role
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source

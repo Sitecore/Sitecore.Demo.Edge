@@ -1,12 +1,21 @@
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, Image, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+
+type Speaker = {
+  fields: {
+    Name: Field<string>;
+    Role: Field<string>;
+  };
+};
 
 type Session = {
   fields: {
     Name: Field<string>;
-    Level: Field<string>;
     Image: ImageField;
+    Date: typeof DateField;
+    Duration: Field<string>;
+    Speakers: Speaker[];
   };
 };
 
@@ -17,7 +26,7 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
-  console.log(props);
+  console.log(props.fields);
   return (
     <section>
       <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
@@ -37,9 +46,53 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
                     className="font-bold text-base mb-2 h-20 uppercase"
                     field={session.fields.Name}
                   ></Text>
-                  <p className="text-gray-700 text-xs pb-3">Mon, 24th | 11.15 AM –11:45 AM</p>
-                  <p className="text-gray-700 text-xs pb-3">Duration: 30 minutes</p>
-                  <p className="text-gray-700 text-xs">ANDRES VILLARES | Professional</p>
+                  <DateField
+                    tag="p"
+                    className="text-gray-700 text-xs pb-3"
+                    field={session.fields.Date}
+                    render={(date) =>
+                      date?.toLocaleDateString('en-US', {
+                        weekday: 'short',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })
+                    }
+                  />
+                  <p className="text-gray-700 text-xs pb-3">
+                    <span>Start Time: </span>
+                    <DateField
+                      tag="span"
+                      field={session.fields.Date}
+                      render={(date) =>
+                        date?.toLocaleTimeString('en-US', {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })
+                      }
+                    />
+                  </p>
+                  <p className="text-gray-700 text-xs pb-3">
+                    <span>Duration: </span>
+                    <Text tag="span" field={session.fields.Duration}></Text>
+                    <span> hours</span>
+                  </p>
+                  {session.fields.Speakers &&
+                    session.fields.Speakers.map((speaker, index) => (
+                      <p key={index}>
+                        <Text
+                          tag="span"
+                          className="text-gray-700 text-xs uppercase"
+                          field={speaker.fields.Name}
+                        ></Text>
+                        {' | '}
+                        <Text
+                          tag="span"
+                          className="text-gray-700 text-xs"
+                          field={speaker.fields.Role}
+                        ></Text>
+                      </p>
+                    ))}
                 </div>
                 <div className="px-6 pt-4 pb-10">
                   <Link href="/tickets">

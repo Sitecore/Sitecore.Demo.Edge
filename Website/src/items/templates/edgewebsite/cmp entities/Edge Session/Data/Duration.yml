@@ -1,15 +1,15 @@
 ﻿---
-ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
+ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
 Parent: "92298800-b22f-4d3b-a7bb-75dfe66b78ef"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Session/Data/Date
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Session/Data/Duration
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Datetime
+  Value: Number
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 600
 Languages:
 - Language: en
   Versions:
@@ -17,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210728T155452Z
+      Value: 20210730T183245Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,7 +28,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6e3cabe2-0a3c-4639-ac27-ae1a9e7a98bd"
+      Value: "3d65a2a4-cc01-42e2-9d72-609bd32aadf8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
