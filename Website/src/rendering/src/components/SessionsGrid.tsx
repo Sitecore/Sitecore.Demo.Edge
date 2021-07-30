@@ -13,7 +13,7 @@ type Session = {
   fields: {
     Name: Field<string>;
     Image: ImageField;
-    Date: typeof DateField;
+    Date: DateField;
     Duration: Field<string>;
     Speakers: Speaker[];
   };
