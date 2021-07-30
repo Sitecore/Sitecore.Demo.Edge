@@ -1,7 +1,7 @@
 ﻿---
 ID: "c8446991-a591-5b6f-8768-c19ed6223366"
 Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
-Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Template: "52672eed-7aa7-4df1-93e1-c488bc2e0803"
 Path: /sitecore/content/EdgeWebsite/home/shop/swimming
 Languages:
 - Language: en
@@ -79,16 +79,31 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201839Z
+    - ID: "26e44e63-d183-4c70-b50d-ad2358a9c1af"
+      Hint: Picture
+      Value: |
+        <image mediaid="{558299A6-89EA-4A42-8CFC-581E0669A04D}" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0db51ad5-4e59-452e-8abc-2e6d28c57c04"
+      Value: "982efe31-4fe5-4e7c-a318-f7833315015b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
+    - ID: "ceb0f7a3-e5e1-4e8c-a95a-8bff6f13708f"
+      Hint: Title
+      Value: Swimming
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201839Z
+      Value: 20210729T140445Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Swimming"

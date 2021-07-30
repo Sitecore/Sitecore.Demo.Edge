@@ -10,7 +10,15 @@ const ProductCategoriesGrid = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'ProductCategoriesGrid',
     icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
+    fields: [
+      { name: 'Title', type: CommonFieldTypes.SingleLineText },
+      { name: 'Subtitle', type: CommonFieldTypes.SingleLineText },
+      {
+        name: 'Categories',
+        type: CommonFieldTypes.ContentList,
+        source: '/sitecore/content/EdgeWebsite/home/shop',
+      },
+    ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:
