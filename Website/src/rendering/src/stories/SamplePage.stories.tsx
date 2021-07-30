@@ -6,7 +6,7 @@ import { HeaderProps } from '../components/Header';
 import HeroSection, { HeroProps } from '../components/HeroSection';
 import MainNavigation from '../components/MainNavigation';
 import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
-import SponsorsGrid from '../components/SponsorsGrid';
+import SponsorsGrid, { Sponsor, SponsorsProps } from '../components/SponsorsGrid';
 
 export default {
   title: 'Example/SamplePage',
@@ -43,6 +43,60 @@ let heroProps = {
     },
   },
 } as HeroProps;
+
+const sponsor1 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: '',
+    },
+    Logo: {
+      value: {
+        src: '/assets/img/sponsors/sponsors-fitbit.svg',
+      },
+    },
+  },
+} as Sponsor;
+
+const sponsor2 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: '',
+    },
+    Logo: {
+      value: {
+        src: '/assets/img/sponsors/sponsors-sports.svg',
+      },
+    },
+  },
+} as Sponsor;
+
+const sponsor3 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: '',
+    },
+    Logo: {
+      value: {
+        src: '/assets/img/sponsors/sponsors-fitbit.svg',
+      },
+    },
+  },
+} as Sponsor;
+
+let sponsorProps = {
+  fields: {
+    Title: {
+      value: '',
+    },
+    Subtitle: {
+      value: '',
+    },
+    Sponsors: [sponsor1, sponsor2, sponsor3],
+  },
+} as SponsorsProps;
 
 let threeColProps = {
   fields: {
@@ -107,7 +161,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
       </div>
       <HeroSection {...heroProps} />
       <ThreeColumnsSection {...threeColProps} />
-      <SponsorsGrid />
+      <SponsorsGrid {...sponsorProps} />
     </>
   );
 };

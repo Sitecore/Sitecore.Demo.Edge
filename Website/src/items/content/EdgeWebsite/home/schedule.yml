@@ -86,9 +86,11 @@ Languages:
               uid="{D48D8720-FBE3-51FC-A531-DA75494D268D}"
               p:after="r[@uid='{8AA27C88-29FC-57FD-A597-38111907F730}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{8AA27C88-29FC-57FD-A597-38111907F730}-0" />
+              s:ph="/jss-main/jss-section-content-{8AA27C88-29FC-57FD-A597-38111907F730}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{0242D386-278E-5F95-9C4F-D94D711F1826}"
               p:after="*[1=2]"

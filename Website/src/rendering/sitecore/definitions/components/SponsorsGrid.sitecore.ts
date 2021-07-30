@@ -10,7 +10,13 @@ const SponsorsGrid = function (manifest: Manifest): void {
   manifest.addComponent({
     name: 'SponsorsGrid',
     icon: SitecoreIcon.DocumentTag,
-    fields: [{ name: 'heading', type: CommonFieldTypes.SingleLineText }],
+    fields: [
+      {
+        name: 'Sponsors',
+        type: CommonFieldTypes.ContentList,
+        source: '/sitecore/content/EdgeWebsite/home/sponsors',
+      },
+    ],
     /*
     If the component implementation uses <Placeholder> or withPlaceholder to expose a placeholder,
     register it here, or components added to that placeholder will not be returned by Sitecore:

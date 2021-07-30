@@ -90,9 +90,11 @@ Languages:
               uid="{9C37536D-E2AA-5BF2-8103-FA15D43F5121}"
               p:after="r[@uid='{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}']"
               s:rname="ProductCategoriesGrid"
+              s:ds="{B480E5FA-E4D0-4C4A-B42D-033E697680ED}"
               s:id="{9B5E1E18-FD8D-5E80-8028-861D007DCA15}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}-0" />
+              s:ph="/jss-main/jss-section-content-{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{4F8BE7D3-A694-596E-83A9-9C733D66D438}"
               p:after="r[@uid='{9C37536D-E2AA-5BF2-8103-FA15D43F5121}']"
@@ -120,9 +122,11 @@ Languages:
               uid="{EA09244A-29DB-5899-99C7-82FF0757BCFC}"
               p:after="r[@uid='{3F68C696-7E3E-54D0-831B-9AB97806B471}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0" />
+              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{541311F6-470C-5230-8425-3252C09B07BC}"
               p:after="*[1=2]"
