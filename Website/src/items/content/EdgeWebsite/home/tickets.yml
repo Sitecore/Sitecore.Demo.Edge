@@ -101,9 +101,11 @@ Languages:
               uid="{D8261F40-D92C-58BB-AC19-F819CC4E4E7F}"
               p:after="r[@uid='{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}-0" />
+              s:ph="/jss-main/jss-section-content-{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{D93E4738-4E44-593B-A2EF-7CD131ED6072}"
               p:after="*[1=2]"

@@ -122,9 +122,11 @@ Languages:
               uid="{EA09244A-29DB-5899-99C7-82FF0757BCFC}"
               p:after="r[@uid='{3F68C696-7E3E-54D0-831B-9AB97806B471}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0" />
+              s:ph="/jss-main/jss-section-content-{3F68C696-7E3E-54D0-831B-9AB97806B471}-0"
+              s:ccb="Clear on publish" />
             <r
               uid="{541311F6-470C-5230-8425-3252C09B07BC}"
               p:after="*[1=2]"
