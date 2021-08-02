@@ -17,6 +17,12 @@
     },
     {
       "url": "/sitecore/shell/Applications/Workbox.aspx?sc_bw=1"
+    },
+    {
+      "url": "/sitecore/api/graph/edge/ui"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}"
     }
   ],
   "xp": [
