@@ -40,7 +40,6 @@ namespace Sitecore.Demo.Init.Services
                 await stateService.SetState(InstanceState.WarmingUp);
                 await new PushSerialized(initContext).Run();
                 await new WarmupCM(initContext).Run();
-                await new DeployToVercel(initContext).Run();
                 await stateService.SetState(InstanceState.Preparing);
 
                 var indexRebuildAsyncJob = new IndexRebuild(initContext);
@@ -79,6 +78,8 @@ namespace Sitecore.Demo.Init.Services
                         await job.Complete();
                     }
                 }
+
+                await new DeployToVercel(initContext).Run();
 
                 logger.LogInformation($"{DateTime.UtcNow} No jobs are running. Monitoring stopped.");
                 await stateService.SetState(InstanceState.Ready);
