@@ -70,4 +70,5 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => {
   );
 };
 
+export type { Testimony };
 export default TestimonyList;

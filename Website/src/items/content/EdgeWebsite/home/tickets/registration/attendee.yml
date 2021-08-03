@@ -85,7 +85,7 @@ Languages:
               uid="{539A33B7-FA3F-5E86-90CA-EF4EDEB4468C}"
               p:after="r[@uid='{F503ED27-48D6-5198-9B04-64136F91868B}']"
               s:rname="Section"
-              s:ds="{53317CF8-1B65-5687-BA54-E8969203EEFD}"
+              s:ds=""
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -93,9 +93,11 @@ Languages:
               uid="{A244C1C4-34A1-5196-A27B-6B787A759794}"
               p:after="r[@uid='{539A33B7-FA3F-5E86-90CA-EF4EDEB4468C}']"
               s:rname="TestimonyList"
+              s:ds="{B103F115-DB4E-4D12-A6F1-0D058B98CFC4}"
               s:id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{539A33B7-FA3F-5E86-90CA-EF4EDEB4468C}-0" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}"
               p:after="r[@uid='{A244C1C4-34A1-5196-A27B-6B787A759794}']"
