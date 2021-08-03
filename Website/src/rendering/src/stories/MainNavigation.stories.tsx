@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import MainNavigation from '../components/MainNavigation';
 
 export default {
-  title: 'Example/MainNavigation',
+  title: 'Components/MainNavigation',
   component: MainNavigation,
 } as ComponentMeta<typeof MainNavigation>;
 

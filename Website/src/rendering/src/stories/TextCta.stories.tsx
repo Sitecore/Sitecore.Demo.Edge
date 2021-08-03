@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TextCta from '../components/TextCta';
 
 export default {
-  title: 'Example/TextCta',
+  title: 'Components/TextCta',
   component: TextCta,
 } as ComponentMeta<typeof TextCta>;
 

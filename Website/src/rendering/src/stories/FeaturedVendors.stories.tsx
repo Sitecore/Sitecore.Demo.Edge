@@ -5,7 +5,7 @@ import FeaturedVendors from '../components/FeaturedVendors';
 import { Vendor } from '../components/FeaturedVendors';
 
 export default {
-  title: 'Example/FeaturedVendors',
+  title: 'Components/FeaturedVendors',
   component: FeaturedVendors,
 } as ComponentMeta<typeof FeaturedVendors>;
 

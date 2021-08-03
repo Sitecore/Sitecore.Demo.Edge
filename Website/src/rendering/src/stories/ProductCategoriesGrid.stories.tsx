@@ -5,7 +5,7 @@ import ProductCategoriesGrid from '../components/ProductCategoriesGrid';
 import { Category } from '../components/ProductCategoriesGrid';
 
 export default {
-  title: 'Example/ProductCategoriesGrid',
+  title: 'Components/ProductCategoriesGrid',
   component: ProductCategoriesGrid,
 } as ComponentMeta<typeof ProductCategoriesGrid>;
 

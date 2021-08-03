@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TicketGrid from '../components/TicketGrid';
 
 export default {
-  title: 'Example/TicketGrid',
+  title: 'Components/TicketGrid',
   component: TicketGrid,
 } as ComponentMeta<typeof TicketGrid>;
 

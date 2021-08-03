@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CountdownSection from '../components/CountdownSection';
 
 export default {
-  title: 'Example/CountdownSection',
+  title: 'Components/CountdownSection',
   component: CountdownSection,
 } as ComponentMeta<typeof CountdownSection>;
 
