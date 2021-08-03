@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
       Hint: Duration
-      Value: 0.5
+      Value: 30 min
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
