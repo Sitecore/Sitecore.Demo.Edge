@@ -58,4 +58,5 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
 );
 
 export type { Speaker };
+export type { FeaturedSpeakersProps };
 export default FeaturedSpeakers;

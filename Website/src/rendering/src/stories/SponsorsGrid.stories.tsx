@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SponsorsGrid, { Sponsor } from '../components/SponsorsGrid';
 
 export default {
-  title: 'Example/SponsorsGrid',
+  title: 'Components/SponsorsGrid',
   component: SponsorsGrid,
 } as ComponentMeta<typeof SponsorsGrid>;
 

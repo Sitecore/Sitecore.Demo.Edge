@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import HeroSection, { HeroProps } from '../components/HeroSection';
 
 export default {
-  title: 'Example/HeroSection',
+  title: 'Components/HeroSection',
   component: HeroSection,
 } as ComponentMeta<typeof HeroSection>;
 
