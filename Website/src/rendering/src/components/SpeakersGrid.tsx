@@ -35,6 +35,6 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
   </div>
 );
 
-export type {Speaker}
-export type {SpeakersGridProps}
+export type { Speaker };
+export type { SpeakersGridProps };
 export default SpeakersGrid;
