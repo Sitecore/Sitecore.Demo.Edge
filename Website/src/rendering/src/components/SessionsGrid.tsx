@@ -105,4 +105,6 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
     </section>
   );
 };
+
+export type { Session, Speaker };
 export default SessionsGrid;
