@@ -23,6 +23,12 @@
     },
     {
       "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:\"edgewebsite\",%20routePath:\"/vendors\",%20language:\"en\")%20{%20item%20{%20rendered%20}%20}%20}\""
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:\"edgewebsite\",%20routePath:\"/speakers\",%20language:\"en\")%20{%20item%20{%20rendered%20}%20}%20}\""
     }
   ],
   "xp": [
