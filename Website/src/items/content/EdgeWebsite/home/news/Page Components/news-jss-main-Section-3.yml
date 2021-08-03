@@ -3,6 +3,10 @@ ID: "508f38a0-014e-5411-8e60-dd84281e2412"
 Parent: "fcb74096-ea4b-528d-8058-9b0ba9a57066"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
 Path: "/sitecore/content/EdgeWebsite/home/news/Page Components/news-jss-main-Section-3"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 Languages:
 - Language: en
   Fields:
@@ -27,11 +31,11 @@ Languages:
         <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c9bf34db-6106-4124-be79-38f5fc6d0144"
+      Value: "0f28f6ed-4d4d-4c8a-b8a0-23ebb0ce2f12"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: section__news
@@ -40,4 +44,4 @@ Languages:
       Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191714Z
+      Value: 20210803T215415Z

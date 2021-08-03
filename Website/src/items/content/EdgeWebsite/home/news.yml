@@ -45,23 +45,8 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{DFD3C0F5-4B22-54AC-99ED-94066770AF23}"
-              p:after="r[@uid='{89F6C49E-DA31-5ED9-9735-896C2D2DDE36}']"
-              s:rname="Section"
-              s:ds="{508F38A0-014E-5411-8E60-DD84281E2412}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{5A28E8EA-2F47-5568-BE6E-B97C109AAB8B}"
-              p:after="r[@uid='{DFD3C0F5-4B22-54AC-99ED-94066770AF23}']"
-              s:rname="NewsGrid"
-              s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-              s:par=""
-              s:ph="/jss-main/jss-section-content-{DFD3C0F5-4B22-54AC-99ED-94066770AF23}-0" />
-            <r
               uid="{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}"
-              p:after="r[@uid='{5A28E8EA-2F47-5568-BE6E-B97C109AAB8B}']"
+              p:after="r[@uid='{89F6C49E-DA31-5ED9-9735-896C2D2DDE36}']"
               s:rname="Section"
               s:ds="{B2391618-19BC-5BCD-8516-E9B7A49BCD6B}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -88,14 +73,14 @@ Languages:
       Value: 20210625T201835Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5e26f871-1f9a-4795-82cf-992813eeb520"
+      Value: "23d5c453-cc48-47b4-a8cc-cb1cbfe86968"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191714Z
+      Value: 20210803T202130Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - News"
