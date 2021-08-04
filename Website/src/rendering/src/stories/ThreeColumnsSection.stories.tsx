@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ThreeColumnsSection, {ThreeColumnsSectionProps} from '../components/ThreeColumnsSection';
 
 export default {
-  title: 'Example/ThreeColumnsSection',
+  title: 'Components/ThreeColumnsSection',
   component: ThreeColumnsSection,
 } as ComponentMeta<typeof ThreeColumnsSection>;
 
@@ -44,7 +44,7 @@ Default.args = {
     MiddleLink: {
       value: {
         href: '/speakers',
-        text: 'View Speackers',
+        text: 'View Speakers',
       },
     },
     RightLogo: {

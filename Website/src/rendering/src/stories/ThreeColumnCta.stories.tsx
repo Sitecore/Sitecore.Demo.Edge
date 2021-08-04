@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ThreeColumnCta from '../components/ThreeColumnCta';
 
 export default {
-  title: 'Example/ThreeColumnCta',
+  title: 'Components/ThreeColumnCta',
   component: ThreeColumnCta,
 } as ComponentMeta<typeof ThreeColumnCta>;
 

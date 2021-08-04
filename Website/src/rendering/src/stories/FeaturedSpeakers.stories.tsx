@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedSpeakers from '../../components/FeaturedSpeakers';
-import { Speaker } from '../../components/FeaturedSpeakers';
+import FeaturedSpeakers from '../components/FeaturedSpeakers';
+import { Speaker } from '../components/FeaturedSpeakers';
 
 export default {
-  title: 'Example/FeaturedSpeakers',
+  title: 'Components/FeaturedSpeakers',
   component: FeaturedSpeakers,
 } as ComponentMeta<typeof FeaturedSpeakers>;
 

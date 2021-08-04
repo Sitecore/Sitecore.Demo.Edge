@@ -9,6 +9,8 @@ type SectionProps = ComponentProps & {
     content: Field<string>;
     callToActionLink: LinkField;
   };
+
+  children: React.ReactNode;
 };
 
 const Section = (props: SectionProps): JSX.Element => {
@@ -32,6 +34,9 @@ const Section = (props: SectionProps): JSX.Element => {
         {!!props.rendering && (
           <Placeholder name="jss-section-content" rendering={props.rendering} />
         )}
+
+        {props.children}
+
         {!!props.fields?.callToActionLink?.value.href && (
           <Link
             field={props.fields.callToActionLink}
