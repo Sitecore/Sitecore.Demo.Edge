@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import profile from '../../data/media/img/news/profile-pic.jpg';
+import profile from '../../public/assets/img/news/profile-pic.jpg';
 
 const NewsGrid = (): JSX.Element => (
   <div className="section__news__grid">
