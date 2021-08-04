@@ -11,6 +11,9 @@ export default {
 const Template: ComponentStory<typeof NewsList> = (args) => <NewsList {...args} />;
 
 const news1 = {
+  name: {
+    value: 'PLAY Summit Goes Live',
+  },
   fields: {
     Title: {
       value: 'PLAY! Summit Goes Live',
@@ -31,7 +34,9 @@ const news1 = {
 } as News;
 
 const news2 = {
-  Name: 'Item Name',
+  name: {
+    value: 'Sample News',
+  },
   fields: {
     Title: {
       value: 'Sample News',
@@ -52,7 +57,9 @@ const news2 = {
 } as News;
 
 const news3 = {
-  Name: 'Item Name',
+  name: {
+    value: 'Tomorrow News',
+  },
   fields: {
     Title: {
       value: 'Tomorrow News',

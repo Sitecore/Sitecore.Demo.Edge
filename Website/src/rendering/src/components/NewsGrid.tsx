@@ -1,7 +1,22 @@
-import Image from 'next/image';
 import profile from '../../data/media/img/news/profile-pic.jpg';
+import Link from 'next/link';
+import { Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
 
-const NewsGrid = (): JSX.Element => (
+type News = {
+  name: Field<string>;
+  fields: {
+    Title: Field<string>;
+  };
+};
+
+type NewsGridProps = ComponentProps & {
+  fields: {
+    items: News[];
+  };
+};
+
+const NewsGrid = (props: NewsGridProps): JSX.Element => (
   <div className="section__news__grid">
     <div className="section__news__grid__tweet">
       <img
@@ -32,21 +47,16 @@ const NewsGrid = (): JSX.Element => (
     </div>
     <div className="section__news__grid__news">
       <div className="grid grid-cols-2 gap-2.5 h-full">
-        <a className="section__news__grid__news__item" href="#">
-          PLAY! Summit Goes Live
-        </a>
-        <a className="section__news__grid__news__item" href="#">
-          Momentum to premiere new fitness app at PLAY! Summit
-        </a>
-        <a className="section__news__grid__news__item" href="#">
-          Jacob Gonzalez announced as latest speaker at PLAY! Summit
-        </a>
-        <a className="section__news__grid__news__item" href="#">
-          Organizers expect record attendance at PLAY! Summit
-        </a>
+        {props.fields.items &&
+          props.fields.items.map((news, index) => (
+            <Link key={index} href={'/news/' + news.name} passHref>
+              <a className="section__news__grid__news__item">{news.fields.Title.value}</a>
+            </Link>
+          ))}
       </div>
     </div>
   </div>
 );
 
+export type { News };
 export default NewsGrid;
