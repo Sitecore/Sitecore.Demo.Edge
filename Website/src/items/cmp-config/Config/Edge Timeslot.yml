@@ -1,0 +1,39 @@
+﻿---
+ID: "4e9b9f13-7613-44c9-8402-2943fec94906"
+Parent: "f8843bf7-a31a-4f71-8900-abd56b8fe34c"
+Template: "e022206a-3482-46c2-8ddf-2f1c2c6c7b69"
+Path: /sitecore/system/Modules/CMP/Config/Edge Timeslot
+SharedFields:
+- ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
+  Hint: Bucket
+  Value: "{B541C1AE-68E3-484B-BC05-73B574497189}"
+- ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
+  Hint: EntityTypeSchema
+  Value: Edge.TimeSlot
+- ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
+  Hint: ItemNameProperty
+  Value: Title
+- ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
+  Hint: Template
+  Value: "{0BC9237D-12EB-47A5-AFED-A65188324358}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{74999BBB-92D6-4485-8168-3B32790768FC}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190614T173120Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "98e1c062-31d8-42b3-ae60-7455548cff3d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210730T155750Z
