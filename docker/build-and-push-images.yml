@@ -39,11 +39,6 @@ stages:
           displayName: 'npm run build'
           workingDirectory: Website/src/rendering
 
-        - script: |
-            npx chromatic --project-token $(chromatic.project.token)
-          displayName: 'Push to Chromatic'
-          workingDirectory: Website/src/rendering
-
 - stage: Build_Storybook
   displayName: "Run 'npm run build-storybook'"
   dependsOn: []
@@ -72,6 +67,11 @@ stages:
             targetPath: "Website/src/rendering/storybook-static"
             artifact: "Storybook"
             publishLocation: "pipeline"
+
+        - script: |
+            npx chromatic --project-token $(chromatic.project.token)
+          displayName: 'Push to Chromatic'
+          workingDirectory: Website/src/rendering
 
 - stage: Docker_Windows
   displayName: "Build Windows Images"
