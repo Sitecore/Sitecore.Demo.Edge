@@ -10,6 +10,7 @@ import {
 import { ComponentProps } from 'lib/component-props';
 
 type News = {
+  name: Field<string>;
   fields: {
     Title: Field<string>;
     Excerpt: Field<string>;
@@ -25,22 +26,18 @@ type NewsListProps = ComponentProps & {
 };
 
 const NewsList = (props: NewsListProps): JSX.Element => (
-  <section>
-    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+  <section className="section section__news--list">
+    <div className="container">
+      <div className="content">
         {props.fields.items &&
           props.fields.items.map((news, index) => (
-            <div key={index} className="rounded overflow-hidden bg-white">
+            <div key={index} className="news">
               <Image field={news.fields.Image} alt={news.fields.Title} width={340} height={227} />
-              <div className="px-6 py-4">
-                <Text
-                  tag="div"
-                  className="font-bold text-base mb-2 h-20 uppercase"
-                  field={news.fields.Title}
-                ></Text>
+              <div className="text-container">
+                <Text tag="div" className="news-title" field={news.fields.Title}></Text>
                 <DateField
                   tag="p"
-                  className="text-gray-700 text-xs pb-3"
+                  className="news-date"
                   field={news.fields.PublishDate}
                   render={(date) =>
                     date?.toLocaleDateString('en-US', {
@@ -51,14 +48,10 @@ const NewsList = (props: NewsListProps): JSX.Element => (
                     })
                   }
                 />
-                <RichText
-                  tag="p"
-                  className="h-36 overflow-hidden"
-                  field={news.fields.Excerpt}
-                ></RichText>
+                <RichText tag="p" className="news-excerpt" field={news.fields.Excerpt}></RichText>
               </div>
-              <div className="px-6 pt-4 pb-10">
-                <Link href={'/news/' + news.fields.Title}>
+              <div className="button-container">
+                <Link href={'/news/' + news.name}>
                   <a className="btn--main btn--main--round">Read&nbsp;More</a>
                 </Link>
               </div>
@@ -69,4 +62,5 @@ const NewsList = (props: NewsListProps): JSX.Element => (
   </section>
 );
 
+export type { News };
 export default NewsList;

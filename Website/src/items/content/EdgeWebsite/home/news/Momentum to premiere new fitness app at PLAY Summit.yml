@@ -28,17 +28,24 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8a45fa97-4a3b-4602-b84e-ff2b4d3d103f"
+      Value: "f0714712-b5fc-4b8d-b1b4-544d555fcc8b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: 20210803T060000Z
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210803T220403Z
+      Value: 20210803T223552Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: "Momentum to premiere new fitness app at PLAY! Summit"
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="35977" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35977/thumbnail" src="https://mint.stylelabs.io/api/public/content/c65200dcdd944b67b75797fa2b9b9953?v=a25a42c7" mediaid="" stylelabs-content-type="Image" alt="session-1.jpg" height="400" width="600" />
     - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
       Hint: Content
       Value: "Momentum to premiere new fitness app at PLAY! Summit"
