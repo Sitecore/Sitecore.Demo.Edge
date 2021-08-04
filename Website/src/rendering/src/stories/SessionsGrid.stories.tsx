@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SessionsGrid, { Session, Speaker } from '../components/SessionsGrid';
 
 export default {
-  title: 'Example/SessionsGrid',
+  title: 'Components/SessionsGrid',
   component: SessionsGrid,
 } as ComponentMeta<typeof SessionsGrid>;
 
