@@ -9,7 +9,7 @@ import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/Thr
 import SponsorsGrid, { Sponsor, SponsorsProps } from '../components/SponsorsGrid';
 
 export default {
-  title: 'Example/SamplePage',
+  title: 'Pages/Home',
 } as ComponentMeta<typeof HeroSection>;
 
 let headerProps = {} as HeaderProps;
@@ -132,7 +132,7 @@ let threeColProps = {
     MiddleLink: {
       value: {
         href: '/speakers',
-        text: 'View Speackers',
+        text: 'View Speakers',
       },
     },
     RightLogo: {

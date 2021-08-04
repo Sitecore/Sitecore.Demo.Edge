@@ -5,7 +5,7 @@ import VendorsGrid from '../components/VendorsGrid';
 import { Vendor } from '../components/FeaturedVendors';
 
 export default {
-  title: 'Example/VendorsGrid',
+  title: 'Components/VendorsGrid',
   component: VendorsGrid,
 } as ComponentMeta<typeof VendorsGrid>;
 

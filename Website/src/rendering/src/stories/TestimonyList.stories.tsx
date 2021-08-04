@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TestimonyList from '../components/TestimonyList';
 
 export default {
-  title: 'Example/TestimonyList',
+  title: 'Components/TestimonyList',
   component: TestimonyList,
 } as ComponentMeta<typeof TestimonyList>;
 
