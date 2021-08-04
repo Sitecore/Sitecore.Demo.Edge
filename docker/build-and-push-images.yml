@@ -69,7 +69,7 @@ stages:
             publishLocation: "pipeline"
 
         - script: |
-            npx chromatic --project-token $(chromatic.project.token)
+            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
           displayName: 'Push to Chromatic'
           workingDirectory: Website/src/rendering
 
