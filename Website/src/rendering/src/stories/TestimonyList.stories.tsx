@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TestimonyList, { Testimony } from '../components/TestimonyList';
 
 export default {
-  title: 'Example/TestimonyList',
+  title: 'Components/TestimonyList',
   component: TestimonyList,
 } as ComponentMeta<typeof TestimonyList>;
 
@@ -68,7 +68,8 @@ Default.args = {
       value: 'TESTIMONIES',
     },
     Subtitle: {
-      value: 'saldfalkjsdhfla ejwh lkajwehl fakjweh lakjew lakjew lawjel awe fawe',
+      value:
+        'Curabitur sodales mi in magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium.',
     },
     Companies: [testimony1, testimony2, testimony3],
   },
