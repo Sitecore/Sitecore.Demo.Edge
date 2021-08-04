@@ -75,20 +75,14 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}"
-              p:after="r[@uid='{34CDA3FD-BFC5-583D-8720-100D5EE194D7}']"
-              s:rname="Section"
-              s:ds="{1914388D-42EE-5156-AD57-E60D5E8846E4}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{7CE7FF1B-EE7C-5885-B4C6-9560F0828013}"
-              p:after="r[@uid='{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}']"
+              p:after="r[@uid='{34CDA3FD-BFC5-583D-8720-100D5EE194D7}']"
               s:rname="TestimonyList"
+              s:ds="{B103F115-DB4E-4D12-A6F1-0D058B98CFC4}"
               s:id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
               s:par=""
-              s:ph="/jss-main/jss-section-content-{0ADA69E2-34CD-5FF0-8699-9C4F6CF61008}-0" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}"
               p:after="r[@uid='{7CE7FF1B-EE7C-5885-B4C6-9560F0828013}']"

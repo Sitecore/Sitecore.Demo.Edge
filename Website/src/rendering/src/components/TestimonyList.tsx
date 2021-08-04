@@ -1,44 +1,74 @@
-const TestimonyList = (): JSX.Element => (
-  <div className="content-list w-full p-10">
-    <div className="Content-block h-40 w-full text-left flex flex-row gap-10">
-      <div className="hidden md:block">
-        <img className="image h-30 w-40 mr-10" src="/assets/img/logo/alba.svg" alt=""></img>
-      </div>
-      <div>
-        <p>
-          &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in
-          magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed
-          varius dolor non mi ornare pulvinar.&quot;
-          <br />
-          <strong>Alba</strong>
-        </p>
-      </div>
-    </div>
-    <div className="Content-block h-40 w-full text-right flex flex-row-reverse gap-10">
-      <div className="hidden md:block">
-        <img className="image h-20 w-30 ml-10" src="/assets/img/logo/striva.svg" alt=""></img>
-      </div>
-      <p>
-        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
-        accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius
-        dolor non mi ornare pulvinar.&quot;
-        <br />
-        <strong>Striva</strong>
-      </p>
-    </div>
-    <div className="Content-block h-40 w-full text-left flex flex-row gap-10">
-      <div className="hidden md:block">
-        <img className="image h-20 w-30 mr-10" src="/assets/img/logo/onthegreen.svg" alt=""></img>
-      </div>
-      <p>
-        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
-        accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium. Sed varius
-        dolor non mi ornare pulvinar. &quot;
-        <br />
-        <strong>On The Green</strong>
-      </p>
-    </div>
-  </div>
-);
+import { Text, RichText, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
 
+type Testimony = {
+  fields: {
+    Provider: Field<string>;
+    Testimony: Field<string>;
+    Logo: ImageField;
+  };
+};
+
+type TestimonyListProps = ComponentProps & {
+  fields: {
+    Title: Field<string>;
+    Subtitle: Field<string>;
+    Companies: Testimony[];
+  };
+};
+
+const TestimonyList = (props: TestimonyListProps): JSX.Element => {
+  console.log(props);
+  return (
+    <section className="section section__testimonies testimonies-section">
+      <div className="section__content section__testimonies__content">
+        <Text
+          tag="h2"
+          className="section__content__title section__content__title--light"
+          field={props.fields.Title}
+        ></Text>
+        <Text
+          tag="div"
+          className="section__content__p section__content__p--light text-sm"
+          field={props.fields.Subtitle}
+        ></Text>
+        <div className="content-list w-full p-10">
+          {props.fields.Companies &&
+            props.fields.Companies.map((testimony, index) => {
+              const rowClass =
+                index % 2
+                  ? 'Content-block h-40 w-full text-left flex flex-row gap-10'
+                  : 'Content-block h-40 w-full text-left flex flex-row-reverse gap-10';
+              return (
+                <div key={index} className={rowClass}>
+                  <div className="hidden md:block">
+                    <Image
+                      field={testimony.fields.Logo}
+                      alt={testimony.fields.Provider}
+                      width={180}
+                      height={180}
+                    />
+                  </div>
+                  <div>
+                    <RichText
+                      tag="span"
+                      className="inline-block"
+                      field={testimony.fields.Testimony}
+                    ></RichText>
+                    <Text
+                      tag="span"
+                      className="font-bold inline-block pt-3"
+                      field={testimony.fields.Provider}
+                    ></Text>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export type { Testimony };
 export default TestimonyList;
