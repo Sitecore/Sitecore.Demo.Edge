@@ -74,7 +74,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
                   </p>
                   <p className="text-gray-700 text-xs pb-3">
                     {/* TODO: change to field */}
-                    <span>Duration: {session.fields.Duration.value.replace('_', '.')}</span>
+                    <span>Duration: {session.fields.Duration?.value?.replace('_', '.')}</span>
                   </p>
                   {session.fields.Speakers &&
                     session.fields.Speakers.map((speaker, index) => (
