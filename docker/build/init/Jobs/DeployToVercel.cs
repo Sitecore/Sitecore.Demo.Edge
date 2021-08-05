@@ -45,6 +45,37 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
+            DeployTv(ns, token, scope);
+            DeployWebsite(ns, token, scope);
+
+            await Complete();
+        }
+
+        private static void DeployTv(string ns, string token, string scope)
+        {
+            var sourceDirectory = "C:\\app\\tv";
+            var targetDirectory = $"C:\\app\\{ns}-tv";
+
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
+
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            // Remove project if already exists
+            cmd.Run($"vercel remove {ns}-tv --token {token} --scope {scope} --yes");
+
+            // Create new project
+            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
+
+            // Deploy project files
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+
+            // Assign custom domain name
+            cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
+        }
+
+        private static void DeployWebsite(string ns, string token, string scope)
+        {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
             var sourceDirectory = "C:\\app\\rendering";
@@ -63,9 +94,11 @@ namespace Sitecore.Demo.Init.Jobs
             var productionUrl = $"https://{ns}-website-{scope}.vercel.app";
 
             // Configure env. variables
-            cmd.Run($"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"{cm}\" | vercel env add SITECORE_API_HOST production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
 
             // Deploy project files
@@ -73,8 +106,6 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
-
-            await Complete();
         }
     }
 }
