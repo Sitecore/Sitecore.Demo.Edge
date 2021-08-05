@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import tv from "../public/tv.webp"
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <div id="container">
           <div id="monitor">
             <div id="monitorscreen">
-              <img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_359,w_640,x_0,y_13/f_auto,q_auto,w_1100/v1554997439/shape/mentalfloss/ring_primary.png" alt="DreamWorks"/>
+              <Image src={tv} alt="Sample"/>
             </div>
           </div>
         </div>

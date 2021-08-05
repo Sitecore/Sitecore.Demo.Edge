@@ -50,7 +50,7 @@
 
   @-webkit-keyframes tvflicker {
     0% {
-      box-shadow: 0 0 100px 0 rgba(200, 235, 255, 0.4);
+      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
     }
     100% {
       box-shadow: 0 0 95px 0 rgba(250, 7, 7, 0.644);
@@ -58,7 +58,7 @@
   }
   @-moz-keyframes tvflicker {
     0% {
-      box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
     }
     100% {
       box-shadow: 0 0 60px 0 rgba(250, 7, 7, 0.644);
@@ -66,7 +66,7 @@
   }
   @-o-keyframes tvflicker {
     0% {
-      box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
     }
     100% {
       box-shadow: 0 0 60px 0 rgba(250, 7, 7, 0.644);
@@ -74,7 +74,7 @@
   }
   @keyframes tvflicker {
     0% {
-      box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
     }
     100% {
       box-shadow: 0 0 60px 0 rgba(250, 7, 7, 0.644);
