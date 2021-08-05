@@ -79,6 +79,7 @@
     "babel-loader": "^8.2.2",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
+    "chromatic": "^5.10.0-canary.0",
     "constant-case": "^3.0.4",
     "cross-env": "~6.0.3",
     "eslint": "^7.23.0",
