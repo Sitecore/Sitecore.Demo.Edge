@@ -1,0 +1,110 @@
+﻿---
+ID: "b5eb5a74-da3a-4b26-8ee9-5b2c8db65d34"
+Parent: "6053403f-2ebd-4546-bc1c-869bbb66c320"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SPE/Reporting/Content Reports/Reports/EdgeWebsite/DAM Image Inventory
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/revert_database.png
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    $ContentHubHostname = 'mint.stylelabs.io'
+    $customList = New-Object System.Collections.Generic.List[PSObject]
+    $allItems = Get-ChildItem -Path 'master://sitecore/content/' -Recurse
+    $allItems | ForEach-Object {
+        foreach ($field in $_.Fields) {
+            if ($field.Type -eq "Image" ) {
+                $fieldValue = $_.Fields[$field.Name].Value
+                $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
+                $htmlDocument.LoadHtml($fieldValue)
+                foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//image")) { 
+                    $src = $x.Attributes["src"].Value
+                    if ( [string]::IsNullOrEmpty($src) ) {
+                        $src = $x.Attributes["mediaid"].Value
+                    }
+                    $formatted = '<p style="background-color:Salmon; padding:5px;">' + $src + '</p>'
+                    if($src -like "*$ContentHubHostname*"){
+                        $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
+                    }
+                    $newObject = New-Object PSObject @{ ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = 'Image'; Value = $formatted; }
+                    $customList.Add($newObject)
+                }
+            }
+            if ($field.Type -eq "Rich Text" ) {
+                $fieldValue = $_.Fields[$field.Name].Value
+                $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
+                $htmlDocument.LoadHtml($fieldValue)
+                foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//img")) { 
+                    $src = $x.Attributes["src"].Value
+                    $formatted = '<p style="background-color:Salmon; padding:5px;">' + $src + '</p>'
+                    if($src -like "*$ContentHubHostname*"){
+                        $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
+                    }
+                    $newObject = New-Object PSObject @{ ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = 'Rich Text'; Value = $formatted; }
+                    $customList.Add($newObject)
+                }
+            }
+        }
+    }
+    $reportProps = @{
+        Title           = "Media Item Inventory"
+        InfoTitle       = "All the Media Items..."
+        InfoDescription = "Total entries found: $($customList.length)"
+        PageSize        = 25
+    }
+    $customList | Show-ListView @reportProps -Property `
+    @{ Label = "Item Name"; Expression = { $_.ItemName } },
+    @{ Label = "Item Path"; Expression = { $_.ItemPath } },
+    @{ Label = "Field Name"; Expression = { $_.FieldName } },
+    @{ Label = "Field Type"; Expression = { $_.FieldType } },
+    @{ Label = "Field Value"; Expression = { $_.Value } }
+    #Close-Window
+Languages:
+- Language: da
+  Fields:
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: DAM Image Inventory
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: DAM Image Inventory
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190718T152028Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "985da623-189a-446f-92f9-63b40d941ebb"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        serialization\UnicornDataProvider
+- Language: en
+  Fields:
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: DAM Image Inventory
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: DAM Image Inventory
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20140408T002245Z
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9bac0ce9-9798-4302-9fe5-27855be59402"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        serialization\UnicornDataProvider
