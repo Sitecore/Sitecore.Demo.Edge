@@ -71,6 +71,7 @@ Languages:
               uid="{DDD7FDB5-2368-5ADB-B7BB-FA31AED1EA17}"
               p:after="r[@uid='{262EED4A-2C61-556C-8A20-0586DE1ED56B}']"
               s:rname="NewsGrid"
+              s:ds="{0E4A63DA-7496-557E-BF80-5BD52255E431}"
               s:id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{262EED4A-2C61-556C-8A20-0586DE1ED56B}-0" />
