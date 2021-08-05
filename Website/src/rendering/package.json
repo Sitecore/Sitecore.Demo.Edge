@@ -113,7 +113,6 @@
     "next:dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "next:start": "next start",
     "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts",
-    "newpage": "ts-node --project tsconfig.scripts.json scripts/scaffold-page.ts",
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start": "npm run start:connected",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
