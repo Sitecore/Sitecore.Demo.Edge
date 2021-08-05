@@ -68,48 +68,12 @@ try {
     $token = (Get-Content .\.sitecore\user.json | ConvertFrom-Json).endpoints.default.accessToken
     Invoke-RestMethod "https://cm.edge.localhost/sitecore/admin/PopulateManagedSchema.aspx?indexes=all" -Headers @{Authorization = "Bearer $token"} -UseBasicParsing | Out-Null
 
-    ##
-    ## This script will sync the JSS sample site on first run, and then serialize it.
-    ## Subsequent executions will only push the serialized site. You may wish to remove /
-    ## simplify this logic if using this starter for your own development.
-    ##
-
-    # JSS sample has already been deployed and serialized, push the serialized items
-    if (Test-Path .\src\items\content) {
-
-        Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
-        dotnet sitecore ser push --publish
-        if ($LASTEXITCODE -ne 0) {
-            Write-Error "Serialization push failed, see errors above."
-        }
-
-    # JSS sample has not been deployed yet. Use its deployment process to initialize.
-    } else {
-
-        # Some items are needed for JSS to be able to deploy.
-        Write-Host "Pushing init items to Sitecore..." -ForegroundColor Green
-        dotnet sitecore ser push --include InitItems
-        if ($LASTEXITCODE -ne 0) {
-            Write-Error "Serialization push failed, see errors above."
-        }
-
-        Write-Host "Deploying JSS application..." -ForegroundColor Green
-        Push-Location src\rendering
-        try {
-            jss deploy items -c -d
-        } finally {
-            Pop-Location
-        }
-        if ($LASTEXITCODE -ne 0) {
-            Write-Error "JSS deploy failed, see errors above."
-        }
-        dotnet sitecore publish
-        if ($LASTEXITCODE -ne 0) {
-            Write-Error "Item publish failed, see errors above."
-        }
-
-        Write-Host "Pulling JSS deployed items..." -ForegroundColor Green
-        dotnet sitecore ser pull
+    # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
+    # Push the serialized items
+    Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
+    dotnet sitecore ser push --publish
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Serialization push failed, see errors above."
     }
 } catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
