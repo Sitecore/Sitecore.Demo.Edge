@@ -4,7 +4,13 @@ This repository is used for the primary Sitecore Edge for Content Hub and Experi
 
 ## Prerequisites
 
-* Nodejs version 14.17.0.
+* Nodejs 14.17.0
+* .NET Core 3.1 SDK
+* .NET Framework 4.8 SDK
+* Visual Studio 2019
+* Docker for Windows, with Windows Containers enabled
+
+See Sitecore Containers documentation for more information on system requirements.
 
 ## Preparing Docker
 
@@ -25,6 +31,16 @@ This repository is used for the primary Sitecore Edge for Content Hub and Experi
       ```
 
    6. Click the "Apply & Restart" button to restart your Windows Docker engine.
+
+## What's Included
+
+* A `docker-compose` environment for a Sitecore XM1 topology with a Next.js rendering host.
+
+  > The included `docker-compose.yml` is a stock XM1 environment from the Sitecore Container Support Package. All changes/additions for this solution are included in the `docker-compose.override.yml`.
+
+* A `Website` project for the demo main website.
+
+* Review README's found in the projects and throughout the solution for additional information.
 
 ## Running this Solution
 
