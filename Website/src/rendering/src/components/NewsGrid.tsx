@@ -1,4 +1,3 @@
-<<<<<<< feature/6330-remove-disconnected
 import profile from '../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
 import { Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
