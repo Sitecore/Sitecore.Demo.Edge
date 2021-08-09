@@ -1,5 +1,5 @@
 #container {
-  max-width: 1024px;
+  max-width: 1280px;
   width: 100%;
   margin: auto;
 }
@@ -38,46 +38,4 @@
   padding-bottom: 52.25%;
   position: relative;
   overflow: hidden;
-}
-
-@media all and (min-width: 960px) {
-  #monitor {
-    -webkit-animation: tvflicker 0.2s infinite alternate;
-    -moz-animation: tvflicker 0.5s infinite alternate;
-    -o-animation: tvflicker 0.5s infinite alternate;
-    animation: tvflicker 0.5s infinite alternate;
-  }
-
-  @-webkit-keyframes tvflicker {
-    0% {
-      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
-    }
-    100% {
-      box-shadow: 0 0 95px 0 rgba(250, 7, 7, 0.644);
-    }
-  }
-  @-moz-keyframes tvflicker {
-    0% {
-      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
-    }
-    100% {
-      box-shadow: 0 0 60px 0 rgba(250, 7, 7, 0.644);
-    }
-  }
-  @-o-keyframes tvflicker {
-    0% {
-      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
-    }
-    100% {
-      box-shadow: 0 0 60px 0 rgba(250, 7, 7, 0.644);
-    }
-  }
-  @keyframes tvflicker {
-    0% {
-      box-shadow: 0 0 100px 0 rgba(250, 7, 7, 0.233);
-    }
-    100% {
-      box-shadow: 0 0 60px 0 rgba(250, 7, 7, 0.644);
-    }
-  }
 }
