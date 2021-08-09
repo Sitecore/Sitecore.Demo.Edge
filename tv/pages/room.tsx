@@ -1,8 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { getBlogs } from "../api/queries/getBlogs";
+import { GetStaticProps } from "next";
+import { Blog } from "../interfaces";
 
-export default function Home() {
+type RoomProps = {
+  blogs: Blog[];
+  preview: boolean;
+};
+
+export default function Home(props: RoomProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -113,6 +121,27 @@ export default function Home() {
                             </span>
                           </div>
                         </div>
+
+                        {props.blogs.map((name, index) => (
+                          <div key={index} className="flex mb-4">
+                            <div className="w-2/12">
+                              <span className="text-sm text-gray-600 block">
+                                3:00p
+                              </span>
+                              <span className="text-sm text-gray-600 block">
+                                3:30p
+                              </span>
+                            </div>
+                            <div className="w-1/12">
+                              <span className="bg-indigo-600 h-2 w-2 rounded-full block mt-2"></span>
+                            </div>
+                            <div className="w-9/12">
+                              <span className="text-sm font-semibold block">
+                                {name.blog_Title}
+                              </span>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -138,3 +167,14 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+  const { blogs } = await getBlogs(preview);
+  console.log(blogs);
+
+  return {
+    props: {
+      blogs: blogs,
+    },
+  };
+};

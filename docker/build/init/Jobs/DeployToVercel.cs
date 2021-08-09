@@ -9,7 +9,9 @@ namespace Sitecore.Demo.Init.Jobs
 
     class DeployToVercel : TaskBase
     {
+        private string? contentHubApiKey;
         private const string SitecoreApiKey = "{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}";
+        private const string ContentHubEdgeEndpoint = "https://edge.sitecorecloud.io/api/graphql/v1";
 
         public DeployToVercel(InitContext initContext)
             : base(initContext)
@@ -45,13 +47,21 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            DeployTv(ns, token, scope);
+            contentHubApiKey = Environment.GetEnvironmentVariable("CONTENT_HUB_API_KEY");
+            if (string.IsNullOrEmpty(contentHubApiKey))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CONTENT_HUB_API_KEY is not configured");
+                return;
+            }
+
+
+            DeployTv(ns, contentHubApiKey, token, scope);
             DeployWebsite(ns, token, scope);
 
             await Complete();
         }
 
-        private static void DeployTv(string ns, string token, string scope)
+        private static void DeployTv(string ns, string contentHubApiKey, string token, string scope)
         {
             var sourceDirectory = "C:\\app\\tv";
             var targetDirectory = $"C:\\app\\{ns}-tv";
@@ -66,6 +76,12 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Create new project
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
+
+            // Configure env. variables
+            cmd.Run(
+                $"echo | set /p=\"{ContentHubEdgeEndpoint}\" | vercel env add DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{contentHubApiKey}\" | vercel env add DELIVERY_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
