@@ -1,3 +1,10 @@
+# DEMO TEAM CUSTOMIZATION - Add ability to skip building the containers.
+[CmdletBinding(DefaultParameterSetName = "no-arguments")]
+Param (
+    [Parameter(HelpMessage = "Whether to skip building the Docker images.")]
+    [switch]$SkipBuild
+)
+
 $ErrorActionPreference = "Stop";
 
 # Double check whether init has been run
@@ -14,11 +21,14 @@ if (-not $envCheck) {
     }
 }
 
-# Build all containers in the Sitecore instance, forcing a pull of latest base containers
-Write-Host "Building containers..." -ForegroundColor Green
-docker-compose build
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Container build failed, see errors above."
+# DEMO TEAM CUSTOMIZATION - Add ability to skip building the containers.
+if (-not $SkipBuild) {
+    # Build all containers in the Sitecore instance, forcing a pull of latest base containers
+    Write-Host "Building containers..." -ForegroundColor Green
+    docker-compose build
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Container build failed, see errors above."
+    }
 }
 
 # DEMO TEAM CUSTOMIZATION - Install npm modules before starting the development rendering container.
@@ -58,6 +68,9 @@ $clientSecret = $clientSecret.Split("=")[1]
 Push-Location .\Website
 
 try {
+    # DEMO TEAM CUSTOMIZATION - Added restore command for computers without the Sitecore CLI already installed.
+    dotnet tool restore
+
     dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
