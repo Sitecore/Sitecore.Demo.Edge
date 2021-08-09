@@ -9,7 +9,7 @@ SharedFields:
   Value: "{66C99E47-7BBF-52D1-B1D7-4662B850744A}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: Edge.Sponsor
+  Value: Demo.Sponsor
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: Name
