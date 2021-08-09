@@ -9,10 +9,10 @@ SharedFields:
   Value: "{B541C1AE-68E3-484B-BC05-73B574497189}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: Edge.TimeSlot
+  Value: Demo.Timeslot
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Title
+  Value: TaxonomyName
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{0BC9237D-12EB-47A5-AFED-A65188324358}"

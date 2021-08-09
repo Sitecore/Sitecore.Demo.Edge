@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Edge Timeslot/Name
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Name
+  Value: TaxonomyName
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{62545186-56CF-4614-BCDC-2ECB3947EA4C}"
