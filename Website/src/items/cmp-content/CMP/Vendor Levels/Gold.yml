@@ -1,12 +1,12 @@
 ﻿---
-ID: "31d37678-f7fc-4d02-9a98-043b9b0aeaa7"
+ID: "4a371490-7051-4db3-b106-d61ffe9f9199"
 Parent: "f9f57315-64f1-4a43-a34b-d75ccd0473e4"
 Template: "f4daca50-849d-463a-a3ab-7e384c028128"
 Path: /sitecore/content/CMP/Vendor Levels/Gold
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Edge.VendorLevel.Gold
+  Value: Demo.Level.Gold
 Languages:
 - Language: en
   Versions:
@@ -17,7 +17,7 @@ Languages:
       Value: Gold
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210722T184548Z
+      Value: 20210809T213824Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +28,11 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2cd266bc-8429-41d6-ad08-7364f2d286c8"
+      Value: "4e109340-e370-4813-bb34-f2cf31f0e863"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T184548Z
+      Value: 20210809T213825Z

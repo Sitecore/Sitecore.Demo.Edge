@@ -2,14 +2,14 @@
 ID: "de19c6ae-c26c-4a1e-9498-7e70f742ffd0"
 Parent: "f8843bf7-a31a-4f71-8900-abd56b8fe34c"
 Template: "e022206a-3482-46c2-8ddf-2f1c2c6c7b69"
-Path: /sitecore/system/Modules/CMP/Config/Edge Vendor Level
+Path: /sitecore/system/Modules/CMP/Config/Edge Level
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
   Value: "{F9F57315-64F1-4A43-A34B-D75CCD0473E4}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: Edge.VendorLevel
+  Value: Demo.Level
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: TaxonomyName

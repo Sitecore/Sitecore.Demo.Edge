@@ -2,7 +2,7 @@
 ID: "5d7eb488-bdb5-40ad-8cdc-31525fdef901"
 Parent: "de19c6ae-c26c-4a1e-9498-7e70f742ffd0"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Edge Vendor Level/Name
+Path: /sitecore/system/Modules/CMP/Config/Edge Level/Name
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
