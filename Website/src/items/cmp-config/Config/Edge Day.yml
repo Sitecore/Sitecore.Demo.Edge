@@ -9,10 +9,10 @@ SharedFields:
   Value: "{866E6AD1-34B6-479D-B75D-6EA1EEB01F98}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: Edge.Day
+  Value: Demo.Day
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Title
+  Value: TaxonomyName
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{32B4EE0D-7860-4ACE-BC20-E4B40D9491A7}"
