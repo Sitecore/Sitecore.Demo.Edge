@@ -9,10 +9,10 @@ SharedFields:
   Value: "{70756637-66A4-49BB-9E8B-99BB99662E69}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: Edge.Testimony
+  Value: Demo.Testimony
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Title
+  Value: Name
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{905B44F3-DB0D-4050-A738-1ECE2EBB8509}"

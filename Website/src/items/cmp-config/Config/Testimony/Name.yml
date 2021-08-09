@@ -3,11 +3,10 @@ ID: "013d4d9f-2cda-4976-919e-ddcd99e370a6"
 Parent: "6c1b5e29-4ace-483a-8a84-333ae995b126"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
 Path: /sitecore/system/Modules/CMP/Config/Testimony/Name
-BranchID: "70eb42ee-92b2-4246-bc65-aa920bb7f322"
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Provider
+  Value: Name
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{30DE01D7-233E-42AC-BB14-751E9D60B1CD}"
