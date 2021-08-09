@@ -9,7 +9,7 @@ SharedFields:
   Value: "{582F8E8F-453D-4FFC-ADBC-DE6ABC4FF3B1}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: Edge.SpeakerType
+  Value: Demo.SpeakerType
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: TaxonomyName
