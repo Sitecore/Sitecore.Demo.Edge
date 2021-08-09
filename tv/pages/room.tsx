@@ -66,18 +66,15 @@ export default function Home(props: RoomProps) {
                           Wednesday, Mar 8
                         </span>
                         <div className="flex mb-2">
-                          <div className="w-2/12">
-                            <span className="text-sm text-gray-600 block">
-                              8:00a
-                            </span>
-                            <span className="text-sm text-gray-600 block">
-                              8:15a
+                          <div className="w-3/12">
+                            <span className="text-sm text-gray-600">
+                              8:00a - 8:15a
                             </span>
                           </div>
                           <div className="w-1/12">
                             <span className="bg-blue-400 h-2 w-2 rounded-full block mt-2"></span>
                           </div>
-                          <div className="w-9/12">
+                          <div className="w-8/12">
                             <span className="text-sm font-semibold block">
                               Morning Standup
                             </span>
@@ -85,18 +82,15 @@ export default function Home(props: RoomProps) {
                           </div>
                         </div>
                         <div className="flex mb-4">
-                          <div className="w-2/12">
+                          <div className="w-3/12">
                             <span className="text-sm text-gray-600 block">
-                              10:00a
-                            </span>
-                            <span className="text-sm text-gray-600 block">
-                              2:00p
+                              10:00a - 2:00p
                             </span>
                           </div>
                           <div className="w-1/12">
                             <span className="bg-red-400 h-2 w-2 rounded-full block mt-2"></span>
                           </div>
-                          <div className="w-9/12">
+                          <div className="w-8/12">
                             <span className="text-sm font-semibold block">
                               Core Development
                             </span>
@@ -104,18 +98,15 @@ export default function Home(props: RoomProps) {
                           </div>
                         </div>
                         <div className="flex mb-4">
-                          <div className="w-2/12">
+                          <div className="w-3/12">
                             <span className="text-sm text-gray-600 block">
-                              3:00p
-                            </span>
-                            <span className="text-sm text-gray-600 block">
-                              3:30p
+                              3:00p - 3:30p
                             </span>
                           </div>
                           <div className="w-1/12">
                             <span className="bg-indigo-600 h-2 w-2 rounded-full block mt-2"></span>
                           </div>
-                          <div className="w-9/12">
+                          <div className="w-8/12">
                             <span className="text-sm font-semibold block">
                               Interview with Ed Harris
                             </span>
@@ -124,18 +115,15 @@ export default function Home(props: RoomProps) {
 
                         {props.blogs.map((name, index) => (
                           <div key={index} className="flex mb-4">
-                            <div className="w-2/12">
+                            <div className="w-3/12">
                               <span className="text-sm text-gray-600 block">
-                                3:00p
-                              </span>
-                              <span className="text-sm text-gray-600 block">
-                                3:30p
+                                3:00p - 3:30p
                               </span>
                             </div>
                             <div className="w-1/12">
                               <span className="bg-indigo-600 h-2 w-2 rounded-full block mt-2"></span>
                             </div>
-                            <div className="w-9/12">
+                            <div className="w-8/12">
                               <span className="text-sm font-semibold block">
                                 {name.blog_Title}
                               </span>
