@@ -17,7 +17,7 @@ variables:
 
 stages:
 - stage: Build
-  displayName: "Run 'Lint and Build Website'"
+  displayName: "Lint and Build Website"
   dependsOn: []
   jobs:
     - job: Build

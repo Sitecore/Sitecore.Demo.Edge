@@ -19,7 +19,8 @@ Default.args = {
       value: 'GO THE DISTANCE',
     },
     Subtitle: {
-      value: 'Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages.',
+      value:
+        'Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages.',
     },
     LeftLogo: {
       value: {
