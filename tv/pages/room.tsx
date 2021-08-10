@@ -28,7 +28,7 @@ export default function Home(props: RoomProps) {
               <div className="container mx-auto">
                 <div className="grid grid-cols-2 h-screen">
                   <div className="relative">
-                    <CurrentSession blog={props.blogs[0]}/>
+                    <CurrentSession blog={props.blogs[0]} />
                   </div>
                   <div className="bg-gray-100 p-10">
                     <div className="mb-auto mt-auto max-w-lg">
