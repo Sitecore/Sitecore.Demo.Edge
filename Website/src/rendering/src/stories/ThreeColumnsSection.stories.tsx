@@ -1,14 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ThreeColumnsSection, {ThreeColumnsSectionProps} from '../components/ThreeColumnsSection';
+import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 
 export default {
   title: 'Components/ThreeColumnsSection',
   component: ThreeColumnsSection,
 } as ComponentMeta<typeof ThreeColumnsSection>;
 
-const Template: ComponentStory<typeof ThreeColumnsSection> = (args: ThreeColumnsSectionProps) => <ThreeColumnsSection {...args} />;
+const Template: ComponentStory<typeof ThreeColumnsSection> = (args: ThreeColumnsSectionProps) => (
+  <ThreeColumnsSection {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -17,7 +19,8 @@ Default.args = {
       value: 'GO THE DISTANCE',
     },
     Subtitle: {
-      value: 'Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages.',
+      value:
+        'Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages.',
     },
     LeftLogo: {
       value: {

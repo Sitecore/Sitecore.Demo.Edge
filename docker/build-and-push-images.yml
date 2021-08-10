@@ -45,7 +45,7 @@ stages:
           workingDirectory: tv
 
 - stage: Build
-  displayName: "Run 'npm run build'"
+  displayName: "Lint and Build Website"
   dependsOn: []
   jobs:
     - job: Build
@@ -63,12 +63,17 @@ stages:
           workingDirectory: Website/src/rendering
 
         - script: |
+            npm run lint
+          displayName: 'npm run lint'
+          workingDirectory: Website/src/rendering
+
+        - script: |
             npm run build
           displayName: 'npm run build'
           workingDirectory: Website/src/rendering
 
 - stage: Build_Storybook
-  displayName: "Run 'npm run build-storybook'"
+  displayName: "Build Website Storybook, Push to Chromatic"
   dependsOn: []
   jobs:
     - job: Build
