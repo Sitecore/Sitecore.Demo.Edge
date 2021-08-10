@@ -117,6 +117,8 @@
   font-size: 1.25em;
   font-weight: 600;
   background-color: #fff;
+  background-size: cover;
+  cursor: pointer;
 }
 
 .section__news__grid__news__item:hover {
