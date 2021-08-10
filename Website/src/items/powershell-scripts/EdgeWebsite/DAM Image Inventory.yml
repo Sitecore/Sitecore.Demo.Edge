@@ -10,57 +10,55 @@ SharedFields:
 - ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
   Hint: Script
   Value: |
-    $ContentHubHostname = 'mint.stylelabs.io'
     $customList = New-Object System.Collections.Generic.List[PSObject]
-    $allItems = Get-ChildItem -Path 'master://sitecore/content/' -Recurse
-    $allItems | ForEach-Object {
-        foreach ($field in $_.Fields) {
-            if ($field.Type -eq "Image" ) {
-                $fieldValue = $_.Fields[$field.Name].Value
-                $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
-                $htmlDocument.LoadHtml($fieldValue)
-                foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//image")) { 
-                    $src = $x.Attributes["src"].Value
-                    if ( [string]::IsNullOrEmpty($src) ) {
-                        $src = $x.Attributes["mediaid"].Value
-                    }
-                    $formatted = '<p style="background-color:Salmon; padding:5px;">' + $src + '</p>'
-                    if($src -like "*$ContentHubHostname*"){
-                        $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
-                    }
-                    $newObject = New-Object PSObject @{ ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = 'Image'; Value = $formatted; }
-                    $customList.Add($newObject)
+
+    function GetImageSrcFromItem {
+        Param([Sitecore.Data.Items.Item] $Item, [System.String] $FieldType, [Sitecore.Data.Fields.Field] $Field, [System.String] $Tag)
+
+        $ContentHubHostname = 'stylelabs'
+        $ContentHubHostname2 = 'sitecoresandbox'
+
+        if ($field.Type -eq $FieldType) {
+            $fieldValue = $Item.Fields[$field.Name].Value
+            $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
+            $htmlDocument.LoadHtml($fieldValue)
+            foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//$Tag")) { 
+
+                $src = $x.Attributes["src"].Value
+                if ([string]::IsNullOrEmpty($src)) {
+                    $src = $x.Attributes["mediaid"].Value
                 }
-            }
-            if ($field.Type -eq "Rich Text" ) {
-                $fieldValue = $_.Fields[$field.Name].Value
-                $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
-                $htmlDocument.LoadHtml($fieldValue)
-                foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//img")) { 
-                    $src = $x.Attributes["src"].Value
-                    $formatted = '<p style="background-color:Salmon; padding:5px;">' + $src + '</p>'
-                    if($src -like "*$ContentHubHostname*"){
-                        $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
-                    }
-                    $newObject = New-Object PSObject @{ ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = 'Rich Text'; Value = $formatted; }
-                    $customList.Add($newObject)
+                $formatted = '<p style="background-color:Salmon; padding:5px;">' + $src + '</p>'
+                if ($src -like "*$ContentHubHostname*" -or $src -like "*$ContentHubHostname2*") {
+                    $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
                 }
+                $newObject = New-Object PSObject @{ ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = $FieldType; Value = $formatted}
+                $customList.Add($newObject)
             }
         }
     }
+
+    $allItems = Get-ChildItem -Path 'master://sitecore/content/' -Recurse
+    $allItems | ForEach-Object {
+        foreach ($field in $_.Fields) {
+            GetImageSrcFromItem -Item $_ -FieldType "Image" -Field $field -Tag "image"
+            GetImageSrcFromItem -Item $_ -FieldType "Rich Text" -Field $field -Tag "img"
+        }
+    }
+
     $reportProps = @{
         Title           = "Media Item Inventory"
-        InfoTitle       = "All the Media Items..."
-        InfoDescription = "Total entries found: $($customList.length)"
+        InfoTitle       = "All the Media Items used in this instance are listed below. Please check all pages."
+        InfoDescription = "Total entries found: $($customList.count)"
         PageSize        = 25
     }
+
     $customList | Show-ListView @reportProps -Property `
     @{ Label = "Item Name"; Expression = { $_.ItemName } },
     @{ Label = "Item Path"; Expression = { $_.ItemPath } },
     @{ Label = "Field Name"; Expression = { $_.FieldName } },
     @{ Label = "Field Type"; Expression = { $_.FieldType } },
     @{ Label = "Field Value"; Expression = { $_.Value } }
-    #Close-Window
 Languages:
 - Language: da
   Fields:
