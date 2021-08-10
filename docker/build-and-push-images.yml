@@ -16,6 +16,29 @@ variables:
   additionalImageTags: ''
 
 stages:
+- stage: Build_TV
+  displayName: "Build TV"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+          vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: tv
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: tv
+
 - stage: Build
   displayName: "Run 'npm run build'"
   dependsOn: []
@@ -78,6 +101,7 @@ stages:
   dependsOn:
   - Build
   - Build_Storybook
+  - Build_TV
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
