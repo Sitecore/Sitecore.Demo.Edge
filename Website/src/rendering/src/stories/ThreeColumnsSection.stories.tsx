@@ -1,14 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ThreeColumnsSection, {ThreeColumnsSectionProps} from '../components/ThreeColumnsSection';
+import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 
 export default {
   title: 'Components/ThreeColumnsSection',
   component: ThreeColumnsSection,
 } as ComponentMeta<typeof ThreeColumnsSection>;
 
-const Template: ComponentStory<typeof ThreeColumnsSection> = (args: ThreeColumnsSectionProps) => <ThreeColumnsSection {...args} />;
+const Template: ComponentStory<typeof ThreeColumnsSection> = (args: ThreeColumnsSectionProps) => (
+  <ThreeColumnsSection {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
