@@ -48,7 +48,6 @@ export default function Home(props: RoomProps) {
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const { blogs } = await getBlogs(preview);
-  console.log(blogs);
 
   return {
     props: {
