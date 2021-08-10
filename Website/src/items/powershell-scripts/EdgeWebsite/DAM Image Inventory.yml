@@ -11,7 +11,6 @@ SharedFields:
   Hint: Script
   Value: |
     $customList = New-Object System.Collections.Generic.List[PSObject]
-
     function GetImageSrcFromItem {
         Param([Sitecore.Data.Items.Item] $Item, [System.String] $FieldType, [Sitecore.Data.Fields.Field] $Field, [System.String] $Tag)
 
@@ -22,8 +21,7 @@ SharedFields:
             $fieldValue = $Item.Fields[$field.Name].Value
             $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
             $htmlDocument.LoadHtml($fieldValue)
-            foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//$Tag")) { 
-
+            foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//$Tag")) {
                 $src = $x.Attributes["src"].Value
                 if ([string]::IsNullOrEmpty($src)) {
                     $src = $x.Attributes["mediaid"].Value
@@ -32,7 +30,7 @@ SharedFields:
                 if ($src -like "*$ContentHubHostname*" -or $src -like "*$ContentHubHostname2*") {
                     $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
                 }
-                $newObject = New-Object PSObject @{ ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = $FieldType; Value = $formatted}
+                $newObject = New-Object PSObject @{ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = $FieldType; Value = $formatted}
                 $customList.Add($newObject)
             }
         }
