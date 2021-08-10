@@ -4,8 +4,7 @@ import styles from "../styles/Home.module.css";
 import { getBlogs } from "../api/queries/getBlogs";
 import { GetStaticProps } from "next";
 import { Blog } from "../interfaces";
-import SessionList from "../components/SessionList";
-import CurrentSession from "../components/CurrentSession";
+import RoomDisplay from "../components/RoomDisplay";
 
 type RoomProps = {
   blogs: Blog[];
@@ -25,23 +24,7 @@ export default function Home(props: RoomProps) {
         <div id="container">
           <div id="monitor">
             <div id="monitorscreen">
-              <div className="container mx-auto">
-                <div className="grid grid-cols-2 h-screen">
-                  <div className="relative">
-                    <CurrentSession blog={props.blogs[0]} />
-                  </div>
-                  <div className="bg-gray-100 p-10">
-                    <div className="mb-auto mt-auto max-w-lg">
-                      <h1 className="text-6xl uppercase pb-10 text-center">
-                        10:02AM
-                      </h1>
-                      <h1 className="text-xl uppercase">Today</h1>
-
-                      <SessionList blogs={props.blogs} />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <RoomDisplay blogs={props.blogs} />
             </div>
           </div>
         </div>
