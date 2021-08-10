@@ -10,7 +10,6 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
       className="w-full h-full pt-10"
       style={{
         backgroundSize: "cover",
-        backgroundAttachment: "fixed",
         backgroundImage: `url(/room-bg.jpg)`,
       }}
     >
