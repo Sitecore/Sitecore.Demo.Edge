@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.css";
 import { getBlogs } from "../api/queries/getBlogs";
 import { GetStaticProps } from "next";
 import { Blog } from "../interfaces";
+import SessionList from "../components/SessionList";
+import CurrentSession from "../components/CurrentSession";
 
 type RoomProps = {
   blogs: Blog[];
@@ -25,33 +27,8 @@ export default function Home(props: RoomProps) {
             <div id="monitorscreen">
               <div className="container mx-auto">
                 <div className="grid grid-cols-2 h-screen">
-                  <div className="relativ">
-                    <div
-                      className="w-full h-full pt-10"
-                      style={{
-                        backgroundSize: "cover",
-                        backgroundAttachment: "fixed",
-                        backgroundImage: `url(/room-bg.jpg)`,
-                      }}
-                    >
-                      <div className="m-auto p-6">
-                        <p className="font-semibold py-3 uppercase text-yellow-400">
-                          Conference Room
-                        </p>
-                        <h1 className="text-4xl uppercase text-white">
-                          FUEL FOR LIFE: NUTRITION 101
-                        </h1>
-                        <p className="text-2xl py-3 font-semibold uppercase text-yellow-400">
-                          10:00am-11:00am
-                        </p>
-                        <p className="text-white pt-2">
-                          Lorem ipsum dolor sit amet, consectetuer adipiscing
-                          elit. Donec odio. Quisque volutpat mattis eros. Nullam
-                          malesuada erat ut turpis. Suspendisse urna nibh,
-                          viverra non, semper suscipit, posuere a, pede.
-                        </p>
-                      </div>
-                    </div>
+                  <div className="relative">
+                    <CurrentSession blog={props.blogs[0]}/>
                   </div>
                   <div className="bg-gray-100 p-10">
                     <div className="mb-auto mt-auto max-w-lg">
@@ -59,78 +36,8 @@ export default function Home(props: RoomProps) {
                         10:02AM
                       </h1>
                       <h1 className="text-xl uppercase">Today</h1>
-                      <p className="font-semibold mb-5"></p>
 
-                      <div>
-                        <span className="text-gray-900 relative inline-block date uppercase font-medium tracking-widest pb-2">
-                          Wednesday, Mar 8
-                        </span>
-                        <div className="flex mb-2">
-                          <div className="w-3/12">
-                            <span className="text-sm text-gray-600">
-                              8:00a - 8:15a
-                            </span>
-                          </div>
-                          <div className="w-1/12">
-                            <span className="bg-blue-400 h-2 w-2 rounded-full block mt-2"></span>
-                          </div>
-                          <div className="w-8/12">
-                            <span className="text-sm font-semibold block">
-                              Morning Standup
-                            </span>
-                            <span className="text-sm">Beginner</span>
-                          </div>
-                        </div>
-                        <div className="flex mb-4">
-                          <div className="w-3/12">
-                            <span className="text-sm text-gray-600 block">
-                              10:00a - 2:00p
-                            </span>
-                          </div>
-                          <div className="w-1/12">
-                            <span className="bg-red-400 h-2 w-2 rounded-full block mt-2"></span>
-                          </div>
-                          <div className="w-8/12">
-                            <span className="text-sm font-semibold block">
-                              Core Development
-                            </span>
-                            <span className="text-sm">Pro</span>
-                          </div>
-                        </div>
-                        <div className="flex mb-4">
-                          <div className="w-3/12">
-                            <span className="text-sm text-gray-600 block">
-                              3:00p - 3:30p
-                            </span>
-                          </div>
-                          <div className="w-1/12">
-                            <span className="bg-indigo-600 h-2 w-2 rounded-full block mt-2"></span>
-                          </div>
-                          <div className="w-8/12">
-                            <span className="text-sm font-semibold block">
-                              Interview with Ed Harris
-                            </span>
-                          </div>
-                        </div>
-
-                        {props.blogs.map((name, index) => (
-                          <div key={index} className="flex mb-4">
-                            <div className="w-3/12">
-                              <span className="text-sm text-gray-600 block">
-                                3:00p - 3:30p
-                              </span>
-                            </div>
-                            <div className="w-1/12">
-                              <span className="bg-indigo-600 h-2 w-2 rounded-full block mt-2"></span>
-                            </div>
-                            <div className="w-8/12">
-                              <span className="text-sm font-semibold block">
-                                {name.blog_Title}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      <SessionList blogs={props.blogs} />
                     </div>
                   </div>
                 </div>
