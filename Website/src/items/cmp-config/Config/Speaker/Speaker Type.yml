@@ -3,7 +3,6 @@ ID: "69cc2878-3769-4c64-bbe9-438e4e204e0a"
 Parent: "6b835483-0d83-4a75-a4f2-7743cd6d588e"
 Template: "49652eb6-f98e-4114-b46a-925b9815578a"
 Path: /sitecore/system/Modules/CMP/Config/Speaker/Speaker Type
-BranchID: "45dfeca8-d42a-4f2d-8dec-6a308aebf23d"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -13,7 +12,7 @@ SharedFields:
   Value: 163
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: e31bd_SpeakerType
+  Value: SpeakerType
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: TaxonomyName

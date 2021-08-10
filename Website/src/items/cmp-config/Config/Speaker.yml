@@ -9,10 +9,10 @@ SharedFields:
   Value: "{DA00F1FD-0392-44CF-944A-B24952407013}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: "5Ll1UEgUgEWi7SGbO-z3UQ"
+  Value: Demo.Speaker
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Content.Name
+  Value: Name
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{819C5F1D-58E0-432F-BD5A-A523BA8AEBCE}"
