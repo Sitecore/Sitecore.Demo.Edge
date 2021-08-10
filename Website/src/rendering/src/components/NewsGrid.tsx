@@ -7,6 +7,7 @@ type News = {
   name: Field<string>;
   fields: {
     Title: Field<string>;
+    PublishDate: Field<string>;
   };
 };
 
@@ -48,11 +49,15 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
     <div className="section__news__grid__news">
       <div className="grid grid-cols-2 gap-2.5 h-full">
         {props.fields.items &&
-          props.fields.items.map((news, index) => (
-            <Link key={index} href={'/news/' + news.name} passHref>
-              <a className="section__news__grid__news__item">{news.fields.Title.value}</a>
-            </Link>
-          ))}
+          props.fields.items
+            .sort((a, b) => a.fields.PublishDate.value.localeCompare(b.fields.PublishDate.value))
+            .reverse()
+            .slice(0, 4)
+            .map((news, index) => (
+              <Link key={index} href={'/news/' + news.name} passHref>
+                <a className="section__news__grid__news__item">{news.fields.Title.value}</a>
+              </Link>
+            ))}
       </div>
     </div>
   </div>
