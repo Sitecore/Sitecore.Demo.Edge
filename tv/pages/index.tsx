@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import banner1 from "../public/banner1.png";
 import banner2 from "../public/banner2.png";
-import banner3 from "../public/banner3.webp";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
@@ -20,15 +19,12 @@ export default function Home() {
         <div id="container">
           <div id="monitor">
             <div id="monitorscreen">
-              <Carousel autoPlay={true}>
+              <Carousel autoPlay={true} showThumbs={false}>
                 <div>
                   <Image src={banner1} alt="Sample" />
                 </div>
                 <div>
                   <Image src={banner2} alt="Sample" />
-                </div>
-                <div>
-                  <Image src={banner3} alt="Sample" />
                 </div>
               </Carousel>
             </div>
