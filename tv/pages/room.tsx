@@ -1,9 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
-import { getBlogs } from "../api/queries/getBlogs";
-import { GetStaticProps } from "next";
-import { Blog } from "../interfaces";
-import RoomDisplay from "../components/RoomDisplay";
+import Head from 'next/head';
+import Image from 'next/image';
+import { getBlogs } from '../api/queries/getBlogs';
+import { GetStaticProps } from 'next';
+import { Blog } from '../interfaces';
+import RoomDisplay from '../components/RoomDisplay';
 
 type RoomProps = {
   blogs: Blog[];
@@ -35,7 +35,7 @@ export default function Room(props: RoomProps) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <span className="logo">
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>

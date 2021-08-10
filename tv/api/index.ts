@@ -8,13 +8,13 @@ export async function fetchGraphQL(query: any, preview: any): Promise<any> {
   }
 
   console.log(endpointUrl);
-  
+
   try {
     const result = await fetch(endpointUrl!, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'X-GQL-Token': apiKey!,
+        "Content-Type": "application/json",
+        "X-GQL-Token": apiKey!,
       },
       body: JSON.stringify({ query }),
     }).then((response: any) => response.json());

@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Image from "next/image";
-import banner1 from "../public/banner1.png";
+import Head from 'next/head';
+import Image from 'next/image';
+import banner1 from '../public/banner1.png';
 
 export default function Schedule() {
   return (
@@ -28,7 +28,7 @@ export default function Schedule() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <span className="logo">
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>

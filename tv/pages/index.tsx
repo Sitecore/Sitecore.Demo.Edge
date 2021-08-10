@@ -1,9 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
-import banner1 from "../public/banner1.png";
-import banner2 from "../public/banner2.png";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import Head from 'next/head';
+import Image from 'next/image';
+import banner1 from '../public/banner1.png';
+import banner2 from '../public/banner2.png';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 export default function Home() {
   return (
@@ -37,7 +37,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <span className="logo">
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
