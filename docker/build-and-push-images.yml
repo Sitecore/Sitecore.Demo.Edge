@@ -17,7 +17,7 @@ variables:
 
 stages:
 - stage: Build_TV
-  displayName: "Build TV"
+  displayName: "Lint and Build TV"
   dependsOn: []
   jobs:
     - job: Build
@@ -32,6 +32,11 @@ stages:
         - script: |
             npm install
           displayName: 'npm install'
+          workingDirectory: tv
+
+        - script: |
+            npm run lint
+          displayName: 'npm run lint'
           workingDirectory: tv
 
         - script: |
