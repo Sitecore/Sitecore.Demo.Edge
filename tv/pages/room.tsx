@@ -164,6 +164,6 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     props: {
       blogs: blogs,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 };
