@@ -119,6 +119,12 @@
   background-color: #fff;
   background-size: cover;
   cursor: pointer;
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: inherit;
+  }
 }
 
 .section__news__grid__news__item:hover {
