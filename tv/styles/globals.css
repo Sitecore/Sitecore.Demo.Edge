@@ -3,3 +3,4 @@
 @tailwind utilities;
 
 @import "./layout/frame.css";
+@import "./layout//footer.css";

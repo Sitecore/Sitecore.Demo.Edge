@@ -1,16 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import { getBlogs } from "../api/queries/getBlogs";
-import { GetStaticProps } from "next";
-import { Blog } from "../interfaces";
-import RoomDisplay from "../components/RoomDisplay";
+import banner1 from "../public/banner1.png";
 
-type RoomProps = {
-  blogs: Blog[];
-  preview: boolean;
-};
-
-export default function Room(props: RoomProps) {
+export default function Sponsor() {
   return (
     <div className="screen">
       <Head>
@@ -23,13 +15,14 @@ export default function Room(props: RoomProps) {
         <div id="container">
           <div id="monitor">
             <div id="monitorscreen">
-              <RoomDisplay blogs={props.blogs} />
+              {/* Added sponsor components here */}
+              <Image src={banner1} alt="Sample" />
             </div>
           </div>
         </div>
       </main>
 
-      <footer className="footer">
+      <footer className="container">
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -44,14 +37,3 @@ export default function Room(props: RoomProps) {
     </div>
   );
 }
-
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const { blogs } = await getBlogs(preview);
-
-  return {
-    props: {
-      blogs: blogs,
-    },
-    revalidate: 10,
-  };
-};
