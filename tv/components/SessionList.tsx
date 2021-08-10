@@ -6,21 +6,21 @@ type SessionListProps = {
   
 const SessionList = (props: SessionListProps): JSX.Element => {
     return (
-      <div>
-        <span className="text-gray-900 relative inline-block date uppercase font-medium tracking-widest pb-6">
+      <div className="sessionList">
+        <span className="heading">
           Wednesday, Mar 8
         </span>
   
         {props.blogs.map((name, index) => (
-          <div key={index} className="flex mb-4">
-            <div className="w-3/12">
-              <span className="text-sm text-gray-600 block">10:00am - 11:00am</span>
+          <div key={index} className="session">
+            <div className="time">
+              <span>10:00am - 11:00am</span>
             </div>
-            <div className="w-1/12">
-              <span className="bg-red-400 h-2 w-2 rounded-full block mt-2"></span>
+            <div className="icon">
+              <span></span>
             </div>
-            <div className="w-8/12">
-              <span className="text-sm font-semibold block">
+            <div className="data">
+              <span className="title">
                 {name.blog_Title}
               </span>
               <span className="text-sm">{name.blog_Quote}</span>
