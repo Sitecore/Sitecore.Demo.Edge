@@ -21,6 +21,14 @@ Languages:
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "2b77bead-a43b-4f0b-9c8f-efaa92f5182c"
