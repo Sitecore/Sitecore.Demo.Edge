@@ -12,4 +12,12 @@
   .scpm {
     display: none !important;
   }
+
+  main {
+    padding-top: 122px;
+  
+    &.experience-editor-active {
+      padding-top: unset;
+    }
+  }
 }
