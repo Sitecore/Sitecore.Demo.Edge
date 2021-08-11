@@ -5,7 +5,7 @@
  * @returns component story boilerplate as a string
  */
 function generateStorySrc(componentName: string, componentPath: string): string {
-  const parentFolders = componentPath.replace(/\w/, '..');
+  const parentFolders = componentPath.replace(/\w+/g, '..');
 
   return `import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
