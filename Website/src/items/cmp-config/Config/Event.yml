@@ -2,15 +2,14 @@
 ID: "3a5a661b-fbaa-4f40-978b-fbc4d0db77f3"
 Parent: "f8843bf7-a31a-4f71-8900-abd56b8fe34c"
 Template: "e022206a-3482-46c2-8ddf-2f1c2c6c7b69"
-Path: /sitecore/system/Modules/CMP/Config/Play Event
-BranchID: "875e0f89-f23b-476b-9bf9-e991a107f693"
+Path: /sitecore/system/Modules/CMP/Config/Event
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
   Value: "{D853FE1D-76AF-45DE-BF02-F54E5D811F2F}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: PLAY.Event
+  Value: Demo.Event
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: Name
@@ -30,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "416a4313-7e83-4307-86a5-15b317e048ba"
+      Value: "22f02cfc-60f7-4fc0-ac40-f0d81d6ec333"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T053053Z
+      Value: 20210811T202728Z

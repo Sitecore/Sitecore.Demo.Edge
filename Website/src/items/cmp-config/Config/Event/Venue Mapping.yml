@@ -2,7 +2,7 @@
 ID: "08db59a7-6dbc-41cc-99d7-275f06c94a6b"
 Parent: "3a5a661b-fbaa-4f40-978b-fbc4d0db77f3"
 Template: "49652eb6-f98e-4114-b46a-925b9815578a"
-Path: /sitecore/system/Modules/CMP/Config/Play Event/Venue Mapping
+Path: /sitecore/system/Modules/CMP/Config/Event/Venue Mapping
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -12,7 +12,7 @@ SharedFields:
   Value: 300
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Venue_Event
+  Value: Venue
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: Name
@@ -40,11 +40,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e82729e6-a283-474d-9727-117327bfef76"
+      Value: "184615dd-b405-4933-9e27-d3f866d99aeb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210615T161349Z
+      Value: 20210811T202740Z
