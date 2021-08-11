@@ -2,7 +2,7 @@
 ID: "c49bc372-2bb7-4ad6-90fd-63c9d255e6f4"
 Parent: "d81b3771-4898-45bf-bcfe-02f969044c49"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Kiosk/Data/name
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Kiosk/Data/Name
 SharedFields:
 - ID: "21828437-ea4b-40a1-8c61-4ce60ea41db6"
   Hint: Validate Button
