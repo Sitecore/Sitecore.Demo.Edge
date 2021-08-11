@@ -60,6 +60,9 @@ COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
 
+# Fix for PowerShell Console failing to open from Sitecore desktop menu - Requires PSE to be installed
+RUN Rename-Item -Path 'C:\inetpub\wwwroot\App_Config\Include\Spe\Spe.IdentityServer.config.disabled' -NewName 'Spe.IdentityServer.config'
+
 # Perform transforms
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
     ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\web.config' -XdtPath $_.FullName `

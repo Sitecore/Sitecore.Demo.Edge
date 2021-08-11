@@ -34,11 +34,11 @@ const speakerProps = {
   },
 } as SpeakersGridProps;
 
-const Template: ComponentStory<typeof Section> = (args) => {
-  return <Section {...args}>
+const Template: ComponentStory<typeof Section> = (args) => (
+  <Section {...args}>
     <SpeakersGrid {...speakerProps} />
-  </Section>;
-};
+  </Section>
+);
 
 export const Default = Template.bind({});
 Default.args = {
