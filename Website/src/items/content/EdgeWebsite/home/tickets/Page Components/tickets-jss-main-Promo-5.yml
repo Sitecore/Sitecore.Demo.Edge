@@ -18,6 +18,14 @@ Languages:
     - ID: "4db68bc4-e995-5b5b-9341-016d37322e1a"
       Hint: content
       Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "5e56d361-36b3-5ecc-98c5-b32acb415f56"
       Hint: subtitle
       Value: FEATURED WORKSHOP

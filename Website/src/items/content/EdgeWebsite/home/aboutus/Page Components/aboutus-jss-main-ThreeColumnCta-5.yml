@@ -21,9 +21,17 @@ Languages:
     - ID: "4eda31c4-fc05-5617-9af7-e0d1078beb16"
       Hint: leftDescription
       Value: Visitors
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
     - ID: "54372bd6-0da0-5051-b260-ddc7e6d7cc78"
       Hint: leftHeading
       Value: 200,000+
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "7644409c-22b8-5351-b56d-6f9f7a98a7ab"
       Hint: middleDescription
       Value: Globally recognised speakers
