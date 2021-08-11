@@ -2,14 +2,14 @@
 ID: "89c1725a-dd3b-46f1-87b1-cb4794155d94"
 Parent: "f8843bf7-a31a-4f71-8900-abd56b8fe34c"
 Template: "e022206a-3482-46c2-8ddf-2f1c2c6c7b69"
-Path: /sitecore/system/Modules/CMP/Config/Play Kiosk
+Path: /sitecore/system/Modules/CMP/Config/Kiosk
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
   Value: "{63F5F613-94D4-43FF-BD02-692C3ADC33B7}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: PLAY.Kiosk
+  Value: Demo.Kiosk
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
   Value: Name
@@ -29,11 +29,11 @@ Languages:
       Value: 20190614T173120Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3f9f1e13-307d-47c3-ae22-d39d56f453ce"
+      Value: "b0f44375-8c0e-4094-ad81-877edced1600"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T053100Z
+      Value: 20210811T204701Z
