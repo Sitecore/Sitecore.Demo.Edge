@@ -13,10 +13,8 @@ SharedFields:
     $customList = New-Object System.Collections.Generic.List[PSObject]
     function GetImageSrcFromItem {
         Param([Sitecore.Data.Items.Item] $Item, [System.String] $FieldType, [Sitecore.Data.Fields.Field] $Field, [System.String] $Tag)
-
         $ContentHubHostname = 'stylelabs'
         $ContentHubHostname2 = 'sitecoresandbox'
-
         if ($field.Type -eq $FieldType) {
             $fieldValue = $Item.Fields[$field.Name].Value
             $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
@@ -35,7 +33,6 @@ SharedFields:
             }
         }
     }
-
     $allItems = Get-ChildItem -Path 'master://sitecore/content/' -Recurse
     $allItems | ForEach-Object {
         foreach ($field in $_.Fields) {
@@ -43,14 +40,12 @@ SharedFields:
             GetImageSrcFromItem -Item $_ -FieldType "Rich Text" -Field $field -Tag "img"
         }
     }
-
     $reportProps = @{
         Title           = "Media Item Inventory"
         InfoTitle       = "All the Media Items used in this instance are listed below. Please check all pages."
         InfoDescription = "Total entries found: $($customList.count)"
         PageSize        = 25
     }
-
     $customList | Show-ListView @reportProps -Property `
     @{ Label = "Item Name"; Expression = { $_.ItemName } },
     @{ Label = "Item Path"; Expression = { $_.ItemPath } },
