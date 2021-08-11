@@ -2,14 +2,14 @@
 ID: "c19de1fb-fe9d-4e37-b447-dbd49c0c9d96"
 Parent: "331f7a34-cb11-4ac9-b7c0-c6867eb160e9"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Edge Vendor/Facebook Profile Link
+Path: /sitecore/system/Modules/CMP/Config/Vendor/Facebook Profile Link
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 200
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: 923c7_FacebookProfileLink
+  Value: FacebookProfileLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{DA7733F4-3061-4F93-A870-9AFF906AF40B}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7ab2bf20-8d85-4ff4-8ea1-926ba198c5d5"
+      Value: "d8ad8c56-40f3-49bb-9d74-967fa0eb45e9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T171619Z
+      Value: 20210811T195036Z

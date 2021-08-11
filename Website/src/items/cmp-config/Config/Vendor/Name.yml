@@ -1,28 +1,18 @@
 ﻿---
-ID: "e77eb52f-9b25-414f-9a5d-ddb01001f7fd"
+ID: "61c7f341-dd00-4a94-b393-4d42e5e7204b"
 Parent: "331f7a34-cb11-4ac9-b7c0-c6867eb160e9"
-Template: "49652eb6-f98e-4114-b46a-925b9815578a"
-Path: /sitecore/system/Modules/CMP/Config/Edge Vendor/Level
-BranchID: "45dfeca8-d42a-4f2d-8dec-6a308aebf23d"
+Template: "e43e2773-7a50-4145-a266-312024f27382"
+Path: /sitecore/system/Modules/CMP/Config/Vendor/Name
 SharedFields:
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: 
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 175
-- ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
-  Hint: CMP Relation
-  Value: 923c7_Level
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: TaxonomyName
+  Value: Name
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{36288362-9494-4174-A8A2-D846D958149D}"
+  Value: "{D57B5629-9801-4418-9088-8A8DFA8FC84C}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{ACC03942-A7B8-4DAA-96D2-A9196A9EF547}"
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -30,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210722T194236Z
+      Value: 20190614T174144Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -41,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fe36ccb3-cd9a-4c51-b250-83a4e3008ed2"
+      Value: "1b5ceb75-c0c1-49e7-9082-0413aec293bf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T202512Z
+      Value: 20210811T195022Z

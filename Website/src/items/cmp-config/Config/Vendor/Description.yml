@@ -1,22 +1,21 @@
 ﻿---
-ID: "e5b4c6b9-0dad-4823-8560-8b0e8083e1aa"
+ID: "2f9aa7c0-3dd6-4cf5-9884-ae2485ff48f8"
 Parent: "331f7a34-cb11-4ac9-b7c0-c6867eb160e9"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Edge Vendor/Instagram Profile Link
-BranchID: "70eb42ee-92b2-4246-bc65-aa920bb7f322"
+Path: /sitecore/system/Modules/CMP/Config/Vendor/Description
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 150
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: 923c7_InstagramProfileLink
+  Value: Description
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{2696B94C-FB09-4392-999A-9A7A7223F228}"
+  Value: "{BE48543C-EBB6-47D2-A0BE-508184F2796B}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{4C94598B-EB37-400C-88C3-BEB971888C9A}"
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -24,7 +23,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210722T165423Z
+      Value: 20190614T174224Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2a428c7f-ff04-43f8-89cf-ad857fad9c8b"
+      Value: "fb6f5281-9565-48f5-abb3-649b809e29ed"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T171456Z
+      Value: 20210811T195026Z
