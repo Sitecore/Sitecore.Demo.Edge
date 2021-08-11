@@ -3,7 +3,6 @@ ID: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
 Parent: "df5852ee-a7bd-4e87-994e-b637fed0312f"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/content/CMP/Venues
-BranchID: "e6110b26-54c7-4b98-9827-6cf4e5a4975a"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

@@ -3,7 +3,6 @@ ID: "d853fe1d-76af-45de-bf02-f54e5d811f2f"
 Parent: "df5852ee-a7bd-4e87-994e-b637fed0312f"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/content/CMP/Events
-BranchID: "e6110b26-54c7-4b98-9827-6cf4e5a4975a"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
