@@ -1,8 +1,8 @@
 ﻿---
 ID: "214b0b3d-dacf-467e-be2f-78aa60827854"
-Parent: "fcb74096-ea4b-528d-8058-9b0ba9a57066"
+Parent: "9b4f39e9-4741-5a10-a976-b402f6a4d67d"
 Template: "22bf2a41-d79e-5e64-9497-6e52752f85dd"
-Path: "/sitecore/content/EdgeWebsite/home/news/Page Components/news-jss-main-HeaderBanner-1"
+Path: /sitecore/content/EdgeWebsite/Components/HeaderBanner/News Header Banner
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
