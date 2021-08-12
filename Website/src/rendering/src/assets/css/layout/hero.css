@@ -66,9 +66,3 @@
     }
   }
 }
-
-.experience-editor-active {
-  .section__hero {
-    @apply mt-0;
-  }
-}

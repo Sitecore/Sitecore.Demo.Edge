@@ -26,9 +26,3 @@
     }
   }
 }
-
-.experience-editor-active {
-  .section__featured_event {
-    @apply mt-0;
-  }
-}
