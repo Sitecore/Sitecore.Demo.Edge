@@ -70,7 +70,7 @@ Languages:
               uid="{34CDA3FD-BFC5-583D-8720-100D5EE194D7}"
               p:after="r[@uid='{662843E5-4419-5F2C-9D17-207E807C5293}']"
               s:rname="FullImageSection"
-              s:ds="{7D158C80-2364-5FB1-A1D6-9829B8F6628C}"
+              s:ds="{BD8B0390-574A-57F3-B801-1C3A4F42B3D6}"
               s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
               s:par=""
               s:ph="/jss-main" />
@@ -122,14 +122,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "30b79f4b-5d81-4fe8-99b6-99a0ab546bd7"
+      Value: "dd7a5251-b3be-41d5-98ed-d4cfa7621097"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195500Z
+      Value: 20210812T185149Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Tickets"

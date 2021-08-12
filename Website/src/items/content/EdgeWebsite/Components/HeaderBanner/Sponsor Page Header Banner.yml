@@ -1,8 +1,8 @@
 ﻿---
 ID: "a9fb0fd1-37cd-52c1-bae1-c2bb42f04e41"
-Parent: "c13624de-6693-509b-ad1b-57e96bff2972"
+Parent: "9b4f39e9-4741-5a10-a976-b402f6a4d67d"
 Template: "22bf2a41-d79e-5e64-9497-6e52752f85dd"
-Path: "/sitecore/content/EdgeWebsite/home/vendors/Common Components/striva-jss-main-HeaderBanner-1"
+Path: /sitecore/content/EdgeWebsite/Components/HeaderBanner/Sponsor Page Header Banner
 Languages:
 - Language: en
   Versions:
