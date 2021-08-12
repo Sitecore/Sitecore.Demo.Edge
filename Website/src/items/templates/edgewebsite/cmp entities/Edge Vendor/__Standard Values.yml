@@ -105,6 +105,7 @@ Languages:
             <r
               uid="{7F6D3984-3875-54C9-A6A6-7AFC7E9D3C6D}"
               rname="SponsorsGrid"
+              ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               par=""
               ph="/jss-main/jss-section-content-{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}-0" />

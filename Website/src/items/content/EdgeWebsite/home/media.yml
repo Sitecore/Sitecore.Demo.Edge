@@ -72,6 +72,7 @@ Languages:
               uid="{30FEFA5D-C7DE-5B1A-803D-CBAFE9013E4A}"
               p:after="r[@uid='{975D7DC8-4E40-5B7C-A40C-BF62F5EA2776}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{975D7DC8-4E40-5B7C-A40C-BF62F5EA2776}-0" />
@@ -97,14 +98,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ec3241f9-1086-4d60-b463-d00dfc9b8035"
+      Value: "0021de53-eaee-4c7d-a37c-167e8f0aad1e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195459Z
+      Value: 20210812T152150Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Media"

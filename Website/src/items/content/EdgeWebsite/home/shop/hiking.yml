@@ -65,6 +65,7 @@ Languages:
               uid="{9F17BC41-6DF7-5642-8174-4BEFE743EF05}"
               p:after="r[@uid='{17A94A87-A4FD-5E6F-AEB6-C62A3182C897}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{17A94A87-A4FD-5E6F-AEB6-C62A3182C897}-0" />
@@ -94,7 +95,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d229b5b8-fcd4-4d48-bdca-d54644201f1a"
+      Value: "3dc22881-78a0-4ce4-b2b8-00683aeb34c0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +105,7 @@ Languages:
       Value: Hiking
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195459Z
+      Value: 20210812T152151Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Hiking"

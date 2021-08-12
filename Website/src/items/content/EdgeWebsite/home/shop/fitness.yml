@@ -65,6 +65,7 @@ Languages:
               uid="{A3400287-88E3-55E6-8190-2580D42F1BA3}"
               p:after="r[@uid='{B53CF833-E3E6-5FD2-91FF-D4BDB6AFAF13}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{B53CF833-E3E6-5FD2-91FF-D4BDB6AFAF13}-0" />
@@ -94,7 +95,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e140eeb4-aedf-4617-b781-5c732fb97993"
+      Value: "eb5b006b-9413-4cf7-8ecc-37db3f5c36a7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +105,7 @@ Languages:
       Value: Fitness
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195459Z
+      Value: 20210812T152151Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Fitness"

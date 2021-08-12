@@ -65,6 +65,7 @@ Languages:
               uid="{6218A726-95CC-532A-AFD9-86C0F1698AD3}"
               p:after="r[@uid='{0A5473AE-AC84-5BDC-8C88-E4493A1F5BBA}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{0A5473AE-AC84-5BDC-8C88-E4493A1F5BBA}-0" />
@@ -94,7 +95,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a5e7997b-6a9e-4aa1-a543-f963b30c4c26"
+      Value: "b8f98327-d7f1-4c56-9fc3-b16be6d17213"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +105,7 @@ Languages:
       Value: Yoga
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195459Z
+      Value: 20210812T152151Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Yoga"

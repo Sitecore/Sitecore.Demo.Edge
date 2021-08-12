@@ -65,6 +65,7 @@ Languages:
               uid="{7A298658-BE07-5772-B4EA-8CDA7CCA55DD}"
               p:after="r[@uid='{5DFFE6B6-9B7E-5CD0-BE2F-F09C6CEBE6E3}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{5DFFE6B6-9B7E-5CD0-BE2F-F09C6CEBE6E3}-0" />
@@ -90,14 +91,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f5e3a71f-6f49-47f6-ba79-e16f028e2b7e"
+      Value: "22dee8b5-dd13-4455-b506-8a836eb8567f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195459Z
+      Value: 20210812T152151Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Sponsorize"
