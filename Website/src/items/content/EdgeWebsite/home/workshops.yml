@@ -64,7 +64,7 @@ Languages:
               uid="{41229967-1BF8-5767-901F-70D0D10A2035}"
               p:after="r[@uid='{6B1DE1B5-135A-5D21-BB16-7959E845F0A4}']"
               s:rname="Section"
-              s:ds="{EFC1878E-F5B9-5A49-930A-4B5B602D92E0}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -97,14 +97,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b743878d-f35c-4b00-b95d-18d9baed1c9f"
+      Value: "12764b61-9ddc-4d98-ad83-b6c39fad5a27"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191732Z
+      Value: 20210811T195500Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Workshops"

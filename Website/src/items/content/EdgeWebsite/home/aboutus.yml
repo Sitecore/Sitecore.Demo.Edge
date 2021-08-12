@@ -117,7 +117,7 @@ Languages:
               uid="{34975D6F-360C-5BFB-AF61-D080A42B22D1}"
               p:after="r[@uid='{AE8648B9-305E-535C-97C0-F348FFDA8327}']"
               s:rname="Section"
-              s:ds="{5A399B54-1294-59AC-BFFB-769CD0288111}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -152,14 +152,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6d529216-a701-4194-9ec9-3155acc82396"
+      Value: "e758e640-2943-4be2-9689-0cdb913ed48e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T155126Z
+      Value: 20210811T195458Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - About Us"

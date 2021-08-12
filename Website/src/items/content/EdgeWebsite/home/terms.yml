@@ -64,7 +64,7 @@ Languages:
               uid="{7DFE6044-E4B5-58CD-976D-9CA2DAF89755}"
               p:after="r[@uid='{E5E0AC07-5B82-518E-9827-E2D0EE137DF7}']"
               s:rname="Section"
-              s:ds="{3F08C350-270A-5289-A11F-639C4A5881E1}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -97,14 +97,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1e403a33-b35b-4448-a19c-3cfe977f639b"
+      Value: "42353427-e319-4a14-9695-13eb36be14fc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191727Z
+      Value: 20210811T195459Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Terms of Use"

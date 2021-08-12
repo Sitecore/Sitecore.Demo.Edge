@@ -1,14 +1,14 @@
 ﻿---
-ID: "7500343f-6630-51fd-8d3e-7fe9fb6cf99d"
-Parent: "288f2a01-96ba-5f93-b0e6-9b48eead8cb2"
+ID: "174a7afc-d923-58f3-bef8-ad8caad8c5b9"
+Parent: "e92ec74e-f4f7-43e1-b898-c983cae4bca9"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/jalenwilliams/Page Components/jalenwilliams-jss-main-Section-4"
+Path: /sitecore/content/EdgeWebsite/home/Common Components/Sections/Premium Sponsors Section
 Languages:
 - Language: en
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: "premium-sponsors"
+    Value: 
   Versions:
   - Version: 1
     Fields:
@@ -17,7 +17,7 @@ Languages:
       Value: Premium Sponsors
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210721T153628Z
+      Value: 20210625T201829Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: "Sincere thanks to all our event partners and national sponsors that make this year's Play! Summit possible."
@@ -35,7 +35,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e2421e41-fed2-45cd-85bc-9f979ca20d9d"
+      Value: "51cda764-6153-4b79-a25d-fef6085f0d00"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -48,4 +48,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T211824Z
+      Value: 20210811T195051Z

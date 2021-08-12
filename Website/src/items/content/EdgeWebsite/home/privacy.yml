@@ -64,7 +64,7 @@ Languages:
               uid="{63AC6E75-5365-5E24-9E53-508B20613F45}"
               p:after="r[@uid='{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}']"
               s:rname="Section"
-              s:ds="{525BFB4A-95DB-51AA-ABE1-E0B95DB52534}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -97,14 +97,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6352f088-7519-41a7-8b8a-431afd8e7510"
+      Value: "01b5c576-ecf3-498a-8960-2fda1ce03700"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191714Z
+      Value: 20210811T195459Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Privacy Policy"

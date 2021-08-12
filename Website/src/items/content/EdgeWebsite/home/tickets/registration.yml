@@ -100,7 +100,7 @@ Languages:
               uid="{642E28DB-8AAD-5002-8503-A6704CFDF7D8}"
               p:after="r[@uid='{98BF3805-3ABA-5D14-8C21-EFFF814CFF01}']"
               s:rname="Section"
-              s:ds="{FE242B49-20C9-506A-A3D0-67BA1B141B87}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -133,14 +133,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "25776cfd-a55f-4749-a69e-2e56ead39e41"
+      Value: "8576cbe8-ddcf-44e6-a8f3-e001a0c9d095"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T195703Z
+      Value: 20210811T195500Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - registration"

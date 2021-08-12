@@ -64,7 +64,7 @@ Languages:
               uid="{5667C874-385E-5AD2-9D21-57F15F768989}"
               p:after="r[@uid='{FEA6367D-427C-44E9-B789-5876A6093332}']"
               s:rname="Section"
-              s:ds="{5F70E48B-0A08-5E8B-8E23-0468164BC012}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -99,14 +99,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2ee8e31e-c4b3-4394-86e1-2f9062c93ff6"
+      Value: "2ea24f2d-0c84-4500-8d22-a528c1b010c1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T222555Z
+      Value: 20210811T195459Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Speakers"

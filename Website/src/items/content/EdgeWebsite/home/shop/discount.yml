@@ -57,7 +57,7 @@ Languages:
               uid="{4715DF55-BA71-5A26-871B-7AA3E2447C9C}"
               p:after="r[@uid='{EBB90334-233A-5A01-97E0-7214DE915F57}']"
               s:rname="Section"
-              s:ds="{E983E57C-1E82-5EB2-9733-5D491B88EF99}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -90,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1848bbdb-ab20-4764-9b9e-2aed8c71eb16"
+      Value: "454efd12-e236-47e7-8dd1-ffc83e9ef84f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T135641Z
+      Value: 20210811T195459Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Discount"
