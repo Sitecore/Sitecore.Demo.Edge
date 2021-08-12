@@ -2,7 +2,7 @@
 ID: "cad56af3-b19f-5d67-9991-12f637a97a9b"
 Parent: "f0c77235-5000-532c-a61c-e5f11947760d"
 Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/Page Components/speakers-jss-main-HeroImage-1"
+Path: /sitecore/content/EdgeWebsite/home/speakers/Page Components/Speakers Hero Image
 Languages:
 - Language: en
   Versions:

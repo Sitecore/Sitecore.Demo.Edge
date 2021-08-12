@@ -2,7 +2,7 @@
 ID: "e521a6f1-9c1b-50fd-ab79-333f31af229a"
 Parent: "6b207e5e-bf08-54e2-a08f-e00c5a942968"
 Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
-Path: "/sitecore/content/EdgeWebsite/home/vendors/Page Components/vendors-jss-main-HeroImage-1"
+Path: /sitecore/content/EdgeWebsite/home/vendors/Page Components/Vendors Hero Image
 Languages:
 - Language: en
   Versions:
