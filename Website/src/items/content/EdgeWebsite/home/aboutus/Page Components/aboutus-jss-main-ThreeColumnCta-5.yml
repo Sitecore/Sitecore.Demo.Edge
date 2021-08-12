@@ -5,10 +5,6 @@ Template: "7ff7c2d7-f5e1-57f1-a3f3-812418ac08aa"
 Path: "/sitecore/content/EdgeWebsite/home/aboutus/Page Components/aboutus-jss-main-ThreeColumnCta-5"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "ThreeColumnCta-5"
   Versions:
   - Version: 1
     Fields:

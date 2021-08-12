@@ -5,10 +5,6 @@ Template: "b2998d74-6cf3-567d-9f4d-781084ab29b1"
 Path: "/sitecore/content/EdgeWebsite/home/tickets/registration/Page Components/registration-jss-section-content-363D55C8-300C-58C3-BBC0-30493863245E-0-ContentGrid-1"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "ContentGrid-1"
   Versions:
   - Version: 1
     Fields:

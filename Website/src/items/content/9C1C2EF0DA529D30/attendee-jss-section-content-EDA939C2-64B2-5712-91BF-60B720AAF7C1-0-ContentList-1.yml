@@ -5,10 +5,6 @@ Template: "bb2d1f8a-7c29-5ab6-8955-48514a7ef85a"
 Path: "/sitecore/content/EdgeWebsite/home/tickets/registration/attendee/Page Components/attendee-jss-section-content-EDA939C2-64B2-5712-91BF-60B720AAF7C1-0-ContentList-1"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "ContentList-1"
   Versions:
   - Version: 1
     Fields:

@@ -5,10 +5,6 @@ Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
 Path: "/sitecore/content/EdgeWebsite/home/shop/yoga/Page Components/yoga-jss-main-Section-1"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "Section-1"
   Versions:
   - Version: 1
     Fields:

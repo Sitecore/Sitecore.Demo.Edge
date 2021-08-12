@@ -5,10 +5,6 @@ Template: "05178a6e-4135-58f1-8755-3bdf8f857872"
 Path: "/sitecore/content/EdgeWebsite/home/tickets/Page Components/tickets-jss-main-TextCta-3"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "TextCta-3"
   Versions:
   - Version: 1
     Fields:
