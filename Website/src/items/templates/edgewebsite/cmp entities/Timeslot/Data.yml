@@ -2,7 +2,7 @@
 ID: "ab4198b5-0ef0-45b0-b9fa-1a48ba2b2cf9"
 Parent: "0bc9237d-12eb-47a5-afed-a65188324358"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Timeslot/Data
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Timeslot/Data
 SharedFields:
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only

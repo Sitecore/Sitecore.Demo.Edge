@@ -2,7 +2,7 @@
 ID: "ba924357-8521-4cb6-9962-b0f2b5391844"
 Parent: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
 Template: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge News/__Standard Values
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/News/__Standard Values
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow

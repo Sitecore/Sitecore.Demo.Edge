@@ -2,7 +2,7 @@
 ID: "e19540b4-34d5-4b25-a65d-93f441d02ec7"
 Parent: "0bc9237d-12eb-47a5-afed-a65188324358"
 Template: "0bc9237d-12eb-47a5-afed-a65188324358"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Timeslot/__Standard Values
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Timeslot/__Standard Values
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
