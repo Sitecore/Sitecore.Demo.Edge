@@ -33,7 +33,7 @@ Languages:
               uid="{21331296-E428-5D35-8D94-F9FFB42F4B13}"
               p:after="r[@uid='{C384A528-1394-5ACE-9BF0-7DF88F33F3D9}']"
               s:rname="HeroImage"
-              s:ds="{38D7833E-15DF-5FE9-AD21-A8D999F5B82A}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main"
@@ -93,14 +93,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "41c2de87-35e4-409a-b54f-46ae84ca3fbc"
+      Value: "a3ef0061-8594-445f-83f3-8ec4ab41c6fe"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T152151Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Jalen Williams"

@@ -33,7 +33,7 @@ Languages:
               uid="{B9F8B216-0C80-5B93-BF47-D1045242D4F6}"
               p:after="r[@uid='{AA2F3DEB-F64E-5681-BFB6-C407DC748A57}']"
               s:rname="HeroImage"
-              s:ds="{8D69290A-EB9C-55E7-B303-A158C5CCDBAB}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main" />
@@ -92,14 +92,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b53fa57d-016b-4d84-8bb8-a8991d0b13f8"
+      Value: "6450b795-d769-4edf-b65c-aa740c524932"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T152151Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Li Xiu Ying"

@@ -1,8 +1,8 @@
 ﻿---
-ID: "24baadf6-0254-58a0-a0bd-301ef9ca5e7a"
-Parent: "7c0859fa-b53f-56d5-bc7b-1305b857c48f"
+ID: "64d1c128-a38e-525e-a993-2431de26a39e"
+Parent: "b7d6ed42-28d2-505e-9b85-a27c6cd7bdea"
 Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/edjones/Page Components/edjones-jss-main-HeroImage-1"
+Path: /sitecore/content/EdgeWebsite/Components/HeroImage/Golf Hero Image
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210721T153623Z
+      Value: 20210721T153624Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,7 +25,7 @@ Languages:
         <image alt="Sample Image" mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2158c69b-e33d-4921-9cb3-fb598de655b1"
+      Value: "4a28f261-f420-4818-b637-747a388ac058"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -35,4 +35,4 @@ Languages:
       Value: Image
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T153624Z
+      Value: 20210721T153626Z

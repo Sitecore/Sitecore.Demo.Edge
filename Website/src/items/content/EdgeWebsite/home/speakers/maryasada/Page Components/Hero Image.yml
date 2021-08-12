@@ -1,8 +1,8 @@
 ﻿---
-ID: "558bd276-ee64-577d-9f10-c42b0a6f94ad"
-Parent: "f4494344-cc6e-58fb-b7c3-0c0f48a02a55"
+ID: "bc4c2b1c-a0a1-5bbe-9cbf-e1ef59e3f1d2"
+Parent: "f56ace2e-ba38-5606-938e-cf3c1310f150"
 Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/martinmoore/Page Components/martinmoore-jss-main-HeroImage-1"
+Path: /sitecore/content/EdgeWebsite/home/speakers/maryasada/Page Components/Hero Image
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210721T153632Z
+      Value: 20210720T175617Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -22,10 +22,10 @@ Languages:
     - ID: "7f1d47cf-4525-5f3e-b8fe-4c6ddbcefa39"
       Hint: hero
       Value: |
-        <image alt="Sample Image" mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" />
+        <image mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" alt="Sample Image" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8878076c-8a63-47cb-b209-5b5758cd34a4"
+      Value: "a4636b90-cf0b-401d-acf0-c2d9740ccba8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -35,4 +35,4 @@ Languages:
       Value: Image
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T153633Z
+      Value: 20210721T153635Z

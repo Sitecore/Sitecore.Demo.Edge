@@ -33,7 +33,7 @@ Languages:
               uid="{95121BDD-0926-56E0-9E90-6CBDA2195ED4}"
               p:after="r[@uid='{D5079775-836C-57AB-933F-20D83F2E1D24}']"
               s:rname="HeroImage"
-              s:ds="{869D7680-806F-56FF-9D26-C358141B009D}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main" />
@@ -91,14 +91,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0b3a6147-4f94-42d5-8534-510276191408"
+      Value: "89003c88-b2f2-4745-b9bf-9ceb7e8f880d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T152151Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Kate Green"
