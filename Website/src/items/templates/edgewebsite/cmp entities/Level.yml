@@ -2,7 +2,7 @@
 ID: "f4daca50-849d-463a-a3ab-7e384c028128"
 Parent: "58acc437-36f0-4b23-abca-58827fe3a01e"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Vendor Level
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Level
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

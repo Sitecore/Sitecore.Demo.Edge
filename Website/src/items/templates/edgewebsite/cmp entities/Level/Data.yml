@@ -1,15 +1,15 @@
 ﻿---
-ID: "9029e39b-fb7c-481c-9403-4ea69dfc1ac2"
+ID: "72cc1ce8-482d-4fe0-89e7-60fa7668552e"
 Parent: "f4daca50-849d-463a-a3ab-7e384c028128"
-Template: "f4daca50-849d-463a-a3ab-7e384c028128"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Vendor Level/__Standard Values
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Project/edgewebsite/cmp entities/Level/Data
 SharedFields:
-- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
-  Hint: __Workflow
+- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
+  Hint: __Read Only
   Value: 
-- ID: "c9283d9e-7c29-4419-9c28-5a5c8ff53e84"
-  Hint: __Bucketable
-  Value: 1
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -17,25 +17,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190614T161122Z
-    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
-      Hint: __Workflow state
-      Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+      Value: 20181027T230927Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a7a04215-aff8-47e1-83b0-d1037691a195"
+      Value: "5b6c964f-4869-4193-89ee-2bf65ea5a0ad"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210722T182458Z
+      Value: 20210722T182448Z
