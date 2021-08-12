@@ -77,7 +77,7 @@ Languages:
               uid="{F503ED27-48D6-5198-9B04-64136F91868B}"
               p:after="r[@uid='{31D2B39F-656D-5821-9EDA-30F8FCB41910}']"
               s:rname="FullImageSection"
-              s:ds="{D5569E0F-3EE5-5214-BD67-CCF9B8814B31}"
+              s:ds="{3FDC9247-F940-5DE3-BB56-9242835DD87B}"
               s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
               s:par=""
               s:ph="/jss-main" />
@@ -136,14 +136,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1371d43a-f9f7-4f45-98ed-6f9dd38c2801"
+      Value: "a89277f6-521a-46cf-a3d4-2b45ab555006"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T152151Z
+      Value: 20210812T200504Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - attendee"

@@ -70,7 +70,7 @@ Languages:
               uid="{C5E5EB54-1DA0-57D4-B31B-C498CA333FEF}"
               p:after="r[@uid='{A224DC32-33DA-5633-833E-67F714DD0FD9}']"
               s:rname="FullImageSection"
-              s:ds="{42A06FE8-EDE5-5012-A8E0-CBC15DE99E25}"
+              s:ds="{3FDC9247-F940-5DE3-BB56-9242835DD87B}"
               s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
               s:par=""
               s:ph="/jss-main" />
@@ -112,14 +112,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "576e0867-32c4-4b15-94c9-e72b1fe5e212"
+      Value: "a1f84e45-8e9e-4185-96d5-4c04b7ae91b1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T152151Z
+      Value: 20210812T200504Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - payment"
