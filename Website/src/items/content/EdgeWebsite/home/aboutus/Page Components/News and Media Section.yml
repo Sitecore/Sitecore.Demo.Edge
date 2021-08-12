@@ -1,8 +1,12 @@
 ﻿---
-ID: "0ec6c306-fe31-5479-b740-8e4d7ca071f9"
-Parent: "99536ff1-02bf-5b2e-a94a-1bbba4cf50fa"
+ID: "4587e439-d299-5884-b223-eb50445e6e0d"
+Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
-Path: "/sitecore/content/EdgeWebsite/home/Page Components/home-jss-main-Section-6"
+Path: /sitecore/content/EdgeWebsite/home/aboutus/Page Components/News and Media Section
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
 Languages:
 - Language: en
   Versions:
@@ -10,38 +14,38 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: Game Changers
+      Value: News and Media
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210615T142052Z
+      Value: 20210707T172844Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="Discover More" linktype="internal" id="{9DA25044-7955-5BB0-BA92-E03D17E6D4C1}" />
+        <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fd12913c-da67-452f-8e3b-2fd325293310"
+      Value: "4c7e0b59-2124-4ad3-b5ba-c9b6c6778e57"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section__products
+      Value: section__news
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
-      Value: light
+      Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201829Z
+      Value: 20210722T012407Z

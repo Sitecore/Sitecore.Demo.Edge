@@ -1,8 +1,8 @@
 ﻿---
 ID: "b480e5fa-e4d0-4c4a-b42d-033e697680ed"
-Parent: "99536ff1-02bf-5b2e-a94a-1bbba4cf50fa"
+Parent: "2237f3f3-2d7a-534a-a2cd-f9700e85651b"
 Template: "7dfc82e1-f7a7-5853-9760-59c812f25776"
-Path: /sitecore/content/EdgeWebsite/home/Page Components/ProductCategoriesGrid
+Path: /sitecore/content/EdgeWebsite/Components/ProductCategoriesGrid/Most Popular Product Categories Grid
 Languages:
 - Language: en
   Versions:
