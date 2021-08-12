@@ -1,8 +1,8 @@
 ﻿---
-ID: "bada60ee-7043-5750-acae-d4e620754f1f"
-Parent: "2e085239-09d6-505d-80eb-1b3750662507"
+ID: "4678636c-7152-5bf3-933c-f163a5e09b9d"
+Parent: "e6d901f8-8f14-573c-a3e5-c39f6cd05801"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
-Path: "/sitecore/content/EdgeWebsite/home/tickets/registration/Page Components/registration-jss-main-Section-6"
+Path: /sitecore/content/EdgeWebsite/home/tickets/payment/Page Components/Credit or Debit Card Section
 Languages:
 - Language: en
   Versions:
@@ -10,17 +10,10 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: Experience our event gallery
+      Value: Credit / Debit Card
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210707T152629Z
-    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
-      Hint: content
-      Value: Asdas fasfwe aerg sdeg sCheck out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
-    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
-      Hint: callToActionLink
-      Value: |
-        <link text="View full gallery" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
+      Value: 20210708T135726Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,17 +24,17 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1023b036-9ba9-4346-99cb-7a09cd47b2a8"
+      Value: "4deea739-c79e-44dd-abbe-17e5332836ab"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section
+      Value: section__news
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
       Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135717Z
+      Value: 20210708T135726Z

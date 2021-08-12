@@ -1,8 +1,8 @@
 ﻿---
-ID: "4678636c-7152-5bf3-933c-f163a5e09b9d"
-Parent: "e6d901f8-8f14-573c-a3e5-c39f6cd05801"
+ID: "ffc44113-0826-506c-b6d8-b7f4bc94e9a4"
+Parent: "6c003c60-1b9a-5e5a-a5bf-93cc18b8c6b9"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
-Path: "/sitecore/content/EdgeWebsite/home/tickets/payment/Page Components/payment-jss-main-Section-3"
+Path: /sitecore/content/EdgeWebsite/Components/Section/Super Early Bird Offer Section
 Languages:
 - Language: en
   Versions:
@@ -10,10 +10,13 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: Credit / Debit Card
+      Value: Don't miss the super early bird offer
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210708T135726Z
+      Value: 20210708T135725Z
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -24,7 +27,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4deea739-c79e-44dd-abbe-17e5332836ab"
+      Value: "2b77bead-a43b-4f0b-9c8f-efaa92f5182c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -37,4 +40,4 @@ Languages:
       Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135726Z
+      Value: 20210708T135725Z
