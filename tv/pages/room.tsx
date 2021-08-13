@@ -37,12 +37,12 @@ export default function Room(props: RoomProps) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const room = "Room 1001";
+  const room = 'Room 1001';
   const { sessions } = await getSessions(preview, room);
 
   return {
     props: {
-      sessions: sessions
+      sessions: sessions,
     },
     revalidate: 10,
   };
