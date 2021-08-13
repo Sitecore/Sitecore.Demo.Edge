@@ -8,6 +8,10 @@ type RoomProps = {
   preview: boolean;
 };
 
+export declare type Params = {
+  [param: string]: any;
+};
+
 export default function Room(props: RoomProps) {
   return <RoomDisplay sessions={props.sessions} />;
 }
@@ -28,10 +32,8 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }: Params) => {
   const { sessions } = await getSessions(false, params.id);
-
-  console.log(sessions);
 
   return {
     props: {
@@ -39,4 +41,4 @@ export async function getStaticProps({ params }) {
     },
     revalidate: 10,
   };
-}
+};
