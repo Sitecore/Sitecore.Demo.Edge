@@ -11,7 +11,7 @@ const HeroImage = (props: HeroImageProps): JSX.Element => {
   if (props.fields.hero && props.fields.hero.value) {
     return (
       <section
-        className="mt-20 banner bg-black bg-left bg-no-repeat bg-cover relative h-96"
+        className="banner bg-black bg-left bg-no-repeat bg-cover relative h-96"
         style={{ backgroundImage: 'url("' + props.fields.hero.value.src + '")' }}
       ></section>
     );
