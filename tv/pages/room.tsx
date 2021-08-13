@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import { getBlogs } from '../api/queries/getBlogs';
+import { getSessions } from '../api/queries/getSessions';
 import { GetStaticProps } from 'next';
-import { Blog } from '../interfaces';
+import { Session } from '../interfaces';
 import RoomDisplay from '../components/RoomDisplay';
 import Footer from '../components/Footer';
 
 type RoomProps = {
-  blogs: Blog[];
+  sessions: Session[];
   preview: boolean;
 };
 
@@ -23,7 +23,7 @@ export default function Room(props: RoomProps) {
         <div id="container">
           <div id="monitor">
             <div id="monitorscreen">
-              <RoomDisplay blogs={props.blogs} />
+              <RoomDisplay sessions={props.sessions} />
             </div>
           </div>
         </div>
@@ -37,11 +37,12 @@ export default function Room(props: RoomProps) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const { blogs } = await getBlogs(preview);
+  const room = "Room 1001";
+  const { sessions } = await getSessions(preview, room);
 
   return {
     props: {
-      blogs: blogs,
+      sessions: sessions
     },
     revalidate: 10,
   };

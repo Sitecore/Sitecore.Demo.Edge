@@ -1,7 +1,7 @@
-import { Blog } from '../interfaces';
+import { Session } from '../interfaces';
 
 type CurrentSessionProps = {
-  blog: Blog;
+  session: Session;
 };
 
 const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
@@ -14,10 +14,10 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
       }}
     >
       <div className="m-auto p-6">
-        <p className="font-semibold py-3 uppercase text-yellow-400">Conference Room</p>
-        <h1 className="text-4xl uppercase text-white">{props.blog.blog_Title}</h1>
+        <p className="font-semibold py-3 uppercase text-yellow-400" style={{ minWidth: '592px' }}>Conference Room</p>
+        <h1 className="text-4xl uppercase text-white">{props.session.name}</h1>
         <p className="text-2xl py-3 font-semibold uppercase text-yellow-400">10:00am-11:00am</p>
-        <p className="text-white pt-2">{props.blog.blog_Body}</p>
+        <p className="text-white pt-2">{props.session.description}</p>
       </div>
     </div>
   );
