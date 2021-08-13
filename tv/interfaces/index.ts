@@ -17,8 +17,6 @@ export interface Session {
 export interface Room {
   id: string;
   name: string;
-  description: string;
-  timeslots: Timeslot[];
 }
 
 export interface Timeslot {
