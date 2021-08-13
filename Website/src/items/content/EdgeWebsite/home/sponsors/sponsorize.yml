@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{2FA22010-FC3D-5D46-9007-36B27E8DFEFE}-0" />
             <r
-              uid="{8E625F31-C9CD-5EE2-98D2-AC64CE555EFE}"
-              p:after="r[@uid='{1A2B0992-4811-55E5-AF93-8245C027238D}']"
-              s:rname="Section"
-              s:ds="{299CC3A6-6B8C-51FF-AFB5-48372A7067C3}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{D7D16A53-6F7E-53E2-B8FE-CD3530C00068}"
-              p:after="r[@uid='{8E625F31-C9CD-5EE2-98D2-AC64CE555EFE}']"
+              p:after="r[@uid='{1A2B0992-4811-55E5-AF93-8245C027238D}']"
               s:rname="Section"
               s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -91,14 +83,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f14107c5-9431-4c52-93b7-134cf6d91b38"
+      Value: "bea27b94-fa17-456c-8d24-b16b41b3cfc7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Sponsorize"

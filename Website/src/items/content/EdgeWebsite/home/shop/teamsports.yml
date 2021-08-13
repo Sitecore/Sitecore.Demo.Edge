@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{60FF17C8-D1DF-5FBC-AC9E-5CBA9BDD326C}-0" />
             <r
-              uid="{F1ED92F6-0712-5F4D-9C91-9577A26CECF4}"
-              p:after="r[@uid='{C4C25E4E-D979-5521-9AA3-575DAE9EAF20}']"
-              s:rname="Section"
-              s:ds="{DE993EC6-850D-5438-BA2F-75442BD71A22}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{727B8E11-511E-5081-AF86-2A9CDB711900}"
-              p:after="r[@uid='{F1ED92F6-0712-5F4D-9C91-9577A26CECF4}']"
+              p:after="r[@uid='{C4C25E4E-D979-5521-9AA3-575DAE9EAF20}']"
               s:rname="Section"
               s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -95,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5723a8a1-333f-4e5e-8cbe-c5cb22fdc28c"
+      Value: "cb612707-1d78-4079-92af-af2b32d410ae"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -105,7 +97,7 @@ Languages:
       Value: Team Sports
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Team Sports"

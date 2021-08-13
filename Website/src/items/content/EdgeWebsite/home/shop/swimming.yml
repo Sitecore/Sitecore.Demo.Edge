@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{93127031-36B0-577F-94BF-136F87DC9C51}-0" />
             <r
-              uid="{0FE1B159-2D97-572E-BE0C-4F156511CD8E}"
-              p:after="r[@uid='{3F822DA0-8C5E-536E-A482-8904AC051DBC}']"
-              s:rname="Section"
-              s:ds="{A809C035-B0D5-5B8C-B8DC-405A68C5F615}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{9827DD20-92B8-5D9F-82A7-7D6094232755}"
-              p:after="r[@uid='{0FE1B159-2D97-572E-BE0C-4F156511CD8E}']"
+              p:after="r[@uid='{3F822DA0-8C5E-536E-A482-8904AC051DBC}']"
               s:rname="Section"
               s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -95,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9a333b89-4ddd-47c6-ad5f-8d412f684f93"
+      Value: "fb757319-42e3-4f43-ac18-524c443239cd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -105,7 +97,7 @@ Languages:
       Value: Swimming
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Swimming"

@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{0B08A65D-5D3A-5B00-963D-FF70335AB40A}-0" />
             <r
-              uid="{72B11B34-176C-5229-843D-968C8003C724}"
-              p:after="r[@uid='{8B2DBCEB-1CCB-5CF6-8E46-C697A8805A94}']"
-              s:rname="Section"
-              s:ds="{823497E4-4862-5EB7-B504-3A865C9515F0}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{0994CC56-6246-5DB9-90F3-F06D77B9405F}"
-              p:after="r[@uid='{72B11B34-176C-5229-843D-968C8003C724}']"
+              p:after="r[@uid='{8B2DBCEB-1CCB-5CF6-8E46-C697A8805A94}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -98,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4ed58f75-c27c-41b3-b66f-18b58b8810bf"
+      Value: "79a9f4f5-6497-4422-a576-bc9793451b07"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Media"

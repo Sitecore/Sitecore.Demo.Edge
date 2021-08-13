@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{1CB49545-D7F4-538D-9748-FAAD4753D3CB}-0" />
             <r
-              uid="{DE57A5F4-908E-5E4D-9625-9887D64DEE24}"
-              p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
-              s:rname="Section"
-              s:ds="{D9DE50E1-84B3-5225-A7C0-B11104D2DE89}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}"
-              p:after="r[@uid='{DE57A5F4-908E-5E4D-9625-9887D64DEE24}']"
+              p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -98,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3ac292e5-4b1f-4694-a96b-a6adc2ca2581"
+      Value: "4c8146ed-2f3f-4c59-9b1d-4e85c1fe9ff4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Privacy Policy"

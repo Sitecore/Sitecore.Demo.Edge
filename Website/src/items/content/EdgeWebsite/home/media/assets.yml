@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{E3E257AC-2602-5F57-83CE-A2545C57D071}-0" />
             <r
-              uid="{4CB21440-24A9-5920-B9AC-8FF1C670301F}"
-              p:after="r[@uid='{C4A2F232-224C-57A8-9F17-F1C552A376E4}']"
-              s:rname="Section"
-              s:ds="{1EEE5DA2-2BF3-5B32-A232-F782822B26C3}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{8F32691F-A6E5-5C22-9C41-229F3E328C5F}"
-              p:after="r[@uid='{4CB21440-24A9-5920-B9AC-8FF1C670301F}']"
+              p:after="r[@uid='{C4A2F232-224C-57A8-9F17-F1C552A376E4}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -98,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "66204a70-dea2-41a7-9b98-812d908fdcab"
+      Value: "68fb0c1a-fbb2-46b0-b6e4-fff5cb13468f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Media Assets"

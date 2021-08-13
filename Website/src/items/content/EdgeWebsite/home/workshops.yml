@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{530DAD1E-0CCD-5C12-B2DD-25D752681631}-0" />
             <r
-              uid="{042AEF81-FEDF-5762-9CD1-2F33D9C73468}"
-              p:after="r[@uid='{A779E505-0C03-5C03-9AEA-7D4041256E7B}']"
-              s:rname="Section"
-              s:ds="{1CB60D2F-002B-54F6-A84F-C4FDC9B9B5FE}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{61EE249B-EFAF-5B6C-87EC-AB679BEBF8B6}"
-              p:after="r[@uid='{042AEF81-FEDF-5762-9CD1-2F33D9C73468}']"
+              p:after="r[@uid='{A779E505-0C03-5C03-9AEA-7D4041256E7B}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -98,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c877c348-90a6-41bd-99db-ac432660d7fd"
+      Value: "4187b710-4aa2-408c-8d6a-3db02d8f4b38"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195205Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Workshops"

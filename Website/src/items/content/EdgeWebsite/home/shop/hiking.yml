@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{D22B3CE1-62EB-57A6-87ED-02ABC0B1F93A}-0" />
             <r
-              uid="{B637538B-FD63-5694-82B4-0196DF52D3D4}"
-              p:after="r[@uid='{C8EEE566-4C2B-5150-AC60-6F9BD995485A}']"
-              s:rname="Section"
-              s:ds="{89210552-95BF-56B4-A4CA-810DA402433F}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{7BE76C18-946B-5968-AA4E-12503D48072C}"
-              p:after="r[@uid='{B637538B-FD63-5694-82B4-0196DF52D3D4}']"
+              p:after="r[@uid='{C8EEE566-4C2B-5150-AC60-6F9BD995485A}']"
               s:rname="Section"
               s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -95,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "400446f6-85d4-41a0-98e9-cb5e749f71ad"
+      Value: "6a65b7c2-9035-4d3d-ac34-d8c01fa05db7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -105,7 +97,7 @@ Languages:
       Value: Hiking
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Hiking"

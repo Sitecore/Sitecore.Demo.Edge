@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{F6B4E6BB-6B9F-5D4D-95A6-17D4889A8D6B}-0" />
             <r
-              uid="{DAD2AFB0-EFE2-5A4A-A9EB-8028547360D7}"
-              p:after="r[@uid='{8B35532C-A54C-5E56-9F34-6DF35B35EFDE}']"
-              s:rname="Section"
-              s:ds="{EA60062F-22A6-5EF4-A479-DC1CE8B1830F}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{657C8FED-39FA-5747-B756-8757A9929B52}"
-              p:after="r[@uid='{DAD2AFB0-EFE2-5A4A-A9EB-8028547360D7}']"
+              p:after="r[@uid='{8B35532C-A54C-5E56-9F34-6DF35B35EFDE}']"
               s:rname="Section"
               s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -95,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9f607da7-6148-4875-9b33-a5ef27ac9dee"
+      Value: "d0d8a792-ee9e-4d0d-b73b-3bd8dddefdd9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -105,7 +97,7 @@ Languages:
       Value: Motor Sports
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Motor Sports"

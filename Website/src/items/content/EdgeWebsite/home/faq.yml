@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{10AF4A57-4C33-51EE-85D2-E8EF4BEBA51E}-0" />
             <r
-              uid="{268141A6-0406-5113-941A-DDB930C705FF}"
-              p:after="r[@uid='{3E9B1E21-9CF6-565E-A2F4-D9292E1A79FE}']"
-              s:rname="Section"
-              s:ds="{146574C3-DCF9-534F-B4B9-4BFC951AB24E}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{80E1CB56-C377-5F8E-A217-559453D0747C}"
-              p:after="r[@uid='{268141A6-0406-5113-941A-DDB930C705FF}']"
+              p:after="r[@uid='{3E9B1E21-9CF6-565E-A2F4-D9292E1A79FE}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -98,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9addf7f3-d804-47ff-9f67-6bc2b9befa72"
+      Value: "e7360502-a1bd-46cb-9e8e-3029e35caf57"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T195204Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - FAQ"
