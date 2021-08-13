@@ -30,18 +30,10 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{C5C32F7C-C47F-51DA-80DD-AF41612B16E9}-0" />
             <r
-              uid="{F807B16D-287A-5540-9F07-1F199B944BB9}"
+              uid="{7E1B0025-E45D-546F-A2E3-3B3E0306A892}"
               p:after="r[@uid='{8F21104C-5450-5B9D-BC21-93C88B115749}']"
               s:rname="Section"
-              s:ds="{5474DB93-AA78-5E33-9C47-092FBCF2D541}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{7E1B0025-E45D-546F-A2E3-3B3E0306A892}"
-              p:after="r[@uid='{F807B16D-287A-5540-9F07-1F199B944BB9}']"
-              s:rname="Section"
-              s:ds="{E23320B1-BA60-542F-B5AA-E0D310C95418}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +49,7 @@ Languages:
               uid="{0A5473AE-AC84-5BDC-8C88-E4493A1F5BBA}"
               p:after="r[@uid='{9DBBEACC-42B3-5576-A0A5-56C3240B4C71}']"
               s:rname="Section"
-              s:ds="{74925695-BA74-5022-80D5-742B41005C59}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +57,7 @@ Languages:
               uid="{6218A726-95CC-532A-AFD9-86C0F1698AD3}"
               p:after="r[@uid='{0A5473AE-AC84-5BDC-8C88-E4493A1F5BBA}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{0A5473AE-AC84-5BDC-8C88-E4493A1F5BBA}-0" />
@@ -94,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cdda6cd6-6e6e-4937-8f71-7b571617dd1f"
+      Value: "2c7cf65c-a892-4df1-8576-2177ccad7933"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +97,7 @@ Languages:
       Value: Yoga
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T140515Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Yoga"

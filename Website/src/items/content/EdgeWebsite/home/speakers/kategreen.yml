@@ -33,7 +33,7 @@ Languages:
               uid="{95121BDD-0926-56E0-9E90-6CBDA2195ED4}"
               p:after="r[@uid='{D5079775-836C-57AB-933F-20D83F2E1D24}']"
               s:rname="HeroImage"
-              s:ds="{869D7680-806F-56FF-9D26-C358141B009D}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +57,7 @@ Languages:
               uid="{CB88F405-6D7A-5B0A-8D83-3DDA53DEDAC3}"
               p:after="r[@uid='{A7EA9601-4423-5467-8247-E2723813C218}']"
               s:rname="Section"
-              s:ds="{5DE69D27-2FA3-5DC7-B26B-1655C2805847}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +65,7 @@ Languages:
               uid="{E83893C4-3667-5CB5-A0C6-44B6E3745022}"
               p:after="r[@uid='{CB88F405-6D7A-5B0A-8D83-3DDA53DEDAC3}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{CB88F405-6D7A-5B0A-8D83-3DDA53DEDAC3}-0" />
@@ -90,14 +91,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4541c6a6-c056-4816-b97f-e632f7f699a3"
+      Value: "89003c88-b2f2-4745-b9bf-9ceb7e8f880d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T180727Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Kate Green"

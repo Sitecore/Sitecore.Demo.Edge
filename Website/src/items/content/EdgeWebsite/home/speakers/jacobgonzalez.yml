@@ -57,7 +57,7 @@ Languages:
               uid="{6331B8D7-A47C-520E-A145-F75E0320E84B}"
               p:after="r[@uid='{9AC331AA-78F2-5964-B5ED-665554B2A155}']"
               s:rname="Section"
-              s:ds="{9E073E97-97A0-5ED7-A00C-B16FDC140E9D}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +65,7 @@ Languages:
               uid="{72FF2693-1A0A-55A3-BFB5-232863EA718B}"
               p:after="r[@uid='{6331B8D7-A47C-520E-A145-F75E0320E84B}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{6331B8D7-A47C-520E-A145-F75E0320E84B}-0" />
@@ -90,14 +91,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f0dfced5-385d-422c-a091-6c235d1a78ed"
+      Value: "054d7ff0-bc79-4bd0-9dd0-ba9dc316c3dd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T180754Z
+      Value: 20210812T152151Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Jacob Gonzalez"

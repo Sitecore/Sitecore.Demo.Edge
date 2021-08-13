@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{0EA94B3D-B1A1-5F83-A7E4-09AE449F0DF7}-0" />
             <r
-              uid="{B1980D53-C2AC-593C-AF37-ABACAC8E71DD}"
-              p:after="r[@uid='{AA77FD75-6AA0-5664-B41A-D008BB8B6728}']"
-              s:rname="Section"
-              s:ds="{2660DB7F-CFB3-59D4-B1CA-A34B937A8240}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{768A9B66-E9E9-50E2-8F2D-754545645182}"
-              p:after="r[@uid='{B1980D53-C2AC-593C-AF37-ABACAC8E71DD}']"
+              p:after="r[@uid='{AA77FD75-6AA0-5664-B41A-D008BB8B6728}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -48,7 +40,7 @@ Languages:
               uid="{101D37C9-EB56-54E4-B73C-DA03916F7175}"
               p:after="r[@uid='{768A9B66-E9E9-50E2-8F2D-754545645182}']"
               s:rname="Section"
-              s:ds="{D7950C53-8FC9-5E9C-9106-F420D18D8984}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -64,7 +56,7 @@ Languages:
               uid="{C69685B8-9B19-55EC-AFFC-245085A7D3C3}"
               p:after="r[@uid='{25F4B4FF-062B-5836-B757-EA88545F20D4}']"
               s:rname="Section"
-              s:ds="{5DDA68D0-B616-52BD-87AB-B1C5CEBF0D72}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -72,6 +64,7 @@ Languages:
               uid="{0C093D4A-BF40-5E68-B2AB-A24D9DF420C5}"
               p:after="r[@uid='{C69685B8-9B19-55EC-AFFC-245085A7D3C3}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{C69685B8-9B19-55EC-AFFC-245085A7D3C3}-0" />
@@ -97,14 +90,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e2407968-5d2b-4382-be9c-7712998bd63d"
+      Value: "aa301cee-3d4f-4636-8086-0aa91892d5d8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191713Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Inquires"

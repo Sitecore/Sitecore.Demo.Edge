@@ -77,7 +77,7 @@ Languages:
               uid="{F503ED27-48D6-5198-9B04-64136F91868B}"
               p:after="r[@uid='{31D2B39F-656D-5821-9EDA-30F8FCB41910}']"
               s:rname="FullImageSection"
-              s:ds="{D5569E0F-3EE5-5214-BD67-CCF9B8814B31}"
+              s:ds="{3FDC9247-F940-5DE3-BB56-9242835DD87B}"
               s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
               s:par=""
               s:ph="/jss-main" />
@@ -102,7 +102,7 @@ Languages:
               uid="{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}"
               p:after="r[@uid='{A244C1C4-34A1-5196-A27B-6B787A759794}']"
               s:rname="Section"
-              s:ds="{0F39CE8C-AD22-5EAA-AAB5-F8F1116E089C}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -110,6 +110,7 @@ Languages:
               uid="{2BE9597F-BD91-57D2-BA9B-4A9F5058DE74}"
               p:after="r[@uid='{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{047AB2B7-8C19-5D8F-A0A7-EF1F84F40224}-0" />
@@ -135,14 +136,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a85be007-13c9-4b35-a351-ffce06ded122"
+      Value: "a89277f6-521a-46cf-a3d4-2b45ab555006"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135725Z
+      Value: 20210812T200504Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - attendee"

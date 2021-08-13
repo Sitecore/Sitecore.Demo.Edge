@@ -66,7 +66,7 @@ Languages:
               uid="{DF5E9EFA-6620-56DA-B0EF-E23C829ABE9E}"
               p:after="r[@uid='{79CC0F9C-2903-58F8-8DAE-EC4605BA9197}']"
               s:rname="Section"
-              s:ds="{BD06643E-1610-5AFA-BCC9-8FF3DAE94483}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -101,14 +101,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4fb30358-7223-4353-b632-6d2ca88959a9"
+      Value: "a1ad5a7e-9e2b-494c-9808-3335fff8f4b9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191731Z
+      Value: 20210811T195500Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Vendors"

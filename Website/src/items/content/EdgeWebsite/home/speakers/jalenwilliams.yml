@@ -33,7 +33,7 @@ Languages:
               uid="{21331296-E428-5D35-8D94-F9FFB42F4B13}"
               p:after="r[@uid='{C384A528-1394-5ACE-9BF0-7DF88F33F3D9}']"
               s:rname="HeroImage"
-              s:ds="{38D7833E-15DF-5FE9-AD21-A8D999F5B82A}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main"
@@ -58,7 +58,7 @@ Languages:
               uid="{9C157B2E-793B-54BE-9BAF-4DAD2C1026DF}"
               p:after="r[@uid='{2BB4EFF7-D228-50B9-A728-195A72DB0D01}']"
               s:rname="Section"
-              s:ds="{7500343F-6630-51FD-8D3E-7FE9FB6CF99D}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main"
@@ -67,6 +67,7 @@ Languages:
               uid="{415CE1C7-54D1-5CE6-A666-572A0AC2B18B}"
               p:after="r[@uid='{9C157B2E-793B-54BE-9BAF-4DAD2C1026DF}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{9C157B2E-793B-54BE-9BAF-4DAD2C1026DF}-0" />
@@ -92,14 +93,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "152debef-4727-44b4-9017-cda04da62752"
+      Value: "a3ef0061-8594-445f-83f3-8ec4ab41c6fe"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T180740Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Jalen Williams"
