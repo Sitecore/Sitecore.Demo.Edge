@@ -1,8 +1,8 @@
 ﻿---
 ID: "be567aca-7ee4-5063-b7f1-29ead100ba3a"
-Parent: "f0c77235-5000-532c-a61c-e5f11947760d"
+Parent: "50e74ac2-cc2c-51c1-883f-fc6e8ed07cb3"
 Template: "fdf43aad-c5d1-54e4-9909-59bfddc86689"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/Page Components/speakers-jss-main-FeaturedSpeakers-3"
+Path: /sitecore/content/EdgeWebsite/Components/FeaturedSpeakers/Featured Speakers
 Languages:
 - Language: en
   Versions:

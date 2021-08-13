@@ -33,10 +33,11 @@ Languages:
               uid="{DC97D398-D7B5-5407-B2B2-B28516EB743F}"
               p:after="r[@uid='{C2AA52E9-20A3-5AE5-880C-E4F88B051708}']"
               s:rname="HeroImage"
-              s:ds="{CAD56AF3-B19F-5D67-9991-12F637A97A9B}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{1AD90955-9DD5-52F6-83A3-A54AE4F0FBDF}"
               p:after="r[@uid='{DC97D398-D7B5-5407-B2B2-B28516EB743F}']"
@@ -99,14 +100,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2ea24f2d-0c84-4500-8d22-a528c1b010c1"
+      Value: "cec92125-693a-4a30-be53-6b952309f458"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195459Z
+      Value: 20210813T005602Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Speakers"

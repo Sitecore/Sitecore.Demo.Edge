@@ -33,10 +33,11 @@ Languages:
               uid="{40CE160F-45AF-5AE7-9065-5D6B9CE3F314}"
               p:after="r[@uid='{AC270CEE-228F-5972-9897-9AFAE1BD8A37}']"
               s:rname="HeroImage"
-              s:ds="{BC4C2B1C-A0A1-5BBE-9CBF-E1EF59E3F1D2}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
-              s:ph="/jss-main" />
+              s:ph="/jss-main"
+              s:ccb="Clear on publish" />
             <r
               uid="{5D0AB62F-799B-5EFC-9524-7042FE197448}"
               p:after="r[@uid='{40CE160F-45AF-5AE7-9065-5D6B9CE3F314}']"
@@ -91,14 +92,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e37aa82c-0522-4ad5-9b90-b535cef11b93"
+      Value: "c738200d-c39d-4d14-8a76-7e098f3cbf39"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210812T152151Z
+      Value: 20210813T005528Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Mary Asada"
