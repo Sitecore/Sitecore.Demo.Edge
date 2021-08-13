@@ -1,9 +1,7 @@
-import Head from 'next/head';
 import { getSessions } from '../../api/queries/getSessions';
 import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
-import Footer from '../../components/Footer';
 
 type RoomProps = {
   sessions: Session[];
