@@ -9,6 +9,8 @@ export interface Session {
   id: string;
   name: string;
   description: string;
+  room: string;
+  timeslot: string;
 }
 
 export interface Room {
