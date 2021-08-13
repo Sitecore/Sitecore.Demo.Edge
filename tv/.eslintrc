@@ -38,7 +38,7 @@
   "globals": {
     "React": "writable"
   },
-  "ignorePatterns": [".generated/**/*", "src/components/**/*.d.ts", "**/*.js"],
+  "ignorePatterns": [".generated/**/*", "components/**/*.d.ts", "**/*.js"],
   "rules": {
     // Prevent missing props validation in a React component definition
     "react/prop-types": "off",
@@ -48,8 +48,6 @@
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "error",
     "jsx-quotes": ["error", "prefer-double"],
-    // DEMO TEAM CUSTOMIZATION - Disable no-img-element validtion until Sitecore JSS supports the next/Image component
-    "@next/next/no-img-element": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
