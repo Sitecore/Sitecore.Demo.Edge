@@ -1,0 +1,24 @@
+{
+ "X-GQL-Token": "S1hPdGdhUmQxblZBUHg1Z2xDSDE4Q2xQZTlQSVBSK2txRXc5SVNDNGdaVT18ZGVtb2VkZ2U="
+}
+
+query {
+#  allM_Content_SocialMediaMessage {
+#    results {      id      content_Name      socialMediaMessage_Title      socialMediaMessage_Body      socialMediaMessage_Date      socialMediaMessage_Footer      content_Brief      cmpContentToBriefAsset {         results {          id          fileName        }      }      socialMediaMessage_Site {        id        taxonomyName      }    }  }
+#  allDemo_Session{    results{      id      name      speakers{        results{         name        }      }      timeslots{        results{          taxonomyName        }      }    }  }
+  allDemo_Timeslot   (where: {taxonomyName_eq: "10 am"}){results{taxonomyName}  }
+}
+
+
+
+https://demoedge.sitecoresandbox.cloud/api/graphql/preview/v1
+
+
+https://demoedge.sitecoresandbox.cloud/api/graphql/preview/ide/
+
+
+from varcel
+API KEY
+Y0hxRTlXZkhpa1FrWjVydytOMFRFK2RPLzNHYmdFSUJtOFZ6M3RDQkZ1ST18ZGVtb2VkZ2U=
+endpoint
+https://edge.sitecorecloud.io/api/graphql/v1
