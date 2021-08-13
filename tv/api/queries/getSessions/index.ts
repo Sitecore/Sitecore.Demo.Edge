@@ -1,7 +1,10 @@
 import { fetchGraphQL } from '../../../api';
 import { Session } from '../../../interfaces/index';
 
-export const getSessions = async (preview: boolean, room: string): Promise<{ sessions: Session[] }> => {
+export const getSessions = async (
+  preview: boolean,
+  room: string
+): Promise<{ sessions: Session[] }> => {
   try {
     const sessionsQuery: any = `
     query {
@@ -41,19 +44,19 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
       const sessions: Session[] = [];
 
       results.data.allDemo_Session.results.forEach((s: any) => {
-        if(s.room && s.room.results && s.room.results.find((e: any) => e.id == room)) {
+        if (s.room && s.room.results && s.room.results.find((e: any) => e.id == room)) {
           s.room = room;
 
-          if(s.timeslots.results.length > 0){
-            s.timeslot = s.timeslots.results[0].taxonomyLabel["en-US"];
+          if (s.timeslots.results.length > 0) {
+            s.timeslot = s.timeslots.results[0].taxonomyLabel['en-US'];
             s.sortOrder = s.timeslots.results[0].sortOrder;
-          } 
+          }
 
           sessions.push(s);
         }
-      });  
+      });
 
-      return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder)};
+      return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
     } else {
       return {
         sessions: [
@@ -64,7 +67,7 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
             id: '1',
             room: 'Room 1001',
             timeslot: '09:00am - 10:00am',
-            sortOrder: 0
+            sortOrder: 0,
           },
           {
             name: '7 mindset strategies to raise your game',
@@ -73,7 +76,7 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
             id: '1',
             room: 'Room 1001',
             timeslot: '10:00am - 11:00am',
-            sortOrder: 1
+            sortOrder: 1,
           },
           {
             name: 'Mountain biking: tales from the trail',
@@ -82,7 +85,7 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
             id: '1',
             room: 'Room 1001',
             timeslot: '11:00am - 10:00pm',
-            sortOrder: 2
+            sortOrder: 2,
           },
           {
             name: 'Train smarter, not harder',
@@ -91,7 +94,7 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
             id: '1',
             room: 'Room 1001',
             timeslot: '02:00pm - 3:00pm',
-            sortOrder: 3
+            sortOrder: 3,
           },
         ],
       };

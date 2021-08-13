@@ -1,9 +1,7 @@
-import { fetchGraphQL } from "../../../api";
-import { Room } from "../../../interfaces/index";
+import { fetchGraphQL } from '../../../api';
+import { Room } from '../../../interfaces/index';
 
-export const getRooms = async (
-  preview: boolean
-): Promise<{ rooms: Room[] }> => {
+export const getRooms = async (preview: boolean): Promise<{ rooms: Room[] }> => {
   try {
     const roomsQuery: any = `
     query {
@@ -25,17 +23,17 @@ export const getRooms = async (
       return {
         rooms: [
           {
-            id: "1",
-            name: "Room 1001"
+            id: '1',
+            name: 'Room 1001',
           },
           {
-            id: "2",
-            name: "Room 1002"
+            id: '2',
+            name: 'Room 1002',
           },
           {
-            id: "3",
-            name: "Room 1003"
-          }
+            id: '3',
+            name: 'Room 1003',
+          },
         ],
       };
     }
