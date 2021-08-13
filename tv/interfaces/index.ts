@@ -11,6 +11,7 @@ export interface Session {
   description: string;
   room: string;
   timeslot: string;
+  sortOrder: number;
 }
 
 export interface Room {

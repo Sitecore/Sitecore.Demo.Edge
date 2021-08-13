@@ -28,6 +28,7 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
             results {
               id
               taxonomyLabel
+              sortOrder
             }
           }
         }
@@ -45,13 +46,14 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
 
           if(s.timeslots.results.length > 0){
             s.timeslot = s.timeslots.results[0].taxonomyLabel["en-US"];
+            s.sortOrder = s.timeslots.results[0].sortOrder;
           } 
 
           sessions.push(s);
         }
       });  
 
-      return { sessions: sessions.sort((a, b) => a.timeslot.localeCompare(b.timeslot))};
+      return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder)};
     } else {
       return {
         sessions: [
@@ -61,7 +63,8 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
             id: '1',
             room: 'Room 1001',
-            timeslot: '09:00am - 10:00am'
+            timeslot: '09:00am - 10:00am',
+            sortOrder: 0
           },
           {
             name: '7 mindset strategies to raise your game',
@@ -69,7 +72,8 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
             id: '1',
             room: 'Room 1001',
-            timeslot: '10:00am - 11:00am'
+            timeslot: '10:00am - 11:00am',
+            sortOrder: 1
           },
           {
             name: 'Mountain biking: tales from the trail',
@@ -77,7 +81,8 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
             id: '1',
             room: 'Room 1001',
-            timeslot: '11:00am - 10:00pm'
+            timeslot: '11:00am - 10:00pm',
+            sortOrder: 2
           },
           {
             name: 'Train smarter, not harder',
@@ -85,7 +90,8 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
             id: '1',
             room: 'Room 1001',
-            timeslot: '02:00pm - 3:00pm'
+            timeslot: '02:00pm - 3:00pm',
+            sortOrder: 3
           },
         ],
       };
