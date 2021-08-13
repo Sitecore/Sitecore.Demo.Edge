@@ -1,11 +1,9 @@
-import { fetchGraphQL } from "../../../api";
-import { Blog } from "../../../interfaces/index";
+import { fetchGraphQL } from '../../../api';
+import { Blog } from '../../../interfaces/index';
 
-export const getBlogs = async (
-  preview: boolean
-): Promise<{ blogs: Blog[] }> => {
+export const getBlogs = async (preview: boolean): Promise<{ blogs: Blog[] }> => {
   try {
-    const blogsQuery: any = `
+    const blogsQuery = `
     query {
       allM_Content_Blog {
         total
@@ -19,7 +17,15 @@ export const getBlogs = async (
     }
     `;
 
-    const results: any = await fetchGraphQL(blogsQuery, preview);
+    interface BlogsQueryResult {
+      data: {
+        allM_Content_Blog: {
+          results: Blog[];
+        };
+      };
+    }
+
+    const results: BlogsQueryResult = (await fetchGraphQL(blogsQuery, preview)) as BlogsQueryResult;
     if (results) {
       return {
         blogs: results.data.allM_Content_Blog.results,
@@ -28,32 +34,32 @@ export const getBlogs = async (
       return {
         blogs: [
           {
-            blog_Title: "Fuel for life: nutrition 101",
+            blog_Title: 'Fuel for life: nutrition 101',
             blog_Body:
-              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Beginner",
-            id: "1",
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+            blog_Quote: 'Beginner',
+            id: '1',
           },
           {
-            blog_Title: "7 mindset strategies to raise your game",
+            blog_Title: '7 mindset strategies to raise your game',
             blog_Body:
-              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Beginner",
-            id: "1",
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+            blog_Quote: 'Beginner',
+            id: '1',
           },
           {
-            blog_Title: "Mountain biking: tales from the trail",
+            blog_Title: 'Mountain biking: tales from the trail',
             blog_Body:
-              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Pro",
-            id: "1",
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+            blog_Quote: 'Pro',
+            id: '1',
           },
           {
-            blog_Title: "Train smarter, not harder",
+            blog_Title: 'Train smarter, not harder',
             blog_Body:
-              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Beginner",
-            id: "1",
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+            blog_Quote: 'Beginner',
+            id: '1',
           },
         ],
       };

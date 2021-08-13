@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  height: 0px;
+  height: 0;
   border-top: 1px solid #eaeaea;
   display: flex;
   justify-content: center;
@@ -9,12 +9,13 @@
   .controller {
     transition: all 1s linear;
     position: absolute;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
     width: 100%;
     background: gray;
-    right: 0px;
+    right: 0;
     text-align: center;
+
     .controller-text {
       -moz-transform: rotate(90deg) scale(1, -1);
       -webkit-transform: rotate(90deg) scale(1, -1);
@@ -23,19 +24,24 @@
       transform: rotate(90deg) scale(1, -1);
     }
   }
+
   .controls {
     transition: all 1s linear;
-    bottom: 0px;
+    bottom: 0;
     position: absolute;
     visibility: hidden;
     width: 100%;
-    max-height: 0px;
+    max-height: 0;
+
     a {
       display: none;
     }
   }
+
   &.active {
     .controller {
+      bottom: 50px;
+
       .controller-text {
         -moz-transform: scale(1, -1);
         -webkit-transform: scale(1, -1);
@@ -43,13 +49,14 @@
         -ms-transform: scale(1, -1);
         transform: scale(1, -1);
       }
-      bottom: 50px;
     }
+
     .controls {
       max-height: 50px;
       visibility: visible;
       transition: all 1s linear;
       display: flex;
+
       a {
         display: block;
         justify-content: space-evenly;

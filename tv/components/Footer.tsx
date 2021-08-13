@@ -15,10 +15,10 @@ const Footer = (): JSX.Element => {
       </div>
       <div className="controls">
         <Link href="/room" passHref>
-          <a>Room </a>
+          <a>Room</a>
         </Link>
         <Link href="/schedule" passHref>
-          <a>Schedule </a>
+          <a>Schedule</a>
         </Link>
         <Link href="/sponsor" passHref>
           <a>Sponsor</a>
