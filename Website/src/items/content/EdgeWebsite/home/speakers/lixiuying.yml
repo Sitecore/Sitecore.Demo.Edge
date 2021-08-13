@@ -33,7 +33,7 @@ Languages:
               uid="{B9F8B216-0C80-5B93-BF47-D1045242D4F6}"
               p:after="r[@uid='{AA2F3DEB-F64E-5681-BFB6-C407DC748A57}']"
               s:rname="HeroImage"
-              s:ds="{8D69290A-EB9C-55E7-B303-A158C5CCDBAB}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +57,7 @@ Languages:
               uid="{DC32516F-5966-5C32-9D83-567A48195802}"
               p:after="r[@uid='{11567105-C634-5BE6-83CF-DA0BB070C623}']"
               s:rname="Section"
-              s:ds="{6135CCB6-FA34-5FBA-9250-A8B28452CD9F}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main"
@@ -66,6 +66,7 @@ Languages:
               uid="{7E6FC8E9-1F3C-52D9-AAB1-EA77D534940B}"
               p:after="r[@uid='{DC32516F-5966-5C32-9D83-567A48195802}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{DC32516F-5966-5C32-9D83-567A48195802}-0" />
@@ -91,14 +92,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e45b38f7-6a8f-488f-8732-b6c64cdd79dd"
+      Value: "6450b795-d769-4edf-b65c-aa740c524932"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T180713Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Li Xiu Ying"

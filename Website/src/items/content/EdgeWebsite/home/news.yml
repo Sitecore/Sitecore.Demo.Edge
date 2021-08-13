@@ -19,14 +19,8 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{A9CB7EF0-73B3-4349-B4FE-98730640ED07}"
-              p:after="p[@uid='{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}']"
-              s:ds="{214B0B3D-DACF-467E-BE2F-78AA60827854}"
-              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
-              s:ph="jss-main" />
-            <r
               uid="{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}"
-              p:after="r[@uid='{A9CB7EF0-73B3-4349-B4FE-98730640ED07}']"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
               s:rname="Header"
               s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
               s:par=""
@@ -39,8 +33,14 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}-0" />
             <r
-              uid="{89F6C49E-DA31-5ED9-9735-896C2D2DDE36}"
+              uid="{A9CB7EF0-73B3-4349-B4FE-98730640ED07}"
               p:after="r[@uid='{3BB48511-620A-50E4-A1E4-1FD6141CF80D}']"
+              s:ds="{214B0B3D-DACF-467E-BE2F-78AA60827854}"
+              s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+              s:ph="jss-main" />
+            <r
+              uid="{89F6C49E-DA31-5ED9-9735-896C2D2DDE36}"
+              p:after="r[@uid='{A9CB7EF0-73B3-4349-B4FE-98730640ED07}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -54,7 +54,7 @@ Languages:
               uid="{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}"
               p:after="r[@uid='{66B83838-1A45-459C-BCF7-B05333715F9D}']"
               s:rname="Section"
-              s:ds="{B2391618-19BC-5BCD-8516-E9B7A49BCD6B}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -62,6 +62,7 @@ Languages:
               uid="{7526C199-8C9C-5826-B88F-B88FFE081145}"
               p:after="r[@uid='{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}-0" />
@@ -87,14 +88,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e2a2e03d-8999-4cc1-8652-8456f080c015"
+      Value: "3878f1fc-3e2b-4cb8-b331-0f51f3659953"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210803T221852Z
+      Value: 20210812T152150Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - News"

@@ -30,18 +30,10 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{06C0C153-8BBC-5B9E-ADA0-9C3325BBD5FC}-0" />
             <r
-              uid="{B5453B96-4228-5143-BFB7-25129E91276C}"
+              uid="{C18863D3-AE93-526E-9E47-EC1DBDF8A6F7}"
               p:after="r[@uid='{034397EC-0F48-569A-AF9E-511DCFC0193A}']"
               s:rname="Section"
-              s:ds="{58BB8EE3-781F-504E-8D07-907028D4CCC3}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{C18863D3-AE93-526E-9E47-EC1DBDF8A6F7}"
-              p:after="r[@uid='{B5453B96-4228-5143-BFB7-25129E91276C}']"
-              s:rname="Section"
-              s:ds="{832B7962-654B-5EA9-AFA3-9BC9AFE950BD}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +49,7 @@ Languages:
               uid="{4715DF55-BA71-5A26-871B-7AA3E2447C9C}"
               p:after="r[@uid='{EBB90334-233A-5A01-97E0-7214DE915F57}']"
               s:rname="Section"
-              s:ds="{E983E57C-1E82-5EB2-9733-5D491B88EF99}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +57,7 @@ Languages:
               uid="{724E5A49-B032-5864-887A-9E44F6DF8C3D}"
               p:after="r[@uid='{4715DF55-BA71-5A26-871B-7AA3E2447C9C}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{4715DF55-BA71-5A26-871B-7AA3E2447C9C}-0" />
@@ -90,14 +83,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1848bbdb-ab20-4764-9b9e-2aed8c71eb16"
+      Value: "60090b41-64b0-4090-9f5f-248328a5ed95"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T135641Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Discount"

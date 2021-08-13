@@ -30,18 +30,10 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{F6B4E6BB-6B9F-5D4D-95A6-17D4889A8D6B}-0" />
             <r
-              uid="{DAD2AFB0-EFE2-5A4A-A9EB-8028547360D7}"
+              uid="{657C8FED-39FA-5747-B756-8757A9929B52}"
               p:after="r[@uid='{8B35532C-A54C-5E56-9F34-6DF35B35EFDE}']"
               s:rname="Section"
-              s:ds="{EA60062F-22A6-5EF4-A479-DC1CE8B1830F}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{657C8FED-39FA-5747-B756-8757A9929B52}"
-              p:after="r[@uid='{DAD2AFB0-EFE2-5A4A-A9EB-8028547360D7}']"
-              s:rname="Section"
-              s:ds="{21C861D3-E5B8-5A70-8DC5-FA34035902F9}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +49,7 @@ Languages:
               uid="{7B9343DF-2446-5EDB-8043-4D944374C849}"
               p:after="r[@uid='{2A10B0C9-EE4A-54B4-BD23-A086DCAE8300}']"
               s:rname="Section"
-              s:ds="{4B73B703-FEA3-5C50-A68F-C0196A906C37}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +57,7 @@ Languages:
               uid="{36A3DD8B-3AE7-51A2-BC67-74F6FF846F55}"
               p:after="r[@uid='{7B9343DF-2446-5EDB-8043-4D944374C849}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{7B9343DF-2446-5EDB-8043-4D944374C849}-0" />
@@ -94,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d31c0ff4-08e8-4ebe-bb28-85c44fb31317"
+      Value: "d0d8a792-ee9e-4d0d-b73b-3bd8dddefdd9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +97,7 @@ Languages:
       Value: Motor Sports
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T140349Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Motor Sports"
