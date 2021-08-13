@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { getSessions } from '../../api/queries/getSessions';
 import { getRooms } from '../../api/queries/getRooms';
-import { GetStaticProps } from 'next';
 import { Session } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 import Footer from '../../components/Footer';
@@ -39,19 +38,17 @@ export default function Room(props: RoomProps) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  console.log("Getting static paths")
-
   // Call an external API endpoint to get posts
   const { rooms } = await getRooms(false);
 
   // Get the paths we want to pre-render based on posts
   const paths = rooms.map((room) => ({
     params: { id: room.id },
-  }))
+  }));
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+  return { paths, fallback: false };
 }
 
 // This also gets called at build time
