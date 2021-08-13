@@ -10,8 +10,10 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
           id
           name
           room {
-            id
-            name
+            results{
+              id
+              name
+            }
           }
           
           speakers {
@@ -37,7 +39,7 @@ export const getSessions = async (preview: boolean, room: string): Promise<{ ses
       const sessions: Session[] = [];
 
       results.data.allDemo_Session.results.forEach((s: any) => {
-        if(s.room && s.room.name === room){
+        if(s.room && s.room.results && s.room.results.find(e => e.name == room)) {
           console.log(s);
 
           sessions.push(s);
