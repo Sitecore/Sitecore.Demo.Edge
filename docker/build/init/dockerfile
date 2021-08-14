@@ -65,6 +65,7 @@ RUN npm i -g vercel
 
 COPY --from=publish /app/publish .
 COPY --from=solution /artifacts/src/rendering/ ./rendering
+COPY --from=solution /artifacts/src/tv ./tv
 COPY --from=solution /artifacts/src/EdgeWebsite.module.json ./src/
 COPY --from=solution /artifacts/src/EdgeWebsite-Content.module.json ./src/
 COPY --from=solution /artifacts/src/InitItems.module.json ./src/

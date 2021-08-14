@@ -26,7 +26,7 @@ services:
   solution:
     image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
     build:
-      context: ./Website
+      context: ./
       args:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8

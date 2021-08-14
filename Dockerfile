@@ -12,8 +12,8 @@ ARG BUILD_IMAGE
 # https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-3.1#the-dockerfile-1
 FROM ${BUILD_IMAGE} AS nuget-prep
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
-COPY *.sln nuget.config Directory.Build.targets Packages.props /nuget/
-COPY src/ /temp/
+COPY Website/*.sln Website/nuget.config Website/Directory.Build.targets Website/Packages.props /nuget/
+COPY Website/src/ /temp/
 RUN Invoke-Expression 'robocopy C:/temp C:/nuget/src /s /ndl /njh /njs *.csproj *.scproj packages.config'
 
 FROM ${BUILD_IMAGE} AS builder
@@ -38,7 +38,7 @@ COPY --from=nuget-prep ./nuget ./
 RUN nuget restore -Verbosity quiet
 
 # Copy remaining source code
-COPY src/ ./src/
+COPY Website/src/ ./src/
 
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
@@ -47,4 +47,5 @@ RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURA
 FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
 COPY --from=builder /build/deploy  ./sitecore/
-COPY src/ ./src
+COPY Website/src/ ./src
+COPY tv/ ./src/tv

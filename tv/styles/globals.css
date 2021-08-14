@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* 1. Tailwind base styles */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* 2. Our styles */
+
+@import "./layout/frame.css";
+@import "./layout/footer.css";
+@import "./layout/sessionList.css";
