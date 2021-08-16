@@ -11,18 +11,36 @@ export default {
 
 const Template: ComponentStory<typeof VendorsGrid> = (args) => <VendorsGrid {...args} />;
 
-const vendor = {
-  Name: 'Item Name',
+const fitbit = {
+  Name: 'Fitbit',
   fields: {
     Name: {
-      value: 'Speaker Name',
+      value: 'Fitbit',
     },
     Level: {
-      value: 'Speaker Role',
+      value: 'Vendor Level',
     },
     Logo: {
       value: {
-        src: '/assets/img/shop/man-biker.jpg',
+        src: '/assets/img/sponsors/sponsors-fitbit.svg',
+        alt: '',
+      },
+    },
+  },
+} as Vendor;
+
+const sports = {
+  Name: 'Sports',
+  fields: {
+    Name: {
+      value: 'Sports',
+    },
+    Level: {
+      value: 'Vendor Level',
+    },
+    Logo: {
+      value: {
+        src: '/assets/img/sponsors/sponsors-sports.svg',
         alt: '',
       },
     },
@@ -32,6 +50,6 @@ const vendor = {
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    items: [vendor],
+    items: [fitbit, sports],
   },
 };

@@ -46,6 +46,7 @@
 @import "./components/SpeakersGrid.css";
 @import "./components/SponsorsGrid.css";
 @import "./components/TicketGrid.css";
+@import "./components/VendorsGrid.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";
