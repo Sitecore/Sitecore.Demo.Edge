@@ -14,9 +14,7 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
       }}
     >
       <div className="data">
-        <p className="room" style={{ minWidth: '592px' }}>
-          {props.session?.room}
-        </p>
+        <p className="room">{props.session?.room}</p>
         <h1 className="title">{props.session?.name}</h1>
         <p className="timeSlot">{props.session?.timeslot}</p>
         <div

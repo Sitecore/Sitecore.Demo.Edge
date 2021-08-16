@@ -6,6 +6,8 @@
 
     .room {
       @apply font-semibold py-3 uppercase text-yellow-400;
+
+      min-width: 592px;
     }
 
     .title {
