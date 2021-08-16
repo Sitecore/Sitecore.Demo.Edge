@@ -15,15 +15,15 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
     >
       <div className="m-auto p-6">
         <p className="font-semibold py-3 uppercase text-yellow-400" style={{ minWidth: '592px' }}>
-          {props.session.room}
+          {props.session?.room}
         </p>
-        <h1 className="text-4xl uppercase text-white">{props.session.name}</h1>
+        <h1 className="text-4xl uppercase text-white">{props.session?.name}</h1>
         <p className="text-2xl py-3 font-semibold uppercase text-yellow-400">
-          {props.session.timeslot}
+          {props.session?.timeslot}
         </p>
         <div
           className="text-white pt-2"
-          dangerouslySetInnerHTML={{ __html: props.session.description }}
+          dangerouslySetInnerHTML={{ __html: props.session?.description }}
         ></div>
       </div>
     </div>
