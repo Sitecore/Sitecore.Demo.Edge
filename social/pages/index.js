@@ -9,6 +9,10 @@ export default function Home() {
         <title>Demo Social Channel</title>
         <meta name="description" content="Sitecore Demo Social channel" />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
       </Head>
 
       <main className={styles.main}>
