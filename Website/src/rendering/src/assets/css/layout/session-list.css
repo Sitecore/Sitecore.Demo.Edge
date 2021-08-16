@@ -2,12 +2,15 @@
   .session-info-col-1 {
     @apply col-span-1 align-top text-center order-1;
   }
+
   .session-info-col-2 {
     @apply col-span-3 sm:order-last order-4 md:order-2;
   }
+
   .session-info-col-3 {
     @apply sm:col-span-1 md:col-span-2 text-center self-center order-2 md:order-3;
   }
+
   .session-info-col-4 {
     @apply sm:col-span-1 md:col-span-2 text-right self-center order-3 md:order-4 flex;
   }

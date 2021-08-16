@@ -8,18 +8,21 @@
     max-width: 1440px;
 
     &__content {
-      @apply w-full bg-black-light w-full md:w-45;
+      @apply w-full bg-black-light;
+      @apply md:w-45;
 
-      background: linear-gradient(
-        135deg,
-        rgba(80, 80, 80, 1) 0%,
-        rgba(60, 60, 60, 1) 50%,
-        rgba(50, 50, 50, 1) 100%
-      );
+      background:
+        linear-gradient(
+          135deg,
+          rgba(80, 80, 80, 1) 0%,
+          rgba(60, 60, 60, 1) 50%,
+          rgba(50, 50, 50, 1) 100%
+        );
       box-shadow: 0 0 20px #232323;
 
       &__text {
-        @apply p-6 md:p-12 relative;
+        @apply p-6 relative;
+        @apply md:p-12;
 
         @media (min-width: 768px) {
           &::after {
@@ -30,7 +33,7 @@
             border-width: 0 110px 110px 0;
             border-color: transparent #1c80ff transparent transparent;
             right: 0;
-            top: 0px;
+            top: 0;
             position: absolute;
           }
         }
@@ -47,7 +50,8 @@
       }
 
       .title {
-        @apply text-4xl md:text-5xl text-white uppercase py-3 m-0 font-bold;
+        @apply text-4xl text-white uppercase py-3 m-0 font-bold;
+        @apply md:text-5xl;
       }
 
       .expo {

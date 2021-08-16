@@ -9,12 +9,14 @@
       @apply text-sm;
     }
   }
-  li:not(:first-of-type):before {
+
+  li:not(:first-of-type)::before {
     content: '> ';
     padding-left: 5px;
     padding-right: 3px;
     font-weight: normal;
   }
+
   .active {
     @apply font-bold;
   }

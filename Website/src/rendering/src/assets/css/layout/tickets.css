@@ -3,6 +3,7 @@
 
   ul {
     @apply py-5 text-base;
+
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
@@ -12,42 +13,50 @@
       @apply my-4;
     }
   }
+
   &--red {
     .slanted-spacer {
       width: 100%;
       height: 20px;
       background-color: red;
     }
+
     .price {
       color: red;
     }
   }
+
   &--yellow {
     .slanted-spacer {
       width: 100%;
       height: 20px;
-      background-color: #FF8C00;
+      background-color: #ff8c00;
     }
+
     .price {
       @apply text-6xl text-orange font-semibold;
     }
   }
+
   &--blue {
     .slanted-spacer {
       width: 100%;
       height: 20px;
-      background-color: #FF1787;
+      background-color: #ff1787;
     }
+
     .price {
       @apply text-6xl text-pink font-semibold;
     }
   }
+
   &--pink {
     .slanted-spacer {
       width: 100%;
       height: 20px;
-      background-color: #1C80FF;
+      background-color: #1c80ff;
     }
+
     .price {
       @apply text-6xl text-blue font-semibold;
     }

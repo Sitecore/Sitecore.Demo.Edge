@@ -12,14 +12,18 @@
   &--detail {
     .container {
       @apply grid grid-cols-1 md:grid-cols-4 gap-10;
+
       .left-column {
         @apply col-span-1 md:col-span-1;
       }
+
       .right-column {
         @apply col-span-1 md:col-span-3 space-y-5;
+
         .news-title {
           @apply text-2xl md:text-3xl font-extrabold text-blue;
         }
+
         p {
           @apply pt-5;
         }
@@ -30,25 +34,33 @@
   &--list {
     .container {
       @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
+
       .content {
         @apply p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5;
+
         .news {
           @apply rounded overflow-hidden bg-white;
+
           .text-container {
             @apply px-6 py-4;
+
             .news-title {
               @apply font-bold text-base mb-2 h-20 uppercase;
             }
+
             .news-date {
               @apply text-gray-dark text-xs pb-3;
             }
+
             .news-excerpt {
               @apply h-36 overflow-hidden;
             }
+
             p {
               @apply pt-5;
             }
           }
+
           .button-container {
             @apply px-6 pt-4 pb-10;
           }
@@ -64,6 +76,7 @@
 
 .section__news__grid__tweet {
   @apply col-span-1;
+
   border: 1px solid #ccc;
   background-color: #f7f7f7;
 }
@@ -107,6 +120,7 @@
 
 .section__news__grid__news__item {
   @apply w-full border shadow content-center p-5 align-middle text-blue-light;
+
   overflow: hidden;
   align-items: center;
   justify-content: center;

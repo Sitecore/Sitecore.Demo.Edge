@@ -2,8 +2,9 @@
 
 .section {
   padding: 5em 0;
+
   &__top-spacer {
-    padding-bottom: 0px;
+    padding-bottom: 0;
   }
 }
 
@@ -21,6 +22,7 @@
 
   &--left {
     @apply sm:pl-10 sm:w-full md:w-3/5 md:ml-0;
+
     align-items: start;
     justify-content: left;
   }
@@ -48,8 +50,10 @@
     margin: 0 auto;
     align-items: start;
     justify-content: left;
+
     .section__content__p {
       text-align: left;
+
       p {
         padding-bottom: 10px;
       }
@@ -82,6 +86,7 @@
 
   &--full {
     max-width: 100%;
+
     p {
       padding-bottom: 10px;
     }
@@ -110,6 +115,7 @@
 
 .section--3-col__content__items {
   @apply text-sm;
+
   display: -webkit-flex;
   display: flex;
   align-items: center;
@@ -229,11 +235,12 @@
   content: '';
   width: 50%;
   height: 100%;
-  background: -webkit-linear-gradient(
-    left,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
+  background:
+    -webkit-linear-gradient(
+      left,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
   -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
@@ -315,6 +322,7 @@
 
 .section__full-image__content__card h2 {
   @apply text-2xl font-bold;
+
   color: #232323;
   margin: 0;
 }
@@ -329,6 +337,7 @@
 
 .section__full-image__content__card p {
   @apply text-sm;
+
   margin: 20px 0 30px;
   line-height: 1.4;
   max-width: 500px;
