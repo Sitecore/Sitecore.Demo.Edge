@@ -1,17 +1,50 @@
 .session-list {
-  .session-info-col-1 {
-    @apply col-span-1 align-top text-center order-1;
-  }
+  @apply space-y-5 w-full;
 
-  .session-info-col-2 {
-    @apply col-span-3 sm:order-last order-4 md:order-2;
-  }
+  .session-info {
+    @apply grid grid-cols-3 gap-5 border border-gray items-stretch p-5;
+    @apply md:grid-cols-8;
 
-  .session-info-col-3 {
-    @apply sm:col-span-1 md:col-span-2 text-center self-center order-2 md:order-3;
-  }
+    .session-info-col-date {
+      @apply col-span-1 align-top text-center order-1;
 
-  .session-info-col-4 {
-    @apply sm:col-span-1 md:col-span-2 text-right self-center order-3 md:order-4 flex;
+      .session-info-month {
+        @apply text-gray-dark font-bold text-2xl;
+      }
+
+      .session-info-date {
+        @apply text-3xl font-bold;
+      }
+    }
+
+    .session-info-col-title {
+      @apply col-span-3 order-4;
+      @apply sm:order-last;
+      @apply md:order-2;
+
+      .session-info-time {
+        @apply text-blue;
+      }
+
+      .session-info-title {
+        @apply font-bold uppercase;
+      }
+    }
+
+    .session-info-col-ticket {
+      @apply text-center self-center order-2;
+      @apply sm:col-span-1;
+      @apply md:col-span-2 md:order-3;
+
+      .session-info-ticket {
+        @apply font-bold uppercase;
+      }
+    }
+
+    .session-info-col-calendar {
+      @apply text-right self-center order-3 flex;
+      @apply sm:col-span-1;
+      @apply md:col-span-2 md:order-4;
+    }
   }
 }
