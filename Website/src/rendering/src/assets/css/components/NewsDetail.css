@@ -1,0 +1,21 @@
+.section__news--detail {
+  .container {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-10;
+
+    .left-column {
+      @apply col-span-1 md:col-span-1;
+    }
+
+    .right-column {
+      @apply col-span-1 md:col-span-3 space-y-5;
+
+      .news-title {
+        @apply text-2xl md:text-3xl font-extrabold text-blue;
+      }
+
+      p {
+        @apply pt-5;
+      }
+    }
+  }
+}

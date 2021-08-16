@@ -1,15 +1,3 @@
-.section__sponsors {
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: url(../../img/background-pattern-light.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .section__sponsors__grid {
   display: -webkit-flex;
   display: flex;
