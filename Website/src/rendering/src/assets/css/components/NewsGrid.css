@@ -1,78 +1,72 @@
 .section__news__grid {
-  @apply grid grid-cols-1 md:grid-cols-3 w-full gap-2.5 my-5;
-}
+  @apply grid grid-cols-1 w-full gap-2.5 my-5;
+  @apply md:grid-cols-3;
 
-.section__news__grid__tweet {
-  @apply col-span-1;
+  &__tweet {
+    @apply col-span-1 border border-solid border-gray bg-white;
 
-  border: 1px solid #ccc;
-  background-color: #f7f7f7;
-}
+    &__img {
+      @apply w-full;
+    }
 
-.section__news__grid__tweet__img {
-  width: 100%;
-}
+    &__content {
+      padding: 10px;
 
-.section__news__grid__tweet__content {
-  padding: 10px;
-}
+      p {
+        margin: 5px 0;
+      }
 
-.section__news__grid__tweet__content p {
-  margin: 5px 0;
-}
+      &__profile {
+        @apply flex items-center;
 
-.section__news__grid__tweet__content__profile {
-  display: flex;
-  align-items: center;
-}
+        &__pic {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-right: 10px;
+          box-shadow: 0 0 2px rgba(23, 23, 23, 0.2);
+        }
+      }
 
-.section__news__grid__tweet__content__profile__pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 10px;
-  box-shadow: 0 0 2px rgba(23, 23, 23, 0.2);
-}
+      &__tweet {
+        margin-top: 20px;
+      }
 
-.section__news__grid__tweet__content__tweet {
-  margin-top: 20px;
-}
+      &__comments {
+        @apply text-gray-dark;
+      }
+    }
+  }
 
-.section__news__grid__tweet__content__comments {
-  color: #b3b3b3;
-}
+  &__news {
+    @apply col-span-1;
+    @apply md:col-span-2;
 
-.section__news__grid__news {
-  @apply col-span-1 md:col-span-2;
-}
+    &__grid {
+      @apply grid grid-cols-2 gap-2.5 h-full;
+    }
 
-.section__news__grid__news__item {
-  @apply w-full border shadow content-center p-5 align-middle text-blue-light;
+    &__item {
+      @apply w-full border shadow content-center p-5 align-middle text-blue-light overflow-hidden items-center justify-center text-center box-border no-underline bg-white-light bg-cover cursor-pointer;
 
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-sizing: border-box;
-  text-decoration: none;
-  line-height: 1.2;
-  font-size: 1.25em;
-  font-weight: 600;
-  background-color: #fff;
-  background-size: cover;
-  cursor: pointer;
+      line-height: 1.2;
+      font-size: 1.25em;
+      font-weight: 600;
 
-  a:hover,
-  a:focus,
-  a:active {
-    color: inherit;
+      :hover {
+        @apply text-white bg-blue;
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+        color: inherit;
+      }
+    }
   }
 }
 
-.section__news__grid__news__item:hover {
-  color: #f7f7f7;
-  background-color: #006ef9;
-}
+/* Does not seem to be used */
 
 .news__item {
   width: calc(50% - 10px);

@@ -3,7 +3,11 @@
     @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
 
     .content {
-      @apply p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5;
+      @apply p-10 grid grid-cols-1 gap-5;
+      @apply sm:grid-cols-1;
+      @apply md:grid-cols-2;
+      @apply lg:grid-cols-3;
+      @apply xl:grid-cols-4;
 
       .news {
         @apply rounded overflow-hidden bg-white;

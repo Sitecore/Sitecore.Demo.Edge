@@ -16,7 +16,7 @@ const ProductDetail = (): JSX.Element => (
       <div className="product-image">
         <img
           className="product-image-main"
-          src="/assets/img/shop/cycling/biketeal.jpeg"
+          src="/assets/img/shop/cycling/BikeTeal.jpeg"
           alt="bike"
         />
         <img
