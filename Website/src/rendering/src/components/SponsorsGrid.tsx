@@ -25,7 +25,7 @@ const SponsorsGrid = (props: SponsorsProps): JSX.Element => (
       props.fields.Sponsors.map((sponsor, index) => (
         <Link key={index} href="#">
           <a className="section__sponsors__grid__sponsor">
-            <div className="m-3">
+            <div className="section__sponsors__grid__sponsor__imagecontainer">
               <Image
                 field={sponsor.fields.Logo}
                 alt={sponsor.fields.Name.value}

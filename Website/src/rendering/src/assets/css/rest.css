@@ -97,62 +97,6 @@
   color: #f7f7f7;
 }
 
-.section--3-col {
-  background: url(../img/background-pattern-light.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.section--3-col__content {
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.section--3-col__content__items {
-  @apply text-sm;
-
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  max-width: 100%;
-}
-
-.section--3-col__content__items .item {
-  margin: 2em 3em;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.section--3-col__content__items .item img {
-  max-height: 150px;
-}
-
-.section--3-col__content__items .item p {
-  color: #232323;
-  font-weight: 600;
-  margin: 1.5em 0 0.5em;
-}
-
-.section--3-col__content__items .item a {
-  color: #006ef9;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.section--3-col__content__items .item a:hover {
-  color: #232323;
-}
-
 .section__products {
   background: url(../img/background-pattern-light.svg);
   background-size: cover;

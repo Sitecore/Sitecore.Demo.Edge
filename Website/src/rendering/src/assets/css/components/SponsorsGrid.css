@@ -1,13 +1,15 @@
 .section__sponsors__grid {
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 100%;
-  margin: 0 auto 1em;
-}
+  @include flex--center-w;
 
-.section__sponsors__grid img:hover {
-  filter: invert(39%) sepia(72%) saturate(4583%) hue-rotate(207deg) brightness(109%) contrast(101%);
+  @apply max-w-full;
+
+  margin: 0 auto 1em;
+
+  &__sponsor &__sponsor__imagecontainer {
+    @apply m-3;
+
+    img:hover {
+      filter: invert(39%) sepia(72%) saturate(4583%) hue-rotate(207deg) brightness(109%) contrast(101%);
+    }
+  }
 }
