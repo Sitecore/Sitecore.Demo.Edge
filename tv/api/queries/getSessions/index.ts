@@ -45,7 +45,7 @@ export const getSessions = async (
 
       results.data.allDemo_Session.results.forEach((s: any) => {
         if (s.room && s.room.results && s.room.results.find((e: any) => e.id == room)) {
-          s.room = room;
+          s.room = s.room.results.find((e: any) => e.id == room).name;
 
           if (s.timeslots.results.length > 0) {
             s.timeslot = s.timeslots.results[0].taxonomyLabel['en-US'];
