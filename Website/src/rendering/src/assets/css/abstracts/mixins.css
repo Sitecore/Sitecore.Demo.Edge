@@ -26,8 +26,16 @@
   @apply flex items-center justify-end;
 }
 
+@mixin flex--fe-center {
+  @apply flex items-end justify-center;
+}
+
 @mixin flex--fs-w {
   @apply flex items-center justify-start flex-wrap;
+}
+
+@mixin flex--fs-center {
+  @apply flex items-start justify-center;
 }
 
 @mixin content {
