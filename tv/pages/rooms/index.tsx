@@ -7,16 +7,12 @@ type RoomProps = {
   preview: boolean;
 };
 
-export declare type Params = {
-  [param: string]: any;
-};
-
 const Rooms = (props: RoomProps): JSX.Element => {
   return <RoomList rooms={props.rooms} />;
 };
 
 // This also gets called at build time
-export const getStaticProps = async ({ params }: Params) => {
+export const getStaticProps = async () => {
   const { rooms } = await getRooms(false);
 
   return {

@@ -1,5 +1,4 @@
 import { Session } from '../interfaces';
-import Room from '../pages/rooms/[id]';
 
 type CurrentSessionProps = {
   session: Session;
