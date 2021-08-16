@@ -8,14 +8,14 @@ type RoomProps = {
 
 const RoomDisplay = (props: RoomProps): JSX.Element => {
   return (
-    <div className="grid grid-cols-2 h-screen">
-      <div className="relative">
+    <div className="roomDisplay">
+      <div className="current">
         <CurrentSession session={props.sessions[0]} />
       </div>
-      <div className="bg-gray-100 p-10">
-        <div className="mb-auto mt-auto max-w-lg">
-          <h1 className="text-6xl uppercase pb-10 text-center">08:00AM</h1>
-          <h1 className="text-xl uppercase">Today</h1>
+      <div className="scheduled">
+        <div className="wrapper">
+          <h1 className="time">08:00AM</h1>
+          <h1 className="date">Today</h1>
 
           <SessionList sessions={props.sessions} />
         </div>

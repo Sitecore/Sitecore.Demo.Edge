@@ -7,22 +7,20 @@ type CurrentSessionProps = {
 const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
   return (
     <div
-      className="w-full h-full pt-10"
+      className="currentSession"
       style={{
         backgroundSize: 'cover',
         backgroundImage: `url(/room-bg.jpg)`,
       }}
     >
-      <div className="m-auto p-6">
-        <p className="font-semibold py-3 uppercase text-yellow-400" style={{ minWidth: '592px' }}>
+      <div className="data">
+        <p className="room" style={{ minWidth: '592px' }}>
           {props.session?.room}
         </p>
-        <h1 className="text-4xl uppercase text-white">{props.session?.name}</h1>
-        <p className="text-2xl py-3 font-semibold uppercase text-yellow-400">
-          {props.session?.timeslot}
-        </p>
+        <h1 className="title">{props.session?.name}</h1>
+        <p className="timeSlot">{props.session?.timeslot}</p>
         <div
-          className="text-white pt-2"
+          className="description"
           dangerouslySetInnerHTML={{ __html: props.session?.description }}
         ></div>
       </div>

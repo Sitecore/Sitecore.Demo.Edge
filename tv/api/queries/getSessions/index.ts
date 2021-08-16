@@ -19,14 +19,7 @@ export const getSessions = async (
               name
             }
           }
-          
-          speakers {
-            results {
-              id
-              name
-            }
-          }
-          
+                    
           timeslots {
             results {
               id
@@ -42,6 +35,7 @@ export const getSessions = async (
     const results: any = await fetchGraphQL(sessionsQuery, preview);
     if (results) {
       const sessions: Session[] = [];
+      console.log(results);
 
       results.data.allDemo_Session.results.forEach((s: any) => {
         if (s.room && s.room.results && s.room.results.find((e: any) => e.id == room)) {
