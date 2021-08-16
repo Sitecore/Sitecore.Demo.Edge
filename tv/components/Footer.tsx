@@ -14,7 +14,7 @@ const Footer = (): JSX.Element => {
         <span className="controller-text">^</span>
       </div>
       <div className="controls">
-        <Link href="/room" passHref>
+        <Link href="/rooms" passHref>
           <a>Room</a>
         </Link>
         <Link href="/schedule" passHref>
