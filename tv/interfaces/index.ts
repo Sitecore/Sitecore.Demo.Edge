@@ -19,6 +19,12 @@ export interface Room {
   name: string;
 }
 
+export interface Speaker {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export interface Timeslot {
   id: string;
   name: string;

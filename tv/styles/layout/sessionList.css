@@ -8,7 +8,7 @@
   }
 
   .time {
-    @apply w-3/12;
+    @apply w-4/12;
 
     span {
       @apply text-sm text-gray-600 block;
@@ -24,7 +24,7 @@
   }
 
   .data {
-    @apply w-8/12;
+    @apply w-7/12;
 
     .title {
       @apply text-sm font-semibold block;
