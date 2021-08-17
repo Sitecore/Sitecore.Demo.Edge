@@ -43,9 +43,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
-    - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
-      Hint: Name
-      Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "ab75bf3e-c1ae-4860-8d29-2e045ef75b2d"

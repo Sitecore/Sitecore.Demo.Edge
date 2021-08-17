@@ -12,8 +12,8 @@ export default {
   title: 'Pages/Home',
 } as ComponentMeta<typeof HeroSection>;
 
-let headerProps = {} as HeaderProps;
-let heroProps = {
+const headerProps = {} as HeaderProps;
+const heroProps = {
   fields: {
     Logo: {
       value: {
@@ -86,7 +86,7 @@ const sponsor3 = {
   },
 } as Sponsor;
 
-let sponsorProps = {
+const sponsorProps = {
   fields: {
     Title: {
       value: '',
@@ -98,7 +98,7 @@ let sponsorProps = {
   },
 } as SponsorsProps;
 
-let threeColProps = {
+const threeColProps = {
   fields: {
     Title: {
       value: 'GO THE DISTANCE',

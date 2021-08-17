@@ -1,12 +1,14 @@
 import profile from '../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
-import { Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Image, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type News = {
   name: Field<string>;
   fields: {
     Title: Field<string>;
+    Image: ImageField;
+    PublishDate: Field<string>;
   };
 };
 
@@ -48,11 +50,21 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
     <div className="section__news__grid__news">
       <div className="grid grid-cols-2 gap-2.5 h-full">
         {props.fields.items &&
-          props.fields.items.map((news, index) => (
-            <Link key={index} href={'/news/' + news.name} passHref>
-              <a className="section__news__grid__news__item">{news.fields.Title.value}</a>
-            </Link>
-          ))}
+          props.fields.items
+            .sort((a, b) => a.fields.PublishDate.value.localeCompare(b.fields.PublishDate.value))
+            .reverse()
+            .slice(0, 4)
+            .map((news, index) => (
+              <div
+                key={index}
+                className="section__news__grid__news__item"
+                style={{ backgroundImage: 'url(' + news.fields.Image.value?.src + ')' }}
+              >
+                <Link href={'/news/' + news.name} passHref>
+                  <a>{news.fields.Title.value}</a>
+                </Link>
+              </div>
+            ))}
       </div>
     </div>
   </div>

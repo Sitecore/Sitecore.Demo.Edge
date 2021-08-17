@@ -33,7 +33,7 @@ Languages:
               uid="{0E075014-F0CA-58D9-9261-9206E598257A}"
               p:after="r[@uid='{D1F20085-2BAF-5285-9955-C3A5DD932C3F}']"
               s:rname="HeroImage"
-              s:ds="{558BD276-EE64-577D-9F10-C42B0A6F94AD}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main"
@@ -58,7 +58,7 @@ Languages:
               uid="{31E968A8-A13F-5E18-A714-695892D015E0}"
               p:after="r[@uid='{346ED546-85C0-5373-A62B-72FC1BB233E2}']"
               s:rname="Section"
-              s:ds="{9DDA421C-0C96-5164-94A3-4769DE3477F8}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main"
@@ -67,6 +67,7 @@ Languages:
               uid="{371C1B5C-2277-5D82-B02F-68DBB24FF574}"
               p:after="r[@uid='{31E968A8-A13F-5E18-A714-695892D015E0}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{31E968A8-A13F-5E18-A714-695892D015E0}-0" />
@@ -92,14 +93,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e4565113-e4d9-4092-9ae8-80155173a548"
+      Value: "0e805e6c-d112-445e-9c26-c59bfe39f93b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T180658Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Martin Moore"

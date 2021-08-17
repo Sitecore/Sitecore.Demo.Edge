@@ -33,7 +33,7 @@ Languages:
               uid="{99E5FBEA-6C7E-5124-A5A5-2F1DADCE8C2E}"
               p:after="r[@uid='{D6A30C4F-E83E-515B-A2F1-B914BF0301D6}']"
               s:rname="HeroImage"
-              s:ds="{24BAADF6-0254-58A0-A0BD-301EF9CA5E7A}"
+              s:ds="{64D1C128-A38E-525E-A993-2431DE26A39E}"
               s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +57,7 @@ Languages:
               uid="{E82DCF47-767E-56E6-8387-A9E25AB0E156}"
               p:after="r[@uid='{4AF7A8D9-41F8-59BF-B9E8-AD7F62D7F3AE}']"
               s:rname="Section"
-              s:ds="{FAAECE04-3305-5918-AA69-06626B958484}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +65,7 @@ Languages:
               uid="{A372A14E-3F54-59F9-8968-7D4AF49DF092}"
               p:after="r[@uid='{E82DCF47-767E-56E6-8387-A9E25AB0E156}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{E82DCF47-767E-56E6-8387-A9E25AB0E156}-0" />
@@ -90,14 +91,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fdbbea54-fe57-407d-a039-8ccee6670d7b"
+      Value: "96b2eb14-c654-4943-855b-952d2225c70e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T180806Z
+      Value: 20210812T202517Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Ed Jones"

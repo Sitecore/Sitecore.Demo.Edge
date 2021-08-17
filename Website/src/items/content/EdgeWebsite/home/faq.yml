@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{10AF4A57-4C33-51EE-85D2-E8EF4BEBA51E}-0" />
             <r
-              uid="{268141A6-0406-5113-941A-DDB930C705FF}"
-              p:after="r[@uid='{3E9B1E21-9CF6-565E-A2F4-D9292E1A79FE}']"
-              s:rname="Section"
-              s:ds="{146574C3-DCF9-534F-B4B9-4BFC951AB24E}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{80E1CB56-C377-5F8E-A217-559453D0747C}"
-              p:after="r[@uid='{268141A6-0406-5113-941A-DDB930C705FF}']"
+              p:after="r[@uid='{3E9B1E21-9CF6-565E-A2F4-D9292E1A79FE}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -48,7 +40,7 @@ Languages:
               uid="{E986C6A5-DE01-5B6D-9F23-E9C58F08E5F5}"
               p:after="r[@uid='{80E1CB56-C377-5F8E-A217-559453D0747C}']"
               s:rname="Section"
-              s:ds="{F57FBB5A-B91A-5BD4-B433-5E83358000ED}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -64,7 +56,7 @@ Languages:
               uid="{451905C9-0E75-5D05-96C7-59FE960709B3}"
               p:after="r[@uid='{CC4BCFB9-FB47-563D-8AA2-970A31DA8D19}']"
               s:rname="Section"
-              s:ds="{7F1FF35A-6BD7-5BFB-A440-086FA58A0485}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -72,6 +64,7 @@ Languages:
               uid="{5EEF5325-AB86-511C-91BC-EFA075B81627}"
               p:after="r[@uid='{451905C9-0E75-5D05-96C7-59FE960709B3}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{451905C9-0E75-5D05-96C7-59FE960709B3}-0" />
@@ -87,16 +80,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201831Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1978a98d-b655-4d13-a0b3-6bba78c4111f"
+      Value: "e7360502-a1bd-46cb-9e8e-3029e35caf57"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191713Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - FAQ"

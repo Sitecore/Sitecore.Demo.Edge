@@ -30,16 +30,8 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{9B9A789D-4B84-5E15-81D6-E0F05459F29C}-0" />
             <r
-              uid="{67F7F38F-31A6-5129-8BED-377263C91F95}"
-              p:after="r[@uid='{86519445-70A0-59EA-A5D6-F628B01D3E0B}']"
-              s:rname="Section"
-              s:ds="{3BD0C7F8-E49D-5FC0-B324-0840D54450DA}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
               uid="{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}"
-              p:after="r[@uid='{67F7F38F-31A6-5129-8BED-377263C91F95}']"
+              p:after="r[@uid='{86519445-70A0-59EA-A5D6-F628B01D3E0B}']"
               s:rname="Breadcrumb"
               s:id="{780D897C-7065-585F-8585-28118565FA00}"
               s:par=""
@@ -62,7 +54,7 @@ Languages:
               uid="{794BC956-E900-5DCF-B609-170F413C058C}"
               p:after="r[@uid='{D7CDBBDF-4B71-5FF6-A320-C313888678F9}']"
               s:rname="Section"
-              s:ds="{3C0C8FCD-5C56-58A2-AE2C-64C733F55496}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -70,6 +62,7 @@ Languages:
               uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}"
               p:after="r[@uid='{794BC956-E900-5DCF-B609-170F413C058C}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0" />
@@ -95,14 +88,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "151d894b-e4a6-4026-a175-f5b83a2e6628"
+      Value: "f0d608bf-6c5d-4851-9860-8cfb02651b46"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T135630Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Cycling"

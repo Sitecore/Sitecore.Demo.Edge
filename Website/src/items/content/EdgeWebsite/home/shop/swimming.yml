@@ -30,18 +30,10 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{93127031-36B0-577F-94BF-136F87DC9C51}-0" />
             <r
-              uid="{0FE1B159-2D97-572E-BE0C-4F156511CD8E}"
+              uid="{9827DD20-92B8-5D9F-82A7-7D6094232755}"
               p:after="r[@uid='{3F822DA0-8C5E-536E-A482-8904AC051DBC}']"
               s:rname="Section"
-              s:ds="{A809C035-B0D5-5B8C-B8DC-405A68C5F615}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{9827DD20-92B8-5D9F-82A7-7D6094232755}"
-              p:after="r[@uid='{0FE1B159-2D97-572E-BE0C-4F156511CD8E}']"
-              s:rname="Section"
-              s:ds="{F9FE2128-2407-588D-84C3-D39A0EB5E949}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +49,7 @@ Languages:
               uid="{3BD59300-737B-55E5-A62B-83D4EB497528}"
               p:after="r[@uid='{DD7C70FA-68F7-55FB-A8BC-0006AC6D3072}']"
               s:rname="Section"
-              s:ds="{4974A77F-48B0-5F0A-958C-0C632356C2AF}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +57,7 @@ Languages:
               uid="{EDEC6E70-463F-52C1-96A0-21BDB280C159}"
               p:after="r[@uid='{3BD59300-737B-55E5-A62B-83D4EB497528}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{3BD59300-737B-55E5-A62B-83D4EB497528}-0" />
@@ -94,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "982efe31-4fe5-4e7c-a318-f7833315015b"
+      Value: "fb757319-42e3-4f43-ac18-524c443239cd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +97,7 @@ Languages:
       Value: Swimming
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T140445Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Swimming"

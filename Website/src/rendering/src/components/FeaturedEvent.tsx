@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const FeaturedEvent = (): JSX.Element => (
-  <section className="section__featured__event mt-20 banner bg-black bg-left bg-no-repeat bg-cover relative">
+  <section className="section__featured__event banner bg-black bg-left bg-no-repeat bg-cover relative">
     <div className="px-14 max-w-screen-2xl flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden">
       <div className="triangle max-w-30 relative shadow-xl w-full bg-black-light">
         <div className="p-14">

@@ -30,18 +30,10 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{3BFE1E69-85ED-54F9-98EB-9F9187E5CD51}-0" />
             <r
-              uid="{FCDDD941-19D6-53E9-B61E-5D2BFFC052CE}"
+              uid="{3C31D3BF-0481-5272-A142-09993CDED84F}"
               p:after="r[@uid='{07531328-6FAC-5FDC-AA04-F14F9F993329}']"
               s:rname="Section"
-              s:ds="{3741CC2B-07DB-5F6D-9B4C-594B0CBB23B1}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{3C31D3BF-0481-5272-A142-09993CDED84F}"
-              p:after="r[@uid='{FCDDD941-19D6-53E9-B61E-5D2BFFC052CE}']"
-              s:rname="Section"
-              s:ds="{400C8ECE-29B0-5CE2-91D5-E1E73DACEDA8}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +49,7 @@ Languages:
               uid="{7A750F93-2CED-52A0-A429-2F3AC84239F3}"
               p:after="r[@uid='{57881B40-AA20-593F-983C-B638343719B0}']"
               s:rname="Section"
-              s:ds="{39EF3887-F258-50E5-B042-ECB7C4794A9E}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +57,7 @@ Languages:
               uid="{263E16A6-AC04-5561-8641-D615FB127C0F}"
               p:after="r[@uid='{7A750F93-2CED-52A0-A429-2F3AC84239F3}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{7A750F93-2CED-52A0-A429-2F3AC84239F3}-0" />
@@ -80,16 +73,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201850Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4eb8f491-0d47-4fad-865e-0e6d0df25ccc"
+      Value: "5a05f688-4ef7-4c7b-842f-cb2fc1f59672"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201851Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Workshop 1"

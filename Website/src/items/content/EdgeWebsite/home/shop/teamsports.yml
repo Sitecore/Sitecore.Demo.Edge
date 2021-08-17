@@ -30,18 +30,10 @@ Languages:
               s:par=""
               s:ph="/jss-header/jss-header-content-{60FF17C8-D1DF-5FBC-AC9E-5CBA9BDD326C}-0" />
             <r
-              uid="{F1ED92F6-0712-5F4D-9C91-9577A26CECF4}"
+              uid="{727B8E11-511E-5081-AF86-2A9CDB711900}"
               p:after="r[@uid='{C4C25E4E-D979-5521-9AA3-575DAE9EAF20}']"
               s:rname="Section"
-              s:ds="{DE993EC6-850D-5438-BA2F-75442BD71A22}"
-              s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-              s:par=""
-              s:ph="/jss-main" />
-            <r
-              uid="{727B8E11-511E-5081-AF86-2A9CDB711900}"
-              p:after="r[@uid='{F1ED92F6-0712-5F4D-9C91-9577A26CECF4}']"
-              s:rname="Section"
-              s:ds="{F5140EE0-15BC-5A73-B696-C7A6DFB8413A}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -57,7 +49,7 @@ Languages:
               uid="{169CC4BB-A717-552B-AB63-1E38BF993547}"
               p:after="r[@uid='{CD60567B-96C2-5DC9-A5F5-008BEF9A3438}']"
               s:rname="Section"
-              s:ds="{977CCDAF-C3D3-5E85-8994-671EA6C3FCCD}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -65,6 +57,7 @@ Languages:
               uid="{DCDAA0AA-AC1C-5E0F-8C61-B51584E80DC9}"
               p:after="r[@uid='{169CC4BB-A717-552B-AB63-1E38BF993547}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{169CC4BB-A717-552B-AB63-1E38BF993547}-0" />
@@ -94,7 +87,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "01867145-e638-426f-93d0-dee02e2f5ac2"
+      Value: "cb612707-1d78-4079-92af-af2b32d410ae"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -104,7 +97,7 @@ Languages:
       Value: Team Sports
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T140612Z
+      Value: 20210813T004606Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Team Sports"

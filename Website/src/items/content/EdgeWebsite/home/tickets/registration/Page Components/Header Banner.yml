@@ -1,0 +1,34 @@
+﻿---
+ID: "bd786d95-3316-5b3b-8224-becd301935a5"
+Parent: "2e085239-09d6-505d-80eb-1b3750662507"
+Template: "22bf2a41-d79e-5e64-9497-6e52752f85dd"
+Path: /sitecore/content/EdgeWebsite/home/tickets/registration/Page Components/Header Banner
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152627Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9570f10b-46cc-4b9f-82b5-29a6e7cba309"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
+      Hint: title
+      Value: Registration
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210707T152627Z

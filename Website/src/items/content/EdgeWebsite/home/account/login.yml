@@ -48,7 +48,7 @@ Languages:
               uid="{41AC4072-49C6-5EB7-B5A0-D87BCA0938F4}"
               p:after="r[@uid='{634C42E8-C587-5089-9E46-B8A8077E7288}']"
               s:rname="Section"
-              s:ds="{D9CF749C-CD12-5E41-92AA-1D9DB9B8F530}"
+              s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -64,7 +64,7 @@ Languages:
               uid="{D8CC9DA5-54CA-58E2-8740-4D0CC7CC0E1A}"
               p:after="r[@uid='{8B6BADB8-3A4A-5CDB-94B7-791CE9D5071D}']"
               s:rname="Section"
-              s:ds="{A14F7EEB-E9A2-52BF-8A9F-92451169C452}"
+              s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
               s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
               s:par=""
               s:ph="/jss-main" />
@@ -72,6 +72,7 @@ Languages:
               uid="{1C7DABE3-4B30-5BE4-B3C0-F518CBD4D180}"
               p:after="r[@uid='{D8CC9DA5-54CA-58E2-8740-4D0CC7CC0E1A}']"
               s:rname="SponsorsGrid"
+              s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
               s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
               s:par=""
               s:ph="/jss-main/jss-section-content-{D8CC9DA5-54CA-58E2-8740-4D0CC7CC0E1A}-0" />
@@ -87,16 +88,24 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210625T201830Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "65b76ca9-5692-43ca-9b22-71f27ee76b47"
+      Value: "47d0a99b-64cc-4ca4-b3f5-4365e070c0d6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210714T191712Z
+      Value: 20210812T195204Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Login"

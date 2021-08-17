@@ -20,6 +20,10 @@
                 "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Edge Rendering Contents Resolvers"
             },
             {
+                "name": "powershell-scripts",
+                "path": "/sitecore/system/Modules/PowerShell/Script Library/SPE/Reporting/Content Reports/Reports/EdgeWebsite"
+            },
+            {
                 "name": "templates",
                 "path": "/sitecore/templates/Project/edgewebsite"
             },
