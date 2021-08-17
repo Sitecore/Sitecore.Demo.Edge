@@ -34,6 +34,8 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: Params) => {
+  console.log(params.id);
+
   const { speakers } = await getSpeakers(false);
   const { sessions } = await getSessions(false, '8zA5upmX40i227rWgxskxA');
 
