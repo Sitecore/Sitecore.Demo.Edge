@@ -24,23 +24,24 @@
         @apply p-6 relative;
         @apply md:p-12;
 
-        @media (min-width: 768px) {
+        @screen md {
           &::after {
+            @apply w-0 h-0 border-solid right-0 top-0 absolute;
+
             content: '';
-            width: 0;
-            height: 0;
-            border-style: solid;
             border-width: 0 110px 110px 0;
             border-color: transparent #1c80ff transparent transparent;
-            right: 0;
-            top: 0;
-            position: absolute;
           }
         }
       }
 
-      img {
-        width: 240px;
+      .logo {
+        @apply hidden;
+        @apply md:block;
+
+        img {
+          width: 240px;
+        }
       }
 
       .slogan {
@@ -49,16 +50,16 @@
         font-size: 1.5em;
       }
 
-      .title {
-        @apply text-4xl text-white uppercase py-3 m-0 font-bold;
-        @apply md:text-5xl;
-      }
-
       .expo {
         @apply text-yellow;
 
         font-weight: 600;
         font-size: 1.5em;
+      }
+
+      .title {
+        @apply text-4xl text-white uppercase py-3 m-0 font-bold;
+        @apply md:text-5xl;
       }
 
       .subtitle {
