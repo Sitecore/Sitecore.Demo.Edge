@@ -12,15 +12,15 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "02a6144f-e48c-4305-a1c4-93b39b965bcb"
-      Hint: LinkedinProfileLink
-      Value: "https://linkedin.com/edjones"
+    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
+      Hint: TwitterProfileLink
+      Value: "https://twitter.com/edjones"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210726T171709Z
-    - ID: "2a659163-cd5a-4026-8256-d2acc7ab11c6"
-      Hint: TwitterProfileLink
-      Value: "https://twitter.com/edjones"
+    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
+      Hint: InstagramProfileLink
+      Value: "https://instagram.com/edjones"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -42,9 +42,6 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\superuser
-    - ID: "cba0963a-f0da-4ab1-a996-5bc727c9d9f1"
-      Hint: InstagramProfileLink
-      Value: "https://instagram.com/edjones"
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.&nbsp;</p><p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&nbsp;</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>sed diam nonumy eirmod tempor</li><li>invidunt ut labore et dolore</li><li>magna aliquyam erat</li></ul><p>ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgddlsdjfhg lsdfjhlgsdkjf lkjsdhfgslieuriuealkjh lkfg sdlfjghsldjfhglhsarekjgalkerj jkh.</p>
@@ -54,16 +51,19 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210726T172745Z
+    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
+      Hint: FacebookProfileLink
+      Value: "https://facebook.com/edjones"
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
-      Hint: Speaker Type
+      Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: Ed Jones
-    - ID: "f5944338-eec3-4f86-a7d3-3b8bda5b4702"
-      Hint: FacebookProfileLink
-      Value: "https://facebook.com/edjones"
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
-      Hint: Image
+      Hint: Picture
       Value: |
         <image stylelabs-content-id="35409" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35409/thumbnail" src="https://mint.stylelabs.io/api/public/content/6a7bc7f0109040eb89dba97136683d2d?v=517c8757" mediaid="" stylelabs-content-type="Image" alt="ed-jones.jpeg" height="200" width="200" />
+    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
+      Hint: LinkedinProfileLink
+      Value: "https://linkedin.com/edjones"
