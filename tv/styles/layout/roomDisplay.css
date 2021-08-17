@@ -8,7 +8,7 @@
       @apply mb-auto mt-auto max-w-lg;
     }
 
-    .time {
+    .currentTime {
       @apply text-6xl uppercase pb-10 text-center;
     }
 

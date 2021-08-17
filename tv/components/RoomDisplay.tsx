@@ -14,7 +14,7 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
       </div>
       <div className="scheduled">
         <div className="wrapper">
-          <h1 className="time">08:00AM</h1>
+          <h1 className="currentTime">08:00AM</h1>
           <h1 className="date">Today</h1>
 
           <SessionList sessions={props.sessions} />
