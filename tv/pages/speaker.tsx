@@ -1,6 +1,26 @@
-import Image from 'next/image';
-import banner1 from '../public/banner1.png';
+import Speaker from "../components/Speaker";
+import { Session } from '../interfaces';
+import { getSessions } from '../api/queries/getSessions';
 
-export default function Speaker() {
-  return <Image src={banner1} alt="Sample" />;
+type SpeakerProps = {
+  sessions: Session[];
+  preview: boolean;
+};
+
+
+export default function SpeakerPage(props: SpeakerProps) {
+  return <Speaker sessions={props.sessions} />;
 }
+
+// This also gets called at build time
+export const getStaticProps = async () => {
+  const { sessions } = await getSessions(false, '8zA5upmX40i227rWgxskxA');
+
+  return {
+    props: {
+      sessions: sessions,
+    },
+    revalidate: 10,
+  };
+};
+
