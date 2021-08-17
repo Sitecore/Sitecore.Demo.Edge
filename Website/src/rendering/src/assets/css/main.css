@@ -27,6 +27,9 @@
 @import "./layout/section-speakers.css";
 @import "./layout/section-sponsors.css";
 
+/* Tailwindify other components and pages from rest.css here */
+@import "./rest.css";
+
 /* 6. Our components */
 
 @import "./components/AttendeeForm.css";
@@ -48,9 +51,6 @@
 @import "./components/ThreeColumnsSection.css";
 @import "./components/TicketGrid.css";
 @import "./components/VendorsGrid.css";
-
-/* Tailwindify other components and pages from rest.css here */
-@import "./rest.css";
 
 /* 7. Our page-specific styles */
 
