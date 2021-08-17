@@ -1,3 +1,17 @@
+header {
+  @apply fixed top-0 w-full;
+
+  z-index: 9999;
+
+  &.experience-editor-active {
+    position: unset;
+  }
+}
+
 main {
   padding-top: 122px;
+
+  &.experience-editor-active {
+    padding-top: unset;
+  }
 }

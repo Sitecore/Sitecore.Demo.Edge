@@ -35,8 +35,6 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
     context.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
-  const headerCssClasses = `header ${isExperienceEditorActiveCssClass}`;
-  const mainCssClasses = isExperienceEditorActiveCssClass;
   // END CUSTOMIZATION
 
   return (
@@ -50,10 +48,10 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
       {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
-      <header className={headerCssClasses}>
+      <header className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-header" rendering={route} />
       </header>
-      <main className={mainCssClasses}>
+      <main className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-main" rendering={route} />
       </main>
       <footer className="footer">

@@ -1,12 +1,19 @@
-/************************************ */
+.header-eyebrow {
+  @apply bg-black-lightest text-white;
 
-/* Header (menu) */
-.header {
-  @apply fixed top-0 w-full;
+  .content {
+    @apply flex flex-wrap justify-end content-center px-4 h-7;
+    @apply xl:h-6;
+    @apply lg:container lg:mx-auto;
 
-  z-index: 9999;
+    a {
+      @apply text-base;
+      @apply lg:text-sm;
+      @apply xl:text-xs;
+    }
 
-  &.experience-editor-active {
-    position: unset;
+    a + a {
+      @apply ml-2;
+    }
   }
 }
