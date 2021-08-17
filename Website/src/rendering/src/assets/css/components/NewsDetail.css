@@ -1,16 +1,28 @@
 .section__news--detail {
   .container {
-    @apply grid grid-cols-1 md:grid-cols-4 gap-10;
+    @apply grid grid-cols-1 gap-10;
+    @apply md:grid-cols-4;
 
     .left-column {
-      @apply col-span-1 md:col-span-1;
+      @apply col-span-1;
+      @apply md:col-span-1;
     }
 
     .right-column {
-      @apply col-span-1 md:col-span-3 space-y-5;
+      @apply col-span-1 space-y-5;
+      @apply md:col-span-3;
+
+      .news-date {
+        @apply uppercase;
+      }
 
       .news-title {
-        @apply text-2xl md:text-3xl font-extrabold text-blue;
+        @apply text-2xl font-extrabold text-blue;
+        @apply md:text-3xl;
+      }
+
+      .news-excerpt {
+        @apply font-bold;
       }
 
       p {
