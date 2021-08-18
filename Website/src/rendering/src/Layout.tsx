@@ -54,7 +54,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
       <main className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-main" rendering={route} />
       </main>
-      <footer className="footer">
+      <footer>
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
       {/* END CUSTOMIZATION*/}

@@ -7,6 +7,7 @@ import HeroSection, { HeroProps } from '../components/HeroSection';
 import MainNavigation from '../components/MainNavigation';
 import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 import SponsorsGrid, { Sponsor, SponsorsProps } from '../components/SponsorsGrid';
+import Footer from '../components/Footer';
 
 export default {
   title: 'Pages/Home',
@@ -155,13 +156,18 @@ const threeColProps = {
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
     <>
-      <div className="header">
+      <header>
         <Header {...headerProps} />
         <MainNavigation />
-      </div>
-      <HeroSection {...heroProps} />
-      <ThreeColumnsSection {...threeColProps} />
-      <SponsorsGrid {...sponsorProps} />
+      </header>
+      <main>
+        <HeroSection {...heroProps} />
+        <ThreeColumnsSection {...threeColProps} />
+        <SponsorsGrid {...sponsorProps} />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
