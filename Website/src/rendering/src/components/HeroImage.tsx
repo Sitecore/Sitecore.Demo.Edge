@@ -1,7 +1,7 @@
 import { ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type HeroImageProps = ComponentProps & {
+export type HeroImageProps = ComponentProps & {
   fields: {
     hero: ImageField;
   };

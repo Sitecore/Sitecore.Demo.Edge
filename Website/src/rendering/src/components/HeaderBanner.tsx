@@ -1,7 +1,7 @@
 import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type HeaderBannerProps = ComponentProps & {
+export type HeaderBannerProps = ComponentProps & {
   fields: {
     eyebrow: Field<string>;
     title: Field<string>;

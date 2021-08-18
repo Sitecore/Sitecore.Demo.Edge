@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
-type SpeakerInformationProps = ComponentProps & {
+export type SpeakerInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Role: Field<string>;
@@ -17,10 +17,10 @@ type SpeakerInformationProps = ComponentProps & {
     Company: Field<string>;
     Country: Field<string>;
     Description: Field<string>;
-    FacebookProfileLink: Field<string>;
-    TwitterProfileLink: Field<string>;
-    InstagramProfileLink: Field<string>;
-    LinkedinProfileLink: Field<string>;
+    FacebookProfileLink?: Field<string>;
+    TwitterProfileLink?: Field<string>;
+    InstagramProfileLink?: Field<string>;
+    LinkedinProfileLink?: Field<string>;
   };
 };
 
@@ -32,18 +32,34 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
           <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
           <div>
             {/* TODO: To be turned into links */}
-            <a href={props.fields.FacebookProfileLink?.value}>
-              <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faFacebookF} />
-            </a>
-            <a href={props.fields.TwitterProfileLink?.value}>
-              <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faTwitter} />
-            </a>
-            <a href={props.fields.LinkedinProfileLink?.value}>
-              <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faLinkedinIn} />
-            </a>
-            <a href={props.fields.InstagramProfileLink?.value}>
-              <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faInstagram} />
-            </a>
+            {!props.fields.FacebookProfileLink ? (
+              ''
+            ) : (
+              <a href={props.fields.FacebookProfileLink.value}>
+                <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faFacebookF} />
+              </a>
+            )}
+            {!props.fields.TwitterProfileLink ? (
+              ''
+            ) : (
+              <a href={props.fields.TwitterProfileLink.value}>
+                <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faTwitter} />
+              </a>
+            )}
+            {!props.fields.LinkedinProfileLink ? (
+              ''
+            ) : (
+              <a href={props.fields.LinkedinProfileLink.value}>
+                <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faLinkedinIn} />
+              </a>
+            )}
+            {!props.fields.InstagramProfileLink ? (
+              ''
+            ) : (
+              <a href={props.fields.InstagramProfileLink.value}>
+                <FontAwesomeIcon className="icon h-4 m-2 inline text-blue" icon={faInstagram} />
+              </a>
+            )}
           </div>
           <div className="pt-5">
             <strong>Position:</strong> <Text field={props.fields.Position}></Text>
