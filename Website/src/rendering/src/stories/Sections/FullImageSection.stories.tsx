@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FullImageSection from '../components/FullImageSection';
+import FullImageSection from '../../components/FullImageSection';
 
 export default {
-  title: 'Components/FullImageSection',
+  title: 'Components/Sections/FullImageSection',
   component: FullImageSection,
 } as ComponentMeta<typeof FullImageSection>;
 

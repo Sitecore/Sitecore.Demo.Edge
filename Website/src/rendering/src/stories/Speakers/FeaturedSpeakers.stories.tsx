@@ -1,33 +1,32 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedVendors from '../components/FeaturedVendors';
-import { Vendor } from '../components/FeaturedVendors';
+import FeaturedSpeakers, { Speaker } from '../../components/FeaturedSpeakers';
 
 export default {
-  title: 'Components/FeaturedVendors',
-  component: FeaturedVendors,
-} as ComponentMeta<typeof FeaturedVendors>;
+  title: 'Components/Speakers/FeaturedSpeakers',
+  component: FeaturedSpeakers,
+} as ComponentMeta<typeof FeaturedSpeakers>;
 
-const Template: ComponentStory<typeof FeaturedVendors> = (args) => <FeaturedVendors {...args} />;
+const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
 
-const vendor = {
+const speaker = {
   Name: 'Item Name',
   fields: {
     Name: {
       value: 'Speaker Name',
     },
-    Level: {
+    Role: {
       value: 'Speaker Role',
     },
-    Logo: {
+    Picture: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
       },
     },
   },
-} as Vendor;
+} as Speaker;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -39,6 +38,6 @@ Default.args = {
       value:
         'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
     },
-    Vendors: [vendor],
+    Speakers: [speaker],
   },
 };

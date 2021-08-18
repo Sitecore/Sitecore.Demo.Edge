@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProductCategoriesGrid from '../components/ProductCategoriesGrid';
-import { Category } from '../components/ProductCategoriesGrid';
+import ProductCategoriesGrid, { Category } from '../../components/ProductCategoriesGrid';
 
 export default {
-  title: 'Components/ProductCategoriesGrid',
+  title: 'Components/Products/ProductCategoriesGrid',
   component: ProductCategoriesGrid,
 } as ComponentMeta<typeof ProductCategoriesGrid>;
 

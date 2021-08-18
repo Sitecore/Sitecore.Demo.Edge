@@ -8,7 +8,7 @@ export default {
   component: AgendaGrid,
 } as ComponentMeta<typeof AgendaGrid>;
 
-const Template: ComponentStory<typeof AgendaGrid> = (args) => <AgendaGrid {...args} />;
+const Template: ComponentStory<typeof AgendaGrid> = () => <AgendaGrid />;
 
 export const Default = Template.bind({});
 Default.args = {

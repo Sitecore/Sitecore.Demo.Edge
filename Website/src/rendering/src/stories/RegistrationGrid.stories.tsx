@@ -8,7 +8,7 @@ export default {
   component: RegistrationGrid,
 } as ComponentMeta<typeof RegistrationGrid>;
 
-const Template: ComponentStory<typeof RegistrationGrid> = (args) => <RegistrationGrid {...args} />;
+const Template: ComponentStory<typeof RegistrationGrid> = () => <RegistrationGrid />;
 
 export const Default = Template.bind({});
 Default.args = {

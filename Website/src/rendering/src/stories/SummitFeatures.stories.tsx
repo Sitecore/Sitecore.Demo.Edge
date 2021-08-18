@@ -8,7 +8,7 @@ export default {
   component: SummitFeatures,
 } as ComponentMeta<typeof SummitFeatures>;
 
-const Template: ComponentStory<typeof SummitFeatures> = (args) => <SummitFeatures {...args} />;
+const Template: ComponentStory<typeof SummitFeatures> = () => <SummitFeatures />;
 
 export const Default = Template.bind({});
 Default.args = {

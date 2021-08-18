@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SponsorsGrid, { Sponsor } from '../components/SponsorsGrid';
+import SponsorsGrid, { Sponsor } from '../../components/SponsorsGrid';
 
 export default {
-  title: 'Components/SponsorsGrid',
+  title: 'Components/Sponsors/SponsorsGrid',
   component: SponsorsGrid,
 } as ComponentMeta<typeof SponsorsGrid>;
 

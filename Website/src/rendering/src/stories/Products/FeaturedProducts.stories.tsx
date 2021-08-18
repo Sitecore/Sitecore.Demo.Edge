@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedProducts from '../components/FeaturedProducts';
+import FeaturedProducts from '../../components/FeaturedProducts';
 
 export default {
-  title: 'Components/FeaturedProducts',
+  title: 'Components/Products/FeaturedProducts',
   component: FeaturedProducts,
 } as ComponentMeta<typeof FeaturedProducts>;
 
-const Template: ComponentStory<typeof FeaturedProducts> = (args) => <FeaturedProducts {...args} />;
+const Template: ComponentStory<typeof FeaturedProducts> = () => <FeaturedProducts />;
 
 export const Default = Template.bind({});
 Default.args = {

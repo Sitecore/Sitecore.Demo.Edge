@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import PaymentForm from '../components/PaymentForm';
+import PaymentForm from '../../components/PaymentForm';
 
 export default {
-  title: 'Components/PaymentForm',
+  title: 'Components/Payment/PaymentForm',
   component: PaymentForm,
 } as ComponentMeta<typeof PaymentForm>;
 
-const Template: ComponentStory<typeof PaymentForm> = (args) => <PaymentForm {...args} />;
+const Template: ComponentStory<typeof PaymentForm> = () => <PaymentForm />;
 
 export const Default = Template.bind({});
 Default.args = {

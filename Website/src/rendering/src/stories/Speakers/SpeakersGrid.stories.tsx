@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeakersGrid, { Speaker } from '../components/SpeakersGrid';
+import SpeakersGrid, { Speaker } from '../../components/SpeakersGrid';
 
 export default {
-  title: 'Components/SpeakersGrid',
+  title: 'Components/Speakers/SpeakersGrid',
   component: SpeakersGrid,
 } as ComponentMeta<typeof SpeakersGrid>;
 

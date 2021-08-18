@@ -8,7 +8,7 @@ export default {
   component: GalleryGrid,
 } as ComponentMeta<typeof GalleryGrid>;
 
-const Template: ComponentStory<typeof GalleryGrid> = (args) => <GalleryGrid {...args} />;
+const Template: ComponentStory<typeof GalleryGrid> = () => <GalleryGrid />;
 
 export const Default = Template.bind({});
 Default.args = {

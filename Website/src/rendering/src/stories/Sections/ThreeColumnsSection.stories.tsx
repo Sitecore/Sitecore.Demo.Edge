@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
+import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../../components/ThreeColumnsSection';
 
 export default {
-  title: 'Components/ThreeColumnsSection',
+  title: 'Components/Sections/ThreeColumnsSection',
   component: ThreeColumnsSection,
 } as ComponentMeta<typeof ThreeColumnsSection>;
 
