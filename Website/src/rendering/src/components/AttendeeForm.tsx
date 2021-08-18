@@ -3,83 +3,63 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AttendeeForm = (): JSX.Element => (
-  <div className="grid justify-items-stretch w-full grid-cols-1 md:grid-cols-5 attendee-form gap-0 md:gap-10">
-    <div className="section__content--top text-center space-y-10 attendee-form-content col-span-2 bg-white-lighter p-10">
+  <div className="attendee-form">
+    <div className="section__content--top attendee-form-content">
       <div>
-        <h2 className="text-4xl px-4">VIP Ticket</h2>
+        <h2>VIP Ticket</h2>
         <span>Save 20% with early bird!</span>
       </div>
       <ul>
         <li>
-          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 10% off workshops
+          <FontAwesomeIcon icon={faCheck} /> 10% off workshops
         </li>
         <li>
-          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free speaker events
+          <FontAwesomeIcon icon={faCheck} /> Free speaker events
         </li>
         <li>
-          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Discounts on thousands of
-          products
+          <FontAwesomeIcon icon={faCheck} /> Discounts on thousands of products
         </li>
         <li>
-          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free online catalog
+          <FontAwesomeIcon icon={faCheck} /> Free online catalog
         </li>
         <li>
-          <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 20% off VIP upgrade
+          <FontAwesomeIcon icon={faCheck} /> 20% off VIP upgrade
         </li>
       </ul>
-      <div className="px-6 pt-4 pb-10">
+      <div className="button-area">
         <Link href="/tickets">
           <a className="btn--main btn--main--round">VIP Upgrade</a>
         </Link>
       </div>
     </div>
-    <div className="section__content--top attendee-form-form col-span-3 space-y-5  p-10">
-      <h2 className="text-4xl">Attendee Registration</h2>
-      <input
-        className="w-full md:w-3/5 rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="First name"
-      />
-      <input
-        className="w-full md:w-3/5 rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Last name"
-      />
-      <input
-        className="w-full md:w-3/5 rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Email"
-      />
-      <input
-        className="w-full md:w-3/5 rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Password"
-      />
-      <label className="inline-flex items-center pl-5">
+    <div className="section__content--top attendee-form-form">
+      <h2>Attendee Registration</h2>
+      <input type="text" placeholder="First name" />
+      <input type="text" placeholder="Last name" />
+      <input type="text" placeholder="Email" />
+      <input type="text" placeholder="Password" />
+      <label className="checkbox-label">
         <input type="checkbox" className="form-checkbox" defaultChecked />
-        <span className="ml-2 text-sm">If you wish to receive updates on the expo</span>
+        <span className="label-text">If you wish to receive updates on the expo</span>
       </label>
-      <label className="inline-flex items-center pl-5">
+      <label className="checkbox-label">
         <input type="checkbox" className="form-checkbox" defaultChecked />
-        <span className="ml-2 text-sm">
+        <span className="label-text">
           If you wish to receive updates from third party vendors and promotions
         </span>
       </label>
-      <div className="px-6 pt-4 pb-10">
+      <div className="button-area">
         <Link href="/tickets/payment">
           <a className="btn--main btn--main--round">Submit</a>
         </Link>
       </div>
-      <div className="text-sm">
+      <div className="footnote">
         <p>
-          Already have an account?{' '}
-          <strong>
-            <u>Log in.</u>
-          </strong>
+          Already have an account? <Link href="/account/login">Log in.</Link>
         </p>
         <p>
           To find out more about how we are using this information you are giving up, please review
-          our <strong>privacy statement</strong>
+          our <Link href="/privacy">privacy statement</Link>
         </p>
       </div>
     </div>
