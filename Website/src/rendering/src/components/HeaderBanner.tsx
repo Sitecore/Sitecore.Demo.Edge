@@ -22,7 +22,7 @@ const HeaderBanner = (props: HeaderBannerProps): JSX.Element => (
       backgroundPosition: 'center',
     }}
   >
-    <div className="section__content section__content--left text-white flex flex-wrap content-start font-extrabold">
+    <div className="section__content section__content--left text-white font-extrabold">
       <Text className="eyebrow pb-10" tag="h4" field={props.fields.eyebrow} />
       <Text className="uppercase text-5xl" tag="h2" field={props.fields.title} />
       <Text className="text-yellow" tag="p" field={props.fields.subtitle} />
