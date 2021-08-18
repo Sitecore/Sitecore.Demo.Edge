@@ -22,7 +22,9 @@ export interface Room {
 export interface Speaker {
   id: string;
   name: string;
+  photo: string;
   description: string;
+  image: any;
 }
 
 export interface Timeslot {

@@ -1,6 +1,7 @@
 import { Speaker } from '../interfaces';
 import Link from 'next/link';
-import { randomHSL } from '../utilities/randomHSL';
+import Image from 'next/image';
+import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type SpeakerListProps = {
   speakers: Speaker[];
@@ -10,14 +11,22 @@ export declare type Params = {
   [param: string]: any;
 };
 
-const RoomList = (props: SpeakerListProps): JSX.Element => {
+const SpeakerList = (props: SpeakerListProps): JSX.Element => {
   return (
-    <div className="roomList">
+    <div className="speakerList">
       <ul>
-        {props.speakers.map((room, index) => (
-          <li key={index} className="room">
-            <div className="box" style={{ backgroundColor: randomHSL() }}></div>
-            <Link href={'/speakers/' + room.id}>{room.name}</Link>
+        {props.speakers.map((speaker, index) => (
+          <li key={index} className="speaker">
+            <div className="photo">
+              <Image
+                loader={contentHubImageLoader}
+                src={speaker.photo}
+                width="80px"
+                height="80px"
+                alt="Sample"
+              />
+            </div>
+            <Link href={'/speakers/' + speaker.id}>{speaker.name}</Link>
           </li>
         ))}
       </ul>
@@ -25,4 +34,4 @@ const RoomList = (props: SpeakerListProps): JSX.Element => {
   );
 };
 
-export default RoomList;
+export default SpeakerList;

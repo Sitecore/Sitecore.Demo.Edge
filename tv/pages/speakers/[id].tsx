@@ -1,5 +1,5 @@
 import { getSessions } from '../../api/queries/getSessions';
-import { getSpeakers } from '../../api/queries/getSpeakers';
+import { getSpeakers, getSpeakerById } from '../../api/queries/getSpeakers';
 import { Session, Speaker } from '../../interfaces';
 import SpeakerDisplay from '../../components/SpeakerDisplay';
 
@@ -36,13 +36,13 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params }: Params) => {
   console.log(params.id);
 
-  const { speakers } = await getSpeakers(false);
+  const { speaker } = await getSpeakerById(params.id);
   const { sessions } = await getSessions(false, '8zA5upmX40i227rWgxskxA');
 
   return {
     props: {
       sessions: sessions,
-      speaker: speakers[0],
+      speaker: speaker,
     },
     revalidate: 10,
   };

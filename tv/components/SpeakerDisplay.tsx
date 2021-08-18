@@ -1,7 +1,7 @@
 import { Session, Speaker } from '../interfaces';
 import Image from 'next/image';
-import speaker from '../public/speaker-chris-williams.jpg';
 import SessionList from './SessionList';
+import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type CurrentSessionProps = {
   sessions: Session[];
@@ -14,8 +14,13 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
       <div className="md:flex items-center -mx-10">
         <div className="w-full md:w-5/12 px-10 mb-10 md:mb-0">
           <div className="relative">
-            <Image src={speaker} alt="Sample" />
-
+            <Image
+              loader={contentHubImageLoader}
+              src={props.speaker.photo}
+              width="400px"
+              height="400px"
+              alt="Sample"
+            />
             <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
           </div>
         </div>
