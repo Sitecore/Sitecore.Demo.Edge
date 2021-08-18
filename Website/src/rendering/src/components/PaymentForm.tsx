@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const PaymentForm = (): JSX.Element => (
   <div className="grid justify-items-stretch w-full grid-cols-5 attendee-form gap-10">
-    <div className="section__content--top text-center space-y-5 attendee-form-content col-span-3">
+    <div className="text-center space-y-5 attendee-form-content col-span-3">
       <div className="p-5">
         <h2>Select Payment Method</h2>
       </div>
@@ -113,7 +113,7 @@ const PaymentForm = (): JSX.Element => (
         </Link>
       </div>
     </div>
-    <div className="section__content--top attendee-form-form col-span-2 space-y-5">
+    <div className="attendee-form-form col-span-2 space-y-5">
       <div className="w-full align-top">
         <div className="bg-black p-5 text-white">
           <h2>Order Summary</h2>

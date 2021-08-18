@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const SessionList = (): JSX.Element => (
   <section className="section section__session-list">
-    <div className="section__content section__content--left">
+    <div className="section__content">
       <h2>Sessions</h2>
       <div className="session-list">
         <div className="session-info">

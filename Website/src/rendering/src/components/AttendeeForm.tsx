@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const AttendeeForm = (): JSX.Element => (
   <div className="attendee-form">
-    <div className="section__content--top attendee-form-content">
+    <div className="attendee-form-content">
       <div>
         <h2>VIP Ticket</h2>
         <span>Save 20% with early bird!</span>
@@ -32,7 +32,7 @@ const AttendeeForm = (): JSX.Element => (
         </Link>
       </div>
     </div>
-    <div className="section__content--top attendee-form-form">
+    <div className="attendee-form-form">
       <h2>Attendee Registration</h2>
       <input type="text" placeholder="First name" />
       <input type="text" placeholder="Last name" />
