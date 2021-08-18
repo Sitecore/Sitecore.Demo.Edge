@@ -1,6 +1,0 @@
-.section__allproducts {
-  .item-image-bordered {
-    @apply mx-auto border border-gray-dark h-40;
-    @apply md:w-full;
-  }
-}

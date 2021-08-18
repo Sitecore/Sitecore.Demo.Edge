@@ -4,7 +4,7 @@ const AllProducts = (): JSX.Element => (
   <section className="section section__allproducts">
     <div className="section__content">
       <h1 className="section__content__title section__content__title--light">All Products</h1>
-      <div className="filtered-grid">
+      <div className="item-grid">
         <div className="grid-filters">
           <span>Filter by:</span>
           <button
@@ -57,7 +57,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-alba-hydration-pack.jpeg"
                 alt="Mountain"
               />
@@ -72,7 +72,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-centercycle-speed-track-helmet.jpeg"
                 alt="Mountain"
               />
@@ -86,7 +86,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-centercycle-womens-biking-top.jpeg"
                 alt="Mountain"
               />
@@ -100,7 +100,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-habitat-striva5.jpeg"
                 alt="Mountain"
               />
@@ -114,7 +114,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-striva-activity-tracker.jpeg"
                 alt="Mountain"
               />
@@ -128,7 +128,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/speedsensor.jpeg"
                 alt="Mountain"
               />
@@ -142,7 +142,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-striva-cycling-computer.jpeg"
                 alt="Mountain"
               />
@@ -156,7 +156,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-centercycle-tire-repair-kit.jpeg"
                 alt="Mountain"
               />
@@ -170,7 +170,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-mens-biking-shorts.jpeg"
                 alt="Mountain"
               />
@@ -184,7 +184,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/tickets" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/helmet.jpeg"
                 alt="Mountain"
               />
@@ -198,7 +198,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/tickets" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/featured-shoe.jpeg"
                 alt="Mountain"
               />
@@ -212,7 +212,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/tickets" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/luxe-bike.jpeg"
                 alt="Mountain"
               />
@@ -226,7 +226,7 @@ const AllProducts = (): JSX.Element => (
           <Link href="/shop" passHref>
             <div className="grid-item">
               <img
-                className="item-image-bordered"
+                className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-habitat-stationary-bike.jpg"
                 alt="Mountain"
               />

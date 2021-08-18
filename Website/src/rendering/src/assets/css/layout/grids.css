@@ -1,4 +1,4 @@
-.filtered-grid {
+.item-grid {
   .grid-filters {
     @apply mx-auto gap-5 w-2/3 grid grid-cols-1 pt-10;
     @apply md:w-3/4 md:gap-10 md:grid-cols-5;
@@ -24,6 +24,14 @@
 
     .grid-item {
       @apply rounded overflow-hidden;
+
+      .item-image-bordered {
+        @apply border border-gray-dark;
+      }
+
+      .item-image-h-40 {
+        @apply mx-auto h-40;
+      }
 
       .item-details {
         @apply px-6 py-4 text-black text-base text-center;

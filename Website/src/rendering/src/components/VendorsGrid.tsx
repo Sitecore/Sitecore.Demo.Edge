@@ -24,7 +24,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
         <h1 className="section__content__title section__content__title--light">
           All Event Vendors
         </h1>
-        <div className="filtered-grid">
+        <div className="item-grid">
           <div className="grid-filters">
             <span>Filter by</span>
             <button
