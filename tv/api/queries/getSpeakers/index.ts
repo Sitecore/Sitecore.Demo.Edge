@@ -71,12 +71,9 @@ export const getSpeakers = async (preview: boolean): Promise<{ speakers: Speaker
 
 export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> => {
   try {
-    const speakerByIdQuery: any =
-      `
+    const speakerByIdQuery: any = `
     query {
-      allDemo_Speaker (where:{id_eq:"` +
-      id +
-      `"}){
+      allDemo_Speaker (where:{id_eq:"${id}"}){
         results {
           id      
           name
