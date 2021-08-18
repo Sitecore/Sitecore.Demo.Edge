@@ -44,7 +44,7 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => {
                   <div className="hidden md:block">
                     <Image
                       field={testimony.fields.Logo}
-                      alt={testimony.fields.Provider}
+                      alt={testimony.fields.Provider.value}
                       width={180}
                       height={180}
                     />
@@ -55,6 +55,7 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => {
                       className="inline-block"
                       field={testimony.fields.Testimony}
                     ></RichText>
+                    -{' '}
                     <Text
                       tag="span"
                       className="font-bold inline-block pt-3"
