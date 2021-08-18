@@ -52,70 +52,60 @@ namespace Sitecore.Demo.Init.Jobs
 		private void UpdateValues()
 		{
 		  var filepath = @"C:\app\src\items\content\EdgeWebsite\home.yml";
-
-
+		  string text = File.ReadAllText(filepath);
 
 		  using (var stream = File.OpenRead(filepath))
 		  {
 			 using (var reader = new StreamReader(stream))
 			 {
-				// Load the stream
-				//var yaml = new YamlStream();
-				//yaml.Load(reader);
-				Log.LogInformation("UpdateDamUri() test1***: " + reader);
-
 				var deserializer = new Deserializer();
-
-				//yml contains a string containing your YAML
-				var yamlKvp = deserializer.Deserialize<Dictionary<string, string>>(reader);
-				//System.Console.WriteLine($"{p.Name} is {p.Age} years old and lives at {h.Street} in {h.City}, {h.State}.");
-
-				//Log.LogInformation("UpdateDamUri() test0***: " + yamlElements.ToString());
-
-
-				//var yamlElements = ((YamlMappingNode)yaml.Documents[0].RootNode).Children.FirstOrDefault(i => i.Key.ToString() == "Languages").Value;
-				//Log.LogInformation("UpdateDamUri() test2***: " + yamlElements.ToString());
+				var yamlKvp = deserializer.Deserialize<Dictionary<string, object>>(reader);
 
 				foreach (var kvp in yamlKvp)
 				{
-				    Log.LogInformation("UpdateDamUri() test3***: " + kvp.Key + " *|* " + kvp.Value);
-				    //foreach (var elementL2 in elementL1.AllNodes)
-				    //{
-				    //    Log.LogInformation("UpdateDamUri() test4***: " + elementL2.ToString() + " *|* " );
-				    //    foreach (var elementL3 in elementL2.AllNodes)
-				    //    {
-				    //	   Log.LogInformation("UpdateDamUri() test5***: " + elementL3.ToString() + " *|* " + elementL3);
-				    //    }
-				    //}
+				    if (kvp.Key == "Languages")
+				    {
+					   foreach (Dictionary<object, object> test in (kvp.Value as List<object>))
+					   {
+						  foreach (var test2 in test)
+						  {
+							 if ((test2.Key as string) == "Versions")
+							 {
+								foreach (Dictionary<object, object> test3 in (test2.Value as List<object>))
+								{
+								    foreach (var test4 in test3)
+								    {
+									   if ((test4.Key as string) == "Fields")
+									   {
+										  foreach (Dictionary<object, object> test5 in (test4.Value as List<object>))
+										  {
+											 object tryGetValue;
+											 test5.TryGetValue("Hint", out tryGetValue);
+											 if (!tryGetValue.ToString().StartsWith("__"))
+											 {
+												foreach (var test6 in test5)
+												{
+												    if (test6.Key.ToString() == "Value")
+												    {
+													   text = text.Replace(test6.Value.ToString(), "100" + test6.Value.ToString() + "100");
+												    }
+												}
+											 }
+										  }
+									   }
+								    }
+								}
+							 }
+						  }
+					   }
+				    }
 				}
 
-				//var buffer = new StringBuilder();
-				//using (var writer = new StringWriter(buffer))
-				//{
-				//yaml.Save(writer);
-				//Log.LogInformation("UpdateDamUri() test2***: " + writer.ToString());
-				//}
-
-				// the rest
 			 }
 		  }
 
-		  //foreach (var itemId in itemIdList)
-		  //{
-		  //var existingFieldValue = ReadItemField(hostCM, token, itemId);
+		  File.WriteAllText(filepath, text);
 
-		  //if (string.IsNullOrWhiteSpace(existingFieldValue))
-		  //continue;
-
-		  //var updatedDamHost = GetUpdatedDamHost(existingFieldValue);
-
-		  //if (string.IsNullOrWhiteSpace(updatedDamHost))
-		  //continue;
-
-		  //var escapedUpdatedDamHost = updatedDamHost.Replace("\"", "\\\"");
-
-		  //UpdateItemField(hostCM, token, itemId, escapedUpdatedDamHost);
-		  //}
 	   }
 
         private string ReadItemField(string hostCM, string token, string itemId)
@@ -123,7 +113,7 @@ namespace Sitecore.Demo.Init.Jobs
             try
             {
                 var cookieClient = new CookieWebClient();
-                cookieClient.Encoding = System.Text.Encoding.UTF8;
+                cookieClient.Encoding = Encoding.UTF8;
                 cookieClient.Headers.Add("token", token);
                 cookieClient.Headers.Add("Content-Type", "application/json");
 
