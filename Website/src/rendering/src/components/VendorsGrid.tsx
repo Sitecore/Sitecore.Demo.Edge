@@ -21,14 +21,15 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
   return (
     <section className="section">
       <div className="section__content">
-        <div className="VendorsGrid">
-          <h1 className="VendorsGrid__title">ALL EVENT VENDORS</h1>
-
-          <div className="VendorsGrid__filters">
+        <h1 className="section__content__title section__content__title--light">
+          All Event Vendors
+        </h1>
+        <div className="filtered-grid">
+          <div className="grid-filters">
             <span>Filter by</span>
             <button
               type="button"
-              className="VendorsGrid__filters__dropdownfilter"
+              className="dropdown-filter"
               id="menu-button-schedule"
               aria-expanded="true"
               aria-haspopup="true"
@@ -39,7 +40,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
             </button>
             <button
               type="button"
-              className="VendorsGrid__filters__dropdownfilter"
+              className="dropdown-filter"
               id="menu-button-speakers"
               aria-expanded="true"
               aria-haspopup="true"
@@ -50,7 +51,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
             </button>
             <button
               type="button"
-              className="VendorsGrid__filters__dropdownfilter"
+              className="dropdown-filter"
               id="menu-button-category"
               aria-expanded="true"
               aria-haspopup="true"
@@ -61,7 +62,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
             </button>
             <button
               type="button"
-              className="VendorsGrid__filters__dropdownfilter"
+              className="dropdown-filter"
               id="menu-button-sport"
               aria-expanded="true"
               aria-haspopup="true"
@@ -72,7 +73,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
             </button>
           </div>
 
-          <div className="VendorsGrid__grid">
+          <div className="grid-content">
             {props.fields.items &&
               props.fields.items.map((vendor, index) => (
                 <Link
@@ -80,19 +81,15 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
                   href={'/vendors/' + vendor.fields.Name.value.replace(/ /g, '')}
                   passHref
                 >
-                  <div className="VendorsGrid__grid__vendor">
+                  <div className="grid-item">
                     <Image
                       field={vendor.fields.Logo}
                       alt={vendor.fields.Name}
                       width={265}
                       height={265}
                     />
-                    <div className="VendorsGrid__grid__vendor__namecontainer">
-                      <Text
-                        tag="p"
-                        className="VendorsGrid__grid__vendor__namecontainer__name"
-                        field={vendor.fields.Name}
-                      ></Text>
+                    <div className="item-details">
+                      <Text tag="p" field={vendor.fields.Name}></Text>
                     </div>
                   </div>
                 </Link>

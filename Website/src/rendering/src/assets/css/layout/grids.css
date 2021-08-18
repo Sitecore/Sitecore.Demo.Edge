@@ -1,17 +1,10 @@
-.VendorsGrid {
-  @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
-
-  &__title {
-    @apply text-center uppercase text-blue pt-10 text-3xl font-semibold;
-    @apply md:text-4xl;
-  }
-
-  &__filters {
+.filtered-grid {
+  .grid-filters {
     @apply mx-auto gap-5 w-2/3 grid grid-cols-1 pt-10;
     @apply md:w-3/4 md:gap-10 md:grid-cols-5;
     @apply lg:w-2/3;
 
-    &__dropdownfilter {
+    .dropdown-filter {
       @apply inline-flex justify-center border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-black-lightest;
       @apply hover:bg-gray-lighter;
       @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-lighter focus:ring-blue-lightest;
@@ -23,21 +16,20 @@
     }
   }
 
-  &__grid {
+  .grid-content {
     @apply p-10 grid grid-cols-1 gap-5;
     @apply sm:grid-cols-2;
-    @apply md:grid-cols-3;
-    @apply lg:grid-cols-4;
-    @apply xl:grid-cols-5;
+    @apply lg:grid-cols-3;
+    @apply xl:grid-cols-4;
 
-    &__vendor {
+    .grid-item {
       @apply rounded overflow-hidden;
 
-      &__namecontainer {
-        @apply px-6 py-4;
+      .item-details {
+        @apply px-6 py-4 text-black text-base text-center;
 
-        &__name {
-          @apply text-black text-base text-center;
+        .item-title {
+          @apply font-bold;
         }
       }
     }

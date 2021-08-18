@@ -23,6 +23,8 @@
 
 @import "./layout/layout.css";
 @import "./layout/buttons.css";
+@import "./layout/sections.css";
+@import "./layout/grids.css";
 @import "./layout/section-news.css";
 @import "./layout/section-speakers.css";
 @import "./layout/section-sponsors.css";
@@ -32,6 +34,7 @@
 
 /* 6. Our components */
 
+@import "./components/AllProducts.css";
 @import "./components/AttendeeForm.css";
 @import "./components/Breadcrumb.css";
 @import "./components/FeaturedEvent.css";
@@ -49,7 +52,6 @@
 @import "./components/SponsorsGrid.css";
 @import "./components/ThreeColumnsSection.css";
 @import "./components/TicketGrid.css";
-@import "./components/VendorsGrid.css";
 
 /* 7. Our page-specific styles */
 
