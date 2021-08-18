@@ -1,0 +1,18 @@
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import RegistrationGrid from '../components/RegistrationGrid';
+
+export default {
+  title: 'Components/RegistrationGrid',
+  component: RegistrationGrid,
+} as ComponentMeta<typeof RegistrationGrid>;
+
+const Template: ComponentStory<typeof RegistrationGrid> = (args) => <RegistrationGrid {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  params: {
+    name: 'RegistrationGrid',
+  },
+};
