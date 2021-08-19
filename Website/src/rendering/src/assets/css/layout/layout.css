@@ -9,7 +9,18 @@ header {
 }
 
 main {
-  padding-top: 122px;
+  /* Header.css h-7 + MainNavigation.css 78px */
+  padding-top: 106px;
+
+  @screen lg {
+    /* Header.css h-7 + MainNavigation.css 93px */
+    padding-top: 121px;
+  }
+
+  @screen xl {
+    /* Header.css h-6 + MainNavigation.css 93px */
+    padding-top: 119px;
+  }
 
   &.experience-editor-active {
     padding-top: unset;
