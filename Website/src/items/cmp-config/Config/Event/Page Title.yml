@@ -1,15 +1,18 @@
 ﻿---
 ID: "95d142a0-d806-4d49-9adf-9bc9224b094e"
-Parent: "0b55135d-c2aa-4adf-82e1-bef1bcb3a5e5"
+Parent: "3a5a661b-fbaa-4f40-978b-fbc4d0db77f3"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Site Config/Page Title
+Path: /sitecore/system/Modules/CMP/Config/Event/Page Title
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: SiteMetaPageTitle
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{0A603CE3-BEF2-4CA2-ADA3-D21426DE542D}"
+  Value: "{C8E93526-13B7-4942-B2E0-768BE5C82652}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{4C94598B-EB37-400C-88C3-BEB971888C9A}"
@@ -31,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4dbd6456-4dc5-4440-832f-2e87fb015e17"
+      Value: "9d5cdff3-b65d-408d-8970-87e0e5193926"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210818T215827Z
+      Value: 20210819T214817Z
