@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Site Config
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{7CA5AFD0-92C7-41A2-BFFF-100B87FA362C}"
+  Value: "{CB02A3EF-5A20-4162-BFE3-2E3200C58641}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
   Value: Demo.Event
@@ -37,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ba9f7486-bd0b-4623-8da3-03ef153da4f0"
+      Value: "6c29dbd0-27b2-4503-aa41-9dab93a84521"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210818T214932Z
+      Value: 20210818T223855Z

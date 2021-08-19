@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Site Config/Page Title
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: PageTitle
+  Value: SiteMetaPageTitle
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{0A603CE3-BEF2-4CA2-ADA3-D21426DE542D}"
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "505d9e57-5526-4653-ba3e-7e641f075845"
+      Value: "4dbd6456-4dc5-4440-832f-2e87fb015e17"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210816T211337Z
+      Value: 20210818T215827Z

@@ -1,0 +1,51 @@
+﻿---
+ID: "8117a5f2-5022-4da8-ac37-7f707533f99f"
+Parent: "d853fe1d-76af-45de-bf02-f54e5d811f2f"
+Template: "5dcc4bd8-49e8-45e0-8f6f-7f458354fa54"
+Path: /sitecore/content/CMP/Events/Play Summit
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Y_kS3W_SlEi1LQvCbRcQsQ
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ad2cbbc-3eaf-4209-847c-de470e29cb1b"
+      Hint: Description
+      Value: |
+        <p>Play! Summit Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula. Duis lobortis finibus erat, at consectetur massa iaculis at. Etiam in diam, auctor ligula ut, sollicitudin mi. Pellentesque nisi libero, pretium ut sagittis ut, gravida eu urna. Aenean at mollis justo, nec porttitor erat. Etiam ut nisi in velit egestas dictum vel et metus. Mauris purus tortor, pulvinar sed euismod auctor, maximus nec enim. Vivamus convallis in dui non rhoncus. Suspendisse at leo non lorem tristique cursus. Praesent eget lorem vitae nulla malesuada condimentum sed sed neque. Cras egestas tortor eget mi faucibus porttitor. Nunc sollicitudin turpis at justo bibendum venenatis.</p>
+        
+        <p>Play! Summit Morbi pretium elementum lacus congue eget. Duis fermentum a nisl sed suscipit. Ut rutrum velit non diam hendrerit ullamcorper. Aliquam eget nisi metus. Curabitur sapien eros, vulputate non massa a, finibus blandit ante. Nullam eget consequat sapien. Vivamus at mi vulputate erat convallis auctor.Morbi pretium elementum lacus congue eget. Duis fermentum a nisl sed suscipit. Ut rutrum velit non diam hendrerit ullamcorper. Aliquam eget nisi metus. Curabitur sapien eros, vulputate non massa a, finibus blandit ante. Nullam eget consequat sapien. Vivamus at mi vulputate erat convallis auctor.</p>
+        
+    - ID: "21284381-fe4d-4a3a-85c9-5c9c69dd741b"
+      Hint: StartDate
+      Value: 20210819T060000Z
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210818T224038Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "6749d2e1-4a86-4bb7-a89f-10313a1a92e1"
+      Hint: Name
+      Value: "Play! Summit"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a9a4dbc7-3581-4967-ba2d-7037e809173a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c8e93526-13b7-4942-b2e0-768be5c82652"
+      Hint: PageTitlePrefix
+      Value: Playyyyyyyyyyyyy
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210819T214003Z
