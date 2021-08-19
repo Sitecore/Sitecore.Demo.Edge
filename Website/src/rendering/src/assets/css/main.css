@@ -44,6 +44,7 @@
 @import "./components/HeaderBanner.css";
 @import "./components/HeroImage.css";
 @import "./components/HeroSection.css";
+@import "./components/MainNavigation.css";
 @import "./components/NewsDetail.css";
 @import "./components/NewsGrid.css";
 @import "./components/NewsList.css";
