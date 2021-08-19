@@ -8,16 +8,16 @@ export type HeroImageProps = ComponentProps & {
 };
 
 const HeroImage = (props: HeroImageProps): JSX.Element => {
-  if (props.fields.hero && props.fields.hero.value) {
+  if (props.fields?.hero?.value?.src) {
     return (
       <section
-        className="banner bg-black bg-left bg-no-repeat bg-cover relative h-96"
-        style={{ backgroundImage: 'url("' + props.fields.hero.value.src + '")' }}
-      ></section>
+        className="hero-image"
+        style={{ backgroundImage: `url("${props.fields.hero.value.src}")` }}
+      />
     );
   }
 
-  return <div>Datasource is empty</div>;
+  return <div>Hero image is missing from the datasource</div>;
 };
 
 export default HeroImage;

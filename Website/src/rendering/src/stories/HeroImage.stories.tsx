@@ -12,12 +12,23 @@ const Template: ComponentStory<typeof HeroImage> = (args: HeroImageProps) => (
   <HeroImage {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const WithImage = Template.bind({});
+WithImage.args = {
   fields: {
     hero: {
       value: {
         src: '/assets/img/tickets/come-play.jpg',
+      },
+    },
+  },
+};
+
+export const WithoutImage = Template.bind({});
+WithoutImage.args = {
+  fields: {
+    hero: {
+      value: {
+        src: '',
       },
     },
   },
