@@ -23,8 +23,9 @@
 
 @import "./layout/layout.css";
 @import "./layout/buttons.css";
-@import "./layout/sections.css";
+@import "./layout/forms.css";
 @import "./layout/grids.css";
+@import "./layout/sections.css";
 @import "./layout/section-news.css";
 @import "./layout/section-speakers.css";
 @import "./layout/section-sponsors.css";
@@ -35,6 +36,7 @@
 /* 6. Our components */
 
 @import "./components/AttendeeForm.css";
+@import "./components/AttendeeRegistrationForm.css";
 @import "./components/Breadcrumb.css";
 @import "./components/CountdownSection.css";
 @import "./components/FeaturedEvent.css";
@@ -48,6 +50,10 @@
 @import "./components/NewsDetail.css";
 @import "./components/NewsGrid.css";
 @import "./components/NewsList.css";
+@import "./components/OrderSummary.css";
+@import "./components/PaymentAndBillingForm.css";
+@import "./components/PaymentConfirmed.css";
+@import "./components/PaymentForm.css";
 @import "./components/ProductDetail.css";
 @import "./components/Promo.css";
 @import "./components/SessionList.css";
@@ -55,6 +61,8 @@
 @import "./components/SponsorsGrid.css";
 @import "./components/ThreeColumnsSection.css";
 @import "./components/TicketGrid.css";
+@import "./components/TicketPaymentConfirmed.css";
+@import "./components/TicketUpsell.css";
 
 /* 7. Our page-specific styles */
 
