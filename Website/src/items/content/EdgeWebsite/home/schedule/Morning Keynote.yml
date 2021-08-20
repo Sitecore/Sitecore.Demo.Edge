@@ -1,12 +1,15 @@
 ﻿---
 ID: "6dbf136c-8e3c-4a96-8cf8-64696e6707e0"
-Parent: "6ce6f007-24f7-43aa-9732-dde2c19de464"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/CMP/Sessions/Morning Keynote
+Path: /sitecore/content/EdgeWebsite/home/schedule/Morning Keynote
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
   Value: tRLSl7RkUEyzhoj6TFFbMQ
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 87
 Languages:
 - Language: en
   Versions:
@@ -33,11 +36,11 @@ Languages:
       Value: Morning Keynote
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8df43cb8-a414-4992-a297-c0a9dfc3d94e"
+      Value: "16afa75d-fb58-4393-b433-44bba85ef7f5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210809T220927Z
+      Value: 20210820T024315Z

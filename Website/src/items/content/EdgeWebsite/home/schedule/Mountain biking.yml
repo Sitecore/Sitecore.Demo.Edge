@@ -1,12 +1,15 @@
 ﻿---
-ID: "6887376e-fdc3-4645-bebf-7109e507ffda"
-Parent: "6ce6f007-24f7-43aa-9732-dde2c19de464"
+ID: "15c5e646-b51a-4eb5-bb7b-006e2e7625d5"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/CMP/Sessions/Mindset strategies
+Path: /sitecore/content/EdgeWebsite/home/schedule/Mountain biking
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "Hjn-MV8qGUi36Px1BMgqnA"
+  Value: XEeAPlOWG0CrYU68XCpbDw
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 93
 Languages:
 - Language: en
   Versions:
@@ -14,19 +17,19 @@ Languages:
     Fields:
     - ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
       Hint: Duration
-      Value: 30 min
+      Value: 1_5 Hours
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>7 MINDSET STRATEGIES TO RAISE YOUR GAME</p>
+        <p>MOUNTAIN BIKING: TALES FROM THE TRAIL</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210730T160625Z
+      Value: 20210729T195434Z
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="35983" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35983/thumbnail" src="https://mint.stylelabs.io/api/public/content/5ad4b0bcf48d4bdb90291cd42abfa0a9?v=baed8f78" mediaid="" stylelabs-content-type="Image" alt="session-4.jpg" height="400" width="600" />
+        <image stylelabs-content-id="35979" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35979/thumbnail" src="https://mint.stylelabs.io/api/public/content/999dafb6ab3e4b5393e71dd2fe168c8e?v=a601d435" mediaid="" stylelabs-content-type="Image" alt="session-3.jpg" height="401" width="600" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -40,19 +43,19 @@ Languages:
       Value: 20210730T183300Z
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: 7 Mindset STRATEGIES to raise your game
+      Value: "MOUNTAIN BIKING: TALES FROM THE Trail"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b586b8be-33b6-46aa-8cdb-233be07ab9c5"
+      Value: "e423b521-ceb8-4c51-9750-c41988b143f7"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
       Value: |
         {90BD7C87-6039-4A67-9034-5EEAB1480C36}
-        {40C14FCE-DE1B-4336-84D0-D8F8257A6FBA}
+        {414CA3B1-125B-4451-8DB0-18AA7CF21D2B}
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210730T183403Z
+      Value: 20210820T024322Z
