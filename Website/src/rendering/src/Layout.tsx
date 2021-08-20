@@ -37,12 +37,20 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
       : '';
   const headerCssClasses = `header ${isExperienceEditorActiveCssClass}`;
   const mainCssClasses = isExperienceEditorActiveCssClass;
+
+  const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
+  let pageTitle = contextTitle.titlePrefix;
+  if (route?.fields?.pageTitle?.value) {
+    pageTitle += ' - ' + route?.fields?.pageTitle?.value;
+  } else {
+    pageTitle += ' - Page';
+  }
   // END CUSTOMIZATION
 
   return (
     <>
       <Head>
-        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
+        <title>{pageTitle}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
