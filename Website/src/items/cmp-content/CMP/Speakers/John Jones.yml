@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e3863857-d7aa-4cb2-b4b4-eb9f2cc40303"
+      Value: "30297484-16fb-4b46-b0ec-f4f64fabee87"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Salesforce
@@ -50,7 +50,7 @@ Languages:
       Value: CEO
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210726T172902Z
+      Value: 20210823T165745Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://facebook.com/jj"
@@ -62,8 +62,7 @@ Languages:
       Value: John Jones
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
-      Value: |
-        <image stylelabs-content-id="35425" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35425/thumbnail" src="https://mint.stylelabs.io/api/public/content/bdeff7339d0f4c619a1af5c649b95a28?v=36b92416" mediaid="" stylelabs-content-type="Image" alt="speakers.jpg" height="1442" width="2160" />
+      Value: 
     - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
       Hint: LinkedinProfileLink
       Value: "https://linkedin.com/jj"

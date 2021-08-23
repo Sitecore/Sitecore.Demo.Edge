@@ -21,8 +21,9 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>7 MINDSET STRATEGIES TO RAISE YOUR GAME</p>
-        
+        <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.<br />
+        <br />
+        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210730T160625Z
@@ -46,16 +47,14 @@ Languages:
       Value: 7 Mindset STRATEGIES to raise your game
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "506fbc29-cffa-48fc-b94a-8e6bac14fa3e"
+      Value: "89d38c4b-aff3-4a90-899c-62e7b0f26b3b"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
-      Value: |
-        {90BD7C87-6039-4A67-9034-5EEAB1480C36}
-        {40C14FCE-DE1B-4336-84D0-D8F8257A6FBA}
+      Value: "{40C14FCE-DE1B-4336-84D0-D8F8257A6FBA}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210820T024305Z
+      Value: 20210823T180142Z

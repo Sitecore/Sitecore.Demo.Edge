@@ -42,7 +42,6 @@ export type SessionInformationProps = ComponentProps & {
 };
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
-  console.log(props.fields);
   const speakerHeader = !props.fields.Speakers
     ? ''
     : props.fields.Speakers.length == 1
@@ -104,18 +103,22 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               className="text-2xl md:text-3xl font-extrabold text-blue"
               field={props.fields.Name}
             ></Text>
-            <div className="grid grid-cols-1 md:grid-cols-3">
-            <div className="font-bold col-span-3">{speakerHeader}</div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <div className="font-bold col-span-1 lg:col-span-2">{speakerHeader}</div>
               {props.fields.Speakers &&
                 props.fields.Speakers.map((speaker, index) => (
-                  <div key={index} className="pb-4 col col-span-1">
-                    <Text
-                      tag="h3"
-                      className="md:text-xl font-bold text-blue"
-                      field={speaker.fields.Name}
-                    ></Text>
-                    <Image field={speaker.fields?.Picture} alt={speaker.fields?.Name?.value} />
+                  <div key={index} className="pb-4 col-span-1 w-100">
+                    <Image
+                      className="float-left pr-5"
+                      field={speaker.fields?.Picture}
+                      alt={speaker.fields?.Name?.value}
+                    />
                     <div>
+                      <Text
+                        tag="h3"
+                        className="md:text-xl font-bold text-blue"
+                        field={speaker.fields.Name}
+                      ></Text>
                       {/* TODO: To be turned into links */}
                       {!speaker.fields.FacebookProfileLink ? (
                         ''
@@ -165,6 +168,10 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                     <span className="block">
                       <span className="font-bold">Company: </span>
                       <Text field={speaker.fields.Company}></Text>
+                    </span>
+                    <span className="block">
+                      <span className="font-bold">Country: </span>
+                      <Text field={speaker.fields.Country}></Text>
                     </span>
                   </div>
                 ))}

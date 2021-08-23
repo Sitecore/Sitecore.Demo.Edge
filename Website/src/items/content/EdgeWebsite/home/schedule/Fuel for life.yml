@@ -21,15 +21,16 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>FUEL FOR LIFE: NUTRITION 101</p>
-        
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus suscipit tortor eget felis porttitor volutpat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.<br />
+        <br />
+        Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada.</p>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210729T195023Z
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="35981" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35981/thumbnail" src="https://mint.stylelabs.io/api/public/content/8e3aecf3a750454d98cea2b4d837bc28?v=469f370c" mediaid="" stylelabs-content-type="Image" alt="session-2.jpg" height="400" width="600" />
+        <image mediaid="{09085896-2355-53E8-8F71-BB9761E60380}" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -46,16 +47,16 @@ Languages:
       Value: "FUEL FOR LIFE: NUTRITION 101"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c0fe5b40-ddb7-4810-a50d-cae1e40a8c46"
+      Value: "5dfdec33-0708-4d61-bcbd-a1842082ce85"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
       Value: |
-        {90BD7C87-6039-4A67-9034-5EEAB1480C36}
         {61AC52CB-DC91-4791-A1AE-71D9CF675083}
+        {299F3543-4808-4D84-81A5-359C01814C3B}
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210820T024039Z
+      Value: 20210823T175746Z
