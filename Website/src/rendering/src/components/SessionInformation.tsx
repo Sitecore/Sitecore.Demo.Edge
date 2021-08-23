@@ -1,10 +1,32 @@
+import {
+  faFacebookF,
+  faTwitter,
+  faLinkedinIn,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
-import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Field,
+  ImageField,
+  Image,
+  RichText,
+  Text,
+  DateField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 type Speaker = {
   fields: {
     Name: Field<string>;
-    Role: Field<string>;
+    Picture: ImageField;
+    Position: Field<string>;
+    Company: Field<string>;
+    Country: Field<string>;
+    Description: Field<string>;
+    FacebookProfileLink?: Field<string>;
+    TwitterProfileLink?: Field<string>;
+    InstagramProfileLink?: Field<string>;
+    LinkedinProfileLink?: Field<string>;
   };
 };
 
@@ -21,22 +43,124 @@ export type SessionInformationProps = ComponentProps & {
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   console.log(props.fields);
+  const speakerHeader = !props.fields.Speakers
+    ? ''
+    : props.fields.Speakers.length == 1
+    ? 'Speaker'
+    : 'Speakers';
   return (
     <section className="section">
       <div className="section__content left__content">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
             <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
+            <p className="font-bold pb-4">{speakerHeader}</p>
+            {props.fields.Speakers &&
+              props.fields.Speakers.map((speaker, index) => (
+                <div key={index} className="pb-4">
+                  <Text
+                    tag="h3"
+                    className="text-3xl md:text-2xl font-bold text-blue"
+                    field={speaker.fields.Name}
+                  ></Text>
+                  <Image field={speaker.fields?.Picture} alt={speaker.fields?.Name?.value} />
+                  <div>
+                    {/* TODO: To be turned into links */}
+                    {!speaker.fields.FacebookProfileLink ? (
+                      ''
+                    ) : (
+                      <a href={speaker.fields.FacebookProfileLink.value}>
+                        <FontAwesomeIcon
+                          className="icon h-4 m-2 inline text-blue"
+                          icon={faFacebookF}
+                        />
+                      </a>
+                    )}
+                    {!speaker.fields.TwitterProfileLink ? (
+                      ''
+                    ) : (
+                      <a href={speaker.fields.TwitterProfileLink.value}>
+                        <FontAwesomeIcon
+                          className="icon h-4 m-2 inline text-blue"
+                          icon={faTwitter}
+                        />
+                      </a>
+                    )}
+                    {!speaker.fields.LinkedinProfileLink ? (
+                      ''
+                    ) : (
+                      <a href={speaker.fields.LinkedinProfileLink.value}>
+                        <FontAwesomeIcon
+                          className="icon h-4 m-2 inline text-blue"
+                          icon={faLinkedinIn}
+                        />
+                      </a>
+                    )}
+                    {!speaker.fields.InstagramProfileLink ? (
+                      ''
+                    ) : (
+                      <a href={speaker.fields.InstagramProfileLink.value}>
+                        <FontAwesomeIcon
+                          className="icon h-4 m-2 inline text-blue"
+                          icon={faInstagram}
+                        />
+                      </a>
+                    )}
+                  </div>
+                  <div>
+                    <strong>Position:</strong> <Text field={speaker.fields.Position}></Text>
+                  </div>
+                  <div>
+                    <strong>Company:</strong> <Text field={speaker.fields.Company}></Text>
+                  </div>
+                </div>
+              ))}
           </div>
           <div className="col-span-1 md:col-span-3 space-y-5">
-            {/* TODO: Add speaker type in content hub */}
-            {/* <Text tag="h3" className="uppercase" field={props.fields.Role}></Text> */}
+            {/* TODO: Map tags below */}
+            <span className="btn--main bg-yellow">Keynote</span>
             <Text
               tag="h2"
               className="text-2xl md:text-3xl font-extrabold text-blue"
               field={props.fields.Name}
             ></Text>
+            <p>
+              <DateField
+                tag="h3"
+                className="inline"
+                field={props.fields.Date}
+                render={(date) =>
+                  date?.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })
+                }
+              />
+              <span className="spacer p-2">|</span>
+              <DateField
+                tag="span"
+                field={props.fields.Date}
+                render={(date) =>
+                  date?.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })
+                }
+              />
+              <span className="spacer p-2">|</span>
+              <Text tag="h3" className="inline uppercase" field={props.fields.Duration}></Text>
+            </p>
             <RichText field={props.fields.Description} />
+
+            <div title="TODO: hardcoded for now...">
+              <div className="font-bold">Related Sessions</div>
+              <div className="border border-gray p-5 my-5">
+                <p>Mon, 19th | 9:00 AM</p>
+                <p className="font-bold">10 Tips to get the most out of your routines</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
