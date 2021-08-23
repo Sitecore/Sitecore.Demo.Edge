@@ -42,12 +42,15 @@ Languages:
     - ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
       Hint: Date
       Value: 20210729T060000Z
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Keynote
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: "FUEL FOR LIFE: NUTRITION 101"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5dfdec33-0708-4d61-bcbd-a1842082ce85"
+      Value: "8a0234b7-dc8f-4c8f-be7c-8caad2a65d5e"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
       Value: |
@@ -59,4 +62,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T175746Z
+      Value: 20210823T191546Z

@@ -15,6 +15,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
+      Hint: Duration
+      Value: 3_5 Hours
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -31,16 +34,19 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Keynote
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: Morning Keynote
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "16afa75d-fb58-4393-b433-44bba85ef7f5"
+      Value: "847c431d-db53-456e-92d2-bfa74eba5773"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210820T024315Z
+      Value: 20210823T191559Z

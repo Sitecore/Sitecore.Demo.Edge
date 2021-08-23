@@ -41,12 +41,15 @@ Languages:
     - ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
       Hint: Date
       Value: 20210730T183300Z
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Workshop
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: Train smarter, not harder
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5fde9614-0437-4cf9-abc0-0f98019c5083"
+      Value: "207fbbae-9d80-413b-ab4d-27b3478c275a"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
       Value: "{61AC52CB-DC91-4791-A1AE-71D9CF675083}"
@@ -56,4 +59,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210820T024335Z
+      Value: 20210823T191613Z

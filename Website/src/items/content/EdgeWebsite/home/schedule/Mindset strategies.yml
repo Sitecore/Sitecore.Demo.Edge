@@ -42,12 +42,15 @@ Languages:
     - ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
       Hint: Date
       Value: 20210730T183300Z
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Session
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: 7 Mindset STRATEGIES to raise your game
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "89d38c4b-aff3-4a90-899c-62e7b0f26b3b"
+      Value: "b5bc9610-3548-4b71-984a-6f43747fff70"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
       Value: "{40C14FCE-DE1B-4336-84D0-D8F8257A6FBA}"
@@ -57,4 +60,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T180142Z
+      Value: 20210823T191550Z
