@@ -12,3 +12,21 @@
     @apply sm:col-span-1 md:col-span-2 text-right self-center order-3 md:order-4 flex;
   }
 }
+.session-grid {
+  @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
+  .session-grid-container {
+    @apply p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5;
+    .session-grid-content {
+      @apply rounded overflow-hidden bg-white cursor-pointer;
+      img {
+        @apply transform scale-100 duration-200;
+      }
+      &:hover {
+        border: 1px solid gray;
+        img {
+          @apply transform scale-110 origin-bottom duration-200;
+        }
+      }
+    }
+  }
+}

@@ -54,7 +54,7 @@ Languages:
               uid="{F83C4F85-EC5B-560F-AE09-F26FF00023DE}"
               p:after="r[@uid='{695F77F3-8EFA-57B0-B4E5-725CA7DFDF3B}']"
               s:rname="SessionsGrid"
-              s:ds="{6CE6F007-24F7-43AA-9732-DDE2C19DE464}"
+              s:ds=""
               s:id="{1059A458-3C21-5A98-ABD0-A65629F4DE1A}"
               s:par=""
               s:ph="/jss-main"
