@@ -9,7 +9,7 @@ SharedFields:
   Value: SessionInformation
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{4D45DA3E-8128-422C-AFDA-E10672117E15}"
+  Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
 Languages:
 - Language: en
   Versions:
@@ -28,11 +28,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1b6649f2-a9e4-4b4b-a3e7-1627e09235f4"
+      Value: "01c875fb-b4e4-42a4-b9fa-0b938fed751a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210820T030320Z
+      Value: 20210823T153146Z
