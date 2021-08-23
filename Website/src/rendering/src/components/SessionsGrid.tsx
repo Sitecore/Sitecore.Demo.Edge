@@ -26,7 +26,6 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
-  console.log(props.fields);
   return (
     <section>
       <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">

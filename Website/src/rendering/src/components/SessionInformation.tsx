@@ -34,6 +34,7 @@ export type SessionInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Description: Field<string>;
+    Type: Field<string>;
     Date: Field<string>;
     Image: ImageField;
     Duration: Field<string>;
@@ -96,8 +97,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
             </div>
           </div>
           <div className="col-span-1 md:col-span-3 space-y-5">
-            {/* TODO: Map tags below */}
-            <span className="btn--main bg-yellow">Keynote</span>
+            <Text tag="span" className="btn--main bg-yellow" field={props.fields.Type}></Text>
             <Text
               tag="h2"
               className="text-2xl md:text-3xl font-extrabold text-blue"
@@ -192,4 +192,5 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   );
 };
 
+export type { Speaker };
 export default SessionInformation;
