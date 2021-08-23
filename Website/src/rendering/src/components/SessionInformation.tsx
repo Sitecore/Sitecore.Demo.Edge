@@ -54,10 +54,9 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="col-span-1 md:col-span-1">
             <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
-            <p>
+            <div>
               <DateField
                 tag="h3"
-                // className="inline"
                 field={props.fields.Date}
                 render={(date) =>
                   'Date: ' +
@@ -69,7 +68,6 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                   })
                 }
               />
-              {/* <span className="spacer p-2">|</span> */}
               <DateField
                 tag="span"
                 field={props.fields.Date}
@@ -81,12 +79,11 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                   })
                 }
               />
-              {/* <span className="spacer p-2">|</span> */}
               <span className="block">
                 Duration:&nbsp;
                 <Text tag="h3" className="inline uppercase" field={props.fields.Duration}></Text>
               </span>
-            </p>
+            </div>
 
             <div className="hidden md:block pt-4" title="TODO: hardcoded for now...">
               <div className="font-bold">Related Sessions</div>
