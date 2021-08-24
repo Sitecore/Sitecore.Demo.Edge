@@ -7,6 +7,9 @@
 
     a {
       @apply text-sm;
+      &:hover {
+        @apply underline;
+      }
     }
   }
   li:not(:first-of-type):before {

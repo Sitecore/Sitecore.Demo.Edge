@@ -1,6 +1,12 @@
 import React from 'react';
 import Breadcrumbs from 'nextjs-breadcrumbs';
 
+function formatBreadcrumb(text: string) {
+  text = decodeURIComponent(text);
+  text = text.replaceAll('-', ' ');
+  return text;
+}
+
 const Breadcrumb = (): JSX.Element => {
   return (
     <Breadcrumbs
@@ -8,8 +14,7 @@ const Breadcrumb = (): JSX.Element => {
       containerClassName="breadcrumb"
       inactiveItemClassName="inactive"
       listClassName="list"
-      useDefaultStyle
-      rootLabel="Home"
+      transformLabel={(title) => formatBreadcrumb(title)}
     />
   );
 };
