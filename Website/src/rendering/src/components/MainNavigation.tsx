@@ -43,7 +43,7 @@ const MainNavigation = (): JSX.Element => {
             <li>
               <Link href="/schedule">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Schedule
+                  Sessions
                 </a>
               </Link>
             </li>
