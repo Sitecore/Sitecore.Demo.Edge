@@ -59,6 +59,7 @@
 @import "./components/RegistrationGrid.css";
 @import "./components/RequestInfoForm.css";
 @import "./components/SessionList.css";
+@import "./components/SessionsFilters.css";
 @import "./components/SpeakersGrid.css";
 @import "./components/SponsorsGrid.css";
 @import "./components/ThreeColumnsSection.css";
