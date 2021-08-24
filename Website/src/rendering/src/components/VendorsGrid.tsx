@@ -81,7 +81,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
                   href={'/vendors/' + vendor.fields.Name.value.replace(/ /g, '')}
                   passHref
                 >
-                  <div className="grid-item">
+                  <a className="grid-item">
                     <Image
                       field={vendor.fields.Logo}
                       alt={vendor.fields.Name}
@@ -91,7 +91,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
                     <div className="item-details">
                       <Text tag="p" field={vendor.fields.Name}></Text>
                     </div>
-                  </div>
+                  </a>
                 </Link>
               ))}
           </div>
