@@ -1,6 +1,6 @@
 .form {
   h2 {
-    @apply text-blue text-4xl;
+    @apply text-blue text-4xl uppercase;
   }
 
   input[type="text"] {
@@ -8,7 +8,7 @@
   }
 
   .checkbox-label {
-    @apply flex pl-5;
+    @apply flex pl-5 w-full text-left;
 
     input[type="checkbox"] {
       @apply mt-1;
@@ -36,6 +36,10 @@
 
     .note {
       @apply ml-10;
+    }
+
+    a {
+      @apply font-bold underline;
     }
   }
 
