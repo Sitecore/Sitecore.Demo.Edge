@@ -74,7 +74,9 @@ const Breadcrumb = (props: BreadcrumbProps): JSX.Element => {
         {breadcrumbs.reverse() &&
           breadcrumbs.map((bc, index) => (
             <li key={index} className={bc.className}>
-              <a href={bc.url}>{bc.title}</a>
+              <a title={bc.title} href={bc.url}>
+                {bc.title}
+              </a>
             </li>
           ))}
       </ol>
