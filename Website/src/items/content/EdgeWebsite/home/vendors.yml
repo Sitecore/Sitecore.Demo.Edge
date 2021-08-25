@@ -57,14 +57,6 @@ SharedFields:
           ph="/jss-main"
           uid="{277CD221-59FF-5D75-9631-2A7CB8DCEA36}" />
         <r
-          rname="FeaturedVendors"
-          ds="{1AEB0850-24F1-4298-BFAC-F3A5C8146E88}"
-          id="{18D56CF9-81D3-50C2-A8C3-19349D36074D}"
-          par=""
-          ph="/jss-main"
-          uid="{E55A9120-E831-53FD-94C0-5B09ABB1A27C}"
-          ccb="Clear on publish" />
-        <r
           rname="VendorsGrid"
           ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}"
           id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
