@@ -2,9 +2,8 @@
 [CmdletBinding(DefaultParameterSetName = "no-arguments")]
 Param (
     [Parameter(HelpMessage = "Whether to skip building the Docker images.")]
-    [switch]$SkipBuild
-)
-Param (
+    [switch]$SkipBuild,
+
     [Parameter(HelpMessage = "Whether to skip running init container.")]
     [switch]$SkipInit
 )
