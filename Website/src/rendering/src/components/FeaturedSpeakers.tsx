@@ -30,11 +30,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
       <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
         {props.fields.Speakers &&
           props.fields.Speakers.map((speaker, index) => (
-            <Link
-              key={index}
-              href={'/speakers/' + speaker.fields.Name.value}
-              passHref
-            >
+            <Link key={index} href={'/speakers/' + speaker.fields.Name.value} passHref>
               <a className="section__speakers__grid__speaker">
                 <Image
                   field={speaker.fields.Picture}
