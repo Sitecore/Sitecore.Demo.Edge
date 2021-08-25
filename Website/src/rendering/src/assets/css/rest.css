@@ -123,9 +123,3 @@
     left: 125%;
   }
 }
-
-.icon {
-  @apply text-blue;
-
-  margin: 10px;
-}
