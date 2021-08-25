@@ -10,6 +10,42 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/16x16/arrow_right.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query($contextItem: String!) {
+      # Assume item id is available on page
+      item(path: $contextItem , language: "en") {
+        url {
+          path
+        }
+        name
+        displayName
+        title: field(name: "Title") {
+          value
+        }
+        pageTitle: field(name: "pageTitle") {
+          value
+        }
+        ancestors(
+          hasLayout: true
+          includeTemplateIDs: "6DB09CEF64A852A3A98038408109C4D7"
+        ) {
+          url {
+            path
+          }
+          name
+          displayName
+          title: field(name: "Title") {
+            value
+          }
+          pageTitle: field(name: "pageTitle") {
+            value
+          }
+        }
+      }
+    }
+    
 Languages:
 - Language: en
   Versions:
@@ -28,11 +64,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0cbb797a-d81a-4657-8996-54595e515d51"
+      Value: "e33f243e-c903-4f01-a0f3-cb37f7e4204d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T050737Z
+      Value: 20210824T211724Z
