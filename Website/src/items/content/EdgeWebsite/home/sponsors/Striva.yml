@@ -7,6 +7,35 @@ SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
   Value: KFy2Hnjoh0662DJXrqpXEg
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}">
+          <p:d />
+        </p>
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}">
+          <p:d />
+        </p>
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}">
+          <p:d />
+        </p>
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}">
+          <p:d />
+        </p>
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}">
+          <p:d />
+        </p>
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -32,7 +61,7 @@ Languages:
       Value: Striva
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1b59cbfb-5b46-450c-a486-7c8d01a6a5c0"
+      Value: "61449d39-69e3-406a-b3f5-b69e26586e00"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,4 +71,4 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T182240Z
+      Value: 20210825T164825Z
