@@ -1,15 +1,9 @@
 ﻿---
-ID: "ba924357-8521-4cb6-9962-b0f2b5391844"
-Parent: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
-Template: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/News/__Standard Values
+ID: "2b1321ad-c5ae-4b3c-83d9-99d36d5ad1c2"
+Parent: "52672eed-7aa7-4df1-93e1-c488bc2e0803"
+Template: "52672eed-7aa7-4df1-93e1-c488bc2e0803"
+Path: /sitecore/templates/Project/edgewebsite/ProductCategory/__Standard Values
 SharedFields:
-- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
-  Hint: __Workflow
-  Value: 
-- ID: "c9283d9e-7c29-4419-9c28-5a5c8ff53e84"
-  Hint: __Bucketable
-  Value: 1
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -38,47 +32,55 @@ SharedFields:
           key="jss-section-content"
           md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
         <r
+          uid="{9B9A789D-4B84-5E15-81D6-E0F05459F29C}"
           rname="Header"
           id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
           par=""
-          ph="/jss-header"
-          uid="{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}" />
+          ph="/jss-header" />
         <r
+          uid="{86519445-70A0-59EA-A5D6-F628B01D3E0B}"
           rname="MainNavigation"
           id="{09516A66-F92F-5638-B073-8F9A79765778}"
           par=""
-          ph="/jss-header/jss-header-content-{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}-0"
-          uid="{3BB48511-620A-50E4-A1E4-1FD6141CF80D}" />
+          ph="/jss-header/jss-header-content-{9B9A789D-4B84-5E15-81D6-E0F05459F29C}-0" />
         <r
+          uid="{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}"
           rname="Breadcrumb"
           id="{780D897C-7065-585F-8585-28118565FA00}"
           par=""
-          ph="/jss-main"
-          uid="{89F6C49E-DA31-5ED9-9735-896C2D2DDE36}" />
+          ph="/jss-main" />
         <r
-          id="{3E02494C-9CB5-5FC4-A78B-C6AF4C44A559}"
-          ph="/jss-main"
-          uid="{B23088D0-D2AA-4FE6-BC92-2A98E2BC449A}" />
+          uid="{387DB9D1-F359-5E17-ABF3-96F70FF63317}"
+          rname="ProductDetail"
+          id="{9E28A6C1-7D05-5C7F-81AF-1AF94C7A2F4D}"
+          par=""
+          ph="/jss-main" />
         <r
+          uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}"
+          rname="FullImageCTASection"
+          id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
+          par=""
+          ph="/jss-main" />
+        <r
+          uid="{794BC956-E900-5DCF-B609-170F413C058C}"
           rname="Section"
           ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           par=""
-          ph="/jss-main"
-          uid="{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}" />
+          ph="/jss-main" />
         <r
+          uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}"
           rname="SponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
-          ph="/jss-main/jss-section-content-{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}-0"
-          uid="{7526C199-8C9C-5826-B88F-B88FFE081145}" />
+          ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0" />
         <r
+          uid="{8C98BB69-A969-5159-8B4D-C609D3E114D2}"
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
           par=""
-          ph="/jss-footer"
-          uid="{17691DC3-1792-503C-8D68-B49915755961}" />
+          ph="/jss-footer" />
       </d>
     </r>
 Languages:
@@ -88,31 +90,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190614T161122Z
-    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
-      Hint: __Workflow state
-      Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+      Value: 20210825T162001Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\Admin
-    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
-      Hint: Title
-      Value: $name
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4a6ee3fe-7f79-4a76-b364-e736606b44e7"
+      Value: "2592a927-27f2-4dd2-abc9-1a948270014f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T163954Z
-    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
-      Hint: Excerpt
-      Value: Lorem ipsum dolor sit amet
+      Value: 20210825T162218Z
