@@ -31,10 +31,6 @@ Languages:
               <p:d />
             </r>
             <r
-              uid="{AEFB0910-AF42-5939-8149-4B2E7F848EE4}">
-              <p:d />
-            </r>
-            <r
               uid="{99503209-8F2B-563A-B886-A5131C9C4131}">
               <p:d />
             </r>
@@ -133,7 +129,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d097a406-4b4a-48d4-84bb-316b6712bfde"
+      Value: "cb213f87-3d33-454f-b476-a92cb35dec53"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Microsoft
@@ -152,7 +148,7 @@ Languages:
       Value: Sales
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T122911Z
+      Value: 20210825T150538Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://facebook.com/edjones"
@@ -161,6 +157,9 @@ Languages:
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
+      Value: Ed Jones
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
       Value: Ed Jones
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture

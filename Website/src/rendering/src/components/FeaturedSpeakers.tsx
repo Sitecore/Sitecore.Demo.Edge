@@ -20,7 +20,7 @@ type FeaturedSpeakersProps = ComponentProps & {
 
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
   <section className="">
-    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
+    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden">
       <Text
         tag="h1"
         className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold"
@@ -35,7 +35,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
               href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
               passHref
             >
-              <a className="rounded overflow-hidden mx-auto">
+              <a className="section__speakers__grid__speaker">
                 <Image
                   field={speaker.fields.Picture}
                   alt={speaker.fields.Name?.value}
@@ -48,6 +48,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
                     tag="p"
                     field={speaker.fields.Name}
                   ></Text>
+                  <Text className="speaker__role" tag="p" field={speaker.fields.Role}></Text>
                 </div>
               </a>
             </Link>

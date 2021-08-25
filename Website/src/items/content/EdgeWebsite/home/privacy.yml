@@ -7,6 +7,47 @@ SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 1550
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}">
+          <p:d />
+        </r>
+        <r
+          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}">
+          <p:d />
+        </r>
+        <r
+          uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}">
+          <p:d />
+        </r>
+        <r
+          uid="{0761E527-92C1-596B-914B-DD9C282DA709}">
+          <p:d />
+        </r>
+        <r
+          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}">
+          <p:d />
+        </r>
+        <r
+          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}">
+          <p:d />
+        </r>
+        <r
+          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}">
+          <p:d />
+        </r>
+        <r
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}">
+          <p:d />
+        </r>
+      </d>
+    </r>
 Languages:
 - Language: en
   Fields:
@@ -98,14 +139,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "19d7ed31-73f7-40b3-baed-ac98b66bbc50"
+      Value: "99577c28-c23f-48f6-bc2a-8361fbeeeb59"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T125511Z
+      Value: 20210825T131207Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Privacy Policy

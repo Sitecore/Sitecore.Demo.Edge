@@ -22,7 +22,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
       props.fields.items.map((speaker, index) => (
         <Link
           key={index}
-          href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
+          href={'/speakers/' + speaker.fields.Name.value}
           passHref
         >
           <a className="section__speakers__grid__speaker">

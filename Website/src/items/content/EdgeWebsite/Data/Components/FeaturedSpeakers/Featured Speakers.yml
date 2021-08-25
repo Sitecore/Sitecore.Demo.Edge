@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "097edbee-00fc-5fe5-ae17-e4cfb6c43d09"
       Hint: Title
-      Value: Featured Speakers
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210714T203228Z
@@ -24,22 +24,22 @@ Languages:
         sitecore\superuser
     - ID: "83401b48-7ea2-5365-bb09-0e4a75ca7b06"
       Hint: Subtitle
-      Value: "Road-test the world's most trusted sports and fitness equipment – we'll be welcoming 2,000 brands at this year's PLAY! Summit."
+      Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c94d2562-c525-48f7-806e-a807f5568e34"
+      Value: "08b6d44d-6ad8-44ea-b03a-b28aa782a1df"
     - ID: "9ddba344-5267-4dab-9427-f6a440d61606"
       Hint: Speakers
       Value: |
         {35D340E9-48F7-4515-B930-74CD3ABC22C6}
         {61AC52CB-DC91-4791-A1AE-71D9CF675083}
         {0BC9AFA6-8B09-4B11-98C5-7542E89533A5}
-        {90BD7C87-6039-4A67-9034-5EEAB1480C36}
         {414CA3B1-125B-4451-8DB0-18AA7CF21D2B}
+        {299F3543-4808-4D84-81A5-359C01814C3B}
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T130904Z
+      Value: 20210825T151631Z
