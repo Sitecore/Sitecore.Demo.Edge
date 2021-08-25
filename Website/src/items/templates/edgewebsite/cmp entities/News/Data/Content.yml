@@ -2,7 +2,7 @@
 ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
 Parent: "b713a99a-8111-4827-9d15-b7f1664f8a37"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/News/Data/Content
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/News/Data/Content
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type

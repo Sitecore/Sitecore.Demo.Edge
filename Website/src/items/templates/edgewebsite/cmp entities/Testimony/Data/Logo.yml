@@ -2,7 +2,7 @@
 ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
 Parent: "287c6458-3de0-4a62-99ed-b0469b13806e"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Testimony/Data/Logo
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Testimony/Data/Logo
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type

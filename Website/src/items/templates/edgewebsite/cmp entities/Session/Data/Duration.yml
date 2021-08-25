@@ -2,7 +2,7 @@
 ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
 Parent: "92298800-b22f-4d3b-a7bb-75dfe66b78ef"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Session/Data/Duration
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Session/Data/Duration
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type

@@ -2,11 +2,11 @@
 ID: "905b44f3-db0d-4050-a738-1ece2ebb8509"
 Parent: "58acc437-36f0-4b23-abca-58827fe3a01e"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Testimony
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Testimony
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/32x32/mail_sealed.png
+  Value: Office/32x32/quotation_mark.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: |
@@ -36,11 +36,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "35e1b548-1df5-4403-a026-68223e47d72b"
+      Value: "1dfab2f6-bf3b-4787-977d-931bd74f255d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T122004Z
+      Value: 20210825T181245Z
