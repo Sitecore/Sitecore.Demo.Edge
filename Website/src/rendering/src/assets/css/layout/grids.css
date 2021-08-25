@@ -40,6 +40,10 @@
       .item-details {
         @apply px-6 py-4 text-black text-base text-center;
 
+        &.item-details-left {
+          @apply text-left;
+        }
+
         .item-title {
           @apply font-bold;
         }
