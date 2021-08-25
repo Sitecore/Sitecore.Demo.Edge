@@ -6,13 +6,14 @@ Path: /sitecore/templates/Project/edgewebsite/cmp entities/Speaker
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/signal_flag_checkered.png
+  Value: Office/32x32/singer.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: |
     {0D17BE5B-EC2A-4296-8D3F-930EB60DFE7C}
     {1930BBEB-7805-471A-A3BE-4858AC7CF696}
     {39442D44-9F0F-426B-AB2A-4F6CED73DD73}
+    {47899C22-20C0-4807-A1B9-F4C4CB3A9C82}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 100
@@ -37,11 +38,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f82b1edf-a29c-4e06-8b3f-e79fede1e7b8"
+      Value: "9eea30d5-d3be-454f-aba8-5e03c48912e5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210809T222726Z
+      Value: 20210825T123038Z

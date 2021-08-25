@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/cmp entities/Testimony
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/signal_flag_checkered.png
+  Value: Office/32x32/mail_sealed.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: |
@@ -36,11 +36,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e716ac24-0f96-422c-95a4-5021a60fae35"
+      Value: "35e1b548-1df5-4403-a026-68223e47d72b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210730T215335Z
+      Value: 20210825T122004Z

@@ -4,6 +4,9 @@ Parent: "59c21fbf-d36e-5462-9847-c8c0bf7786ab"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: "/sitecore/templates/Project/edgewebsite/ContentList-contentBlocks-Item"
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1000
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
   Value: "{5AF64B8C-BF1E-5B6C-B66F-E761E58A6425}"
@@ -25,11 +28,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "059290f0-a852-448c-a149-67b6b4163d67"
+      Value: "5df5805f-2c76-4862-ac64-e47134a47f14"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210707T153947Z
+      Value: 20210825T114955Z

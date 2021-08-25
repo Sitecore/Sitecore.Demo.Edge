@@ -1,10 +1,18 @@
 ﻿---
 ID: "4bfdc016-c6b8-58c8-8818-8e33ec7053cd"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
-Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
 Path: /sitecore/content/EdgeWebsite/home/terms
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1600
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Terms
   Versions:
   - Version: 1
     Fields:
@@ -90,14 +98,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "16e9ed98-97d2-438e-8c4d-3a5a44efd79f"
+      Value: "2363bac8-1190-4656-96de-82166b106167"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210813T004606Z
+      Value: 20210825T125308Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "PLAY! Summit - Terms of Use"
+      Value: Terms of Use

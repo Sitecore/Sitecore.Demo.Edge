@@ -1,10 +1,18 @@
 ﻿---
 ID: "3d808c71-cf82-53ab-9b96-cb5b1e5da2fb"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
-Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
 Path: /sitecore/content/EdgeWebsite/home/map
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 700
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Map
   Versions:
   - Version: 1
     Fields:
@@ -90,14 +98,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "da358290-c1a0-4fbe-8094-02da450f6570"
+      Value: "e44b8f6c-6533-4de9-b52e-d94efc3b66c0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210813T004606Z
+      Value: 20210825T125308Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "PLAY! Summit - Map"
+      Value: Map
