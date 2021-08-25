@@ -41,9 +41,9 @@ const MainNavigation = (): JSX.Element => {
         >
           <ul className="flex flex-col lg:flex-row lg:items-center list-none lg:ml-auto">
             <li>
-              <Link href="/schedule">
+              <Link href="/sessions">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Schedule
+                  Sessions
                 </a>
               </Link>
             </li>
@@ -62,7 +62,7 @@ const MainNavigation = (): JSX.Element => {
               </Link>
             </li>
             <li>
-              <Link href="/aboutus">
+              <Link href="/about-us">
                 <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
                   About Us
                 </a>
