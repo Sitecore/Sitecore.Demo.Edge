@@ -96,9 +96,6 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\Admin
-    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
-      Hint: Title
-      Value: $name
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -113,6 +110,3 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210825T163954Z
-    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
-      Hint: Excerpt
-      Value: Lorem ipsum dolor sit amet

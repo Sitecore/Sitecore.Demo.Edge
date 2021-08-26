@@ -61,7 +61,7 @@ Languages:
       Value: Striva
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "61449d39-69e3-406a-b3f5-b69e26586e00"
+      Value: "c1d739dd-ecaf-42a2-b0ae-eb2fd67ab46e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -71,4 +71,7 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T164825Z
+      Value: 20210826T145726Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Striva
