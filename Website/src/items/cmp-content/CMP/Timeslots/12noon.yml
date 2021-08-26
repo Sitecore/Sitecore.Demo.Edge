@@ -6,7 +6,7 @@ Path: /sitecore/content/CMP/Timeslots/12noon
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Edge.TimeSlot.12noon
+  Value: Demo.Timeslot.12noon
 Languages:
 - Language: en
   Versions:

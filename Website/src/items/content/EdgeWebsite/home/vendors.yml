@@ -45,17 +45,8 @@ Languages:
               s:par=""
               s:ph="/jss-main" />
             <r
-              uid="{E55A9120-E831-53FD-94C0-5B09ABB1A27C}"
-              p:after="r[@uid='{277CD221-59FF-5D75-9631-2A7CB8DCEA36}']"
-              s:rname="FeaturedVendors"
-              s:ds="{1AEB0850-24F1-4298-BFAC-F3A5C8146E88}"
-              s:id="{18D56CF9-81D3-50C2-A8C3-19349D36074D}"
-              s:par=""
-              s:ph="/jss-main"
-              s:ccb="Clear on publish" />
-            <r
               uid="{79CC0F9C-2903-58F8-8DAE-EC4605BA9197}"
-              p:after="r[@uid='{E55A9120-E831-53FD-94C0-5B09ABB1A27C}']"
+              p:after="r[@uid='{277CD221-59FF-5D75-9631-2A7CB8DCEA36}']"
               s:rname="VendorsGrid"
               s:ds="{774E44E8-0F30-5879-B847-AD233FFB41AA}"
               s:id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
@@ -101,14 +92,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a1ad5a7e-9e2b-494c-9808-3335fff8f4b9"
+      Value: "4c3a1fe6-68f1-4dcb-baea-02a80cfbadaf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195500Z
+      Value: 20210825T152300Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Vendors"
