@@ -96,15 +96,19 @@ if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
   Write-Host "The REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
 }
 
-if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
-  # if it wasn't passed as a parameter, let's try to find it in environment
-  $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
-}
-if ($false -eq [string]::IsNullOrEmpty($SitecoreRegistry)) {
-  Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
-} else {
-  Write-Host "The SITECORE_DOCKER_REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
-}
+###############################
+# Use internal Sitecore ACR (disabled)
+###############################
+
+# if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
+#   # if it wasn't passed as a parameter, let's try to find it in environment
+#   $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
+# }
+# if ($false -eq [string]::IsNullOrEmpty($SitecoreRegistry)) {
+#   Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
+# } else {
+#   Write-Host "The SITECORE_DOCKER_REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
+# }
 
 $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
 
