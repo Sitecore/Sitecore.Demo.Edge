@@ -111,9 +111,9 @@ if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
 # }
 
 $NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
-$LegacyWindowsServerCoreVersion = $(if ($WindowsVersion -eq "20H2") { "2009" } else { $WindowsVersion })
+$LegacyNanoserverVersion = $(if ($NanoserverVersion -eq "20H2") { "2009" } else { $NanoserverVersion })
 
-Set-DockerComposeEnvFileVariable "LEGACY_WINDOWSSERVERCORE_VERSION" -Value $LegacyWindowsServerCoreVersion
+Set-DockerComposeEnvFileVariable "LEGACY_NANOSERVER_VERSION" -Value $LegacyNanoserverVersion
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "ISOLATION" -Value $IsolationMode
 Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
