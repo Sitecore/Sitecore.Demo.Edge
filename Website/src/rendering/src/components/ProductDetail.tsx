@@ -79,32 +79,32 @@ const ProductDetail = (): JSX.Element => (
     <div className="product-info">
       <div className="product-info-header">
         <a href="#specs">
-          <FontAwesomeIcon className="icon" icon={faBorderAll} />
+          <FontAwesomeIcon icon={faBorderAll} />
           <br />
           SPECS
         </a>
         <a href="#specs">
-          <FontAwesomeIcon className="icon" icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
           <br />
           Highlights
         </a>
         <a href="#highlights">
-          <FontAwesomeIcon className="icon" icon={faArrowsAlt} />
+          <FontAwesomeIcon icon={faArrowsAlt} />
           <br />
           geometry
         </a>
         <a href="#geometry">
-          <FontAwesomeIcon className="icon" icon={faCog} />
+          <FontAwesomeIcon icon={faCog} />
           <br />
           Techs
         </a>
         <a href="#similar">
-          <FontAwesomeIcon className="icon" icon={faLink} />
+          <FontAwesomeIcon icon={faLink} />
           <br />
           Similar
         </a>
         <a href="#reviews">
-          <FontAwesomeIcon className="icon" icon={faNewspaper} />
+          <FontAwesomeIcon icon={faNewspaper} />
           <br />
           reviews
         </a>

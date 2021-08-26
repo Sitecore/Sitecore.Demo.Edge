@@ -55,7 +55,7 @@ const AllProducts = (): JSX.Element => (
 
         <div className="grid-content">
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-alba-hydration-pack.jpeg"
@@ -66,11 +66,11 @@ const AllProducts = (): JSX.Element => (
                 <p>Alba</p>
                 <p>$129</p>
               </div>
-            </div>
+            </a>
           </Link>
 
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-centercycle-speed-track-helmet.jpeg"
@@ -81,10 +81,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Center Cycle</p>
                 <p>$89</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-centercycle-womens-biking-top.jpeg"
@@ -95,10 +95,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Center Cycle</p>
                 <p>$150</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-habitat-striva5.jpeg"
@@ -109,10 +109,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Striva</p>
                 <p>$349</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-striva-activity-tracker.jpeg"
@@ -123,10 +123,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Striva</p>
                 <p>$129</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/speedsensor.jpeg"
@@ -137,10 +137,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Striva</p>
                 <p>$37</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-striva-cycling-computer.jpeg"
@@ -151,10 +151,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Striva</p>
                 <p>$189</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-centercycle-tire-repair-kit.jpeg"
@@ -165,10 +165,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Center Cycle</p>
                 <p>$60</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-mens-biking-shorts.jpeg"
@@ -179,10 +179,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Center Cycle</p>
                 <p>$189</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/tickets" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/helmet.jpeg"
@@ -193,10 +193,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Center Cycle</p>
                 <p>$89</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/tickets" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/featured-shoe.jpeg"
@@ -207,10 +207,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Prostaff</p>
                 <p>$150</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/tickets" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/luxe-bike.jpeg"
@@ -221,10 +221,10 @@ const AllProducts = (): JSX.Element => (
                 <p>Dwell</p>
                 <p>$550</p>
               </div>
-            </div>
+            </a>
           </Link>
           <Link href="/shop" passHref>
-            <div className="grid-item">
+            <a className="grid-item">
               <img
                 className="item-image-bordered item-image-h-40"
                 src="/assets/img/shop/prod-habitat-stationary-bike.jpg"
@@ -235,7 +235,7 @@ const AllProducts = (): JSX.Element => (
                 <p>Habitat</p>
                 <p>$1,500</p>
               </div>
-            </div>
+            </a>
           </Link>
         </div>
       </div>

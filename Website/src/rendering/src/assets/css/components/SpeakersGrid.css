@@ -1,5 +1,9 @@
 .section__speakers__grid {
-  @apply flex items-center justify-center flex-wrap mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5;
+  @apply mx-auto grid grid-cols-1 gap-5;
+  @apply sm:grid-cols-2;
+  @apply md:grid-cols-3;
+  @apply lg:grid-cols-4;
+  @apply xl:grid-cols-5;
 
   margin-top: 20px;
   margin-bottom: 40px;

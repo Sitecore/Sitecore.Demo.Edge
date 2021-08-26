@@ -55,6 +55,12 @@
 
     &-header {
       @apply mx-auto gap-5 w-2/3 grid grid-flow-col grid-cols-5 text-center p-10 uppercase;
+
+      svg {
+        @apply text-blue;
+
+        margin: 10px;
+      }
     }
 
     .product-specs {
