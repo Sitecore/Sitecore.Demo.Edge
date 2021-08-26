@@ -19,7 +19,7 @@ const HeroSection = ({ fields }: HeroProps): JSX.Element => {
       <div className="section__hero__container container">
         <div className="section__hero__container__content">
           <div className="section__hero__container__content__text">
-            <div className="hidden md:block">
+            <div className="logo">
               <Image field={fields.Logo} alt="Logo" />
             </div>
             <p className="slogan">

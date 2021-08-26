@@ -1,0 +1,28 @@
+.testimonies-list {
+  @apply p-10 space-y-10;
+
+  .list-item {
+    @apply flex gap-10;
+
+    &:nth-child(even) {
+      @apply flex-row;
+    }
+
+    &:nth-child(odd) {
+      @apply flex-row-reverse;
+    }
+
+    .provider-image {
+      @apply hidden;
+      @apply md:block;
+    }
+
+    .testimony {
+      @apply space-y-3;
+
+      .provider {
+        @apply font-bold;
+      }
+    }
+  }
+}

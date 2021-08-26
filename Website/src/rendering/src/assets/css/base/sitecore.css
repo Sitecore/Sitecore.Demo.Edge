@@ -12,8 +12,4 @@
   .scpm {
     display: none !important;
   }
-
-  .experience-editor-active {
-    padding-top: unset;
-  }
 }

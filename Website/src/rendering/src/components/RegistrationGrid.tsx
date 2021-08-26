@@ -1,38 +1,50 @@
+import Link from 'next/link';
+
 const RegistrationGrid = (): JSX.Element => (
-  <section className="section">
-    <div className="grid grid-cols-3 gap-4 p-10">
-      <div className="h-60 text-center space-y-6 align-bottom has-bg-image">
-        <span>Attendee</span>
-        <p>Asdjf halsdjk hflasjd falkjsd hflaksd</p>
-        <a href="/">Register Now</a>
-      </div>
-      <div className="h-60 text-center space-y-6 align-bottom has-bg-image">
-        <span>vendor</span>
-        <p>Asdjf halsdjk hflasjd falkjsd hflaksd</p>
-        <a href="/">Register Now</a>
-      </div>
-      <div className="h-60 text-center space-y-6 align-bottom has-bg-image">
-        <span>Sponsor</span>
-        <p>Asdjf halsdjk hflasjd falkjsd hflaksd</p>
-        <a href="/">Register Now</a>
-      </div>
-      <div className="h-60 text-center space-y-6 align-bottom has-bg-image">
-        <span>Press</span>
-        <p>Asdjf halsdjk hflasjd falkjsd hflaksd</p>
-        <a href="/">Register Now</a>
-      </div>
-      <div className="h-60 text-center space-y-6 align-bottom has-bg-image">
-        <span>Speaker</span>
-        <p>Asdjf halsdjk hflasjd falkjsd hflaksd</p>
-        <a href="/">Register Now</a>
-      </div>
-      <div className="h-60 text-center space-y-6 align-bottom has-bg-image">
-        <span>Guest</span>
-        <p>Asdjf halsdjk hflasjd falkjsd hflaksd</p>
-        <a href="/">Register Now</a>
-      </div>
+  <div className="registration-grid">
+    <div className="grid-item">
+      <span className="item-name">Attendee</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <Link href="/tickets">
+        <a className="btn--main btn--main--round">Register Now</a>
+      </Link>
     </div>
-  </section>
+    <div className="grid-item">
+      <span className="item-name">Vendor</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <Link href="/tickets">
+        <a className="btn--main btn--main--round">Register Now</a>
+      </Link>
+    </div>
+    <div className="grid-item">
+      <span className="item-name">Sponsor</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <Link href="/tickets">
+        <a className="btn--main btn--main--round">Register Now</a>
+      </Link>
+    </div>
+    <div className="grid-item">
+      <span className="item-name">Press</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <Link href="/tickets">
+        <a className="btn--main btn--main--round">Register Now</a>
+      </Link>
+    </div>
+    <div className="grid-item">
+      <span className="item-name">Speaker</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <Link href="/tickets">
+        <a className="btn--main btn--main--round">Register Now</a>
+      </Link>
+    </div>
+    <div className="grid-item">
+      <span className="item-name">Guest</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <Link href="/tickets">
+        <a className="btn--main btn--main--round">Register Now</a>
+      </Link>
+    </div>
+  </div>
 );
 
 export default RegistrationGrid;

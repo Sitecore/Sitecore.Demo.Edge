@@ -101,7 +101,9 @@
   "scripts": {
     "jss": "jss",
     "jss:manifest": "jss manifest",
-    "lint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
+    "lint": "npm-run-all --serial eslint stylelint",
+    "eslint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
+    "stylelint": "stylelint ./src/**/*.css",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts",
     "bootstrap:original": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts && graphql-let",
     "build": "npm-run-all --serial jss:manifest bootstrap next:build",

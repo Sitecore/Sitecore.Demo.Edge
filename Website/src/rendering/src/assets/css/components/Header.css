@@ -1,0 +1,19 @@
+.header-eyebrow {
+  @apply bg-black-lightest text-white;
+
+  .content {
+    @apply flex flex-wrap justify-end content-center px-4 h-7;
+    @apply lg:container lg:mx-auto;
+    @apply xl:h-6;
+
+    a {
+      @apply text-base;
+      @apply lg:text-sm;
+      @apply xl:text-xs;
+    }
+
+    a + a {
+      @apply ml-2;
+    }
+  }
+}
