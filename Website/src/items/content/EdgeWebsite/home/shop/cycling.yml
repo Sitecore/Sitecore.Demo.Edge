@@ -32,55 +32,55 @@ SharedFields:
           key="jss-section-content"
           md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
         <r
-          uid="{9B9A789D-4B84-5E15-81D6-E0F05459F29C}"
           rname="Header"
           id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
           par=""
-          ph="/jss-header" />
+          ph="/jss-header"
+          uid="{9B9A789D-4B84-5E15-81D6-E0F05459F29C}" />
         <r
-          uid="{86519445-70A0-59EA-A5D6-F628B01D3E0B}"
           rname="MainNavigation"
           id="{09516A66-F92F-5638-B073-8F9A79765778}"
           par=""
-          ph="/jss-header/jss-header-content-{9B9A789D-4B84-5E15-81D6-E0F05459F29C}-0" />
+          ph="/jss-header/jss-header-content-{9B9A789D-4B84-5E15-81D6-E0F05459F29C}-0"
+          uid="{86519445-70A0-59EA-A5D6-F628B01D3E0B}" />
         <r
-          uid="{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}"
           rname="Breadcrumb"
           id="{780D897C-7065-585F-8585-28118565FA00}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}" />
         <r
-          uid="{387DB9D1-F359-5E17-ABF3-96F70FF63317}"
           rname="ProductDetail"
           id="{9E28A6C1-7D05-5C7F-81AF-1AF94C7A2F4D}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{387DB9D1-F359-5E17-ABF3-96F70FF63317}" />
         <r
-          uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}"
           rname="FullImageCTASection"
           id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}" />
         <r
-          uid="{794BC956-E900-5DCF-B609-170F413C058C}"
           rname="Section"
           ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{794BC956-E900-5DCF-B609-170F413C058C}" />
         <r
-          uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}"
           rname="SponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
-          ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0" />
+          ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0"
+          uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}" />
         <r
-          uid="{8C98BB69-A969-5159-8B4D-C609D3E114D2}"
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
           par=""
-          ph="/jss-footer" />
+          ph="/jss-footer"
+          uid="{8C98BB69-A969-5159-8B4D-C609D3E114D2}" />
       </d>
     </r>
 Languages:

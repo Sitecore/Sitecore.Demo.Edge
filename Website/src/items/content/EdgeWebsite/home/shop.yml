@@ -4,104 +4,91 @@ Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
 Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
 Path: /sitecore/content/EdgeWebsite/home/shop
 SharedFields:
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 250
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          key="jss-header-content"
+          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          key="jss-section-content"
+          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
         <r
-          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}">
-          <p:d />
-        </r>
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{850ADBE2-8137-55D0-A1BE-F4D89648FE57}" />
         <r
-          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}">
-          <p:d />
-        </r>
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{850ADBE2-8137-55D0-A1BE-F4D89648FE57}-0"
+          uid="{7999590B-B359-5B9F-8C53-F950A364FAAF}" />
         <r
-          uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}">
-          <p:d />
-        </r>
+          rname="HeaderBanner"
+          ds="{B64B0DCD-0AA5-564E-A8EB-C070ED2B0FB0}"
+          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          par=""
+          ph="/jss-main"
+          uid="{4D938807-FE21-5D3D-B42E-B190954A1A7E}" />
         <r
-          uid="{0761E527-92C1-596B-914B-DD9C282DA709}">
-          <p:d />
-        </r>
+          rname="Breadcrumb"
+          id="{780D897C-7065-585F-8585-28118565FA00}"
+          par=""
+          ph="/jss-main"
+          uid="{E27FB923-418A-5B78-9872-B309F6128352}" />
         <r
-          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}">
-          <p:d />
-        </r>
+          rname="FeaturedProducts"
+          id="{293B0B5B-0851-5D74-A670-43F2FE66DF89}"
+          par=""
+          ph="/jss-main"
+          uid="{5082BC0A-8283-5CD6-BF8C-BB02975BDFA3}" />
         <r
-          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}">
-          <p:d />
-        </r>
+          rname="AllProducts"
+          id="{0E8498A2-E3D3-518F-A880-67B60F4439C7}"
+          par=""
+          ph="/jss-main"
+          uid="{D857AA45-2083-5D6E-9CFA-E339C31C80D3}" />
         <r
-          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}">
-          <p:d />
-        </r>
+          rname="Section"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}" />
         <r
-          uid="{850ADBE2-8137-55D0-A1BE-F4D89648FE57}"
-          p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
-          s:rname="Header"
-          s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
-          s:par=""
-          s:ph="/jss-header" />
-        <r
-          uid="{7999590B-B359-5B9F-8C53-F950A364FAAF}"
-          p:after="r[@uid='{850ADBE2-8137-55D0-A1BE-F4D89648FE57}']"
-          s:rname="MainNavigation"
-          s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
-          s:par=""
-          s:ph="/jss-header/jss-header-content-{850ADBE2-8137-55D0-A1BE-F4D89648FE57}-0" />
-        <r
-          uid="{4D938807-FE21-5D3D-B42E-B190954A1A7E}"
-          p:after="r[@uid='{7999590B-B359-5B9F-8C53-F950A364FAAF}']"
-          s:rname="HeaderBanner"
-          s:ds="{B64B0DCD-0AA5-564E-A8EB-C070ED2B0FB0}"
-          s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{E27FB923-418A-5B78-9872-B309F6128352}"
-          p:after="r[@uid='{4D938807-FE21-5D3D-B42E-B190954A1A7E}']"
-          s:rname="Breadcrumb"
-          s:id="{780D897C-7065-585F-8585-28118565FA00}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{5082BC0A-8283-5CD6-BF8C-BB02975BDFA3}"
-          p:after="r[@uid='{E27FB923-418A-5B78-9872-B309F6128352}']"
-          s:rname="FeaturedProducts"
-          s:id="{293B0B5B-0851-5D74-A670-43F2FE66DF89}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{D857AA45-2083-5D6E-9CFA-E339C31C80D3}"
-          p:after="r[@uid='{5082BC0A-8283-5CD6-BF8C-BB02975BDFA3}']"
-          s:rname="AllProducts"
-          s:id="{0E8498A2-E3D3-518F-A880-67B60F4439C7}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}"
-          p:after="r[@uid='{D857AA45-2083-5D6E-9CFA-E339C31C80D3}']"
-          s:rname="Section"
-          s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
-          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
+          rname="SponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          par=""
+          ph="/jss-main/jss-section-content-{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}-0"
           uid="{6FDCFD14-6EC9-5FFC-8B03-8B0DCFF520B6}"
-          p:after="r[@uid='{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}']"
-          s:rname="SponsorsGrid"
-          s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
-          s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
-          s:par=""
-          s:ph="/jss-main/jss-section-content-{D614E5CC-A4C3-5011-B1FA-CFE668F373D3}-0"
-          s:ccb="Clear on publish" />
+          ccb="Clear on publish" />
+        <r
+          rname="Footer"
+          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          par=""
+          ph="/jss-footer"
+          uid="{B33954C0-7033-5FEA-B3D9-25914A8C7146}" />
       </d>
     </r>
 Languages:
