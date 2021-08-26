@@ -2,7 +2,7 @@
 ID: "6887376e-fdc3-4645-bebf-7109e507ffda"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/schedule/Mindset strategies
+Path: /sitecore/content/EdgeWebsite/home/Sessions/Mindset strategies
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
