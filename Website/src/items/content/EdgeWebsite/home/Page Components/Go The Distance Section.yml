@@ -31,7 +31,6 @@ Languages:
     - ID: "4bcf7d15-f018-5ca8-ae87-54499668a439"
       Hint: LeftLink
       Value: |
-        <link text="View Schedule" anchor="" linktype="internal" class="" title=""  querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
         <link id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" querystring="" text="View Schedule" anchor="" title="" class="" url="/EdgeWebsite/home/Sessions" linktype="internal" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
