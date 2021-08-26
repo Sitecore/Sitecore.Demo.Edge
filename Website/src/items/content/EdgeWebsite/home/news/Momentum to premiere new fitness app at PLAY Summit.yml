@@ -104,7 +104,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "53de4190-d9ee-4528-b9e1-4fc3c766d246"
+      Value: "ba0a6a61-caec-4067-a1b8-534ab8096434"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -114,9 +114,12 @@ Languages:
       Value: 20210803T060000Z
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T164824Z
+      Value: 20210826T154412Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
+      Value: "Momentum to premiere new fitness app at PLAY! Summit"
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
       Value: "Momentum to premiere new fitness app at PLAY! Summit"
     - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
       Hint: Image
