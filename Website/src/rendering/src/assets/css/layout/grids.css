@@ -1,0 +1,53 @@
+.item-grid {
+  .grid-filters {
+    @apply mx-auto gap-5 w-2/3 grid grid-cols-1 pt-10;
+    @apply md:w-3/4 md:gap-10 md:grid-cols-5;
+    @apply lg:w-2/3;
+  }
+
+  .dropdown-filter {
+    @apply inline-flex justify-center border border-gray-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-black-lightest;
+    @apply hover:bg-gray-lighter;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-lighter focus:ring-blue-lightest;
+    @apply md:w-28;
+
+    img {
+      @apply h-5;
+    }
+
+    svg {
+      @apply -mr-1 ml-2 h-5 w-5;
+    }
+  }
+
+  .grid-content {
+    @apply p-10 grid grid-cols-1 gap-5;
+    @apply sm:grid-cols-2;
+    @apply lg:grid-cols-3;
+    @apply xl:grid-cols-4;
+
+    .grid-item {
+      @apply rounded overflow-hidden;
+
+      .item-image-bordered {
+        @apply border border-gray-dark;
+      }
+
+      .item-image-h-40 {
+        @apply mx-auto h-40;
+      }
+
+      .item-details {
+        @apply px-6 py-4 text-black text-base text-center;
+
+        &.item-details-left {
+          @apply text-left;
+        }
+
+        .item-title {
+          @apply font-bold;
+        }
+      }
+    }
+  }
+}

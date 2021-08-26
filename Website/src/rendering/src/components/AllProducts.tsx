@@ -1,293 +1,246 @@
 import Link from 'next/link';
 
 const AllProducts = (): JSX.Element => (
-  <div className="max-w-screen-2xl my-0 mx-auto box-border overflow-hidden">
-    <h1 className="text-center uppercase text-blue py-10 text-3xl font-bold">All Products</h1>
+  <section className="section section__allproducts">
+    <div className="section__content">
+      <h1 className="section__content__title section__content__title--light">All Products</h1>
+      <div className="item-grid">
+        <div className="grid-filters">
+          <span>Filter by:</span>
+          <button
+            type="button"
+            className="dropdown-filter"
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+            aria-label="featured"
+          >
+            Featured
+            <img src="/assets/img/icons/down-arrow.svg" alt="^" />
+          </button>
+          <button
+            type="button"
+            className="dropdown-filter"
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+            aria-label="vendor"
+          >
+            Vendor
+            <img src="/assets/img/icons/down-arrow.svg" alt="^" />
+          </button>
+          <button
+            type="button"
+            className="dropdown-filter"
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+            aria-label="category"
+          >
+            Category
+            <img src="/assets/img/icons/down-arrow.svg" alt="^" />
+          </button>
+          <button
+            type="button"
+            className="dropdown-filter"
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+            aria-label="sport"
+          >
+            Sport
+            <img src="/assets/img/icons/down-arrow.svg" alt="^" />
+          </button>
+        </div>
 
-    <div className="mx-auto gap-5 md:gap-10 w-2/3 grid grid-cols-1 md:grid-cols-5 pt-10">
-      <span>Filter by:</span>
-      <button
-        type="button"
-        className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-        id="menu-button"
-        aria-expanded="true"
-        aria-haspopup="true"
-        aria-label="featured"
-      >
-        Featured
-        <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
-      </button>
-      <button
-        type="button"
-        className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-        id="menu-button"
-        aria-expanded="true"
-        aria-haspopup="true"
-        aria-label="vendor"
-      >
-        Vendor
-        <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
-      </button>
-      <button
-        type="button"
-        className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-        id="menu-button"
-        aria-expanded="true"
-        aria-haspopup="true"
-        aria-label="category"
-      >
-        Category
-        <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
-      </button>
-      <button
-        type="button"
-        className="inline-flex justify-center w-30 border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
-        id="menu-button"
-        aria-expanded="true"
-        aria-haspopup="true"
-        aria-label="sport"
-      >
-        Sport
-        <img className="h-5" src="/assets/img/icons/down-arrow.svg" alt="^" />
-      </button>
+        <div className="grid-content">
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-alba-hydration-pack.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Hydration Pack</p>
+                <p>Alba</p>
+                <p>$129</p>
+              </div>
+            </a>
+          </Link>
+
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-centercycle-speed-track-helmet.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Speed Track Helmet</p>
+                <p>Center Cycle</p>
+                <p>$89</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-centercycle-womens-biking-top.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Women&apos;s Biking Top</p>
+                <p>Center Cycle</p>
+                <p>$150</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-habitat-striva5.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Striva 5 Smart Watch</p>
+                <p>Striva</p>
+                <p>$349</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-striva-activity-tracker.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Striva 4 Smart Watch</p>
+                <p>Striva</p>
+                <p>$129</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/speedsensor.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Cycling Speed Sensors</p>
+                <p>Striva</p>
+                <p>$37</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-striva-cycling-computer.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Cycling Computer</p>
+                <p>Striva</p>
+                <p>$189</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-centercycle-tire-repair-kit.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Tire Repair Kit</p>
+                <p>Center Cycle</p>
+                <p>$60</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-mens-biking-shorts.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Men&apos;s Biking Shorts</p>
+                <p>Center Cycle</p>
+                <p>$189</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/tickets" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/helmet.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Speed Biking Helmet</p>
+                <p>Center Cycle</p>
+                <p>$89</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/tickets" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/featured-shoe.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Race Bike Shoes</p>
+                <p>Prostaff</p>
+                <p>$150</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/tickets" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/luxe-bike.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Luxe Mountain Bike</p>
+                <p>Dwell</p>
+                <p>$550</p>
+              </div>
+            </a>
+          </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/prod-habitat-stationary-bike.jpg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Habitat Stationary Bike</p>
+                <p>Habitat</p>
+                <p>$1,500</p>
+              </div>
+            </a>
+          </Link>
+        </div>
+      </div>
     </div>
-
-    <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-alba-hydration-pack.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Hydration Pack</strong>
-              <br />
-              Alba
-              <br />
-              $129
-            </p>
-          </div>
-        </div>
-      </Link>
-
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-centercycle-speed-track-helmet.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Speed Track Helmet</strong>
-              <br />
-              Center Cycle
-              <br />
-              $89
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-centercycle-womens-biking-top.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Women&apos;s Biking Top</strong>
-              <br />
-              Center Cycle
-              <br />
-              $150
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-habitat-striva5.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Striva 5 Smart Watch</strong>
-              <br />
-              Striva
-              <br />
-              $349
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-striva-activity-tracker.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Striva 4 Smart Watch</strong>
-              <br />
-              <br />$
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/speedsensor.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Cycling Speed Sensors</strong>
-              <br />
-              Striva
-              <br />
-              $37
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-striva-cycling-computer.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Cycling Computer</strong>
-              <br />
-              Striva
-              <br />
-              $189
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-centercycle-tire-repair-kit.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Tire Repair Kit</strong>
-              <br />
-              Center Cycle
-              <br />
-              $60
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-mens-biking-shorts.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Men&apos;s Biking Shorts</strong>
-              <br />
-              Center Cycle
-              <br />
-              $189
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/tickets" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/helmet.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Speed Biking Helmet</strong>
-              <br />
-              Center Cycle
-              <br />
-              $89
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/tickets" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/featured-shoe.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Race Bike Shoes</strong>
-              <br />
-              Prostaff
-              <br />
-              $150
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/tickets" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/luxe-bike.jpeg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Luxe Mountain Bike</strong>
-              <br />
-              Dwell
-              <br />
-              $550
-            </p>
-          </div>
-        </div>
-      </Link>
-      <Link href="/shop" passHref>
-        <div className="rounded overflow-hidden">
-          <img
-            className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-            src="/assets/img/shop/prod-habitat-stationary-bike.jpg"
-            alt="Mountain"
-          />
-          <div className="px-6 py-4">
-            <p className="text-gray-700 text-base text-center">
-              <strong>Habitat Stationary Bike</strong>
-              <br />
-              Habitat
-              <br />
-              $1,500
-            </p>
-          </div>
-        </div>
-      </Link>
-    </div>
-  </div>
+  </section>
 );
 
 export default AllProducts;
