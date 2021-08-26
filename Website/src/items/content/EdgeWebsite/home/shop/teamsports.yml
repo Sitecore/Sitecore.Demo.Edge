@@ -81,6 +81,10 @@ SharedFields:
     </r>
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Teamsports
   Versions:
   - Version: 1
     Fields:
@@ -101,7 +105,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c30ca211-f3fb-4854-8689-a1c6641302cb"
+      Value: "6c1864a2-9d52-49d7-861c-58cf7b1de575"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -111,7 +115,7 @@ Languages:
       Value: Team Sports
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T162320Z
+      Value: 20210826T162416Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "PLAY! Summit - Team Sports"
