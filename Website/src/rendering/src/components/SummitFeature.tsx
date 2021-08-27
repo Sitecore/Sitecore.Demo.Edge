@@ -1,7 +1,7 @@
 import { Field, ImageField, Text, LinkField, Link, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type SummitFeatureProps = ComponentProps & {
+export type SummitFeatureProps = ComponentProps & {
   fields: {
     Logo: ImageField;
     Title: Field<string>;
