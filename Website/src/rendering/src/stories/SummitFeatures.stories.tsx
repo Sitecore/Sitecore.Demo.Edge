@@ -40,7 +40,5 @@ const Template: ComponentStory<typeof SummitFeatures> = (args: SummitFeaturesPro
 
 export const Default = Template.bind({});
 Default.args = {
-  params: {
-    name: 'SummitFeatures',
-  },
+  params: {},
 } as SummitFeaturesProps;
