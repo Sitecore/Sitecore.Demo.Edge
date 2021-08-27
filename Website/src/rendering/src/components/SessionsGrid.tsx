@@ -10,6 +10,7 @@ type Speaker = {
 };
 
 type Session = {
+  Name: Field<string>;
   fields: {
     Name: Field<string>;
     Image: ImageField;
@@ -30,14 +31,16 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
     <div className="grid-content">
       {props.fields.items &&
         props.fields.items.map((session, index) => (
-          <Link href="#" key={index}>
+          <Link key={index} href={'/schedule/' + session.Name} passHref>
             <a className="grid-item">
-              <Image
-                field={session.fields.Image}
-                alt={session.fields.Name}
-                width={340}
-                height={227}
-              />
+              <div className="image-hover-zoom">
+                <Image
+                  field={session.fields.Image}
+                  alt={session.fields.Name.value}
+                  width={340}
+                  height={227}
+                />
+              </div>
               <div className="item-details item-details-left">
                 <Text tag="div" className="item-title" field={session.fields.Name}></Text>
                 <DateField
@@ -66,7 +69,6 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                   />
                 </p>
                 <p>
-                  {/* TODO: change to field */}
                   <span>Duration: {session.fields.Duration?.value?.replace('_', '.')}</span>
                 </p>
                 {session.fields.Speakers &&
