@@ -19,7 +19,8 @@ Default.args = {
       value: 'Sports and Leisure Expo',
     },
     Description: {
-      value: 'This year’s theme is ‘Raise Your Game’ –join us over two days for a global gathering of brands, sports professionals,and innovators.',
+      value:
+        'This year’s theme is ‘Raise Your Game’ –join us over two days for a global gathering of brands, sports professionals,and innovators.',
     },
     Link: {
       value: {
