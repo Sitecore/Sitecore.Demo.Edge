@@ -1,7 +1,7 @@
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type SummitFeaturesProps = ComponentProps & {
+export type SummitFeaturesProps = ComponentProps & {
   children: React.ReactNode;
 };
 
