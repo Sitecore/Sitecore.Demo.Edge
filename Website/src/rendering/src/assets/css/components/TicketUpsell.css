@@ -1,0 +1,25 @@
+.ticket-upsell {
+  @apply text-center space-y-10 bg-white-lighter p-10;
+
+  h2 {
+    @apply text-blue text-4xl;
+  }
+
+  ul {
+    @apply text-left list-none h-auto;
+
+    padding-left: 40px;
+    padding-right: 20px;
+    font-size: medium;
+    line-height: 3rem;
+    margin-bottom: 30px;
+
+    svg {
+      @apply text-pink mr-3;
+    }
+  }
+
+  .button-area {
+    @apply px-6 pt-4 pb-10;
+  }
+}

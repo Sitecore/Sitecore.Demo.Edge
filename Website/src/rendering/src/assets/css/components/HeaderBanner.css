@@ -1,0 +1,19 @@
+.header-banner {
+  @apply pt-80 pb-10 bg-gradient-to-r from-black-lightest to-transparent bg-cover bg-center;
+
+  .section__content {
+    @apply text-white font-extrabold;
+
+    .eyebrow {
+      @apply pb-10;
+    }
+
+    .title {
+      @apply uppercase text-5xl;
+    }
+
+    .subtitle {
+      @apply text-yellow;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.order-summary {
+  .summary-header {
+    @apply bg-black p-5 pl-5 text-white uppercase text-2xl font-extrabold;
+  }
+
+  .summary-content {
+    @apply bg-gray-light p-5 space-y-5 text-sm;
+  }
+
+  .details {
+    @apply font-bold text-lg;
+  }
+
+  .line-item {
+    @apply grid grid-cols-2;
+
+    .item-name,
+    .item-price {
+      @apply font-bold;
+    }
+  }
+
+  .total-line {
+    @apply font-bold text-lg;
+  }
+}

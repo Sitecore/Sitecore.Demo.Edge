@@ -9,14 +9,10 @@ type TextCtaProps = ComponentProps & {
 };
 
 const TextCta = (props: TextCtaProps): JSX.Element => (
-  <section className="bg-black p-7">
-    <div className="container text-center">
-      <h1 className="text-4xl text-blue-light font-bold uppercase">
-        <Text field={props.fields.title} />
-      </h1>
-      <p className="text-white text-lg">
-        <Text field={props.fields.subTitle} />
-      </p>
+  <section className="text-cta">
+    <div className="container cta-content">
+      <Text tag="h2" className="cta-title" field={props.fields.title} />
+      <Text tag="p" className="cta-subtitle" field={props.fields.subTitle} />
     </div>
   </section>
 );

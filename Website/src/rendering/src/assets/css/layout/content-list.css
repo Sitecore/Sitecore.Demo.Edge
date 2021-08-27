@@ -1,7 +1,0 @@
-.content-list .content-block.text-left .image {
-  @apply float-left;
-}
-
-.content-list .content-block.text-right .image {
-  @apply float-right;
-}

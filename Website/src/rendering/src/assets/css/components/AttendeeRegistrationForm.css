@@ -1,0 +1,7 @@
+.form.attendee-registration-form {
+  @apply space-y-5 p-10;
+
+  input[type="text"] {
+    @apply sm:w-3/5;
+  }
+}

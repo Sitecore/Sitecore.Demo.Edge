@@ -1,0 +1,11 @@
+.form.payment-and-billing-form {
+  @apply text-center space-y-5;
+
+  h2 {
+    @apply pt-5 pb-1;
+  }
+
+  img.payment-methods {
+    @apply mx-auto;
+  }
+}

@@ -1,0 +1,12 @@
+.attendee-form {
+  @apply grid grid-cols-1 gap-10;
+  @apply lg:grid-cols-5;
+
+  .attendee-form-content {
+    @apply col-span-2;
+  }
+
+  .attendee-form-form {
+    @apply col-span-3;
+  }
+}
