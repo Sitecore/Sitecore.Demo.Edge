@@ -19,39 +19,38 @@ type FeaturedSpeakersProps = ComponentProps & {
 };
 
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
-  <section className="">
-    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
+  <section className="section section--bg-white">
+    <div className="section__content">
       <Text
         tag="h1"
-        className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold"
+        className="section__content__title section__content__title--light"
         field={props.fields.Title}
       />
-      <Text tag="p" className="text-center" field={props.fields.Subtitle} />
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        {props.fields.Speakers &&
-          props.fields.Speakers.map((speaker, index) => (
-            <Link
-              key={index}
-              href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
-              passHref
-            >
-              <a className="rounded overflow-hidden mx-auto">
-                <Image
-                  field={speaker.fields.Picture}
-                  alt={speaker.fields.Name?.value}
-                  width={265}
-                  height={265}
-                />
-                <div className="px-6 py-4">
-                  <Text
-                    className="text-gray-700 text-base text-center"
-                    tag="p"
-                    field={speaker.fields.Name}
-                  ></Text>
-                </div>
-              </a>
-            </Link>
-          ))}
+      <Text tag="p" className="section__content__subtitle--center" field={props.fields.Subtitle} />
+
+      <div className="item-grid">
+        <div className="grid-content">
+          {props.fields.Speakers &&
+            props.fields.Speakers.map((speaker, index) => (
+              <Link
+                key={index}
+                href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
+                passHref
+              >
+                <a className="grid-item">
+                  <Image
+                    field={speaker.fields.Picture}
+                    alt={speaker.fields.Name?.value}
+                    width={265}
+                    height={265}
+                  />
+                  <div className="item-details">
+                    <Text tag="p" field={speaker.fields.Name}></Text>
+                  </div>
+                </a>
+              </Link>
+            ))}
+        </div>
       </div>
     </div>
   </section>

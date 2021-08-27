@@ -16,7 +16,7 @@ Languages:
       Value: 20210707T152629Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
-      Value: Asdas fasfwe aerg sdeg sCheck out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+      Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
@@ -31,17 +31,17 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1023b036-9ba9-4346-99cb-7a09cd47b2a8"
+      Value: "17c09fc8-1610-43a3-8830-134bdb20c705"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section
+      Value: section__news
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
       Value: dark
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135717Z
+      Value: 20210823T204402Z

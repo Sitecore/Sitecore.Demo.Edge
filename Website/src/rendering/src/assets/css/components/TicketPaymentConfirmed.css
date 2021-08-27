@@ -1,0 +1,15 @@
+.ticket-payment-confirmed {
+  @apply text-center space-y-14 border border-gray-dark p-8 pb-12;
+
+  h2 {
+    @apply text-blue text-4xl text-left;
+  }
+
+  p {
+    @apply text-left;
+  }
+
+  img.qr-code {
+    @apply w-60 mx-auto;
+  }
+}

@@ -26,7 +26,7 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
           {fields.callToActionLink && (
             <Link
               field={fields.callToActionLink}
-              className="btn--main btn--main--round font-bold"
+              className="btn--main btn--main--round call-to-action-button"
             ></Link>
           )}
         </div>

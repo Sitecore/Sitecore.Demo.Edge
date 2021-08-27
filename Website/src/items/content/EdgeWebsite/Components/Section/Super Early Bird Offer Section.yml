@@ -27,17 +27,17 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2b77bead-a43b-4f0b-9c8f-efaa92f5182c"
+      Value: "54e36bb3-4e64-4cf2-978a-77d994c75369"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: section__news
+      Value: 
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
-      Value: dark
+      Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T135725Z
+      Value: 20210823T204524Z

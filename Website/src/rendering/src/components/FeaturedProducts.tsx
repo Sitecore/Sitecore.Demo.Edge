@@ -1,111 +1,91 @@
 import Link from 'next/link';
 
 const FeaturedProducts = (): JSX.Element => (
-  <section className="">
-    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
-      <h1 className="text-center uppercase text-blue pt-10 text-4xl font-semibold">
-        Featured products
-      </h1>
-      <p className="text-center">
+  <section className="section section--bg-white">
+    <div className="section__content">
+      <h1 className="section__content__title section__content__title--light">Featured products</h1>
+      <p className="section__content__subtitle--center">
         Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
         brands at this year’s PLAY! Summit.
       </p>
 
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        <Link href="/shop" passHref>
-          <div className="rounded overflow-hidden">
-            <img
-              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-              src="/assets/img/shop/featured-watch.jpeg"
-              alt="Mountain"
-            />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">
-                <strong>Smart Watch</strong>
-                <br />
-                Striva
-                <br />
-                $450
-              </p>
-            </div>
-          </div>
-        </Link>
+      <div className="item-grid">
+        <div className="grid-content">
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/featured-watch.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Smart Watch</p>
+                <p>Striva</p>
+                <p>$450</p>
+              </div>
+            </a>
+          </Link>
 
-        <Link href="/shop" passHref>
-          <div className="rounded overflow-hidden">
-            <img
-              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-              src="/assets/img/shop/featured-shoe.jpeg"
-              alt="Mountain"
-            />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">
-                <strong>Race Bike Shoes</strong>
-                <br />
-                Prostaff
-                <br />
-                $150
-              </p>
-            </div>
-          </div>
-        </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/featured-shoe.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Race Bike Shoes</p>
+                <p>Prostaff</p>
+                <p>$150</p>
+              </div>
+            </a>
+          </Link>
 
-        <Link href="/shop" passHref>
-          <div className="rounded overflow-hidden">
-            <img
-              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-              src="/assets/img/shop/helmet.jpeg"
-              alt="Mountain"
-            />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">
-                <strong>Speed Biking Helmet</strong>
-                <br />
-                Center Cycle
-                <br />
-                $89
-              </p>
-            </div>
-          </div>
-        </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/helmet.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Speed Biking Helmet</p>
+                <p>Center Cycle</p>
+                <p>$89</p>
+              </div>
+            </a>
+          </Link>
 
-        <Link href="/shop" passHref>
-          <div className="rounded overflow-hidden">
-            <img
-              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-              src="/assets/img/shop/luxe-bike.jpeg"
-              alt="Mountain"
-            />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">
-                <strong>Luxe Mountain Bike</strong>
-                <br />
-                Dwell
-                <br />
-                $550
-              </p>
-            </div>
-          </div>
-        </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/luxe-bike.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Luxe Mountain Bike</p>
+                <p>Dwell</p>
+                <p>$550</p>
+              </div>
+            </a>
+          </Link>
 
-        <Link href="/shop" passHref>
-          <div className="rounded overflow-hidden">
-            <img
-              className="md:w-full mx-auto border b-1 border-gray-dark h-40"
-              src="/assets/img/shop/center-top.jpeg"
-              alt="Mountain"
-            />
-            <div className="px-6 py-4">
-              <p className="text-gray-700 text-base text-center">
-                <strong>Men&apos;s Biking Top</strong>
-                <br />
-                Center Cycle
-                <br />
-                $150
-              </p>
-            </div>
-          </div>
-        </Link>
+          <Link href="/shop" passHref>
+            <a className="grid-item">
+              <img
+                className="item-image-bordered item-image-h-40"
+                src="/assets/img/shop/center-top.jpeg"
+                alt="Mountain"
+              />
+              <div className="item-details">
+                <p className="item-title">Men&apos;s Biking Top</p>
+                <p>Center Cycle</p>
+                <p>$150</p>
+              </div>
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   </section>

@@ -1,0 +1,4 @@
+.payment-confirmed-page {
+  @apply grid grid-cols-1 gap-10;
+  @apply md:grid-cols-2;
+}

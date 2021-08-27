@@ -1,0 +1,13 @@
+.registration-grid {
+  @apply grid gap-4 grid-cols-1;
+  @apply sm:grid-cols-2;
+  @apply lg:grid-cols-3;
+
+  .grid-item {
+    @apply h-64 w-64 p-5 mx-auto text-center space-y-2 border flex flex-col items-center justify-end;
+
+    .item-name {
+      @apply font-bold;
+    }
+  }
+}

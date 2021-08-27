@@ -25,13 +25,13 @@ Languages:
     - ID: "666751a2-38bb-5f78-9a68-1c5d4c394c65"
       Hint: Link
       Value: |
-        <link text="Boot Tickets" anchor="" linktype="internal" class="" title=""  querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
+        <link text="Book Tickets" anchor="" linktype="internal" class="" title=""  querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
     - ID: "692cfd83-acae-5943-9598-09e078a83416"
       Hint: Expo
       Value: Sports and Leisure Expo
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aab9a6ad-f315-4003-9fbc-070f77de57bb"
+      Value: "08cfaaad-b8cd-4236-97f8-41decc2c8106"
     - ID: "a32cd274-1db8-5448-9727-87d275cef3f8"
       Hint: Slogan
       Value: "READY | STEADY | PLAY!"
@@ -48,7 +48,7 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T183322Z
+      Value: 20210824T194410Z
     - ID: "e82805ef-5ecb-5cec-8608-b049848c22bb"
       Hint: Subtitle
       Value: "Join us in person or online for the fifth annual PLAY! Summit."
