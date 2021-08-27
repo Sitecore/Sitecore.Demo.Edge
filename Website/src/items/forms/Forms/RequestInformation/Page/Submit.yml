@@ -2,7 +2,7 @@
 ID: "9ef9553c-8e4d-4cf1-a441-dc06f6f7a9b1"
 Parent: "640f641c-f666-4e8d-8e4e-cb319891ad08"
 Template: "94a46d66-b1b8-405d-aae4-7b5a9cd61c5e"
-Path: /sitecore/Forms/RequestInformation/Page/Submit Button
+Path: /sitecore/Forms/RequestInformation/Page/Submit
 SharedFields:
 - ID: "71c6de8e-4718-4977-b83e-b49552ee14b0"
   Hint: Conditions
@@ -14,6 +14,9 @@ SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 800
+- ID: "d842af43-e220-48d7-9714-6eb2381d2b0c"
+  Hint: Navigation Step
+  Value: 1
 Languages:
 - Language: en
   Versions:
@@ -30,13 +33,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\superuser
+    - ID: "71ffd7b2-8b09-4f7b-8a66-1e4cef653e8d"
+      Hint: Title
+      Value: Submit
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fc1d4d7d-64fe-41b8-adb1-a1958e6bbbfc"
+      Value: "bbfbff3d-0414-4b92-84f1-29fa4689e9e2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T181746Z
+      Value: 20210827T174353Z
