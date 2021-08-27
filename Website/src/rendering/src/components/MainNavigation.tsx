@@ -5,21 +5,16 @@ const MainNavigation = (): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="bg-black" style={{ height: '92px' }}>
-      <div className="w-full lg:container lg:mx-auto flex flex-wrap items-center justify-between">
-        <div className="w-full flex justify-between lg:w-auto lg:static lg:block lg:justify-start px-6">
-          <a
-            className="text-sm font-bold leading-relaxed inline-block py-4 whitespace-nowrap uppercase text-white"
-            href="/"
-          >
-            <img
-              src="/assets/img/play-logo-stacked-light.svg"
-              alt="PLAY! Summit logo"
-              style={{ height: '46px' }}
-            />
-          </a>
+    <nav className="main-navigation">
+      <div className="navigation-content">
+        <div className="controls-container">
+          <Link href="/">
+            <a className="logo-link">
+              <img src="/assets/img/play-logo-stacked-light.svg" alt="PLAY! Summit logo" />
+            </a>
+          </Link>
           <button
-            className="text-white cursor-pointer text-xl leading-none border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none w-8"
+            className="items-toggle"
             aria-label="open menu"
             type="button"
             onClick={() => setNavbarOpen(!navbarOpen)}
@@ -33,51 +28,36 @@ const MainNavigation = (): JSX.Element => {
             </svg>
           </button>
         </div>
-        <div
-          className={
-            'lg:flex flex-grow bg-black-light lg:bg-transparent px-4 pb-5 lg:pb-0' +
-            (navbarOpen ? ' flex' : ' hidden')
-          }
-        >
-          <ul className="flex flex-col lg:flex-row lg:items-center list-none lg:ml-auto">
-            <li>
-              <Link href="/sessions">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Sessions
-                </a>
+        <div className={'items-container' + (navbarOpen ? ' opened' : ' closed')}>
+          <ul>
+            <li className="text-menu-item">
+              <Link href="/schedule">
+                <a>Schedule</a>
               </Link>
             </li>
-            <li>
+            <li className="text-menu-item">
               <Link href="/speakers">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Speakers
-                </a>
+                <a>Speakers</a>
               </Link>
             </li>
-            <li>
+            <li className="text-menu-item">
               <Link href="/vendors">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Vendors
-                </a>
+                <a>Vendors</a>
               </Link>
             </li>
-            <li>
-              <Link href="/about-us">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  About Us
-                </a>
+            <li className="text-menu-item">
+              <Link href="/aboutus">
+                <a>About Us</a>
               </Link>
             </li>
-            <li>
+            <li className="text-menu-item">
               <Link href="/shop">
-                <a className="px-3 py-2 text-base leading-loose text-white hover:text-yellow">
-                  Shop
-                </a>
+                <a>Shop</a>
               </Link>
             </li>
-            <li>
+            <li className="button-menu-item">
               <Link href="/tickets">
-                <a className="btn--main btn--main--round inline-block text-black">Book Tickets</a>
+                <a className="btn--main btn--main--round">Book Tickets</a>
               </Link>
             </li>
           </ul>

@@ -1,0 +1,15 @@
+.text-cta {
+  @apply bg-black p-7;
+
+  .cta-content {
+    @apply text-center;
+
+    .cta-title {
+      @apply text-4xl text-blue-light font-bold uppercase;
+    }
+
+    .cta-subtitle {
+      @apply text-white text-lg;
+    }
+  }
+}
