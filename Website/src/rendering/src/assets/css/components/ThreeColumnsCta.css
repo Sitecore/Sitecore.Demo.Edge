@@ -3,7 +3,7 @@
 
   .cta-content {
     @apply grid grid-rows-3;
-    @apply lg:grid-cols-3;
+    @apply lg:grid-rows-1 lg:grid-cols-3;
 
     .cta {
       @apply space-y-2 py-5;
