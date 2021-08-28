@@ -1,12 +1,12 @@
 ﻿---
-ID: "c8301cf3-423b-4d5f-9a32-1daada1a9797"
-Parent: "866e6ad1-34b6-479d-b75d-6ea1eeb01f98"
-Template: "32b4ee0d-7860-4ace-bc20-e4b40d9491a7"
-Path: /sitecore/content/CMP/Days/Day 3
+ID: "0279e94c-0090-4ecd-9017-c53a630cff8b"
+Parent: "b541c1ae-68e3-484b-bc05-73b574497189"
+Template: "0bc9237d-12eb-47a5-afed-a65188324358"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Timeslots/2pm
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Demo.Day.Day3
+  Value: Demo.Timeslot.2pm
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210809T204131Z
+      Value: 20210728T195702Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,16 +23,16 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "8b5b10d2-7531-496b-afce-c0f7e51348c2"
+    - ID: "62545186-56cf-4614-bcdc-2ecb3947ea4c"
       Hint: Name
-      Value: Day 3
+      Value: 2pm
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7186b5d5-a5bb-42c2-9a53-23159fbc9c9c"
+      Value: "0dde163e-c6f6-4ca7-adb5-e601615455e2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210809T204131Z
+      Value: 20210728T195702Z
