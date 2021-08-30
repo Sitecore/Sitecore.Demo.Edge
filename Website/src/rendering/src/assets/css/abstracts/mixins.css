@@ -2,8 +2,24 @@
   @apply flex items-center justify-center;
 }
 
+@mixin flex--center-w {
+  @apply flex items-center justify-center flex-wrap;
+}
+
+@mixin flex--center--column {
+  @apply flex items-center justify-center flex-col;
+}
+
+@mixin flex--sa-w {
+  @apply flex items-center justify-around flex-wrap;
+}
+
 @mixin flex--sb {
   @apply flex items-center justify-between;
+}
+
+@mixin flex--sb-w {
+  @apply flex items-center justify-between flex-wrap;
 }
 
 @mixin flex--fs-sb-w {
@@ -14,8 +30,16 @@
   @apply flex items-center justify-end;
 }
 
+@mixin flex--fe-center {
+  @apply flex items-end justify-center;
+}
+
 @mixin flex--fs-w {
   @apply flex items-center justify-start flex-wrap;
+}
+
+@mixin flex--fs-center {
+  @apply flex items-start justify-center;
 }
 
 @mixin content {

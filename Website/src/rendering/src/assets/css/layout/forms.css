@@ -1,0 +1,49 @@
+.form {
+  h2 {
+    @apply text-blue text-4xl uppercase;
+  }
+
+  input[type="text"] {
+    @apply w-full rounded p-2 border border-gray-dark text-sm font-medium;
+  }
+
+  .checkbox-label {
+    @apply flex pl-5 w-full text-left;
+
+    input[type="checkbox"] {
+      @apply mt-1;
+    }
+
+    .label-text {
+      @apply ml-2 text-sm;
+    }
+  }
+
+  .inline-fields {
+    @apply flex;
+
+    input + input {
+      @apply ml-2;
+    }
+  }
+
+  .footnote {
+    @apply text-left text-sm;
+
+    p + p {
+      @apply mt-2;
+    }
+
+    .note {
+      @apply ml-10;
+    }
+
+    a {
+      @apply font-bold underline;
+    }
+  }
+
+  .button-area {
+    @apply px-6 pt-4 pb-10;
+  }
+}

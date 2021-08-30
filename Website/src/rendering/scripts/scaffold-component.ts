@@ -18,9 +18,11 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
-import generateComponentManifest from './templates/component-manifest';
+// DEMO TEAM CUSTOMIZATION - Remove manifest scaffolding. We use Sitecore-first mode.
+// DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding.
+import generateStorySrc from './templates/story-src';
 
-const componentManifestDefinitionsPath = 'sitecore/definitions/components';
+const storyRootPath = 'src/stories';
 const componentRootPath = 'src/components';
 
 // Matches component names that start with a capital letter, and contain only letters, number,
@@ -41,29 +43,25 @@ dashes, or underscores. If specifying a path, it must be relative to src/compone
 
 const componentPath = regExResult[1];
 const componentName = regExResult[2];
-const filename = `${componentName}.tsx`;
+const componentFilename = `${componentName}.tsx`;
 
 const componentOutputPath = scaffoldFile(
   componentRootPath,
   generateComponentSrc(componentName),
-  filename
+  componentFilename
 );
 
-let manifestOutputPath = null;
-if (fs.existsSync(componentManifestDefinitionsPath)) {
-  const filename = `${componentName}.sitecore.ts`;
-
-  manifestOutputPath = scaffoldFile(
-    componentManifestDefinitionsPath,
-    generateComponentManifest(componentName),
-    filename
-  );
-} else {
-  console.log(
-    chalk.red(`Not scaffolding manifest because ${componentManifestDefinitionsPath}
-did not exist. This is normal for Sitecore-first workflow.`)
-  );
+if (!componentOutputPath) {
+  throw `Skipping creating ${componentArg}; already exists.`;
 }
+
+const storyFilename = `${componentName}.stories.tsx`;
+
+const storyOutputPath = scaffoldFile(
+  storyRootPath,
+  generateStorySrc(componentName, componentPath),
+  storyFilename
+);
 
 console.log(
   chalk.green(`
@@ -71,32 +69,18 @@ Scaffolding of ${componentName} complete.
 Next steps:`)
 );
 
-if (manifestOutputPath) {
-  console.log(`* Define the component's data in ${chalk.green(manifestOutputPath)}`);
-} else {
-  console.log(
-    `* Scaffold the component in Sitecore using '${chalk.green(
-      `jss deploy component ${componentName} --allowedPlaceholders placeholder-for-component`
-    )}, or create the rendering item and datasource template yourself.`
-  );
+// DEMO TEAM CUSTOMIZATION - Reworked next steps order and content.
+console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
+if (storyOutputPath) {
+  console.log(`* Test the component in Storybook by running ${chalk.green('jss storybook')}.`);
+  console.log(`* Add mock data as needed in the ${chalk.green(storyOutputPath)} Storybook story.`);
 }
-if (componentOutputPath) {
-  console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
-}
-if (manifestOutputPath) {
-  console.log(
-    `* Add the component to a route layout (/data/routes) and test it with ${chalk.green(
-      'jss start'
-    )}`
-  );
-} else {
-  console.log(
-    `* Deploy your app with the new component to Sitecore (${chalk.green(
-      'jss deploy:watch'
-    )} or ${chalk.green('jss deploy files')})`
-  );
-  console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
-}
+console.log(
+  `* Scaffold the component in Sitecore using '${chalk.green(
+    `jss deploy component ${componentName} --allowedPlaceholders placeholder-for-component`
+  )}, or create the rendering item and datasource template yourself.`
+);
+console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
 
 /**
  * Force to use `crlf` line endings, we are using `crlf` across the project.

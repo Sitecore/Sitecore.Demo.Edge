@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NewsDetail from '../../components/NewsDetail';
 
 export default {
-  title: 'Components/News/Detail',
+  title: 'Components/News/NewsDetail',
   component: NewsDetail,
 } as ComponentMeta<typeof NewsDetail>;
 

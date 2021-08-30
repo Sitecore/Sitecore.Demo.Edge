@@ -28,7 +28,7 @@ const NewsDetail = (props: NewsDetailProps): JSX.Element => (
         <div className="right-column">
           <DateField
             tag="h3"
-            className="uppercase"
+            className="news-date"
             field={props.fields.PublishDate}
             render={(date) =>
               date?.toLocaleDateString('en-US', {
@@ -39,8 +39,8 @@ const NewsDetail = (props: NewsDetailProps): JSX.Element => (
               })
             }
           />
-          <Text tag="h2" className="news-title" field={props.fields.Title}></Text>
-          <RichText tag="strong" field={props.fields.Excerpt} />
+          <Text tag="h2" className="news-title" field={props.fields.Title} />
+          <RichText tag="div" className="news-excerpt" field={props.fields.Excerpt} />
           <div>
             <RichText field={props.fields.Content} />
           </div>
