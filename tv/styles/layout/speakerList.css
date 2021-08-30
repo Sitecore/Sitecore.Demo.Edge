@@ -11,7 +11,7 @@
       @apply mb-5 flex justify-start items-center bg-white shadow-lg rounded-lg text-left w-3/4;
 
       .photo {
-        @apply float-left h-20 w-20 clear-both mr-5;
+        @apply h-20 w-20 mr-5;
       }
     }
   }
