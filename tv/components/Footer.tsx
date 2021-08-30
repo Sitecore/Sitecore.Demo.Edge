@@ -15,7 +15,7 @@ const Footer = (): JSX.Element => {
       </div>
       <div className="controls">
         <Link href="/rooms" passHref>
-          <a>Room</a>
+          <a>Rooms</a>
         </Link>
         <Link href="/schedule" passHref>
           <a>Schedule</a>
