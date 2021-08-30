@@ -9,7 +9,6 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
     <div
       className="currentSession"
       style={{
-        backgroundSize: 'cover',
         backgroundImage: `url(/room-bg.jpg)`,
       }}
     >
