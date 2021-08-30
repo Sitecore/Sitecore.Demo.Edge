@@ -11,7 +11,7 @@ export declare type Params = {
   [param: string]: any;
 };
 
-export default function Room(props: RoomsProps) {
+export default function Rooms(props: RoomsProps) {
   return <RoomDisplay sessions={props.sessions} />;
 }
 

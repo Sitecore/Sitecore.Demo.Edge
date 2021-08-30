@@ -3,12 +3,12 @@ import Image from 'next/image';
 import SessionList from './SessionList';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
-type CurrentSessionProps = {
+type CurrentSpeakerProps = {
   sessions: Session[];
   speaker: Speaker;
 };
 
-const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
+const CurrentSpeaker = (props: CurrentSpeakerProps): JSX.Element => {
   return (
     <div className="w-full max-w-6xl rounded bg-white shadow-xl p-10 mx-auto text-gray-800 relative md:text-left">
       <div className="md:flex items-center -mx-10">
@@ -43,4 +43,4 @@ const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
   );
 };
 
-export default CurrentSession;
+export default CurrentSpeaker;

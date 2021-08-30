@@ -12,7 +12,7 @@ export declare type Params = {
   [param: string]: any;
 };
 
-export default function Speaker(props: SpeakerProps) {
+export default function Speakers(props: SpeakerProps) {
   return <SpeakerDisplay sessions={props.sessions} speaker={props.speaker} />;
 }
 
