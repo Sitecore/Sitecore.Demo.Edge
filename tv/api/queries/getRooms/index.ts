@@ -1,7 +1,7 @@
 import { fetchGraphQL } from '../../../api';
 import { Room } from '../../../interfaces/index';
 
-export const getRooms = async (preview: boolean): Promise<{ rooms: Room[] }> => {
+export const getRooms = async (): Promise<{ rooms: Room[] }> => {
   try {
     const roomsQuery: any = `
     query {
@@ -14,7 +14,7 @@ export const getRooms = async (preview: boolean): Promise<{ rooms: Room[] }> => 
     }
     `;
 
-    const results: any = await fetchGraphQL(roomsQuery, preview);
+    const results: any = await fetchGraphQL(roomsQuery);
     if (results) {
       const rooms: Room[] = results.data.allDemo_Room.results;
       return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };

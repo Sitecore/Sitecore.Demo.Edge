@@ -1,10 +1,7 @@
 import { fetchGraphQL } from '../../../api';
 import { Session } from '../../../interfaces/index';
 
-export const getSessions = async (
-  preview: boolean,
-  room: string
-): Promise<{ sessions: Session[] }> => {
+export const getSessions = async (room: string): Promise<{ sessions: Session[] }> => {
   try {
     const sessionsQuery: any = `
     query {
@@ -32,10 +29,9 @@ export const getSessions = async (
     }
     `;
 
-    const results: any = await fetchGraphQL(sessionsQuery, preview);
+    const results: any = await fetchGraphQL(sessionsQuery);
     if (results) {
       const sessions: Session[] = [];
-      console.log(results);
 
       results.data.allDemo_Session.results.forEach((s: any) => {
         if (s.room && s.room.results && s.room.results.find((e: any) => e.id == room)) {

@@ -1,13 +1,6 @@
-export async function fetchGraphQL(query: string, preview: boolean): Promise<unknown> {
-  let apiKey: string = process.env.DELIVERY_API_KEY || '';
-  let endpointUrl: string = process.env.DELIVERY_ENDPOINT_URL || '';
-
-  if (preview) {
-    apiKey = process.env.PREVIEW_API_KEY || '';
-    endpointUrl = process.env.PREVIEW_ENDPOINT_URL || '';
-  }
-
-  console.log(endpointUrl);
+export async function fetchGraphQL(query: string): Promise<unknown> {
+  const apiKey: string = process.env.DELIVERY_API_KEY || '';
+  const endpointUrl: string = process.env.DELIVERY_ENDPOINT_URL || '';
 
   try {
     const result = await fetch(endpointUrl, {

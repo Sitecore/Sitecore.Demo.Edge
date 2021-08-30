@@ -4,7 +4,6 @@ import RoomList from '../../components/RoomList';
 
 type RoomProps = {
   rooms: Room[];
-  preview: boolean;
 };
 
 const Rooms = (props: RoomProps): JSX.Element => {
@@ -13,7 +12,7 @@ const Rooms = (props: RoomProps): JSX.Element => {
 
 // This also gets called at build time
 export const getStaticProps = async () => {
-  const { rooms } = await getRooms(false);
+  const { rooms } = await getRooms();
 
   return {
     props: {
