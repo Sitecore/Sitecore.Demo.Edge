@@ -18,10 +18,10 @@ export default function Speaker(props: SpeakerProps) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
+  // Call an external API endpoint to get speakers
   const { speakers } = await getSpeakers();
 
-  // Get the paths we want to pre-render based on posts
+  // Get the paths we want to pre-render based on speakers
   const paths = speakers.map((speaker) => ({
     params: { id: speaker.id },
   }));
