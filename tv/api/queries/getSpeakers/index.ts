@@ -1,7 +1,7 @@
 import { fetchGraphQL } from '../..';
 import { Speaker } from '../../../interfaces/index';
 
-export const getSpeakers = async (preview: boolean): Promise<{ speakers: Speaker[] }> => {
+export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
   try {
     const speakersQuery: any = `
     query {
@@ -28,7 +28,7 @@ export const getSpeakers = async (preview: boolean): Promise<{ speakers: Speaker
     }
     `;
 
-    const results: any = await fetchGraphQL(speakersQuery, preview);
+    const results: any = await fetchGraphQL(speakersQuery);
     if (results) {
       const speakers: Speaker[] = results.data.allDemo_Speaker.results;
 
@@ -96,7 +96,7 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
     }
     `;
 
-    const results: any = await fetchGraphQL(speakerByIdQuery, false);
+    const results: any = await fetchGraphQL(speakerByIdQuery);
     if (results) {
       const speaker: Speaker = results.data.allDemo_Speaker.results[0];
 
