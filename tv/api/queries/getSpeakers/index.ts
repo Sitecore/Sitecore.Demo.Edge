@@ -107,8 +107,9 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
     )) as AllSpeakersResponse;
     if (results) {
       const speaker = { ...results.data.allDemo_Speaker.results[0] } as Speaker;
-      const relativeUrl = speaker?.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
-      const versionHash = speaker?.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
+      const asset = speaker?.image.results[0]?.assetToPublicLink.results[0];
+      const relativeUrl = asset?.relativeUrl;
+      const versionHash = asset?.versionHash;
       speaker.photo = `${relativeUrl}?v=${versionHash}`;
 
       return {
