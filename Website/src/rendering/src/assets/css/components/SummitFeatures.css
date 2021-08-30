@@ -8,7 +8,7 @@
       @apply bg-gray-light;
 
       img {
-        @apply w-full h-52;
+        @apply w-full h-52 object-cover;
       }
 
       .item-details {

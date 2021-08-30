@@ -1,0 +1,60 @@
+﻿---
+ID: "7b39edaf-30c1-4655-b02a-cb8f1660056a"
+Parent: "4c5b6298-51d2-40fc-b573-314e1523d4fc"
+Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
+Path: /sitecore/media library/edgewebsite/data/media/img/summit features/Leading brands
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: "-/media/7B39EDAF30C14655B02ACB8F1660056A.ashx?h=16&thn=1&w=16"
+- ID: "22eac599-f13b-4607-a89d-c091763a467d"
+  Hint: Width
+  Value: 300
+- ID: "40e50ed9-ba07-4702-992e-a912738d32dc"
+  Hint: Blob
+  BlobID: "081c4d10-381a-439e-afae-d08e5b3d9d8a"
+  Value: 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
+- ID: "6954b7c7-2487-423f-8600-436cb3b6dc0e"
+  Hint: Size
+  Value: 2754
+- ID: "6f47a0a5-9c94-4b48-abeb-42d38def6054"
+  Hint: Mime Type
+  Value: image/png
+- ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
+  Hint: Extension
+  Value: png
+- ID: "cb09946f-3218-4823-87d2-d5007c199a96"
+  Hint: Dimensions
+  Value: 300 x 168
+- ID: "de2ca9e4-c117-4c8a-a139-1ff4b199d15a"
+  Hint: Height
+  Value: 168
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210827T182513Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "65885c44-8fcd-4a7f-94f1-ee63703fe193"
+      Hint: Alt
+      Value: Leading brands
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ffb44da2-9f1c-46a0-b92d-f91d0f54eda0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210827T182946Z
