@@ -1,5 +1,4 @@
-import { Session } from '../interfaces/session';
-import { Speaker } from '../interfaces/speaker';
+import { Session, Speaker } from '../interfaces';
 import Image from 'next/image';
 import SessionList from './SessionList';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
@@ -29,10 +28,7 @@ const SpeakerDisplay = (props: SpeakerDisplayProps): JSX.Element => {
           <div className="mb-10">
             <h1 className="font-bold uppercase text-2xl mb-5">{props.speaker.name}</h1>
             <p className="text-sm">
-              <div
-                className="description"
-                dangerouslySetInnerHTML={{ __html: props.speaker.description }}
-              ></div>
+              <div dangerouslySetInnerHTML={{ __html: props.speaker.description }}></div>
             </p>
           </div>
           <div>
