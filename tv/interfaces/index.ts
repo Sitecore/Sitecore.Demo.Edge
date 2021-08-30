@@ -5,20 +5,6 @@ export interface Blog {
   blog_Body: string;
 }
 
-export interface Session {
-  id: string;
-  name: string;
-  description: string;
-  room: string;
-  timeslot: string;
-  sortOrder: number;
-}
-
-export interface Room {
-  id: string;
-  name: string;
-}
-
 export interface Speaker {
   id: string;
   name: string;

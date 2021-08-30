@@ -1,9 +1,9 @@
 import { fetchGraphQL } from '../../../api';
-import { Room } from '../../../interfaces/index';
+import { Room, AllRoomsResponse } from '../../../interfaces/room';
 
 export const getRooms = async (): Promise<{ rooms: Room[] }> => {
   try {
-    const roomsQuery: any = `
+    const roomsQuery: string = `
     query {
       allDemo_Room {
         results {
@@ -14,7 +14,7 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     }
     `;
 
-    const results: any = await fetchGraphQL(roomsQuery);
+    const results: AllRoomsResponse = await fetchGraphQL(roomsQuery) as AllRoomsResponse;
     if (results) {
       const rooms: Room[] = results.data.allDemo_Room.results;
       return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };

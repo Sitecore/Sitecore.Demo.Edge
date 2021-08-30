@@ -1,9 +1,9 @@
 import { fetchGraphQL } from '../../../api';
-import { Session } from '../../../interfaces/index';
+import { Session, AllSessionsResponse, SessionResult, RoomResult } from '../../../interfaces/session';
 
 export const getSessions = async (room: string): Promise<{ sessions: Session[] }> => {
   try {
-    const sessionsQuery: any = `
+    const sessionsQuery: string = `
     query {
       allDemo_Session{
         results{
@@ -29,20 +29,27 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
     }
     `;
 
-    const results: any = await fetchGraphQL(sessionsQuery);
+    const results: AllSessionsResponse = await fetchGraphQL(sessionsQuery) as AllSessionsResponse;
     if (results) {
       const sessions: Session[] = [];
 
-      results.data.allDemo_Session.results.forEach((s: any) => {
-        if (s.room && s.room.results && s.room.results.find((e: any) => e.id == room)) {
-          s.room = s.room.results.find((e: any) => e.id == room).name;
+      results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+        if (s.room && s.room.results && s.room.results.find((e: RoomResult) => e.id == room)) {
+          let session = {} as Session;
+          session.id = s.id;
+          session.name = s.name;
+          session.description = s.description;
 
-          if (s.timeslots.results.length > 0) {
-            s.timeslot = s.timeslots.results[0].taxonomyLabel['en-US'];
-            s.sortOrder = s.timeslots.results[0].sortOrder;
+          if (s.room.results.length > 0) {
+            session.room = s.room.results[0].name;
           }
 
-          sessions.push(s);
+          if (s.timeslots.results.length > 0) {
+            session.timeslot = s.timeslots.results[0].taxonomyLabel['en-US'];
+            session.sortOrder = s.timeslots.results[0].sortOrder;
+          }
+
+          sessions.push(session);
         }
       });
 
