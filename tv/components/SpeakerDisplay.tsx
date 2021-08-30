@@ -1,4 +1,5 @@
-import { Session, Speaker } from '../interfaces';
+import { Session } from '../interfaces/session';
+import { Speaker } from '../interfaces/speaker';
 import Image from 'next/image';
 import SessionList from './SessionList';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';

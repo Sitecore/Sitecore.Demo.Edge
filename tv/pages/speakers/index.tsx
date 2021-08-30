@@ -1,5 +1,5 @@
 import { getSpeakers } from '../../api/queries/getSpeakers';
-import { Speaker } from '../../interfaces';
+import { Speaker } from '../../interfaces/speaker';
 import SpeakerList from '../../components/SpeakerList';
 
 type SpeakersProps = {

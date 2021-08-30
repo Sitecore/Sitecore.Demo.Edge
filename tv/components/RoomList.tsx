@@ -1,13 +1,9 @@
-import { Room } from '../interfaces';
+import { Room } from '../interfaces/room';
 import Link from 'next/link';
 import { randomhsl } from '../utilities/randomHSL';
 
 type RoomListProps = {
   rooms: Room[];
-};
-
-export declare type Params = {
-  [param: string]: any;
 };
 
 const RoomList = (props: RoomListProps): JSX.Element => {

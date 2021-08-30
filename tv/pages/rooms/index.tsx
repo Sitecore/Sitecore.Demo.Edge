@@ -1,5 +1,5 @@
 import { getRooms } from '../../api/queries/getRooms';
-import { Room } from '../../interfaces';
+import { Room } from '../../interfaces/room';
 import RoomList from '../../components/RoomList';
 
 type RoomProps = {

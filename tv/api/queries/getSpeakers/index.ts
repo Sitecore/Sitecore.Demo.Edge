@@ -1,9 +1,9 @@
 import { fetchGraphQL } from '../..';
-import { Speaker } from '../../../interfaces/index';
+import { AllSpeakersResponse, Image, Speaker } from '../../../interfaces/speaker'
 
 export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
   try {
-    const speakersQuery: any = `
+    const speakersQuery: string = `
     query {
       allDemo_Speaker {
         results {
@@ -28,14 +28,18 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     }
     `;
 
-    const results: any = await fetchGraphQL(speakersQuery);
+    const results: AllSpeakersResponse = await fetchGraphQL(speakersQuery) as AllSpeakersResponse;
     if (results) {
-      const speakers: Speaker[] = results.data.allDemo_Speaker.results;
+      const speakers: Speaker[] = [];
 
-      for (const speaker of speakers) {
-        const relativeUrl = speaker.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
-        const versionHash = speaker.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
+      for (const speakerResult of results.data.allDemo_Speaker.results) {
+        let speaker = { ...speakerResult } as Speaker;
+
+        const relativeUrl = speakerResult.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
+        const versionHash = speakerResult.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
         speaker.photo = `${relativeUrl}?v=${versionHash}`;
+
+        speakers.push(speaker);
       }
 
       return { speakers: speakers.sort((a, b) => a.name.localeCompare(b.name)) };
@@ -46,7 +50,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
             id: '1',
             name: 'Chris Williams',
             photo: '8b26400441374ea7a15301a6f01d70c1?v=ecc627d8',
-            image: '',
+            image: {} as Image,
             description:
               'Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis.',
           },
@@ -54,7 +58,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
             id: '2',
             name: 'Martin Moore',
             photo: '8b26400441374ea7a15301a6f01d70c1?v=ecc627d8',
-            image: '',
+            image: {} as Image,
             description:
               'Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis.',
           },
@@ -71,7 +75,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
 
 export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> => {
   try {
-    const speakerByIdQuery: any = `
+    const speakerByIdQuery: string = `
     query {
       allDemo_Speaker (where:{id_eq:"${id}"}){
         results {
@@ -96,10 +100,9 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
     }
     `;
 
-    const results: any = await fetchGraphQL(speakerByIdQuery);
+    const results: AllSpeakersResponse = await fetchGraphQL(speakerByIdQuery) as AllSpeakersResponse;
     if (results) {
-      const speaker: Speaker = results.data.allDemo_Speaker.results[0];
-
+      const speaker = { ...results.data.allDemo_Speaker.results[0] } as Speaker;
       const relativeUrl = speaker?.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
       const versionHash = speaker?.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
       speaker.photo = `${relativeUrl}?v=${versionHash}`;
@@ -113,7 +116,7 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
           id: '1',
           name: 'Chris Williams',
           photo: '8b26400441374ea7a15301a6f01d70c1?v=ecc627d8',
-          image: '',
+          image: {} as Image,
           description:
             'Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis.',
         },

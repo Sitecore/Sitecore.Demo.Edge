@@ -1,14 +1,10 @@
-import { Speaker } from '../interfaces';
+import { Speaker } from '../interfaces/speaker';
 import Link from 'next/link';
 import Image from 'next/image';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type SpeakerListProps = {
   speakers: Speaker[];
-};
-
-export declare type Params = {
-  [param: string]: any;
 };
 
 const SpeakerList = (props: SpeakerListProps): JSX.Element => {
