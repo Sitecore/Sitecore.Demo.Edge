@@ -2,12 +2,11 @@ import { getSpeakers } from '../../api/queries/getSpeakers';
 import { Speaker } from '../../interfaces';
 import SpeakerList from '../../components/SpeakerList';
 
-type RoomProps = {
+type SpeakersProps = {
   speakers: Speaker[];
-  preview: boolean;
 };
 
-const Speakers = (props: RoomProps): JSX.Element => {
+const Speakers = (props: SpeakersProps): JSX.Element => {
   return <SpeakerList speakers={props.speakers} />;
 };
 

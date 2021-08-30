@@ -3,7 +3,7 @@ import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 
-type RoomProps = {
+type RoomsProps = {
   sessions: Session[];
 };
 
@@ -11,7 +11,7 @@ export declare type Params = {
   [param: string]: any;
 };
 
-export default function Room(props: RoomProps) {
+export default function Room(props: RoomsProps) {
   return <RoomDisplay sessions={props.sessions} />;
 }
 

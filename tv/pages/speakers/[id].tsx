@@ -6,14 +6,13 @@ import SpeakerDisplay from '../../components/SpeakerDisplay';
 type SpeakerProps = {
   sessions: Session[];
   speaker: Speaker;
-  preview: boolean;
 };
 
 export declare type Params = {
   [param: string]: any;
 };
 
-export default function Room(props: SpeakerProps) {
+export default function Speaker(props: SpeakerProps) {
   return <SpeakerDisplay sessions={props.sessions} speaker={props.speaker} />;
 }
 
