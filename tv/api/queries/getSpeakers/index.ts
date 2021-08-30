@@ -1,9 +1,9 @@
 import { fetchGraphQL } from '../..';
-import { AllSpeakersResponse, Image, Speaker } from '../../../interfaces/speaker'
+import { AllSpeakersResponse, Image, Speaker } from '../../../interfaces/speaker';
 
 export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
   try {
-    const speakersQuery: string = `
+    const speakersQuery = `
     query {
       allDemo_Speaker {
         results {
@@ -28,15 +28,17 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     }
     `;
 
-    const results: AllSpeakersResponse = await fetchGraphQL(speakersQuery) as AllSpeakersResponse;
+    const results: AllSpeakersResponse = (await fetchGraphQL(speakersQuery)) as AllSpeakersResponse;
     if (results) {
       const speakers: Speaker[] = [];
 
       for (const speakerResult of results.data.allDemo_Speaker.results) {
-        let speaker = { ...speakerResult } as Speaker;
+        const speaker = { ...speakerResult } as Speaker;
 
-        const relativeUrl = speakerResult.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
-        const versionHash = speakerResult.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
+        const relativeUrl =
+          speakerResult.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
+        const versionHash =
+          speakerResult.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
         speaker.photo = `${relativeUrl}?v=${versionHash}`;
 
         speakers.push(speaker);
@@ -75,7 +77,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
 
 export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> => {
   try {
-    const speakerByIdQuery: string = `
+    const speakerByIdQuery = `
     query {
       allDemo_Speaker (where:{id_eq:"${id}"}){
         results {
@@ -100,7 +102,9 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
     }
     `;
 
-    const results: AllSpeakersResponse = await fetchGraphQL(speakerByIdQuery) as AllSpeakersResponse;
+    const results: AllSpeakersResponse = (await fetchGraphQL(
+      speakerByIdQuery
+    )) as AllSpeakersResponse;
     if (results) {
       const speaker = { ...results.data.allDemo_Speaker.results[0] } as Speaker;
       const relativeUrl = speaker?.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
