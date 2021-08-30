@@ -1,6 +1,6 @@
 .currentSession {
   @apply w-full h-full pt-10;
-  
+
   .data {
     @apply m-auto p-6;
 

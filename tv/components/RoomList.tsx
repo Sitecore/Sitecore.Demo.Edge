@@ -1,6 +1,6 @@
 import { Room } from '../interfaces';
 import Link from 'next/link';
-import { randomHSL } from '../utilities/randomHSL';
+import { randomhsl } from '../utilities/randomHSL';
 
 type RoomListProps = {
   rooms: Room[];
@@ -16,7 +16,7 @@ const RoomList = (props: RoomListProps): JSX.Element => {
       <ul>
         {props.rooms.map((room, index) => (
           <li key={index} className="room">
-            <div className="box" style={{ backgroundColor: randomHSL() }}></div>
+            <div className="box" style={{ backgroundColor: randomhsl() }}></div>
             <Link href={'/rooms/' + room.id}>{room.name}</Link>
           </li>
         ))}
