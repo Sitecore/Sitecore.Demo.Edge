@@ -63,7 +63,7 @@ const Footer = (): JSX.Element => (
         </li>
       </ul>
       <ul className="footer__content__footer__col">
-        <li>Schedule</li>
+        <li>Sessions</li>
         <li>
           <Link href="/speakers">Key speakers</Link>
         </li>
