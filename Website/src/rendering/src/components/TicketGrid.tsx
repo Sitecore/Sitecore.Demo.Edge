@@ -12,19 +12,19 @@ const TicketGrid = (): JSX.Element => (
         <span className="ticket-price">$99</span>
         <ul>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> All access pass
+            <FontAwesomeIcon icon={faCheck} /> Digital Pass
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Exclusive network lunches
+            <FontAwesomeIcon icon={faCheck} /> Access to all online sessions
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> 20% off all thousands of goods
+            <FontAwesomeIcon icon={faCheck} /> 10% off all digital vendor goods
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Free online catalog
+            <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Print and digital ticket
+            <FontAwesomeIcon icon={faCheck} /> Digital ticket only
           </li>
           <li>
             <FontAwesomeIcon icon={faCheck} /> Unlimited customize your agenda
@@ -45,16 +45,16 @@ const TicketGrid = (): JSX.Element => (
         <span className="ticket-price">$199</span>
         <ul>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> All access pass
+            <FontAwesomeIcon icon={faCheck} /> Standard pass
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Exclusive network lunches
+            <FontAwesomeIcon icon={faCheck} /> Access to all online and in-person sessions
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> 20% off all thousands of goods
+            <FontAwesomeIcon icon={faCheck} /> 10% off all vendor goods
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Free online catalog
+            <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
           </li>
           <li>
             <FontAwesomeIcon icon={faCheck} /> Print and digital ticket
@@ -78,16 +78,17 @@ const TicketGrid = (): JSX.Element => (
         <span className="ticket-price">$399</span>
         <ul>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> All access pass
+            <FontAwesomeIcon icon={faCheck} /> All access VIP pass
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Exclusive network lunches
+            <FontAwesomeIcon icon={faCheck} /> VIP access to exclusive workshops and special
+            keynotes
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> 20% off all thousands of goods
+            <FontAwesomeIcon icon={faCheck} /> 20% off all vendor goods
           </li>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Free online catalog
+            <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
           </li>
           <li>
             <FontAwesomeIcon icon={faCheck} /> Print and digital ticket

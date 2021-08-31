@@ -26,10 +26,16 @@
     }
 
     ul {
-      @apply py-5 text-base text-left list-none;
+      @apply py-5 text-base text-left list-none px-3;
+      @apply lg:px-0;
 
-      padding-left: 10px;
-      padding-right: 10px;
+      text-indent: -34px;
+      margin-left: 34px;
+
+      @screen lg {
+        text-indent: -40px;
+        margin-left: 40px;
+      }
 
       li {
         @apply my-4;

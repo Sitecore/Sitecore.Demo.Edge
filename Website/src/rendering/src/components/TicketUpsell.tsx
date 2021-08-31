@@ -10,16 +10,22 @@ const TicketUpsell = (): JSX.Element => (
     </div>
     <ul>
       <li>
-        <FontAwesomeIcon icon={faCheck} /> 10% off workshops
+        <FontAwesomeIcon icon={faCheck} /> All access VIP pass
       </li>
       <li>
-        <FontAwesomeIcon icon={faCheck} /> Free speaker events
+        <FontAwesomeIcon icon={faCheck} /> VIP access to exclusive workshops and special keynotes
       </li>
       <li>
-        <FontAwesomeIcon icon={faCheck} /> Discounts on thousands of products
+        <FontAwesomeIcon icon={faCheck} /> 20% off all vendor goods
       </li>
       <li>
-        <FontAwesomeIcon icon={faCheck} /> Free online catalog
+        <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
+      </li>
+      <li>
+        <FontAwesomeIcon icon={faCheck} /> Print and digital ticket
+      </li>
+      <li>
+        <FontAwesomeIcon icon={faCheck} /> Unlimited customize your agenda
       </li>
       <li>
         <FontAwesomeIcon icon={faCheck} /> 20% off VIP upgrade
