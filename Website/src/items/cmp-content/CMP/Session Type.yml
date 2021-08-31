@@ -1,8 +1,8 @@
 ﻿---
-ID: "6ce6f007-24f7-43aa-9732-dde2c19de464"
+ID: "005a4bf7-33fb-4d43-85c6-2c0c754b8709"
 Parent: "df5852ee-a7bd-4e87-994e-b637fed0312f"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/CMP/Sessions
+Path: /sitecore/content/CMP/Session Type
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

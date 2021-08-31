@@ -2,7 +2,7 @@
 ID: "e3e8e3ac-88b1-5e7e-a6a9-6bb4ce9d31a1"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/home/schedule/Page Components
+Path: /sitecore/content/EdgeWebsite/home/Sessions/Page Components
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

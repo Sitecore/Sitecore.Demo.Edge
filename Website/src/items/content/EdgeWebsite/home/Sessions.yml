@@ -2,7 +2,7 @@
 ID: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
-Path: /sitecore/content/EdgeWebsite/home/schedule
+Path: /sitecore/content/EdgeWebsite/home/Sessions
 SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
@@ -63,7 +63,7 @@ SharedFields:
           uid="{695F77F3-8EFA-57B0-B4E5-725CA7DFDF3B}" />
         <r
           rname="SessionsGrid"
-          ds="{6CE6F007-24F7-43AA-9732-DDE2C19DE464}"
+          ds=""
           id="{1059A458-3C21-5A98-ABD0-A65629F4DE1A}"
           par=""
           ph="/jss-main"
@@ -124,14 +124,14 @@ Languages:
         sitecore\eMbVFkFYqa
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "47ddfead-9e8f-4871-92bf-aae327c87c31"
+      Value: "8fbf8fca-4aa7-4a49-bb77-5aa31264b0b0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T164824Z
+      Value: 20210826T214320Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "PLAY! Summit - Schedule"
+      Value: Sessions
