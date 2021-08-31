@@ -11,7 +11,7 @@
       @apply bg-white mx-auto w-full;
 
       .image-hover-zoom {
-        @apply overflow-hidden;
+        @apply overflow-hidden bg-cover bg-center;
       }
 
       img {

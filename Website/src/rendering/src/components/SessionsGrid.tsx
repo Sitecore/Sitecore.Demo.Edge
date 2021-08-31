@@ -10,7 +10,7 @@ type Speaker = {
 };
 
 type Session = {
-  Name: Field<string>;
+  name: Field<string>;
   fields: {
     Name: Field<string>;
     Image: ImageField;
@@ -31,15 +31,10 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
     <div className="grid-content">
       {props.fields.items &&
         props.fields.items.map((session, index) => (
-          <Link key={index} href={'/schedule/' + session.Name} passHref>
+          <Link key={index} href={'/sessions/' + session.name} passHref>
             <a className="grid-item">
               <div className="image-hover-zoom">
-                <Image
-                  field={session.fields.Image}
-                  alt={session.fields.Name.value}
-                  width={340}
-                  height={227}
-                />
+                <Image field={session.fields.Image} alt={session.fields.Name.value} />
               </div>
               <div className="item-details item-details-left">
                 <Text tag="div" className="item-title" field={session.fields.Name}></Text>
