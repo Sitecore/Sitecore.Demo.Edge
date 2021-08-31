@@ -34,7 +34,7 @@ Default.args = {
     },
     LeftLink: {
       value: {
-        href: '/schedule',
+        href: '/sessions',
         text: 'View Schedule',
       },
     },

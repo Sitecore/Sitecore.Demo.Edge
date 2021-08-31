@@ -1,15 +1,19 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SummitFeatures, { SummitFeaturesProps } from '../components/SummitFeatures';
 import SummitFeature, { SummitFeatureProps } from '../components/SummitFeature';
 
 export default {
-  title: 'Components/SummitFeatures',
-  component: SummitFeatures,
-} as ComponentMeta<typeof SummitFeatures>;
+  title: 'Components/SummitFeature',
+  component: SummitFeature,
+} as ComponentMeta<typeof SummitFeature>;
 
-const featureArgs = {
+const Template: ComponentStory<typeof SummitFeature> = (args: SummitFeatureProps) => (
+  <SummitFeature {...args} />
+);
+
+export const Default = Template.bind({});
+Default.args = {
   fields: {
     Title: {
       value: 'Sports and Leisure Expo',
@@ -31,14 +35,3 @@ const featureArgs = {
     },
   },
 } as SummitFeatureProps;
-
-const Template: ComponentStory<typeof SummitFeatures> = (args: SummitFeaturesProps) => (
-  <SummitFeatures {...args}>
-    <SummitFeature {...featureArgs} />
-  </SummitFeatures>
-);
-
-export const Default = Template.bind({});
-Default.args = {
-  params: {},
-} as SummitFeaturesProps;
