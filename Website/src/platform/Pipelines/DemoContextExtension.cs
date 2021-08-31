@@ -13,14 +13,14 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
         protected override void DoProcess(GetLayoutServiceContextArgs args, AppConfiguration application)
         {
-            Item eventItem = args?.RenderedItem?.Database?.GetItem("/sitecore/content/CMP/Events/Play Summit");
+            Item eventItem = args?.RenderedItem?.Database?.GetItem("/sitecore/content/EdgeWebsite/Config");
             
             if (eventItem == null) return;
 
             args.ContextData.Add("EventInfo", new
             {
                 StartDate = eventItem?.Fields["StartDate"]?.Value,
-                TitlePrefix = eventItem?.Fields["PageTitlePrefix"]?.Value
+                TitlePrefix = eventItem?.Fields["PageTitle"]?.Value
             });
         }
     }
