@@ -1,24 +1,15 @@
 ﻿---
-ID: "1059a458-3c21-5a98-abd0-a65629f4de1a"
+ID: "8f4e0a87-f61c-5ea3-b7ad-5fbde3716333"
 Parent: "2aae129a-cb98-527c-9548-09a8cc2747a6"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
-Path: /sitecore/layout/Renderings/Project/edgewebsite/SessionsGrid
+Path: /sitecore/layout/Renderings/Project/edgewebsite/SessionInformation
 SharedFields:
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
-  Value: SessionsGrid
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: Office/16x16/document_tag.png
-- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
-  Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/SessionsGrid
+  Value: SessionInformation
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{4D45DA3E-8128-422C-AFDA-E10672117E15}"
-- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
-  Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/SessionsGrid
+  Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
 Languages:
 - Language: en
   Versions:
@@ -26,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210706T154002Z
+      Value: 20210820T030157Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -37,11 +28,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c27e3ad3-1e5b-4952-957d-080931be1988"
+      Value: "01c875fb-b4e4-42a4-b9fa-0b938fed751a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T191544Z
+      Value: 20210823T153146Z
