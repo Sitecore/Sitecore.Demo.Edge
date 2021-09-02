@@ -30,6 +30,10 @@
             {
                 "name": "cmp-config",
                 "path": "/sitecore/system/Modules/CMP/Config"
+            },
+            {
+                "name": "demo-forms",
+                "path": "/sitecore/Forms"
             }
         ]
     }
