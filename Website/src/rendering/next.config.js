@@ -54,10 +54,6 @@ const nextConfig = {
           source: '/:locale/data/media/:path*',
           destination: `${disconnectedServerUrl}/data/media/:path*`,
         },
-        {
-          source: '/api/jss/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/api/jss/:path*`,
-        },
       ];
     } else {
       // When in connected mode we want to proxy Sitecore paths off to Sitecore
@@ -88,6 +84,7 @@ const nextConfig = {
           source: '/:locale/layouts/:path*',
           destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
         },
+        //DEMO TEAM CUSTOMIZATION - to prevent form related CORS and 404 errors
         {
           source: '/api/jss/:path*',
           destination: `${jssConfig.sitecoreApiHost}/api/jss/:path*`,
