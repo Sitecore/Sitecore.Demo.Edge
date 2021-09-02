@@ -31,8 +31,8 @@ const MainNavigation = (): JSX.Element => {
         <div className={'items-container' + (navbarOpen ? ' opened' : ' closed')}>
           <ul>
             <li className="text-menu-item">
-              <Link href="/schedule">
-                <a>Schedule</a>
+              <Link href="/sessions">
+                <a>Sessions</a>
               </Link>
             </li>
             <li className="text-menu-item">
