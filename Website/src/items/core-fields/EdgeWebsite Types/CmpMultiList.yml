@@ -1,0 +1,43 @@
+﻿---
+ID: "8e00ef78-8c36-4134-941e-90859d8f2135"
+Parent: "8b090819-4e51-4a50-99b1-cf2859024d27"
+Template: "f8a17d6a-118e-4cd7-b5f5-88ff37a4f237"
+Path: /sitecore/system/Field types/EdgeWebsite Types/CmpMultiList
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: /sitecore/shell/themes/standard/control/16x16/treeview_b.png
+- ID: "0f0a5388-0467-4a45-95c0-729b1d6db9fd"
+  Hint: Control
+  Value: "demoExtension:CmpMultiList"
+- ID: "6bf5ed07-bc70-42f4-bb77-c017d340950e"
+  Hint: Assembly
+  Value: Sitecore.Demo.Edge.Website
+- ID: "9fe6154a-a16e-4827-99f6-f51533c34ec8"
+  Hint: Class
+  Value: CmpMultiList
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20071024T111021
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bf180e66-54bf-470b-97c2-ea9285e42bc0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20060307T124329
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210903T171918Z
