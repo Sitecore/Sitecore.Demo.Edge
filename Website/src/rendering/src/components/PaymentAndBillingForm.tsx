@@ -8,28 +8,70 @@ const PaymentAndBillingForm = (): JSX.Element => (
       src="/assets/img/payment/pay-method.png"
       alt="payment methods"
     />
-    <input type="text" placeholder="Card Number *" />
-    <div className="inline-fields">
-      <input type="text" placeholder="Expiry Month *" />
-      <input type="text" placeholder="Expiry Year *" />
-      <input type="text" placeholder="CCV *" />
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="Card Number *" id="cardNumber" />
+      <label htmlFor="cardNumber">Card Number *</label>
     </div>
-    <input type="text" placeholder="Email" />
-    <input type="text" placeholder="Password" />
-    <input type="text" placeholder="Confirm Password" />
+    <div className="inline-fields">
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Expiry Month *" id="expiryMonth" />
+        <label htmlFor="expiryMonth">Expiry Month *</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Expiry Year *" id="expiryYear" />
+        <label htmlFor="expiryYear">Expiry Year *</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="CCV *" id="ccv" />
+        <label htmlFor="ccv">CCV *</label>
+      </div>
+    </div>
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="Email" id="email" />
+      <label htmlFor="email">Email</label>
+    </div>
+    <div className="floating-label-wrap">
+      <input type="password" placeholder="Password" id="password" />
+      <label htmlFor="password">Password</label>
+    </div>
+    <div className="floating-label-wrap">
+      <input type="password" placeholder="Confirm Password" id="comfirmPassword" />
+      <label htmlFor="comfirmPassword">Confirm Password</label>
+    </div>
 
     <h2>Billing Address</h2>
     <div className="inline-fields">
-      <input type="text" placeholder="First Name *" />
-      <input type="text" placeholder="Last Name *" />
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="First Name *" />
+        <label htmlFor="firstName">First Name *</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Last Name *" />
+        <label htmlFor="lastName">Last Name *</label>
+      </div>
     </div>
-    <input type="text" placeholder="Address *" />
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="Address *" id="address" />
+      <label htmlFor="address">Address *</label>
+    </div>
     <div className="inline-fields">
-      <input type="text" placeholder="Country *" />
-      <input type="text" placeholder="City *" />
-      <input type="text" placeholder="Zip / Postal Code *" />
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="City *" id="city" />
+        <label htmlFor="city">City *</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Country *" id="country" />
+        <label htmlFor="country">Country *</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Zip / Postal Code *" id="postalCode" />
+        <label htmlFor="postalCode">Zip / Postal Code *</label>
+      </div>
     </div>
-    <input type="text" placeholder="Phone Number *" />
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="Phone Number *" id="phoneNumber" />
+      <label htmlFor="phoneNumber">Phone Number *</label>
+    </div>
 
     <div className="footnote">
       <p>

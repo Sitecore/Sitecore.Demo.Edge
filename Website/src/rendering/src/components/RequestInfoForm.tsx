@@ -1,19 +1,37 @@
 import Link from 'next/link';
 
 const RequestInfoForm = (): JSX.Element => (
-  <div className="section__content form request-info-form">
+  <div className="section__content form form--dark request-info-form">
     <h2>Request Further Information</h2>
     <div className="inline-fields">
-      <input type="text" placeholder="First Name" />
-      <input type="text" placeholder="Last Name" />
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="First Name" id="firstName" />
+        <label htmlFor="firstName">First Name</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Last Name" id="lastName" />
+        <label htmlFor="lastName">Last Name</label>
+      </div>
     </div>
     <div className="inline-fields">
-      <input type="text" placeholder="Email" />
-      <input type="text" placeholder="Company" />
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Email" id="email" />
+        <label htmlFor="email">Email</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Company" id="company" />
+        <label htmlFor="company">Company</label>
+      </div>
     </div>
     <div className="inline-fields">
-      <input type="text" placeholder="Job Title" />
-      <input type="text" placeholder="Contact no" />
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Job Title" id="jobTitle" />
+        <label htmlFor="jobTitle">Job Title</label>
+      </div>
+      <div className="floating-label-wrap">
+        <input type="text" placeholder="Phone Number" id="phoneNumber" />
+        <label htmlFor="phoneNumber">Phone Number</label>
+      </div>
     </div>
     <label className="checkbox-label">
       <input type="checkbox" />
