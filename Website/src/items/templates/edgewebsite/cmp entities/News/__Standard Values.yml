@@ -72,7 +72,8 @@ SharedFields:
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
           ph="/jss-main/jss-section-content-{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}-0"
-          uid="{7526C199-8C9C-5826-B88F-B88FFE081145}" />
+          uid="{7526C199-8C9C-5826-B88F-B88FFE081145}"
+          ccb="Clear on publish" />
         <r
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
@@ -102,11 +103,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4a6ee3fe-7f79-4a76-b364-e736606b44e7"
+      Value: "47797260-57b8-4a65-ad4b-bea3859c0e70"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T163954Z
+      Value: 20210907T204321Z
