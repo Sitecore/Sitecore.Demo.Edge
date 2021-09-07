@@ -93,6 +93,34 @@ SharedFields:
           ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0"
           uid="{0329B5A3-6404-5286-BB63-8670949781D0}" />
         <r
+          ds="{7BF516EE-0CF9-40C8-B24D-C385C79E5C3B}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{CD75CF06-B5EA-41EE-9898-9F537F0EDFE4}"
+          ccb="Clear on publish" />
+        <r
+          ds="{F12CA29E-0BFD-4D1B-8532-BB25984A64FE}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{42771771-1673-4FB9-B6D5-E42F346161A2}"
+          ccb="Clear on publish" />
+        <r
+          ds="{C22C3613-E654-4D91-9104-8C38F066730E}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{272BABAA-458E-405A-80F5-A3633E57F61D}"
+          ccb="Clear on publish" />
+        <r
+          ds="{F7193E23-EFC3-4043-A57A-C4C045D4F67B}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{5688FA28-557B-41B0-8A4D-FB15AFE0D573}"
+          ccb="Clear on publish" />
+        <r
           rname="Section"
           ds="{049289A3-D30D-5C40-8D66-F9B263C924C7}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -164,14 +192,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8db2ac76-28ef-492e-b610-7c65448b3bb5"
+      Value: "6ba02b6c-6dc9-4161-92b0-3716e58020a3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T160732Z
+      Value: 20210907T195127Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: About Us
