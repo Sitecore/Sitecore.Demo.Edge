@@ -1,7 +1,7 @@
 ﻿---
 ID: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
-Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: /sitecore/content/EdgeWebsite/home/sessions
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -143,14 +143,14 @@ Languages:
         sitecore\eMbVFkFYqa
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cdd2d512-4e46-458e-ab15-118bd4a30f47"
+      Value: "67a267bd-3992-489b-8ca8-d9ae51b374b8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T142755Z
+      Value: 20210907T113945Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Sessions

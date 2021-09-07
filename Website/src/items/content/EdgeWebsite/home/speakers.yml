@@ -1,7 +1,7 @@
 ﻿---
 ID: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
-Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: /sitecore/content/EdgeWebsite/home/speakers
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -121,14 +121,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1856ce8a-c91c-4ff9-bd84-770729815b38"
+      Value: "555be919-be51-4449-8834-2a5656d4fb00"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T142755Z
+      Value: 20210907T113954Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Speakers

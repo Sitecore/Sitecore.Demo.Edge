@@ -1,7 +1,7 @@
 ﻿---
 ID: "2717574c-48a0-5469-85a8-a332df71f1e4"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
-Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: "/sitecore/content/EdgeWebsite/home/about-us"
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -181,14 +181,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "361a2aeb-9718-4081-9524-cce44081d575"
+      Value: "121a8bf4-b7ac-4b36-856c-df25c5df511c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T142755Z
+      Value: 20210907T114015Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: About Us

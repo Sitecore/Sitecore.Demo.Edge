@@ -1,7 +1,7 @@
 ﻿---
 ID: "4321eb86-6432-5004-b61c-683f6b2efd35"
 Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
-Template: "47899c22-20c0-4807-a1b9-f4c4cb3a9c82"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: /sitecore/content/EdgeWebsite/home/contact
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
@@ -120,14 +120,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3631a7f2-30b0-459c-8844-93070520469e"
+      Value: "602d9c10-eb2b-46ee-8cf8-5a1aaab1496b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T142802Z
+      Value: 20210907T114132Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Contact Us
