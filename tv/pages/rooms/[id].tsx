@@ -4,7 +4,7 @@ import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 
-type RoomsProps = {
+type RoomProps = {
   sessions: Session[];
 };
 
@@ -12,7 +12,7 @@ export declare type RoomsParams = {
   [param: string]: Params;
 };
 
-export default function Rooms(props: RoomsProps) {
+export default function Rooms(props: RoomProps) {
   return <RoomDisplay sessions={props.sessions} />;
 }
 

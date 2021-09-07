@@ -5,7 +5,7 @@ import { Session } from '../../interfaces/session';
 import SpeakerDisplay from '../../components/SpeakerDisplay';
 import { Params } from '../../interfaces';
 
-type SpeakersProps = {
+type SpeakerProps = {
   sessions: Session[];
   speaker: Speaker;
 };
@@ -14,7 +14,7 @@ export declare type SpeakersParams = {
   [param: string]: Params;
 };
 
-export default function Speakers(props: SpeakersProps) {
+export default function Speakers(props: SpeakerProps) {
   return <SpeakerDisplay sessions={props.sessions} speaker={props.speaker} />;
 }
 

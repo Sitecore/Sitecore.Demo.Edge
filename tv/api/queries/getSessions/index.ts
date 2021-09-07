@@ -1,10 +1,6 @@
 import { fetchGraphQL } from '../../../api';
-import {
-  Session,
-  AllSessionsResponse,
-  SessionResult,
-  RoomResult,
-} from '../../../interfaces/session';
+import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
+import { RoomResult } from '../../../interfaces/room';
 
 export const getSessions = async (room: string): Promise<{ sessions: Session[] }> => {
   try {

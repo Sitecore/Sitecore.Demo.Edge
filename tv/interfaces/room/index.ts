@@ -1,14 +1,14 @@
-export interface Result {
+export interface RoomResult {
   id: string;
   name: string;
 }
 
-export interface AllDemoRoom {
-  results: Result[];
+export interface RoomResults {
+  results: RoomResult[];
 }
 
 export interface Data {
-  allDemo_Room: AllDemoRoom;
+  allDemo_Room: RoomResults;
 }
 
 export interface AllRoomsResponse {

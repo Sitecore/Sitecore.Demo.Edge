@@ -1,5 +1,13 @@
 import { fetchGraphQL } from '../..';
-import { AllSpeakersResponse, Image, Speaker } from '../../../interfaces/speaker';
+import { AllSpeakersResponse, Image, Speaker, SpeakerResult } from '../../../interfaces/speaker';
+
+const parseSpeaker = function (sr: SpeakerResult): Speaker {
+  const speaker = { ...sr } as Speaker;
+  const relativeUrl = sr.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
+  const versionHash = sr.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
+  speaker.photo = `${relativeUrl}?v=${versionHash}`;
+  return speaker;
+};
 
 export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
   try {
@@ -31,17 +39,8 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     const results: AllSpeakersResponse = (await fetchGraphQL(speakersQuery)) as AllSpeakersResponse;
     if (results) {
       const speakers: Speaker[] = [];
-
       for (const speakerResult of results.data.allDemo_Speaker.results) {
-        const speaker = { ...speakerResult } as Speaker;
-
-        const relativeUrl =
-          speakerResult.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
-        const versionHash =
-          speakerResult.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
-        speaker.photo = `${relativeUrl}?v=${versionHash}`;
-
-        speakers.push(speaker);
+        speakers.push(parseSpeaker(speakerResult));
       }
 
       return { speakers: speakers.sort((a, b) => a.name.localeCompare(b.name)) };
@@ -106,14 +105,8 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
       speakerByIdQuery
     )) as AllSpeakersResponse;
     if (results) {
-      const speaker = { ...results.data.allDemo_Speaker.results[0] } as Speaker;
-      const asset = speaker?.image.results[0]?.assetToPublicLink.results[0];
-      const relativeUrl = asset?.relativeUrl;
-      const versionHash = asset?.versionHash;
-      speaker.photo = `${relativeUrl}?v=${versionHash}`;
-
       return {
-        speaker: speaker,
+        speaker: parseSpeaker({ ...results.data.allDemo_Speaker.results[0] }),
       };
     } else {
       return {

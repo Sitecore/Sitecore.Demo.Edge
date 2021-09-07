@@ -18,7 +18,7 @@ export interface Image {
   results: AssetResult[];
 }
 
-export interface Result {
+export interface SpeakerResult {
   id: string;
   name: string;
   description: string;
@@ -26,7 +26,7 @@ export interface Result {
 }
 
 export interface AllDemoSpeaker {
-  results: Result[];
+  results: SpeakerResult[];
 }
 
 export interface Data {
