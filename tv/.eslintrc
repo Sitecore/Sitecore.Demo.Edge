@@ -1,0 +1,53 @@
+{
+  "root": true,
+  "extends": [
+    // DEMO TEAM CUSTOMIZATION - Remove the React plugin to avoid loading it twice
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "plugin:yaml/recommended",
+    // DEMO TEAM CUSTOMIZATION - Add Next.js (based on React) and Web core vitals validators
+    "next",
+    "next/core-web-vitals"
+    // END CUSTOMIZATION
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    // DEMO TEAM CUSTOMIZATION - Remove the React plugin to avoid loading it twice.
+    "prettier",
+    "yaml"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "React": "writable"
+  },
+  "ignorePatterns": [".generated/**/*", "components/**/*.d.ts", "**/*.js"],
+  "rules": {
+    // Prevent missing props validation in a React component definition
+    "react/prop-types": "off",
+    // enable prettier
+    "prettier/prettier": "error",
+    // needed for NextJS's in order to use jsx without react import
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "error",
+    "jsx-quotes": ["error", "prefer-double"],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
+  }
+}

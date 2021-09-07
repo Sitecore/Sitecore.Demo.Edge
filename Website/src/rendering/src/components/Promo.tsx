@@ -1,7 +1,7 @@
 import { Text, Field, LinkField, RichText, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type PromoProps = ComponentProps & {
+export type PromoProps = ComponentProps & {
   fields: {
     cssClass: Field<string>;
     position: Field<string>;

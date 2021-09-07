@@ -13,31 +13,19 @@ type ThreeColumnCtaProps = ComponentProps & {
 };
 
 const ThreeColumnCta = (props: ThreeColumnCtaProps): JSX.Element => (
-  <section className="section text-center bg-black py-10 hidden md:block">
-    <div className="container justify-evenly text-xl flex">
-      <div>
-        <h2 className="text-blue-lightest text-5xl font-bold py-2">
-          <Text field={props.fields.leftHeading} />
-        </h2>
-        <h3 className="uppercase text-white font-bold">
-          <Text field={props.fields.leftDescription} />
-        </h3>
+  <section className="section three-columns-cta">
+    <div className="container cta-content">
+      <div className="cta">
+        <Text tag="div" className="cta-heading" field={props.fields.leftHeading} />
+        <Text tag="div" className="cta-description" field={props.fields.leftDescription} />
       </div>
-      <div className="border-l border-r border-gray px-3 lg:px-8">
-        <h2 className="text-blue-lightest text-5xl font-bold py-2">
-          <Text field={props.fields.middleHeading} />
-        </h2>
-        <h3 className="uppercase text-white font-bold">
-          <Text field={props.fields.middleDescription} />
-        </h3>
+      <div className="cta">
+        <Text tag="div" className="cta-heading" field={props.fields.middleHeading} />
+        <Text tag="div" className="cta-description" field={props.fields.middleDescription} />
       </div>
-      <div>
-        <h2 className="text-blue-lightest text-5xl font-bold py-2">
-          <Text field={props.fields.rightHeading} />
-        </h2>
-        <h3 className="uppercase text-white font-bold">
-          <Text field={props.fields.rightDescription} />
-        </h3>
+      <div className="cta">
+        <Text tag="div" className="cta-heading" field={props.fields.rightHeading} />
+        <Text tag="div" className="cta-description" field={props.fields.rightDescription} />
       </div>
     </div>
   </section>

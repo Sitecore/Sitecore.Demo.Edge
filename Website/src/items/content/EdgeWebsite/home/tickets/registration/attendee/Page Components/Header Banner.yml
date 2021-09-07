@@ -1,0 +1,38 @@
+﻿---
+ID: "8ccd7ebc-7a09-5359-b2f1-7727f37970ae"
+Parent: "d2b003d4-cf75-5faf-9b36-54ce95bfd27d"
+Template: "22bf2a41-d79e-5e64-9497-6e52752f85dd"
+Path: /sitecore/content/EdgeWebsite/home/tickets/registration/attendee/Page Components/Header Banner
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152630Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f928e11c-d780-4ef3-bf3d-d654d8327f2e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
+      Hint: title
+      Value: Registration
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210708T143252Z
+    - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
+      Hint: backgroundImage
+      Value: |
+        <image mediaid="{8743580F-0103-5F0F-B5F3-6451B7E72AA2}" alt="Sample Image" />

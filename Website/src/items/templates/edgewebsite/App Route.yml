@@ -15,10 +15,6 @@ SharedFields:
   Value: "{2DE46343-6A33-58A9-8076-7B2AB5737737}"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: App Route
   Versions:
   - Version: 1
     Fields:
