@@ -7,7 +7,7 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     query {
       allDemo_Room {
         results {
-          id      
+          id
           name
         }
       }

@@ -1,11 +1,14 @@
 import { fetchGraphQL } from '../..';
 import { AllSpeakersResponse, Image, Speaker, SpeakerResult } from '../../../interfaces/speaker';
 
-const parseSpeaker = function (sr: SpeakerResult): Speaker {
-  const speaker = { ...sr } as Speaker;
-  const relativeUrl = sr.image.results[0]?.assetToPublicLink.results[0]?.relativeUrl;
-  const versionHash = sr.image.results[0]?.assetToPublicLink.results[0]?.versionHash;
+const parseSpeaker = function (speakerResult: SpeakerResult): Speaker {
+  const speaker = { ...speakerResult } as Speaker;
+  const asset = speakerResult.image.results[0]?.assetToPublicLink.results[0];
+  const relativeUrl = asset?.relativeUrl;
+  const versionHash = asset?.versionHash;
+
   speaker.photo = `${relativeUrl}?v=${versionHash}`;
+
   return speaker;
 };
 
@@ -15,7 +18,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     query {
       allDemo_Speaker {
         results {
-          id      
+          id
           name
           description
           image {
@@ -80,7 +83,7 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
     query {
       allDemo_Speaker (where:{id_eq:"${id}"}){
         results {
-          id      
+          id
           name
           description
           image{

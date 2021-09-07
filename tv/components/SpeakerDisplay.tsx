@@ -28,9 +28,10 @@ const SpeakerDisplay = (props: SpeakerDisplayProps): JSX.Element => {
         <div className="w-full md:w-1/2 px-10">
           <div className="mb-10">
             <h1 className="font-bold uppercase text-2xl mb-5">{props.speaker.name}</h1>
-            <p className="text-sm">
-              <div dangerouslySetInnerHTML={{ __html: props.speaker.description }}></div>
-            </p>
+            <p
+              className="text-sm"
+              dangerouslySetInnerHTML={{ __html: props.speaker.description }}
+            ></p>
           </div>
           <div>
             <SessionList sessions={props.sessions}></SessionList>

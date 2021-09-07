@@ -10,11 +10,11 @@ type SpeakerProps = {
   speaker: Speaker;
 };
 
-export declare type SpeakersParams = {
+export declare type SpeakerParams = {
   [param: string]: Params;
 };
 
-export default function Speakers(props: SpeakerProps) {
+export default function SpeakerPage(props: SpeakerProps) {
   return <SpeakerDisplay sessions={props.sessions} speaker={props.speaker} />;
 }
 
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export const getStaticProps = async ({ params }: SpeakersParams) => {
+export const getStaticProps = async ({ params }: SpeakerParams) => {
   const { speaker } = await getSpeakerById(params.id);
   const { sessions } = await getSessions('8zA5upmX40i227rWgxskxA');
 

@@ -17,7 +17,7 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
               name
             }
           }
-                    
+
           timeslots {
             results {
               id
