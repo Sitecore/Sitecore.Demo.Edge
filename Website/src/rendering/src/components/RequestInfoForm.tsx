@@ -85,15 +85,14 @@ class RequestInfoForm extends Component<ComponentProps, RequestInfoFormState> {
     );
 
     const thankYouMessage = (
-      <div>
+      <>
         Thank you for your request for information. A PLAY! Summit representative will contact you
         in the near future.
-      </div>
+      </>
     );
 
     return (
-      <div className="section__content form form--dark request-info-form">
-        <h2>Request Further Information</h2>
+      <div className="form request-info-form">
         {this.state.isFormSubmitted ? thankYouMessage : form}
       </div>
     );
