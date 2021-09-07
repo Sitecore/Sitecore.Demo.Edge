@@ -96,8 +96,8 @@ SharedFields:
         <r
           uid="{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}"
           p:after="r[@uid='{E532127E-1D91-51EE-B517-B8CBBCC57A20}']"
-          s:ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
-          s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
+          s:ds="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}"
+          s:id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
           s:par=""
           s:ph="/jss-main/jss-section-content-{E532127E-1D91-51EE-B517-B8CBBCC57A20}-0"
           s:ccb="Clear on publish" />
@@ -183,14 +183,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "21f61cee-c241-49a3-9565-17031caa85a8"
+      Value: "32dcb799-25ee-477c-ad37-807722d33694"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T113932Z
+      Value: 20210907T123453Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Home
