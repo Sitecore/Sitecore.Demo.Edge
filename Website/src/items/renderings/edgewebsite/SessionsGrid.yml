@@ -18,7 +18,7 @@ SharedFields:
   Value: "{4D45DA3E-8128-422C-AFDA-E10672117E15}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/SessionsGrid
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -37,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c27e3ad3-1e5b-4952-957d-080931be1988"
+      Value: "8902eb03-3419-4ce5-8550-c98a324499eb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T191544Z
+      Value: 20210907T195857Z

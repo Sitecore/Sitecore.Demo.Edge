@@ -66,7 +66,7 @@ SharedFields:
           uid="{695F77F3-8EFA-57B0-B4E5-725CA7DFDF3B}" />
         <r
           rname="SessionsGrid"
-          ds="{6CE6F007-24F7-43AA-9732-DDE2C19DE464}"
+          ds=""
           id="{1059A458-3C21-5A98-ABD0-A65629F4DE1A}"
           par=""
           ph="/jss-main"
@@ -131,14 +131,14 @@ Languages:
         sitecore\eMbVFkFYqa
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0133b772-1d0a-4139-aa43-e1bbe801aa6e"
+      Value: "ad819e37-5302-477a-a9a8-8b6f79031073"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T160538Z
+      Value: 20210907T195723Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Sessions
