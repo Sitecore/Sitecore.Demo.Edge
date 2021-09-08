@@ -1,59 +1,95 @@
 import { fetchGraphQL } from "../../../api";
-import { Post } from "../../../../interfaces";
+import { Post } from "../../../../interfaces/Index";
 
 export const getFacebookPosts = async (
   preview: boolean
 ): Promise<{ posts: Post[] }> => {
   try {
-    const blogsQuery: any = `
+    const blogsQuery = `
     query {
-      allM_Content_Blog {
-        total
+      allM_Content_SocialMediaMessage {
         results {
           id
-          blog_Title
-          blog_Quote
-          blog_Body
+          content_Name
+          contentTypeToContent {
+            id
+            contentType_Label
+            contentType_Prefix
+            __typename
+          }
+          socialMediaMessage_Title
+          socialMediaMessage_Body
+          socialMediaMessage_Date
+          socialMediaMessage_Footer
+          content_Brief
+          cmpContentToBriefAsset {
+            results {
+              id
+              fileName
+            }
+          }
+          socialMediaMessage_Site #(where: { taxonomyName_eq: "Facebook" })
+          {
+            id
+            taxonomyName
+          }
         }
       }
     }
     `;
 
-    const results: any = await fetchGraphQL(blogsQuery, preview);
+    interface BlogsQueryResult {
+      data: {
+        allM_Content_SocialMediaMessage: {
+          results: Post[];
+        };
+      };
+    }
+
+    const results = (await fetchGraphQL(
+      blogsQuery,
+      preview
+    )) as BlogsQueryResult;
     if (results) {
+      console.log(results);
       return {
-        posts: results.data.allM_Content_Blog.results,
+        posts: results.data.allM_Content_SocialMediaMessage.results,
       };
     } else {
+      console.log("no results");
       return {
         posts: [
           {
-            blog_Title: "Fuel for life: nutrition 101",
-            blog_Body:
+            socialMediaMessage_Title: "Fuel for life: nutrition 101",
+            socialMediaMessage_Body:
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Beginner",
+            socialMediaMessage_Footer: "Beginner",
             id: "1",
+            socialMediaMessage_Date: "01012001",
           },
           {
-            blog_Title: "7 mindset strategies to raise your game",
-            blog_Body:
+            socialMediaMessage_Title: "7 mindset strategies to raise your game",
+            socialMediaMessage_Body:
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Beginner",
+            socialMediaMessage_Footer: "Beginner",
             id: "1",
+            socialMediaMessage_Date: "01012001",
           },
           {
-            blog_Title: "Mountain biking: tales from the trail",
-            blog_Body:
+            socialMediaMessage_Title: "Mountain biking: tales from the trail",
+            socialMediaMessage_Body:
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Pro",
+            socialMediaMessage_Footer: "Pro",
             id: "1",
+            socialMediaMessage_Date: "01012001",
           },
           {
-            blog_Title: "Train smarter, not harder",
-            blog_Body:
+            socialMediaMessage_Title: "Train smarter, not harder",
+            socialMediaMessage_Body:
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
-            blog_Quote: "Beginner",
+            socialMediaMessage_Footer: "Beginner",
             id: "1",
+            socialMediaMessage_Date: "01012001",
           },
         ],
       };

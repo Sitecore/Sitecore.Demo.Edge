@@ -3,11 +3,16 @@ import CreatePostBox from './CreatePostBox';
 import PostContainer from './PostContainer';
 import Story from './Story';
 
-const NewsFeedScreen = () => {
+import { GetStaticProps } from "next";
+import { Post } from "../../interfaces/Index";
+import { getFacebookPosts } from "../../pages/api/queries/getFacebookPosts";
+
+
+export default function NewsFeedScreen() {
   return (
     <div className="mt-6 w-full h-full pb-5">
       {/* Story Section */}
-      <div className="w-full h-50 flex items-center justify-center space-x-2 overflow-hidden cursor-pointer">
+      {/* <div className="w-full h-50 flex items-center justify-center space-x-2 overflow-hidden cursor-pointer">
         <div
           className="w-28 h-48 relative rounded-xl shadow "
           style={{ backgroundImage: `url('https://picsum.photos/400')` }}
@@ -28,13 +33,12 @@ const NewsFeedScreen = () => {
         <Story />
         <Story />
         <Story />
-      </div>
+      </div> */}
       {/* Create Post       */}
-      <CreatePostBox />
+      {/* <CreatePostBox /> */}
       {/* All posts */}
       <PostContainer />
     </div>
   );
 };
 
-export default NewsFeedScreen;

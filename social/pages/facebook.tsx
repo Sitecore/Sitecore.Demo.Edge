@@ -1,22 +1,12 @@
 import Head from "next/head";
 //import styles from "../styles/Home.module.css";
-import { getFacebookPosts } from "./api/queries/getFacebookPosts";
-
-import { GetStaticProps } from "next";
-import { Post } from "../interfaces";
-import RoomDisplay from "../components/RoomDisplay";
 
 import LeftSidebar from "../components/facebook/LeftSidebar";
 import NewsFeedScreen from "../components/facebook/NewsFeedScreen";
 import RightSidebar from "../components/facebook/RightSidebar";
 import Navbar from "../components/facebook/Navbar";
 
-type FacebookProps = {
-  posts: Post[];
-  preview: boolean;
-};
-
-export default function Facebook(props: FacebookProps) {
+export default function Facebook() {
   return (
     <div>
       <Navbar />
@@ -34,14 +24,3 @@ export default function Facebook(props: FacebookProps) {
     </div>
   );
 }
-
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const { posts } = await getFacebookPosts(preview);
-
-  return {
-    props: {
-      posts: posts,
-    },
-    revalidate: 10,
-  };
-};
