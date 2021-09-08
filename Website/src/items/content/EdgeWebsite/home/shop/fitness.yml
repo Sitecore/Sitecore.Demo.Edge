@@ -3,82 +3,6 @@ ID: "5610bf76-a85d-5a4c-85d5-1adbebd4c2ab"
 Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
 Template: "52672eed-7aa7-4df1-93e1-c488bc2e0803"
 Path: /sitecore/content/EdgeWebsite/home/shop/fitness
-SharedFields:
-- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
-  Hint: __Renderings
-  Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
-        <p
-          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
-          key="jss-header"
-          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
-        <p
-          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
-          key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
-        <p
-          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
-          key="jss-footer"
-          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
-        <p
-          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
-          key="jss-header-content"
-          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
-        <p
-          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
-          key="jss-section-content"
-          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
-        <r
-          rname="Header"
-          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
-          par=""
-          ph="/jss-header"
-          uid="{9A436BCA-5206-5AF3-AE1E-998FA31F6827}" />
-        <r
-          rname="MainNavigation"
-          id="{09516A66-F92F-5638-B073-8F9A79765778}"
-          par=""
-          ph="/jss-header/jss-header-content-{9A436BCA-5206-5AF3-AE1E-998FA31F6827}-0"
-          uid="{FE012DC2-5F28-5E6B-82DD-5F9152C685EA}" />
-        <r
-          rname="Section"
-          ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          par=""
-          ph="/jss-main"
-          uid="{A776FA59-2A79-57EA-9604-6F8875D29560}" />
-        <r
-          rname="NewsGrid"
-          ds="{0E4A63DA-7496-557E-BF80-5BD52255E431}"
-          id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
-          par=""
-          ph="/jss-main/jss-section-content-{A776FA59-2A79-57EA-9604-6F8875D29560}-0"
-          uid="{507BE95F-66BC-57A7-8054-50B9F4CBB4DA}" />
-        <r
-          rname="Section"
-          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          par=""
-          ph="/jss-main"
-          uid="{B53CF833-E3E6-5FD2-91FF-D4BDB6AFAF13}" />
-        <r
-          rname="SponsorsGrid"
-          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
-          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
-          par=""
-          ph="/jss-main/jss-section-content-{B53CF833-E3E6-5FD2-91FF-D4BDB6AFAF13}-0"
-          uid="{A3400287-88E3-55E6-8190-2580D42F1BA3}" />
-        <r
-          rname="Footer"
-          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
-          par=""
-          ph="/jss-footer"
-          uid="{BAFEB0F2-7321-5E64-BC43-07486CCB5483}" />
-      </d>
-    </r>
 Languages:
 - Language: en
   Fields:
@@ -105,7 +29,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5bc2a3be-d5dd-406c-adfc-052a007398a5"
+      Value: "7b5f4184-50d7-4b44-9fa9-290f047dfc8b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -115,7 +39,7 @@ Languages:
       Value: Fitness
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T162350Z
+      Value: 20210908T161652Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "Fitness"
+      Value: Fitness
