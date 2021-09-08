@@ -15,7 +15,7 @@ export declare type SpeakerParams = {
 };
 
 export default function SpeakerPage(props: SpeakerProps) {
-  return <SpeakerDisplay sessions={props.sessions} speaker={props.speaker} />;
+  return <SpeakerDisplay {...props} />;
 }
 
 // This function gets called at build time

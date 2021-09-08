@@ -12,17 +12,21 @@ const SpeakerList = (props: SpeakerListProps): JSX.Element => {
     <div className="speakerList">
       <ul>
         {props.speakers.map((speaker, index) => (
-          <li key={index} className="speaker">
-            <div className="photo">
-              <Image
-                loader={contentHubImageLoader}
-                src={speaker.photo}
-                width="80px"
-                height="80px"
-                alt="Sample"
-              />
-            </div>
-            <Link href={'/speakers/' + speaker.id}>{speaker.name}</Link>
+          <li key={index}>
+            <Link href={'/speakers/' + speaker.id}>
+              <div className="speaker">
+                <div className="photo">
+                  <Image
+                    loader={contentHubImageLoader}
+                    src={speaker.photo}
+                    width="80px"
+                    height="80px"
+                    alt="Sample"
+                  />
+                </div>
+                {speaker.name}
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

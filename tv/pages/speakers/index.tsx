@@ -7,7 +7,7 @@ type SpeakersProps = {
 };
 
 const Speakers = (props: SpeakersProps): JSX.Element => {
-  return <SpeakerList speakers={props.speakers} />;
+  return <SpeakerList {...props} />;
 };
 
 // This also gets called at build time

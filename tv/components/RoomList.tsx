@@ -11,9 +11,13 @@ const RoomList = (props: RoomListProps): JSX.Element => {
     <div className="roomList">
       <ul>
         {props.rooms.map((room, index) => (
-          <li key={index} className="room">
-            <div className="box" style={{ backgroundColor: randomhsl() }}></div>
-            <Link href={'/rooms/' + room.id}>{room.name}</Link>
+          <li key={index}>
+            <Link href={'/rooms/' + room.id}>
+              <div className="room">
+                <div className="box" style={{ backgroundColor: randomhsl() }}></div>
+                {room.name}
+              </div>
+            </Link>
           </li>
         ))}
       </ul>
