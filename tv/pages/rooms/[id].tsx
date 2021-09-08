@@ -1,17 +1,18 @@
 import { getSessions } from '../../api/queries/getSessions';
 import { getRooms } from '../../api/queries/getRooms';
-import { Session } from '../../interfaces';
+import { Session } from '../../interfaces/session';
+import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 
 type RoomProps = {
   sessions: Session[];
 };
 
-export declare type Params = {
-  [param: string]: any;
+export declare type RoomParams = {
+  [param: string]: Params;
 };
 
-export default function Room(props: RoomProps) {
+export default function RoomPage(props: RoomProps) {
   return <RoomDisplay sessions={props.sessions} />;
 }
 
@@ -31,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export const getStaticProps = async ({ params }: Params) => {
+export const getStaticProps = async ({ params }: RoomParams) => {
   const { sessions } = await getSessions(params.id);
 
   return {

@@ -1,4 +1,4 @@
-.roomList {
+.speakerList {
   @apply bg-white p-10;
 
   min-width: 1184px;
@@ -7,10 +7,10 @@
   ul {
     @apply w-full grid grid-cols-2 gap-4;
 
-    .room {
+    .speaker {
       @apply mb-5 flex justify-start items-center bg-white shadow-lg rounded-lg text-left w-3/4 cursor-pointer;
 
-      .box {
+      .photo {
         @apply h-20 w-20 mr-5;
       }
     }

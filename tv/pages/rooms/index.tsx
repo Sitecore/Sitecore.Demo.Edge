@@ -1,12 +1,12 @@
 import { getRooms } from '../../api/queries/getRooms';
-import { Room } from '../../interfaces';
+import { Room } from '../../interfaces/room';
 import RoomList from '../../components/RoomList';
 
-type RoomProps = {
+type RoomsProps = {
   rooms: Room[];
 };
 
-const Rooms = (props: RoomProps): JSX.Element => {
+const Rooms = (props: RoomsProps): JSX.Element => {
   return <RoomList rooms={props.rooms} />;
 };
 

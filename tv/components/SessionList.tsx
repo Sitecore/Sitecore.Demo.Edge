@@ -1,4 +1,4 @@
-import { Session } from '../interfaces';
+import { Session } from '../interfaces/session';
 
 type SessionListProps = {
   sessions: Session[];

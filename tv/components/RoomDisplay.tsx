@@ -1,4 +1,4 @@
-import { Session } from '../interfaces';
+import { Session } from '../interfaces/session';
 import SessionList from '../components/SessionList';
 import CurrentSession from '../components/CurrentSession';
 
