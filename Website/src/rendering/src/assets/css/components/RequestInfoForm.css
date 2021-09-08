@@ -1,6 +1,5 @@
 .form.request-info-form {
   @apply text-center space-y-5 w-2/3;
-  @apply text-white;
 
   h2 {
     @apply pb-10;

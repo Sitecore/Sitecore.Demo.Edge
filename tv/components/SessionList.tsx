@@ -1,7 +1,7 @@
-import { Blog } from '../interfaces';
+import { Session } from '../interfaces/session';
 
 type SessionListProps = {
-  blogs: Blog[];
+  sessions: Session[];
 };
 
 const SessionList = (props: SessionListProps): JSX.Element => {
@@ -9,17 +9,16 @@ const SessionList = (props: SessionListProps): JSX.Element => {
     <div className="sessionList">
       <span className="heading">Wednesday, Mar 8</span>
 
-      {props.blogs.map((name, index) => (
+      {props.sessions.map((session, index) => (
         <div key={index} className="session">
           <div className="time">
-            <span>10:00am - 11:00am</span>
+            <span>{session.timeslot}</span>
           </div>
           <div className="icon">
             <span></span>
           </div>
           <div className="data">
-            <span className="title">{name.blog_Title}</span>
-            <span className="text-sm">{name.blog_Quote}</span>
+            <span className="title">{session.name}</span>
           </div>
         </div>
       ))}
