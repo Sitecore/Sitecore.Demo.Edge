@@ -90,7 +90,7 @@ const Navbar = () => {
                 />
               </div>
               <div className="h-8 flex items-center justify-content">
-                <p className="font-semibold text-sm">Saiful</p>
+                <p className="font-semibold text-sm">Play!</p>
               </div>
             </button>
           </Link>

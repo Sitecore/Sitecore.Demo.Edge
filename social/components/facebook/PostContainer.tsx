@@ -1,7 +1,5 @@
 import React from "react";
-import { GetStaticProps } from "next";
 import { Post } from "../../interfaces/Index";
-import { getFacebookPosts } from "../../pages/api/queries/getFacebookPosts";
 
 type PostProps = {
   posts: Post[];
@@ -9,17 +7,14 @@ type PostProps = {
 };
 
 export default function PostContainer(props: PostProps) {
-  console.log("loading posts");
-  console.log(props.posts);
   return (
     <div className="mt-4 w-full h-full">
       {props.posts &&
         props.posts.map((post, index) => {
-          console.log(post);
           return (
             <div
               key={index}
-              className="w-full shadow h-auto bg-white my-2 rounded-md"
+              className="w-full shadow h-auto bg-white my-2 rounded-md post"
             >
               <div className="flex items-center space-x-2 p-3 px-4">
                 <div className="w-10 h-10">
@@ -31,7 +26,7 @@ export default function PostContainer(props: PostProps) {
                 </div>
                 <div className="flex-grow flex flex-col">
                   <div className="text-gray-500 font-semibold">
-                    <p>Saiful Islam</p>
+                    <p>Play! Summit</p>
                   </div>
                   <span className="text-xs text-gray-300">2d</span>
                 </div>
@@ -41,7 +36,9 @@ export default function PostContainer(props: PostProps) {
                   </button>
                 </div>
               </div>
-              <div className="text-gray-500 px-3">This is caption</div>
+              <div className="text-gray-500 px-3">
+                {post.socialMediaMessage_Body}
+              </div>
               <div className="w-full h-76 max-h-80">
                 <img
                   src="https://picsum.photos/1080/1920"
@@ -114,16 +111,3 @@ export default function PostContainer(props: PostProps) {
   );
 }
 
-//export default PostContainer;
-
- export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-   const { posts } = await getFacebookPosts(preview);
-   console.log("got posts");
-   console.log(posts);
-   return {
-     props: {
-       posts: posts,
-     },
-     revalidate: 10,
-   };
- };

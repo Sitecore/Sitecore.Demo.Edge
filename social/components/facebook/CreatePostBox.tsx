@@ -12,7 +12,7 @@ const CreatePostBox = () => {
             />
           </div>
           <button className="hover:bg-gray-200 focus:bg-gray-300 focus:outline-none flex-grow bg-gray-100 text-gray-500 text-left pl-2 rounded-full h-10 pl-5">
-            What&apos;s on your mind, Shihab?
+            What&apos;s on your mind?
           </button>
         </div>
         <div className="flex space-x-3 text-sm">

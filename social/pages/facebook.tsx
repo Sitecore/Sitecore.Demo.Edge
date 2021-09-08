@@ -5,8 +5,17 @@ import LeftSidebar from "../components/facebook/LeftSidebar";
 import NewsFeedScreen from "../components/facebook/NewsFeedScreen";
 import RightSidebar from "../components/facebook/RightSidebar";
 import Navbar from "../components/facebook/Navbar";
+import { GetStaticProps } from "next";
+import { Post } from "../interfaces/Index";
+import { getFacebookPosts } from "../pages/api/queries/getFacebookPosts";
 
-export default function Facebook() {
+type PostProps = {
+  posts: Post[];
+  preview: boolean;
+};
+
+
+export default function Facebook(props: PostProps) {
   return (
     <div>
       <Navbar />
@@ -15,7 +24,7 @@ export default function Facebook() {
           <LeftSidebar />
         </div>
         <div className="col-span-3 h-full">
-          <NewsFeedScreen />
+          <NewsFeedScreen posts={props.posts} preview={props.preview} />
         </div>
         <div className="col-span-2 flex justify-end pr-2">
           <RightSidebar />
@@ -24,3 +33,13 @@ export default function Facebook() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+  const { posts } = await getFacebookPosts(preview);
+  return {
+    props: {
+      posts: posts,
+    },
+    revalidate: 10,
+  };
+};

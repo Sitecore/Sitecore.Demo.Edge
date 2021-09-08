@@ -14,7 +14,7 @@ const Story = () => {
         />
       </div>
       <div className='absolute text-center' style={{ bottom: '5%' }}>
-        <p className='text-white font-semibold'>Saiful Islam</p>
+        <p className='text-white font-semibold'>Play! Summit</p>
       </div>
     </div>
   );

@@ -51,12 +51,10 @@ export const getFacebookPosts = async (
       preview
     )) as BlogsQueryResult;
     if (results) {
-      console.log(results);
       return {
         posts: results.data.allM_Content_SocialMediaMessage.results,
       };
     } else {
-      console.log("no results");
       return {
         posts: [
           {

@@ -13,7 +13,7 @@ const LeftSidebar = () => {
             />
           </div>
           <div>
-            <p className='text-sm font-semibold'>Saiful Islam Shihab</p>
+            <p className='text-sm font-semibold'>Play! Summit</p>
           </div>
         </li>
         <li className='h-12 mb-2 flex items-center justify-content cursor-pointer space-x-2 p-2 rounded-md hover:bg-gray-200'>
