@@ -14,8 +14,8 @@ const Footer = (): JSX.Element => {
         <span className="controller-text">^</span>
       </div>
       <div className="controls">
-        <Link href="/room" passHref>
-          <a>Room</a>
+        <Link href="/rooms" passHref>
+          <a>Rooms</a>
         </Link>
         <Link href="/schedule" passHref>
           <a>Schedule</a>
@@ -23,8 +23,8 @@ const Footer = (): JSX.Element => {
         <Link href="/sponsor" passHref>
           <a>Sponsor</a>
         </Link>
-        <Link href="/speaker" passHref>
-          <a>Speaker</a>
+        <Link href="/speakers" passHref>
+          <a>Speakers</a>
         </Link>
       </div>
     </div>
