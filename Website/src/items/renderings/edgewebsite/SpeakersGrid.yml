@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/SpeakersGrid
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/CMP/Speakers
+  Value: /sitecore/content/EdgeWebsite/home/speakers
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: SpeakersGrid
@@ -18,10 +18,10 @@ SharedFields:
   Value: 
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{2F5C334E-5615-423C-8281-9FC180191302}"
+  Value: "{FC5201C0-7E5F-483C-818B-BFE8A55A5A0F}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/CMP/Speakers
+  Value: /sitecore/content/EdgeWebsite/home/speakers
 Languages:
 - Language: en
   Versions:
@@ -40,11 +40,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0a488abe-c76d-4b08-9ecb-ddbba4027cb1"
+      Value: "e3628c2c-bbf4-4fc8-bbcc-92b4cb7231d7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210721T181710Z
+      Value: 20210825T133539Z

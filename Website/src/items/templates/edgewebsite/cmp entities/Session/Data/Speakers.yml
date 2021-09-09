@@ -2,11 +2,11 @@
 ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
 Parent: "92298800-b22f-4d3b-a7bb-75dfe66b78ef"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Session/Data/Speakers
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Session/Data/Speakers
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/CMP/Speakers
+  Value: /sitecore/content/EdgeWebsite/home/speakers
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Multilist
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f7ef6dbe-e952-410b-908b-362c9ea054bc"
+      Value: "71eaca2c-a0c0-4833-986a-d527bd63e63a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T221320Z
+      Value: 20210907T112234Z

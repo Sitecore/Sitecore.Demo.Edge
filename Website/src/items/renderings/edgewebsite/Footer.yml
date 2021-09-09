@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/Footer
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/Footer
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/Footer
 Languages:
 - Language: en
   Versions:

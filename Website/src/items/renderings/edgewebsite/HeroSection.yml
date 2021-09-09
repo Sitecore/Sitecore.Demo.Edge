@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/HeroSection
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/HeroSection
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/HeroSection
 Languages:
 - Language: en
   Versions:

@@ -6,10 +6,10 @@ Path: /sitecore/templates/Project/edgewebsite/FeaturedSpeakers/Data/Speakers
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/CMP/Speakers
+  Value: /sitecore/content/EdgeWebsite/home/speakers
 - ID: "39847666-389d-409b-95bd-f2016f11eed5"
   Hint: Unversioned
-  Value: 0
+  Value: 
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Treelist
@@ -18,7 +18,7 @@ SharedFields:
   Value: 300
 - ID: "be351a73-fcb0-4213-93fa-c302d8ab4f51"
   Hint: Shared
-  Value: 0
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -37,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "547de8c6-8e5e-4936-bdcd-0169acc5fc15"
+      Value: "c7b553c5-890b-4319-beb6-08a5dd9e2694"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210715T155917Z
+      Value: 20210825T151611Z
