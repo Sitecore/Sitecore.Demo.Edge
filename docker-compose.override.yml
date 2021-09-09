@@ -86,6 +86,8 @@ services:
         condition: service_healthy
       solution:
         condition: service_started
+    deploy:
+      replicas: ${INIT_CONTAINERS_COUNT}
 
   # Mount the Traefik configuration and certs.
   traefik:

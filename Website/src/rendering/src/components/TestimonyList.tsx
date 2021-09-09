@@ -43,7 +43,7 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => (
                 />
               </div>
               <div className="testimony">
-                <RichText tag="div" field={testimony.fields.Testimony} />
+                <RichText tag="blockquote" field={testimony.fields.Testimony} />
                 <div>
                   - <Text tag="span" className="provider" field={testimony.fields.Provider} />
                 </div>
