@@ -56,7 +56,7 @@ namespace Sitecore.Demo.Edge.Website.CustomFields
 
                         if (item != null)
                         {
-                            listItem.Header = item.DisplayName +" | "+ item.ID.ToString();
+                            listItem.Header = item.DisplayName;
                         }
                         else
                         {
