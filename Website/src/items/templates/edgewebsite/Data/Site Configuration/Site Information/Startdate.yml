@@ -1,12 +1,9 @@
 ﻿---
-ID: "0a53ddae-b3c7-4a0e-b75d-27515e0e7a8d"
-Parent: "ae390a2f-7930-4d13-9038-a430f8ed21de"
+ID: "3971a645-b079-4bc3-9971-bf655b7713fa"
+Parent: "2d33b72b-991b-49ee-a763-23025a39c6fd"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/Site Config/Configuration/StartDate
+Path: /sitecore/templates/Project/edgewebsite/Data/Site Configuration/Site Information/Startdate
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: 
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Date
@@ -18,30 +15,31 @@ Languages:
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: 
-  - ID: "577f1689-7de4-4ad2-a15f-7fdc1759285f"
-    Hint: __Long description
-    Value: 
-  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
-    Hint: __Short description
-    Value: Event start date.
+    Value: Start Date
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Start Date
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20070410T174515Z
+      Value: 20210909T163930Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\Admin
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "14b5a4b7-d74a-4b23-bccd-f1a244283205"
+      Value: "735fec4b-e777-4447-9484-49da71208a2f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210831T235116Z
+      Value: 20210909T164358Z
