@@ -118,8 +118,8 @@ const threeColProps = {
     },
     LeftLink: {
       value: {
-        href: '/schedule',
-        text: 'View Schedule',
+        href: '/sessions',
+        text: 'View Sessions',
       },
     },
     MiddleLogo: {

@@ -1,0 +1,48 @@
+﻿---
+ID: "7bf516ee-0cf9-40c8-b24d-c385c79e5c3b"
+Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
+Template: "ccf76f8e-4780-450a-b330-69f8502b140f"
+Path: /sitecore/content/EdgeWebsite/home/about-us/Page Components/The Expo
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210827T182233Z
+    - ID: "48454055-754f-4b2f-87a3-b840e3eada73"
+      Hint: Description
+      Value: This year’s theme is ‘Raise Your Game’ –join us over two days for a global gathering of brands, sports professionals,and innovators.
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "72ca6c7d-0588-4bea-b47d-6067bdd5a7e9"
+      Hint: Logo
+      Value: |
+        <image mediaid="{94156736-7BB8-4523-8F0E-9C74D52357A8}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c101c7f5-def2-4d14-872a-e0663674eed7"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c63db4c4-d678-45cd-9d0d-4994b571eb7d"
+      Hint: Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210827T183522Z
+    - ID: "f395eb06-1e1d-4705-baba-b1f92a9aa780"
+      Hint: Title
+      Value: The Expo

@@ -15,7 +15,6 @@ type Session = {
     Name: Field<string>;
     Image: ImageField;
     Date: Field<string>;
-    Duration: Field<string>;
     Speakers: Speaker[];
   };
 };
@@ -62,9 +61,6 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                       })
                     }
                   />
-                </p>
-                <p>
-                  <span>Duration: {session.fields.Duration?.value?.replace('_', '.')}</span>
                 </p>
                 {session.fields.Speakers &&
                   session.fields.Speakers.map((speaker, index) => (

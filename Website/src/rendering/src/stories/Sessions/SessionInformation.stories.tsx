@@ -108,7 +108,6 @@ Default.args = {
     Type: { value: 'Keynote' },
     Date: { value: '2021-07-29T06:00:00Z' },
     Image: { value: { src: '/assets/img/shop/man-biker.jpg' } },
-    Duration: { value: '1 hour' },
     Speakers: [speaker1, speaker2],
   },
 };

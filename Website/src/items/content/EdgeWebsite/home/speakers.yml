@@ -4,6 +4,9 @@ Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: /sitecore/content/EdgeWebsite/home/speakers
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -58,14 +61,7 @@ SharedFields:
           ph="/jss-main"
           uid="{1AD90955-9DD5-52F6-83A3-A54AE4F0FBDF}" />
         <r
-          rname="FeaturedSpeakers"
-          ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
-          id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
-          par=""
-          ph="/jss-main"
-          uid="{802F702F-5CCF-5AE5-B9F1-BE82A2BE6777}" />
-        <r
-          ds="{DA00F1FD-0392-44CF-944A-B24952407013}"
+          ds=""
           id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
           par=""
           ph="/jss-main"
@@ -91,11 +87,15 @@ SharedFields:
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
           par=""
           ph="/jss-footer"
-          uid="{B720D62C-0F50-56C2-9825-178F1CE5A80B}" />
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}" />
       </d>
     </r>
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Speakers
   Versions:
   - Version: 1
     Fields:
@@ -112,14 +112,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2db90a5c-00b3-440c-b614-a728c378873d"
+      Value: "65b39e19-3dc5-4687-ae3c-52521acb7f71"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T164825Z
+      Value: 20210907T161051Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "PLAY! Summit - Speakers"
+      Value: Speakers

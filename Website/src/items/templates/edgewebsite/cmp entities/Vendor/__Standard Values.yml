@@ -2,7 +2,7 @@
 ID: "8ad4d49f-7573-4156-85c0-adf24e4cb6f8"
 Parent: "adf8983f-d751-4af2-804f-c9e3888f4219"
 Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Vendor/__Standard Values
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Vendor/__Standard Values
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
@@ -53,13 +53,6 @@ SharedFields:
           ph="/jss-header/jss-header-content-{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}-0"
           uid="{F966B56F-A772-5676-9145-1CB48E76727D}" />
         <r
-          rname="HeaderBanner"
-          ds="{A9FB0FD1-37CD-52C1-BAE1-C2BB42F04E41}"
-          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
-          par=""
-          ph="/jss-main"
-          uid="{4BA27A1F-B1E3-52CA-B056-C751D65D225A}" />
-        <r
           rname="Breadcrumb"
           id="{780D897C-7065-585F-8585-28118565FA00}"
           par=""
@@ -72,17 +65,13 @@ SharedFields:
           ph="/jss-main"
           uid="{CD67317D-CF1A-51DB-B98B-CCB5C42C4877}" />
         <r
-          rname="VendorsGrid"
-          id="{DCC3725E-8F7E-58DF-A17B-FE153FBCE627}"
-          par=""
-          ph="/jss-main"
-          uid="{249AFDB7-AD92-5914-9F9A-AE69F7154B96}" />
-        <r
           rname="SessionList"
+          ds=""
           id="{2BCFA87E-B224-546E-9247-80B2ABAE98B9}"
           par=""
           ph="/jss-main"
-          uid="{2F7D660B-CF5C-5C64-A791-1457AC3B7376}" />
+          uid="{2F7D660B-CF5C-5C64-A791-1457AC3B7376}"
+          ccb="Clear on publish" />
         <r
           rname="FullImageSection"
           ds="{BD8B0390-574A-57F3-B801-1C3A4F42B3D6}"
@@ -92,17 +81,20 @@ SharedFields:
           uid="{3432F634-A3D1-5AA8-855A-1DB9431880E4}" />
         <r
           rname="Section"
-          ds="{B2347F97-3650-5C95-8C70-A6FDD340BBD4}"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           par=""
           ph="/jss-main"
-          uid="{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}" />
+          uid="{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}"
+          ccb="Clear on publish" />
         <r
           rname="SponsorsGrid"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
           ph="/jss-main/jss-section-content-{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}-0"
-          uid="{7F6D3984-3875-54C9-A6A6-7AFC7E9D3C6D}" />
+          uid="{7F6D3984-3875-54C9-A6A6-7AFC7E9D3C6D}"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          ccb="Clear on publish" />
         <r
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
@@ -132,11 +124,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "559c7bfb-2ecc-4d5b-a9dc-1acc1f538631"
+      Value: "0bc676d6-0bea-42e8-b026-0af4f4b8ce9a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T172411Z
+      Value: 20210826T153813Z

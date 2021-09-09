@@ -12,7 +12,7 @@ SharedFields:
   Value: Office/16x16/document_tag.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/cmp entities/Edge Vendor
+  Value: /sitecore/templates/Project/edgewebsite/CMP Entities/Vendor
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{FC5201C0-7E5F-483C-818B-BFE8A55A5A0F}"
@@ -37,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9dc152e6-d4b6-48e8-af60-47e262d643d7"
+      Value: "46471abd-341f-47d9-8312-63e6f569c151"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T184126Z
+      Value: 20210909T002832Z
