@@ -1,21 +1,17 @@
 ﻿---
-ID: "89a5b1c7-993a-58ef-be4c-c3a171979277"
-Parent: "2aae129a-cb98-527c-9548-09a8cc2747a6"
-Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
-Path: /sitecore/layout/Renderings/Project/edgewebsite/RequestInfoForm
+ID: "366efcc4-1af8-430d-8a0f-d85ffe8f793e"
+Parent: "58a24f8c-f3f1-58b9-b895-2cb0007929e2"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/EdgeWebsite/Data/Components/SummitFeature
 SharedFields:
-- ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
-  Hint: componentName
-  Value: RequestInfoForm
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
-- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
-  Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/RequestInfoForm
-- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
-  Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/RequestInfoForm
+  Value: Office/32x32/box_into.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
+    {7D703C2F-7DD9-5FC9-A06F-97BB9C038CA7}
 Languages:
 - Language: en
   Versions:
@@ -34,7 +30,7 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "71ff03dd-a3b1-4128-b59f-4a069e1afc13"
+      Value: "2db55a0d-7bf1-4a8b-bcd5-6f985ad66e25"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

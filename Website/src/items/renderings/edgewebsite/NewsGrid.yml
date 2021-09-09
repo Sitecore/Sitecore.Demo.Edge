@@ -18,7 +18,7 @@ SharedFields:
   Value: "{FC5201C0-7E5F-483C-818B-BFE8A55A5A0F}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/NewsGrid
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/NewsGrid
 Languages:
 - Language: en
   Versions:

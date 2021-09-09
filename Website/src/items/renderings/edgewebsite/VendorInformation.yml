@@ -18,7 +18,7 @@ SharedFields:
   Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/VendorInformation
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/VendorInformation
 Languages:
 - Language: en
   Versions:

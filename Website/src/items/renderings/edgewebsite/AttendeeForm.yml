@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/AttendeeForm
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/AttendeeForm
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/AttendeeForm
 Languages:
 - Language: en
   Versions:

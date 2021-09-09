@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/SessionsFilters
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/SessionsFilters
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/SessionsFilters
 Languages:
 - Language: en
   Versions:
