@@ -39,48 +39,36 @@ const Footer = (): JSX.Element => (
         </li>
       </ul>
       <ul className="footer__content__footer__col">
-        <li>Workshops</li>
+        <li>Pages</li>
         <li>
-          <Link href="/workshops/one">PLAY workshop 1</Link>
+          <Link href="/sessions">Sessions</Link>
         </li>
         <li>
-          <Link href="/workshops/one">PLAY workshop 2</Link>
-        </li>
-        <li>
-          <Link href="/workshops/one">PLAY workshop 3</Link>
-        </li>
-        <li>
-          <Link href="/workshops/one">PLAY workshop 4</Link>
-        </li>
-        <li>
-          <Link href="/workshops/one">PLAY workshop 5</Link>
-        </li>
-        <li>
-          <Link href="/workshops/one">PLAY workshop 6</Link>
-        </li>
-        <li>
-          <Link href="/workshops/one">PLAY workshop 7</Link>
-        </li>
-      </ul>
-      <ul className="footer__content__footer__col">
-        <li>Sessions</li>
-        <li>
-          <Link href="/speakers">Key speakers</Link>
-        </li>
-        <li>
-          <Link href="/workshops">Event workshops</Link>
-        </li>
-        <li>
-          <a href="#">Event Specials</a>
-        </li>
-        <li>
-          <Link href="/shop">Featured Products</Link>
+          <Link href="/speakers">Speakers</Link>
         </li>
         <li>
           <Link href="/vendors">Vendors</Link>
         </li>
         <li>
-          <Link href="/sponsors">Sponsors</Link>
+          <Link href="/aboutus">About Us</Link>
+        </li>
+        <li>
+          <Link href="/news">News</Link>
+        </li>
+        <li>
+          <Link href="/workshops/one">Shop</Link>
+        </li>
+      </ul>
+      <ul className="footer__content__footer__col">
+        <li>Join Us</li>
+        <li>
+          <Link href="/tickets">Book Tickets</Link>
+        </li>
+        <li>
+          <Link href="/sponsors/sponsorize">Become a Sponsor</Link>
+        </li>
+        <li>
+          <Link href="/sponsors/sponsorize">Become a Vendor</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
@@ -107,9 +95,6 @@ const Footer = (): JSX.Element => (
         <div>
           <Link href="/terms">Terms of Use</Link>
         </div>
-      </div>
-      <div className="footer__content__legal__region">
-        <a href="#">Region</a>
       </div>
     </div>
   </div>
