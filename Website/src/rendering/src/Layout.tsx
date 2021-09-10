@@ -35,12 +35,20 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
     context.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
+
+  // DEMO TEAM CUSTOMIZATION - Add Event start date and name to be used globally
+  const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
+  let pageTitle = contextTitle.titlePrefix;
+  if (route?.fields?.pageTitle?.value) {
+    pageTitle += ' - ' + route?.fields?.pageTitle?.value;
+  }
   // END CUSTOMIZATION
 
   return (
     <>
       <Head>
-        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
+        {/*   // DEMO TEAM CUSTOMIZATION - Use Event name as the page title from context */}
+        <title>{pageTitle}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
