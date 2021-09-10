@@ -30,9 +30,6 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\JssImport
-    - ID: "bdb828c7-fbbd-5bbf-9248-f1bb60d2cc63"
-      Hint: heading
-      Value: Image
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210707T183640Z
