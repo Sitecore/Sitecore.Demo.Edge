@@ -1,7 +1,16 @@
 #container {
-  max-width: 1280px;
+  max-width: 920px;
   width: 100%;
   margin: auto;
+  transform: perspective(1800px) rotateX(-15deg);
+}
+
+html {
+  background: url(/background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #monitor {
@@ -17,7 +26,7 @@
 }
 
 #monitor::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 3%;
@@ -42,15 +51,11 @@
 .screen {
   min-height: 100vh;
   padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
 main {
-  padding: 5rem 0;
+  padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
