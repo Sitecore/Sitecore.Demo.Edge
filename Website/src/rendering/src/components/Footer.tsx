@@ -50,13 +50,13 @@ const Footer = (): JSX.Element => (
           <Link href="/vendors">Vendors</Link>
         </li>
         <li>
-          <Link href="/aboutus">About Us</Link>
+          <Link href="/about-us">About Us</Link>
         </li>
         <li>
           <Link href="/news">News</Link>
         </li>
         <li>
-          <Link href="/workshops/one">Shop</Link>
+          <Link href="/shop">Shop</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
@@ -77,7 +77,7 @@ const Footer = (): JSX.Element => (
           <Link href="/support">Tech Support</Link>
         </li>
         <li>
-          <Link href="/contactus">Mail Us</Link>
+          <Link href="/contact-us">Mail Us</Link>
         </li>
         <li>
           <Link href="/faq">FAQ</Link>
