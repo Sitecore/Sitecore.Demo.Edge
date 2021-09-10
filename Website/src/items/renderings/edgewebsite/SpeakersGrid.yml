@@ -21,7 +21,7 @@ SharedFields:
   Value: "{FC5201C0-7E5F-483C-818B-BFE8A55A5A0F}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/EdgeWebsite/home/speakers
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -40,11 +40,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e3628c2c-bbf4-4fc8-bbcc-92b4cb7231d7"
+      Value: "346efc6d-b2ad-4ed0-a190-dc0c7c014171"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T133539Z
+      Value: 20210909T235504Z

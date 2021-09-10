@@ -34,58 +34,62 @@ SharedFields:
           uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
           key="jss-section-content"
           md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        <p
+          uid="{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}"
+          key="jss-summit-features-content"
+          md="{C8C6EFD2-E574-4FD9-8833-4C5D6A23042F}" />
         <r
-          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}"
           rname="Header"
           id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
           par=""
-          ph="/jss-header" />
+          ph="/jss-header"
+          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}" />
         <r
-          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}"
           rname="MainNavigation"
           id="{09516A66-F92F-5638-B073-8F9A79765778}"
           par=""
-          ph="/jss-header/jss-header-content-{1CB49545-D7F4-538D-9748-FAAD4753D3CB}-0" />
+          ph="/jss-header/jss-header-content-{1CB49545-D7F4-538D-9748-FAAD4753D3CB}-0"
+          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}" />
         <r
-          uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}"
           rname="Breadcrumb"
           id="{780D897C-7065-585F-8585-28118565FA00}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}" />
         <r
-          uid="{0761E527-92C1-596B-914B-DD9C282DA709}"
           rname="Section"
           ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{0761E527-92C1-596B-914B-DD9C282DA709}" />
         <r
-          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}"
           rname="NewsGrid"
           ds="{0E4A63DA-7496-557E-BF80-5BD52255E431}"
           id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
           par=""
-          ph="/jss-main/jss-section-content-{0761E527-92C1-596B-914B-DD9C282DA709}-0" />
+          ph="/jss-main/jss-section-content-{0761E527-92C1-596B-914B-DD9C282DA709}-0"
+          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}" />
         <r
-          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}"
           rname="Section"
           ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           par=""
-          ph="/jss-main" />
+          ph="/jss-main"
+          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}" />
         <r
-          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}"
           rname="SponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
-          ph="/jss-main/jss-section-content-{63AC6E75-5365-5E24-9E53-508B20613F45}-0" />
+          ph="/jss-main/jss-section-content-{63AC6E75-5365-5E24-9E53-508B20613F45}-0"
+          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}" />
         <r
-          uid="{49649979-09D8-545A-AF70-2E50E065D19F}"
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
           par=""
-          ph="/jss-footer" />
+          ph="/jss-footer"
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}" />
       </d>
     </r>
 Languages:
@@ -106,11 +110,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7f311fa6-4e33-4acf-9637-6784f79cea99"
+      Value: "0027232d-28c1-4796-8338-75803673bf33"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T113602Z
+      Value: 20210910T003143Z
