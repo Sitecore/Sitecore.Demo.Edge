@@ -2,7 +2,7 @@
 ID: "10de09aa-0e24-44e4-809e-fbb5e5c7ab6d"
 Parent: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Sponsor/Data
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Sponsor/Data
 SharedFields:
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only

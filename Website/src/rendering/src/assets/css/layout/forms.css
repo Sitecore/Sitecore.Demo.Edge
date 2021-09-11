@@ -3,8 +3,34 @@
     @apply text-blue text-4xl uppercase;
   }
 
-  input[type="text"] {
-    @apply w-full rounded p-2 border border-gray-dark text-sm font-medium;
+  .floating-label-wrap {
+    @apply relative w-full;
+
+    input {
+      @apply relative w-full rounded p-2 border border-gray-dark text-sm font-medium;
+
+      z-index: 1500;
+
+      &::placeholder {
+        @apply text-transparent;
+      }
+    }
+
+    label {
+      @apply absolute left-0 select-none cursor-text text-gray-dark text-sm font-medium p-2 w-auto m-0 inline-block;
+
+      top: 1px;
+      z-index: 2000;
+      transition: transform 0.25s, opacity 0.25s, padding 0.25s ease-in-out;
+      transform-origin: 0 0;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      @apply text-black;
+
+      transform: translate(0, -1.8em) scale(0.9);
+    }
   }
 
   .checkbox-label {
@@ -22,7 +48,7 @@
   .inline-fields {
     @apply flex;
 
-    input + input {
+    div + div {
       @apply ml-2;
     }
   }
@@ -45,5 +71,24 @@
 
   .button-area {
     @apply px-6 pt-4 pb-10;
+  }
+}
+
+.form.form--dark {
+  @apply text-white;
+
+  h2 {
+    @apply text-yellow;
+  }
+
+  .floating-label-wrap {
+    input {
+      @apply text-black;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      @apply text-white;
+    }
   }
 }

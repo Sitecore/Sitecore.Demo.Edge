@@ -29,9 +29,6 @@ const session1 = {
     Date: {
       value: '2021-07-29T06:00:00Z',
     },
-    Duration: {
-      value: '2 Hours',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
@@ -48,9 +45,6 @@ const session2 = {
     },
     Date: {
       value: '2021-07-29T06:00:00Z',
-    },
-    Duration: {
-      value: '.5 Hour',
     },
     Image: {
       value: {
@@ -69,9 +63,6 @@ const session3 = {
     Date: {
       value: '2021-07-29T06:00:00Z',
     },
-    Duration: {
-      value: '3 Hours',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
@@ -88,9 +79,6 @@ const session4 = {
     },
     Date: {
       value: '2021-07-29T06:00:00Z',
-    },
-    Duration: {
-      value: '1.5 Hours',
     },
     Image: {
       value: {

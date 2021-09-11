@@ -99,3 +99,19 @@ See Sitecore Containers documentation for more information on system requirement
 
 1. Wait for the startup script to open browser tabs for the rendered site
    and Sitecore Launchpad.
+
+## Before Submitting a Pull Request
+
+Before submitting a pull request, we must make sure that:
+
+* All modified items are serialized.
+* The GraphQL introspection data is updated if there were changes to templates or fields.
+
+This can be done by:
+
+1. Ensuring the containers are running.
+1. Running the script:
+
+   ```ps1
+   .\pre-pr-updates.ps1
+   ```

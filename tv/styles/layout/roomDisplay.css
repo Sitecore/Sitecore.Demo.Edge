@@ -1,0 +1,19 @@
+.roomDisplay {
+  @apply grid grid-cols-2 h-screen;
+
+  .scheduled {
+    @apply bg-gray-100 p-10;
+
+    .wrapper {
+      @apply mb-auto mt-auto max-w-lg;
+    }
+
+    .currentTime {
+      @apply text-6xl uppercase pb-10 text-center;
+    }
+
+    .date {
+      @apply text-xl uppercase;
+    }
+  }
+}

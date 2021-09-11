@@ -1,6 +1,3 @@
-export interface Blog {
+export interface Params {
   id: string;
-  blog_Title: string;
-  blog_Quote: string;
-  blog_Body: string;
 }

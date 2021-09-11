@@ -2,7 +2,7 @@
 ID: "7681796b-a800-4fc1-b0b4-065f8baeabf9"
 Parent: "a06b2851-c98a-4622-8773-98736daadb13"
 Template: "a06b2851-c98a-4622-8773-98736daadb13"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Venue/__Standard Values
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Venue/__Standard Values
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow

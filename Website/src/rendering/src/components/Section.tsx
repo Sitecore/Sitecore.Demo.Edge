@@ -17,7 +17,7 @@ const Section = (props: SectionProps): JSX.Element => {
   const sectionCssClasses = `section ${props.fields?.cssClass?.value}`;
   const sectionContentCssClasses = `section__content ${props.fields?.cssClass?.value}__content`;
   const titleCssClasses = `section__content__title section__content__title--${props.fields?.brightness?.value}`;
-  const contentCssClasses = `section__content__p section__content__p--${props.fields?.brightness?.value} text-sm`;
+  const contentCssClasses = `section__content__p section__content__p--${props.fields?.brightness?.value}`;
 
   return (
     <section className={sectionCssClasses}>

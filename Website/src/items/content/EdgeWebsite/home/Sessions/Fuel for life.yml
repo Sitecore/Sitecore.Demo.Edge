@@ -2,7 +2,7 @@
 ID: "9a638ac1-5365-4a1e-a817-c94b891ed923"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/Sessions/Fuel for life
+Path: /sitecore/content/EdgeWebsite/home/sessions/Fuel for life
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -15,9 +15,6 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
-      Hint: Duration
-      Value: 1 Hour
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
