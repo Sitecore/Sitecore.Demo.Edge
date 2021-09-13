@@ -1,41 +1,16 @@
 #container {
-  max-width: 920px;
-  width: 100%;
   margin: auto;
-  transform: perspective(1800px) rotateX(-15deg);
+  height: 437px;
+  width: 1100px;
+  margin-top: 53px;
+  margin-left: 305px;
+  overflow: hidden;
+  transform: perspective(725px) rotateX(4deg) rotateY(12deg) rotateZ(0.6deg);
+  transform-origin:center bottom;
 }
 
 html {
-  background: url(/background.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#monitor {
-  background: #000;
-  position: relative;
-  border-top: 1px solid #888;
-  margin: 2%;
-  padding: 1% 1% 2% 1%;
-  border-radius: 10px;
-  border-bottom-left-radius: 50% 2%;
-  border-bottom-right-radius: 50% 2%;
-  transition: margin-right 1s;
-}
-
-#monitor::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 3%;
-  left: 36%;
-  height: 0.5%;
-  width: 28%;
-  background: #ddd;
-  border-radius: 50%;
-  box-shadow: 0 0 3px 0 white;
+  background: url(/background2.png) repeat left top fixed;
 }
 
 #monitorscreen {
@@ -43,15 +18,7 @@ html {
   background-color: #777;
   background-size: cover;
   background-position: top center;
-  height: 0;
-  padding-bottom: 52.25%;
-  overflow: hidden;
-}
 
-.screen {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  height: 100vh;
 }
 
 main {
