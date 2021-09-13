@@ -1,7 +1,7 @@
-import { fetchGraphQL } from "../../../api";
+import { fetchGraphQL } from "../..";
 import { Post } from "../../../../interfaces/index";
 
-export const getFacebookPosts = async (
+export const getTwitterPosts = async (
   preview: boolean
 ): Promise<{ posts: Post[] }> => {
   try {

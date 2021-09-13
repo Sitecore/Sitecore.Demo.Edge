@@ -1,14 +1,13 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+//import styles from "../styles/Home.module.css";
 
-import LeftSidebar from "../components/facebook/LeftSidebar";
-import NewsFeedScreen from "../components/facebook/NewsFeedScreen";
-import RightSidebar from "../components/facebook/RightSidebar";
-import Navbar from "../components/facebook/Navbar";
+import LeftSidebar from "../components/twitter/LeftSidebar";
+import NewsFeedScreen from "../components/twitter/NewsFeedScreen";
+import RightSidebar from "../components/twitter/RightSidebar";
+import Navbar from "../components/twitter/Navbar";
 import { GetStaticProps } from "next";
 import { Post } from "../interfaces/index";
-import { getFacebookPosts } from "../pages/api/queries/getFacebookPosts";
-import FooterButton from "../components/FooterButton";
+import { getTwitterPosts } from "./api/queries/getTwitterPosts";
 
 type PostProps = {
   posts: Post[];
@@ -30,13 +29,12 @@ export default function Facebook(props: PostProps) {
           <RightSidebar />
         </div>
       </div>
-      <FooterButton />
     </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const { posts } = await getFacebookPosts(preview);
+  const { posts } = await getTwitterPosts(preview);
   return {
     props: {
       posts: posts,

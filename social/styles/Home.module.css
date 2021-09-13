@@ -78,6 +78,23 @@
   margin-top: 3rem;
 }
 
+.facebook {
+  background-color: #4267b2;
+  color: white;
+}
+.twitter {
+  background-color: #1DA1F2;
+  color: white;
+}
+.linkedin {
+  background-color: #2867B2;
+  color: white;
+}
+.instagram {
+  background-color: #F77737;
+  color: white;
+}
+
 .card {
   margin: 1rem;
   padding: 1.5rem;
