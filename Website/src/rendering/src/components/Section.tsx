@@ -25,10 +25,7 @@ const Section = (props: SectionProps): JSX.Element => {
         {props.fields && (
           <>
             <Text tag="h2" field={props.fields?.title} className={titleCssClasses} />
-            <div
-              className={contentCssClasses}
-              dangerouslySetInnerHTML={{ __html: props.fields?.content?.value }}
-            ></div>
+            <Text tag="div" field={props.fields?.content} className={contentCssClasses} />
           </>
         )}
         {!!props.rendering && (
