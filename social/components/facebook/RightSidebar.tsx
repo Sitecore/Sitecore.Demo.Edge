@@ -1,4 +1,12 @@
-import React from 'react';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBell,
+  faBullhorn,
+  faEllipsisH,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const RightSidebar = () => {
   return (
@@ -20,7 +28,7 @@ const RightSidebar = () => {
         <ul className="text-gray-500 text-sm">
           <li className="h-8 mb-2 flex items-center justify-content cursor-pointer space-x-3 p-2 rounded-md hover:bg-gray-200">
             <div>
-              <i className="fas fa-bell"></i>
+              <FontAwesomeIcon icon={faBell}></FontAwesomeIcon>
             </div>
             <div>
               <p className="text-xs">Notification</p>
@@ -28,7 +36,7 @@ const RightSidebar = () => {
           </li>
           <li className="h-8 flex items-center justify-content cursor-pointer space-x-3 p-2 rounded-md hover:bg-gray-200">
             <div>
-              <i className="fas fa-bullhorn"></i>
+              <FontAwesomeIcon icon={faBullhorn}></FontAwesomeIcon>
             </div>
             <div>
               <p className="text-xs">Create promotion</p>
@@ -43,13 +51,13 @@ const RightSidebar = () => {
           </div>
           <div className="flex items-center space-x-3 text-gray-500">
             <button className="w-8 h-8 focus:outline-none rounded-full hover:bg-gray-200">
-              <i className="fab fa-youtube"></i>
+              <FontAwesomeIcon icon={faYoutube}></FontAwesomeIcon>
             </button>
             <button className="w-8 h-8 focus:outline-none rounded-full hover:bg-gray-200">
-              <i className="fas fa-search"></i>
+              <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
             </button>
             <button className="w-8 h-8 focus:outline-none rounded-full hover:bg-gray-200">
-              <i className="fas fa-ellipsis-h"></i>
+              <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
             </button>
           </div>
         </div>

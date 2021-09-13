@@ -6,7 +6,7 @@ import NewsFeedScreen from "../components/facebook/NewsFeedScreen";
 import RightSidebar from "../components/facebook/RightSidebar";
 import Navbar from "../components/facebook/Navbar";
 import { GetStaticProps } from "next";
-import { Post } from "../interfaces/Index";
+import { Post } from "../interfaces/index";
 import { getFacebookPosts } from "../pages/api/queries/getFacebookPosts";
 
 type PostProps = {
@@ -20,13 +20,13 @@ export default function Facebook(props: PostProps) {
     <div>
       <Navbar />
       <div className="w-full h-full grid grid-cols-7">
-        <div className="col-span-2 flex justify-start ml-2">
+        <div className="col-span-2 justify-start ml-2 hidden md:flex">
           <LeftSidebar />
         </div>
-        <div className="col-span-3 h-full">
+        <div className="col-span-7 md:col-span-3 h-full">
           <NewsFeedScreen posts={props.posts} preview={props.preview} />
         </div>
-        <div className="col-span-2 flex justify-end pr-2">
+        <div className="col-span-2  hidden md:flex justify-end pr-2">
           <RightSidebar />
         </div>
       </div>

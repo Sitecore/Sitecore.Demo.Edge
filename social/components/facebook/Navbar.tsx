@@ -1,14 +1,32 @@
 import React from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faFacebookMessenger,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faHome,
+  faTv,
+  faStore,
+  faUser,
+  faGamepad,
+  faPlus,
+  faBell,
+  faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-14 bg-white grid grid-cols-7 gap-4">
+    <div className="w-full h-14 bg-white grid grid-cols-7 gap-4 shadow-md">
       <div className="col-span-2 flex items-center">
         <div className="flex items-center ml-2">
           <div className="h-10 text-blue-500">
             <Link href="/" passHref>
-              <i className="fab fa-facebook" style={{ fontSize: 40 }}></i>
+              <FontAwesomeIcon
+                icon={faFacebook}
+                style={{ fontSize: 40 }}
+              ></FontAwesomeIcon>
             </Link>
           </div>
           <div className="h-10">
@@ -19,12 +37,15 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-3 flex items-center justify-center space-x-2">
+      <div className="col-span-3  hidden md:flex items-center justify-center space-x-2">
         <Link href="/" passHref>
           <div className="w-24 h-12 rounded-lg flex items-center justify-center cursor-pointer hover:bg-gray-100">
             <div className="w-14 h-auto relative flex items-center justify-center">
               <div className="text-blue-500">
-                <i className="text-2xl fas fa-home"></i>
+                <FontAwesomeIcon
+                  icon={faHome}
+                  className="text-2xl"
+                ></FontAwesomeIcon>
               </div>
             </div>
           </div>
@@ -36,7 +57,10 @@ const Navbar = () => {
                 9+
               </div>
               <div className="text-blue-500">
-                <i className="text-2xl fas fa-tv"></i>
+                <FontAwesomeIcon
+                  icon={faTv}
+                  className="text-2xl"
+                ></FontAwesomeIcon>
               </div>
             </div>
           </div>
@@ -48,7 +72,10 @@ const Navbar = () => {
                 9+
               </div>
               <div className="text-blue-500">
-                <i className="text-2xl fas fa-store"></i>
+                <FontAwesomeIcon
+                  icon={faStore}
+                  className="text-2xl"
+                ></FontAwesomeIcon>
               </div>
             </div>
           </div>
@@ -60,7 +87,10 @@ const Navbar = () => {
                 2
               </div>
               <div className="text-blue-500">
-                <i className="text-2xl fas fa-users"></i>
+                <FontAwesomeIcon
+                  icon={faUser}
+                  className="text-2xl"
+                ></FontAwesomeIcon>
               </div>
             </div>
           </div>
@@ -72,7 +102,10 @@ const Navbar = () => {
                 9+
               </div>
               <div className="text-blue-500">
-                <i className="text-2xl fas fa-gamepad"></i>
+                <FontAwesomeIcon
+                  icon={faGamepad}
+                  className="text-2xl"
+                ></FontAwesomeIcon>
               </div>
             </div>
           </div>
@@ -81,7 +114,7 @@ const Navbar = () => {
       <div className="col-span-2 flex items-center justify-end">
         <div className="h-10 w-auto flex items-center space-x-2 pr-2">
           <Link href="/" passHref>
-            <button className="h-10 px-2 flex space-x-1 items-center justify-center focus:outline-none hover:bg-gray-300 rounded-full">
+            <button className="h-10 px-2 hidden md:flex space-x-1 items-center justify-center focus:outline-none hover:bg-gray-300 rounded-full">
               <div className="h-8">
                 <img
                   src="https://picsum.photos/200"
@@ -95,16 +128,16 @@ const Navbar = () => {
             </button>
           </Link>
           <button className="w-10 h-10 bg-gray-200 focus:outline-none hover:bg-gray-300 rounded-full">
-            <i className="fas fa-plus"></i>
+            <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
           </button>
           <button className="w-10 h-10 bg-gray-200 focus:outline-none hover:bg-gray-300 rounded-full">
-            <i className="fab fa-facebook-messenger"></i>
+            <FontAwesomeIcon icon={faFacebookMessenger}></FontAwesomeIcon>
           </button>
           <button className="w-10 h-10 bg-gray-200 focus:outline-none hover:bg-gray-300 rounded-full">
-            <i className="fas fa-bell"></i>
+            <FontAwesomeIcon icon={faBell}></FontAwesomeIcon>
           </button>
           <button className="w-10 h-10 bg-gray-200 focus:outline-none hover:bg-gray-300 rounded-full">
-            <i className="fas fa-sort-down"></i>
+            <FontAwesomeIcon icon={faSortDown}></FontAwesomeIcon>
           </button>
         </div>
       </div>

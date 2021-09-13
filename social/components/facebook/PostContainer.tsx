@@ -1,5 +1,14 @@
 import React from "react";
-import { Post } from "../../interfaces/Index";
+import { Post } from "../../interfaces/index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faComment,
+  faEllipsisH,
+  faHeart,
+  faShare,
+  faSurprise,
+  faThumbsUp,
+} from "@fortawesome/free-solid-svg-icons";
 
 type PostProps = {
   posts: Post[];
@@ -32,7 +41,7 @@ export default function PostContainer(props: PostProps) {
                 </div>
                 <div className="w-8 h-8">
                   <button className="w-full h-full hover:bg-gray-100 rounded-full text-gray-400 focus:outline-none">
-                    <i className="fas fa-ellipsis-h"></i>
+                    <FontAwesomeIcon icon={faEllipsisH}></FontAwesomeIcon>
                   </button>
                 </div>
               </div>
@@ -51,22 +60,22 @@ export default function PostContainer(props: PostProps) {
                   <div className="flex items-center">
                     <div className="flex items-center text-gray-400 text-sm">
                       <button className="focus:outline-none flex items-center justify-center w-4 h-4 rounded-full bg-red-500 text-white">
-                        <i
+                        <FontAwesomeIcon
+                          icon={faHeart}
                           style={{ fontSize: 10 }}
-                          className="fas fa-heart"
-                        ></i>
+                        ></FontAwesomeIcon>
                       </button>
                       <button className="focus:outline-none flex items-center justify-center w-4 h-4 rounded-full bg-blue-500 text-white">
-                        <i
+                        <FontAwesomeIcon
+                          icon={faThumbsUp}
                           style={{ fontSize: 10 }}
-                          className="fas fa-thumbs-up"
-                        ></i>
+                        ></FontAwesomeIcon>
                       </button>
                       <button className="focus:outline-none flex items-center justify-center w-4 h-4 rounded-full bg-yellow-500 text-white">
-                        <i
+                        <FontAwesomeIcon
+                          icon={faSurprise}
                           style={{ fontSize: 10 }}
-                          className="fas fa-surprise"
-                        ></i>
+                        ></FontAwesomeIcon>
                       </button>
                       <div className="ml-1">
                         <p>130K</p>
@@ -80,7 +89,7 @@ export default function PostContainer(props: PostProps) {
                 <div className="flex space-x-3 text-gray-400">
                   <button className="flex-1 flex items-center h-8 focus:outline-none focus:bg-gray-200 justify-center space-x-2 hover:bg-gray-100 rounded-md">
                     <div>
-                      <i className="fas fa-thumbs-up"></i>
+                      <FontAwesomeIcon icon={faThumbsUp}></FontAwesomeIcon>
                     </div>
                     <div>
                       <p className="font-semibold text-sm">Like</p>
@@ -88,7 +97,7 @@ export default function PostContainer(props: PostProps) {
                   </button>
                   <button className="flex-1 flex items-center h-8 focus:outline-none focus:bg-gray-200 justify-center space-x-2 hover:bg-gray-100 rounded-md">
                     <div>
-                      <i className="fas fa-comment"></i>
+                      <FontAwesomeIcon icon={faComment}></FontAwesomeIcon>
                     </div>
                     <div>
                       <p className="font-semibold text-sm">Comment</p>
@@ -96,7 +105,7 @@ export default function PostContainer(props: PostProps) {
                   </button>
                   <button className="flex-1 flex items-center h-8 focus:outline-none focus:bg-gray-200 justify-center space-x-2 hover:bg-gray-100 rounded-md">
                     <div>
-                      <i className="fas fa-share"></i>
+                      <FontAwesomeIcon icon={faShare}></FontAwesomeIcon>
                     </div>
                     <div>
                       <p className="font-semibold text-sm">Share</p>
@@ -110,4 +119,3 @@ export default function PostContainer(props: PostProps) {
     </div>
   );
 }
-

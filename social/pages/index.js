@@ -54,7 +54,11 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>
+        <div className="bg-black w-10 h-10 absolute left text-white rounded-full text-center align-bottom text-2xl left-5">
+          &#8962;
+        </div>
+      </footer>
     </div>
   );
 }
