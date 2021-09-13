@@ -28,6 +28,7 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
               <Image
                 field={props.fields.data.item.headerLogo.jsonValue}
                 alt={props.fields.data.item.headerLogo.alt}
+                loading="lazy"
               />
             </a>
           </Link>

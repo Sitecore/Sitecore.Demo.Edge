@@ -32,6 +32,7 @@ const Footer = (props: FooterProps): JSX.Element => (
           <Image
             field={props.fields.data.item.footerLogo.jsonValue}
             alt={props.fields.data.item.footerLogo.alt}
+            loading="lazy"
           />
         </a>
       </Link>
