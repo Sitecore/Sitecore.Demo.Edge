@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type FooterProps = ComponentProps & {
+export type FooterProps = ComponentProps & {
   fields: {
     data: {
       item: {
