@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type MainNavigationProps = ComponentProps & {
+export type MainNavigationProps = ComponentProps & {
   fields: {
     data: {
       item: {

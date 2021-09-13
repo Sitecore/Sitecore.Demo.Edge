@@ -4,10 +4,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from '../components/Header';
 import { HeaderProps } from '../components/Header';
 import HeroSection, { HeroProps } from '../components/HeroSection';
-import MainNavigation from '../components/MainNavigation';
+import MainNavigation, {MainNavigationProps} from '../components/MainNavigation';
 import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 import SponsorsGrid, { Sponsor, SponsorsProps } from '../components/SponsorsGrid';
-import Footer from '../components/Footer';
+import Footer, {FooterProps} from '../components/Footer';
 
 export default {
   title: 'Pages/Home',
@@ -153,12 +153,46 @@ const threeColProps = {
   },
 } as ThreeColumnsSectionProps;
 
+const mainNavigationArgs = {
+  fields: {
+    data: {
+      item: {
+        headerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as MainNavigationProps;
+
+const footerProps = {
+  fields: {
+    data: {
+      item: {
+        footerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as FooterProps;
+
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
     <>
       <header>
         <Header {...headerProps} />
-        <MainNavigation />
+        <MainNavigation {...mainNavigationArgs}/>
       </header>
       <main>
         <HeroSection {...heroProps} />
@@ -166,7 +200,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
         <SponsorsGrid {...sponsorProps} />
       </main>
       <footer>
-        <Footer />
+        <Footer {...footerProps} />
       </footer>
     </>
   );
