@@ -12,10 +12,10 @@ SharedFields:
   Value: Office/16x16/document_tag.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/FeaturedProducts
+  Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/FeaturedProducts
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -34,11 +34,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c5868286-7e8d-460d-a7ac-8f3509da31da"
+      Value: "e1e9beb4-f350-4e9e-a5c5-c0e2cca7b5a3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T150529Z
+      Value: 20210909T203952Z

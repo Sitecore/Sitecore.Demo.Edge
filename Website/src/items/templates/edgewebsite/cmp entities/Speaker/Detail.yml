@@ -2,7 +2,7 @@
 ID: "f6cae817-0556-4a22-a345-53fa6671bbaa"
 Parent: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/Speaker/Detail
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Speaker/Detail
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder

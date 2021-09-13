@@ -2,7 +2,7 @@
 ID: "ba924357-8521-4cb6-9962-b0f2b5391844"
 Parent: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
 Template: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
-Path: /sitecore/templates/Project/edgewebsite/cmp entities/News/__Standard Values
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/News/__Standard Values
 SharedFields:
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
@@ -38,11 +38,6 @@ SharedFields:
           key="jss-section-content"
           md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
         <r
-          ds="{214B0B3D-DACF-467E-BE2F-78AA60827854}"
-          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
-          ph="jss-main"
-          uid="{C01724B6-7680-4B88-ABF3-4D8575C28536}" />
-        <r
           rname="Header"
           id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
           par=""
@@ -77,7 +72,8 @@ SharedFields:
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
           ph="/jss-main/jss-section-content-{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}-0"
-          uid="{7526C199-8C9C-5826-B88F-B88FFE081145}" />
+          uid="{7526C199-8C9C-5826-B88F-B88FFE081145}"
+          ccb="Clear on publish" />
         <r
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
@@ -107,11 +103,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b7412cae-acc7-406e-89ed-03da9c79e030"
+      Value: "47797260-57b8-4a65-ad4b-bea3859c0e70"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T172411Z
+      Value: 20210907T204321Z

@@ -37,7 +37,6 @@ export type SessionInformationProps = ComponentProps & {
     Type: Field<string>;
     Date: Field<string>;
     Image: ImageField;
-    Duration: Field<string>;
     Speakers: Speaker[];
   };
 };
@@ -79,10 +78,6 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                   })
                 }
               />
-              <span className="block">
-                Duration:&nbsp;
-                <Text tag="h3" className="inline uppercase" field={props.fields.Duration}></Text>
-              </span>
             </div>
 
             <div className="hidden md:block pt-4" title="TODO: hardcoded for now...">

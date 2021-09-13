@@ -2,7 +2,7 @@
 ID: "15c5e646-b51a-4eb5-bb7b-006e2e7625d5"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/Sessions/Mountain biking
+Path: /sitecore/content/EdgeWebsite/home/sessions/Mountain biking
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -15,9 +15,6 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "088d16c1-3209-4fa9-a133-3776bfdffa32"
-      Hint: Duration
-      Value: 1_5 Hours
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -49,16 +46,14 @@ Languages:
       Value: "MOUNTAIN BIKING: TALES FROM THE Trail"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0f5edcea-b392-4f40-8f2e-794ccef669c1"
+      Value: "45c51cd0-bb11-456b-9933-5de0c16bedb2"
     - ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
       Hint: Speakers
-      Value: |
-        {90BD7C87-6039-4A67-9034-5EEAB1480C36}
-        {414CA3B1-125B-4451-8DB0-18AA7CF21D2B}
+      Value: "{414CA3B1-125B-4451-8DB0-18AA7CF21D2B}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T191608Z
+      Value: 20210907T112937Z

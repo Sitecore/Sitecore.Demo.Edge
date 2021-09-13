@@ -3,10 +3,22 @@ import Link from 'next/link';
 const AttendeeRegistrationForm = (): JSX.Element => (
   <div className="form attendee-registration-form">
     <h2>Attendee Registration</h2>
-    <input type="text" placeholder="First name" />
-    <input type="text" placeholder="Last name" />
-    <input type="text" placeholder="Email" />
-    <input type="text" placeholder="Password" />
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="First Name" id="firstName" />
+      <label htmlFor="firstName">First Name</label>
+    </div>
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="Last Name" id="lastName" />
+      <label htmlFor="lastName">Last Name</label>
+    </div>
+    <div className="floating-label-wrap">
+      <input type="text" placeholder="Email" id="email" />
+      <label htmlFor="email">Email</label>
+    </div>
+    <div className="floating-label-wrap">
+      <input type="password" placeholder="Password" id="password" />
+      <label htmlFor="password">Password</label>
+    </div>
     <label className="checkbox-label">
       <input type="checkbox" defaultChecked />
       <span className="label-text">If you wish to receive updates on the expo</span>

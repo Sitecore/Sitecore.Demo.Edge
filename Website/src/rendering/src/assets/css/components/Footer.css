@@ -56,10 +56,5 @@
         }
       }
     }
-
-    &__region {
-      @apply hidden;
-      @apply md:block;
-    }
   }
 }

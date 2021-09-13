@@ -20,6 +20,23 @@
     .testimony {
       @apply space-y-3;
 
+      blockquote p::before,
+      blockquote p::after {
+        @apply text-6xl absolute opacity-25;
+      }
+
+      blockquote p::before {
+        @apply -ml-7 -mt-2;
+
+        content: "“";
+      }
+
+      blockquote p::after {
+        @apply ml-1 -mt-1;
+
+        content: "”";
+      }
+
       .provider {
         @apply font-bold;
       }

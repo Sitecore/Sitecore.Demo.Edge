@@ -35,7 +35,7 @@ Default.args = {
     LeftLink: {
       value: {
         href: '/sessions',
-        text: 'View Schedule',
+        text: 'View Sessions',
       },
     },
     MiddleLogo: {
