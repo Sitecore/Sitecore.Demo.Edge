@@ -4,10 +4,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from '../components/Header';
 import { HeaderProps } from '../components/Header';
 import HeroSection, { HeroProps } from '../components/HeroSection';
-import MainNavigation, {MainNavigationProps} from '../components/MainNavigation';
+import MainNavigation, { MainNavigationProps } from '../components/MainNavigation';
 import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 import SponsorsGrid, { Sponsor, SponsorsProps } from '../components/SponsorsGrid';
-import Footer, {FooterProps} from '../components/Footer';
+import Footer, { FooterProps } from '../components/Footer';
 
 export default {
   title: 'Pages/Home',
@@ -192,7 +192,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
     <>
       <header>
         <Header {...headerProps} />
-        <MainNavigation {...mainNavigationArgs}/>
+        <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
         <HeroSection {...heroProps} />
