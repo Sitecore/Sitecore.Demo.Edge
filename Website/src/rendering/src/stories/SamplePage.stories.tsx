@@ -18,7 +18,12 @@ const heroProps = {
   fields: {
     Logo: {
       value: {
-        src: '/assets/img/play-logo-wide-light.svg',
+        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
+      },
+    },
+    Hero: {
+      value: {
+        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=c63ff08e',
       },
     },
     Slogan: {

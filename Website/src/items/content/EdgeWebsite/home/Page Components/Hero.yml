@@ -18,6 +18,10 @@ Languages:
     - ID: "314545e5-6af8-531c-90fb-bcf1c36fe509"
       Hint: When
       Value: August 24th – 25th
+    - ID: "3c791ab5-7a98-4536-8abb-52b28328a054"
+      Hint: Hero
+      Value: |
+        <image stylelabs-content-id="31904" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31904/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=c63ff08e" mediaid="" stylelabs-content-type="Image" alt="home-hero-background.jpg" height="850" width="2000" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,7 +39,7 @@ Languages:
       Value: Sports and Leisure Expo
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "619fbc7e-1295-4410-be79-7d8203194925"
+      Value: "0e106090-f54a-496c-9a5e-8837d77389ca"
     - ID: "a32cd274-1db8-5448-9727-87d275cef3f8"
       Hint: Slogan
       Value: "READY | STEADY | PLAY!"
@@ -52,7 +56,7 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T131939Z
+      Value: 20210913T104341Z
     - ID: "e82805ef-5ecb-5cec-8608-b049848c22bb"
       Hint: Subtitle
       Value: "Join us in person or online for the fifth annual PLAY! Summit."
