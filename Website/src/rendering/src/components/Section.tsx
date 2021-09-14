@@ -1,4 +1,11 @@
-import { Text, Field, Link, Placeholder, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  RichText,
+  Text,
+  Field,
+  Link,
+  Placeholder,
+  LinkField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type SectionProps = ComponentProps & {
@@ -25,7 +32,7 @@ const Section = (props: SectionProps): JSX.Element => {
         {props.fields && (
           <>
             <Text tag="h2" field={props.fields?.title} className={titleCssClasses} />
-            <Text tag="div" field={props.fields?.content} className={contentCssClasses} />
+            <RichText tag="div" field={props.fields?.content} className={contentCssClasses} />
           </>
         )}
         {!!props.rendering && (
