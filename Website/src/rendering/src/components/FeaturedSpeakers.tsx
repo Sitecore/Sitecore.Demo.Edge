@@ -32,6 +32,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
                 alt={speaker.fields.Name?.value}
                 width={265}
                 height={265}
+                loading="lazy"
               />
               <div className="item-details">
                 <Text tag="p" field={speaker.fields.Name}></Text>

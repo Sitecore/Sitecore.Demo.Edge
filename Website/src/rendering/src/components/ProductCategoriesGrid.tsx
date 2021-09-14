@@ -26,7 +26,13 @@ const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
             <Link href="/shop/teamsports">
               <a>
                 <figure>
-                  <Image field={category.fields.Picture} alt="Category" width={265} height={265} />
+                  <Image
+                    field={category.fields.Picture}
+                    alt="Category"
+                    width={265}
+                    height={265}
+                    loading="lazy"
+                  />
                 </figure>
                 <h3 className="product__category">
                   <Text field={category.fields.Title} />
