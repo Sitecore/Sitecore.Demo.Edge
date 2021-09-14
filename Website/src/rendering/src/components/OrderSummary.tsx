@@ -6,7 +6,7 @@ const OrderSummary = (): JSX.Element => (
       <div>
         <div className="line-item">
           <div className="item-name">Regular Ticket</div>
-          <div className="item-price">$149.00</div>
+          <div className="item-price">$199.00</div>
         </div>
         <div>x 1 Regular Event Pass</div>
       </div>
@@ -19,7 +19,7 @@ const OrderSummary = (): JSX.Element => (
       </div>
       <div className="line-item total-line">
         <div>Total</div>
-        <div>$156.00</div>
+        <div>$206.00</div>
       </div>
     </div>
   </div>

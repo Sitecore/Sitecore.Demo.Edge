@@ -5,7 +5,13 @@
     @apply pt-5 pb-1;
   }
 
-  img.payment-methods {
-    @apply mx-auto;
+  .payment-methods {
+    @apply flex items-center;
+    label {
+      @apply contents;
+    }
+    img {
+      @apply pr-5;
+    }
   }
 }

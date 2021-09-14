@@ -2,12 +2,25 @@ import Link from 'next/link';
 
 const PaymentAndBillingForm = (): JSX.Element => (
   <div className="form payment-and-billing-form">
-    <h2>Select Payment Method</h2>
-    <img
-      className="payment-methods"
-      src="/assets/img/payment/pay-method.png"
-      alt="payment methods"
-    />
+    <h2>Payment Information</h2>
+    <div className="payment-methods">
+      <label>
+        <input type="radio" value="Male" name="gender" />{' '}
+        <img src="/assets/img/payment/visa.png" alt="payment methods" />
+      </label>
+      <label>
+        <input type="radio" value="Female" name="gender" />{' '}
+        <img src="/assets/img/payment/paypal.png" alt="payment methods" />
+      </label>
+      <label>
+        <input type="radio" value="Other" name="gender" />{' '}
+        <img src="/assets/img/payment/apay.png" alt="payment methods" />
+      </label>
+      <label>
+        <input type="radio" value="Other" name="gender" />{' '}
+        <img src="/assets/img/payment/gpay.png" alt="payment methods" />
+      </label>
+    </div>
     <div className="floating-label-wrap">
       <input type="text" placeholder="Card Number *" id="cardNumber" />
       <label htmlFor="cardNumber">Card Number *</label>
@@ -26,6 +39,7 @@ const PaymentAndBillingForm = (): JSX.Element => (
         <label htmlFor="ccv">CCV *</label>
       </div>
     </div>
+    {/* TODO: 
     <div className="floating-label-wrap">
       <input type="text" placeholder="Email" id="email" />
       <label htmlFor="email">Email</label>
@@ -37,7 +51,7 @@ const PaymentAndBillingForm = (): JSX.Element => (
     <div className="floating-label-wrap">
       <input type="password" placeholder="Confirm Password" id="comfirmPassword" />
       <label htmlFor="comfirmPassword">Confirm Password</label>
-    </div>
+    </div> */}
 
     <h2>Billing Address</h2>
     <div className="inline-fields">

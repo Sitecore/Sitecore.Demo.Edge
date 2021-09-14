@@ -15,23 +15,24 @@ const AttendeeRegistrationForm = (): JSX.Element => (
       <input type="text" placeholder="Email" id="email" />
       <label htmlFor="email">Email</label>
     </div>
+    {/* TODO: Implement later when registration is setup
     <div className="floating-label-wrap">
       <input type="password" placeholder="Password" id="password" />
       <label htmlFor="password">Password</label>
-    </div>
+    </div> */}
     <label className="checkbox-label">
-      <input type="checkbox" defaultChecked />
-      <span className="label-text">If you wish to receive updates on the expo</span>
+      <input type="checkbox" defaultChecked={false} />
+      <span className="label-text">I wish to receive updates on the expo</span>
     </label>
     <label className="checkbox-label">
-      <input type="checkbox" defaultChecked />
+      <input type="checkbox" defaultChecked={false} />
       <span className="label-text">
-        If you wish to receive updates from third party vendors and promotions
+        I wish to receive updates from third party vendors and promotions
       </span>
     </label>
     <div className="button-area">
       <Link href="/tickets/payment">
-        <a className="btn--main btn--main--round">Submit</a>
+        <a className="btn--main btn--main--round align-right">Next</a>
       </Link>
     </div>
     <div className="footnote">

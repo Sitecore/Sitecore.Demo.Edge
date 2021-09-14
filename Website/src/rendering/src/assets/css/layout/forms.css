@@ -34,9 +34,9 @@
   }
 
   .checkbox-label {
-    @apply flex pl-5 w-full text-left;
+    @apply flex w-full text-left;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       @apply mt-1;
     }
 
@@ -61,7 +61,7 @@
     }
 
     .note {
-      @apply ml-10;
+      @apply text-xs italic;
     }
 
     a {
@@ -71,6 +71,9 @@
 
   .button-area {
     @apply px-6 pt-4 pb-10;
+    .align-right {
+      @apply float-right;
+    }
   }
 }
 
