@@ -4,20 +4,20 @@ const PaymentAndBillingForm = (): JSX.Element => (
   <div className="form payment-and-billing-form">
     <h2>Payment Information</h2>
     <div className="payment-methods">
-      <label>
-        <input type="radio" value="Male" name="gender" />{' '}
+      <input type="radio" value="Visa" name="payment" id="visa" />{' '}
+      <label htmlFor="visa">
         <img src="/assets/img/payment/visa.png" alt="payment methods" />
       </label>
-      <label>
-        <input type="radio" value="Female" name="gender" />{' '}
+      <input type="radio" value="ppal" name="payment" id="ppal" />{' '}
+      <label htmlFor="ppal">
         <img src="/assets/img/payment/paypal.png" alt="payment methods" />
       </label>
-      <label>
-        <input type="radio" value="Other" name="gender" />{' '}
+      <input type="radio" value="spay" name="payment" id="apay" />{' '}
+      <label htmlFor="apay">
         <img src="/assets/img/payment/apay.png" alt="payment methods" />
       </label>
-      <label>
-        <input type="radio" value="Other" name="gender" />{' '}
+      <input type="radio" value="gpay" name="payment" id="gpay" />{' '}
+      <label htmlFor="gpay">
         <img src="/assets/img/payment/gpay.png" alt="payment methods" />
       </label>
     </div>

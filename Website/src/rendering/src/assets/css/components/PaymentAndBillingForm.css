@@ -7,11 +7,20 @@
 
   .payment-methods {
     @apply flex items-center;
-    label {
-      @apply contents;
+
+    input:checked + label {
+      img {
+        border: 1px solid gray;
+        border-radius: 7px;
+      }
     }
+
+    input {
+      @apply contents cursor-pointer invisible w-0;
+    }
+
     img {
-      @apply pr-5;
+      @apply mr-5;
     }
   }
 }
