@@ -113,6 +113,23 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{67CF3D8B-4FAB-4ABD-945D-62F247B83171}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:ds="{97EF88D1-C0DA-43AC-BE13-5778FDB2E84A}"
+              s:id="{118A1550-728A-5324-8DF3-9AF7D252E89B}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{A3BEBB67-94E3-5B86-8630-32674C1E9DCA}-0"
+              s:ccb="Clear on publish" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210707T152623Z

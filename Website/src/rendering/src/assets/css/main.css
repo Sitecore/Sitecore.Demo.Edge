@@ -73,6 +73,7 @@
 @import "./components/TicketGrid.css";
 @import "./components/TicketPaymentConfirmed.css";
 @import "./components/TicketUpsell.css";
+@import "./components/PaymentProgress.css";
 
 /* 7. Our page-specific styles */
 

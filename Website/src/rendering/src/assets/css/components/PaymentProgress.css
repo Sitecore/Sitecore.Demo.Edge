@@ -1,0 +1,23 @@
+.payment-progress {
+  @apply w-full flex content-center items-center text-center mb-10 bg-gray;
+
+  .payment-progress-item {
+    @apply w-1/3;
+
+    span {
+      @apply float-right pr-1;
+    }
+
+    &.active {
+      @apply bg-black text-white;
+    }
+
+    &.previous {
+      @apply bg-gray-dark;
+    }
+
+    &.next {
+      @apply bg-gray;
+    }
+  }
+}
