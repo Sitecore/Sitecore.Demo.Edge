@@ -34,7 +34,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5112693d-0c40-4b5d-9bb0-49549d4bd385"
+      Value: "0b47bc04-2bea-491b-bcc6-37462cf5f4b3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -44,7 +44,7 @@ Languages:
       Value: 20210803T194226Z
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T204123Z
+      Value: 20210914T123135Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan posuere orci, placerat tristique quam vulputate non. Aliquam erat volutpat. Vestibulum ante ipsum primis in orci luctus et posuere cubilia curae; Sed mollis tincidunt magna eu blandit.
@@ -54,7 +54,7 @@ Languages:
     - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="35983" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35983/thumbnail" src="https://mint.stylelabs.io/api/public/content/5ad4b0bcf48d4bdb90291cd42abfa0a9?v=d4a901dc" mediaid="" stylelabs-content-type="Image" alt="session-4.jpg" height="400" width="600" />
+        <image stylelabs-content-id="33751" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33751/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/87ac6a73b220499cb8481b37ea82d4b5?v=980fe792" mediaid="" stylelabs-content-type="Image" alt="session-4.webp" height="400" width="600" />
     - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
       Hint: Content
       Value: |

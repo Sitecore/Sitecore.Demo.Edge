@@ -28,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "84794384-b41c-4853-badb-858373b46b69"
+      Value: "945c6146-30f1-45a9-b098-d9638e4ea829"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -38,7 +38,7 @@ Languages:
       Value: 20210803T060000Z
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T204126Z
+      Value: 20210914T123148Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: "Momentum to premiere new fitness app at PLAY! Summit"
@@ -48,7 +48,7 @@ Languages:
     - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="35977" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35977/thumbnail" src="https://mint.stylelabs.io/api/public/content/c65200dcdd944b67b75797fa2b9b9953?v=a25a42c7" mediaid="" stylelabs-content-type="Image" alt="session-1.jpg" height="400" width="600" />
+        <image stylelabs-content-id="33750" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33750/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/74c5a0b4faa04049acc1d10da8b5ef18?v=8bc248e6" mediaid="" stylelabs-content-type="Image" alt="session-1.webp" height="400" width="600" />
     - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
       Hint: Content
       Value: "Momentum to premiere new fitness app at PLAY! Summit"
