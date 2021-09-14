@@ -8,9 +8,6 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "097edbee-00fc-5fe5-ae17-e4cfb6c43d09"
-      Hint: Title
-      Value: Featured Speakers
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210714T203228Z
@@ -22,12 +19,9 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\superuser
-    - ID: "83401b48-7ea2-5365-bb09-0e4a75ca7b06"
-      Hint: Subtitle
-      Value: "Catch up with some of the world’s leading sports professionals, appearing in-person and online for exclusive interviews, workshops, and Q&As."
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c6f1c78b-b121-43fd-8434-9d4966448690"
+      Value: "206e0b1a-a574-4d71-98bc-7a7ee46fc965"
     - ID: "9ddba344-5267-4dab-9427-f6a440d61606"
       Hint: Speakers
       Value: |
@@ -41,4 +35,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T122937Z
+      Value: 20210909T103653Z
