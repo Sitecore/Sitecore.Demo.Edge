@@ -13,9 +13,6 @@ const Template: ComponentStory<typeof PaymentProgress> = (args) => <PaymentProgr
 export const Page1 = Template.bind({});
 Page1.args = {
   fields: {
-    Title: {
-      value: '',
-    },
     ActiveStep: {
       value: 1,
     },
@@ -25,9 +22,6 @@ Page1.args = {
 export const Page2 = Template.bind({});
 Page2.args = {
   fields: {
-    Title: {
-      value: '',
-    },
     ActiveStep: {
       value: 2,
     },
@@ -37,9 +31,6 @@ Page2.args = {
 export const Page3 = Template.bind({});
 Page3.args = {
   fields: {
-    Title: {
-      value: '',
-    },
     ActiveStep: {
       value: 3,
     },

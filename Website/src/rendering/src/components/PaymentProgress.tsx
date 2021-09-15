@@ -3,7 +3,6 @@ import { ComponentProps } from 'lib/component-props';
 
 type PaymentProgressProps = ComponentProps & {
   fields: {
-    Title: Field<string>;
     ActiveStep: Field<number>;
   };
 };

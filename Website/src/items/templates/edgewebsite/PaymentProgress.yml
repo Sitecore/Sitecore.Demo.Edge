@@ -9,7 +9,7 @@ SharedFields:
   Value: Office/32x32/graph_from.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
-  Value: "{6DB09CEF-64A8-52A3-A980-38408109C4D7}"
+  Value: 
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 2900
@@ -37,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "60b5f62b-49f8-40f0-aa93-6be283246d23"
+      Value: "4f2570dc-6046-4bd8-9f56-f1d223168118"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210914T222053Z
+      Value: 20210915T154150Z
