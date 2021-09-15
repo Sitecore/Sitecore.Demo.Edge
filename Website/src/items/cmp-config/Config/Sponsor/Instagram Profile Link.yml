@@ -1,18 +1,18 @@
 ﻿---
-ID: "3b2b2e78-e2de-43d7-8796-bcdadd3146ab"
-Parent: "6b835483-0d83-4a75-a4f2-7743cd6d588e"
+ID: "bcb5809d-640d-4fb9-95e4-38c83b781df7"
+Parent: "e073f9a4-6376-4922-9786-580050546c22"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Speaker/Twitter Profile Link
+Path: /sitecore/system/Modules/CMP/Config/Sponsor/Instagram Profile Link
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 200
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Speaker_TwitterLink
+  Value: Sponsor_InstagramLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{025898A9-3BEB-4AFA-B37A-E45E00F2FF2F}"
+  Value: "{2696B94C-FB09-4392-999A-9A7A7223F228}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: 
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ca3ae1cf-9bcc-43af-9a07-18d48f12c4de"
+      Value: "c8ac0592-f13a-4075-835c-decf424b6a33"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210915T195205Z
+      Value: 20210915T195138Z
