@@ -1,12 +1,9 @@
 ﻿---
-ID: "91446149-9f4d-47f2-9fe4-7434ef130c43"
-Parent: "92298800-b22f-4d3b-a7bb-75dfe66b78ef"
+ID: "6f585d62-2ac8-4844-92d4-d7674a2f84c2"
+Parent: "287c6458-3de0-4a62-99ed-b0469b13806e"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Session/Data/Speakers
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Testimony/Data/ProviderVendor
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: /sitecore/content/EdgeWebsite/home/speakers
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: "Single-Line Text"
@@ -20,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210729T221306Z
+      Value: 20210915T193345Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,11 +28,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "71eaca2c-a0c0-4833-986a-d527bd63e63a"
+      Value: "1bc9f2a0-53eb-4356-93a1-6cbdf2bd69ec"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T112234Z
+      Value: 20210915T193345Z
