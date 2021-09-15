@@ -1,5 +1,6 @@
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import RequireDatasource from './RequireDatasource';
 
 type PaymentProgressProps = ComponentProps & {
   fields: {
@@ -26,18 +27,23 @@ const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
     { index: 3, link: '/tickets/payment/confirmed', text: 'Payment Confirmation' },
   ];
   return (
-    <div className="payment-progress">
-      {steps.map((step, index) => (
-        <a
-          key={index}
-          className={GetActiveClass(props?.fields?.ActiveStep?.value, step.index)}
-          href={step.link}
-        >
-          {step.text}
-          <span>{step.index < steps.length ? '❯' : ''}</span>
-        </a>
-      ))}
-    </div>
+    <>
+      {!props.fields && <RequireDatasource />}
+      {props.fields && (
+        <div className="payment-progress">
+          {steps.map((step, index) => (
+            <a
+              key={index}
+              className={GetActiveClass(props?.fields?.ActiveStep?.value, step.index)}
+              href={step.link}
+            >
+              {step.text}
+              <span>{step.index < steps.length ? '❯' : ''}</span>
+            </a>
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
