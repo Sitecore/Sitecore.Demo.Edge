@@ -44,6 +44,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
   // DEMO TEAM CUSTOMIZATION - Add CDP
   const cdpClientKey = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
   const cdpApiTargetEndpoint = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
+  const isCdpClientKeyConfigured = !!cdpClientKey && !!cdpApiTargetEndpoint;
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Add head section
@@ -66,23 +67,22 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       </I18nProvider>
 
       {/* DEMO TEAM CUSTOMIZATION - Add CDP */}
-      <Script id="cdpSettings">{`
-        var cdpClientKey = '${cdpClientKey}';
-        var cdpApiTargetEndpoint = '${cdpApiTargetEndpoint}';
-        var isCdpClientKeyConfigured = !!cdpClientKey;
+      {isCdpClientKeyConfigured && (
+        <>
+          <Script id="cdpSettings">{`
+            // Define the Boxever queue
+            var _boxeverq = _boxeverq || [];
 
-        if (isCdpClientKeyConfigured) {
-          // Define the Boxever queue
-          var _boxeverq = _boxeverq || [];
-
-          _boxever_settings = {
-            client_key: cdpClientKey,
-            target: cdpApiTargetEndpoint,
-            cookie_domain: '.edge.localhost',
-          };
-        }
-      `}</Script>
-      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
+            // Define the Boxever settings
+            _boxever_settings = {
+              client_key: '${cdpClientKey}',
+              target: '${cdpApiTargetEndpoint}',
+              cookie_domain: '.edge.localhost',
+            };
+          `}</Script>
+          <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
+        </>
+      )}
       {/* END CUSTOMIZATION*/}
     </>
   );
