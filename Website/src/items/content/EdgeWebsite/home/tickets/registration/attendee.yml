@@ -134,6 +134,23 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{CC6B0567-1C58-4394-A4EB-F533D3447D0C}"
+              p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+              s:ds="{5E80F4BE-2CDE-454A-9DE0-F062A1490F65}"
+              s:id="{118A1550-728A-5324-8DF3-9AF7D252E89B}"
+              s:par=""
+              s:ph="/jss-main/jss-section-content-{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}-0"
+              s:ccb="Clear on publish" />
+          </d>
+        </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210707T152629Z
