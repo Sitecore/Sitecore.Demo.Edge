@@ -6,6 +6,7 @@ import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import Script from 'next/script';
 import NProgress from 'nprogress';
+import config from '../temp/config';
 
 // Using nprogress are completely optional.
 //  nprogress provides a loading indicator on page/route changes.
@@ -41,10 +42,26 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 
   const { dictionary, ...rest } = pageProps;
 
-  // DEMO TEAM CUSTOMIZATION - Add CDP
-  const cdpClientKey = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
-  const cdpApiTargetEndpoint = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
-  const isCdpClientKeyConfigured = !!cdpClientKey && !!cdpApiTargetEndpoint;
+  // DEMO TEAM CUSTOMIZATION - CDP integration
+  const cdpClientKey = config.cdpClientKey;
+  const cdpApiTargetEndpoint = config.cdpApiTargetEndpoint;
+  const isCdpConfigured = !!cdpClientKey && !!cdpApiTargetEndpoint;
+
+  const cdpScripts = isCdpConfigured ? (
+    <>
+      <Script id="cdpSettings">{`
+        // Define the Boxever queue
+        var _boxeverq = _boxeverq || [];
+
+        // Define the Boxever settings
+        _boxever_settings = {
+          client_key: '${cdpClientKey}',
+          target: '${cdpApiTargetEndpoint}',
+          cookie_domain: '.edge.localhost',
+        };`}</Script>
+      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
+    </>
+  ) : undefined;
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Add head section
@@ -66,23 +83,8 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         <Component {...rest} />
       </I18nProvider>
 
-      {/* DEMO TEAM CUSTOMIZATION - Add CDP */}
-      {isCdpClientKeyConfigured && (
-        <>
-          <Script id="cdpSettings">{`
-            // Define the Boxever queue
-            var _boxeverq = _boxeverq || [];
-
-            // Define the Boxever settings
-            _boxever_settings = {
-              client_key: '${cdpClientKey}',
-              target: '${cdpApiTargetEndpoint}',
-              cookie_domain: '.edge.localhost',
-            };
-          `}</Script>
-          <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
-        </>
-      )}
+      {/* DEMO TEAM CUSTOMIZATION - CDP integration */}
+      {cdpScripts}
       {/* END CUSTOMIZATION*/}
     </>
   );

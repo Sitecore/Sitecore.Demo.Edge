@@ -47,7 +47,7 @@ services:
       NEXTJS_DIST_DIR: ".next-container"
       PUBLIC_URL: "https://${RENDERING_HOST}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      CDP_PROXY_URL: https://${CDP_PROXY_HOST}
+      NEXT_PUBLIC_CDP_PROXY_URL: https://${CDP_PROXY_HOST}
       NEXT_PUBLIC_CDP_CLIENT_KEY: ${CDP_CLIENT_KEY}
       NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT: ${CDP_API_TARGET_ENDPOINT}
       #DEBUG: ${DEBUG} # Uncomment this line and set the DEBUG environment variable value in the .env file to enable debug logging
