@@ -7,6 +7,7 @@ import {
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
+import { logViewEvent } from './services/BoxeverService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -25,6 +26,11 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
     updateSitecoreContext && updateSitecoreContext(context);
+
+    // DEMO TEAM CUSTOMIZATION - Log page views in CDP
+    const { route } = context;
+    logViewEvent(route);
+    // END CUSTOMIZATION
   }, [context, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
 
   const { route } = context;
