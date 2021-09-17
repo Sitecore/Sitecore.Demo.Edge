@@ -1,7 +1,7 @@
 export default function Payment() {
   return (
-    <div className="leading-loose min-h-full bg-black flex justify-center items-center py-10">
-      <form className="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
+    <div className="leading-loose min-h-full bg-black flex justify-center items-center">
+      <form className="max-w-xl m-4 p-5 bg-white rounded shadow-xl">
         <p className="text-gray-800 font-medium">Customer information</p>
         <div className="">
           <label className="block text-sm text-gray-00" htmlFor="cus_name">
@@ -22,7 +22,7 @@ export default function Payment() {
             Email
           </label>
           <input
-            className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
+            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
             id="cus_email"
             name="cus_email"
             type="text"
