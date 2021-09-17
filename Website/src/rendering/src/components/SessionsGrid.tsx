@@ -70,7 +70,6 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                       <Text tag="span" field={speaker.fields.Role}></Text>
                     </p>
                   ))}
-                ;
               </div>
             </a>
           </Link>
