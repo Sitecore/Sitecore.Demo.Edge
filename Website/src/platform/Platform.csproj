@@ -105,8 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomFields\CmpListField.cs" />
+    <Compile Include="Pipelines\CmpListFieldSerializer.cs" />
     <Compile Include="Pipelines\DemoCmpMultilistFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
+    <Compile Include="Pipelines\GetCustomFieldSerializer.cs" />
     <Compile Include="Utilities\IndexRebuild.aspx.cs">
       <DependentUpon>IndexRebuild.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

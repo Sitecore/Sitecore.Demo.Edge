@@ -19,10 +19,6 @@ namespace Sitecore.Demo.Edge.Website.CustomFields
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            if (!Sitecore.Context.ClientPage.IsEvent)
-            {
-                this.RestoreListbox();
-            }
         }
 
         private void RestoreListbox()
