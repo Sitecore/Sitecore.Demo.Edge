@@ -18,11 +18,6 @@ export function generateConfig(configOverrides?: { [key: string]: string }): voi
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
     jssAppName: 'Unknown',
-    // DEMO CUSTOMIZATION - CDP integration
-    cdpProxyUrl: '',
-    cdpClientKey: '',
-    cdpApiTargetEndpoint: '',
-    // END CUSTOMIZATION
   };
 
   // require + combine config sources
@@ -46,17 +41,11 @@ const config = {};\n`;
 
   // Set base configuration values, allowing override with environment variables
   Object.keys(config).forEach((prop) => {
-    // DEMO CUSTOMIZATION - Support config from NEXT_PUBLIC_* environment variables
-    // eslint-disable-next-line prettier/prettier
-    configText += `config.${prop} = process.env.${constantCase(prop)} || process.env.NEXT_PUBLIC_${constantCase(prop)} || "${config[prop]}",\n`;
-    // END CUSTOMIZATION
+    configText += `config.${prop} = process.env.${constantCase(prop)} || "${config[prop]}",\n`;
   });
   // Set computed values, allowing override with environment variables
   Object.keys(computedConfig).forEach((prop) => {
-    // DEMO CUSTOMIZATION - Support config from NEXT_PUBLIC_* environment variables
-    // eslint-disable-next-line prettier/prettier
-    configText += `config.${prop} = process.env.${constantCase(prop)} || process.env.NEXT_PUBLIC_${constantCase(prop)} || ${computedConfig[prop]};\n`;
-    // END CUSTOMIZATION
+    configText += `config.${prop} = process.env.${constantCase(prop)} || ${computedConfig[prop]};\n`;
   });
   configText += `module.exports = config;`;
 

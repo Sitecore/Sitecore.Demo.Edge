@@ -6,7 +6,7 @@ import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import Script from 'next/script';
 import NProgress from 'nprogress';
-import config from '../temp/config';
+import { isCdpConfigured, CDP_API_TARGET_ENDPOINT, CDP_CLIENT_KEY } from 'src/services/BoxeverService';
 
 // Using nprogress are completely optional.
 //  nprogress provides a loading indicator on page/route changes.
@@ -43,10 +43,6 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
   const { dictionary, ...rest } = pageProps;
 
   // DEMO TEAM CUSTOMIZATION - CDP integration
-  const cdpClientKey = config.cdpClientKey;
-  const cdpApiTargetEndpoint = config.cdpApiTargetEndpoint;
-  const isCdpConfigured = !!cdpClientKey && !!cdpApiTargetEndpoint;
-
   const cdpScripts = isCdpConfigured ? (
     <>
       <Script id="cdpSettings">{`
@@ -55,8 +51,8 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 
         // Define the Boxever settings
         _boxever_settings = {
-          client_key: '${cdpClientKey}',
-          target: '${cdpApiTargetEndpoint}',
+          client_key: '${CDP_CLIENT_KEY}',
+          target: '${CDP_API_TARGET_ENDPOINT}',
           cookie_domain: '.edge.localhost',
         };`}</Script>
       <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>

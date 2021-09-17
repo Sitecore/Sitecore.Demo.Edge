@@ -1,7 +1,6 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { required } from '../lib/util';
-import config from '../temp/config';
 
 // ***** TYPES *****
 
@@ -115,7 +114,12 @@ type GuestProfileResponse = GuestProfile | undefined;
 
 // ***** API *****
 
-export function isBoxeverConfigured(): boolean {
+const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
+export const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
+export const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
+export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
+
+function isBoxeverConfiguredInBrowser(): boolean {
   return !!(
     typeof window !== 'undefined' &&
     window._boxever_settings &&
@@ -168,7 +172,7 @@ function delayUntilBoxeverIsReady(functionToDelay: () => unknown) {
 }
 
 function sendEventCreate(eventConfig: Record<string, unknown>) {
-  if (typeof window === 'undefined' || !isBoxeverConfigured()) {
+  if (typeof window === 'undefined' || !isBoxeverConfiguredInBrowser()) {
     return new Promise<void>(function (resolve) {
       resolve();
     });
@@ -204,7 +208,7 @@ function sendEventCreate(eventConfig: Record<string, unknown>) {
 }
 
 function callFlows(flowConfig: Record<string, unknown>) {
-  if (typeof window === 'undefined' || !isBoxeverConfigured()) {
+  if (typeof window === 'undefined' || !isBoxeverConfiguredInBrowser()) {
     return new Promise<void>(function (resolve) {
       resolve();
     });
@@ -275,7 +279,7 @@ export function identifyByEmail(email: string | undefined = required()): Promise
 // organized to return a promise to know when the asynchronous parts are done.
 // ****************************************************************************
 export function forgetCurrentGuest(): Promise<void> {
-  if (typeof window === 'undefined' || !isBoxeverConfigured()) {
+  if (typeof window === 'undefined' || !isBoxeverConfiguredInBrowser()) {
     return new Promise<void>(function (resolve) {
       resolve();
     });
@@ -357,7 +361,7 @@ function boxeverPost(
   action: string,
   payload?: Record<string, unknown>
 ): AxiosPromise<unknown> {
-  const url = `${config.cdpProxyUrl}/Boxever${action}`;
+  const url = `${CDP_PROXY_URL}/Boxever${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'POST',
@@ -376,7 +380,7 @@ function boxeverGet(
   action: string,
   payload?: Record<string, unknown>
 ): AxiosPromise<unknown> {
-  const url = `${config.cdpProxyUrl}/Boxever${action}`;
+  const url = `${CDP_PROXY_URL}/Boxever${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'GET',
@@ -392,7 +396,7 @@ function boxeverDelete(
   action: string,
   payload?: Record<string, unknown>
 ): AxiosPromise<unknown> {
-  const url = `${config.cdpProxyUrl}/Boxever${action}`;
+  const url = `${CDP_PROXY_URL}/Boxever${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'DELETE',
@@ -415,7 +419,7 @@ function getGuestProfilePromise(guestRef: GuestRef | undefined = required()): Pr
 }
 
 export function getGuestProfileResponse(guestRef: GuestRef): Promise<GuestProfileResponse> {
-  if (!isBoxeverConfigured()) {
+  if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<undefined>(function (resolve) {
       resolve(undefined);
     });
@@ -438,7 +442,7 @@ export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileRespo
 export function isAnonymousGuest(guestRef: GuestRef): Promise<boolean> {
   const defaultValue = true;
 
-  if (!isBoxeverConfigured()) {
+  if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<boolean>(function (resolve) {
       resolve(defaultValue);
     });
@@ -470,7 +474,7 @@ export function getGuestFullNameInGuestResponse(
 export function getGuestFullName(guestRef: GuestRef): Promise<string | undefined> {
   const defaultValue = '';
 
-  if (!isBoxeverConfigured()) {
+  if (!isBoxeverConfiguredInBrowser()) {
     return new Promise(function (resolve) {
       resolve(defaultValue);
     });
