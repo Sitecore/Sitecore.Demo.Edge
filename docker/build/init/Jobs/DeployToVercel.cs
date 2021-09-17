@@ -70,6 +70,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             DeployTv(ns, contentHubApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, token, scope);
+            DeployKiosk(ns, token, scope);
 
             await Complete();
         }
@@ -138,6 +139,30 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
+        }
+
+        private static void DeployKiosk(string ns, string token, string scope)
+        {
+            var sourceDirectory = "C:\\app\\kiosk";
+            var targetDirectory = $"C:\\app\\{ns}-kiosk";
+
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
+
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            // Remove project if already exists
+            cmd.Run($"vercel remove {ns}-kiosk --token {token} --scope {scope} --yes");
+
+            // Create new project
+            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
+            var productionUrl = $"https://{ns}-kiosk-{scope}.vercel.app";
+
+            // Deploy project files
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+
+            // Assign custom domain name
+            // TODO: cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
         }
     }
 }
