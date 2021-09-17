@@ -1,32 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Helpers;
-using Newtonsoft.Json;
 using Sitecore.Abstractions;
 using Sitecore.Connector.CMP;
 using Sitecore.Connector.CMP.Conversion;
 using Sitecore.Connector.CMP.Helpers;
 using Sitecore.Connector.CMP.Pipelines.ImportEntity;
-using Sitecore.Data.Fields;
+using Sitecore.ContentSearch;
+using Sitecore.ContentSearch.SearchTypes;
 using Sitecore.Data.Items;
-using Sitecore.Data.Query;
 using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using Sitecore.SecurityModel;
-
-using Sitecore.Abstractions;
-using Sitecore.Connector.CMP.Helpers;
-using Sitecore.Connector.CMP.Models;
 using Sitecore.Data;
-using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
-using Sitecore.Globalization;
-using Sitecore.SecurityModel;
-using Stylelabs.M.Sdk.Contracts.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 
 namespace Sitecore.Demo.Edge.Website.Pipelines
@@ -36,21 +22,13 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
         private static CmpSettings _settings;
         private readonly ICmpConverterMapper _mapper;
         private readonly CmpHelper _cmpHelper;
-        private readonly BaseFactory _factory;
 
         public DemoCmpMultilistFieldMapping(ICmpConverterMapper mapper, BaseLog logger, CmpHelper cmpHelper,
             CmpSettings settings) : base(mapper, logger, cmpHelper, settings)
         {
-            //this._factory = factory;
             this._mapper = mapper;
             DemoCmpMultilistFieldMapping._settings = settings;
             this._cmpHelper = cmpHelper;
-        }
-
-        public void logThis(string msg)
-        {
-            Log.Info("nananana =============================================================== batmaaan", this);
-            Log.Info("========== " + msg, this);
         }
 
         public override void Process(ImportEntityPipelineArgs args, BaseLog logger)
@@ -65,7 +43,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                     try
                     {
                         args.Item.Editing.BeginEdit();
-                        args.Item[Sitecore.Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
+                        args.Item[Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
                         flag = this.TryMapConfiguredFields(args);
                     }
                     catch
@@ -83,7 +61,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                         {
                             args.Item.Editing.CancelEdit();
                             args.Item.Editing.BeginEdit();
-                            args.Item[Sitecore.Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
+                            args.Item[Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
                             args.Item.Editing.EndEdit();
                         }
                     }
@@ -99,19 +77,11 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                 "Could not find any Entity Mapping item for the Entity Type (Schema): " + args.ContentTypeIdentifier);
             bool flag = false;
 
-
-
             foreach (Item obj in args.EntityMappingItem.Children.Where<Item>((Func<Item, bool>) (i =>
                 i.TemplateID == Sitecore.Connector.CMP.Constants.RelationFieldMappingTemplateId)))
             {
                 string fieldName = obj[Sitecore.Connector.CMP.Constants.FieldMappingSitecoreFieldNameFieldId];
                 string str = obj[Sitecore.Connector.CMP.Constants.FieldMappingCmpFieldNameFieldId];
-
-                logThis(fieldName + " =========================> " + str);
-                logThis("value => " + args.Item[fieldName]);
-                logThis("template name: " + args.Item.TemplateName);
-                logThis("field type: " + args.Item.Fields[fieldName].Type);
-                logThis("source: " + args.Item.Fields[fieldName].Source);
                 
                 if (!string.IsNullOrEmpty(fieldName))
                 {
@@ -125,7 +95,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                     obj[
                                         Sitecore.Connector.CMP.Constants
                                             .RelationFieldMappingCmpRelationFieldNameFieldId];
-                                logThis(cmpRelationName);
+
                                 if (string.IsNullOrEmpty(cmpRelationName))
                                 {
                                     this.Logger.Error(
@@ -153,21 +123,18 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                             (IEnumerable<string>) stringList)
                                         : string.Empty;
                                 }
-
-                                logThis("______" + args.Item[fieldName]);
                                 continue;
                             }
 
                             args.Item[fieldName] = this._mapper.Convert(args.EntityDefinition, str,
                                 args.Entity.GetPropertyValue(str));
-                            logThis("______" + args.Item[fieldName]);
                             continue;
                         }
                         catch (Exception ex)
                         {
                             this.Logger.Error(BaseHelper.GetLogMessageText(
                                     DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
-                                    $"An error occured during converting '{(object) str}' field to '{(object) fieldName}' field. Field mapping ID: '{(object) obj.ID}'."),
+                                    $"An error occurred during converting '{(object) str}' field to '{(object) fieldName}' field. Field mapping ID: '{(object) obj.ID}'."),
                                 ex, (object) this);
                             flag = true;
                             args.Exception = ex;
@@ -178,9 +145,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
                 this.Logger.Error(
                     BaseHelper.GetLogMessageText(DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
-                        string.Format(
-                            "Configuration of the field mapping '{0}' is incorrect. Required fields are not specified.",
-                            (object) obj.ID)), (object) this);
+                        $"Configuration of the field mapping '{(object) obj.ID}' is incorrect. Required fields are not specified."), (object) this);
                 flag = true;
             }
 
@@ -190,31 +155,53 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
         public string GetListfieldValue(string value, string source, Database contentDatabase)
         {
+            if (string.IsNullOrEmpty(value)) return string.Empty;
+
             string[] nameValues = value.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries);
             string[] newValues = new string[nameValues.Length];
 
-            if (nameValues.Length > 0)
-            {
-                for (int i = 0; i < nameValues.Length; i++)
-                {
-                    string name = nameValues[i].Trim();
-                    if (!string.IsNullOrEmpty(name))
-                    {
-                        Item item = contentDatabase.GetItem(source + "/" + name);
+            if (nameValues.Length <= 0) return string.Empty;
 
-                        if (item != null)
-                        {
-                            newValues[i] = item.ID.ToString();
-                        }
-                        else
-                        {
-                            newValues[i] = name + ' ' + Translate.Text("[Item not found]");
-                        }
+            for (var i = 0; i < nameValues.Length; i++)
+            {
+                string name = nameValues[i].Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    newValues[i] = Translate.Text("Item not found");
+                }
+
+                Item item = contentDatabase.GetItem(source + "/" + name);
+
+                if (item != null)
+                {
+                    newValues[i] = item.ID.ToString();
+                }
+                else
+                {
+                    item = GetItemByDisplayName(name);
+                    if (item != null)
+                    {
+                        newValues[i] = item.ID.ToString();
+                    }
+                    else
+                    {
+                        newValues[i] = name + ' ' + Translate.Text("[Item not found]");
                     }
                 }
             }
-
             return string.Join("|", newValues);
+        }
+
+        public Item GetItemByDisplayName(string displayName)
+        {
+            var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index"); 
+            using (var context = searchIndex.CreateSearchContext())
+            {
+                var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
+
+
+                return searchResultItems == null ? null : searchResultItems.GetItem();
+            }
         }
 
     }
