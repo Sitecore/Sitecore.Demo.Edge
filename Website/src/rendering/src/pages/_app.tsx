@@ -6,7 +6,11 @@ import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import Script from 'next/script';
 import NProgress from 'nprogress';
-import { isCdpConfigured, CDP_API_TARGET_ENDPOINT, CDP_CLIENT_KEY } from 'src/services/BoxeverService';
+import {
+  isCdpConfigured,
+  CDP_API_TARGET_ENDPOINT,
+  CDP_CLIENT_KEY,
+} from 'src/services/BoxeverService';
 
 // Using nprogress are completely optional.
 //  nprogress provides a loading indicator on page/route changes.

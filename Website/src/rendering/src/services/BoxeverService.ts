@@ -357,29 +357,24 @@ export function getGuestRef(): Promise<GuestRefResponse> {
   }) as Promise<GuestRefResponse>;
 }
 
-function boxeverPost(
-  action: string,
-  payload?: Record<string, unknown>
-): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Boxever${action}`;
+// TEMP: Keeping this commented method for near future use
+// function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
+//   const url = `${CDP_PROXY_URL}/Boxever${action}`;
 
-  const options: AxiosRequestConfig = {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    data: payload,
-    withCredentials: false,
-    url,
-  };
+//   const options: AxiosRequestConfig = {
+//     method: 'POST',
+//     headers: {
+//       'content-type': 'application/json',
+//     },
+//     data: payload,
+//     withCredentials: false,
+//     url,
+//   };
 
-  return axios(options);
-}
+//   return axios(options);
+// }
 
-function boxeverGet(
-  action: string,
-  payload?: Record<string, unknown>
-): AxiosPromise<unknown> {
+function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
   const url = `${CDP_PROXY_URL}/Boxever${action}`;
 
   const options: AxiosRequestConfig = {
@@ -392,29 +387,29 @@ function boxeverGet(
   return axios(options);
 }
 
-function boxeverDelete(
-  action: string,
-  payload?: Record<string, unknown>
-): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Boxever${action}`;
+// TEMP: Keeping this commented method for near future use
+// function boxeverDelete(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
+//   const url = `${CDP_PROXY_URL}/Boxever${action}`;
 
-  const options: AxiosRequestConfig = {
-    method: 'DELETE',
-    headers: {
-      'content-type': 'application/json',
-    },
-    data: payload,
-    withCredentials: false,
-    url,
-  };
+//   const options: AxiosRequestConfig = {
+//     method: 'DELETE',
+//     headers: {
+//       'content-type': 'application/json',
+//     },
+//     data: payload,
+//     withCredentials: false,
+//     url,
+//   };
 
-  return axios(options);
-}
+//   return axios(options);
+// }
 
 // ********************************
 // Get non-expanded guest profile
 // ********************************
-function getGuestProfilePromise(guestRef: GuestRef | undefined = required()): Promise<GuestProfileResponse> {
+function getGuestProfilePromise(
+  guestRef: GuestRef | undefined = required()
+): Promise<GuestProfileResponse> {
   return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
@@ -435,7 +430,9 @@ export function getGuestProfileResponse(guestRef: GuestRef): Promise<GuestProfil
 // ********************************
 // isAnonymousGuest
 // ********************************
-export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse | undefined = required()): boolean {
+export function isAnonymousGuestInGuestResponse(
+  guestResponse: GuestProfileResponse | undefined = required()
+): boolean {
   return !guestResponse?.data?.email;
 }
 
