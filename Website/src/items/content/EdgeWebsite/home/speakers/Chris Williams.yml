@@ -1,12 +1,12 @@
 ﻿---
-ID: "13b19b25-6f72-4e01-aced-e791caa0ea41"
-Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
-Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Room 1001
+ID: "6d7143cf-2b50-4ac7-8e44-b7ddee4bb781"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/EdgeWebsite/home/speakers/Chris Williams
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "Zw-3mJR-GUu8Lfg2gLW74g"
+  Value: 9Xfs1oR2gkCqau_X6uX8JQ
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210617T060712Z
+      Value: 20210917T154820Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,11 +25,11 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2f77fdf7-a1be-42c9-923c-af2bd3aef9ed"
+      Value: "c5ab6472-442b-4bdb-87c8-e547161e5c11"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T060712Z
+      Value: 20210917T154820Z

@@ -1,15 +1,12 @@
 ﻿---
-ID: "cb829e9e-59ac-431e-a8d7-d60d0d4ebd8e"
-Parent: "1c53ee47-1dc3-4105-aaa6-2ec75a3481c3"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Room/Data/Image
+ID: "07ec03ad-c8c4-475c-8414-a098f5a36e6b"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/EdgeWebsite/home/speakers/Clint Adams
 SharedFields:
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: Image
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 600
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: h_vCfw9iNkGRdYdzjwYrkQ
 Languages:
 - Language: en
   Versions:
@@ -17,22 +14,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210918T235233Z
+      Value: 20210917T164714Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "598b3841-a14b-4f0c-9ab6-ea78d25694a9"
+      Value: "e3d710e9-a07f-49a2-90c0-602af69a0f7a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210918T235639Z
+      Value: 20210917T164714Z

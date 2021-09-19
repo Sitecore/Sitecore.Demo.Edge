@@ -1,0 +1,46 @@
+﻿---
+ID: "0455ff04-ae55-4dd8-b5af-4bb32056677b"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/EdgeWebsite/home/sessions/Morning Keynote Test
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: tRLSl7RkUEyzhoj6TFFbMQ
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>Morning Keynote session for Day 1.</p>
+        
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210917T150351Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: Morning Keynote Test
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: "{13B19B25-6F72-4E01-ACED-E791CAA0EA41}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cdf47c7e-87e7-4077-801e-0be3e59dca0d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210917T150353Z

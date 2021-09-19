@@ -1,12 +1,12 @@
 ﻿---
-ID: "a80f4537-b5f1-4ea8-9938-ebe873bde266"
-Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
-Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Room 1002
+ID: "3274ef7d-20ea-416e-bed9-f07575bd1986"
+Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
+Template: "a06b2851-c98a-4622-8773-98736daadb13"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Main Pavilion
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "Ek8DnmkR0E-IUFQKF4vPOw"
+  Value: RLpFdAqiqkayO712H1fzIg
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210617T060719Z
+      Value: 20210917T215038Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,11 +25,19 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "43275bf7-ce68-4b50-880f-216aed6b656d"
+      Value: "57301c97-79c6-4dbc-9871-8dd4b304fe58"
+    - ID: "91e38983-3229-41b3-9161-c1136039a209"
+      Hint: Description
+      Value: |
+        <p>The Main&nbsp;Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms.</p>
+        
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T060720Z
+      Value: 20210917T215038Z
+    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
+      Hint: Name
+      Value: Main Pavilion
