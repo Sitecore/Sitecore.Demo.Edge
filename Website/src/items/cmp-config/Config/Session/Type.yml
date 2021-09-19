@@ -1,21 +1,25 @@
 ﻿---
-ID: "1353243c-3985-4fd1-a5c3-2900f6dc05aa"
+ID: "ba5167ed-dbe2-4ddb-a4e2-96695a0c70f3"
 Parent: "d30ddb56-a0f7-4750-8a3a-79c58bf5162b"
 Template: "49652eb6-f98e-4114-b46a-925b9815578a"
-Path: /sitecore/system/Modules/CMP/Config/Session/Speakers
+Path: /sitecore/system/Modules/CMP/Config/Session/Type
+BranchID: "45dfeca8-d42a-4f2d-8dec-6a308aebf23d"
 SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: 
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Speakers
+  Value: SessionType
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Name
+  Value: TaxonomyName
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{40095D3A-79BD-49D3-9696-3CDE0BA89E4B}"
+  Value: "{6F888071-3E3A-4888-AE95-D90B7DF06870}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: 
+  Value: "{ACC03942-A7B8-4DAA-96D2-A9196A9EF547}"
 Languages:
 - Language: en
   Versions:
@@ -23,7 +27,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20190614T174144Z
+      Value: 20210919T014012Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,11 +38,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ab422450-4e8b-4099-b22c-da084a2a973f"
+      Value: "504ae523-9049-45cb-9f9d-371159031097"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T015145Z
+      Value: 20210919T090101Z

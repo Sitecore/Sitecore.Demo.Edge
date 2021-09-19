@@ -1,12 +1,12 @@
 ﻿---
-ID: "0455ff04-ae55-4dd8-b5af-4bb32056677b"
+ID: "6c7adad2-b0ad-44fc-881a-2ca48ea8c9a8"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/Morning Keynote Test
+Path: /sitecore/content/EdgeWebsite/home/sessions/Fuel for life nutrition 101
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: tRLSl7RkUEyzhoj6TFFbMQ
+  Value: Bm3vv4WWfkSyzwyaHC7P3Q
 Languages:
 - Language: en
   Versions:
@@ -15,11 +15,14 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>Morning Keynote session for Day 1.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.&nbsp;adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.&nbsp;adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210917T150351Z
+      Value: 20210919T085241Z
+    - ID: "40095d3a-79bd-49d3-9696-3cde0ba89e4b"
+      Hint: Speakers
+      Value: Jalen Williams, Mary Asada
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -30,17 +33,17 @@ Languages:
         default\Anonymous
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: Morning Keynote Test
+      Value: "Fuel for life: nutrition 101"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "{13B19B25-6F72-4E01-ACED-E791CAA0EA41}"
+      Value: Room 1003, Room 1001
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cdf47c7e-87e7-4077-801e-0be3e59dca0d"
+      Value: "744c75cc-ac6c-46b0-9532-14c5047483e8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210917T150353Z
+      Value: 20210919T085242Z

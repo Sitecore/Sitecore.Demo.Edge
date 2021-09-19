@@ -9,7 +9,7 @@ SharedFields:
   Value: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: CmpMultiList
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 800
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "56479e48-f370-484d-bb13-c4b718004934"
+      Value: "d4489653-c35e-45ff-88ea-743d3c4ae0d6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210917T061533Z
+      Value: 20210919T013839Z

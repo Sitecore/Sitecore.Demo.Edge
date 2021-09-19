@@ -1,12 +1,12 @@
 ﻿---
-ID: "b4713846-eb9c-412c-af29-462cf6dba696"
+ID: "db5bfbe7-b584-4bbe-94c5-a67f20f1bb81"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/7 mindset strategies to raise your game test
+Path: /sitecore/content/EdgeWebsite/home/sessions/Breakfast
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "Fjm7bEdK3k-chKp9c316cw"
+  Value: 4BEVzEwXE0qZs1MvUV4lwg
 Languages:
 - Language: en
   Versions:
@@ -15,11 +15,11 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+        <p>Breakfast</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210916T165629Z
+      Value: 20210919T085106Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -30,14 +30,17 @@ Languages:
         default\Anonymous
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: 7 mindset strategies to raise your game test5
+      Value: Breakfast
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: Room 1004
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "48343a41-9e5f-43b4-806c-fdab727fdcc9"
+      Value: "7a9537ad-225a-4b2d-9c00-7fe891096ecb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210916T171152Z
+      Value: 20210919T085106Z

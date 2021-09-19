@@ -1,15 +1,12 @@
 ﻿---
-ID: "6dbf136c-8e3c-4a96-8cf8-64696e6707e0"
+ID: "71b49ce4-5034-436e-be7f-db838c8fdfef"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/Morning Keynote
+Path: /sitecore/content/EdgeWebsite/home/sessions/Mountain biking tales from the trail
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: tRLSl7RkUEyzhoj6TFFbMQ
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 87
+  Value: k8hmxzWpuUy79dDXhdB7NQ
 Languages:
 - Language: en
   Versions:
@@ -18,11 +15,11 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>This is the Morning Keynote session for Day 1.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pedeposuere a, pede.</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210809T220927Z
+      Value: 20210919T091009Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,19 +28,19 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
-      Hint: Type
-      Value: Keynote
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: Morning Keynote
+      Value: "Mountain biking: tales from the trail"
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: Room 1001, Room 1002
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "847c431d-db53-456e-92d2-bfa74eba5773"
+      Value: "3f3bdf75-2a41-4df0-b72f-5654f98887dd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T191559Z
+      Value: 20210919T091010Z

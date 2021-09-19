@@ -1,15 +1,12 @@
 ﻿---
-ID: "f5809647-ccca-420a-8b49-f30184476231"
+ID: "ecb47dd1-8390-4551-9edd-ea680b7466e2"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/Train smarter
+Path: /sitecore/content/EdgeWebsite/home/sessions/Train smarter not harder
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: CrT3zRfQ80uyiNG6kpazgw
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 96
+  Value: HOl1YUjfoEScb2gWsvJGZA
 Languages:
 - Language: en
   Versions:
@@ -18,15 +15,14 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>TRAIN SMARTER, NOT HARDER always</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210729T194040Z
-    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
-      Hint: Image
-      Value: |
-        <image stylelabs-content-id="35977" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35977/thumbnail" src="https://mint.stylelabs.io/api/public/content/c65200dcdd944b67b75797fa2b9b9953?v=3280464e" mediaid="" stylelabs-content-type="Image" alt="session-1.jpg" height="400" width="600" />
+      Value: 20210919T091145Z
+    - ID: "40095d3a-79bd-49d3-9696-3cde0ba89e4b"
+      Hint: Speakers
+      Value: Ed Jones
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,22 +31,19 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "6e6cbcbf-1059-48df-88c8-3f29e5127e5b"
-      Hint: Date
-      Value: 20210730T183300Z
-    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
-      Hint: Type
-      Value: Workshop
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: Train smarter, not harder
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: Room 1001
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "207fbbae-9d80-413b-ab4d-27b3478c275a"
+      Value: "9bd2e680-1736-400e-bae5-9dd62d7aa92b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T191613Z
+      Value: 20210919T091146Z
