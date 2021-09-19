@@ -1,12 +1,12 @@
 ﻿---
-ID: "a7ab0541-427d-4220-a91e-9b95916b2d22"
-Parent: "582f8e8f-453d-4ffc-adbc-de6abc4ff3b1"
-Template: "1c5fe58a-0bb1-45af-a6eb-b88ccecb57e6"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Speaker Type/Sponsor
+ID: "fb455ba8-7131-4936-afef-fa45e79fff84"
+Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
+Template: "a06b2851-c98a-4622-8773-98736daadb13"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Main Conference Center
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Demo.SpeakerType.Sponsor
+  Value: i6QAlByPsEmdIs47C8P4zg
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210725T104604Z
+      Value: 20210919T092952Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,16 +23,21 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "75bc2d2c-9506-4d62-ba63-b4e605254af9"
-      Hint: Name
-      Value: Sponsor
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e631facb-2e8c-4e34-8fb9-d13b23f80653"
+      Value: "acbdb41c-c871-4e70-9952-c80649662061"
+    - ID: "91e38983-3229-41b3-9161-c1136039a209"
+      Hint: Description
+      Value: |
+        <p>Main Conference Center</p>
+        
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T092629Z
+      Value: 20210919T092952Z
+    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
+      Hint: Name
+      Value: Main Conference Center

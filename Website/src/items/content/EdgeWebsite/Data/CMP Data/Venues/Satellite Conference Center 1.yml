@@ -1,12 +1,12 @@
 ﻿---
-ID: "627a2e06-bbb8-42ad-9bd1-f74801647779"
+ID: "cda69a6c-7ac6-43f2-ae48-fbee619328f5"
 Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
 Template: "a06b2851-c98a-4622-8773-98736daadb13"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Trump Stadium
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Satellite Conference Center 1
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "ZuzgYPxjBk2opDNNy-1k9Q"
+  Value: OMo8A6NcHkeXTV0fLCah3g
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210617T060517Z
+      Value: 20210919T093017Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,17 +25,19 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6ab489a7-7fc7-4baa-8886-9fc0d1d0b0d5"
+      Value: "c3e3768b-875e-4bb9-9d1c-e915edbaf57e"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
-      Hint: description
-      Value: this is the biggest stadium ever in the universe
+      Hint: Description
+      Value: |
+        <p>Satellite Conference Center 1</p>
+        
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210617T060517Z
+      Value: 20210919T093017Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
-      Hint: name
-      Value: Trump Stadium
+      Hint: Name
+      Value: Satellite Conference Center 1

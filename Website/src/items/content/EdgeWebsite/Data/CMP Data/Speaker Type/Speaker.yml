@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Speaker Type/Speaker
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Edge.SpeakerType.Speaker
+  Value: Demo.SpeakerType.Speaker
 Languages:
 - Language: en
   Versions:
@@ -28,11 +28,11 @@ Languages:
       Value: Speaker
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e3b40c47-b296-4a67-88b6-d11d8d5235c0"
+      Value: "dfdaf300-ad2e-4481-9bf4-ef5030c058d6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210725T104539Z
+      Value: 20210919T092624Z

@@ -1,12 +1,12 @@
 ﻿---
-ID: "3274ef7d-20ea-416e-bed9-f07575bd1986"
+ID: "06c77d31-baa2-4162-bcf8-aeb093f4839c"
 Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
 Template: "a06b2851-c98a-4622-8773-98736daadb13"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Main Pavilion
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Satellite Conference Center 2
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: RLpFdAqiqkayO712H1fzIg
+  Value: "_qk4UbSMPEGg128_iM-dng"
 Languages:
 - Language: en
   Versions:
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210917T215038Z
+      Value: 20210919T093052Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,11 +25,11 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "57301c97-79c6-4dbc-9871-8dd4b304fe58"
+      Value: "e1b37390-8162-4c43-b959-38cc2ed0e783"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
-        <p>The Main&nbsp;Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms.</p>
+        <p>Satellite Conference Center 2</p>
         
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
@@ -37,7 +37,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210917T215038Z
+      Value: 20210919T093052Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
-      Value: Main Pavilion
+      Value: Satellite Conference Center 2

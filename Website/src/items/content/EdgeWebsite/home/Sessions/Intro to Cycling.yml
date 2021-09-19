@@ -1,0 +1,51 @@
+﻿---
+ID: "e35fd211-a2cd-49d4-87cc-4dd07bc14b8c"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/EdgeWebsite/home/sessions/Intro to Cycling
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: 27WHPQDA1k6v6ScH6DLCRA
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet ligula.ipsum sit ligula.ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit ama.Lorem ipsum sit amet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum, sit amet ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, comet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum sit amet, consectetur elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, comet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210919T085613Z
+    - ID: "40095d3a-79bd-49d3-9696-3cde0ba89e4b"
+      Hint: Speakers
+      Value: Martin Moore, Kate Green
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: Intro to Cycling
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: Room 1001, Room 1002
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e2966a0d-07ae-4cfb-a1f1-9306a77998c2"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210919T090546Z
