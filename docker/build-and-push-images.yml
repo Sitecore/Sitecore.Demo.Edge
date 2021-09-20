@@ -140,6 +140,7 @@ stages:
   - Build
   - Build_Storybook
   - Build_TV
+  - Build_Kiosk
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
