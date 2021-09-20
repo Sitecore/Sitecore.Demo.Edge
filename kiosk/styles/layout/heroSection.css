@@ -3,18 +3,22 @@
 
   &__container {
     @apply flex flex-initial justify-end w-full my-0 mx-auto box-border overflow-hidden items-stretch flex-row pr-12;
+
     max-width: 1440px;
 
     &__content {
       @apply w-full bg-black flex justify-between flex-col;
       @apply md:w-5/12;
 
+      /* stylelint-disable */
       background: linear-gradient(
         135deg,
         rgba(80, 80, 80, 1) 0%,
         rgba(60, 60, 60, 1) 50%,
         rgba(50, 50, 50, 1) 100%
       );
+      /* stylelint-enable */
+
       box-shadow: 0 0 20px #232323;
 
       &__text {
