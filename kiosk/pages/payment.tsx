@@ -1,7 +1,5 @@
-import PaymentForm from "../components/PaymentForm";
+import PaymentForm from '../components/PaymentForm';
 
 export default function Payment() {
-  return (
-    <PaymentForm></PaymentForm>
-  );
+  return <PaymentForm></PaymentForm>;
 }

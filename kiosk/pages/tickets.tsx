@@ -1,7 +1,5 @@
-import TicketTiers from "../components/TicketTiers";
+import TicketTiers from '../components/TicketTiers';
 
 export default function Tickets() {
-  return (
-   <TicketTiers></TicketTiers>
-  );
+  return <TicketTiers></TicketTiers>;
 }
