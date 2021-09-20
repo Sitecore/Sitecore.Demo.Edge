@@ -33,7 +33,7 @@
       }
 
       .logo {
-        @apply hidden;
+        @apply pt-5 hidden;
         @apply md:block;
 
         img {
