@@ -1,20 +1,23 @@
 ﻿---
-ID: "a354e908-d5a7-46da-bdaa-193d79fdc8d9"
+ID: "e923fb60-ea19-4ae0-87c9-058d7bc72af7"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/Alfred Smith-Ronan"
+Path: /sitecore/content/EdgeWebsite/home/speakers/Alex Mena
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "U1Z-8nZDvUa-TRh8DINa6w"
+  Value: 8Ky4Zk8WDUyVpjKC8khw2Q
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "087528fd-b211-4715-aca0-cbe90275951b"
+      Hint: Featured
+      Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210917T170347Z
+      Value: 20210920T190602Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,10 +28,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b3cb3e5e-e0f5-47d2-85e1-4e6a1028db78"
+      Value: "1ae503ee-7ddd-4e1d-b44c-5d62ad852520"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
-      Value: Kolmann
+      Value: Solstice
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -36,17 +39,17 @@ Languages:
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: |
-        <p>Alfred Smith-Ronan</p>
+        <p>Alex Mena</p>
         
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
-      Value: Chief People Officer
+      Value: International Sales Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T192622Z
+      Value: 20210920T192449Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: "Alfred Smith-Ronan"
+      Value: Alex Mena

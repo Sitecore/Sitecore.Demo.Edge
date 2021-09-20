@@ -1,0 +1,50 @@
+﻿---
+ID: "f0b7cce4-204b-420e-a51f-ca54bd87981b"
+Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
+Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Curie Hall
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Fl7ogme3XUKCzTMFNlL40g
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
+      Hint: Capacity
+      Value: 75
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210920T163221Z
+    - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
+      Hint: Description
+      Value: |
+        <p>Curie Hall</p>
+        
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9c96925e-8014-4693-9e4a-3ff6c8920b60"
+    - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
+      Hint: Name
+      Value: Curie Hall
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "cb829e9e-59ac-431e-a8d7-d60d0d4ebd8e"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="36176" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36176/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/1890c853e7084530a248cb6f301c278b?v=158eb2e1" mediaid="" stylelabs-content-type="Image" alt="main-conference-center-2.jpg" height="3822" width="5733" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210920T185708Z

@@ -20,6 +20,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085106Z
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
+      Hint: Speakers
+      Value: "{07EC03AD-C8C4-475C-8414-A098F5A36E6B}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,19 +31,22 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Keynote
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: Breakfast
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: Room 1004
+      Value: "{9EE4E491-FDD0-4FDA-90C5-666D43CC33FB}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7a9537ad-225a-4b2d-9c00-7fe891096ecb"
+      Value: "4e386d45-219f-45a5-8a09-d698f90ccc59"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T085106Z
+      Value: 20210920T182816Z

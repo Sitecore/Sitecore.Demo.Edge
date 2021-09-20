@@ -2,7 +2,7 @@
 ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
 Parent: "f6cae817-0556-4a22-a345-53fa6671bbaa"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Speaker/Detail/Position
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Speaker/Detail/JobTitle
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type

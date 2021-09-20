@@ -1,12 +1,12 @@
 ﻿---
-ID: "06c77d31-baa2-4162-bcf8-aeb093f4839c"
-Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
-Template: "a06b2851-c98a-4622-8773-98736daadb13"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Satellite Conference Center 2
+ID: "fb075b79-a74f-4475-8694-5ba0433e2f78"
+Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
+Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
+Path: /sitecore/content/EdgeWebsite/home/sponsors/Overunder
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "_qk4UbSMPEGg128_iM-dng"
+  Value: "CyOzN-_IgkuT7qMsBCVYAg"
 Languages:
 - Language: en
   Versions:
@@ -14,33 +14,28 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210919T093052Z
+      Value: 20210920T163607Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         default\Anonymous
-    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
-      Hint: Size
-      Value: 750
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
+      Hint: Name
+      Value: Overunder
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3553abca-f9ca-4e3b-bc1b-23bc8717e322"
-    - ID: "91e38983-3229-41b3-9161-c1136039a209"
-      Hint: Description
-      Value: |
-        <p>Satellite Conference Center two</p>
-        
+      Value: "2452eeb4-ae6f-4912-8582-762151438b33"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cf42c29f-ee3a-4f06-92ac-10fc51a42099"
+      Hint: Level
+      Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T165846Z
-    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
-      Hint: Name
-      Value: Satellite Conference Center 2
+      Value: 20210920T163608Z

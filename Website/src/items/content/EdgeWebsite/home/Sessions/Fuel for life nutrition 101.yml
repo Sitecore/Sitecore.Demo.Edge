@@ -20,9 +20,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085241Z
-    - ID: "40095d3a-79bd-49d3-9696-3cde0ba89e4b"
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
-      Value: Jalen Williams, Mary Asada
+      Value: "{414CA3B1-125B-4451-8DB0-18AA7CF21D2B}|{61AC52CB-DC91-4791-A1AE-71D9CF675083}|{119AC016-0CF0-46B6-BBE3-84758EEC125D}|{35D340E9-48F7-4515-B930-74CD3ABC22C6}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,19 +31,22 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Workshop
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: "Fuel for life: nutrition 101"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: Room 1003, Room 1001
+      Value: "{3A8DBE38-F351-4780-B7B8-3311B4D76E0D}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "744c75cc-ac6c-46b0-9532-14c5047483e8"
+      Value: "bf69c3a3-e878-4373-9d81-a1818f84788a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T085242Z
+      Value: 20210920T185958Z

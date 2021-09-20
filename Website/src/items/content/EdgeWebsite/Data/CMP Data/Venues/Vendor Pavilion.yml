@@ -1,12 +1,12 @@
 ﻿---
-ID: "1de36152-5e9d-4987-ac5c-6d45c1388a6a"
+ID: "a314f8ce-961f-4eba-9220-dec510cdde7c"
 Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
 Template: "a06b2851-c98a-4622-8773-98736daadb13"
 Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Vendor Pavilion
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: RLpFdAqiqkayO712H1fzIg
+  Value: "X2pQjfxo4kajCXj0-u_ASw"
 Languages:
 - Language: en
   Versions:
@@ -14,22 +14,25 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210919T093107Z
+      Value: 20210920T165020Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 2500
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0605a032-cb86-48ef-a608-85f74f1d461f"
+      Value: "0d7a5d30-fce2-48cb-9aea-809741ccca93"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
-        <p>The Vendor&nbsp;Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms &amp;underground parking.</p>
+        <p>The Vendor Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms &amp; underground parking.</p>
         
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
@@ -37,7 +40,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T093108Z
+      Value: 20210920T165020Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Vendor Pavilion

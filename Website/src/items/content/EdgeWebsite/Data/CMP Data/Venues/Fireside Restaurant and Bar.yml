@@ -19,17 +19,20 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 600
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ff5e0ba8-09cb-4dd6-83ec-d77df578b039"
+      Value: "a3a4d041-2383-4c5f-a798-500366ce4863"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
-        <p>A favorite local restaurant and bar will be rented out for PLAY! Summit. A special &quot;thank you&quot; evening will be held for speakers, sponsors, &amp; vendors.</p>
+        <p>A local favorite restaurant and bar will be rented out for PLAY! Summit. A special &quot;thank you&quot; evening will be held for speakers, sponsors&nbsp;&amp; vendors.</p>
         
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
@@ -37,7 +40,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T092837Z
+      Value: 20210920T185735Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Fireside Restaurant and Bar

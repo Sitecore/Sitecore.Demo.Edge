@@ -19,17 +19,20 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 1000
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c3e3768b-875e-4bb9-9d1c-e915edbaf57e"
+      Value: "e94806ff-dd46-482e-bfa9-116340642f73"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
-        <p>Satellite Conference Center 1</p>
+        <p>Satellite Conference Center One</p>
         
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
@@ -37,7 +40,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T093017Z
+      Value: 20210920T171116Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Satellite Conference Center 1
