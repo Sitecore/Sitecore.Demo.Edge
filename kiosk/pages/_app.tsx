@@ -29,7 +29,7 @@ const cdpScripts = isCdpConfigured ? (
 
 function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
-    const handleRouteChange = () =>  {
+    const handleRouteChange = () => {
       logViewEvent();
     };
     router.events.on('routeChangeComplete', handleRouteChange);
