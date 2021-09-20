@@ -12,6 +12,11 @@
                 "name": "api-key",
                 "path": "/sitecore/system/Settings/Services/API Keys/EdgeWebsite",
                 "scope": "singleItem"
+            },
+            {
+                "name": "core-fields",
+                "path": "/sitecore/system/Field types/EdgeWebsite Types",
+                "database": "core"
             }
         ]
     }
