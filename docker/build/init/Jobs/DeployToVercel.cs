@@ -167,7 +167,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
 
             // Assign custom domain name
-            // TODO: cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
+            cmd.Run($"vercel domains add {ns}-kiosks.sitecoredemo.com --token {token} --scope {scope}");
         }
     }
 }
