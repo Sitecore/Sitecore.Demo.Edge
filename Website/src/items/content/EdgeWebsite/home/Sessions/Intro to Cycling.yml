@@ -17,11 +17,12 @@ Languages:
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet ligula.ipsum sit ligula.ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit ama.Lorem ipsum sit amet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ipsum, sit amet ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, comet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum sit amet, consectetur elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, comet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085613Z
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
+      Hint: Speakers
+      Value: "{61AC52CB-DC91-4791-A1AE-71D9CF675083}|{299F3543-4808-4D84-81A5-359C01814C3B}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,17 +33,17 @@ Languages:
         default\Anonymous
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: Intro to Cycling
+      Value: "Intro to Cycling - Sponsored by Striva"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: Room 1001, Room 1002
+      Value: "{2D678708-D023-44B2-AF36-85E31E30E057}|{4F980C67-F1BA-4231-9CCA-89BAD61E5DF6}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e2966a0d-07ae-4cfb-a1f1-9306a77998c2"
+      Value: "ea72e712-e895-4e0d-8605-b167e1db7a2e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T090546Z
+      Value: 20210920T215956Z

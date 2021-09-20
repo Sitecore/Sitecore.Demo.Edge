@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "087528fd-b211-4715-aca0-cbe90275951b"
       Hint: Featured
-      Value: 1
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T190602Z
@@ -28,28 +28,35 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1ae503ee-7ddd-4e1d-b44c-5d62ad852520"
+      Value: "cb60e1e7-e6a0-43a6-98f0-cb1fd7521baf"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Solstice
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{91404CDE-DFEE-4269-B6E8-BAB6CE8F15B9}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: |
-        <p>Alex Mena</p>
+        <p>Alex Mena is the best in business.</p>
         
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: International Sales Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T192449Z
+      Value: 20210920T211617Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: Alex Mena
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="35011" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35011/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/1e5095d600aa4a3291d64168c19ce54f?v=d8a6f28c" mediaid="" stylelabs-content-type="Image" alt="alex-mena-1000.jpg" height="1000" width="1000" />

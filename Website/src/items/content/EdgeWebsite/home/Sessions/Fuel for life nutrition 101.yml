@@ -22,7 +22,7 @@ Languages:
       Value: 20210919T085241Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
-      Value: "{414CA3B1-125B-4451-8DB0-18AA7CF21D2B}|{61AC52CB-DC91-4791-A1AE-71D9CF675083}|{119AC016-0CF0-46B6-BBE3-84758EEC125D}|{35D340E9-48F7-4515-B930-74CD3ABC22C6}"
+      Value: "{414CA3B1-125B-4451-8DB0-18AA7CF21D2B}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,20 +33,20 @@ Languages:
         default\Anonymous
     - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
       Hint: Type
-      Value: Workshop
+      Value: 
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: "Fuel for life: nutrition 101"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "{3A8DBE38-F351-4780-B7B8-3311B4D76E0D}"
+      Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bf69c3a3-e878-4373-9d81-a1818f84788a"
+      Value: "67ce1bc5-99df-4303-a125-a8cabb0c0854"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T185958Z
+      Value: 20210920T213639Z

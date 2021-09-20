@@ -1,28 +1,23 @@
 ﻿---
-ID: "db5bfbe7-b584-4bbe-94c5-a67f20f1bb81"
+ID: "f7584d58-c1c2-4d57-b9e6-b2a1a5e1f14f"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/Breakfast
+Path: "/sitecore/content/EdgeWebsite/home/sessions/Intro to Distance Running - Sponsored by Alba"
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: 4BEVzEwXE0qZs1MvUV4lwg
+  Value: CMrBIsqTeUufoVHjPlbDaA
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
-    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
-      Hint: Description
-      Value: |
-        <p>Daily breakfast available to all attendees</p>
-        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210919T085106Z
+      Value: 20210920T212722Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
-      Value: 
+      Value: "{35D340E9-48F7-4515-B930-74CD3ABC22C6}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,22 +26,19 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
-      Hint: Type
-      Value: 
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: Breakfast
+      Value: "Intro to Distance Running - Sponsored by Alba"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "{CDCF9DE0-D5AB-47CB-8110-F5C548499C24}|Main Dining Hall - Sponsored by Striva [Item not found]"
+      Value: "{1B2D0248-03C3-491C-B2DD-37FA167E4B50}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d7606d78-da11-4b09-9c34-2aa03e863967"
+      Value: "5250521e-b661-43f6-8ae9-f6f824cd5e51"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T211234Z
+      Value: 20210920T220019Z

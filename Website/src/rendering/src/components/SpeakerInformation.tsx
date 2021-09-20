@@ -8,12 +8,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
+type Session = {
+  name: Field<string>;
+  fields: {
+    Name: Field<string>;
+    Image: ImageField;
+    Date: Field<string>;
+  };
+};
+
 export type SpeakerInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Role: Field<string>;
     Picture: ImageField;
-    Position: Field<string>;
+    JobTitle: Field<string>;
     Company: Field<string>;
     Country: Field<string>;
     Description: Field<string>;
