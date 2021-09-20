@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -7,6 +8,7 @@ import {
   CDP_API_TARGET_ENDPOINT,
   CDP_CLIENT_KEY,
 } from '../services/BoxeverService';
+import { logViewEvent } from '../services/BoxeverService';
 
 // DEMO TEAM CUSTOMIZATION - CDP integration
 const cdpScripts = isCdpConfigured ? (
@@ -25,7 +27,17 @@ const cdpScripts = isCdpConfigured ? (
 ) : undefined;
 // END CUSTOMIZATION
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps, router }: AppProps) {
+  useEffect(() => {
+    const handleRouteChange = () =>  {
+      logViewEvent();
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []);
+
   return (
     <div className="screen">
       <Head>
