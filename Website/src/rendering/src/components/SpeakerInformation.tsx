@@ -30,6 +30,7 @@ export type SpeakerInformationProps = ComponentProps & {
     TwitterProfileLink?: Field<string>;
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
+    Sessions: Session[];
   };
 };
 
@@ -72,33 +73,39 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
               )}
             </div>
           </div>
-          <div>
-            <span className="data-label">Position:</span>{' '}
-            <Text field={props.fields.Position}></Text>
-          </div>
-          <div>
-            <span className="data-label">Company:</span> <Text field={props.fields.Company}></Text>
-          </div>
-          <div>
-            <span className="data-label">Country:</span> <Text field={props.fields.Country}></Text>
-          </div>
+          {props.fields.JobTitle && (
+            <div>
+              <span className="data-label">Job Title:</span>{' '}
+              <Text field={props.fields.JobTitle}></Text>
+            </div>
+          )}
+          {props.fields.Company && (
+            <div>
+              <span className="data-label">Company:</span>{' '}
+              <Text field={props.fields.Company}></Text>
+            </div>
+          )}
+          {props.fields.Country && (
+            <div>
+              <span className="data-label">Country:</span>{' '}
+              <Text field={props.fields.Country}></Text>
+            </div>
+          )}
         </div>
         <div className="description-col">
           {/* TODO: Add speaker type in content hub */}
           <Text tag="div" className="eyebrow" field={props.fields.Role}></Text>
           <Text tag="h1" className="name" field={props.fields.Name}></Text>
           <RichText field={props.fields.Description} />
-          {/* TODO: Link sessions with speakers and show info here */}
           <div className="talks-section">
-            <h2 className="talks-title">Talks</h2>
-            <div className="talk">
-              <p>Mon, 19th | 9:00 AM</p>
-              <p className="talk-name">10 Tips to get the most out of your routines</p>
-            </div>
-            <div className="talk">
-              <p>Mon, 19th | 9:00 AM</p>
-              <p className="talk-name">10 Tips to get the most out of your routines</p>
-            </div>
+            {props.fields.Sessions && <h2 className="talks-title">Talks</h2>}
+            {props.fields.Sessions &&
+              props.fields.Sessions.map((session, index) => (
+                <div key={index} className="talk">
+                  <p>Mon, 19th | 9:00 AM</p>
+                  <p className="talk-name">{session.name}</p>
+                </div>
+              ))}
           </div>
         </div>
       </div>
