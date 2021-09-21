@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(../../assets/img/btn-background.png);
+  background-image: url(../../public/img/btn-background.png);
   background-size: cover;
   background-position: bottom;
   padding: 6%;
