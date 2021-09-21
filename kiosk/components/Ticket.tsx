@@ -38,7 +38,7 @@ const TicketView = (props: TicketProps): JSX.Element => {
           <button className="mt-4 btn--main btn--main--round">Buy Ticket</button>
         </Link>
         <span> or </span>
-        <Link href={'/signup/' + props.ticket.id} passHref>
+        <Link href="/signup" passHref>
           <button className="underline">stay tuned</button>
         </Link>
       </div>
