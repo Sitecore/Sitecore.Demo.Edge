@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Join&nbsp;<strong>Tour de France</strong>&nbsp;champion Chris Williams for an exclusive Q&amp;A in which he&rsquo;ll discuss his professional journey and highlights from his career.</p>
-        
+           
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T203448Z
@@ -32,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
-      Value: "3 pm [Item not found]|4 pm [Item not found]"
+      Value: "{9906C9E2-24DA-42AF-92D4-6ABE9B5B7614}|{782319C5-200D-45E4-982F-54EBEA323C75}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -48,11 +48,11 @@ Languages:
       Value: "{D4A04446-EE4C-4DE2-807B-053F1857E206}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "62f1b5c2-3662-4bdb-9ee7-e372c83def22"
+      Value: "867ffb58-3d56-44fd-aefe-7f269922eebd"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T024453Z
+      Value: 20210921T183539Z

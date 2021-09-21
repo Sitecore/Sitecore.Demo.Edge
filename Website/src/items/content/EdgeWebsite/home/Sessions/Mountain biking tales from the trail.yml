@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pedeposuere a.</p>
-        
+         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T091009Z
@@ -25,7 +25,7 @@ Languages:
       Value: "{07EC03AD-C8C4-475C-8414-A098F5A36E6B}"
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: Day 1
+      Value: Day 1, Day 2
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -48,11 +48,11 @@ Languages:
       Value: "{D6D2A8FC-5ADB-4059-A43C-033E24623C31}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fe67e67c-ec8f-4535-b01f-353a873b5135"
+      Value: "467440a8-0182-4da4-930c-e4d192e27817"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T022455Z
+      Value: 20210921T180920Z

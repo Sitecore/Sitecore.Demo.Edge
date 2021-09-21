@@ -1,20 +1,23 @@
 ﻿---
-ID: "0d33d183-bd2b-4308-8b72-28cc5d313da2"
-Parent: "b541c1ae-68e3-484b-bc05-73b574497189"
-Template: "0bc9237d-12eb-47a5-afed-a65188324358"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Timeslots/1pm
+ID: "d5c5f533-59db-4d25-aae7-e9b0789bf2a9"
+Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
+Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Room 102
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Demo.Timeslot.1pm
+  Value: eid0YBXeQkeWXzmQeHUMpg
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
+    - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
+      Hint: Capacity
+      Value: 40
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210728T195627Z
+      Value: 20210921T180912Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -23,16 +26,16 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "62545186-56cf-4614-bcdc-2ecb3947ea4c"
-      Hint: Name
-      Value: 1pm
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e950f0c0-779a-4cf9-b9c1-00988a389146"
+      Value: "93566e89-9508-4326-b492-57e451e94f73"
+    - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
+      Hint: Name
+      Value: Room 102
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T195627Z
+      Value: 20210921T180912Z

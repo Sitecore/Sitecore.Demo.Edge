@@ -42,7 +42,7 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
           <div>
             <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
             <div className="external-website-icons">
-              {/* TODO: To be turned into links */}
+              {console.log(props.fields)}
               {!props.fields.FacebookProfileLink ? (
                 ''
               ) : (
@@ -73,19 +73,19 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
               )}
             </div>
           </div>
-          {props.fields.JobTitle && (
+          {props.fields.JobTitle && props.fields.JobTitle.value != '' && (
             <div>
               <span className="data-label">Job Title:</span>{' '}
               <Text field={props.fields.JobTitle}></Text>
             </div>
           )}
-          {props.fields.Company && (
+          {props.fields.Company && props.fields.Company.value != '' && (
             <div>
               <span className="data-label">Company:</span>{' '}
               <Text field={props.fields.Company}></Text>
             </div>
           )}
-          {props.fields.Location && (
+          {props.fields.Location && props.fields.Location.value != '' && (
             <div>
               <span className="data-label">Country:</span>{' '}
               <Text field={props.fields.Location}></Text>

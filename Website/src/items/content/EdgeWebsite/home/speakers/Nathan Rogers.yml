@@ -15,6 +15,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T012740Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Chicago, Illinois
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,25 +28,25 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6b85d107-b9db-4cc0-9b8a-e988ffb607e5"
+      Value: "913e73ff-7a18-4d1f-970d-69d41b37ff03"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: On the Green
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: |
         <p>Nathan Rogers</p>
-        
+         
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Product Design Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T012952Z
+      Value: 20210921T195147Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru
