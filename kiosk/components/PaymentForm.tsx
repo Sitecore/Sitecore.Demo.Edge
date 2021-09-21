@@ -1,116 +1,111 @@
+import Link from 'next/link';
+
 const PaymentForm = (): JSX.Element => {
   return (
-    <div className="leading-loose min-h-full bg-black flex justify-center items-center">
-      <form className="max-w-xl m-4 p-5 bg-white rounded shadow-xl">
-        <p className="text-gray-800 font-medium">Customer information</p>
-        <div className="">
-          <label className="block text-sm text-gray-00" htmlFor="cus_name">
-            Name
-          </label>
-          <input
-            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-            id="cus_name"
-            name="cus_name"
-            type="text"
-            required={true}
-            placeholder="Your Name"
-            aria-label="Name"
-          />
+    <div className="min-h-full checkout bg-black mx-auto flex flex-row">
+      <div className="panel flex flex-1 flex-col md:flex-row shadow-lg">
+        <div className="panel-left w-full md:w-2/3 bg-white rounded-l">
+          <form action="#">
+            <h1 className="text-3xl font-normal p-10 border-b border-solid border-grey-light">
+              Checkout
+            </h1>
+            <div className="p-5 pt-8 border-b border-solid border-grey-light">
+              <div className="mb-3 -mx-2 flex items-end">
+                <div className="px-2 w-1/2">
+                  <div className="mb-3">
+                    <label className="font-bold text-sm mb-2 ml-1">First Name</label>
+                    <div>
+                      <input
+                        className="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="First Name"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="px-2 w-1/2">
+                  <div className="mb-3">
+                    <label className="font-bold text-sm mb-2 ml-1">Last Name</label>
+                    <div>
+                      <input
+                        className="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                        placeholder="Last Name"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mb-3">
+                <label className="font-bold text-sm mb-2 ml-1">Email</label>
+                <div>
+                  <input
+                    className="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                    placeholder="Email"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 pt-8 border-b border-solid border-grey-light">
+              <div className="mb-3">
+                <label className="font-bold text-sm mb-2 ml-1">Card number</label>
+                <div>
+                  <input
+                    className="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
+                    placeholder="0000 0000 0000 0000"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="pt-5">
+              <Link href="/payment/confirmed" passHref>
+                <button className="btn--main btn--main--round btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3">
+                  <i className="mdi mdi-lock-outline mr-1"></i> PAY NOW
+                </button>
+              </Link>
+            </div>
+          </form>
         </div>
-        <div className="mt-2">
-          <label className="block text-sm text-gray-600" htmlFor="cus_email">
-            Email
-          </label>
-          <input
-            className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
-            type="text"
-            required={true}
-            placeholder="Your Email"
-            aria-label="Email"
-          />
+        <div className="panel-right w-full md:w-1/3 text-white rounded-r">
+          <div className="p-10">
+            <h2 className="font-bold text-xl mb-4">Digital Pass</h2>
+            <div className="mb-4">
+              <span className="text-2xl align-top">$</span>
+              <span className="text-5.5xl font-light lh-fix">99</span>
+              <span className="text-lg">/ year</span>
+            </div>
+            <div className="italic w-3/4 leading-normal mb-8">Online Ticket</div>
+            <div className="list-items mb-8">
+              <div className="flex items-center mb-4">
+                <div>
+                  Access to <span className="font-bold">all</span> online sessions
+                </div>
+              </div>
+              <div className="flex items-center mb-4">
+                <div>10% off all digital vendor goods</div>
+              </div>
+              <div className="flex items-center mb-4">
+                <div>Free online sessions after the event</div>
+              </div>
+            </div>
+
+            <div className="border-b border-solid border-blue-light"></div>
+
+            <div className="testimonial pt-10 text-lg italic leading-normal mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
+              accumsan.
+            </div>
+
+            <div className="flex items-center">
+              <div className="text-lg font-bold">Alba</div>
+            </div>
+          </div>
         </div>
-        <div className="mt-2">
-          <label className=" block text-sm text-gray-600" htmlFor="cus_email">
-            Address
-          </label>
-          <input
-            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
-            type="text"
-            required={true}
-            placeholder="Street"
-            aria-label="Email"
-          />
-        </div>
-        <div className="mt-2">
-          <label className="hidden text-sm block text-gray-600" htmlFor="cus_email">
-            City
-          </label>
-          <input
-            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
-            type="text"
-            required={true}
-            placeholder="City"
-            aria-label="Email"
-          />
-        </div>
-        <div className="inline-block mt-2 w-1/2 pr-1">
-          <label className="hidden block text-sm text-gray-600" htmlFor="cus_email">
-            Country
-          </label>
-          <input
-            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
-            type="text"
-            required={true}
-            placeholder="Country"
-            aria-label="Email"
-          />
-        </div>
-        <div className="inline-block mt-2 -mx-1 pl-1 w-1/2">
-          <label className="hidden block text-sm text-gray-600" htmlFor="cus_email">
-            Zip
-          </label>
-          <input
-            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_email"
-            name="cus_email"
-            type="text"
-            required={true}
-            placeholder="Zip"
-            aria-label="Email"
-          />
-        </div>
-        <p className="mt-4 text-gray-800 font-medium">Payment information</p>
-        <div className="">
-          <label className="block text-sm text-gray-600" htmlFor="cus_name">
-            Card
-          </label>
-          <input
-            className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
-            id="cus_name"
-            name="cus_name"
-            type="text"
-            required={true}
-            placeholder="Card Number MM/YY CVC"
-            aria-label="Name"
-          />
-        </div>
-        <div className="mt-4">
-          <button
-            className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-            type="submit"
-          >
-            $199.00
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 };
