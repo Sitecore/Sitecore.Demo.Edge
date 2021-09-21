@@ -24,7 +24,7 @@ export type SpeakerInformationProps = ComponentProps & {
     Picture: ImageField;
     JobTitle: Field<string>;
     Company: Field<string>;
-    Country: Field<string>;
+    Location: Field<string>;
     Description: Field<string>;
     FacebookProfileLink?: Field<string>;
     TwitterProfileLink?: Field<string>;
@@ -85,10 +85,10 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
               <Text field={props.fields.Company}></Text>
             </div>
           )}
-          {props.fields.Country && (
+          {props.fields.Location && (
             <div>
               <span className="data-label">Country:</span>{' '}
-              <Text field={props.fields.Country}></Text>
+              <Text field={props.fields.Location}></Text>
             </div>
           )}
         </div>

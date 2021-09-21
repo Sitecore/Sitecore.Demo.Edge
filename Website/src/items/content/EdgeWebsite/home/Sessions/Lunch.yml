@@ -12,13 +12,24 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>Lunch</p>
+        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T211340Z
+    - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
+      Hint: Day
+      Value: Day 1, Day 2, Day 3
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
+      Hint: Timeslots
+      Value: "12 noon [Item not found]"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -31,11 +42,11 @@ Languages:
       Value: "{3E658EB0-BD18-4F0A-8C36-D60E7620AD97}|Satellite Dining Hall - Sponsored by Prostaff [Item not found]"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c1b576ca-0cd0-4ecb-9622-b2c689967ba6"
+      Value: "13ff9206-f535-4021-b3e4-9d7186e80034"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T211341Z
+      Value: 20210921T024357Z

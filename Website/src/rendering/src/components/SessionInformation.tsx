@@ -19,14 +19,31 @@ type Speaker = {
   fields: {
     Name: Field<string>;
     Picture: ImageField;
-    Position: Field<string>;
+    JobTitle: Field<string>;
     Company: Field<string>;
-    Country: Field<string>;
+    Location: Field<string>;
     Description: Field<string>;
     FacebookProfileLink?: Field<string>;
     TwitterProfileLink?: Field<string>;
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
+  };
+};
+
+type Room = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+type Day = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+
+type Timeslot = {
+  fields: {
+    Name: Field<string>;
   };
 };
 
@@ -38,6 +55,9 @@ export type SessionInformationProps = ComponentProps & {
     Date: Field<string>;
     Image: ImageField;
     Speakers: Speaker[];
+    Rooms: Room[];
+    Day: Day;
+    Timeslots: Timeslot[];
   };
 };
 
@@ -153,18 +173,24 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                         </a>
                       )}
                     </div>
-                    <span>
-                      <span className="font-bold">Position: </span>
-                      <Text field={speaker.fields.Position}></Text>
-                    </span>
-                    <span className="block">
-                      <span className="font-bold">Company: </span>
-                      <Text field={speaker.fields.Company}></Text>
-                    </span>
-                    <span className="block">
-                      <span className="font-bold">Country: </span>
-                      <Text field={speaker.fields.Country}></Text>
-                    </span>
+                    {speaker.fields.JobTitle && (
+                      <span>
+                        <span className="font-bold">Position: </span>
+                        <Text field={speaker.fields.JobTitle}></Text>
+                      </span>
+                    )}
+                    {speaker.fields.Company && (
+                      <span className="block">
+                        <span className="font-bold">Company: </span>
+                        <Text field={speaker.fields.Company}></Text>
+                      </span>
+                    )}
+                    {props.fields.Location && (
+                      <span className="block">
+                        <span className="font-bold">Country: </span>
+                        <Text field={speaker.fields.Location}></Text>
+                      </span>
+                    )}
                   </div>
                 ))}
             </div>

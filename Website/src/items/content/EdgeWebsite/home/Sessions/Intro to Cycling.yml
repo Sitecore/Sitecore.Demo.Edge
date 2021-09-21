@@ -23,6 +23,10 @@ Languages:
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{61AC52CB-DC91-4791-A1AE-71D9CF675083}|{299F3543-4808-4D84-81A5-359C01814C3B}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30801" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/30801/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/9cab5de356ce4d57a90880a43ad811ea?v=7d0bf1a9" mediaid="" stylelabs-content-type="Image" alt="GettyImages-531024681.jpg" height="3813" width="5713" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -39,11 +43,11 @@ Languages:
       Value: "{2D678708-D023-44B2-AF36-85E31E30E057}|{4F980C67-F1BA-4231-9CCA-89BAD61E5DF6}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ea72e712-e895-4e0d-8605-b167e1db7a2e"
+      Value: "de2083d7-f746-4913-8204-f8053798005e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T215956Z
+      Value: 20210921T024654Z
