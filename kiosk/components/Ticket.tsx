@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 type TicketProps = {
+  id: string;
   pass: string;
   thumbnail: string;
   price: string;
@@ -27,21 +28,21 @@ const Ticket = (props: TicketProps): JSX.Element => {
       <div className="my-4">
         <div className="flex space-x-1 items-center">
           <span></span>
-          <p>1:34:23 Minutes</p>
+          <p>- {props.pass}</p>
         </div>
         <div className="flex space-x-1 items-center">
           <span></span>
-          <p>3 Parts</p>
+          <p>- Access to all online sessions</p>
         </div>
         <div className="flex space-x-1 items-center">
           <span></span>
-          <p>Vanilla JS</p>
+          <p>- Free online sessions after the event</p>
         </div>
-        <Link href="/payment" passHref>
+        <Link href={'/payment/' + props.id} passHref>
           <button className="mt-4 btn--main btn--main--round">Buy Ticket</button>
         </Link>
         <span> or </span>
-        <Link href="/signup" passHref>
+        <Link href={'/signup/' + props.id} passHref>
           <button className="underline">stay tuned</button>
         </Link>
       </div>

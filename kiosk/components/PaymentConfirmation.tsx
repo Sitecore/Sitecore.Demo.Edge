@@ -1,8 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import qr from '../public/tickets/qr.png';
+import { Ticket } from '../models/ticket';
 
-const PaymentForm = (): JSX.Element => {
+type PaymentConfirmationProps = {
+  ticket: Ticket;
+};
+
+const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
   return (
     <div className="min-h-full checkout bg-black mx-auto flex flex-row">
       <div className="panel flex flex-1 flex-col md:flex-row shadow-lg">
@@ -31,13 +36,11 @@ const PaymentForm = (): JSX.Element => {
         </div>
         <div className="panel-right w-full md:w-1/3 text-white rounded-r">
           <div className="p-10">
-            <h2 className="font-bold text-xl mb-4">Digital Pass</h2>
+            <h2 className="font-bold text-xl mb-4">{props.ticket.pass}</h2>
             <div className="mb-4">
-              <span className="text-2xl align-top">$</span>
-              <span className="text-5.5xl font-light lh-fix">99</span>
-              <span className="text-lg">/ year</span>
+              <span className="text-2xl font-light lh-fix">{props.ticket.price}</span>
             </div>
-            <div className="italic w-3/4 leading-normal mb-8">Online Ticket</div>
+            <div className="italic w-3/4 leading-normal mb-8">{props.ticket.name}</div>
             <div className="list-items mb-8">
               <div className="flex items-center mb-4">
                 <div>
@@ -69,4 +72,4 @@ const PaymentForm = (): JSX.Element => {
   );
 };
 
-export default PaymentForm;
+export default PaymentConfirmation;
