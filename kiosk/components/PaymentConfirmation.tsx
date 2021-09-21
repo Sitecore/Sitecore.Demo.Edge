@@ -42,17 +42,13 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
             </div>
             <div className="italic w-3/4 leading-normal mb-8">{props.ticket.name}</div>
             <div className="list-items mb-8">
-              <div className="flex items-center mb-4">
-                <div>
-                  Access to <span className="font-bold">all</span> online sessions
-                </div>
-              </div>
-              <div className="flex items-center mb-4">
-                <div>10% off all digital vendor goods</div>
-              </div>
-              <div className="flex items-center mb-4">
-                <div>Free online sessions after the event</div>
-              </div>
+              {props.ticket.benefits.map(function (item, i) {
+                return (
+                  <div key={i} className="flex items-center mb-4">
+                    <div>{item}</div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="border-b border-solid border-blue-light"></div>

@@ -4,4 +4,5 @@ export interface Ticket {
   thumbnail: string;
   price: string;
   name: string;
+  benefits: string[];
 }
