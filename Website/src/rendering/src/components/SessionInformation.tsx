@@ -14,8 +14,7 @@ import {
   Text,
   DateField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { faCalendar, faClock, faDoorOpen, faHome } from '@fortawesome/free-solid-svg-icons';
-import { Left } from 'src/stories/Sections/FullImageSection.stories';
+import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 type Speaker = {
   fields: {
@@ -33,11 +32,6 @@ type Speaker = {
 };
 
 type Room = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-type Day = {
   fields: {
     Name: Field<string>;
   };
@@ -137,30 +131,40 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               />
             </div>
 
-            <div className="bg-gray-light p-2 flex align-middle content-center">
-              <span>
-                <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faDoorOpen} />
-              </span>
-              <Text
-                className="align-middle content-center"
-                tag="p"
-                field={props.fields.Rooms[0].fields.Name}
-              ></Text>
-            </div>
+            {props.fields.Rooms && (
+              <div className="bg-gray-light p-2 flex align-middle content-center">
+                <span>
+                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faDoorOpen} />
+                </span>
+                <Text
+                  className="align-middle content-center"
+                  tag="p"
+                  field={props.fields.Rooms[0].fields.Name}
+                ></Text>
+              </div>
+            )}
 
-            <div className="bg-gray-light p-2 flex align-middle content-center">
-              <span>
-                <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faCalendar} />
-              </span>
-              <Text className="align-middle content-center" tag="p" field={props.fields.Day}></Text>
-            </div>
+            {props.fields.Date && (
+              <div className="bg-gray-light p-2 flex align-middle content-center">
+                <span>
+                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faCalendar} />
+                </span>
+                <Text
+                  className="align-middle content-center"
+                  tag="p"
+                  field={props.fields.Day}
+                ></Text>
+              </div>
+            )}
 
-            <div className="bg-gray-light p-2 flex align-middle content-center">
-              <span>
-                <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
-              </span>
-              <span className="align-middle content-center">{sessionTime}</span>
-            </div>
+            {props.fields.Timeslots && props.fields.Timeslots.length > 0 && (
+              <div className="bg-gray-light p-2 flex align-middle content-center">
+                <span>
+                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
+                </span>
+                <span className="align-middle content-center">{sessionTime}</span>
+              </div>
+            )}
 
             <div className="hidden md:block pt-4" title="TODO: hardcoded for now...">
               <div className="font-bold">Related Sessions</div>
@@ -249,7 +253,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                         <Text field={speaker.fields.Company}></Text>
                       </span>
                     )}
-                    {props.fields.Location && (
+                    {speaker.fields.Location && (
                       <span className="block">
                         <span className="font-bold">Country: </span>
                         <Text field={speaker.fields.Location}></Text>

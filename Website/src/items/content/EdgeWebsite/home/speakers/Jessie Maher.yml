@@ -15,6 +15,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T194805Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Atlanta, Georgia
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6aafe742-a059-41ac-9e30-cc6a25d68f5b"
+      Value: "6aa08a8e-3f7a-4697-804f-1198a42d921a"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: "PLAY! Summit"
@@ -37,16 +40,20 @@ Languages:
       Hint: Description
       Value: |
         <p>Jessie Maher</p>
-        
+          
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
-      Value: Master of Ceremonies
+      Value: President and CEO
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T011948Z
+      Value: 20210921T210015Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: Jessie Maher
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="37856" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/37856/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d5925318bb134ab68c157f961c501aeb?v=eaade405" mediaid="" stylelabs-content-type="Image" alt="jessie-maher.jpg" height="1000" width="1000" />

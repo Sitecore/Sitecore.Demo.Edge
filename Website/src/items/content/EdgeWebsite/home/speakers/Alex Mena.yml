@@ -14,10 +14,13 @@ Languages:
     Fields:
     - ID: "087528fd-b211-4715-aca0-cbe90275951b"
       Hint: Featured
-      Value: 
+      Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T190602Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Paris, France
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,28 +31,28 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cb60e1e7-e6a0-43a6-98f0-cb1fd7521baf"
+      Value: "dbe2864e-db71-4449-a8ff-6ba926ec40a7"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Solstice
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{91404CDE-DFEE-4269-B6E8-BAB6CE8F15B9}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"
+      Value: 
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: |
-        <p>Alex Mena is the best in business.</p>
-        
+        <p>Alex Mena is on of the best in business.</p>
+          
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: International Sales Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T211617Z
+      Value: 20210921T210004Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
