@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import qr from '../public/tickets/qr.png';
 import { Ticket } from '../models/ticket';
+import Image from 'next/image';
+import logo from '../public/logo/play-logo-wide-light.svg';
 
 type PaymentConfirmationProps = {
   ticket: Ticket;
@@ -36,6 +37,9 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
         </div>
         <div className="panel-right w-full md:w-1/3 text-white rounded-r">
           <div className="p-10">
+            <div className="w-3/4 py-2">
+              <Image src={logo} alt="Logo" />
+            </div>
             <h2 className="font-bold text-xl mb-4">{props.ticket.pass}</h2>
             <div className="mb-4">
               <span className="text-2xl font-light lh-fix">{props.ticket.price}</span>
@@ -53,9 +57,8 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
 
             <div className="border-b border-solid border-blue-light"></div>
 
-            <div className="testimonial pt-10 text-lg italic leading-normal mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sodales mi in magna
-              accumsan.
+            <div className="testimonial pt-5 text-lg italic leading-normal mb-4">
+              Lorem ipsum dolor sit amet, consectetur.
             </div>
 
             <div className="flex items-center">
