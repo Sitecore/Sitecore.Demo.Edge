@@ -8,10 +8,10 @@ export const TICKETS: Ticket[] = [
     price: '99$',
     thumbnail: '/tickets/ticket1.jpg',
     benefits: [
-      "Access to all online sessions",
-      "10% off all digital vendor goods",
-      "Digital ticket only"
-    ]
+      'Access to all online sessions',
+      '10% off all digital vendor goods',
+      'Digital ticket only',
+    ],
   },
   {
     id: '1',
@@ -20,10 +20,10 @@ export const TICKETS: Ticket[] = [
     price: '199$',
     thumbnail: '/tickets/ticket2.jpg',
     benefits: [
-      "Access to all online and in-person sessions",
-      "10% off all vendor goods",
-      "Print and digital ticket"
-    ]
+      'Access to all online and in-person sessions',
+      '10% off all vendor goods',
+      'Print and digital ticket',
+    ],
   },
   {
     id: '2',
@@ -32,9 +32,9 @@ export const TICKETS: Ticket[] = [
     price: '399$',
     thumbnail: '/tickets/ticket3.jpg',
     benefits: [
-      "VIP access and special keynotes",
-      "20% off all vendor goods",
-      "Print and digital ticket"
-    ]
+      'VIP access and special keynotes',
+      '20% off all vendor goods',
+      'Print and digital ticket',
+    ],
   },
 ];
