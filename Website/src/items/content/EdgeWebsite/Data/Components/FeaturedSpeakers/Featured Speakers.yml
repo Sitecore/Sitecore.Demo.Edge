@@ -21,18 +21,16 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "206e0b1a-a574-4d71-98bc-7a7ee46fc965"
+      Value: "a385320c-ceb8-4ae8-bf96-c785d18f19c8"
     - ID: "9ddba344-5267-4dab-9427-f6a440d61606"
       Hint: Speakers
       Value: |
-        {61AC52CB-DC91-4791-A1AE-71D9CF675083}
         {0BC9AFA6-8B09-4B11-98C5-7542E89533A5}
         {414CA3B1-125B-4451-8DB0-18AA7CF21D2B}
-        {299F3543-4808-4D84-81A5-359C01814C3B}
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210909T103653Z
+      Value: 20210921T013104Z

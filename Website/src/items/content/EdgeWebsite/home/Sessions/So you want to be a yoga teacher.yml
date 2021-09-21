@@ -1,12 +1,12 @@
 ﻿---
-ID: "a789a9c9-e3e8-45a5-9b0c-621b760c7d32"
+ID: "526cff16-0b77-46fb-bf75-18922a5a510b"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/Guest Keynote with Chris Williams
+Path: /sitecore/content/EdgeWebsite/home/sessions/So you want to be a yoga teacher
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "pR5Fc-8vu0KVpUMI2WnmEQ"
+  Value: GMm4x3T7VEKfDjh86jo55g
 Languages:
 - Language: en
   Versions:
@@ -15,14 +15,14 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>Join&nbsp;<strong>Tour de France</strong>&nbsp;champion Chris Williams for an exclusive Q &amp; A in which he&rsquo;ll discuss his professional journey and highlights from his career.</p>
+        <p>Our mission is to make yoga accessible to anyone who wants to deepen their knowledge in yoga or become a yoga teacher.&nbsp;We are a group of passionate and experienced teachers who are passionate about helping others to improve their health and fitness, whether through yoga, Pilates, or other fitness modalities. We are dedicated to providing a safe, nurturing environment to help you achieve your goals, regardless of your age, fitness level, or goals.</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T203448Z
+      Value: 20210920T223834Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
-      Value: "{6D7143CF-2B50-4AC7-8E44-B7DDEE4BB781}|{5F3EBAB2-C7AA-48ED-82B7-2155574138F5}|{AE29F238-D226-469D-9A38-776708EE4094}"
+      Value: "{10360965-3A6B-4763-B1C2-36E322D67B0E}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,17 +33,17 @@ Languages:
         default\Anonymous
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: Guest Keynote with Chris Williams
+      Value: "So you want to be a yoga teacher?"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "{D4A04446-EE4C-4DE2-807B-053F1857E206}"
+      Value: "{1B2D0248-03C3-491C-B2DD-37FA167E4B50}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "74392d49-0104-4c18-a7fb-84f77065d682"
+      Value: "6c57870a-b3b5-4395-8319-dc7439be14d5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T223409Z
+      Value: 20210920T223837Z

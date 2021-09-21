@@ -28,20 +28,29 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d9f0c4a3-daec-490c-b7d6-b592cdae5636"
+      Value: "cf3e1b04-a40e-4f2f-85a5-27cb59994a45"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: Description
+      Value: |
+        <p>Chris Williams</p>
+        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Professional Cyclist
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T194911Z
+      Value: 20210921T011211Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Athlete
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: Chris Williams
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="31974" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31974/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/8b26400441374ea7a15301a6f01d70c1?v=ecc627d8" mediaid="" stylelabs-content-type="Image" alt="speaker-chris-williams-background.jpg" height="940" width="2000" />

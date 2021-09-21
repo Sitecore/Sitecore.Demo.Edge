@@ -1,12 +1,12 @@
 ﻿---
-ID: "10360965-3a6b-4763-b1c2-36e322d67b0e"
+ID: "79408e22-558e-45b1-ac9d-18665062c3a4"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
-Path: /sitecore/content/EdgeWebsite/home/speakers/Aly Nichols
+Path: /sitecore/content/EdgeWebsite/home/speakers/Zoran Borovic
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "pvQXkHYj-k-x_UA1QLY-4w"
+  Value: ggk8_TmieEasLv2FRkdyFg
 Languages:
 - Language: en
   Versions:
@@ -17,7 +17,7 @@ Languages:
       Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210917T164323Z
+      Value: 20210921T012303Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,10 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5547e4c7-347d-418c-aba7-3f80814e9274"
-    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
-      Hint: Company
-      Value: Pacifique
+      Value: "b748fdc2-cc9e-4462-aef0-3276b198fb6f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -39,21 +36,21 @@ Languages:
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: |
-        <p>Aly Nichols</p>
+        <p>Zoran Borovic</p>
         
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
-      Value: Creative Director
+      Value: Fishing World Champion
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T223854Z
+      Value: 20210921T012306Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
-      Value: Sponsor
+      Value: Social Influencer
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: Aly Nichols
+      Value: Zoran Borovic
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35019" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35019/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/58d2b692ecf746efaee05a31a3f525e8?v=91853c61" mediaid="" stylelabs-content-type="Image" alt="aly-nichols-1000.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="35014" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35014/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/04ba746e8875430cadec0de9f2347b50?v=b379ae95" mediaid="" stylelabs-content-type="Image" alt="zoran-borovic-1000.jpg" height="1000" width="1000" />

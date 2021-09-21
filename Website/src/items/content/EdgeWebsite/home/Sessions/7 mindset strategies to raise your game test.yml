@@ -22,7 +22,7 @@ Languages:
       Value: 20210919T083950Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
-      Value: "{7C120693-A8FD-4060-9E11-A6C5542C8234}|{40C14FCE-DE1B-4336-84D0-D8F8257A6FBA}|{0BC9AFA6-8B09-4B11-98C5-7542E89533A5}"
+      Value: "{35D340E9-48F7-4515-B930-74CD3ABC22C6}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,20 +33,20 @@ Languages:
         default\Anonymous
     - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
       Hint: Type
-      Value: Keynote
+      Value: 
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: 7 mindset strategies to raise your game
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "Room 1002 [Item not found]"
+      Value: "{F0B7CCE4-204B-420E-A51F-CA54BD87981B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5300f32f-bced-476c-9f9e-61ac7d6fc159"
+      Value: "1f2399c1-66de-45d8-9e2f-ff74aba62ef8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T154551Z
+      Value: 20210920T222215Z

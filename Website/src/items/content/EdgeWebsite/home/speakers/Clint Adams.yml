@@ -25,11 +25,29 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e3d710e9-a07f-49a2-90c0-602af69a0f7a"
+      Value: "e4b4b205-fcb6-4d36-8b0e-36f5b186d7c8"
+    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
+      Hint: Company
+      Value: Mapd
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: Description
+      Value: |
+        <p>Clint Adams</p>
+        
+    - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
+      Hint: JobTitle
+      Value: CEO
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210917T164714Z
+      Value: 20210921T011307Z
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: Name
+      Value: Clint Adams
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="35016" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35016/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/8c7386ecae4e4e0a95cb525e40f32355?v=4d84415c" mediaid="" stylelabs-content-type="Image" alt="clint-adams-1000.jpg" height="1000" width="1000" />

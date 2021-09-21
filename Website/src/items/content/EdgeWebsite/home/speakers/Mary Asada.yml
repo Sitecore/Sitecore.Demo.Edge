@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/home/speakers/Mary Asada
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "QRU-a06uPk65tshufL89Bg"
+  Value: 7LReJAURUkugHlXs7usq6Q
 Languages:
 - Language: en
   Versions:
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e28ecd5f-6823-45f8-af79-df9ea17e9603"
+      Value: "7f0c6b45-4f7b-4e07-a22d-08fd1a72cc47"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Sitecore
@@ -47,7 +47,7 @@ Languages:
       Value: Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T145131Z
+      Value: 20210921T013007Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://facebook.com/asada"
