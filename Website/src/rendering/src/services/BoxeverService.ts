@@ -359,7 +359,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 
 // TEMP: Keeping this commented method for near future use
 // function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Boxever${action}`;
+//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
 //   const options: AxiosRequestConfig = {
 //     method: 'POST',
@@ -375,7 +375,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 // }
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Boxever${action}`;
+  const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'GET',
@@ -389,7 +389,7 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 
 // TEMP: Keeping this commented method for near future use
 // function boxeverDelete(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Boxever${action}`;
+//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
 //   const options: AxiosRequestConfig = {
 //     method: 'DELETE',
@@ -413,7 +413,7 @@ function getGuestProfilePromise(
   return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
-export function getGuestProfileResponse(guestRef: GuestRef): Promise<GuestProfileResponse> {
+export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
   if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<undefined>(function (resolve) {
       resolve(undefined);
@@ -436,7 +436,7 @@ export function isAnonymousGuestInGuestResponse(
   return !guestResponse?.data?.email;
 }
 
-export function isAnonymousGuest(guestRef: GuestRef): Promise<boolean> {
+export function isAnonymousGuest(guestRef?: GuestRef): Promise<boolean> {
   const defaultValue = true;
 
   if (!isBoxeverConfiguredInBrowser()) {
@@ -468,7 +468,7 @@ export function getGuestFullNameInGuestResponse(
   return `${data.firstName} ${data.lastName}`;
 }
 
-export function getGuestFullName(guestRef: GuestRef): Promise<string | undefined> {
+export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefined> {
   const defaultValue = '';
 
   if (!isBoxeverConfiguredInBrowser()) {
