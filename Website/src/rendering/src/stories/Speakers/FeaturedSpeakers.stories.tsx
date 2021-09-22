@@ -50,7 +50,7 @@ const speaker1 = {
       value: true,
     },
   },
-} as Speaker1;
+} as Speaker;
 
 const speaker2 = {
   Name: 'Item Name',
@@ -71,7 +71,7 @@ const speaker2 = {
       value: true,
     },
   },
-} as Speaker2;
+} as Speaker;
 
 const speaker3 = {
   Name: 'Item Name',
@@ -92,7 +92,7 @@ const speaker3 = {
       value: true,
     },
   },
-} as Speaker3;
+} as Speaker;
 
 const speaker4 = {
   Name: 'Item Name',
@@ -113,7 +113,7 @@ const speaker4 = {
       value: true,
     },
   },
-} as Speaker4;
+} as Speaker;
 
 export const Default = Template.bind({});
 Default.args = {
