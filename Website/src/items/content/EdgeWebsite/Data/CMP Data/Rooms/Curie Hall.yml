@@ -22,7 +22,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Curie Hall</p>
-        
+         
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,18 +33,18 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9c96925e-8014-4693-9e4a-3ff6c8920b60"
+      Value: "0b28b3ae-fc07-429d-947e-2760c738da5d"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Curie Hall
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "cb829e9e-59ac-431e-a8d7-d60d0d4ebd8e"
       Hint: Image
       Value: |
         <image stylelabs-content-id="36176" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36176/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/1890c853e7084530a248cb6f301c278b?v=158eb2e1" mediaid="" stylelabs-content-type="Image" alt="main-conference-center-2.jpg" height="3822" width="5733" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T185708Z
+      Value: 20210922T160818Z

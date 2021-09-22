@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/home/vendors/ProStaff
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "RcNmbiWUCkG-CS_QXSc8ng"
+  Value: bQ2_w8g9ekargCDUscmf9g
 Languages:
 - Language: en
   Versions:
@@ -14,16 +14,19 @@ Languages:
     Fields:
     - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
       Hint: TwitterProfileLink
-      Value: "https://twitter.com/prostaff"
+      Value: "https://twitter.com/#"
+    - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
+      Hint: ActivityType
+      Value: Golf
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210727T200248Z
     - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
       Hint: InstagramProfileLink
-      Value: "https://instagram.com/prostaff"
+      Value: "https://www.instagram.com/#"
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
-      Value: Silver
+      Value: Platinum
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,29 +35,32 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="34188" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ee2f671c-bb83-4817-949c-c6c996d293d3"
+      Value: "720938d0-37bd-4d29-888f-bd4d7c0d2306"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
-      Value: |
-        <p style="text-align:justify;">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. sdfasd fasdfa sdf asdfasd f a.</p><p style="text-align:justify;">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem&nbsp;</p><ul><li style="text-align:justify;">ullam corporis suscipit laboriosam,</li><li style="text-align:justify;">nisi ut aliquid ex ea commodi consequatur?</li><li style="text-align:justify;">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,</li><li style="text-align:justify;">vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</li></ul>
+      Value:          
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
-      Value: Pro Staff
+      Value: Prostaff
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T154021Z
+      Value: 20210922T185240Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
-      Value: "https://facebook.com/prostaff"
+      Value: "https://www.facebook.com/#"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Pro Staff
     - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
       Hint: LinkedinProfileLink
-      Value: "https://linkedin.com/prostaff"
+      Value: "https://www.linkedin.com/#"

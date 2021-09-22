@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/home/vendors/Alba
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: n8dQ5E8q_Uea4qhd6oJh2Q
+  Value: 0JHU6YICOkuDpJRxgxlXyA
 Languages:
 - Language: en
   Versions:
@@ -14,13 +14,16 @@ Languages:
     Fields:
     - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
       Hint: TwitterProfileLink
-      Value: "https://twiiter.com"
+      Value: "https://twitter.com/#"
+    - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
+      Hint: ActivityType
+      Value: Running, Hiking
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210727T185337Z
     - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
       Hint: InstagramProfileLink
-      Value: "https://instagram.com"
+      Value: "https://www.instagram.com/#"
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Platinum
@@ -32,28 +35,34 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="34000" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34000/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/949c003d42af49be962cd99f31eb3efd?v=f6979300" mediaid="" stylelabs-content-type="Image" alt="Alba.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "93c57c03-87dd-4175-9e3c-4d2f2a2f9e33"
+      Value: "83ec3652-c46d-45a1-a6f4-6b01b43a4eed"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
-      Value: <p>sd;iaf; oldiajosewi fawieo;a jwe;fajldkjf halksdjhfla jkdkjhsjf klasjhf aiewfajel a lk alkhflakhwef aweihflajdzxcnv lkjshlkaejwhlfajewhfl auwhf laf akjnldkjzkjv kjlakjrl akjrehlkajdffhvxcjnvlkjalkrejhfga lkjhr&nbsp;</p>
+      Value: |
+        <p>The world&#39;s most&nbsp;accessible sport is exploding in popularity and&nbsp;Alba is here as a trusted partner.&nbsp;Alba is an athletic and performance sportswear company originating from Spain that designs sports wear and running shoes.</p>
+                 
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: Alba
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T153926Z
+      Value: 20210922T185135Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
-      Value: "https://facebook.com"
+      Value: "https://www.facebook.com/#"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Alba
     - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
       Hint: LinkedinProfileLink
-      Value: "https://linkedin.com"
+      Value: "https://www.linkedin.com/#"
