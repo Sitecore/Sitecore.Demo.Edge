@@ -21,7 +21,7 @@
       @apply md:col-span-3;
 
       .eyebrow {
-        @apply font-medium hover:shadow-md uppercase bg-yellow inline-block;
+        @apply font-medium hover:shadow-md uppercase bg-yellow inline-block mr-2;
 
         padding: 0.5em 1.55em;
         box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);

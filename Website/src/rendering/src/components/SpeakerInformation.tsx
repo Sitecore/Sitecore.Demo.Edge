@@ -31,6 +31,7 @@ export type SpeakerInformationProps = ComponentProps & {
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
     Sessions: Session[];
+    Featured: Field<boolean>;
   };
 };
 
@@ -87,14 +88,14 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
           )}
           {props.fields.Location && props.fields.Location.value != '' && (
             <div>
-              <span className="data-label">Country:</span>{' '}
+              <span className="data-label">Location:</span>{' '}
               <Text field={props.fields.Location}></Text>
             </div>
           )}
         </div>
         <div className="description-col">
-          {/* TODO: Add speaker type in content hub */}
           <Text tag="div" className="eyebrow" field={props.fields.Role}></Text>
+          {props.fields.Featured?.value === true && <div className="eyebrow">Featured</div>}
           <Text tag="h1" className="name" field={props.fields.Name}></Text>
           <RichText field={props.fields.Description} />
           <div className="talks-section">

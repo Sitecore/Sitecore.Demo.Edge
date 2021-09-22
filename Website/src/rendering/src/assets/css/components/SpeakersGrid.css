@@ -9,7 +9,7 @@
   margin-bottom: 40px;
 
   &__speaker {
-    @apply box-border col-span-1;
+    @apply box-border col-span-1 relative;
 
     width: 100px;
     min-width: 260px;
@@ -22,6 +22,18 @@
 
     img {
       @apply w-full;
+    }
+
+    .speaker__image {
+      @apply w-full bg-none;
+    }
+
+    .speaker__featured {
+      @apply absolute top-2 right-1 text-yellow;
+
+      svg {
+        filter: drop-shadow(1px 1px 2px black);
+      }
     }
 
     .speaker__name {

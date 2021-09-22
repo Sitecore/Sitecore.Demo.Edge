@@ -10,6 +10,20 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/16x16/person.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query ListOfChildren($datasource: String!, $contextItem: String!)
+    {
+      datasource(value: $datasource) {
+        id
+        name     
+        children{
+                id
+                displayName
+              }
+        }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Project/edgewebsite/FeaturedSpeakers
@@ -37,11 +51,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2f23270b-cfd6-488c-960c-fa4a375e982e"
+      Value: "47e60d09-4f9f-4eb2-85cd-8fa71df40ab8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T144502Z
+      Value: 20210921T213727Z
