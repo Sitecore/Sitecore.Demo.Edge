@@ -25,13 +25,13 @@ const speaker1 = {
         src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
       },
     },
-    Position: {
+    JobTitle: {
       value: 'Manager',
     },
     Company: {
       value: 'Sitecore',
     },
-    Country: {
+    Location: {
       value: 'Canada',
     },
     Description: {
@@ -66,13 +66,13 @@ const speaker2 = {
         src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
       },
     },
-    Position: {
+    JobTitle: {
       value: 'Manager',
     },
     Company: {
       value: 'Sitecore',
     },
-    Country: {
+    Location: {
       value: 'Canada',
     },
     Description: {
@@ -109,5 +109,8 @@ Default.args = {
     Date: { value: '2021-07-29T06:00:00Z' },
     Image: { value: { src: '/assets/img/shop/man-biker.jpg' } },
     Speakers: [speaker1, speaker2],
+    Rooms: [{ fields: { Name: { value: 'Room 1' } } }, { fields: { Name: { value: 'Room 2' } } }],
+    Day: { value: 'Day 1' },
+    Timeslots: [{ fields: { Name: { value: '8 am' } } }, { fields: { Name: { value: '9 am' } } }],
   },
 };

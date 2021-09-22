@@ -23,6 +23,7 @@ const speaker1 = {
         src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
       },
     },
+    Featured: { value: true },
   },
 } as Speaker;
 
@@ -39,6 +40,7 @@ const speaker2 = {
         src: 'https://mint.stylelabs.io/api/public/content/4b034f1b321b46f5be2235353e040aab?v=b291dcc7',
       },
     },
+    Featured: { value: false },
   },
 } as Speaker;
 
@@ -55,6 +57,7 @@ const speaker3 = {
         src: 'https://mint.stylelabs.io/api/public/content/2677490fbdcf4d6dad717664b05b784e?v=67cf9134',
       },
     },
+    Featured: { value: true },
   },
 } as Speaker;
 

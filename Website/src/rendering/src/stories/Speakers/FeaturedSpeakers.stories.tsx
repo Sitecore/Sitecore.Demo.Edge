@@ -25,12 +25,102 @@ const speaker = {
         alt: '',
       },
     },
+    Featured: {
+      value: true,
+    },
   },
 } as Speaker;
+
+const speaker1 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: 'Speaker Name',
+    },
+    Role: {
+      value: 'Speaker Role',
+    },
+    Picture: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
+      },
+    },
+    Featured: {
+      value: true,
+    },
+  },
+} as Speaker1;
+
+const speaker2 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: 'Speaker Name',
+    },
+    Role: {
+      value: 'Speaker Role',
+    },
+    Picture: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
+      },
+    },
+    Featured: {
+      value: true,
+    },
+  },
+} as Speaker2;
+
+const speaker3 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: 'Speaker Name',
+    },
+    Role: {
+      value: 'Speaker Role',
+    },
+    Picture: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
+      },
+    },
+    Featured: {
+      value: true,
+    },
+  },
+} as Speaker3;
+
+const speaker4 = {
+  Name: 'Item Name',
+  fields: {
+    Name: {
+      value: 'Speaker Name',
+    },
+    Role: {
+      value: 'Speaker Role',
+    },
+    Picture: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
+      },
+    },
+    Featured: {
+      value: true,
+    },
+  },
+} as Speaker4;
 
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    Speakers: [speaker],
+    items: [speaker, speaker1, speaker2, speaker3, speaker4],
+  },
+  params: {
+    NumberOfSpeakers: 4,
   },
 };
