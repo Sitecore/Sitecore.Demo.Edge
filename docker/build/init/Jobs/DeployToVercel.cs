@@ -68,8 +68,15 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
+            var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
+            if (string.IsNullOrEmpty(cdpProxyUrl))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_PROXY_URL is not configured");
+                return;
+            }
+
             DeployTv(ns, contentHubApiKey, token, scope);
-            DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, token, scope);
+            DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
 
             await Complete();
         }
@@ -103,7 +110,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
         }
 
-        private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string token, string scope)
+        private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string token, string scope)
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
@@ -132,6 +139,8 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
