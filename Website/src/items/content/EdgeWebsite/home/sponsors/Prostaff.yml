@@ -12,6 +12,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="34188" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff.png" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T163545Z
@@ -28,7 +32,7 @@ Languages:
       Value: Prostaff
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7ec1a80c-f3aa-4f5a-9e66-593fddaaa75d"
+      Value: "cb6d9dda-018f-45bc-a9f6-73381eb11733"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -38,4 +42,4 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T163546Z
+      Value: 20210922T190442Z

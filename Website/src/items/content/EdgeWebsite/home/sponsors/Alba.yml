@@ -12,6 +12,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="34000" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34000/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/949c003d42af49be962cd99f31eb3efd?v=f6979300" mediaid="" stylelabs-content-type="Image" alt="Alba.png" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T163559Z
@@ -28,7 +32,7 @@ Languages:
       Value: Alba
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "61f4afa6-a613-4d94-9fda-eaad6cde9d17"
+      Value: "706ec504-1bea-430d-856e-09cb923f4632"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -38,4 +42,4 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T163600Z
+      Value: 20210922T190448Z
