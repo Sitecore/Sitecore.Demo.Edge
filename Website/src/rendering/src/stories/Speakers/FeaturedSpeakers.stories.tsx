@@ -121,6 +121,6 @@ Default.args = {
     items: [speaker, speaker1, speaker2, speaker3, speaker4],
   },
   params: {
-    NumberOfSpeakers: 4,
+    NumberOfSpeakers: '4',
   },
 };

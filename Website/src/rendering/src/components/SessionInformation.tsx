@@ -131,7 +131,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               />
             </div>
 
-            {props.fields.Rooms && (
+            {props.fields.Rooms && props.fields.Rooms.length > 0 && (
               <div className="bg-gray-light p-2 flex align-middle content-center">
                 <span>
                   <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faDoorOpen} />
@@ -144,7 +144,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               </div>
             )}
 
-            {props.fields.Date && (
+            {props.fields.Day && (
               <div className="bg-gray-light p-2 flex align-middle content-center">
                 <span>
                   <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faCalendar} />

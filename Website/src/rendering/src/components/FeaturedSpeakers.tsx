@@ -16,7 +16,7 @@ type FeaturedSpeakersProps = ComponentProps & {
     items: Speaker[];
   };
   params: {
-    NumberOfSpeakers: number;
+    NumberOfSpeakers: string;
   };
 };
 
@@ -30,7 +30,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
           props.fields.items
             .filter((item) => item.fields.Featured.value === true)
             .sort()
-            .slice(0, props.params.NumberOfSpeakers)
+            .slice(0, parseInt(props.params.NumberOfSpeakers))
             .map((speaker, index) => (
               <Link
                 key={index}
