@@ -7,7 +7,7 @@ import {
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
-import { logViewEvent } from './services/BoxeverService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { logViewEvent, isAnonymousGuest } from './services/BoxeverService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -30,6 +30,9 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
     // DEMO TEAM CUSTOMIZATION - Log page views in CDP
     const { route } = context;
     logViewEvent(route);
+    isAnonymousGuest().then((isAnonymous) => {
+      console.log(`Is Anonymous: ${isAnonymous}`);
+    });
     // END CUSTOMIZATION
   }, [context, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
 
