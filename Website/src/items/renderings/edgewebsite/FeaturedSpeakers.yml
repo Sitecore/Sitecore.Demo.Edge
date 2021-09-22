@@ -4,6 +4,9 @@ Parent: "2aae129a-cb98-527c-9548-09a8cc2747a6"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: /sitecore/layout/Renderings/Project/edgewebsite/FeaturedSpeakers
 SharedFields:
+- ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
+  Hint: Data source
+  Value: /sitecore/content/EdgeWebsite/home/speakers
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: FeaturedSpeakers
@@ -12,24 +15,16 @@ SharedFields:
   Value: Office/16x16/person.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: |
-    query ListOfChildren($datasource: String!, $contextItem: String!)
-    {
-      datasource(value: $datasource) {
-        id
-        name     
-        children{
-                id
-                displayName
-              }
-        }
-    }
+  Value: 
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Project/edgewebsite/FeaturedSpeakers
+- ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
+  Hint: Parameters Template
+  Value: "{FDF43AAD-C5D1-54E4-9909-59BFDDC86689}"
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: 
+  Value: "{2F5C334E-5615-423C-8281-9FC180191302}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers
@@ -51,11 +46,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "47e60d09-4f9f-4eb2-85cd-8fa71df40ab8"
+      Value: "847ef1e5-b813-42b6-b8d5-bd6f2d2a3ba0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T213727Z
+      Value: 20210922T060358Z
