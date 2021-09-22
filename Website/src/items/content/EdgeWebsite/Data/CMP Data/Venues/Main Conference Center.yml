@@ -12,6 +12,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="36189" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36189/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/9cd448ef5c3f4b8781169619a9086df3?v=1134ca15" mediaid="" stylelabs-content-type="Image" alt="main-conference-center-4.jpg" height="6000" width="4000" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T092952Z
@@ -19,25 +23,28 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 4000
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "acbdb41c-c871-4e70-9952-c80649662061"
+      Value: "b718ea44-2857-4d7e-90e0-52bcbb2ce218"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
         <p>Main Conference Center</p>
-        
+          
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210919T092952Z
+      Value: 20210922T202133Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Main Conference Center

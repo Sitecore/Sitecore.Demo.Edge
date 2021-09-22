@@ -12,6 +12,10 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30916" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/30916/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/7086de82b44d4684afb6ddced7fd1b22?v=f2bedad8" mediaid="" stylelabs-content-type="Image" alt="header-banner.jpg" height="3024" width="4032" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T165020Z
@@ -28,19 +32,19 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0d7a5d30-fce2-48cb-9aea-809741ccca93"
+      Value: "664013ae-9f1e-40fd-86bb-e3e17b5682c6"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
         <p>The Vendor Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms &amp; underground parking.</p>
-        
+          
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T165020Z
+      Value: 20210922T202142Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Vendor Pavilion

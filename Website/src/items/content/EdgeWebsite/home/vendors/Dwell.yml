@@ -17,7 +17,7 @@ Languages:
       Value: "https://twitter.com/#"
     - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
       Hint: ActivityType
-      Value: Skiing
+      Value: "{484D4D44-0165-43B6-B4B5-3812FA33EAEA}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210727T200401Z
@@ -41,7 +41,7 @@ Languages:
         <image stylelabs-content-id="33940" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670" mediaid="" stylelabs-content-type="Image" alt="Dwell.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "30bc3c29-ae64-4442-abee-475fe17288dc"
+      Value: "39b4963f-e3d6-423a-9d6a-5e2e965fc722"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -52,13 +52,13 @@ Languages:
         <p>We&#39;re cruising down every single slope going left and right, having so much fun. And even if the snow comes down we&#39;ll go for another run.</p>
         
         <p>For the final run we&#39;re coming down. Dwell is one big family and wants to help you come and play.</p>
-                 
+                  
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: Dwell
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T185127Z
+      Value: 20210922T194604Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"

@@ -20,7 +20,7 @@ Languages:
       Value: 20210920T213830Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:  
+      Value:   
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5a4c09d0-d68d-41fc-8351-5e890196b818"
+      Value: "e2da31f6-9bbe-45be-bb2b-21b2bd680ff9"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Vendor Showfloor
@@ -41,4 +41,4 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T160908Z
+      Value: 20210922T193555Z

@@ -17,7 +17,7 @@ Languages:
       Value: "https://twitter.com/#"
     - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
       Hint: ActivityType
-      Value: Golf
+      Value: "{539CB720-4A96-40C1-B5FC-44F2F776648F}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210727T200248Z
@@ -41,20 +41,20 @@ Languages:
         <image stylelabs-content-id="34188" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "720938d0-37bd-4d29-888f-bd4d7c0d2306"
+      Value: "cfcb3aec-1c3e-4a71-a9ed-f898d7410b76"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
-      Value:          
+      Value:           
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: Prostaff
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T185240Z
+      Value: 20210922T194822Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"
