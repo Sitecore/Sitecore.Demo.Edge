@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Healthy living: reality vs. theory</p>
-           
+            
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T222715Z
@@ -25,7 +25,7 @@ Languages:
       Value: "{10360965-3A6B-4763-B1C2-36E322D67B0E}|{D24592E4-60F7-4C93-8E70-E313DC3F4432}"
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: Day 1, Day 2
+      Value: Day 1
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -48,11 +48,11 @@ Languages:
       Value: "{5F6F922E-F34C-467F-BFCB-4B05F03BD32B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b099bfcf-3ab6-4db3-b254-e83c18a7de4d"
+      Value: "b26f68b0-b577-4503-969e-cc50be4e38bc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T183552Z
+      Value: 20210922T144418Z

@@ -15,6 +15,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210917T165227Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Los Angeles, California
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "541e85d4-85d8-41a9-a121-83f52d213951"
+      Value: "688a3b87-b488-4024-a054-8a63d5ceec70"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Redsand
@@ -39,13 +42,13 @@ Languages:
         <p>Ryan has always had creativity flowing through his veins. Just ask Ryan&#39;s parents and teachers who wanted him to focus more on school work than extracurricular creative outlets.</p>
         
         <p>&quot;I always knew I would turn my love for creative arts into a career, even though it wasn&#39;t immediately obvious how.&quot;, says Ryan. Now the&nbsp;Artistic Director for a major action sports brand, Redsand,&nbsp;it is &quot;clear as day&quot;. Ryan spends most days focused on running a large team of creative people&nbsp;and finding time to personally test various Redsand products outside the office walls.</p>
-        
+           
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Artistic Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T012636Z
+      Value: 20210922T143937Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru

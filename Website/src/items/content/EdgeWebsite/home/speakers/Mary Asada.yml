@@ -28,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "673c1cbf-47eb-4736-9f22-755321baeaf1"
+      Value: "88e2960b-f907-4dc8-9129-82ec73f0d585"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Striva
@@ -40,13 +40,13 @@ Languages:
       Hint: Description
       Value: |
         <p>Mary Asada</p>
-          
+           
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Chief Product Officer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T205959Z
+      Value: 20210922T143851Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker

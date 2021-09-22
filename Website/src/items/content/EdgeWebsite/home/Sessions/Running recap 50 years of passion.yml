@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Our history is rich and we&rsquo;re proud to celebrate 50 years running.&nbsp;The rise and fall of the great US running movement has been a roller coaster of emotions, and in the end, there were no easy choices. You&rsquo;ll remember the highs and lows of the past, but you&rsquo;ll also know that we put our heart and soul into every run, every day, and every year. We&rsquo;ve been involved in running since 1971, and we&rsquo;ve been passionate about running since the day we picked up the first running shoes.</p>
-          
+            
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T224229Z
@@ -25,14 +25,14 @@ Languages:
       Value: "{61AC52CB-DC91-4791-A1AE-71D9CF675083}"
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: Day 1
+      Value: Day 2
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
-      Value: "3 pm [Item not found]"
+      Value: "{A271FB87-8DF1-467A-9347-03D35A6ED21D}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -48,11 +48,11 @@ Languages:
       Value: "{F0B7CCE4-204B-420E-A51F-CA54BD87981B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c7acda8a-6530-4025-92f3-a2a2d5063471"
+      Value: "b647bcd0-b9c4-4664-8fa6-90e7ff2b0213"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T182841Z
+      Value: 20210922T144434Z

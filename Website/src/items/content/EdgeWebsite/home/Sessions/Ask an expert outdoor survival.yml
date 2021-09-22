@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value:   
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T183319Z
@@ -27,7 +30,7 @@ Languages:
         default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
-      Value: "3 pm [Item not found]|4 pm [Item not found]"
+      Value: "{9906C9E2-24DA-42AF-92D4-6ABE9B5B7614}|{782319C5-200D-45E4-982F-54EBEA323C75}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -43,11 +46,11 @@ Languages:
       Value: "{2F195A3D-D2F4-40A5-AE67-A900D058581B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7d8f4e89-797a-4386-9ea0-b7fc2b9509b0"
+      Value: "72e97a3e-821c-409a-a022-02224515f320"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T183340Z
+      Value: 20210922T144532Z

@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Closing Keynote description.</p>
-        
+         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T210942Z
@@ -48,11 +48,11 @@ Languages:
       Value: "{D4A04446-EE4C-4DE2-807B-053F1857E206}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "499e8a61-3d81-444b-aedf-8276f01254bd"
+      Value: "72168ec5-e012-4089-a811-1ce944407d41"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T195011Z
+      Value: 20210922T144346Z
