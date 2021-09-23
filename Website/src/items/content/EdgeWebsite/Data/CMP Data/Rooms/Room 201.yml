@@ -20,7 +20,7 @@ Languages:
       Value: 20210920T210355Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:   
+      Value:      
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7d310665-f364-4b52-9b31-8d1c1ce328b9"
+      Value: "a1a5593d-3366-42d5-80f9-083a76886fd3"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Room 201
@@ -41,4 +41,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T193527Z
+      Value: 20210923T215623Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{CDA69A6C-7AC6-43F2-AE48-FBEE619328F5}"

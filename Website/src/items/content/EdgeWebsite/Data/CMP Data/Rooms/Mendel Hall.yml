@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
+      Hint: Sessions
+      Value: "{6B4A88ED-0CD7-4C84-BF7B-8BBC3EF3EA49}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 45
@@ -20,7 +23,7 @@ Languages:
       Value: 20210920T225044Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:   
+      Value:      
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +34,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2f0c77ec-c78d-44d9-ab9a-5ab6706d71d9"
+      Value: "c23abe2e-5dee-4242-a834-7e8b82fe493b"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Mendel Hall
@@ -41,4 +44,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T193436Z
+      Value: 20210923T215616Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{FB455BA8-7131-4936-AFEF-FA45E79FFF84}"

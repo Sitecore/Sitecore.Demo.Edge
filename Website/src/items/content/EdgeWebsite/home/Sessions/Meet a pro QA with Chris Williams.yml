@@ -14,13 +14,13 @@ Languages:
     Fields:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
-      Value: "{7810C5C0-FF3C-45A1-92F6-10D42BCD57F7}|{5F1F2CD4-4E7C-4524-B169-BAFB39FED36D}"
+      Value: 
     - ID: "054ffb1c-8892-4ec8-8a2e-6a8654c17abc"
       Hint: Premium
       Value: 1
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
-      Value:        
+      Value:           
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T180653Z
@@ -33,7 +33,7 @@ Languages:
         <image stylelabs-content-id="31974" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31974/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/8b26400441374ea7a15301a6f01d70c1?v=ecc627d8" mediaid="" stylelabs-content-type="Image" alt="speaker-chris-williams-background.jpg" height="940" width="2000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: Day 1
+      Value: "{BFA29732-9C9A-4AB5-9384-CB78C1626266}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -56,11 +56,11 @@ Languages:
       Value: "{204161DD-1AB4-483F-AC4C-BFB465A583AA}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5c7466d7-5500-4838-92ab-bfee45da857a"
+      Value: "20fd8ecd-45e2-4bdd-8627-87c12c1217e7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T161731Z
+      Value: 20210923T212943Z

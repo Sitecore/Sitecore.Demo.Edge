@@ -20,7 +20,7 @@ Languages:
       Value: 20210920T214610Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:   
+      Value:      
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "63e1d734-f9de-4fb3-88d1-f3b0303fdd1d"
+      Value: "b92813bc-a40e-4249-b92e-5fd5103780ce"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: "Fireside Restaurant and Bar - Outdoor Terrace"
@@ -41,4 +41,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T193607Z
+      Value: 20210923T215637Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{FA9DF231-F348-4E83-869C-4274E4B78754}"

@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Daily breakfast available to all attendees...</p>
-                 
+        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085106Z
@@ -49,14 +49,14 @@ Languages:
       Value: Breakfast
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "Satellite Dining Hall - Sponsored by Prostaff [Item not found]|{3E658EB0-BD18-4F0A-8C36-D60E7620AD97}"
+      Value: "{3E658EB0-BD18-4F0A-8C36-D60E7620AD97}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "eed23ff4-8fdd-4f85-a606-2053643463f9"
+      Value: "3727e05b-872f-4c54-95c5-9049b07ce33d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T210929Z
+      Value: 20210923T213451Z

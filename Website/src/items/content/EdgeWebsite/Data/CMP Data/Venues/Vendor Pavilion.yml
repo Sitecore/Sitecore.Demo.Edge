@@ -32,19 +32,19 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "664013ae-9f1e-40fd-86bb-e3e17b5682c6"
+      Value: "2fb158df-a5ac-4335-9c38-57e8d506fc52"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
         <p>The Vendor Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms &amp; underground parking.</p>
-          
+           
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T202142Z
+      Value: 20210923T213008Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Vendor Pavilion

@@ -13,10 +13,10 @@ SharedFields:
   Value: 150
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: SessionToAudience
+  Value: AudienceToSession
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Audience.Label
+  Value: TaxonomyName
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{025DF6A5-2001-449F-8F76-02BE5353905C}"
@@ -41,11 +41,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "64913c81-af20-4642-a758-d39a5d9cf3b8"
+      Value: "2827e57f-c8ff-44a0-9c35-b1952be1b251"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T025705Z
+      Value: 20210923T220107Z

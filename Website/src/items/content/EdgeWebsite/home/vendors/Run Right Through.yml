@@ -17,7 +17,7 @@ Languages:
       Value: "https://twitter.com/#"
     - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
       Hint: ActivityType
-      Value: Running, Hiking
+      Value: "{8EA1589B-71BD-4831-A8CC-45D7FACF4B6D}|{BA1091E3-0AA8-4C76-B952-140E1621AE27}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210922T161252Z
@@ -41,20 +41,20 @@ Languages:
         <image stylelabs-content-id="34199" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34199/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/893cf2ebf17344d887e4cc5c35013541?v=bd27157d" mediaid="" stylelabs-content-type="Image" alt="RunRightThrough.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "efa2c67f-ee65-460b-9d04-3da0045fcb1f"
+      Value: "0d4283cb-5cfc-4f09-a61c-4cc12849e1b6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
-      Value:   
+      Value:    
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: Run Right Through
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T185259Z
+      Value: 20210923T213122Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"

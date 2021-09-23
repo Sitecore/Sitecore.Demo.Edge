@@ -3,14 +3,13 @@ ID: "45411b75-5e42-4bca-a33a-3632aa969db0"
 Parent: "135d8169-227b-4ef4-8bc6-504e29ace4d8"
 Template: "49652eb6-f98e-4114-b46a-925b9815578a"
 Path: /sitecore/system/Modules/CMP/Config/Room/Venue
-BranchID: "45dfeca8-d42a-4f2d-8dec-6a308aebf23d"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: 
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Venue
+  Value: Rooms
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: Name
@@ -38,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6201c3d9-30a5-4d60-9895-da7d402b3f76"
+      Value: "6c17d83a-37ef-4a81-a532-e49587150a15"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210918T234822Z
+      Value: 20210923T215503Z

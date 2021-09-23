@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
+      Hint: Sessions
+      Value: "{76B1D64B-C80D-4FE8-8FF2-7FF22360E341}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 220
@@ -22,7 +25,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Enjoy breakfast and lunch with other attendees in the Satellite Dining Hall - Thank you to&nbsp;Prostaff for sponsoring the meals!</p>
-        
+           
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,7 +36,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a2271ebb-2c2a-440f-bec0-d703e3df7702"
+      Value: "441851d1-dfa8-4614-9c1e-c62099bd5e33"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: "Satellite Dining Hall - Sponsored by Prostaff"
@@ -43,4 +46,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T190631Z
+      Value: 20210923T215615Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{CDA69A6C-7AC6-43F2-AE48-FBEE619328F5}"
