@@ -15,6 +15,7 @@ import {
   DateField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { GetSessionTime } from 'src/helpers/DateHelper';
 
 type Speaker = {
   fields: {
@@ -57,19 +58,6 @@ export type SessionInformationProps = ComponentProps & {
   };
 };
 
-function getTimeString(time: number, isEndTime: boolean) {
-  const minutes = isEndTime ? ':55' : ':00';
-  time = isEndTime ? time - 1 : time;
-  if (time == 12) {
-    return time + minutes + ' noon';
-  } else if (time < 12) {
-    return time + minutes + ' am';
-  } else if (time > 12) {
-    return time - 12 + minutes + ' pm';
-  }
-  return '';
-}
-
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   console.log(props.fields);
 
@@ -78,25 +66,6 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
     : props.fields.Speakers.length == 1
     ? 'Speaker'
     : 'Speakers';
-
-  let sessionTime = '';
-  if (props.fields.Timeslots) {
-    const times: number[] = [];
-    props.fields.Timeslots.forEach((timeslot) => {
-      let startTime = parseInt(timeslot.fields.Name.value);
-      if (startTime < 7) {
-        startTime = startTime + 12;
-      }
-      times.push(startTime);
-    });
-    times.sort();
-    if (props.fields.Timeslots.length > 1) {
-      sessionTime =
-        getTimeString(times[0], false) + ' - ' + getTimeString(times[times.length - 1] + 1, true);
-    } else {
-      sessionTime = getTimeString(times[0], false) + ' - ' + getTimeString(times[0] + 1, true);
-    }
-  }
 
   return (
     <section className="section">
@@ -162,7 +131,9 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                 <span>
                   <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
                 </span>
-                <span className="align-middle content-center">{sessionTime}</span>
+                <span className="align-middle content-center">
+                  {GetSessionTime(props.fields.Timeslots)}
+                </span>
               </div>
             )}
 

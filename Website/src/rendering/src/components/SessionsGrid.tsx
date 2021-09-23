@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Text, Field, ImageField, Image, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import { GetSessionTime } from 'src/helpers/DateHelper';
 
 type Speaker = {
   fields: {
@@ -44,41 +45,6 @@ type SessionsGridProps = ComponentProps & {
     items: Session[];
   };
 };
-
-function getTimeString(time: number, isEndTime: boolean) {
-  const minutes = isEndTime ? ':55' : ':00';
-  time = isEndTime ? time - 1 : time;
-  if (time == 12) {
-    return time + minutes + ' noon';
-  } else if (time < 12) {
-    return time + minutes + ' am';
-  } else if (time > 12) {
-    return time - 12 + minutes + ' pm';
-  }
-  return '';
-}
-
-function GetSessionTime(timeslots: Timeslot[]) {
-  let sessionTime = '';
-  if (timeslots) {
-    const times: number[] = [];
-    timeslots.forEach((timeslot) => {
-      let startTime = parseInt(timeslot.fields.Name.value);
-      if (startTime < 7) {
-        startTime = startTime + 12;
-      }
-      times.push(startTime);
-    });
-    times.sort();
-    if (timeslots.length > 1) {
-      sessionTime =
-        getTimeString(times[0], false) + ' - ' + getTimeString(times[times.length - 1] + 1, true);
-    } else {
-      sessionTime = getTimeString(times[0], false) + ' - ' + getTimeString(times[0] + 1, true);
-    }
-  }
-  return sessionTime;
-}
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
   <div className="item-grid sessions-grid">
