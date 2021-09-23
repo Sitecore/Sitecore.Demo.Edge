@@ -14,7 +14,6 @@ using Sitecore.Globalization;
 using Sitecore.SecurityModel;
 using Sitecore.Data;
 
-
 namespace Sitecore.Demo.Edge.Website.Pipelines
 {
     public class DemoCmpMultilistFieldMapping : SaveFieldValues
@@ -42,6 +41,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                     bool flag = false;
                     try
                     {
+                        Log.Info("DEMO CUSTOMIZATION: CmpMultiList field found on Item: " + args.Item.Name, this);
                         args.Item.Editing.BeginEdit();
                         args.Item[Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
                         flag = this.TryMapConfiguredFields(args);
@@ -112,6 +112,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                 {
                                     args.Item[fieldName] = GetListfieldValue(args.Item[fieldName],
                                         args.Item.Fields[fieldName].Source, args.Item.Database);
+                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field edited with: " + args.Item[fieldName], this);
                                 }
                                 else
                                 {
@@ -199,8 +200,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             {
                 var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
 
-
-                return searchResultItems == null ? null : searchResultItems.GetItem();
+                return searchResultItems?.GetItem();
             }
         }
 

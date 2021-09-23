@@ -1,13 +1,14 @@
 ﻿using System;
+using Sitecore.Diagnostics;
 using Sitecore.Shell.Applications.ContentEditor;
 
 namespace Sitecore.Demo.Edge.Website.CustomFields
 {
-    public class CmpMultiList : TreeList
+    public sealed class CmpMultiList : TreeList
     {
         public CmpMultiList()
         {
-            this.ReadOnly = true;
+            this.ReadOnly = false;
         }
 
         protected override void OnLoad(EventArgs e)
