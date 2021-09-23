@@ -18,7 +18,10 @@ SharedFields:
   Value: 
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/FeaturedSpeakers
+  Value: 
+- ID: "308e88f5-cd6e-4f8f-bafe-95a47dedefdc"
+  Hint: Editable
+  Value: 
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
   Value: "{FDF43AAD-C5D1-54E4-9909-59BFDDC86689}"
@@ -27,7 +30,7 @@ SharedFields:
   Value: "{2F5C334E-5615-423C-8281-9FC180191302}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -46,11 +49,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "847ef1e5-b813-42b6-b8d5-bd6f2d2a3ba0"
+      Value: "7823a5b8-6bb5-4248-8583-f19acd96b214"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T060358Z
+      Value: 20210922T204850Z
