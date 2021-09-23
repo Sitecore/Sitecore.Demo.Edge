@@ -94,6 +94,16 @@ const speaker2 = {
   },
 } as Speaker;
 
+const rooms = [
+  { fields: { Name: { value: 'Room 1' } } },
+  { fields: { Name: { value: 'Room 2' } } },
+];
+
+const timeslots = [
+  { fields: { Name: { value: '8 am' } } },
+  { fields: { Name: { value: '9 am' } } },
+];
+
 export const Default = Template.bind({});
 Default.args = {
   params: {
@@ -108,9 +118,9 @@ Default.args = {
     Type: { value: 'Keynote' },
     Image: { value: { src: '/assets/img/shop/man-biker.jpg' } },
     Speakers: [speaker1, speaker2],
-    Rooms: [{ fields: { Name: { value: 'Room 1' } } }, { fields: { Name: { value: 'Room 2' } } }],
+    Rooms: rooms,
     Day: { value: 'Day 1' },
-    Timeslots: [{ fields: { Name: { value: '8 am' } } }, { fields: { Name: { value: '9 am' } } }],
+    Timeslots: timeslots,
     Premium: { value: true },
   },
 };

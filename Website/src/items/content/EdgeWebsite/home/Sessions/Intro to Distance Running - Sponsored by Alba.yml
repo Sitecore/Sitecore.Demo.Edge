@@ -14,12 +14,12 @@ Languages:
     Fields:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
-      Value: "{7810C5C0-FF3C-45A1-92F6-10D42BCD57F7}|{5F1F2CD4-4E7C-4524-B169-BAFB39FED36D}"
+      Value: 
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
         <p>Intro to Distance Running - Sponsored by Alba</p>
-               
+                
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T212722Z
@@ -55,11 +55,11 @@ Languages:
       Value: "{1B2D0248-03C3-491C-B2DD-37FA167E4B50}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3e2b7efb-d5fc-439e-b8af-05860e6650cc"
+      Value: "a0bb82d2-d27d-4c7e-a442-41cc78feb6bf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T161718Z
+      Value: 20210923T183049Z

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
-import { GetSessionTime } from 'src/helpers/DateHelper';
+import { GetSessionTime } from '../helpers/DateHelper';
 
 type Speaker = {
   fields: {
@@ -52,8 +52,6 @@ export type SessionInformationProps = ComponentProps & {
 };
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
-  console.log(props.fields);
-
   const speakerHeader = !props.fields.Speakers
     ? ''
     : props.fields.Speakers.length == 1
@@ -66,44 +64,48 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
         <div className="information-grid">
           <div className="image-col">
             <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
-
-            {props.fields.Rooms && props.fields.Rooms.length > 0 && (
-              <div className="bg-gray-light p-2 flex align-middle content-center">
-                <span>
-                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faDoorOpen} />
-                </span>
-                <Text
-                  className="align-middle content-center"
-                  tag="p"
-                  field={props.fields.Rooms[0].fields.Name}
-                ></Text>
-              </div>
-            )}
-
-            {props.fields.Day && (
-              <div className="bg-gray-light p-2 flex align-middle content-center">
-                <span>
-                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faCalendar} />
-                </span>
-                <Text
-                  className="align-middle content-center"
-                  tag="p"
-                  field={props.fields.Day}
-                ></Text>
-              </div>
-            )}
-
-            {props.fields.Timeslots && props.fields.Timeslots.length > 0 && (
-              <div className="bg-gray-light p-2 flex align-middle content-center">
-                <span>
-                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
-                </span>
-                <span className="align-middle content-center">
-                  {GetSessionTime(props.fields.Timeslots)}
-                </span>
-              </div>
-            )}
-
+            <div>
+              {props.fields.Rooms && props.fields.Rooms.length > 0 && (
+                <div className="bg-gray-light p-2 flex align-middle content-center">
+                  <span>
+                    <FontAwesomeIcon
+                      className="icon h-4 mr-2 inline text-black"
+                      icon={faDoorOpen}
+                    />
+                  </span>
+                  <Text
+                    className="align-middle content-center"
+                    tag="p"
+                    field={props.fields.Rooms[0].fields.Name}
+                  ></Text>
+                </div>
+              )}
+              {props.fields.Day && (
+                <div className="bg-gray-light p-2 flex align-middle content-center">
+                  <span>
+                    <FontAwesomeIcon
+                      className="icon h-4 mr-2 inline text-black"
+                      icon={faCalendar}
+                    />
+                  </span>
+                  <Text
+                    className="align-middle content-center"
+                    tag="p"
+                    field={props.fields.Day}
+                  ></Text>
+                </div>
+              )}
+              {props.fields.Timeslots && props.fields.Timeslots.length > 0 && (
+                <div className="bg-gray-light p-2 flex align-middle content-center">
+                  <span>
+                    <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
+                  </span>
+                  <span className="align-middle content-center">
+                    {GetSessionTime(props.fields.Timeslots)}
+                  </span>
+                </div>
+              )}
+            </div>
             <div className="hidden md:block pt-4" title="TODO: hardcoded for now...">
               <div className="font-bold">Related Sessions</div>
               <div className="border border-gray p-5 my-5">

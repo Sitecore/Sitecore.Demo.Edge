@@ -16,13 +16,17 @@ Languages:
       Hint: Description
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pedeposuere a.</p>
-             
+                 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T091009Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{07EC03AD-C8C4-475C-8414-A098F5A36E6B}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38142" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="mountain-biking-3.jpg" height="2832" width="4256" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: Day 1, Day 2
@@ -48,11 +52,11 @@ Languages:
       Value: "{D6D2A8FC-5ADB-4059-A43C-033E24623C31}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "98800065-1d2f-4268-8a9d-7b1dd5807f60"
+      Value: "f2f07a1e-176e-4a35-a625-06962d6413f0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T144307Z
+      Value: 20210923T183037Z

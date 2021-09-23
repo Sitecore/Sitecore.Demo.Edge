@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Text, Field, ImageField, Image, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
-import { GetSessionTime } from 'src/helpers/DateHelper';
+import { GetSessionTime } from '../helpers/DateHelper';
 
 type Speaker = {
   fields: {

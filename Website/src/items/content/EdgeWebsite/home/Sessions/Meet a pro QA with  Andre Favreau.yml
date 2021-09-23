@@ -17,13 +17,17 @@ Languages:
       Value: 1
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
-      Value:     
+      Value:         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T181133Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{E17D2423-B3CC-48DF-93B5-CB108E9DB4A1}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38471" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38471/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a75e871e825c4eaaad2a91e26259e0ba?v=99c76a76" mediaid="" stylelabs-content-type="Image" alt="basketball-session.jpg" height="3600" width="5400" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: Day 1
@@ -49,11 +53,11 @@ Languages:
       Value: "{8FB4E676-10DB-4522-ACCF-937FC28C582E}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2210dee0-e037-47d7-a846-ded03e57563e"
+      Value: "a313c8ce-79f6-452e-b1d5-fa08cd669493"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T144515Z
+      Value: 20210923T183107Z
