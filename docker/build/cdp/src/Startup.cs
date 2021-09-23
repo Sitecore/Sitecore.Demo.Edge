@@ -26,11 +26,10 @@ namespace Sitecore.Integrations.CDP
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CDP", Version = "v1" });
             });
-            services
-                .AddMvc(options =>
-                {
-                    options.InputFormatters.Insert(0, new RawJsonBodyInputFormatter());
-                });
+            services.AddMvc(options =>
+            {
+                options.InputFormatters.Insert(0, new RawJsonBodyInputFormatter());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +42,7 @@ namespace Sitecore.Integrations.CDP
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
-                .AllowAnyHeader()); 
+                .AllowAnyHeader());
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.HttpSys;
 using Newtonsoft.Json;
@@ -32,7 +31,7 @@ namespace Sitecore.Integrations.CDP.Controllers
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 AuthenticationSchemes.Basic.ToString(),
                 System.Convert.ToBase64String(Encoding.ASCII.GetBytes($"{clientKey}:{apiToken}"))
-                    );
+            );
         }
 
         private string GetRequest(string apiPath)
@@ -72,7 +71,7 @@ namespace Sitecore.Integrations.CDP.Controllers
                 return Content(
                     GetRequest($"/guests/{guestRef}"),
                     "application/json"
-                    );
+                );
             }
             catch (Exception ex)
             {
@@ -88,7 +87,7 @@ namespace Sitecore.Integrations.CDP.Controllers
                 return Content(
                     GetRequest($"/guests/{guestRef}?expand=ext{dataExtensionName}"),
                     "application/json"
-                    );
+                );
             }
             catch (Exception ex)
             {
@@ -120,7 +119,7 @@ namespace Sitecore.Integrations.CDP.Controllers
                 return Content(
                     GetRequest($"/guests/{guestRef}/ext{dataExtensionName}"),
                     "application/json"
-                    );
+                );
             }
             catch (Exception ex)
             {
@@ -136,7 +135,7 @@ namespace Sitecore.Integrations.CDP.Controllers
                 return Content(
                     GetRequest($"/guests/{guestRef}/ext{dataExtensionName}/{dataExtensionRef}"),
                     "application/json"
-                    );
+                );
             }
             catch (Exception ex)
             {
@@ -153,7 +152,7 @@ namespace Sitecore.Integrations.CDP.Controllers
                 return Content(
                     PostRequest($"/guests/{guestRef}/ext{dataExtensionName}", body),
                     "application/json"
-                    );
+                );
             }
             catch (Exception ex)
             {
@@ -169,7 +168,7 @@ namespace Sitecore.Integrations.CDP.Controllers
                 return Content(
                     DeleteRequest($"/guests/{guestRef}/ext{dataExtensionName}/{dataExtensionRef}"),
                     "application/json"
-                    );
+                );
             }
             catch (Exception ex)
             {
@@ -187,12 +186,16 @@ namespace Sitecore.Integrations.CDP.Controllers
                 var dataExtensionJson = dynJson.FirstOrDefault(i => i.Key == $"ext{dataExtensionName}");
 
                 if (dataExtensionJson.Equals(new KeyValuePair<string, JToken>()))
+                {
                     return StatusCode(StatusCodes.Status204NoContent);
+                }
 
                 var keyList = dataExtensionJson.Value["items"]?.Children();
 
                 if (keyList == null)
+                {
                     return StatusCode(StatusCodes.Status204NoContent);
+                }
 
                 var keyRefList = new List<string>();
                 foreach (var key in keyList)
@@ -202,7 +205,9 @@ namespace Sitecore.Integrations.CDP.Controllers
                 }
 
                 if (keyRefList == null || keyRefList.Count < 1)
+                {
                     return StatusCode(StatusCodes.Status204NoContent);
+                }
 
                 foreach (var keyRef in keyRefList)
                 {
@@ -227,22 +232,30 @@ namespace Sitecore.Integrations.CDP.Controllers
                 var dataExtensionJson = dynJson.FirstOrDefault(i => i.Key == $"ext{dataExtensionName}");
 
                 if (dataExtensionJson.Equals(new KeyValuePair<string, JToken>()))
+                {
                     return StatusCode(StatusCodes.Status404NotFound);
+                }
 
                 var keyList = dataExtensionJson.Value["items"]?.Children();
 
                 if (keyList == null)
+                {
                     return StatusCode(StatusCodes.Status404NotFound);
+                }
 
                 var foundKey = keyList.Value.FirstOrDefault(i => i.Value<string>("key").ToLower() == key.ToLower());
 
                 if (foundKey == null)
+                {
                     return StatusCode(StatusCodes.Status404NotFound);
+                }
 
                 var keyRef = foundKey.Value<string>("ref");
 
                 if (String.IsNullOrWhiteSpace(keyRef))
+                {
                     return StatusCode(StatusCodes.Status404NotFound);
+                }
 
                 return DeleteGuestDataExtension(guestRef, dataExtensionName, keyRef);
             }
