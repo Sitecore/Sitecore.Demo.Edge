@@ -56,3 +56,49 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210922T144326Z
+- Language: "en-US"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>Daily breakfast available to all attendees...</p>
+              
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210923T025844Z
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="37887" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/37887/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/144aeb7cdb2a442b98df54c146df75e1?v=04664da0" mediaid="" stylelabs-content-type="Image" alt="dining-hall.jpg" height="4016" width="6016" />
+    - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
+      Hint: Day
+      Value: Day 1, Day 2, Day 3
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
+      Hint: Timeslots
+      Value: "{591C8050-3C24-4C39-BE6A-5A038DBEC174}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: Breakfast
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: "Satellite Dining Hall - Sponsored by Prostaff [Item not found]|{3E658EB0-BD18-4F0A-8C36-D60E7620AD97}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b6af61f8-3913-4a16-a3d2-0b2c8518dd28"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210923T030303Z

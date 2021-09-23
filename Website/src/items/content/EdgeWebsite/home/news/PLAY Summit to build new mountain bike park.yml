@@ -67,6 +67,9 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210923T004645Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{231F8A06-82A1-4FDE-8132-3789475050BD}|{5F1F2CD4-4E7C-4524-B169-BAFB39FED36D}|{786B4DC5-1E6E-4DBF-9AF4-79BB3DEEF78F}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -80,14 +83,14 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "73ace0c7-fa65-4365-8593-704c2f1252b1"
+      Value: "8fd07d12-88ae-46cc-b1e4-f7a211e15472"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T004918Z
+      Value: 20210923T025453Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: "Around 50 acres of undeveloped land connecting Des Moines and Pleasant Hill will be turned into a new mountain bike park, according to PLAY! Summit director Rich Ronald."
@@ -111,4 +114,4 @@ Languages:
         <p>A wetland area would help filter water from Copper Creek before it enters the adjacent Fourmile Creek.</p>
         
         <p>The project is scheduled to be completed in 2025. PLAY! Summit is still looking for partners to assist with maintenance and care after when the park is operational.</p>
-            
+              

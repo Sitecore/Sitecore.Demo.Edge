@@ -4,6 +4,9 @@ Parent: "d30ddb56-a0f7-4750-8a3a-79c58bf5162b"
 Template: "49652eb6-f98e-4114-b46a-925b9815578a"
 Path: /sitecore/system/Modules/CMP/Config/Session/Rooms
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 500
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
   Value: Room
@@ -34,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7e2d2692-ac1a-4a91-8b1d-664ba21fbf85"
+      Value: "6d387129-c3c2-4002-af75-dee48fb7be89"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210916T170617Z
+      Value: 20210923T025503Z
