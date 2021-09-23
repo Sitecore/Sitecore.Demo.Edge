@@ -63,8 +63,8 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
       <div className="section__content left__content">
         <div className="information-grid">
           <div className="image-col">
-            <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
             <div>
+              <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
               {props.fields.Rooms && props.fields.Rooms.length > 0 && (
                 <div className="bg-gray-light p-2 flex align-middle content-center">
                   <span>

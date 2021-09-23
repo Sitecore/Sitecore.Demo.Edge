@@ -14,16 +14,8 @@
         @apply overflow-hidden bg-cover bg-center;
       }
 
-      img {
-        @apply transform scale-100 duration-300 ease-in-out;
-      }
-
       &:hover {
         border: 1px solid gray;
-
-        img {
-          @apply transform scale-110 duration-300  ease-in-out;
-        }
       }
 
       .session-featured {

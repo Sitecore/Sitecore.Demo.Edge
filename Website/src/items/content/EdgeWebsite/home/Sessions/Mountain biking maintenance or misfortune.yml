@@ -19,13 +19,17 @@ Languages:
       Hint: Description
       Value: |
         <p>Mountain biking: maintenance or misfortune</p>
-            
+                 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T220645Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{07EC03AD-C8C4-475C-8414-A098F5A36E6B}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38235" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38235/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/058c0634c01548109076fa51eb1414e7?v=d9cfda0c" mediaid="" stylelabs-content-type="Image" alt="bicycle-maintenance.jpg" height="3168" width="4752" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: Day 3
@@ -51,11 +55,11 @@ Languages:
       Value: "{4F980C67-F1BA-4231-9CCA-89BAD61E5DF6}|{2D678708-D023-44B2-AF36-85E31E30E057}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f7e0ecbd-dd80-41e8-acca-4495deeb53a7"
+      Value: "c0bd0f7c-c2f9-4f9c-ac94-da4f08410359"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T144410Z
+      Value: 20210923T210946Z

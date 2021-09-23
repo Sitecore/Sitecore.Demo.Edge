@@ -17,13 +17,17 @@ Languages:
       Value: 1
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
-      Value:     
+      Value:          
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T180843Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{79408E22-558E-45B1-AC9D-18665062C3A4}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38487" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38487/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/757164bf8040434e81e619db7482af52?v=36715615" mediaid="" stylelabs-content-type="Image" alt="fishing-session.jpg" height="2256" width="4011" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: Day 1
@@ -49,11 +53,11 @@ Languages:
       Value: "{D5C5F533-59DB-4D25-AAE7-E9B0789BF2A9}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a32c3d6f-04b9-4851-82bd-66862657126d"
+      Value: "1d606ac9-4e51-4008-af8a-12047a563797"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T144507Z
+      Value: 20210923T211009Z
