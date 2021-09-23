@@ -8,7 +8,7 @@
     @apply xl:grid-cols-4;
 
     .grid-item {
-      @apply bg-white mx-auto w-full;
+      @apply bg-white mx-auto w-full relative;
 
       .image-hover-zoom {
         @apply overflow-hidden bg-cover bg-center;
@@ -23,6 +23,14 @@
 
         img {
           @apply transform scale-110 duration-300  ease-in-out;
+        }
+      }
+
+      .session-featured {
+        @apply absolute top-1 right-1 text-yellow;
+
+        svg {
+          filter: drop-shadow(1px 1px 2px black);
         }
       }
 

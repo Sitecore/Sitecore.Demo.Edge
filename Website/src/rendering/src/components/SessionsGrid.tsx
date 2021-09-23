@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { Text, Field, ImageField, Image, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { faCalendar, faClock, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 
 type Speaker = {
   fields: {
@@ -35,6 +35,7 @@ type Session = {
     Rooms: Room[];
     Day: Field<string>;
     Timeslots: Timeslot[];
+    Premium: Field<boolean>;
   };
 };
 
@@ -89,6 +90,11 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
               <div className="image-hover-zoom">
                 <Image field={session.fields.Image} alt={session.fields.Name.value} />
               </div>
+              {session.fields.Premium?.value === true && (
+                <div className="session-featured" title="Premium">
+                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-yellow" icon={faStar} />
+                </div>
+              )}
               <div className="item-details item-details-left">
                 <Text tag="div" className="item-title" field={session.fields.Name}></Text>
                 <DateField

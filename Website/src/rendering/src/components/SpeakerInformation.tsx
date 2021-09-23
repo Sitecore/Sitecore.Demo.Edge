@@ -43,7 +43,6 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
           <div>
             <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
             <div className="external-website-icons">
-              {console.log(props.fields)}
               {!props.fields.FacebookProfileLink ? (
                 ''
               ) : (

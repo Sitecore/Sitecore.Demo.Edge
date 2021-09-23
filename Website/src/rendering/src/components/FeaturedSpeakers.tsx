@@ -23,7 +23,6 @@ type FeaturedSpeakersProps = ComponentProps & {
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
   <div className="item-grid">
     <div className="grid-content">
-      {props.fields.items}
       {props.fields.items &&
         props.fields.items
           .filter((item) => item.fields.Featured.value === true)

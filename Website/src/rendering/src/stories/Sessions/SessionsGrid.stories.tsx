@@ -21,6 +21,16 @@ const speaker = {
   },
 } as Speaker;
 
+const rooms = [
+  { fields: { Name: { value: 'Room 1' } } },
+  { fields: { Name: { value: 'Room 2' } } },
+];
+
+const timeslots = [
+  { fields: { Name: { value: '8 am' } } },
+  { fields: { Name: { value: '9 am' } } },
+];
+
 const session1 = {
   fields: {
     Name: {
@@ -35,9 +45,10 @@ const session1 = {
       },
     },
     Speakers: [speaker],
-    Rooms: [{ fields: { Name: { value: 'Room 1' } } }, { fields: { Name: { value: 'Room 2' } } }],
     Day: { value: 'Day 1' },
-    Timeslots: [{ fields: { Name: { value: '8 am' } } }, { fields: { Name: { value: '9 am' } } }],
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: { value: true },
   },
 } as Session;
 
@@ -55,9 +66,10 @@ const session2 = {
       },
     },
     Speakers: [speaker],
-    Rooms: [{ fields: { Name: { value: 'Room 1' } } }, { fields: { Name: { value: 'Room 2' } } }],
     Day: { value: 'Day 1' },
-    Timeslots: [{ fields: { Name: { value: '8 am' } } }, { fields: { Name: { value: '9 am' } } }],
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: { value: false },
   },
 } as Session;
 
@@ -75,9 +87,10 @@ const session3 = {
       },
     },
     Speakers: [speaker],
-    Rooms: [{ fields: { Name: { value: 'Room 1' } } }, { fields: { Name: { value: 'Room 2' } } }],
     Day: { value: 'Day 1' },
-    Timeslots: [{ fields: { Name: { value: '8 am' } } }, { fields: { Name: { value: '9 am' } } }],
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: { value: true },
   },
 } as Session;
 
@@ -95,9 +108,10 @@ const session4 = {
       },
     },
     Speakers: [speaker],
-    Rooms: [{ fields: { Name: { value: 'Room 1' } } }, { fields: { Name: { value: 'Room 2' } } }],
     Day: { value: 'Day 1' },
-    Timeslots: [{ fields: { Name: { value: '8 am' } } }, { fields: { Name: { value: '9 am' } } }],
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: { value: false },
   },
 } as Session;
 

@@ -80,9 +80,8 @@ SharedFields:
           ph="/jss-main"
           uid="{E532127E-1D91-51EE-B517-B8CBBCC57A20}" />
         <r
-          ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
           id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
-          par=""
+          par="NumberOfSpeakers=4"
           ph="/jss-main/jss-section-content-{E532127E-1D91-51EE-B517-B8CBBCC57A20}-0"
           uid="{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}"
           ccb="Clear on publish" />
