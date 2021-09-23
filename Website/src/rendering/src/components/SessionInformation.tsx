@@ -6,14 +6,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
-import {
-  Field,
-  ImageField,
-  Image,
-  RichText,
-  Text,
-  DateField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { GetSessionTime } from 'src/helpers/DateHelper';
 
@@ -49,12 +42,12 @@ export type SessionInformationProps = ComponentProps & {
     Name: Field<string>;
     Description: Field<string>;
     Type: Field<string>;
-    Date: Field<string>;
     Image: ImageField;
     Speakers: Speaker[];
     Rooms: Room[];
     Day: Field<string>;
     Timeslots: Timeslot[];
+    Premium: Field<boolean>;
   };
 };
 
@@ -68,37 +61,11 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
     : 'Speakers';
 
   return (
-    <section className="section">
+    <section className="section information-section speaker-information">
       <div className="section__content left__content">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="col-span-1 md:col-span-1">
+        <div className="information-grid">
+          <div className="image-col">
             <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
-            <div>
-              <DateField
-                tag="h3"
-                field={props.fields.Date}
-                render={(date) =>
-                  'Date: ' +
-                  date?.toLocaleDateString('en-US', {
-                    weekday: 'short',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })
-                }
-              />
-              <DateField
-                tag="span"
-                field={props.fields.Date}
-                render={(date) =>
-                  'Time: ' +
-                  date?.toLocaleTimeString('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })
-                }
-              />
-            </div>
 
             {props.fields.Rooms && props.fields.Rooms.length > 0 && (
               <div className="bg-gray-light p-2 flex align-middle content-center">
@@ -145,13 +112,18 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               </div>
             </div>
           </div>
-          <div className="col-span-1 md:col-span-3 space-y-5">
-            <Text tag="span" className="btn--main bg-yellow" field={props.fields.Type}></Text>
-            <Text
-              tag="h2"
-              className="text-2xl md:text-3xl font-extrabold text-blue"
-              field={props.fields.Name}
-            ></Text>
+          <div className="description-col">
+            <div>
+              <Text tag="span" className="eyebrow" field={props.fields.Type}></Text>
+              {props.fields.Premium?.value === true && <span className="eyebrow">Premium</span>}
+            </div>
+            <div>
+              <Text
+                tag="h2"
+                className="text-2xl md:text-3xl font-extrabold text-blue"
+                field={props.fields.Name}
+              ></Text>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="font-bold col-span-1 lg:col-span-2">{speakerHeader}</div>
               {props.fields.Speakers &&
