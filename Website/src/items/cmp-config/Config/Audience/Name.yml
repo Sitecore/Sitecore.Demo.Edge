@@ -7,7 +7,7 @@ BranchID: "70eb42ee-92b2-4246-bc65-aa920bb7f322"
 SharedFields:
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Audience.Label
+  Value: TaxonomyName
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{AF5CFB2C-4E9F-4425-9BFD-2A333801288C}"
@@ -32,11 +32,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4f774b4d-733e-4eee-a4d5-8cac557ff3cd"
+      Value: "402d6d0f-8af4-4f28-8aab-3864652f1c3f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T022453Z
+      Value: 20210923T164436Z

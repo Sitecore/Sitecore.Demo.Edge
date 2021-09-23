@@ -12,11 +12,14 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "025df6a5-2001-449f-8f76-02be5353905c"
+      Hint: Audience
+      Value: "{5F1F2CD4-4E7C-4524-B169-BAFB39FED36D}|{131A827D-0E0A-48BA-9D52-753FFB135BA9}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet ligula.ipsum sit ligula.ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit ama.Lorem ipsum sit amet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra .Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-             
+                
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085613Z
@@ -25,7 +28,8 @@ Languages:
       Value: "{61AC52CB-DC91-4791-A1AE-71D9CF675083}|{18EF9D0A-535F-482A-B020-D076D414130A}"
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
-      Value: 
+      Value: |
+        <image stylelabs-content-id="38290" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38290/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/fbeff54120594339ac9c8ce2b32d82f5?v=b2aad55c" mediaid="" stylelabs-content-type="Image" alt="cycling-group.jpg" height="3000" width="4000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: Day 3
@@ -51,11 +55,11 @@ Languages:
       Value: "{2D678708-D023-44B2-AF36-85E31E30E057}|{4F980C67-F1BA-4231-9CCA-89BAD61E5DF6}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "723ed688-de9d-4773-b27e-11d7bd6283d9"
+      Value: "67687fe5-8fae-4db3-a8a2-8df8a16bdf2a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T144242Z
+      Value: 20210923T161709Z

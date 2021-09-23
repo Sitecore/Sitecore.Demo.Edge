@@ -6,13 +6,13 @@ Path: /sitecore/system/Modules/CMP/Config/Audience
 SharedFields:
 - ID: "3f883dcb-c341-4929-9216-d07f4f1b00be"
   Hint: Bucket
-  Value: "{1468D416-C04C-489A-9E9C-3FEB72BE6C06}"
+  Value: "{232FDF6B-950D-4EC2-BC47-E23017523272}"
 - ID: "9e009c2f-ad3c-4108-aa48-15689c1d4e1b"
   Hint: EntityTypeSchema
-  Value: M.CMP.Audience
+  Value: Demo.Audience
 - ID: "e82af1d8-7521-47e2-9e1b-898e5686d1c2"
   Hint: ItemNameProperty
-  Value: Audience.Label
+  Value: TaxonomyName
 - ID: "e9c95e69-0d3d-4ae3-b893-d1ff4ba36b03"
   Hint: Template
   Value: "{C49FF72C-A4E8-4148-B8CF-BC362C655A52}"
@@ -37,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "371905ae-f6d3-4869-a1b3-bfbeb52e72af"
+      Value: "73e7a0d8-1b6d-44fc-92f5-956b5911c6ac"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T213912Z
+      Value: 20210923T164428Z
