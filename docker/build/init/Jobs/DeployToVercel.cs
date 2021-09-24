@@ -70,7 +70,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             DeployTv(ns, contentHubApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, token, scope);
-            DeployKiosk(ns, token, scope, cdpClientKey, cdpApiTargetEndpoint);
+            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, token, scope);
 
             await Complete();
         }
@@ -141,7 +141,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
         }
 
-        private static void DeployKiosk(string ns, string token, string scope, string cdpClientKey, string cdpApiTargetEndpoint)
+        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string token, string scope)
         {
             var sourceDirectory = "C:\\app\\kiosk";
             var targetDirectory = $"C:\\app\\{ns}-kiosk";
