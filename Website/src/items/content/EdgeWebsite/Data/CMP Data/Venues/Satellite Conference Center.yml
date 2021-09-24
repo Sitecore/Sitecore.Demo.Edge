@@ -1,5 +1,5 @@
 ﻿---
-ID: "cda69a6c-7ac6-43f2-ae48-fbee619328f5"
+ID: "443a690d-1909-4c5c-a1a4-3f9824c73ff6"
 Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
 Template: "a06b2851-c98a-4622-8773-98736daadb13"
 Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Satellite Conference Center
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="36268" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36268/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/e42479904c0949cca65974c3c1912eec?v=4547e936" mediaid="" stylelabs-content-type="Image" alt="satellite-conference-center-2.jpg" height="4480" width="6720" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210919T093017Z
+      Value: 20210924T164244Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,19 +32,22 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "04525a3d-0f82-4d05-9280-b4dc7dbcd4fe"
+      Value: "758fb58e-16d8-4fe1-8b5d-52154322010e"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
         <p>Satellite Conference Center</p>
-          
+                  
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
+    - ID: "d7dbc4ac-0a0e-4445-8c79-4a98b3b5f2e7"
+      Hint: Rooms
+      Value: "{83DE6E70-F59D-456B-8D13-BC1A600E483F}|{39E4FDFC-14B8-432F-B646-D13BDD2F63B9}|{45D608DC-7707-4688-AF28-73F0CBBB227C}|{374B55AB-B656-4588-A347-A0D28CB2AC99}|{72DD2F9A-9EA1-4BD3-A8F5-927795E58AF9}|{05508583-1AE2-40C8-A87E-1A54351B0117}|{D1518172-C562-4572-A6F8-0ACFDC811F29}|{F0347266-02D1-4E9D-8E14-BF69815B2DC2}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T202223Z
+      Value: 20210924T174859Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Satellite Conference Center

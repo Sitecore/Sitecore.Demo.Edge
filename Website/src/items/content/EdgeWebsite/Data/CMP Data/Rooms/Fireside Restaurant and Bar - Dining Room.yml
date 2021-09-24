@@ -1,5 +1,5 @@
 ﻿---
-ID: "7aefe8fe-1c96-4fc1-9461-1b3aeb99eb58"
+ID: "eb85eb88-f271-4203-b1cf-d2fc6c4a2e86"
 Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
 Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
 Path: "/sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Fireside Restaurant and Bar - Dining Room"
@@ -17,10 +17,10 @@ Languages:
       Value: 100
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210922T160938Z
+      Value: 20210924T165225Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:      
+      Value:         
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6461ec20-fc11-4692-8d33-9efbd6003202"
+      Value: "ec46c450-eb99-48cc-995d-a03e3360cbed"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: "Fireside Restaurant and Bar - Dining Room"
@@ -41,7 +41,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T215628Z
+      Value: 20210924T174252Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
-      Value: "{FA9DF231-F348-4E83-869C-4274E4B78754}"
+      Value: "{B48851CB-9EC2-4540-97AD-47D9FB793E93}"

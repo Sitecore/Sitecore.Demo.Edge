@@ -1,5 +1,5 @@
 ﻿---
-ID: "fa9df231-f348-4e83-869c-4274e4b78754"
+ID: "b48851cb-9ec2-4540-97ad-47d9fb793e93"
 Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
 Template: "a06b2851-c98a-4622-8773-98736daadb13"
 Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Fireside Restaurant and Bar
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="36317" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36317/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/c990fdcad2d64aab8564130883d5e6ff?v=86f6ccb6" mediaid="" stylelabs-content-type="Image" alt="restaurant-bar-2.jpg" height="3731" width="5596" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210919T092837Z
+      Value: 20210924T164232Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,19 +32,22 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9b439867-8ee3-45bc-baa7-86463314d428"
+      Value: "8f5f79cd-2ff4-4492-8631-9177b06fe8e3"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
         <p>A local favorite restaurant and bar will be rented out for PLAY! Summit. A special &quot;thank you&quot; evening will be held for speakers, sponsors&nbsp;&amp; vendors.</p>
-           
+                  
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "d7dbc4ac-0a0e-4445-8c79-4a98b3b5f2e7"
+      Hint: Rooms
+      Value: "{FC7E0C6B-853A-46C5-867F-569F7FE00E28}|{EB85EB88-F271-4203-B1CF-D2FC6C4A2E86}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T213002Z
+      Value: 20210924T174835Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Fireside Restaurant and Bar

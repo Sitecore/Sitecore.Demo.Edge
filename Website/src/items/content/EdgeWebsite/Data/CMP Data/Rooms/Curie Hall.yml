@@ -1,5 +1,5 @@
 ﻿---
-ID: "f0b7cce4-204b-420e-a51f-ca54bd87981b"
+ID: "a5673b41-fabe-450b-9037-14132fa734da"
 Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
 Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
 Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Curie Hall
@@ -12,17 +12,20 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
+      Hint: Sessions
+      Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}|7 mindset strategies to raise your game 23 [Item not found]"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 75
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T163221Z
+      Value: 20210924T164638Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
       Value: |
         <p>Curie Hall&nbsp;</p>
-         
+             
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,7 +36,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1e86ebf3-ab4c-4913-a4e9-5074684fc1f1"
+      Value: "af3ed550-8f8c-4869-b702-53cf6622698e"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Curie Hall
@@ -41,10 +44,9 @@ Languages:
       Hint: __Updated by
       Value: |
         default\Anonymous
-    - ID: "cb829e9e-59ac-431e-a8d7-d60d0d4ebd8e"
-      Hint: Image
-      Value: |
-        <image stylelabs-content-id="36176" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36176/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/1890c853e7084530a248cb6f301c278b?v=158eb2e1" mediaid="" stylelabs-content-type="Image" alt="main-conference-center-2.jpg" height="3822" width="5733" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T214826Z
+      Value: 20210924T174117Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{B6D5789C-3F8E-4CAC-97E5-B0334FD67DE8}"

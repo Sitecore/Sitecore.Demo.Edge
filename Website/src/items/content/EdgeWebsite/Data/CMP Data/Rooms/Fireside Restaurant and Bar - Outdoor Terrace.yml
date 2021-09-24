@@ -1,5 +1,5 @@
 ﻿---
-ID: "05f492bd-26e4-4fbc-bd26-c7b2f581b064"
+ID: "fc7e0c6b-853a-46c5-867f-569f7fe00e28"
 Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
 Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
 Path: "/sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Fireside Restaurant and Bar - Outdoor Terrace"
@@ -17,10 +17,10 @@ Languages:
       Value: 200
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T214610Z
+      Value: 20210924T165247Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:      
+      Value:         
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b92813bc-a40e-4249-b92e-5fd5103780ce"
+      Value: "68d1656f-5b5d-4132-8b1a-6c9c050e2743"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: "Fireside Restaurant and Bar - Outdoor Terrace"
@@ -41,7 +41,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T215637Z
+      Value: 20210924T174255Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
-      Value: "{FA9DF231-F348-4E83-869C-4274E4B78754}"
+      Value: "{B48851CB-9EC2-4540-97AD-47D9FB793E93}"

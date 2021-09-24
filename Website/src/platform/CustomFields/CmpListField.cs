@@ -1,5 +1,4 @@
 ﻿using System;
-using Sitecore.Diagnostics;
 using Sitecore.Shell.Applications.ContentEditor;
 
 namespace Sitecore.Demo.Edge.Website.CustomFields
@@ -8,6 +7,8 @@ namespace Sitecore.Demo.Edge.Website.CustomFields
     {
         public CmpMultiList()
         {
+            this.Class = "scContentControl scContentControlTreelist";
+            this.Activation = true;
             this.ReadOnly = false;
         }
 

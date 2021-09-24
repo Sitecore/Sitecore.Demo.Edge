@@ -1,5 +1,5 @@
 ﻿---
-ID: "40b3373e-3eed-4c83-b36d-27a285f451fb"
+ID: "83de6e70-f59d-456b-8d13-bc1a600e483f"
 Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
 Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
 Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Room 203
@@ -17,10 +17,10 @@ Languages:
       Value: 50
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T210804Z
+      Value: 20210924T164805Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:     
+      Value:         
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,7 +31,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "52e49423-f236-4b64-90c7-1328ff845879"
+      Value: "d9723d2f-756b-4025-a6b0-e3369bdbbca8"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Room 203
@@ -41,4 +41,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T214846Z
+      Value: 20210924T174216Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{443A690D-1909-4C5C-A1A4-3F9824C73FF6}"

@@ -41,7 +41,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                     bool flag = false;
                     try
                     {
-                        Log.Info("DEMO CUSTOMIZATION: CmpMultiList field found on Item: " + args.Item.Name, this);
+                        Log.Info("DEMO CUSTOMIZATION: Processing Item: " + args.Item.Name, this);
                         args.Item.Editing.BeginEdit();
                         args.Item[Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
                         flag = this.TryMapConfiguredFields(args);
@@ -110,9 +110,10 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
                                 if (args.Item.Fields[fieldName].Type == "CmpMultiList")
                                 {
+                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' initial value: " + args.Item[fieldName], this);
                                     args.Item[fieldName] = GetListfieldValue(args.Item[fieldName],
                                         args.Item.Fields[fieldName].Source, args.Item.Database);
-                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + fieldName + "' edited with: " + args.Item[fieldName], this);
+                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' edited with: " + args.Item[fieldName], this);
                                 }
                                 else
                                 {
