@@ -1,5 +1,5 @@
 ﻿---
-ID: "e923fb60-ea19-4ae0-87c9-058d7bc72af7"
+ID: "5f107763-694b-4e24-b7c7-308180ababad"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Alex Mena
@@ -17,7 +17,7 @@ Languages:
       Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T190602Z
+      Value: 20210924T175401Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: Paris, France
@@ -31,13 +31,13 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "dbca6c80-dcfb-4b0f-82f1-26d56c8e3c7b"
+      Value: "612da657-869f-4ab0-9231-18001b83ed5a"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Solstice
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: 
+      Value: "{2BA9C4D5-7935-4E84-A0A3-DF8623B1B73C}|Opening Keynote [Item not found]"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -46,13 +46,13 @@ Languages:
       Hint: Description
       Value: |
         <p>Alex Mena is on of the best in business.</p>
-           
+               
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: International Sales Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T143904Z
+      Value: 20210924T180023Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker

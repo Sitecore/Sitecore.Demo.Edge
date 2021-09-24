@@ -1,5 +1,5 @@
 ﻿---
-ID: "6d7143cf-2b50-4ac7-8e44-b7ddee4bb781"
+ID: "d5033fba-96eb-47f3-b239-c8f7094464fd"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Chris Williams
@@ -17,7 +17,7 @@ Languages:
       Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210917T154820Z
+      Value: 20210924T175355Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: Switzerland
@@ -31,7 +31,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0d6d00f4-5685-484e-886d-5cd19a8f61f7"
+      Value: "bcd8f01b-eb1d-45ea-a721-1ba99f062b62"
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "Meet a pro: Q&A with Chris Williams [Item not found]|{39226DC6-0A62-459B-9299-54EC88AF6935}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -40,13 +43,13 @@ Languages:
       Hint: Description
       Value: |
         <p>Chris Williams</p>
-           
+               
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Professional Cyclist
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T143858Z
+      Value: 20210924T180016Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Athlete

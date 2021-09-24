@@ -1,5 +1,5 @@
 ﻿---
-ID: "a354e908-d5a7-46da-bdaa-193d79fdc8d9"
+ID: "b4a33a3e-d11a-48ac-bc63-1cfd547239e8"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: "/sitecore/content/EdgeWebsite/home/speakers/Alfred Smith-Ronan"
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210917T170347Z
+      Value: 20210924T175440Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: New York, New York
@@ -28,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "daabcdd4-b39d-47c8-8c49-7f33a9eef3ab"
+      Value: "97b7fe65-c501-4071-b8e8-139a2f2c3c08"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Kolmann
@@ -40,13 +40,13 @@ Languages:
       Hint: Description
       Value: |
         <p>Alfred Smith-Ronan is one the best in New York</p>
-           
+               
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Chief People Officer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T143949Z
+      Value: 20210924T180110Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker

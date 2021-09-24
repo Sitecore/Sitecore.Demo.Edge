@@ -1,5 +1,5 @@
 ﻿---
-ID: "ae29f238-d226-469d-9a38-776708ee4094"
+ID: "80c74986-8eeb-47e7-b9ff-ca95cb103f16"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Jake Johanssen
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T223223Z
+      Value: 20210924T175451Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: Los Angeles, California
@@ -28,20 +28,23 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b73d7977-44fa-4cbf-957c-a33c4d2e2eb7"
+      Value: "4d40450e-978b-4ede-8514-4400da2d63b7"
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|Opening Keynote [Item not found]|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value:     
+      Value:        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Master of Ceremonies
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T213054Z
+      Value: 20210924T180127Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker

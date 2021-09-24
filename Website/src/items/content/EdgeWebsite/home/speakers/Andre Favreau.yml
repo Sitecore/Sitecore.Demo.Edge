@@ -1,5 +1,5 @@
 ﻿---
-ID: "e17d2423-b3cc-48df-93b5-cb108e9db4a1"
+ID: "bb90ae1b-06d6-480d-a238-f2998721a00d"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Andre Favreau
@@ -17,7 +17,7 @@ Languages:
       Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T194057Z
+      Value: 20210924T175412Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: Belgium
@@ -31,20 +31,23 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ee8a7c7f-be9f-49b8-a150-0b0d86b4eda5"
+      Value: "a669c32c-6ea4-4426-9f53-f2b8ecbafcfd"
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "Meet a pro: Q&A with  Andre Favreau [Item not found]|{ECB47DD1-8390-4551-9EDD-EA680B7466E2}|{ECB47DD1-8390-4551-9EDD-EA680B7466E2}|Opening Keynote [Item not found]"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value:    
+      Value:        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Professional Basketball Player
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T143918Z
+      Value: 20210924T180040Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Athlete

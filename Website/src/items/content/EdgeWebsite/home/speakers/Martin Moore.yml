@@ -1,5 +1,5 @@
 ﻿---
-ID: "40c14fce-de1b-4336-84d0-d8f8257a6fba"
+ID: "abc74708-2a5a-4ad9-94e6-15a6029252ec"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Martin Moore
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210726T170456Z
+      Value: 20210924T175323Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: Sydney, Australia
@@ -28,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "06c9b365-8b18-4630-b332-69581fbb2627"
+      Value: "f6a8a233-caab-4f08-95de-db2a205dd9cd"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Spark
@@ -38,21 +38,18 @@ Languages:
         default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value:     
+      Value:        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Customer Success Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T213013Z
+      Value: 20210924T175935Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: Martin Moore
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
       Value: Martin Moore
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture

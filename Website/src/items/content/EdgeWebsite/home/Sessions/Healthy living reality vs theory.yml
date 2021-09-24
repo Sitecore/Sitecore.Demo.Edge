@@ -12,31 +12,34 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "025df6a5-2001-449f-8f76-02be5353905c"
+      Hint: Audience
+      Value: "{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
         <p>Healthy living: reality vs. theory</p>
-                  
+                   
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T222715Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
-      Value: "{10360965-3A6B-4763-B1C2-36E322D67B0E}|{D24592E4-60F7-4C93-8E70-E313DC3F4432}"
+      Value: "{465AEE87-D244-403F-B913-A979FE00F7A4}|{B514A206-CC4D-4815-989A-5B4DA2641D7F}"
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
         <image stylelabs-content-id="38355" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38355/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/83da9d31fc674139affc0864b0acf074?v=234fb5ef" mediaid="" stylelabs-content-type="Image" alt="dumbbells-resting.jpg" height="3648" width="5472" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: Day 1
+      Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
-      Value: "{0D33D183-BD2B-4308-8B72-28CC5D313DA2}"
+      Value: "{7E340507-E14C-4AF5-99F5-27CD67B1A72F}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -49,14 +52,14 @@ Languages:
       Value: "Healthy living: reality vs. theory"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
-      Value: "{5F6F922E-F34C-467F-BFCB-4B05F03BD32B}"
+      Value: "{42254A3E-44A5-4572-8C62-F918F36B034B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8dce846d-f658-4572-9ef0-95125d21736b"
+      Value: "19a521a9-8d61-4a3a-9c68-2fab68e10cba"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T212928Z
+      Value: 20210924T180551Z

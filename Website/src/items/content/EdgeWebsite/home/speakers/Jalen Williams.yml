@@ -1,5 +1,5 @@
 ﻿---
-ID: "414ca3b1-125b-4451-8db0-18aa7cf21d2b"
+ID: "87223fa1-b672-4201-be61-0011ee4a7a09"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Jalen Williams
@@ -17,7 +17,7 @@ Languages:
       Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210726T165127Z
+      Value: 20210924T175344Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: London, England
@@ -31,7 +31,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "97273c07-3859-47ab-ae52-7d76d2019f66"
+      Value: "3d291368-1ca5-4391-a021-979cff19fe39"
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{57011604-34AF-40B5-8892-5A194F76EEBE}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -40,21 +43,18 @@ Languages:
       Hint: Description
       Value: |
         <p>Jalen Williams</p>
-           
+               
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Social Influencer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T143845Z
+      Value: 20210924T180001Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Social Influencer
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: Jalen Williams
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
       Value: Jalen Williams
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture

@@ -10,7 +10,7 @@ SharedFields:
   Value: 
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Sessions
+  Value: Speakers
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: Name
@@ -38,11 +38,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ae2c03a5-b342-4f9e-be58-31dd688058d1"
+      Value: "ea8eb332-242b-48d3-9308-f0bb2f122b6c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T210657Z
+      Value: 20210924T175822Z

@@ -1,5 +1,5 @@
 ﻿---
-ID: "0bc9afa6-8b09-4b11-98c5-7542e89533a5"
+ID: "13f1fd3b-8133-4833-b4d4-6d8cd2d7bef5"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Li Xiu Ying
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210726T165722Z
+      Value: 20210924T175317Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: San Diego, California
@@ -28,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1d379f5a-a367-450d-99ad-a4baf655ab32"
+      Value: "d6b53209-ed94-4ded-aa93-521c6c1d4d90"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Wave52
@@ -38,21 +38,18 @@ Languages:
         default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value:    
+      Value:        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Business Intelligence
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T143816Z
+      Value: 20210924T175930Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: Li Xiu Ying
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
       Value: Li Xiu Ying
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture

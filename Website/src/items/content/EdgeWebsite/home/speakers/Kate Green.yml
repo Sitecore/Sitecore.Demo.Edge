@@ -1,5 +1,5 @@
 ﻿---
-ID: "7c120693-a8fd-4060-9e11-a6c5542c8234"
+ID: "5b28b824-5848-4113-94f2-c9fdd4cb1805"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Kate Green
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210726T165632Z
+      Value: 20210924T175329Z
     - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
       Hint: Location
       Value: Vancouver, Canada
@@ -28,7 +28,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f6d5c11f-b53b-43e1-8be4-0c56c6ad0e22"
+      Value: "b97a341c-81f0-42af-b676-79735f35236b"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Final Whistle
@@ -40,21 +40,18 @@ Languages:
       Hint: Description
       Value: |
         <p>Kate Green</p>
-            
+               
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Creative Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T213048Z
+      Value: 20210924T175940Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sponsor
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: Kate Green
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
       Value: Kate Green
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
