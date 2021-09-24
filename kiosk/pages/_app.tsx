@@ -10,23 +10,6 @@ import {
 } from '../services/BoxeverService';
 import { logViewEvent } from '../services/BoxeverService';
 
-// DEMO TEAM CUSTOMIZATION - CDP integration
-const cdpScripts = isCdpConfigured ? (
-  <>
-    <Script id="cdpSettings">{`
-      // Define the Boxever queue
-      var _boxeverq = _boxeverq || [];
-      // Define the Boxever settings
-      _boxever_settings = {
-        client_key: '${CDP_CLIENT_KEY}',
-        target: '${CDP_API_TARGET_ENDPOINT}',
-        cookie_domain: '.edge.localhost',
-      };`}</Script>
-    <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
-  </>
-) : undefined;
-// END CUSTOMIZATION
-
 function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
     logViewEvent();
@@ -38,7 +21,25 @@ function App({ Component, pageProps, router }: AppProps) {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [router]);
+
+  // DEMO TEAM CUSTOMIZATION - CDP integration
+  const cdpScripts = isCdpConfigured ? (
+    <>
+      <Script id="cdpSettings">{`
+        // Define the Boxever queue
+        var _boxeverq = _boxeverq || [];
+
+        // Define the Boxever settings
+        _boxever_settings = {
+          client_key: '${CDP_CLIENT_KEY}',
+          target: '${CDP_API_TARGET_ENDPOINT}',
+          cookie_domain: '.edge.localhost',
+        };`}</Script>
+      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
+    </>
+  ) : undefined;
+  // END CUSTOMIZATION
 
   return (
     <div className="screen">
