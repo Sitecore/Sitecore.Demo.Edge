@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { Ticket } from '../models/ticket';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,7 +8,7 @@ type TicketProps = {
   color: string;
 };
 
-const handleClick = (e: any) => {
+const handleClick = (e: MouseEvent<HTMLDivElement>) => {
   console.log(e.target);
   //TODO: active inactive css is there, need to assign it to ticket-content div on click
 };

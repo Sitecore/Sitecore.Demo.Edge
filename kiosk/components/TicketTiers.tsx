@@ -2,10 +2,10 @@ import Ticket from './Ticket';
 import { TICKETS } from '../models/mock-tickets';
 import Link from 'next/link';
 
-const handleClick = (e) => {
-  console.log('Free pizza!');
-  console.log(e);
-};
+// const handleClick = (e) => {
+//   console.log('Free pizza!');
+//   console.log(e);
+// };
 
 const TicketTiers = (): JSX.Element => {
   return (
