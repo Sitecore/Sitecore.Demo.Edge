@@ -15,26 +15,18 @@ const TicketView = (props: TicketProps): JSX.Element => {
       <div className="ticket-text">
         <h2 className="ticket-name">Online Ticket</h2>
         <div className="ticket-subtitle">Save 20% on early bird!</div>
-        <div className="ticket-price">$99</div>
+        <div className="ticket-price">{props.ticket.price}</div>
         <ul>
           <li>
-            <FontAwesomeIcon icon={faCheck} /> Digital Pass
+            <FontAwesomeIcon icon={faCheck} /> {props.ticket.pass}
           </li>
-          <li>
-            <FontAwesomeIcon icon={faCheck} /> Access to all online sessions
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faCheck} /> 10% off all digital vendor goods
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faCheck} /> Digital ticket only
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faCheck} /> Unlimited customize your agenda
-          </li>
+          {props.ticket.benefits.map(function (item, i) {
+            return (
+              <li key={i}>
+                <FontAwesomeIcon icon={faCheck} /> {item}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
