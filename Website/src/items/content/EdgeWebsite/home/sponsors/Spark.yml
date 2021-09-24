@@ -1,5 +1,5 @@
 ﻿---
-ID: "d3f03456-d64f-419b-8143-ae7cfb82ee47"
+ID: "8c5f5b0a-b6a6-46ce-a34a-6a76e7b4fd2e"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/Spark
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="36792" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36792/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/61803a38d0a943d5913c70dc2bb6cb55?v=f79a617e" mediaid="" stylelabs-content-type="Image" alt="spark-logo.png" height="1200" width="1200" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T171310Z
+      Value: 20210924T162522Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,7 +32,7 @@ Languages:
       Value: Spark
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4cbf749c-28fd-47d1-997d-9e3dc7b8a3d8"
+      Value: "63fbf6fd-3604-4467-b670-e8ba2712453c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,4 +42,4 @@ Languages:
       Value: Silver
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T190532Z
+      Value: 20210924T162524Z

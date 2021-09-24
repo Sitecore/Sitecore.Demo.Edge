@@ -37,6 +37,12 @@ type Timeslot = {
   };
 };
 
+type Day = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+
 export type SessionInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
@@ -45,7 +51,7 @@ export type SessionInformationProps = ComponentProps & {
     Image: ImageField;
     Speakers: Speaker[];
     Rooms: Room[];
-    Day: Field<string>;
+    Day: Day[];
     Timeslots: Timeslot[];
     Premium: Field<boolean>;
   };
@@ -80,21 +86,23 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                   ></Text>
                 </div>
               )}
-              {props.fields.Day && (
-                <div className="bg-gray-light p-2 flex align-middle content-center">
-                  <span>
-                    <FontAwesomeIcon
-                      className="icon h-4 mr-2 inline text-black"
-                      icon={faCalendar}
-                    />
-                  </span>
-                  <Text
-                    className="align-middle content-center"
-                    tag="p"
-                    field={props.fields.Day}
-                  ></Text>
-                </div>
-              )}
+              {props.fields.Day &&
+                props.fields.Day.length > 0 &&
+                props.fields.Day.map((day, index) => (
+                  <div key={index} className="bg-gray-light p-2 flex align-middle content-center">
+                    <span>
+                      <FontAwesomeIcon
+                        className="icon h-4 mr-2 inline text-black"
+                        icon={faCalendar}
+                      />
+                    </span>
+                    <Text
+                      className="align-middle content-center"
+                      tag="p"
+                      field={day.fields.Name}
+                    ></Text>
+                  </div>
+                ))}
               {props.fields.Timeslots && props.fields.Timeslots.length > 0 && (
                 <div className="bg-gray-light p-2 flex align-middle content-center">
                   <span>

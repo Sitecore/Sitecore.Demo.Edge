@@ -1,5 +1,5 @@
 ﻿---
-ID: "6984eb55-9c24-44b7-864c-50d797dc3f60"
+ID: "8237d1f3-65fc-44c1-82a1-ea4a77e5bafa"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/Wave52
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="36863" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36863/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a1b876c38473498482a72109ef4c16e1?v=d5675a2a" mediaid="" stylelabs-content-type="Image" alt="wave52-logo.png" height="1200" width="1200" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T171325Z
+      Value: 20210924T162528Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,7 +32,7 @@ Languages:
       Value: Wave52
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a4682f75-688a-42e4-9034-ba2de39c1c0b"
+      Value: "61942817-1ab1-4bc9-b27b-d81ae591b532"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,4 +42,4 @@ Languages:
       Value: Gold
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T190538Z
+      Value: 20210924T162530Z

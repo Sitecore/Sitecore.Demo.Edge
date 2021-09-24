@@ -1,5 +1,5 @@
 ﻿---
-ID: "3d7eac5a-a55a-4229-b716-c410cf6acf49"
+ID: "8418e88d-2b0e-491d-9e8c-3243b7bc02fd"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/Redsand
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="36821" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36821/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/07e77ec5309c45a284a2ee3ef841e222?v=367250b7" mediaid="" stylelabs-content-type="Image" alt="redsand-logo.png" height="1200" width="1200" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T171303Z
+      Value: 20210924T162516Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,7 +32,7 @@ Languages:
       Value: Redsand
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d330ee35-ea06-4f12-9923-9aff5bf6c616"
+      Value: "43555e3e-5741-4194-95e8-c31e81d32131"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,4 +42,4 @@ Languages:
       Value: Silver
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T190526Z
+      Value: 20210924T162518Z

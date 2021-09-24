@@ -24,6 +24,12 @@ type Timeslot = {
   };
 };
 
+type Day = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+
 type Session = {
   name: Field<string>;
   fields: {
@@ -34,7 +40,7 @@ type Session = {
     Image: ImageField;
     Speakers: Speaker[];
     Rooms: Room[];
-    Day: Field<string>;
+    Day: Day[];
     Timeslots: Timeslot[];
     Premium: Field<boolean>;
   };
@@ -75,18 +81,19 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                     })
                   }
                 />
-                {session.fields.Day.value && (
-                  <p>
-                    <span>
-                      <FontAwesomeIcon
-                        className="icon h-4 mr-2 inline text-black"
-                        icon={faCalendar}
-                      />
-                    </span>
-                    <Text tag="span" field={session.fields.Day}></Text>
-                  </p>
-                )}
-
+                {session.fields.Day &&
+                  session.fields.Day.length > 0 &&
+                  session.fields.Day.map((day, index) => (
+                    <p key={index}>
+                      <span>
+                        <FontAwesomeIcon
+                          className="icon h-4 mr-2 inline text-black"
+                          icon={faCalendar}
+                        />
+                      </span>
+                      <Text tag="span" field={day.fields.Name}></Text>
+                    </p>
+                  ))}
                 {session.fields.Timeslots && session.fields.Timeslots.length > 0 && (
                   <p>
                     <span>

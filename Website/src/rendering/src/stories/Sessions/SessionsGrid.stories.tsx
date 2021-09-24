@@ -31,6 +31,8 @@ const timeslots = [
   { fields: { Name: { value: '9 am' } } },
 ];
 
+const days = [{ fields: { Name: { value: 'Day 1' } } }];
+
 const session1 = {
   fields: {
     Name: {
@@ -45,7 +47,7 @@ const session1 = {
       },
     },
     Speakers: [speaker],
-    Day: { value: 'Day 1' },
+    Day: days,
     Rooms: rooms,
     Timeslots: timeslots,
     Premium: { value: true },
@@ -66,7 +68,7 @@ const session2 = {
       },
     },
     Speakers: [speaker],
-    Day: { value: 'Day 1' },
+    Day: days,
     Rooms: rooms,
     Timeslots: timeslots,
     Premium: { value: false },
@@ -87,7 +89,7 @@ const session3 = {
       },
     },
     Speakers: [speaker],
-    Day: { value: 'Day 1' },
+    Day: days,
     Rooms: rooms,
     Timeslots: timeslots,
     Premium: { value: true },
@@ -108,7 +110,7 @@ const session4 = {
       },
     },
     Speakers: [speaker],
-    Day: { value: 'Day 1' },
+    Day: days,
     Rooms: rooms,
     Timeslots: timeslots,
     Premium: { value: false },

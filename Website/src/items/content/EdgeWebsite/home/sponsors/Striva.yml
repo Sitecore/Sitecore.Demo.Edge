@@ -1,5 +1,5 @@
 ﻿---
-ID: "be9789bb-ecaf-4e4f-8faa-68e0bfd278ee"
+ID: "c5cef7c2-8dc6-4b8a-9ad4-d04deb7b5dab"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/Striva
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="33907" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33907/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/eedb5823aed04b39ab8bd2c498583631?v=08c9fb07" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210923T213127Z
+      Value: 20210924T162431Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,7 +32,7 @@ Languages:
       Value: Striva
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "60a68c89-4660-467b-a66e-4795c48ddd22"
+      Value: "061e65be-8c08-48f2-a665-2341e4a4d401"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,4 +42,4 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T213129Z
+      Value: 20210924T162433Z

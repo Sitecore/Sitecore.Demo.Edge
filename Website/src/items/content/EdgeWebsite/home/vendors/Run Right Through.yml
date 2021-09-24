@@ -1,5 +1,5 @@
 ﻿---
-ID: "50876808-7b4b-43ce-b71c-7e3f847160d3"
+ID: "8b61b264-4172-4ca6-8e85-f22ecd8b4107"
 Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
 Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
 Path: /sitecore/content/EdgeWebsite/home/vendors/Run Right Through
@@ -20,7 +20,7 @@ Languages:
       Value: "{8EA1589B-71BD-4831-A8CC-45D7FACF4B6D}|{BA1091E3-0AA8-4C76-B952-140E1621AE27}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210922T161252Z
+      Value: 20210924T163111Z
     - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
       Hint: InstagramProfileLink
       Value: "https://www.instagram.com/#"
@@ -41,20 +41,20 @@ Languages:
         <image stylelabs-content-id="34199" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34199/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/893cf2ebf17344d887e4cc5c35013541?v=bd27157d" mediaid="" stylelabs-content-type="Image" alt="RunRightThrough.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0d4283cb-5cfc-4f09-a61c-4cc12849e1b6"
+      Value: "3c8cd923-512e-48ef-bd91-87813b5b5a91"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
-      Value:    
+      Value:     
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: Run Right Through
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T213122Z
+      Value: 20210924T163117Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"

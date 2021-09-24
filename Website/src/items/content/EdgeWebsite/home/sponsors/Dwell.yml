@@ -1,5 +1,5 @@
 ﻿---
-ID: "6739aa91-337e-4b9e-b661-6670d3020af3"
+ID: "39e476e5-8df9-4831-a18f-b2d6d0fb3073"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/Dwell
@@ -18,7 +18,7 @@ Languages:
         <image stylelabs-content-id="33940" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670" mediaid="" stylelabs-content-type="Image" alt="Dwell.png" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210920T163602Z
+      Value: 20210924T162450Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,7 +32,7 @@ Languages:
       Value: Dwell
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "eeb3fd2a-2556-4ff2-b0e1-c695ab1276f7"
+      Value: "2d5bdfc6-07f6-4907-8e0c-54fa8e0d6677"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,4 +42,4 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T190455Z
+      Value: 20210924T162452Z

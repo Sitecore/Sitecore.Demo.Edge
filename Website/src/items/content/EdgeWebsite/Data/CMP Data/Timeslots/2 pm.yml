@@ -1,5 +1,5 @@
 ﻿---
-ID: "0279e94c-0090-4ecd-9017-c53a630cff8b"
+ID: "e8dba284-c3ef-4ab6-8a4d-64a193ae62e2"
 Parent: "b541c1ae-68e3-484b-bc05-73b574497189"
 Template: "0bc9237d-12eb-47a5-afed-a65188324358"
 Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Timeslots/2 pm
@@ -7,6 +7,9 @@ SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
   Value: Demo.Timeslot.2pm
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
 Languages:
 - Language: en
   Versions:
@@ -14,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210728T195702Z
+      Value: 20210924T162033Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +31,11 @@ Languages:
       Value: 2 pm
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2e9007c9-cf33-489d-82b4-87ef2c02167f"
+      Value: "5b9f3bd7-2e39-480a-84c9-268001187814"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210921T171552Z
+      Value: 20210924T162119Z

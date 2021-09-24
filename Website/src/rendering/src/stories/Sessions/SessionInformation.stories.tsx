@@ -104,6 +104,8 @@ const timeslots = [
   { fields: { Name: { value: '9 am' } } },
 ];
 
+const days = [{ fields: { Name: { value: 'Day 1' } } }];
+
 export const Default = Template.bind({});
 Default.args = {
   params: {
@@ -119,7 +121,7 @@ Default.args = {
     Image: { value: { src: '/assets/img/shop/man-biker.jpg' } },
     Speakers: [speaker1, speaker2],
     Rooms: rooms,
-    Day: { value: 'Day 1' },
+    Day: days,
     Timeslots: timeslots,
     Premium: { value: true },
   },
