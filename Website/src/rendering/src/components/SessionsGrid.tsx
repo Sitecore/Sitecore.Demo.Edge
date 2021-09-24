@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Field, ImageField, Image, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { GetSessionTime } from '../helpers/DateHelper';
@@ -35,8 +35,6 @@ type Session = {
   fields: {
     Name: Field<string>;
     Description: Field<string>;
-    Type: Field<string>;
-    Date: Field<string>;
     Image: ImageField;
     Speakers: Speaker[];
     Rooms: Room[];
@@ -69,18 +67,6 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
               )}
               <div className="item-details item-details-left">
                 <Text tag="div" className="item-title" field={session.fields.Name}></Text>
-                <DateField
-                  tag="p"
-                  field={session.fields.Date}
-                  render={(date) =>
-                    date?.toLocaleDateString('en-US', {
-                      weekday: 'short',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })
-                  }
-                />
                 {session.fields.Day &&
                   session.fields.Day.length > 0 &&
                   session.fields.Day.map((day, index) => (
