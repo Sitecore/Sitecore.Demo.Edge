@@ -1,13 +1,23 @@
 import Ticket from './Ticket';
 import { TICKETS } from '../models/mock-tickets';
+import Link from 'next/link';
 
 const TicketTiers = (): JSX.Element => {
   return (
-    <div className="min-h-full bg-black flex justify-center items-center py-10">
-      <div className="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
-        <Ticket ticket={TICKETS[0]} />
-        <Ticket ticket={TICKETS[1]} />
-        <Ticket ticket={TICKETS[2]} />
+    <div className="tickets">
+      <div className="title">Select your ticket</div>
+      <div className="section__tickets">
+        <Ticket ticket={TICKETS[0]} color="pink" />
+        <Ticket ticket={TICKETS[1]} color="orange" />
+        <Ticket ticket={TICKETS[2]} color="blue" />
+      </div>
+      <div className="btn__area">
+        <Link href="/tickets">
+          <a className="btn--main btn--main--round btn--main--big">Get Started</a>
+        </Link>
+        <Link href="/tickets">
+          <a className="btn--main btn--main--round btn--main--big btn-right">Stay Connected</a>
+        </Link>
       </div>
     </div>
   );

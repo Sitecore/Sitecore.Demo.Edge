@@ -8,10 +8,14 @@
   background-position: bottom;
   padding: 6%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+  .btn-right {
+    margin-left: auto;
+  }
 }
 
 .btn--main {
-  @apply font-medium hover:shadow-md;
+  @apply font-bold hover:shadow-md;
 
   padding: 0.5em 1.55em;
   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
@@ -25,6 +29,6 @@
 }
 
 .btn--main--round {
-  @apply bg-yellow-400 text-black rounded-md;
-  @apply hover:bg-yellow-400 hover:text-black;
+  @apply bg-yellow text-black rounded-md;
+  @apply hover:bg-yellow-dark hover:text-black;
 }

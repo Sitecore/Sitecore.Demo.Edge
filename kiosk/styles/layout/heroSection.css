@@ -13,9 +13,9 @@
       /* stylelint-disable */
       background: linear-gradient(
         135deg,
-        rgba(80, 80, 80, 1) 0%,
-        rgba(60, 60, 60, 1) 50%,
-        rgba(50, 50, 50, 1) 100%
+        rgba(80, 80, 80, .9) 0%,
+        rgba(60, 60, 60, .9) 50%,
+        rgba(50, 50, 50, .9) 100%
       );
       /* stylelint-enable */
 
@@ -25,7 +25,7 @@
         @apply p-6 relative;
         @apply md:p-12;
 
-        @screen md {
+        /* @screen md {
           &::after {
             @apply w-0 h-0 border-solid right-0 top-0 absolute;
 
@@ -33,7 +33,7 @@
             border-width: 0 110px 110px 0;
             border-color: transparent #1c80ff transparent transparent;
           }
-        }
+        } */
       }
 
       .logo {
@@ -46,16 +46,20 @@
       }
 
       .slogan {
-        @apply text-white uppercase pt-4 pb-5 font-extrabold;
+        @apply text-white uppercase pt-5 pb-2 font-normal;
 
-        font-size: 1.5em;
+        font-size: 1em;
       }
 
       .expo {
         @apply text-yellow-400;
 
-        font-weight: 600;
+        font-weight: 400;
         font-size: 1.5em;
+      }
+
+      .date {
+        @apply text-yellow-400 font-bold text-3xl;
       }
 
       .title {
@@ -64,9 +68,9 @@
       }
 
       .subtitle {
-        @apply text-white py-2;
+        @apply text-white py-2 italic text-lg;
 
-        font-size: 0.8em;
+        font-size: 0.9em;
         line-height: 1.4;
       }
     }
