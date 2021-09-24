@@ -2,6 +2,11 @@ import Ticket from './Ticket';
 import { TICKETS } from '../models/mock-tickets';
 import Link from 'next/link';
 
+const handleClick = (e) => {
+  console.log('Free pizza!');
+  console.log(e);
+};
+
 const TicketTiers = (): JSX.Element => {
   return (
     <div className="tickets">
@@ -13,10 +18,10 @@ const TicketTiers = (): JSX.Element => {
       </div>
       <div className="btn__area">
         <Link href="/tickets">
-          <a className="btn--main btn--main--round btn--main--big">Get Started</a>
+          <a className="btn--main btn--main--round btn--main--big">Previous</a>
         </Link>
         <Link href="/tickets">
-          <a className="btn--main btn--main--round btn--main--big btn-right">Stay Connected</a>
+          <a className="btn--main btn--main--round btn--main--big btn-right">Continue</a>
         </Link>
       </div>
     </div>

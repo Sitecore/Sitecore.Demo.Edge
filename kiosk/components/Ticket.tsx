@@ -7,9 +7,14 @@ type TicketProps = {
   color: string;
 };
 
+const handleClick = (e: any) => {
+  console.log(e.target);
+  //TODO: active inactive css is there, need to assign it to ticket-content div on click
+};
+
 const TicketView = (props: TicketProps): JSX.Element => {
   return (
-    <div className={'ticket-content ticket-content--' + props.color}>
+    <div className={'ticket-content ticket-content--' + props.color} onClick={handleClick}>
       {console.log(props.ticket)}
       <div className="slanted-spacer"></div>
       <div className="ticket-text">

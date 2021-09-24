@@ -11,6 +11,19 @@
     .ticket-content {
       @apply col-span-1 bg-white rounded-xl;
 
+      transition: all 1s;
+      transform: scale(1);
+
+      &.inactive {
+        transition: all 1s;
+        opacity: 0.8;
+      }
+
+      &.active {
+        transition: all 1s;
+        transform: scale(1.05);
+      }
+
       .slanted-spacer {
         @apply w-full rounded-t-xl;
 
