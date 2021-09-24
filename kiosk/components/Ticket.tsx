@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import { Ticket } from '../models/ticket';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,17 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 type TicketProps = {
   ticket: Ticket;
   color: string;
-};
-
-const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-  console.log(e.target);
-  //TODO: active inactive css is there, need to assign it to ticket-content div on click
+  activeCssClass: string;
+  // eslint-disable-next-line no-unused-vars
+  onClick: (ticketId: string) => void;
 };
 
 const TicketView = (props: TicketProps): JSX.Element => {
   return (
-    <div className={'ticket-content ticket-content--' + props.color} onClick={handleClick}>
-      {console.log(props.ticket)}
+    <div
+      className={`ticket-content ticket-content--${props.color} ${props.activeCssClass}`}
+      onClick={() => props.onClick(props.ticket.id)}
+    >
       <div className="slanted-spacer"></div>
       <div className="ticket-text">
         <h2 className="ticket-name">Online Ticket</h2>
