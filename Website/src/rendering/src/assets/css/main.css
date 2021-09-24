@@ -37,7 +37,6 @@
 /* 6. Our components */
 
 @import "./components/AttendeeForm.css";
-@import "./components/AttendeeRegistrationForm.css";
 @import "./components/Breadcrumb.css";
 @import "./components/CountdownSection.css";
 @import "./components/FeaturedEvent.css";
@@ -55,6 +54,7 @@
 @import "./components/PaymentAndBillingForm.css";
 @import "./components/PaymentConfirmed.css";
 @import "./components/PaymentForm.css";
+@import "./components/PaymentProgress.css";
 @import "./components/ProductDetail.css";
 @import "./components/Promo.css";
 @import "./components/RegistrationGrid.css";
@@ -73,7 +73,6 @@
 @import "./components/TicketGrid.css";
 @import "./components/TicketPaymentConfirmed.css";
 @import "./components/TicketUpsell.css";
-@import "./components/PaymentProgress.css";
 
 /* 7. Our page-specific styles */
 

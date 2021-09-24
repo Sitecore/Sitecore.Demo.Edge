@@ -10,8 +10,7 @@
 
     input:checked + label {
       img {
-        border: 1px solid gray;
-        border-radius: 7px;
+        @apply border border-gray-dark border-solid rounded-lg;
       }
     }
 
@@ -19,8 +18,8 @@
       @apply contents cursor-pointer invisible w-0;
     }
 
-    img {
-      @apply mr-5;
+    label + input + label {
+      @apply ml-5;
     }
   }
 }

@@ -39,19 +39,6 @@ const PaymentAndBillingForm = (): JSX.Element => (
         <label htmlFor="ccv">CCV *</label>
       </div>
     </div>
-    {/* TODO: 
-    <div className="floating-label-wrap">
-      <input type="text" placeholder="Email" id="email" />
-      <label htmlFor="email">Email</label>
-    </div>
-    <div className="floating-label-wrap">
-      <input type="password" placeholder="Password" id="password" />
-      <label htmlFor="password">Password</label>
-    </div>
-    <div className="floating-label-wrap">
-      <input type="password" placeholder="Confirm Password" id="comfirmPassword" />
-      <label htmlFor="comfirmPassword">Confirm Password</label>
-    </div> */}
 
     <h2>Billing Address</h2>
     <div className="inline-fields">

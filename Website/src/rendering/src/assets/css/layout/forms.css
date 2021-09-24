@@ -71,10 +71,6 @@
 
   .button-area {
     @apply px-6 pt-4 pb-10;
-
-    .align-right {
-      @apply float-right;
-    }
   }
 }
 
