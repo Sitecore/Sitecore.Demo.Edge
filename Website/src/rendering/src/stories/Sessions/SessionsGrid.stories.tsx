@@ -38,9 +38,6 @@ const session1 = {
     Name: {
       value: 'Fitbit',
     },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
@@ -58,9 +55,6 @@ const session2 = {
   fields: {
     Name: {
       value: 'Fitbit',
-    },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
     },
     Image: {
       value: {
@@ -80,9 +74,6 @@ const session3 = {
     Name: {
       value: 'Fitbit',
     },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
@@ -100,9 +91,6 @@ const session4 = {
   fields: {
     Name: {
       value: 'Fitbit',
-    },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
     },
     Image: {
       value: {
