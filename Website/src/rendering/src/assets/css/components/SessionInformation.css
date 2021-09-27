@@ -11,14 +11,17 @@
 
   .description-col {
     .speaker-name {
-      @apply text-2xl md:text-3xl font-extrabold text-blue;
+      @apply text-2xl font-extrabold text-blue;
+      @apply md:text-3xl;
     }
 
     .speaker-grid {
-      @apply grid grid-cols-1 lg:grid-cols-2 gap-4;
+      @apply grid grid-cols-1 gap-4;
+      @apply lg:grid-cols-2;
 
       .speaker-header {
-        @apply font-bold col-span-1 lg:col-span-2;
+        @apply font-bold col-span-1;
+        @apply lg:col-span-2;
       }
 
       .speaker-info {
@@ -39,8 +42,22 @@
         }
 
         .speaker-name {
-          @apply md:text-xl font-bold text-blue;
+          @apply font-bold text-blue;
+          @apply md:text-xl;
         }
+      }
+    }
+
+    .related-sessions {
+      @apply block;
+      @apply md:hidden;
+
+      .session-title {
+        @apply font-bold;
+      }
+
+      .session {
+        @apply border border-gray p-5 my-5;
       }
     }
   }

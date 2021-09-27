@@ -14,7 +14,13 @@
         @apply overflow-hidden bg-cover bg-center;
       }
 
+      transform: scale(1);
+      transition: all 0.1s;
+
       &:hover {
+        box-shadow: 1px 1px 10px rgba(23, 23, 23, 0.45);
+        transform: scale(1.05);
+        transition: all 0.1s;
         border: 1px solid gray;
       }
 

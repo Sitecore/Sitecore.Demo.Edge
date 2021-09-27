@@ -3,7 +3,7 @@ using Sitecore.Shell.Applications.ContentEditor;
 
 namespace Sitecore.Demo.Edge.Website.CustomFields
 {
-    public sealed class CmpMultiList : TreeList
+    public class CmpMultiList : TreeList
     {
         public CmpMultiList()
         {

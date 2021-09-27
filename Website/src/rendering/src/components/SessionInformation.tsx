@@ -184,11 +184,11 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
             </div>
             <RichText field={props.fields.Description} />
 
-            <div className="block md:hidden" title="TODO: hardcoded for now...">
-              <div className="font-bold">Related Sessions</div>
-              <div className="border border-gray p-5 my-5">
+            <div className="related-sessions" title="TODO: hardcoded for now...">
+              <div className="session-title">Related Sessions</div>
+              <div className="session">
                 <p>Mon, 19th | 9:00 AM</p>
-                <p className="font-bold">10 Tips to get the most out of your routines</p>
+                <p className="session-title">10 Tips to get the most out of your routines</p>
               </div>
             </div>
           </div>

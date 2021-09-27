@@ -21,11 +21,14 @@
       @apply md:col-span-3;
 
       .eyebrow {
-        @apply font-medium hover:shadow-md uppercase bg-yellow inline-block mr-2;
+        @apply font-medium uppercase bg-yellow inline-block py-2 px-6;
 
-        padding: 0.5em 1.55em;
         box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
         transition: all 0.2s ease-in-out;
+      }
+
+      .eyebrow:not(:first-of-type) {
+        @apply ml-2;
       }
 
       .name {

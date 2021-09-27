@@ -72,7 +72,10 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
         internal virtual bool TryMapConfiguredFields(ImportEntityPipelineArgs args)
         {
             if (args.EntityMappingItem == null)
+            {
                 args.EntityMappingItem = this._cmpHelper.GetEntityMappingItem(args);
+            }
+            
             Assert.IsNotNull((object)args.EntityMappingItem,
                 "Could not find any Entity Mapping item for the Entity Type (Schema): " + args.ContentTypeIdentifier);
             bool flag = false;
