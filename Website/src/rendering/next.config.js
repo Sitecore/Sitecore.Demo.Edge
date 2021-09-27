@@ -87,6 +87,9 @@ const nextConfig = {
       ];
     }
   },
+  images: {
+    domains: ['demoedge.sitecoresandbox.cloud'],
+  },
   
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);

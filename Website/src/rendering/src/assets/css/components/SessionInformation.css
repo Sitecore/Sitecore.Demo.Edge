@@ -1,0 +1,47 @@
+.information-section.session-information {
+  .image-col {
+    .icon {
+      @apply h-4 w-4 mr-2 inline text-black;
+    }
+
+    .info-text {
+      @apply bg-gray-light p-2 flex align-middle content-center;
+    }
+  }
+
+  .description-col {
+    .speaker-name {
+      @apply text-2xl md:text-3xl font-extrabold text-blue;
+    }
+
+    .speaker-grid {
+      @apply grid grid-cols-1 lg:grid-cols-2 gap-4;
+
+      .speaker-header {
+        @apply font-bold col-span-1 lg:col-span-2;
+      }
+
+      .speaker-info {
+        @apply flex flex-row gap-2;
+
+        .speaker-image {
+          @apply relative;
+
+          min-width: 200px;
+
+          .social-bar {
+            @apply bg-gray-light absolute w-full opacity-70 inset-x-0 bottom-0;
+
+            .social-icon {
+              @apply h-4 m-2 inline text-blue;
+            }
+          }
+        }
+
+        .speaker-name {
+          @apply md:text-xl font-bold text-blue;
+        }
+      }
+    }
+  }
+}
