@@ -31,6 +31,10 @@
     .speaker__featured {
       @apply absolute top-2 right-1 text-yellow;
 
+      .icon {
+        @apply h-4 mr-2 inline text-yellow;
+      }
+
       svg {
         filter: drop-shadow(1px 1px 2px black);
       }

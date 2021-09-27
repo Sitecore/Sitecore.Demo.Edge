@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
-import { GetSessionTime } from '../helpers/DateHelper';
+import { getSessionTime } from '../helpers/DateHelper';
 
 type Speaker = {
   fields: {
@@ -94,15 +94,15 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                   <span>
                     <FontAwesomeIcon className="icon" icon={faClock} />
                   </span>
-                  <span>{GetSessionTime(props.fields.Timeslots)}</span>
+                  <span>{getSessionTime(props.fields.Timeslots)}</span>
                 </div>
               )}
             </div>
-            <div className="hidden md:block pt-4" title="TODO: hardcoded for now...">
-              <div className="font-bold">Related Sessions</div>
-              <div className="border border-gray p-5 my-5">
+            <div className="related-sessions" title="TODO: hardcoded for now...">
+              <div className="session-title">Related Sessions</div>
+              <div className="session">
                 <p>Mon, 19th | 9:00 AM</p>
-                <p className="font-bold">10 Tips to get the most out of your routines</p>
+                <p className="session-title">10 Tips to get the most out of your routines</p>
               </div>
             </div>
           </div>

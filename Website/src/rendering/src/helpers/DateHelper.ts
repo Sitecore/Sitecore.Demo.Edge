@@ -13,7 +13,7 @@ export const getTimeString = (time: number, isEndTime: boolean): string => {
   return '';
 };
 
-export const GetSessionTime = (timeslots: Timeslot[]): string => {
+export const getSessionTime = (timeslots: Timeslot[]): string => {
   let sessionTime = '';
   if (timeslots) {
     const times: number[] = [];

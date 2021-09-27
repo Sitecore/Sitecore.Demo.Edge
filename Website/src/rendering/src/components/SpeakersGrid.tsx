@@ -21,7 +21,6 @@ type SpeakersGridProps = ComponentProps & {
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
   <div className="section__speakers__grid container">
-    {console.log(props.fields)}
     {props.fields.items &&
       props.fields.items.map((speaker, index) => (
         <Link key={index} href={'/speakers/' + speaker.fields.Name.value} passHref>
@@ -33,9 +32,9 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
             />
             <Text className="speaker__name" tag="p" field={speaker.fields.Name}></Text>
             <Text className="speaker__role" tag="p" field={speaker.fields.Role}></Text>
-            {speaker.fields.Featured?.value === true && (
+            {speaker.fields.Featured?.value && (
               <div className="speaker__featured" title="Featured">
-                <FontAwesomeIcon className="icon h-4 mr-2 inline text-yellow" icon={faStar} />
+                <FontAwesomeIcon className="icon" icon={faStar} />
               </div>
             )}
           </a>

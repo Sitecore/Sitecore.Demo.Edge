@@ -94,7 +94,7 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
         </div>
         <div className="description-col">
           <Text tag="div" className="eyebrow" field={props.fields.Role}></Text>
-          {props.fields.Featured?.value === true && <div className="eyebrow">Featured</div>}
+          {props.fields.Featured?.value && <div className="eyebrow">Featured</div>}
           <Text tag="h1" className="name" field={props.fields.Name}></Text>
           <RichText field={props.fields.Description} />
           <div className="talks-section">

@@ -25,7 +25,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
     <div className="grid-content">
       {props.fields.items &&
         props.fields.items
-          .filter((item) => item.fields.Featured.value === true)
+          .filter((item) => item.fields.Featured.value)
           .sort()
           .slice(0, parseInt(props.params.NumberOfSpeakers))
           .map((speaker, index) => (

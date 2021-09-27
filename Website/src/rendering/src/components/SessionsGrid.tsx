@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
-import { GetSessionTime } from '../helpers/DateHelper';
+import { getSessionTime } from '../helpers/DateHelper';
 
 type Speaker = {
   fields: {
@@ -85,7 +85,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                     <span>
                       <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
                     </span>
-                    {GetSessionTime(session.fields.Timeslots)}
+                    {getSessionTime(session.fields.Timeslots)}
                   </p>
                 )}
                 {session.fields.Speakers &&
