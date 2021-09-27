@@ -72,10 +72,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                   session.fields.Day.map((day, index) => (
                     <p key={index}>
                       <span>
-                        <FontAwesomeIcon
-                          className="icon h-4 mr-2 inline text-black"
-                          icon={faCalendar}
-                        />
+                        <FontAwesomeIcon className="icon" icon={faCalendar} />
                       </span>
                       <Text tag="span" field={day.fields.Name}></Text>
                     </p>
@@ -83,7 +80,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                 {session.fields.Timeslots && session.fields.Timeslots.length > 0 && (
                   <p>
                     <span>
-                      <FontAwesomeIcon className="icon h-4 mr-2 inline text-black" icon={faClock} />
+                      <FontAwesomeIcon className="icon" icon={faClock} />
                     </span>
                     {getSessionTime(session.fields.Timeslots)}
                   </p>
@@ -92,10 +89,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                   session.fields.Speakers.map((speaker, index) => (
                     <p key={index}>
                       <span>
-                        <FontAwesomeIcon
-                          className="icon h-4 mr-2 inline text-black"
-                          icon={faUser}
-                        />
+                        <FontAwesomeIcon className="icon" icon={faUser} />
                       </span>
                       <Text tag="span" className="speaker-name" field={speaker.fields.Name}></Text>
                       {speaker.fields.Role.value && (

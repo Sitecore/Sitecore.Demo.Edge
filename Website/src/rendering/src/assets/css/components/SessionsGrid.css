@@ -49,6 +49,10 @@
         .speaker-name {
           @apply uppercase;
         }
+
+        .icon {
+          @apply h-4 mr-2 inline text-black;
+        }
       }
     }
   }
