@@ -6,7 +6,6 @@ export const TICKETS: Ticket[] = [
     name: 'Online Ticket',
     pass: 'Digital Pass',
     price: '99$',
-    thumbnail: '/tickets/ticket1.jpg',
     color: 'pink',
     benefits: [
       'Access to all online sessions',
@@ -19,7 +18,6 @@ export const TICKETS: Ticket[] = [
     name: 'Regular Ticket',
     pass: 'Standard Pass',
     price: '199$',
-    thumbnail: '/tickets/ticket2.jpg',
     color: 'orange',
     benefits: [
       'Access to all online and in-person sessions',
@@ -32,7 +30,6 @@ export const TICKETS: Ticket[] = [
     name: 'VIP Ticket',
     pass: 'All access VIP pass',
     price: '399$',
-    thumbnail: '/tickets/ticket3.jpg',
     color: 'blue',
     benefits: [
       'VIP access and special keynotes',
