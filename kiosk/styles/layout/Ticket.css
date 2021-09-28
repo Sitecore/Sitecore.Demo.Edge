@@ -1,0 +1,82 @@
+.ticket-content {
+  @apply bg-white rounded-xl;
+
+  .slanted-spacer {
+    @apply w-full rounded-t-xl;
+
+    height: 20px;
+  }
+
+  .ticket-text {
+    @apply px-4 py-6;
+
+    .ticket-name {
+      @apply text-2xl font-extrabold;
+    }
+
+    .ticket-subtitle {
+      @apply text-xl py-1;
+    }
+
+    .ticket-price {
+      @apply text-6xl font-bold;
+    }
+
+    ul {
+      @apply pt-2 text-base text-left list-none px-0;
+
+      text-indent: -25px;
+      margin-left: 25px;
+
+      li {
+        @apply my-2 text-lg;
+
+        svg {
+          @apply font-extrabold;
+
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+
+  &--pink {
+    .slanted-spacer {
+      @apply bg-pink;
+    }
+
+    .ticket-name,
+    .ticket-price,
+    ul li svg {
+      @apply text-pink font-extrabold text-lg;
+    }
+  }
+
+  &--orange {
+    @apply col-span-1 bg-white rounded-xl;
+
+    .slanted-spacer {
+      @apply bg-orange;
+    }
+
+    .ticket-name,
+    .ticket-price,
+    ul li svg {
+      @apply text-orange font-extrabold text-lg;
+    }
+  }
+
+  &--blue {
+    @apply col-span-1 bg-white rounded-xl;
+
+    .slanted-spacer {
+      @apply bg-blue;
+    }
+
+    .ticket-name,
+    .ticket-price,
+    ul li svg {
+      @apply text-blue font-extrabold text-lg;
+    }
+  }
+}

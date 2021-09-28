@@ -1,6 +1,7 @@
 import PaymentForm from '../../components/PaymentForm';
 import { TICKETS } from '../../models/mock-tickets';
 import { Ticket } from '../../models/ticket';
+
 export interface Params {
   id: string;
 }

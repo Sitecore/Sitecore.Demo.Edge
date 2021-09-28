@@ -4,17 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type TicketProps = {
   ticket: Ticket;
-  color: string;
   activeCssClass: string;
   // eslint-disable-next-line no-unused-vars
-  onClick: (ticketId: string) => void;
+  onClick?: (ticketId: string) => void;
 };
 
 const TicketView = (props: TicketProps): JSX.Element => {
   return (
     <div
-      className={`ticket-content ticket-content--${props.color} ${props.activeCssClass}`}
-      onClick={() => props.onClick(props.ticket.id)}
+      className={`ticket-content ticket-content--${props.ticket.color} ${props.activeCssClass}`}
+      onClick={() => {
+        if (props.onClick) {
+          props.onClick(props.ticket.id);
+        }
+      }}
     >
       <div className="slanted-spacer"></div>
       <div className="ticket-text">

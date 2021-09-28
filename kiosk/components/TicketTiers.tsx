@@ -36,19 +36,16 @@ class TicketTiers extends React.Component {
         <div className="section__tickets">
           <Ticket
             ticket={TICKETS[0]}
-            color="pink"
             activeCssClass={this.getActiveCssClass('0')}
             onClick={this.handleClick}
           />
           <Ticket
             ticket={TICKETS[1]}
-            color="orange"
             activeCssClass={this.getActiveCssClass('1')}
             onClick={this.handleClick}
           />
           <Ticket
             ticket={TICKETS[2]}
-            color="blue"
             activeCssClass={this.getActiveCssClass('2')}
             onClick={this.handleClick}
           />

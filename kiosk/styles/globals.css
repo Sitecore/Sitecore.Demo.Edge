@@ -12,4 +12,5 @@
 @import './layout/buttons.css';
 @import './layout/frame.css';
 @import './layout/heroSection.css';
-@import './layout/tickets';
+@import './layout/Ticket';
+@import './layout/TicketTiers';

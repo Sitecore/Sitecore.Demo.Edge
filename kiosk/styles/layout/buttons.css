@@ -35,6 +35,6 @@
 }
 
 .btn--disabled {
-  @apply bg-gray cursor-not-allowed;
-  @apply hover:bg-gray;
+  @apply bg-gray-dark cursor-not-allowed;
+  @apply hover:bg-gray-dark;
 }

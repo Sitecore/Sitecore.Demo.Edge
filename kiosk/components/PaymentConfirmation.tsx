@@ -2,7 +2,7 @@ import Link from 'next/link';
 import qr from '../public/tickets/qr.png';
 import { Ticket } from '../models/ticket';
 import Image from 'next/image';
-import logo from '../public/logo/play-logo-wide-light.svg';
+import TicketView from './Ticket';
 
 type PaymentConfirmationProps = {
   ticket: Ticket;
@@ -35,35 +35,9 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="panel-right w-full md:w-1/3 text-white rounded-r">
+        <div className="panel-right w-full md:w-1/3 rounded-r">
           <div className="p-10">
-            <div className="w-3/4 py-2">
-              <Image src={logo} alt="Logo" />
-            </div>
-            <h2 className="font-bold text-xl mb-4">{props.ticket.pass}</h2>
-            <div className="mb-4">
-              <span className="text-2xl font-light lh-fix">{props.ticket.price}</span>
-            </div>
-            <div className="italic w-3/4 leading-normal mb-8">{props.ticket.name}</div>
-            <div className="list-items mb-8">
-              {props.ticket.benefits.map(function (item, i) {
-                return (
-                  <div key={i} className="flex items-center mb-4">
-                    <div>{item}</div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="border-b border-solid border-blue-light"></div>
-
-            <div className="testimonial pt-5 text-lg italic leading-normal mb-4">
-              Lorem ipsum dolor sit amet, consectetur.
-            </div>
-
-            <div className="flex items-center">
-              <div className="text-lg font-bold">Alba</div>
-            </div>
+            <TicketView ticket={props.ticket} activeCssClass="" />
           </div>
         </div>
       </div>
