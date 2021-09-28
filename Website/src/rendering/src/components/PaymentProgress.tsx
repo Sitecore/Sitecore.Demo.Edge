@@ -12,11 +12,11 @@ type PaymentProgressProps = ComponentProps & {
 function GetActiveClass(activeStep: number, index: number) {
   let className = 'payment-progress-item';
   if (index < activeStep) {
-    className = 'payment-progress-item previous';
+    className += ' previous';
   } else if (index == activeStep) {
-    className = 'payment-progress-item active';
+    className += ' active';
   } else if (index > activeStep) {
-    className = 'payment-progress-item next';
+    className += ' next';
   }
   return className;
 }
