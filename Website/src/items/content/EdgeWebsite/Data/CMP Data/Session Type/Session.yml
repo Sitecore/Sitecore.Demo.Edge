@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Session Type/Session
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Edge.SpeakerType.Sponsor
+  Value: Demo.SpeakerType.Session
 Languages:
 - Language: en
   Versions:
@@ -28,11 +28,11 @@ Languages:
       Value: Session
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ee5fa3ad-d781-4382-9e36-2dff8bf6b6f6"
+      Value: "07dc38ea-57be-4c4e-bf8b-d3a41fbcec3d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T191302Z
+      Value: 20210919T084703Z

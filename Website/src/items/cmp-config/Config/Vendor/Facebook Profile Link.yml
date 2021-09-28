@@ -9,7 +9,7 @@ SharedFields:
   Value: 200
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: FacebookProfileLink
+  Value: Vendor_FacebookLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{DA7733F4-3061-4F93-A870-9AFF906AF40B}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d8ad8c56-40f3-49bb-9d74-967fa0eb45e9"
+      Value: "66f5ff1c-64eb-4165-aa6d-4cd6f8373ac5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195036Z
+      Value: 20210915T195111Z

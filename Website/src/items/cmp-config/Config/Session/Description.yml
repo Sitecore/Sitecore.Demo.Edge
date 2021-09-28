@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Session/Description
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 900
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: Description
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7416e964-19c5-41ff-b49a-2e659bc48f26"
+      Value: "5ddf687c-8621-4c48-bfc9-f9844c61960e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T160200Z
+      Value: 20210923T025503Z

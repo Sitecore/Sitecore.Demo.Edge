@@ -4,6 +4,9 @@ Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/sponsorize
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 550
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -101,14 +104,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d49d6be3-34b8-460d-8348-b497bf6d18b8"
+      Value: "6f3fb6e2-ac03-49a6-bb92-d4858d46f5fa"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T161319Z
+      Value: 20210924T162405Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "Sponsorize"
+      Value: Sponsorize

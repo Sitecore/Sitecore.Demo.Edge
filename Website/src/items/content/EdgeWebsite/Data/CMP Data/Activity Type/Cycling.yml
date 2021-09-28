@@ -1,0 +1,38 @@
+﻿---
+ID: "39c8070a-3bf0-4bb7-bb36-88aec20a2a30"
+Parent: "afb5e96c-39b3-416e-8885-ab22ba684409"
+Template: "f2387810-b5e4-4ccb-a327-60738e440a66"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Activity Type/Cycling
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Demo.ActivityType.Cycling
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210922T180933Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5e6967d5-7f56-4a25-b789-d8dca6a167e9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210922T180933Z
+    - ID: "e6dd8379-422c-41c1-863c-947992df1836"
+      Hint: Name
+      Value: Cycling

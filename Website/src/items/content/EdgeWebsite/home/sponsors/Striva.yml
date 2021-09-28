@@ -1,12 +1,12 @@
 ﻿---
-ID: "66b52f82-be43-49cb-a7e1-9e53586c6bd9"
+ID: "c5cef7c2-8dc6-4b8a-9ad4-d04deb7b5dab"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
 Path: /sitecore/content/EdgeWebsite/home/sponsors/Striva
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: KFy2Hnjoh0662DJXrqpXEg
+  Value: pPFv7VyGJkejhXjhk3ntGA
 Languages:
 - Language: en
   Versions:
@@ -15,10 +15,10 @@ Languages:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image mediaid="{D68089BF-1CAA-472A-9DF5-5BE65EB32B17}" />
+        <image stylelabs-content-id="33907" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33907/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/eedb5823aed04b39ab8bd2c498583631?v=08c9fb07" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210729T050154Z
+      Value: 20210924T162431Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -32,17 +32,14 @@ Languages:
       Value: Striva
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "13a149ab-16ff-42a3-98a5-24e716ec4d22"
+      Value: "061e65be-8c08-48f2-a665-2341e4a4d401"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "cf42c29f-ee3a-4f06-92ac-10fc51a42099"
       Hint: Level
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T161935Z
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
-      Value: Striva
+      Value: 20210924T162433Z

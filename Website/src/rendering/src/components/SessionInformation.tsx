@@ -6,22 +6,17 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
-import {
-  Field,
-  ImageField,
-  Image,
-  RichText,
-  Text,
-  DateField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { getSessionTime } from '../helpers/DateHelper';
 
 type Speaker = {
   fields: {
     Name: Field<string>;
     Picture: ImageField;
-    Position: Field<string>;
+    JobTitle: Field<string>;
     Company: Field<string>;
-    Country: Field<string>;
+    Location: Field<string>;
     Description: Field<string>;
     FacebookProfileLink?: Field<string>;
     TwitterProfileLink?: Field<string>;
@@ -30,14 +25,35 @@ type Speaker = {
   };
 };
 
+type Room = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+
+type Timeslot = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+
+type Day = {
+  fields: {
+    Name: Field<string>;
+  };
+};
+
 export type SessionInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Description: Field<string>;
     Type: Field<string>;
-    Date: Field<string>;
     Image: ImageField;
     Speakers: Speaker[];
+    Rooms: Room[];
+    Day: Day[];
+    Timeslots: Timeslot[];
+    Premium: Field<boolean>;
   };
 };
 
@@ -47,134 +63,132 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
     : props.fields.Speakers.length == 1
     ? 'Speaker'
     : 'Speakers';
-  return (
-    <section className="section">
-      <div className="section__content left__content">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="col-span-1 md:col-span-1">
-            <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
-            <div>
-              <DateField
-                tag="h3"
-                field={props.fields.Date}
-                render={(date) =>
-                  'Date: ' +
-                  date?.toLocaleDateString('en-US', {
-                    weekday: 'short',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })
-                }
-              />
-              <DateField
-                tag="span"
-                field={props.fields.Date}
-                render={(date) =>
-                  'Time: ' +
-                  date?.toLocaleTimeString('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })
-                }
-              />
-            </div>
 
-            <div className="hidden md:block pt-4" title="TODO: hardcoded for now...">
-              <div className="font-bold">Related Sessions</div>
-              <div className="border border-gray p-5 my-5">
+  return (
+    <section className="section information-section session-information">
+      <div className="section__content left__content">
+        <div className="information-grid">
+          <div className="image-col">
+            <div>
+              <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
+              {props.fields.Rooms && props.fields.Rooms.length > 0 && (
+                <div className="info-text">
+                  <span>
+                    <FontAwesomeIcon className="icon" icon={faDoorOpen} />
+                  </span>
+                  <Text tag="p" field={props.fields.Rooms[0].fields.Name}></Text>
+                </div>
+              )}
+              {props.fields.Day &&
+                props.fields.Day.length > 0 &&
+                props.fields.Day.map((day, index) => (
+                  <div key={index} className="info-text">
+                    <span>
+                      <FontAwesomeIcon className="icon" icon={faCalendar} />
+                    </span>
+                    <Text tag="p" field={day.fields.Name}></Text>
+                  </div>
+                ))}
+              {props.fields.Timeslots && props.fields.Timeslots.length > 0 && (
+                <div className="info-text">
+                  <span>
+                    <FontAwesomeIcon className="icon" icon={faClock} />
+                  </span>
+                  <span>{getSessionTime(props.fields.Timeslots)}</span>
+                </div>
+              )}
+            </div>
+            <div className="related-sessions" title="TODO: hardcoded for now...">
+              <div className="session-title">Related Sessions</div>
+              <div className="session">
                 <p>Mon, 19th | 9:00 AM</p>
-                <p className="font-bold">10 Tips to get the most out of your routines</p>
+                <p className="session-title">10 Tips to get the most out of your routines</p>
               </div>
             </div>
           </div>
-          <div className="col-span-1 md:col-span-3 space-y-5">
-            <Text tag="span" className="btn--main bg-yellow" field={props.fields.Type}></Text>
-            <Text
-              tag="h2"
-              className="text-2xl md:text-3xl font-extrabold text-blue"
-              field={props.fields.Name}
-            ></Text>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-              <div className="font-bold col-span-1 lg:col-span-2">{speakerHeader}</div>
+          <div className="description-col">
+            <div>
+              <Text tag="div" className="eyebrow" field={props.fields.Type}></Text>
+              {props.fields.Premium?.value === true && <div className="eyebrow">Premium</div>}
+            </div>
+            <div>
+              <Text tag="h2" className="speaker-name" field={props.fields.Name}></Text>
+            </div>
+            <div className="speaker-grid">
+              <div className="speaker-header">{speakerHeader}</div>
               {props.fields.Speakers &&
                 props.fields.Speakers.map((speaker, index) => (
-                  <div key={index} className="pb-4 col-span-1 w-100">
-                    <Image
-                      className="float-left pr-5"
-                      field={speaker.fields?.Picture}
-                      alt={speaker.fields?.Name?.value}
-                    />
+                  <div key={index} className="speaker-info">
+                    <div className="speaker-image">
+                      <Image
+                        field={speaker.fields?.Picture}
+                        alt={speaker.fields?.Name?.value}
+                        width={200}
+                        height={200}
+                      />
+                      <div className="social-bar">
+                        {!speaker.fields.FacebookProfileLink ? (
+                          ''
+                        ) : (
+                          <a href={speaker.fields.FacebookProfileLink.value}>
+                            <FontAwesomeIcon className="social-icon" icon={faFacebookF} />
+                          </a>
+                        )}
+                        {!speaker.fields.TwitterProfileLink ? (
+                          ''
+                        ) : (
+                          <a href={speaker.fields.TwitterProfileLink.value}>
+                            <FontAwesomeIcon className="social-icon" icon={faTwitter} />
+                          </a>
+                        )}
+                        {!speaker.fields.LinkedinProfileLink ? (
+                          ''
+                        ) : (
+                          <a href={speaker.fields.LinkedinProfileLink.value}>
+                            <FontAwesomeIcon className="social-icon" icon={faLinkedinIn} />
+                          </a>
+                        )}
+                        {!speaker.fields.InstagramProfileLink ? (
+                          ''
+                        ) : (
+                          <a href={speaker.fields.InstagramProfileLink.value}>
+                            <FontAwesomeIcon className="social-icon" icon={faInstagram} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
                     <div>
-                      <Text
-                        tag="h3"
-                        className="md:text-xl font-bold text-blue"
-                        field={speaker.fields.Name}
-                      ></Text>
-                      {/* TODO: To be turned into links */}
-                      {!speaker.fields.FacebookProfileLink ? (
-                        ''
-                      ) : (
-                        <a href={speaker.fields.FacebookProfileLink.value}>
-                          <FontAwesomeIcon
-                            className="icon h-4 m-2 inline text-blue"
-                            icon={faFacebookF}
-                          />
-                        </a>
+                      <Text tag="h3" className="speaker-name" field={speaker.fields.Name}></Text>
+
+                      {speaker.fields.JobTitle && (
+                        <span>
+                          <span className="font-bold">Position: </span>
+                          <Text field={speaker.fields.JobTitle}></Text>
+                        </span>
                       )}
-                      {!speaker.fields.TwitterProfileLink ? (
-                        ''
-                      ) : (
-                        <a href={speaker.fields.TwitterProfileLink.value}>
-                          <FontAwesomeIcon
-                            className="icon h-4 m-2 inline text-blue"
-                            icon={faTwitter}
-                          />
-                        </a>
+                      {speaker.fields.Company && (
+                        <span className="block">
+                          <span className="font-bold">Company: </span>
+                          <Text field={speaker.fields.Company}></Text>
+                        </span>
                       )}
-                      {!speaker.fields.LinkedinProfileLink ? (
-                        ''
-                      ) : (
-                        <a href={speaker.fields.LinkedinProfileLink.value}>
-                          <FontAwesomeIcon
-                            className="icon h-4 m-2 inline text-blue"
-                            icon={faLinkedinIn}
-                          />
-                        </a>
-                      )}
-                      {!speaker.fields.InstagramProfileLink ? (
-                        ''
-                      ) : (
-                        <a href={speaker.fields.InstagramProfileLink.value}>
-                          <FontAwesomeIcon
-                            className="icon h-4 m-2 inline text-blue"
-                            icon={faInstagram}
-                          />
-                        </a>
+                      {speaker.fields.Location && (
+                        <span className="block">
+                          <span className="font-bold">Location: </span>
+                          <Text field={speaker.fields.Location}></Text>
+                        </span>
                       )}
                     </div>
-                    <span>
-                      <span className="font-bold">Position: </span>
-                      <Text field={speaker.fields.Position}></Text>
-                    </span>
-                    <span className="block">
-                      <span className="font-bold">Company: </span>
-                      <Text field={speaker.fields.Company}></Text>
-                    </span>
-                    <span className="block">
-                      <span className="font-bold">Country: </span>
-                      <Text field={speaker.fields.Country}></Text>
-                    </span>
                   </div>
                 ))}
             </div>
             <RichText field={props.fields.Description} />
 
-            <div className="block md:hidden" title="TODO: hardcoded for now...">
-              <div className="font-bold">Related Sessions</div>
-              <div className="border border-gray p-5 my-5">
+            <div className="related-sessions" title="TODO: hardcoded for now...">
+              <div className="session-title">Related Sessions</div>
+              <div className="session">
                 <p>Mon, 19th | 9:00 AM</p>
-                <p className="font-bold">10 Tips to get the most out of your routines</p>
+                <p className="session-title">10 Tips to get the most out of your routines</p>
               </div>
             </div>
           </div>
