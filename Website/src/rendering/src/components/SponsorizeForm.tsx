@@ -57,16 +57,6 @@ class SponsorizeForm extends Component<ComponentProps, SponsorizeFormState> {
             <label htmlFor="phoneNumber">Phone Number</label>
           </div>
         </div>
-        <label className="checkbox-label">
-          <input type="checkbox" />
-          <span className="label-text">If you wish to receive updates on the expo</span>
-        </label>
-        <label className="checkbox-label">
-          <input type="checkbox" />
-          <span className="label-text">
-            If you wish to receive updates from third party vendors and promotions
-          </span>
-        </label>
         <div className="button-area">
           <button className="btn--main btn--main--round" onClick={this.onSubmit}>
             Submit
@@ -86,8 +76,8 @@ class SponsorizeForm extends Component<ComponentProps, SponsorizeFormState> {
 
     const thankYouMessage = (
       <>
-        Thank you for your request for information. A PLAY! Summit representative will contact you
-        in the near future.
+        Thank you for your interest in becoming a sponsor. <br /> A PLAY! Summit representative will
+        contact you within 1 business day.
       </>
     );
 
