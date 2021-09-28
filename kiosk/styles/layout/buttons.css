@@ -15,7 +15,8 @@
 }
 
 .btn--main {
-  @apply font-bold hover:shadow-md;
+  @apply font-bold;
+  @apply hover:shadow-md;
 
   padding: 0.5em 1.55em;
   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
@@ -31,4 +32,9 @@
 .btn--main--round {
   @apply bg-yellow text-black rounded-md;
   @apply hover:bg-yellow-dark hover:text-black;
+}
+
+.btn--disabled {
+  @apply bg-gray cursor-not-allowed;
+  @apply hover:bg-gray;
 }

@@ -105,7 +105,11 @@
     }
   }
 
-  .btn__area {
-    @apply p-0 bg-none;
+  .tickets__buttons {
+    @apply flex items-center justify-start;
+
+    .btn-right {
+      margin-left: auto;
+    }
   }
 }
