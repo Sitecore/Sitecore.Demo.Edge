@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Speaker Type/Athlete
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Edge.SpeakerType.Athlete
+  Value: Demo.SpeakerType.Athlete
 Languages:
 - Language: en
   Versions:
@@ -28,11 +28,11 @@ Languages:
       Value: Athlete
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1193b092-1acf-40d2-8539-ce961fe5a14e"
+      Value: "7033c783-84f6-4f9a-aa20-956069562831"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210725T104538Z
+      Value: 20210919T092545Z

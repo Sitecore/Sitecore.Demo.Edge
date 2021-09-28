@@ -6,7 +6,7 @@ Path: /sitecore/content/EdgeWebsite/home/news/Play summit goes live
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: cRCZ4Q7bc0WjXgUzss2kmg
+  Value: MoM7sDRC10K8YKlslbRByw
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 50
@@ -34,7 +34,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5112693d-0c40-4b5d-9bb0-49549d4bd385"
+      Value: "71ae44e7-b8b4-4a00-982d-256fd4f04c7c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -44,7 +44,7 @@ Languages:
       Value: 20210803T194226Z
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T204123Z
+      Value: 20210922T210850Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan posuere orci, placerat tristique quam vulputate non. Aliquam erat volutpat. Vestibulum ante ipsum primis in orci luctus et posuere cubilia curae; Sed mollis tincidunt magna eu blandit.
@@ -66,3 +66,44 @@ Languages:
         Maecenas ac est sit amet augue aliquam convallis. In metus lectus, maximus quis lectus sit amet, mollis lacinia arcu. Pellentesque congue ante id arcu dictum, vitae auctor ipsum lobortis. Suspendisse faucibus nunc eget odio congue, vel vehicula sem hendrerit. Morbi auctor magna vel nisi consectetur ultricies. Proin luctus magna eu varius elementum. Morbi quis metus vestibulum odio tincidunt mattis. Etiam venenatis tempor efficitur. Etiam sagittis purus a justo mollis, non tempus leo auctor. </p>
         <p>Nulla ullamcorper enim et interdum lobortis. Morbi tincidunt nulla id eros euismod, et laoreet est lobortis. Ut vestibulum risus velit, vehicula rhoncus leo placerat quis. Quisque scelerisque dignissim libero vestibulum interdum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
         Donec pulvinar lectus nec lectus faucibus, eu posuere leo cursus. Etiam eu bibendum elit, ac fermentum leo. Duis dignissim placerat mi, eget molestie purus feugiat in. Aenean sollicitudin arcu elit, sed euismod velit facilisis eu. Pellentesque venenatis metus vel mi sagittis, non bibendum sem congue. Vivamus varius, libero vitae bibendum varius, sem odio laoreet orci, et hendrerit neque risus et metus. Aliquam vitae tellus eu tortor tempor dignissim.</p>
+- Language: "en-US"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210923T004525Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "PLAY! Summit Goes Live"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bac823df-3ba3-4844-9c86-79ea8c9d6147"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: "20210804T172751:637636948719930000Z"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210923T025242Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan posuere orci, placerat tristique quam vulputate non. Aliquam erat volutpat. Vestibulum ante ipsum primis in orci luctus et posuere cubilia Sed mollis tincidunt eu. Vestibulum ante ipsum primis in orci luctus et posuere cubilia Sed mollis tincidunt eu.
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30591" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/30591/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/394a9ffe7b5f4cf29b6646571fe96248?v=05668867" mediaid="" stylelabs-content-type="Image" alt="Play-Summit-Speaking-Hall2.jpg" height="1080" width="1595" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan posuere orci, placerat tristique quam vulputate non. Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed mollis tincidunt magna eu blandit. Praesent at urna in massa tempus varius a eu diam. Etiam at porta nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ultricies sed purus a interdum.&nbsp;</p><p>Nullam ut tempus tellus. Pellentesque venenatis, nisi vitae iaculis auctor, tellus quam dignissim lorem, sit amet aliquet enim nulla vitae neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Fusce non mauris interdum, cursus nibh a, facilisis ex. Ut in placerat orci, ut pretium quam. Donec id odio ac tellus lacinia ullamcorper sed quis purus. Sed consectetur molestie congue. Pellentesque eu nisl vitae est hendrerit cursus vel a mauris. Etiam feugiat ultrices lacus ut vehicula. Donec diam erat, efficitur nec orci at, volutpat mattis justo.&nbsp;</p><p>Fusce egestas non tortor nec interdum. Fusce nec augue hendrerit, facilisis lorem eu, molestie libero. Donec eget sem egestas orci ullamcorper molestie. Sed felis turpis, interdum et est vel, eleifend tincidunt magna. Nulla vel nisl et odio lacinia congue. Curabitur suscipit cursus tellus, vitae pulvinar ex imperdiet non. In pulvinar tellus quam, et gravida felis mattis id. Integer congue ligula ac nunc vulputate viverra nec et lectus. Pellentesque malesuada magna malesuada fermentum placerat. Fusce sit amet arcu nec tortor laoreet volutpat sed eget libero. Quisque convallis arcu eu nisl consectetur egestas. Praesent imperdiet dictum ex at aliquet. Sed rhoncus venenatis purus et dapibus. Nulla tincidunt sit amet erat eu elementum. Cras in ipsum sed dolor laoreet ornare. Nulla facilisi.</p>      

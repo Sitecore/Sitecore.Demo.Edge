@@ -8,19 +8,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
+type Session = {
+  name: Field<string>;
+  fields: {
+    Name: Field<string>;
+    Image: ImageField;
+    Date: Field<string>;
+  };
+};
+
 export type SpeakerInformationProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Role: Field<string>;
     Picture: ImageField;
-    Position: Field<string>;
+    JobTitle: Field<string>;
     Company: Field<string>;
-    Country: Field<string>;
+    Location: Field<string>;
     Description: Field<string>;
     FacebookProfileLink?: Field<string>;
     TwitterProfileLink?: Field<string>;
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
+    Sessions: Session[];
+    Featured: Field<boolean>;
   };
 };
 
@@ -32,7 +43,6 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
           <div>
             <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
             <div className="external-website-icons">
-              {/* TODO: To be turned into links */}
               {!props.fields.FacebookProfileLink ? (
                 ''
               ) : (
@@ -63,33 +73,41 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
               )}
             </div>
           </div>
-          <div>
-            <span className="data-label">Position:</span>{' '}
-            <Text field={props.fields.Position}></Text>
-          </div>
-          <div>
-            <span className="data-label">Company:</span> <Text field={props.fields.Company}></Text>
-          </div>
-          <div>
-            <span className="data-label">Country:</span> <Text field={props.fields.Country}></Text>
-          </div>
+          {props.fields.JobTitle && props.fields.JobTitle.value != '' && (
+            <div>
+              <span className="data-label">Job Title:</span>{' '}
+              <Text field={props.fields.JobTitle}></Text>
+            </div>
+          )}
+          {props.fields.Company && props.fields.Company.value != '' && (
+            <div>
+              <span className="data-label">Company:</span>{' '}
+              <Text field={props.fields.Company}></Text>
+            </div>
+          )}
+          {props.fields.Location && props.fields.Location.value != '' && (
+            <div>
+              <span className="data-label">Location:</span>{' '}
+              <Text field={props.fields.Location}></Text>
+            </div>
+          )}
         </div>
         <div className="description-col">
-          {/* TODO: Add speaker type in content hub */}
-          <Text tag="div" className="eyebrow" field={props.fields.Role}></Text>
+          <div>
+            <Text tag="div" className="eyebrow" field={props.fields.Role}></Text>
+            {props.fields.Featured?.value && <div className="eyebrow">Featured</div>}
+          </div>
           <Text tag="h1" className="name" field={props.fields.Name}></Text>
           <RichText field={props.fields.Description} />
-          {/* TODO: Link sessions with speakers and show info here */}
           <div className="talks-section">
-            <h2 className="talks-title">Talks</h2>
-            <div className="talk">
-              <p>Mon, 19th | 9:00 AM</p>
-              <p className="talk-name">10 Tips to get the most out of your routines</p>
-            </div>
-            <div className="talk">
-              <p>Mon, 19th | 9:00 AM</p>
-              <p className="talk-name">10 Tips to get the most out of your routines</p>
-            </div>
+            {props.fields.Sessions && <h2 className="talks-title">Talks</h2>}
+            {props.fields.Sessions &&
+              props.fields.Sessions.map((session, index) => (
+                <div key={index} className="talk">
+                  <p>Mon, 19th | 9:00 AM</p>
+                  <p className="talk-name">{session.name}</p>
+                </div>
+              ))}
           </div>
         </div>
       </div>

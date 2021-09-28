@@ -25,13 +25,13 @@ const speaker1 = {
         src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
       },
     },
-    Position: {
+    JobTitle: {
       value: 'Manager',
     },
     Company: {
       value: 'Sitecore',
     },
-    Country: {
+    Location: {
       value: 'Canada',
     },
     Description: {
@@ -66,13 +66,13 @@ const speaker2 = {
         src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
       },
     },
-    Position: {
+    JobTitle: {
       value: 'Manager',
     },
     Company: {
       value: 'Sitecore',
     },
-    Country: {
+    Location: {
       value: 'Canada',
     },
     Description: {
@@ -94,6 +94,50 @@ const speaker2 = {
   },
 } as Speaker;
 
+const rooms = [
+  {
+    fields: {
+      Name: {
+        value: 'Room 1',
+      },
+    },
+  },
+  {
+    fields: {
+      Name: {
+        value: 'Room 2',
+      },
+    },
+  },
+];
+
+const timeslots = [
+  {
+    fields: {
+      Name: {
+        value: '8 am',
+      },
+    },
+  },
+  {
+    fields: {
+      Name: {
+        value: '9 am',
+      },
+    },
+  },
+];
+
+const days = [
+  {
+    fields: {
+      Name: {
+        value: 'Day 1',
+      },
+    },
+  },
+];
+
 export const Default = Template.bind({});
 Default.args = {
   params: {
@@ -105,9 +149,20 @@ Default.args = {
       value:
         '<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p><p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>',
     },
-    Type: { value: 'Keynote' },
-    Date: { value: '2021-07-29T06:00:00Z' },
-    Image: { value: { src: '/assets/img/shop/man-biker.jpg' } },
+    Type: {
+      value: 'Keynote',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+      },
+    },
     Speakers: [speaker1, speaker2],
+    Rooms: rooms,
+    Day: days,
+    Timeslots: timeslots,
+    Premium: {
+      value: true,
+    },
   },
 };

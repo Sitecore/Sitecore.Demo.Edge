@@ -29,7 +29,6 @@ const VendorInformation = (props: VendorInformationProps): JSX.Element => (
           <div>
             <Image field={props.fields?.Logo} alt={props.fields?.Name?.value} />
             <div className="external-website-icons">
-              {/* TODO: To be turned into links */}
               {!props.fields.FacebookProfileLink ? (
                 ''
               ) : (
@@ -62,7 +61,9 @@ const VendorInformation = (props: VendorInformationProps): JSX.Element => (
           </div>
         </div>
         <div className="description-col">
-          <Text tag="div" className="eyebrow" field={props.fields.Level}></Text>
+          <div>
+            <Text tag="div" className="eyebrow" field={props.fields.Level}></Text>
+          </div>
           <Text tag="h1" className="name" field={props.fields.Name}></Text>
           <RichText field={props.fields.Description} />
         </div>
