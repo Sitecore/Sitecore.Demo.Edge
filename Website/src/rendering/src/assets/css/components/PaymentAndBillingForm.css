@@ -8,6 +8,10 @@
   .payment-methods {
     @apply flex items-center;
 
+    img {
+      width: 100px;
+    }
+
     input:checked + label {
       img {
         @apply border border-gray-dark border-solid rounded-lg;
