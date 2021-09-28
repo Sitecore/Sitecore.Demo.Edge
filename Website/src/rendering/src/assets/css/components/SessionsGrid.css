@@ -10,12 +10,20 @@
     .grid-item {
       @apply bg-white mx-auto w-full relative;
 
+      transform: scale(1);
+      transition: all 0.1s;
+
+      .icon {
+        @apply h-4 mr-2 inline text-black;
+
+        &-yellow {
+          @apply text-yellow;
+        }
+      }
+
       .image-hover-zoom {
         @apply overflow-hidden bg-cover bg-center;
       }
-
-      transform: scale(1);
-      transition: all 0.1s;
 
       &:hover {
         box-shadow: 1px 1px 10px rgba(23, 23, 23, 0.45);
@@ -48,10 +56,6 @@
 
         .speaker-name {
           @apply uppercase;
-        }
-
-        .icon {
-          @apply h-4 mr-2 inline text-black;
         }
       }
     }

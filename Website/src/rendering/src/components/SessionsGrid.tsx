@@ -62,7 +62,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
               </div>
               {session.fields.Premium?.value === true && (
                 <div className="session-featured" title="Premium">
-                  <FontAwesomeIcon className="icon h-4 mr-2 inline text-yellow" icon={faStar} />
+                  <FontAwesomeIcon className="icon-yellow" icon={faStar} />
                 </div>
               )}
               <div className="item-details item-details-left">
