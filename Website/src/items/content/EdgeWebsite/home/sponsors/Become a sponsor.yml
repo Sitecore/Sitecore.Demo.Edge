@@ -2,7 +2,7 @@
 ID: "6cf37ff6-755c-5b1a-b5eb-63f03481db4a"
 Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
-Path: /sitecore/content/EdgeWebsite/home/sponsors/sponsorize
+Path: /sitecore/content/EdgeWebsite/home/sponsors/Become a sponsor
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
@@ -127,7 +127,7 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Sponsorize
+    Value: Become a sponsor
   Versions:
   - Version: 1
     Fields:
@@ -150,14 +150,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "44ddd8ca-5d3b-48fd-b769-f57f680f65b1"
+      Value: "cf4d4d72-afbe-47e7-a007-04573ad023ee"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210927T220849Z
+      Value: 20210928T142359Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: Sponsorize
+      Value: Become a sponsor
