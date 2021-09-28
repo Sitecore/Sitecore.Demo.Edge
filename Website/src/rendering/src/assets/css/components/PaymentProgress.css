@@ -1,6 +1,7 @@
 .payment-progress {
+  @apply w-full content-center items-center text-center mb-10 bg-gray;
   @apply sm:hidden;
-  @apply md:flex w-full content-center items-center text-center mb-10 bg-gray;
+  @apply md:flex;
 
   .payment-progress-item {
     @apply flex justify-between px-1 align-middle items-center flex-1;

@@ -23,9 +23,21 @@ function GetActiveClass(activeStep: number, index: number) {
 
 const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
   const steps = [
-    { index: 1, link: '/tickets/registration/attendee', text: 'Personal Information' },
-    { index: 2, link: '/tickets/payment', text: 'Payment Information' },
-    { index: 3, link: '/tickets/payment/confirmed', text: 'Payment Confirmation' },
+    {
+      index: 1,
+      link: '/tickets/registration/attendee',
+      text: 'Personal Information',
+    },
+    {
+      index: 2,
+      link: '/tickets/payment',
+      text: 'Payment Information',
+    },
+    {
+      index: 3,
+      link: '/tickets/payment/confirmed',
+      text: 'Payment Confirmation',
+    },
   ];
 
   return props.fields ? (
