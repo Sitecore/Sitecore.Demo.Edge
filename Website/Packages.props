@@ -12,8 +12,10 @@
     <PackageReference Update="Sitecore.Kernel" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.ContentSearch" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.ContentSearch.Linq" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.LayoutService" Version="7.0.0" />
+    <PackageReference Update="Sitecore.LayoutService" Version="7.1.0" />
     <PackageReference Update="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="17.0.0" />
+    <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="18.0.0" />
+    <PackageReference Update="Sitecore.JavaScriptServices.ViewEngine" Version="18.0.0" />
+    <PackageReference Update="Sitecore.Connector.CMP" Version="3.1.0" />
   </ItemGroup>
 </Project>

@@ -3,110 +3,110 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const TicketGrid = (): JSX.Element => (
-  <section className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-14">
-    <div className="text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--blue">
-      <div className="slanted-spacer"></div>
-      <h2 className="text-4xl font-semibold text-pink">Online Ticket</h2>
-      <span className="text-xl py-2 font-semibold">Save 20% on early bird!</span>
-      <p>
-        <span className="price">$99</span>
-        <ul>
-          <li>
-            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> All access pass
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Exclusive network lunches
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> 20% off all thousands of
-            goods
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Free online catalog
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Print and digital ticket
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-pink mr-3" icon={faCheck} /> Unlimited customize your
-            agenda
-          </li>
-        </ul>
-      </p>
-      <div className="px-6 pt-4 pb-10">
-        <Link href="/tickets/attendee">
-          <a className="btn--main btn--main--round font-bold">Get Tickets</a>
+  <section className="container section__tickets">
+    <div className="ticket-grid-block ticket-grid-block--pink">
+      <div className="ticket-content">
+        <div className="slanted-spacer"></div>
+        <h2 className="ticket-name">Online Ticket</h2>
+        <span className="ticket-subtitle">Save 20% on early bird!</span>
+        <p>
+          <span className="ticket-price">$99</span>
+          <ul>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Digital Pass
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Access to all online sessions
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> 10% off all digital vendor goods
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Digital ticket only
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Unlimited customize your agenda
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div className="ticket-button-container">
+        <Link href="/tickets/registration/attendee">
+          <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
     </div>
-    <div className="text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--yellow">
-      <div className="slanted-spacer"></div>
-      <h2 className="text-4xl font-semibold text-orange">Regular Ticket</h2>
-      <span className="text-xl py-2 font-semibold">Save 20% on early bird!</span>
-      <p>
-        <span className="price">$199</span>
-        <ul>
-          <li>
-            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> All access pass
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Exclusive network
-            lunches
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> 20% off all thousands of
-            goods
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Free online catalog
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Print and digital ticket
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-orange mr-3" icon={faCheck} /> Unlimited customize your
-            agenda
-          </li>
-        </ul>
-      </p>
-      <div className="px-6 pt-4 pb-10">
-        <Link href="/tickets/attendee">
-          <a className="btn--main btn--main--round font-bold">Get Tickets</a>
+    <div className="ticket-grid-block ticket-grid-block--orange">
+      <div className="ticket-content">
+        <div className="slanted-spacer"></div>
+        <h2 className="ticket-name">Regular Ticket</h2>
+        <span className="ticket-subtitle">Save 20% on early bird!</span>
+        <p>
+          <span className="ticket-price">$199</span>
+          <ul>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Standard pass
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Access to all online and in-person sessions
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> 10% off all vendor goods
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Print and digital ticket
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Unlimited customize your agenda
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div className="ticket-button-container">
+        <Link href="/tickets/registration/attendee">
+          <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
     </div>
-    <div className="text-center space-y-6 align-bottom ticket-grid-block ticket-grid-block--pink">
-      <div className="slanted-spacer"></div>
-      <h2 className="text-4xl font-semibold text-blue">VIP Ticket</h2>
-      <span className="text-xl py-2 font-semibold">Save 20% on early bird!</span>
-      <p>
-        <span className="price">$399</span>
-        <ul>
-          <li>
-            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> All access pass
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Exclusive network lunches
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> 20% off all thousands of
-            goods
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Free online catalog
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Print and digital ticket
-          </li>
-          <li>
-            <FontAwesomeIcon className="text-blue mr-3" icon={faCheck} /> Unlimited customize your
-            agenda
-          </li>
-        </ul>
-      </p>
-      <div className="px-6 pt-4 pb-10">
-        <Link href="/tickets/attendee">
-          <a className="btn--main btn--main--round font-bold">Get Tickets</a>
+    <div className="ticket-grid-block ticket-grid-block--blue">
+      <div className="ticket-content">
+        <div className="slanted-spacer"></div>
+        <h2 className="ticket-name">VIP Ticket</h2>
+        <span className="ticket-subtitle">Save 20% on early bird!</span>
+        <p>
+          <span className="ticket-price">$399</span>
+          <ul>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> All access VIP pass
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> VIP access to exclusive workshops and special
+              keynotes
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> 20% off all vendor goods
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Free online sessions after the event
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Print and digital ticket
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faCheck} /> Unlimited customize your agenda
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div className="ticket-button-container">
+        <Link href="/tickets/registration/attendee">
+          <a className="btn--main btn--main--round">Get Tickets</a>
         </Link>
       </div>
     </div>

@@ -28,6 +28,6 @@
   a:hover,
   a:active,
   a:focus {
-    @apply text-black-darkest;
+    @apply opacity-100;
   }
 }

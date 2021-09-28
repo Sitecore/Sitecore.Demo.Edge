@@ -1,0 +1,38 @@
+﻿---
+ID: "1eb4dc2d-c299-42ff-b3c1-0719e694298e"
+Parent: "866e6ad1-34b6-479d-b75d-6ea1eeb01f98"
+Template: "32b4ee0d-7860-4ace-bc20-e4b40d9491a7"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Days/Day 3
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Demo.Day.Day3
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T161913Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8b5b10d2-7531-496b-afce-c0f7e51348c2"
+      Hint: Name
+      Value: Day 3
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "864289ec-15c5-440b-be1c-ee1fc027bf44"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210924T161913Z

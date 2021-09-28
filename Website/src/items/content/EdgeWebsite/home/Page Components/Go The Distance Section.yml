@@ -31,7 +31,7 @@ Languages:
     - ID: "4bcf7d15-f018-5ca8-ae87-54499668a439"
       Hint: LeftLink
       Value: |
-        <link text="View Schedule" anchor="" linktype="internal" class="" title=""  querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
+        <link text="View Sessions" anchor="" linktype="internal" class="" title=""  querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -50,7 +50,7 @@ Languages:
         <image mediaid="{21C5D87C-3E77-4AFA-82FF-665B15EA7806}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "74d13897-9b24-4023-8a02-92db98225766"
+      Value: "e3e7e12b-9e47-4dbb-9b1c-1c72ed37bda1"
     - ID: "a8282684-a5d5-57be-b6f6-a509c6ccdbe3"
       Hint: LeftTitle
       Value: 48 Talks and Workshops
@@ -64,7 +64,7 @@ Languages:
         <link text="View Speakers" anchor="" linktype="internal" class="" title=""  querystring="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T134902Z
+      Value: 20210907T115620Z
     - ID: "da225a0d-6c21-5207-9510-6089e5352730"
       Hint: Subtitle
       Value: "Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages."

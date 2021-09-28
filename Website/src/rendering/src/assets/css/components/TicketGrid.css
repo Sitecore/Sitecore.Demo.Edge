@@ -1,0 +1,97 @@
+.section__tickets {
+  @apply grid grid-cols-1 gap-14 py-14;
+  @apply md:grid-cols-2;
+  @apply xl:grid-cols-3;
+
+  .ticket-grid-block {
+    @apply bg-white-lighter px-3 text-center flex flex-col justify-start pb-8;
+    @apply lg:px-10;
+
+    .ticket-content {
+      @apply space-y-6 mb-6;
+
+      .slanted-spacer {
+        @apply w-full;
+
+        height: 20px;
+      }
+
+      .ticket-name {
+        @apply text-4xl font-semibold;
+      }
+
+      .ticket-subtitle {
+        @apply text-xl py-2 font-semibold;
+      }
+
+      .ticket-price {
+        @apply text-6xl font-semibold;
+      }
+
+      ul {
+        @apply pt-5 text-base text-left list-none px-3;
+        @apply lg:px-0;
+
+        text-indent: -34px;
+        margin-left: 34px;
+
+        @screen lg {
+          text-indent: -40px;
+          margin-left: 40px;
+        }
+
+        li {
+          @apply my-4;
+
+          svg {
+            @apply mr-3;
+          }
+        }
+      }
+    }
+
+    .ticket-button-container {
+      @apply mt-auto;
+
+      a {
+        @apply font-bold;
+      }
+    }
+
+    &--pink {
+      .slanted-spacer {
+        @apply bg-pink;
+      }
+
+      .ticket-name,
+      .ticket-price,
+      ul li svg {
+        @apply text-pink;
+      }
+    }
+
+    &--orange {
+      .slanted-spacer {
+        @apply bg-orange;
+      }
+
+      .ticket-name,
+      .ticket-price,
+      ul li svg {
+        @apply text-orange;
+      }
+    }
+
+    &--blue {
+      .slanted-spacer {
+        @apply bg-blue;
+      }
+
+      .ticket-name,
+      .ticket-price,
+      ul li svg {
+        @apply text-blue;
+      }
+    }
+  }
+}

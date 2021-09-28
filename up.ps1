@@ -2,7 +2,10 @@
 [CmdletBinding(DefaultParameterSetName = "no-arguments")]
 Param (
     [Parameter(HelpMessage = "Whether to skip building the Docker images.")]
-    [switch]$SkipBuild
+    [switch]$SkipBuild,
+
+    [Parameter(HelpMessage = "Whether to skip running init container.")]
+    [switch]$SkipInit
 )
 
 $ErrorActionPreference = "Stop";
@@ -84,7 +87,9 @@ try {
     # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
     # Push the serialized items
     Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
-    dotnet sitecore ser push --publish
+    dotnet sitecore ser push
+    dotnet sitecore publish
+
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Serialization push failed, see errors above."
     }
@@ -92,6 +97,23 @@ try {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
 } finally {
     Pop-Location
+}
+
+# DEMO TEAM CUSTOMIZATION - Enable/Run/Disable init container
+if (-not $SkipInit) {
+    $dockerToolsVersion = "10.1.4"
+    Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
+    if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
+      Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
+      Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
+    }
+    Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
+    Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
+
+    Write-Host "Running init container..." -ForegroundColor Green
+    Set-DockerComposeEnvFileVariable "INIT_CONTAINERS_COUNT" -Value 1
+    docker-compose up -d init
+    Set-DockerComposeEnvFileVariable "INIT_CONTAINERS_COUNT" -Value 0
 }
 
 Write-Host "Opening site..." -ForegroundColor Green

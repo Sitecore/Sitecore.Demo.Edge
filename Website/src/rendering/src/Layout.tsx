@@ -7,6 +7,7 @@ import {
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
+import { logViewEvent } from './services/BoxeverService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -25,6 +26,11 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
     updateSitecoreContext && updateSitecoreContext(context);
+
+    // DEMO TEAM CUSTOMIZATION - Log page views in CDP
+    const { route } = context;
+    logViewEvent(route);
+    // END CUSTOMIZATION
   }, [context, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
 
   const { route } = context;
@@ -35,14 +41,20 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
     context.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
-  const headerCssClasses = `header ${isExperienceEditorActiveCssClass}`;
-  const mainCssClasses = isExperienceEditorActiveCssClass;
+
+  // DEMO TEAM CUSTOMIZATION - Add Event start date and name to be used globally
+  const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
+  let pageTitle = contextTitle.titlePrefix;
+  if (route?.fields?.pageTitle?.value) {
+    pageTitle += ' - ' + route?.fields?.pageTitle?.value;
+  }
   // END CUSTOMIZATION
 
   return (
     <>
       <Head>
-        <title>{route?.fields?.pageTitle?.value || 'Page'}</title>
+        {/*   // DEMO TEAM CUSTOMIZATION - Use Event name as the page title from context */}
+        <title>{pageTitle}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
@@ -50,13 +62,13 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
 
       {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
-      <header className={headerCssClasses}>
+      <header className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-header" rendering={route} />
       </header>
-      <main className={mainCssClasses}>
+      <main className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-main" rendering={route} />
       </main>
-      <footer className="footer">
+      <footer>
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
       {/* END CUSTOMIZATION*/}

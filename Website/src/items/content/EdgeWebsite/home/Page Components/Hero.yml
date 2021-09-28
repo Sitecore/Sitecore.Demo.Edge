@@ -3,6 +3,10 @@ ID: "39743651-6f92-4355-b88b-135cb41353a0"
 Parent: "99536ff1-02bf-5b2e-a94a-1bbba4cf50fa"
 Template: "b33a6d2b-aaa4-567b-8640-18c9e613435e"
 Path: /sitecore/content/EdgeWebsite/home/Page Components/Hero
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
 Languages:
 - Language: en
   Versions:
@@ -25,13 +29,13 @@ Languages:
     - ID: "666751a2-38bb-5f78-9a68-1c5d4c394c65"
       Hint: Link
       Value: |
-        <link text="Boot Tickets" anchor="" linktype="internal" class="" title=""  querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
+        <link text="Book Tickets" anchor="" linktype="internal" class="" title=""  querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
     - ID: "692cfd83-acae-5943-9598-09e078a83416"
       Hint: Expo
       Value: Sports and Leisure Expo
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aab9a6ad-f315-4003-9fbc-070f77de57bb"
+      Value: "619fbc7e-1295-4410-be79-7d8203194925"
     - ID: "a32cd274-1db8-5448-9727-87d275cef3f8"
       Hint: Slogan
       Value: "READY | STEADY | PLAY!"
@@ -48,7 +52,7 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T183322Z
+      Value: 20210825T131939Z
     - ID: "e82805ef-5ecb-5cec-8608-b049848c22bb"
       Hint: Subtitle
       Value: "Join us in person or online for the fifth annual PLAY! Summit."

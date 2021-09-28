@@ -1,23 +1,25 @@
-import { Blog } from '../interfaces';
+import { Session } from '../interfaces/session';
 
 type CurrentSessionProps = {
-  blog: Blog;
+  session: Session;
 };
 
 const CurrentSession = (props: CurrentSessionProps): JSX.Element => {
   return (
     <div
-      className="w-full h-full pt-10"
+      className="currentSession"
       style={{
-        backgroundSize: 'cover',
         backgroundImage: `url(/room-bg.jpg)`,
       }}
     >
-      <div className="m-auto p-6">
-        <p className="font-semibold py-3 uppercase text-yellow-400">Conference Room</p>
-        <h1 className="text-4xl uppercase text-white">{props.blog.blog_Title}</h1>
-        <p className="text-2xl py-3 font-semibold uppercase text-yellow-400">10:00am-11:00am</p>
-        <p className="text-white pt-2">{props.blog.blog_Body}</p>
+      <div className="data">
+        <p className="room">{props.session?.room}</p>
+        <h1 className="title">{props.session?.name}</h1>
+        <p className="timeSlot">{props.session?.timeslot}</p>
+        <div
+          className="description"
+          dangerouslySetInnerHTML={{ __html: props.session?.description }}
+        ></div>
       </div>
     </div>
   );

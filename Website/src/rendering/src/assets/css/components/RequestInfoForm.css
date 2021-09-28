@@ -1,0 +1,17 @@
+.form.request-info-form {
+  @apply text-center space-y-5 w-2/3;
+
+  h2 {
+    @apply pb-10;
+  }
+
+  .inline-fields {
+    @apply flex-col space-y-5 w-full;
+    @apply md:flex-row md:space-y-0;
+
+    input + input {
+      @apply ml-0;
+      @apply md:ml-2;
+    }
+  }
+}

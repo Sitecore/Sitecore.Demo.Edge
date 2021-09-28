@@ -54,9 +54,29 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
+            var cdpClientKey = Environment.GetEnvironmentVariable("CDP_CLIENT_KEY");
+            if (string.IsNullOrEmpty(cdpClientKey))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_CLIENT_KEY is not configured");
+                return;
+            }
+
+            var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
+            if (string.IsNullOrEmpty(cdpApiTargetEndpoint))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_API_TARGET_ENDPOINT is not configured");
+                return;
+            }
+
+            var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
+            if (string.IsNullOrEmpty(cdpProxyUrl))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_PROXY_URL is not configured");
+                return;
+            }
 
             DeployTv(ns, contentHubApiKey, token, scope);
-            DeployWebsite(ns, token, scope);
+            DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
 
             await Complete();
         }
@@ -90,7 +110,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
         }
 
-        private static void DeployWebsite(string ns, string token, string scope)
+        private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string token, string scope)
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
@@ -116,6 +136,11 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
+            cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");

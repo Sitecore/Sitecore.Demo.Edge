@@ -1,0 +1,38 @@
+﻿---
+ID: "4d758ced-1ad4-46c7-8e72-b42be54a08e8"
+Parent: "232fdf6b-950d-4ec2-bc47-e23017523272"
+Template: "c49ff72c-a4e8-4148-b8cf-bc362c655a52"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Audience/Fitness Fanatic
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Demo.Audience.FitnessFanatic
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210923T164935Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cfe6b867-0328-4b69-8b42-96ab4dac4b15"
+    - ID: "af5cfb2c-4e9f-4425-9bfd-2a333801288c"
+      Hint: Name
+      Value: Fitness Fanatic
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210923T164935Z

@@ -7,54 +7,48 @@ type Speaker = {
     Name: Field<string>;
     Role: Field<string>;
     Picture: ImageField;
+    Featured: Field<boolean>;
   };
 };
 
 type FeaturedSpeakersProps = ComponentProps & {
   fields: {
-    Title: Field<string>;
-    Subtitle: Field<string>;
-    Speakers: Speaker[];
+    items: Speaker[];
+  };
+  params: {
+    NumberOfSpeakers: string;
   };
 };
 
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
-  <section className="">
-    <div className="max-w-screen-2xl mx-auto box-border overflow-hidden bg-white">
-      <Text
-        tag="h1"
-        className="text-center uppercase text-blue pt-10 text-3xl md:text-4xl font-semibold"
-        field={props.fields.Title}
-      />
-      <Text tag="p" className="text-center" field={props.fields.Subtitle} />
-      <div className="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-        {props.fields.Speakers &&
-          props.fields.Speakers.map((speaker, index) => (
+  <div className="item-grid">
+    <div className="grid-content">
+      {props.fields.items &&
+        props.fields.items
+          .filter((item) => item.fields.Featured.value)
+          .sort()
+          .slice(0, parseInt(props.params.NumberOfSpeakers))
+          .map((speaker, index) => (
             <Link
               key={index}
               href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
               passHref
             >
-              <a className="rounded overflow-hidden mx-auto">
+              <a className="grid-item">
                 <Image
                   field={speaker.fields.Picture}
                   alt={speaker.fields.Name?.value}
                   width={265}
                   height={265}
                 />
-                <div className="px-6 py-4">
-                  <Text
-                    className="text-gray-700 text-base text-center"
-                    tag="p"
-                    field={speaker.fields.Name}
-                  ></Text>
+                <div className="item-details">
+                  <Text tag="p" field={speaker.fields.Name}></Text>
                 </div>
               </a>
             </Link>
           ))}
-      </div>
     </div>
-  </section>
+  </div>
 );
 
 export type { Speaker };

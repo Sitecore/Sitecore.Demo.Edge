@@ -1,79 +1,102 @@
+import { ComponentProps } from 'lib/component-props';
 import Link from 'next/link';
+import { Component } from 'react';
 
-const RequestInfoForm = (): JSX.Element => (
-  <div className="section__content text-white">
-    <h2 className="text-blue uppercase">Request Further information:</h2>
-    <div className="flex grid grid-cols-1 md:grid-cols-2 w-2/3 gap-2 md:gap-10 pt-2 md:pt-10">
-      <input
-        className="w-full rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="First Name"
-      />
-      <input
-        className="w-full rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Last Name"
-      />
-    </div>
-    <div className="flex w-2/3 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 pt-2 md:pt-3">
-      <input
-        className="w-full rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Email"
-      />
-      <input
-        className="w-full rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Company"
-      />
-    </div>
-    <div className="flex w-2/3 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 pt-2 md:pt-3">
-      <input
-        className="w-full rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Job Title"
-      />
-      <input
-        className="w-full rounded p-2 border border-white-dark text-sm font-medium"
-        type="text"
-        placeholder="Contact no"
-      />
-    </div>
-    <div className="flex w-2/3  grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-10 pt-2 md:pt-3">
-      <div className="w-full">
-        <label className="inline-flex items-center pl-5">
-          <input type="checkbox" className="form-checkbox align-top inline-block" />
-          <span className="ml-2 text-sm">If you wish to receive updates on the expo</span>
+interface RequestInfoFormState {
+  isFormSubmitted: boolean;
+}
+
+class RequestInfoForm extends Component<ComponentProps, RequestInfoFormState> {
+  state: Readonly<RequestInfoFormState> = {
+    isFormSubmitted: false,
+  };
+
+  constructor(props: ComponentProps) {
+    super(props);
+
+    // Binding this keyword
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(): void {
+    this.setState({
+      isFormSubmitted: true,
+    });
+  }
+
+  render(): JSX.Element {
+    const form = (
+      <>
+        <div className="inline-fields">
+          <div className="floating-label-wrap">
+            <input type="text" placeholder="First Name" id="firstName" />
+            <label htmlFor="firstName">First Name</label>
+          </div>
+          <div className="floating-label-wrap">
+            <input type="text" placeholder="Last Name" id="lastName" />
+            <label htmlFor="lastName">Last Name</label>
+          </div>
+        </div>
+        <div className="inline-fields">
+          <div className="floating-label-wrap">
+            <input type="text" placeholder="Email" id="email" />
+            <label htmlFor="email">Email</label>
+          </div>
+          <div className="floating-label-wrap">
+            <input type="text" placeholder="Company" id="company" />
+            <label htmlFor="company">Company</label>
+          </div>
+        </div>
+        <div className="inline-fields">
+          <div className="floating-label-wrap">
+            <input type="text" placeholder="Job Title" id="jobTitle" />
+            <label htmlFor="jobTitle">Job Title</label>
+          </div>
+          <div className="floating-label-wrap">
+            <input type="text" placeholder="Phone Number" id="phoneNumber" />
+            <label htmlFor="phoneNumber">Phone Number</label>
+          </div>
+        </div>
+        <label className="checkbox-label">
+          <input type="checkbox" />
+          <span className="label-text">If you wish to receive updates on the expo</span>
         </label>
-
-        <label className="inline-flex items-center pl-5">
-          <input type="checkbox" className="form-checkbox align-top inline-block" />
-          <span className="ml-2 text-sm">
+        <label className="checkbox-label">
+          <input type="checkbox" />
+          <span className="label-text">
             If you wish to receive updates from third party vendors and promotions
           </span>
         </label>
-      </div>
-      <div className="w-full text-sm">
-        <div className="pt-4 pb-10">
-          <Link href="/tickets">
-            <a className="btn--main btn--main--round">Submit</a>
-          </Link>
+        <div className="button-area">
+          <button className="btn--main btn--main--round" onClick={this.onSubmit}>
+            Submit
+          </button>
         </div>
-        <p className="text-sm">
-          Already have an account?
-          <strong>
-            <u>Log in.</u>
-          </strong>
-          <br />
-          <br />
-        </p>
-        <p className="text-sm">
-          To find out more about how we are using this information you are giving up, please review
-          our <strong>privacy statement</strong>
-        </p>
+        <div className="footnote">
+          <p>
+            Already have an account? <Link href="/account/login">Log in.</Link>
+          </p>
+          <p>
+            To find out more about how we are using this information you are giving up, please our{' '}
+            <Link href="/privacy">privacy statement</Link>
+          </p>
+        </div>
+      </>
+    );
+
+    const thankYouMessage = (
+      <>
+        Thank you for your request for information. A PLAY! Summit representative will contact you
+        in the near future.
+      </>
+    );
+
+    return (
+      <div className="form request-info-form">
+        {this.state.isFormSubmitted ? thankYouMessage : form}
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export default RequestInfoForm;

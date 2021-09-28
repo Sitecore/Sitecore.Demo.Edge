@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import NewsGrid, { News } from '../../components/NewsGrid';
 
 export default {
-  title: 'Components/News/Grid',
+  title: 'Components/News/NewsGrid',
   component: NewsGrid,
 } as ComponentMeta<typeof NewsGrid>;
 

@@ -18,7 +18,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/Section
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Components/Section
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/Section
 Languages:
 - Language: en
   Versions:

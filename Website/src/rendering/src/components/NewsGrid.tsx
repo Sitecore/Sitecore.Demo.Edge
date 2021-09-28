@@ -48,7 +48,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
       </div>
     </div>
     <div className="section__news__grid__news">
-      <div className="grid grid-cols-2 gap-2.5 h-full">
+      <div className="section__news__grid__news__grid">
         {props.fields.items &&
           props.fields.items
             .sort((a, b) => a.fields.PublishDate.value.localeCompare(b.fields.PublishDate.value))
