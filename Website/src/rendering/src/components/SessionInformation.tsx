@@ -109,7 +109,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
           <div className="description-col">
             <div>
               <Text tag="div" className="eyebrow" field={props.fields.Type}></Text>
-              {props.fields.Premium?.value === true && <span className="eyebrow">Premium</span>}
+              {props.fields.Premium?.value === true && <div className="eyebrow">Premium</div>}
             </div>
             <div>
               <Text tag="h2" className="speaker-name" field={props.fields.Name}></Text>
