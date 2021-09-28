@@ -1,6 +1,7 @@
 import PaymentConfirmation from '../../../components/PaymentConfirmation';
 import { TICKETS } from '../../../models/mock-tickets';
 import { Ticket } from '../../../models/ticket';
+
 export interface Params {
   id: string;
 }
@@ -15,7 +16,7 @@ export default function PaymentConfirmed(ticket: Ticket) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  // Get the paths we want to pre-render based on speakers
+  // Get the paths we want to pre-render based on tickets
   const paths = TICKETS.map((ticket) => ({
     params: { id: ticket.id },
   }));

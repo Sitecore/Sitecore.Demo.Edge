@@ -33,7 +33,7 @@ const HeroSection = (): JSX.Element => {
             <Link href="/tickets">
               <a className="btn--main btn--main--round btn--main--big">Get Started</a>
             </Link>
-            <Link href="/tickets">
+            <Link href="/signup">
               <a className="btn--main btn--main--round btn--main--big btn-right">Stay Connected</a>
             </Link>
           </div>

@@ -16,7 +16,7 @@ export default function Payment(ticket: Ticket) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  // Get the paths we want to pre-render based on speakers
+  // Get the paths we want to pre-render based on tickets
   const paths = TICKETS.map((ticket) => ({
     params: { id: ticket.id },
   }));
