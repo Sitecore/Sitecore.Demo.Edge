@@ -31,6 +31,7 @@ const SponsorsGrid = (props: SponsorsProps): JSX.Element => (
                 alt={sponsor.fields.Name.value}
                 width={180}
                 height={80}
+                loading="lazy"
               />
             </div>
           </a>

@@ -70,9 +70,6 @@ module.exports = {
       maxWidth: {
         '30': '30rem',
       },
-      backgroundImage: theme => ({
-        'home-hero': "url('/assets/img/home-hero-background.jpg')",
-       }),
       width: {
         '45': '45%',
       }

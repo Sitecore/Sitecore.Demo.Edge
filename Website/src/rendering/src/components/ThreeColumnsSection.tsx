@@ -29,21 +29,21 @@ const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element 
         </p>
         <div className="section--3-col__content__items">
           <div className="item item--1">
-            <Image field={fields.LeftLogo} alt={fields.LeftTitle} />
+            <Image field={fields.LeftLogo} alt={fields.LeftTitle} loading="lazy" />
             <p>
               <Text field={fields.LeftTitle} />
             </p>
             <Link field={fields.LeftLink} />
           </div>
           <div className="item item--2">
-            <Image field={fields.MiddleLogo} alt={fields.MiddleTitle} />
+            <Image field={fields.MiddleLogo} alt={fields.MiddleTitle} loading="lazy" />
             <p>
               <Text field={fields.MiddleTitle} />
             </p>
             <Link field={fields.MiddleLink} />
           </div>
           <div className="item item--3">
-            <Image field={fields.RightLogo} alt={fields.RightTitle} />
+            <Image field={fields.RightLogo} alt={fields.RightTitle} loading="lazy" />
             <p>
               <Text field={fields.RightTitle} />
             </p>

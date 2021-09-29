@@ -1,0 +1,45 @@
+﻿---
+ID: "8c5f5b0a-b6a6-46ce-a34a-6a76e7b4fd2e"
+Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
+Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
+Path: /sitecore/content/EdgeWebsite/home/sponsors/Spark
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: OdNwUYo8pUOfQEl1oBKTHQ
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="36792" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36792/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/61803a38d0a943d5913c70dc2bb6cb55?v=f79a617e" mediaid="" stylelabs-content-type="Image" alt="spark-logo.png" height="1200" width="1200" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T162522Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
+      Hint: Name
+      Value: Spark
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "63fbf6fd-3604-4467-b670-e8ba2712453c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "cf42c29f-ee3a-4f06-92ac-10fc51a42099"
+      Hint: Level
+      Value: Silver
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210924T162524Z

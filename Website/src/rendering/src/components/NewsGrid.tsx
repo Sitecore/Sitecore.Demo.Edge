@@ -26,6 +26,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
         alt="News"
         width="100%"
         className="section__news__grid__tweet__img"
+        loading="lazy"
       />
       <div className="section__news__grid__tweet__content">
         <div className="section__news__grid__tweet__content__profile">
@@ -34,6 +35,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
             alt="News"
             width="60px"
             className="section__news__grid__tweet__content__profile__pic"
+            loading="lazy"
           />
           <div className="section__news__grid__tweet__content__profile__content">
             <p>John Doe - @jdoe</p>

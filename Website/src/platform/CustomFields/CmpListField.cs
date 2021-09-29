@@ -7,7 +7,9 @@ namespace Sitecore.Demo.Edge.Website.CustomFields
     {
         public CmpMultiList()
         {
-            this.ReadOnly = true;
+            this.Class = "scContentControl scContentControlTreelist";
+            this.Activation = true;
+            this.ReadOnly = false;
         }
 
         protected override void OnLoad(EventArgs e)

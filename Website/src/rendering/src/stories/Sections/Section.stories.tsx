@@ -24,12 +24,13 @@ const speaker = {
         alt: '',
       },
     },
+    Featured: { value: true },
   },
 } as Speaker;
 
 const speakerProps = {
   fields: {
-    items: [speaker],
+    items: [speaker, speaker, speaker, speaker],
   },
 } as SpeakersGridProps;
 
