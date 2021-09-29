@@ -11,6 +11,9 @@ import {
   CDP_API_TARGET_ENDPOINT,
   CDP_CLIENT_KEY,
 } from 'src/services/BoxeverService';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
 // Using nprogress are completely optional.
 //  nprogress provides a loading indicator on page/route changes.

@@ -3,6 +3,7 @@ import { Text, Field, LinkField, Link, ImageField, Image } from '@sitecore-jss/s
 
 export type HeroProps = ComponentProps & {
   fields: {
+    Hero: ImageField;
     Logo: ImageField;
     Slogan: Field<string>;
     Expo: Field<string>;
@@ -15,12 +16,15 @@ export type HeroProps = ComponentProps & {
 
 const HeroSection = ({ fields }: HeroProps): JSX.Element => {
   return (
-    <section className="section__hero banner">
+    <section
+      className="section__hero banner"
+      style={{ backgroundImage: `url("${fields.Hero?.value?.src}")` }}
+    >
       <div className="section__hero__container container">
         <div className="section__hero__container__content">
           <div className="section__hero__container__content__text">
             <div className="logo">
-              <Image field={fields.Logo} alt="Logo" />
+              <Image field={fields.Logo} alt="Logo" loading="lazy" />
             </div>
             <p className="slogan">
               <Text field={fields.Slogan} />

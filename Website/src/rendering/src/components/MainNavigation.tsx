@@ -1,7 +1,22 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
 
-const MainNavigation = (): JSX.Element => {
+export type MainNavigationProps = ComponentProps & {
+  fields: {
+    data: {
+      item: {
+        headerLogo: {
+          jsonValue: ImageField;
+          alt: string;
+        };
+      };
+    };
+  };
+};
+
+const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
@@ -10,7 +25,11 @@ const MainNavigation = (): JSX.Element => {
         <div className="controls-container">
           <Link href="/">
             <a className="logo-link">
-              <img src="/assets/img/play-logo-stacked-light.svg" alt="PLAY! Summit logo" />
+              <Image
+                field={props.fields.data.item.headerLogo.jsonValue}
+                alt={props.fields.data.item.headerLogo.alt}
+                loading="lazy"
+              />
             </a>
           </Link>
           <button
