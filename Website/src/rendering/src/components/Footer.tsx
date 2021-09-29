@@ -83,10 +83,10 @@ const Footer = (props: FooterProps): JSX.Element => (
           <Link href="/tickets">Book Tickets</Link>
         </li>
         <li>
-          <Link href="/sponsors/sponsorize">Become a Sponsor</Link>
+          <Link href="/sponsors/become a sponsor">Become a Sponsor</Link>
         </li>
         <li>
-          <Link href="/sponsors/sponsorize">Become a Vendor</Link>
+          <Link href="/sponsors/become a sponsor">Become a Vendor</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">
