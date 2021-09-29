@@ -6,6 +6,9 @@ import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 import { CdpScripts } from 'src/services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
 // Using nprogress are completely optional.
 //  nprogress provides a loading indicator on page/route changes.

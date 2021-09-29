@@ -44,6 +44,34 @@ stages:
           displayName: 'npm run build'
           workingDirectory: tv
 
+- stage: Build_Kiosk
+  displayName: "Lint and Build Kiosk"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: kiosk
+
+        - script: |
+            npm run lint
+          displayName: 'npm run lint'
+          workingDirectory: kiosk
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: kiosk
+
 - stage: Build
   displayName: "Lint and Build Website"
   dependsOn: []
@@ -112,6 +140,7 @@ stages:
   - Build
   - Build_Storybook
   - Build_TV
+  - Build_Kiosk
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
