@@ -102,7 +102,7 @@ services:
       ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
       PUBLIC_HOST_CM: ${PUBLIC_HOST_CM}
       PUBLIC_HOST_ID: ${PUBLIC_HOST_ID}
-      DAM_CONTENTHUB: ${DAM_ContentHub}
+      DAM_URL: ${DAM_ContentHub}
     depends_on:
       mssql:
         condition: service_healthy

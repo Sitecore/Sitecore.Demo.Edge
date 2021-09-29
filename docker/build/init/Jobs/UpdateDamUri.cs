@@ -15,7 +15,7 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 		}
 
-		public static string damUrl = Environment.GetEnvironmentVariable("DAM_CONTENTHUB");
+		public static string damUrl = Environment.GetEnvironmentVariable("DAM_URL");
 		public static string rootpath = @"C:\app\src\items\content\EdgeWebsite";
 
 	   	public async Task Run()
