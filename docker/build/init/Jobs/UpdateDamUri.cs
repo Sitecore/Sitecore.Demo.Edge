@@ -69,7 +69,7 @@ namespace Sitecore.Demo.Init.Jobs
 					if ((bool)(sharedField?.Hint.StartsWith("__")))
 						continue;
 					else if (sharedField?.Value != null && (bool)(sharedField?.Value.Contains("stylelabs-content-id")))
-						UpdateFile(filepath, GetDamHost(sharedField.Value), damUrl, fileContents);
+						UpdateFile(filepath, GetDamHost(sharedField.Value), new System.Uri(damUrl)?.Host, fileContents);
 				}
 			}
 			
@@ -84,7 +84,7 @@ namespace Sitecore.Demo.Init.Jobs
 							if ((bool)(field?.Hint.StartsWith("__")))
 								continue;
 							else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
-								UpdateFile(filepath, GetDamHost(field.Value), damUrl, fileContents);
+								UpdateFile(filepath, GetDamHost(field.Value), new System.Uri(damUrl)?.Host, fileContents);
 						}
 					}
 					if (language?.Versions != null)
@@ -98,7 +98,7 @@ namespace Sitecore.Demo.Init.Jobs
 									if ((bool)(field?.Hint.StartsWith("__")))
 										continue;
 									else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
-										UpdateFile(filepath, GetDamHost(field.Value), damUrl, fileContents);
+										UpdateFile(filepath, GetDamHost(field.Value), new System.Uri(damUrl)?.Host, fileContents);
 								}
 							}
 						}
