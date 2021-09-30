@@ -18,7 +18,7 @@ namespace Sitecore.Demo.Init.Jobs
 		public static string damUrl = Environment.GetEnvironmentVariable("DAM_URL");
 		public static string rootpath = @"C:\app\src\items\content\EdgeWebsite";
 
-	   	public async Task Run()
+		public async Task Run()
 		{
 			if (string.IsNullOrWhiteSpace(damUrl))
 			{
@@ -115,7 +115,7 @@ namespace Sitecore.Demo.Init.Jobs
 			return yamlObject;
 		}
 
-        private string GetUpdatedDamHost(string existingFieldValue)
+		private string GetUpdatedDamHost(string existingFieldValue)
 		{
 			if (string.IsNullOrWhiteSpace(existingFieldValue) || !existingFieldValue.Contains("stylelabs-content-id"))
 				return string.Empty;	
