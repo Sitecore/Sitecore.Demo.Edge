@@ -5,34 +5,38 @@ import { ComponentProps } from 'lib/component-props';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 type Speaker = {
-  fields: {
-    Name: Field<string>;
-    Role: Field<string>;
-    Picture: ImageField;
-    Featured: Field<boolean>;
-  };
+  name: string;
+  picture: { jsonValue: { value: { src: string } } };
+  featured: Field<boolean>;
+  role: Field<string>;
 };
 
 type SpeakersGridProps = ComponentProps & {
   fields: {
-    items: Speaker[];
+    data: {
+      item: {
+        children: {
+          results: Speaker[];
+        };
+      };
+    };
   };
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
   <div className="section__speakers__grid container">
-    {props.fields.items &&
-      props.fields.items.map((speaker, index) => (
-        <Link key={index} href={'/speakers/' + speaker.fields.Name.value} passHref>
+    {props.fields.data.item.children.results &&
+      props.fields.data.item.children.results.map((speaker, index) => (
+        <Link key={index} href={'/speakers/' + speaker.name} passHref>
           <a className="section__speakers__grid__speaker">
             <Image
               className="speaker__image"
-              field={speaker.fields.Picture}
-              alt={speaker.fields.Name.value}
+              field={speaker.picture.jsonValue}
+              alt={speaker.name}
             />
-            <Text className="speaker__name" tag="p" field={speaker.fields.Name}></Text>
-            <Text className="speaker__role" tag="p" field={speaker.fields.Role}></Text>
-            {speaker.fields.Featured?.value && (
+            <p className="speaker__name">{speaker.name}</p>
+            <Text className="speaker__role" tag="p" field={speaker.role}></Text>
+            {speaker.featured?.value && (
               <div className="speaker__featured" title="Featured">
                 <FontAwesomeIcon className="icon" icon={faStar} />
               </div>

@@ -26,7 +26,6 @@ type FeaturedSpeakersProps = ComponentProps & {
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
   <div className="item-grid">
     <div className="grid-content">
-      {console.log(props)}
       {props.fields.data.item.children.results &&
         props.fields.data.item.children.results
           .filter((item) => item.featured.value)

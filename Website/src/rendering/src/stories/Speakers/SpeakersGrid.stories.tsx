@@ -11,65 +11,68 @@ export default {
 const Template: ComponentStory<typeof SpeakersGrid> = (args) => <SpeakersGrid {...args} />;
 
 const speaker1 = {
-  fields: {
-    Name: {
-      value: 'Mary Asada',
-    },
-    Role: {
-      value: 'Athlete',
-    },
-    Picture: {
+  name: 'First Speaker Name',
+  picture: {
+    jsonValue: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker',
   },
 } as Speaker;
 
 const speaker2 = {
-  fields: {
-    Name: {
-      value: 'Sophia Taylor',
-    },
-    Role: {
-      value: 'Speaker',
-    },
-    Picture: {
+  name: 'Sophia Taylor',
+  picture: {
+    jsonValue: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/4b034f1b321b46f5be2235353e040aab?v=b291dcc7',
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
       },
     },
-    Featured: {
-      value: false,
-    },
+  },
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker',
   },
 } as Speaker;
 
 const speaker3 = {
-  fields: {
-    Name: {
-      value: 'Jalen Williams',
-    },
-    Role: {
-      value: 'Social Influencer',
-    },
-    Picture: {
+  name: 'Jalen Taylor',
+  picture: {
+    jsonValue: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/2677490fbdcf4d6dad717664b05b784e?v=67cf9134',
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker',
   },
 } as Speaker;
 
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    items: [speaker1, speaker2, speaker3],
+    data: {
+      item: {
+        children: {
+          results: [speaker1, speaker2, speaker3],
+        },
+      },
+    },
   },
 };
