@@ -2,12 +2,25 @@ import Link from 'next/link';
 
 const PaymentAndBillingForm = (): JSX.Element => (
   <div className="form payment-and-billing-form">
-    <h2>Select Payment Method</h2>
-    <img
-      className="payment-methods"
-      src="/assets/img/payment/pay-method.png"
-      alt="payment methods"
-    />
+    <h2>Payment Information</h2>
+    <div className="payment-methods">
+      <input type="radio" value="Visa" name="payment" id="visa" />{' '}
+      <label htmlFor="visa">
+        <img src="/assets/img/payment/visa.png" alt="payment methods" />
+      </label>
+      <input type="radio" value="ppal" name="payment" id="ppal" />{' '}
+      <label htmlFor="ppal">
+        <img src="/assets/img/payment/paypal.png" alt="payment methods" />
+      </label>
+      <input type="radio" value="spay" name="payment" id="apay" />{' '}
+      <label htmlFor="apay">
+        <img src="/assets/img/payment/apay.png" alt="payment methods" />
+      </label>
+      <input type="radio" value="gpay" name="payment" id="gpay" />{' '}
+      <label htmlFor="gpay">
+        <img src="/assets/img/payment/gpay.png" alt="payment methods" />
+      </label>
+    </div>
     <div className="floating-label-wrap">
       <input type="text" placeholder="Card Number *" id="cardNumber" />
       <label htmlFor="cardNumber">Card Number *</label>
@@ -25,18 +38,6 @@ const PaymentAndBillingForm = (): JSX.Element => (
         <input type="text" placeholder="CCV *" id="ccv" />
         <label htmlFor="ccv">CCV *</label>
       </div>
-    </div>
-    <div className="floating-label-wrap">
-      <input type="text" placeholder="Email" id="email" />
-      <label htmlFor="email">Email</label>
-    </div>
-    <div className="floating-label-wrap">
-      <input type="password" placeholder="Password" id="password" />
-      <label htmlFor="password">Password</label>
-    </div>
-    <div className="floating-label-wrap">
-      <input type="password" placeholder="Confirm Password" id="comfirmPassword" />
-      <label htmlFor="comfirmPassword">Confirm Password</label>
     </div>
 
     <h2>Billing Address</h2>

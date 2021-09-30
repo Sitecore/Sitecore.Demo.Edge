@@ -1,12 +1,8 @@
-.attendee-form {
-  @apply grid grid-cols-1 gap-10;
-  @apply lg:grid-cols-5;
+.form.attendee-registration-form {
+  @apply space-y-5 p-10;
 
-  .attendee-form-content {
-    @apply col-span-2;
-  }
-
-  .attendee-form-form {
-    @apply col-span-3;
+  input[type="text"],
+  input[type="password"] {
+    @apply sm:w-3/5;
   }
 }
