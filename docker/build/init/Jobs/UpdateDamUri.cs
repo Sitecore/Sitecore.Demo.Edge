@@ -5,7 +5,6 @@ using Sitecore.Demo.Init.Model;
 using Microsoft.Extensions.Logging;
 using System.Linq;
 using HtmlAgilityPack;
-using System.Collections.Generic;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -71,14 +70,6 @@ namespace Sitecore.Demo.Init.Jobs
 						continue;
 					else if (sharedField?.Value != null && (bool)(sharedField?.Value.Contains("stylelabs-content-id")))
 						UpdateFile(filepath, GetDamHost(sharedField.Value), new System.Uri(damUrl)?.Host, fileContents);
-					else if (sharedField?.Value != null && (bool)(sharedField?.Value.Contains("/api/public/content/")))
-					{
-						var imageSrcHostList = GetDamHostsFromRte(sharedField.Value);
-						foreach (var imageSrcHost in imageSrcHostList)
-						{
-							UpdateFile(filepath, imageSrcHost, new System.Uri(damUrl)?.Host, fileContents);
-						}
-					}
 				}
 			}
 			
@@ -94,14 +85,6 @@ namespace Sitecore.Demo.Init.Jobs
 								continue;
 							else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
 								UpdateFile(filepath, GetDamHost(field.Value), new System.Uri(damUrl)?.Host, fileContents);
-							else if (field?.Value != null && (bool)(field?.Value.Contains("/api/public/content/")))
-							{
-								var imageSrcHostList = GetDamHostsFromRte(field.Value);
-								foreach (var imageSrcHost in imageSrcHostList)
-								{
-									UpdateFile(filepath, imageSrcHost, new System.Uri(damUrl)?.Host, fileContents);
-								}
-							}
 						}
 					}
 					if (language?.Versions != null)
@@ -116,14 +99,6 @@ namespace Sitecore.Demo.Init.Jobs
 										continue;
 									else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
 										UpdateFile(filepath, GetDamHost(field.Value), new System.Uri(damUrl)?.Host, fileContents);
-									else if (field?.Value != null && (bool)(field?.Value.Contains("/api/public/content/")))
-									{
-										var imageSrcHostList = GetDamHostsFromRte(field.Value);
-										foreach (var imageSrcHost in imageSrcHostList)
-										{
-											UpdateFile(filepath, imageSrcHost, new System.Uri(damUrl)?.Host, fileContents);
-										}
-									}
 								}
 							}
 						}
@@ -163,36 +138,6 @@ namespace Sitecore.Demo.Init.Jobs
 				return string.Empty;
 
 			return imageSrcHost;
-		}
-
-		private List<string> GetDamHostsFromRte(string existingFieldValue)
-		{
-			var imgSrcBaseUrlList = new List<string>();
-
-			if (string.IsNullOrWhiteSpace(existingFieldValue) || !existingFieldValue.Contains("/api/public/content/"))
-				return imgSrcBaseUrlList;
-
-			var htmlDoc = new HtmlDocument();
-			htmlDoc.LoadHtml(existingFieldValue);
-			var imageSrcArray = htmlDoc?.DocumentNode?
-				.Descendants("img")
-				.Select(e => e.GetAttributeValue("src", null))
-				.Where(s => !string.IsNullOrEmpty(s) && s.Contains("/api/public/content/") && s.Contains("?v="));
-			
-			foreach (var imgSrcValue in imageSrcArray)
-			{
-				var imageSrcUri = new Uri(imgSrcValue);
-				if (imageSrcUri == null)
-					continue;
-
-				var imageSrcHost = imageSrcUri.Host;
-				if (imageSrcHost == null)
-					continue;
-
-				imgSrcBaseUrlList.Add(imageSrcHost);
-			}
-
-			return imgSrcBaseUrlList;
 		}
 	}
 }
