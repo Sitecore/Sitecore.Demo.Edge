@@ -1,0 +1,10 @@
+/* TODO: Try to remove most of these style to use Tailwind defaults and utilities */
+
+@layer base {
+  /**
+  * Basic typography style for copy text
+  */
+  body {
+    @apply font-sans font-normal;
+  }
+}

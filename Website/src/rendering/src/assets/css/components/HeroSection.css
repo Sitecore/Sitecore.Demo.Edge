@@ -1,6 +1,5 @@
 .section__hero {
   @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative;
-  @apply md:bg-home-hero;
 
   &__container {
     @apply flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden;

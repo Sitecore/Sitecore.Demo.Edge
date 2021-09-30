@@ -77,6 +77,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             DeployTv(ns, contentHubApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
+            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, token, scope);
 
             await Complete();
         }
@@ -147,6 +148,35 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
+        }
+
+        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string token, string scope)
+        {
+            var sourceDirectory = "C:\\app\\kiosk";
+            var targetDirectory = $"C:\\app\\{ns}-kiosk";
+
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
+
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            // Remove project if already exists
+            cmd.Run($"vercel remove {ns}-kiosk --token {token} --scope {scope} --yes");
+
+            // Create new project
+            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
+            var productionUrl = $"https://{ns}-kiosk-{scope}.vercel.app";
+
+            // Configure env. variables
+            cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
+
+            // Deploy project files
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+
+            // Assign custom domain name
+            cmd.Run($"vercel domains add {ns}-kiosks.sitecoredemo.com --token {token} --scope {scope}");
         }
     }
 }
