@@ -33,6 +33,6 @@ const OrderSummary = (): JSX.Element => {
       </div>
     </div>
   );
-}
+};
 
 export default OrderSummary;
