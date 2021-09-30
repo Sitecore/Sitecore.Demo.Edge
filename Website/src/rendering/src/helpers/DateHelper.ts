@@ -18,7 +18,7 @@ export const getSessionTime = (timeslots: Timeslot[]): string => {
   if (timeslots) {
     const times: number[] = [];
     timeslots.forEach((timeslot) => {
-      let startTime = parseInt(timeslot.name);
+      let startTime = parseInt(timeslot.name ?? '');
       if (startTime < 7) {
         startTime = startTime + 12;
       }
