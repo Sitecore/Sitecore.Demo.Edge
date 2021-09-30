@@ -120,7 +120,7 @@ namespace Sitecore.Demo.Init.Jobs
 		private string GetDamHost(string existingFieldValue)
 		{
 			if (string.IsNullOrWhiteSpace(existingFieldValue) || !existingFieldValue.Contains("stylelabs-content-id"))
-				return string.Empty;	
+				return string.Empty;
 
 			var damUri = new System.Uri(damUrl);
 			var damHost = damUri?.Host;
@@ -136,12 +136,12 @@ namespace Sitecore.Demo.Init.Jobs
 			var imageSrcUri = new System.Uri(imageSrc.Value);
 			
 			if (imageSrcUri == null)
-				return string.Empty;	
+				return string.Empty;
 
 			var imageSrcHost = imageSrcUri.Host;
 
 			if (imageSrcHost == null)
-				return string.Empty;	
+				return string.Empty;
 
 			return imageSrcHost;
 		}
