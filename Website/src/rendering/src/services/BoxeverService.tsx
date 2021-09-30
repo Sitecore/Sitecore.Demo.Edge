@@ -1,5 +1,4 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
-import { required } from '../lib/util';
 import Script from 'next/script';
 
 // ***** TYPES *****
