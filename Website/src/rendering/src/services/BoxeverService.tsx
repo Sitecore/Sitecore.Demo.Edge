@@ -1,6 +1,6 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
-import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { required } from '../lib/util';
+import Script from 'next/script';
 
 // ***** TYPES *****
 
@@ -115,9 +115,25 @@ type GuestProfileResponse = GuestProfile | undefined;
 // ***** API *****
 
 const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
-export const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
-export const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
-export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
+const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
+const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
+const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
+
+export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
+  <>
+    <Script id="cdpSettings">{`
+      // Define the Boxever queue
+      var _boxeverq = _boxeverq || [];
+
+      // Define the Boxever settings
+      _boxever_settings = {
+        client_key: '${CDP_CLIENT_KEY}',
+        target: '${CDP_API_TARGET_ENDPOINT}',
+        cookie_domain: '.edge.localhost',
+      };`}</Script>
+    <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
+  </>
+) : undefined;
 
 function isBoxeverConfiguredInBrowser(): boolean {
   return !!(
@@ -241,11 +257,13 @@ function callFlows(flowConfig: Record<string, unknown>) {
 }
 
 // Boxever view page tracking
-export function logViewEvent(route: RouteData | undefined = required()): Promise<unknown> {
-  const eventConfig = {
-    type: 'VIEW',
-    sitecoreTemplateName: route?.templateName,
-  };
+export function logViewEvent(additionalData?: Record<string, unknown>): Promise<unknown> {
+  const eventConfig = Object.assign(
+    {
+      type: 'VIEW',
+    },
+    additionalData
+  );
 
   return sendEventCreate(eventConfig);
 }
