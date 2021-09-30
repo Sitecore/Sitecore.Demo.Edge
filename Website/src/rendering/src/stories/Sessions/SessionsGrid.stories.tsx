@@ -11,143 +11,149 @@ export default {
 const Template: ComponentStory<typeof SessionsGrid> = (args) => <SessionsGrid {...args} />;
 
 const speaker = {
-  fields: {
-    Name: {
-      value: 'Joe Rogan',
-    },
-    Role: {
-      value: 'Speaker',
-    },
+  name: 'Joe Rogan',
+  role: {
+    value: 'Speaker',
   },
 } as Speaker;
 
 const rooms = [
   {
-    fields: {
-      Name: {
-        value: 'Room 1',
-      },
-    },
+    name: 'Room 1',
   },
   {
-    fields: {
-      Name: {
-        value: 'Room 2',
-      },
-    },
+    name: 'Room 2',
   },
 ];
 
 const timeslots = [
   {
-    fields: {
-      Name: {
-        value: '8 am',
-      },
-    },
+    name: '8 am',
   },
   {
-    fields: {
-      Name: {
-        value: '9 am',
-      },
-    },
+    name: '9 am',
   },
 ];
 
 const days = [
   {
-    fields: {
-      Name: {
-        value: 'Day 1',
-      },
-    },
+    name: 'Day 1',
   },
 ];
 
 const session1 = {
-  fields: {
-    Name: {
-      value: 'Fitbit',
-    },
-    Image: {
+  name: 'Fitbit',
+  premium: {
+    value: false,
+  },
+  image: {
+    jsonValue: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
-    Speakers: [speaker],
-    Day: days,
-    Rooms: rooms,
-    Timeslots: timeslots,
-    Premium: {
-      value: true,
-    },
+  },
+  speakers: {
+    targetItems: [speaker],
+  },
+  rooms: {
+    targetItems: rooms,
+  },
+  day: {
+    targetItems: days,
+  },
+  timeslots: {
+    targetItems: timeslots,
   },
 } as Session;
 
 const session2 = {
-  fields: {
-    Name: {
-      value: 'Fitbit',
-    },
-    Image: {
+  name: 'Eat smart',
+  premium: {
+    value: false,
+  },
+  image: {
+    jsonValue: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
-    Speakers: [speaker],
-    Day: days,
-    Rooms: rooms,
-    Timeslots: timeslots,
-    Premium: {
-      value: false,
-    },
+  },
+  speakers: {
+    targetItems: [speaker],
+  },
+  rooms: {
+    targetItems: rooms,
+  },
+  day: {
+    targetItems: days,
+  },
+  timeslots: {
+    targetItems: timeslots,
   },
 } as Session;
 
 const session3 = {
-  fields: {
-    Name: {
-      value: 'Fitbit',
-    },
-    Image: {
+  name: 'Premium Session',
+  premium: {
+    value: true,
+  },
+  image: {
+    jsonValue: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
-    Speakers: [speaker],
-    Day: days,
-    Rooms: rooms,
-    Timeslots: timeslots,
-    Premium: {
-      value: true,
-    },
+  },
+  speakers: {
+    targetItems: [speaker],
+  },
+  rooms: {
+    targetItems: rooms,
+  },
+  day: {
+    targetItems: days,
+  },
+  timeslots: {
+    targetItems: timeslots,
   },
 } as Session;
 
 const session4 = {
-  fields: {
-    Name: {
-      value: 'Fitbit',
-    },
-    Image: {
+  name: 'Workout',
+  premium: {
+    value: true,
+  },
+  image: {
+    jsonValue: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
-    Speakers: [speaker],
-    Day: days,
-    Rooms: rooms,
-    Timeslots: timeslots,
-    Premium: {
-      value: false,
-    },
+  },
+  speakers: {
+    targetItems: [speaker],
+  },
+  rooms: {
+    targetItems: rooms,
+  },
+  day: {
+    targetItems: days,
+  },
+  timeslots: {
+    targetItems: timeslots,
   },
 } as Session;
 
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    items: [session1, session2, session3, session4],
+    data: {
+      item: {
+        children: {
+          results: [session1, session2, session3, session4],
+        },
+      },
+    },
   },
 };

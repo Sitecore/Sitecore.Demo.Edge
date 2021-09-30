@@ -23,6 +23,9 @@
 
       .image-hover-zoom {
         @apply overflow-hidden bg-cover bg-center;
+
+        height: 250px;
+        max-height: 250px;
       }
 
       &:hover {
