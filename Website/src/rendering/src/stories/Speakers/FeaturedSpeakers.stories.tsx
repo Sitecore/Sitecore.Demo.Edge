@@ -11,114 +11,90 @@ export default {
 const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
 
 const speaker = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  name: 'First Speaker Name',
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
   },
 } as Speaker;
 
 const speaker1 = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  name: 'Second Speaker',
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
   },
 } as Speaker;
 
 const speaker2 = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  name: 'Third Speaker',
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
   },
 } as Speaker;
 
 const speaker3 = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  name: 'Another Speaker',
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
   },
 } as Speaker;
 
 const speaker4 = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  name: 'Last Speaker',
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
         alt: '',
       },
     },
-    Featured: {
-      value: true,
-    },
+  },
+  featured: {
+    value: true,
   },
 } as Speaker;
 
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    items: [speaker, speaker1, speaker2, speaker3, speaker4],
+    data: {
+      item: {
+        children: {
+          results: [speaker, speaker1, speaker2, speaker3, speaker4],
+        },
+      },
+    },
   },
   params: {
     NumberOfSpeakers: '4',
