@@ -157,7 +157,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
     {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
-      channel: 'WEBSITE',
+      channel: 'WEB',
       language: 'EN',
       currency: 'CAD',
       pos: 'PLAY! Summit',
@@ -270,20 +270,26 @@ export function logViewEvent(additionalData?: Record<string, unknown>): Promise<
 
 // Boxever identification
 export function identifyVisitor(
-  firstname: string | undefined = required(),
-  lastname: string | undefined = required(),
-  email: string | undefined = required()
+  firstname: string,
+  lastname: string,
+  email: string
 ): Promise<unknown> {
   return sendEventCreate({
     type: 'IDENTITY',
     firstname: firstname,
     lastname: lastname,
     email: email,
+    identifiers: [
+      {
+        provider: 'email',
+        id: email,
+      },
+    ],
   });
 }
 
 // Boxever identification from an email address
-export function identifyByEmail(email: string | undefined = required()): Promise<unknown> {
+export function identifyByEmail(email: string): Promise<unknown> {
   return sendEventCreate({
     type: 'IDENTITY',
     email: email,
@@ -425,9 +431,7 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 // ********************************
 // Get non-expanded guest profile
 // ********************************
-function getGuestProfilePromise(
-  guestRef: GuestRef | undefined = required()
-): Promise<GuestProfileResponse> {
+function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileResponse> {
   return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
@@ -448,9 +452,7 @@ export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfi
 // ********************************
 // isAnonymousGuest
 // ********************************
-export function isAnonymousGuestInGuestResponse(
-  guestResponse: GuestProfileResponse | undefined = required()
-): boolean {
+export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
   return !guestResponse?.data?.email;
 }
 
@@ -475,7 +477,7 @@ export function isAnonymousGuest(guestRef?: GuestRef): Promise<boolean> {
 // getGuestFullName
 // ********************************
 export function getGuestFullNameInGuestResponse(
-  guestResponse: GuestProfileResponse | undefined = required()
+  guestResponse: GuestProfileResponse
 ): string | undefined {
   const data = guestResponse?.data;
 

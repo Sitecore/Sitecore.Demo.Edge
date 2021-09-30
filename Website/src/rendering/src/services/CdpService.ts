@@ -1,4 +1,8 @@
-import { logViewEvent as boxeverLogViewEvent, BoxeverScripts } from './BoxeverService';
+import {
+  BoxeverScripts,
+  logViewEvent as boxeverLogViewEvent,
+  identifyVisitor as boxeverIdentifyVisitor,
+} from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
@@ -8,7 +12,9 @@ type viewEventAdditionalData = {
   premiumContent?: boolean;
 };
 
-// Boxever view page tracking
+/**
+ * Logs a page view event.
+ */
 export function logViewEvent(route: RouteData): Promise<unknown> {
   const additionalData: viewEventAdditionalData = {};
 
@@ -20,4 +26,16 @@ export function logViewEvent(route: RouteData): Promise<unknown> {
   }
 
   return boxeverLogViewEvent(additionalData);
+}
+
+/**
+ * Saves the visitor name and email into its CDP profile.
+ * Merges the visitor with any existing CDP profile with the same information.
+ */
+export function identifyVisitor(
+  firstname: string,
+  lastname: string,
+  email: string
+): Promise<unknown> {
+  return boxeverIdentifyVisitor(firstname, lastname, email);
 }
