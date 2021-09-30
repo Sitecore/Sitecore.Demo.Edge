@@ -34,7 +34,6 @@ type Session = {
   name: Field<string>;
   fields: {
     Name: Field<string>;
-    Description: Field<string>;
     Image: ImageField;
     Speakers: Speaker[];
     Rooms: Room[];
@@ -58,7 +57,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
           <Link key={index} href={'/sessions/' + session.name} passHref>
             <a className="grid-item">
               <div className="image-hover-zoom">
-                <Image field={session.fields.Image} alt={session.fields.Name.value} />
+                <Image field={session.fields.Image} alt={session.fields.Name.value} width={500} />
               </div>
               {session.fields.Premium?.value === true && (
                 <div className="session-featured" title="Premium">
