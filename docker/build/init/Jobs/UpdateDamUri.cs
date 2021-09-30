@@ -37,41 +37,31 @@ namespace Sitecore.Demo.Init.Jobs
 			var files = Directory.EnumerateFiles(rootpath, "*.yml", SearchOption.AllDirectories);	
 			foreach (var filepath in files)
 			{
-				UpdateYaml(filepath);
+				PerformUpdate(filepath);
 			}
 
 			Log.LogInformation($"{this.GetType().Name} complete");
 			await Complete();
 		}
 
-		private void UpdateYaml(string filepath)
+		private void PerformUpdate(string filepath)
 		{
 			var deserializer = new YamlDotNet.Serialization.Deserializer();
-			YamlItemModel yamlObjectUpdated = new YamlItemModel();
+			YamlItemModel yamlObject = new YamlItemModel();
+			string fileContents = String.Empty;
 
 			using (var reader = new StreamReader(filepath)) {
-				YamlItemModel yamlObject = deserializer.Deserialize<YamlItemModel>(reader);
-				yamlObjectUpdated = UpdateValues(yamlObject);
+				yamlObject = deserializer.Deserialize<YamlItemModel>(reader);
+				reader.DiscardBufferedData();
+				reader.BaseStream.Seek(0, SeekOrigin.Begin);
+				fileContents = reader.ReadToEnd();
 			}
-			
-			if (yamlObjectUpdated != null)
-				WriteYaml(yamlObjectUpdated, filepath);
+
+			ReadYamlFile(yamlObject, filepath, fileContents);
 		}
 
-		private void WriteYaml(YamlItemModel yamlObject, string filepath)
+		private void ReadYamlFile(YamlItemModel yamlObject, string filepath, string fileContents)
 		{
-			using (var writer = new StreamWriter(filepath))
-			{
-				writer.WriteLine("---");
-				var serializer = new YamlDotNet.Serialization.Serializer();
-				serializer.Serialize(writer, yamlObject);
-			}
-		}
-
-		private YamlItemModel UpdateValues(YamlItemModel yamlObject)
-		{
-			var updateFlag = false;
-
 			if (yamlObject != null & yamlObject?.SharedFields != null)
 			{
 				foreach (var sharedField in yamlObject?.SharedFields)
@@ -79,10 +69,7 @@ namespace Sitecore.Demo.Init.Jobs
 					if ((bool)(sharedField?.Hint.StartsWith("__")))
 						continue;
 					else if (sharedField?.Value != null && (bool)(sharedField?.Value.Contains("stylelabs-content-id")))
-					{
-						updateFlag = true;
-						sharedField.Value = GetUpdatedDamHost(sharedField.Value);
-					}
+						UpdateFile(filepath, GetDamHost(sharedField.Value), damUrl, fileContents);
 				}
 			}
 			
@@ -97,10 +84,7 @@ namespace Sitecore.Demo.Init.Jobs
 							if ((bool)(field?.Hint.StartsWith("__")))
 								continue;
 							else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
-							{
-								updateFlag = true;
-								field.Value = GetUpdatedDamHost(field.Value);
-							}
+								UpdateFile(filepath, GetDamHost(field.Value), damUrl, fileContents);
 						}
 					}
 					if (language?.Versions != null)
@@ -114,21 +98,26 @@ namespace Sitecore.Demo.Init.Jobs
 									if ((bool)(field?.Hint.StartsWith("__")))
 										continue;
 									else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
-									{
-										updateFlag = true;
-										field.Value = GetUpdatedDamHost(field.Value);
-									}
+										UpdateFile(filepath, GetDamHost(field.Value), damUrl, fileContents);
 								}
 							}
 						}
 					}
 				}
 			}
-			
-			return updateFlag ? yamlObject : null;
 		}
 
-		private string GetUpdatedDamHost(string existingFieldValue)
+		private void UpdateFile(string filepath, string existingValue, string newValue, string fileContents)
+		{
+			using (var writer = new StreamWriter(filepath))
+			{
+				writer.Write(
+					fileContents.Replace(existingValue, newValue)
+					);
+			}
+		}
+
+		private string GetDamHost(string existingFieldValue)
 		{
 			if (string.IsNullOrWhiteSpace(existingFieldValue) || !existingFieldValue.Contains("stylelabs-content-id"))
 				return string.Empty;	
@@ -154,7 +143,7 @@ namespace Sitecore.Demo.Init.Jobs
 			if (imageSrcHost == null)
 				return string.Empty;	
 
-			return existingFieldValue?.Replace(imageSrcHost, damHost);
+			return imageSrcHost;
 		}
 	}
 }
