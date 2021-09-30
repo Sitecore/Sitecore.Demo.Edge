@@ -46,7 +46,7 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private void UpdateYaml(string filepath)
 		{
-			var deserializer = new YamlDotNet.Serialization.Deserializer();		
+			var deserializer = new YamlDotNet.Serialization.Deserializer();
 			YamlItemModel yamlObjectUpdated = new YamlItemModel();
 
 			using (var reader = new StreamReader(filepath)) {
@@ -61,6 +61,7 @@ namespace Sitecore.Demo.Init.Jobs
 		{
 			using (var writer = new StreamWriter(filepath))
 			{
+				writer.WriteLine("---");
 				var serializer = new YamlDotNet.Serialization.Serializer();
 				serializer.Serialize(writer, yamlObject);
 			}
