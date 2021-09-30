@@ -55,7 +55,7 @@ type SessionsGridProps = ComponentProps & {
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
   <div className="item-grid sessions-grid">
     <div className="grid-content">
-      {props.fields.data.item.children.results &&
+      {props.fields.data?.item?.children?.results &&
         props.fields.data.item.children.results.map((session, index) => (
           <Link key={index} href={'/sessions/' + session.name} passHref>
             <a className="grid-item">
@@ -73,7 +73,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
               )}
               <div className="item-details item-details-left">
                 <div className="item-title">{session.name}</div>
-                {session.day &&
+                {session.day?.targetItems &&
                   session.day.targetItems.length > 0 &&
                   session.day.targetItems.map((day, index) => (
                     <p key={index}>
@@ -83,7 +83,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                       <span>{day.name}</span>
                     </p>
                   ))}
-                {session.timeslots.targetItems && session.timeslots.targetItems.length > 0 && (
+                {session.timeslots?.targetItems && session.timeslots.targetItems.length > 0 && (
                   <p>
                     <span>
                       <FontAwesomeIcon className="icon" icon={faClock} />
@@ -91,7 +91,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
                     {getSessionTime(session.timeslots.targetItems)}
                   </p>
                 )}
-                {session.speakers &&
+                {session.speakers?.targetItems &&
                   session.speakers.targetItems.map((speaker, index) => (
                     <p key={index}>
                       <span>

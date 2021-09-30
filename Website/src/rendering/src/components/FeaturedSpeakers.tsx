@@ -4,7 +4,13 @@ import { ComponentProps } from 'lib/component-props';
 
 type Speaker = {
   name: string;
-  picture: { jsonValue: { value: { src: string } } };
+  picture: {
+    jsonValue: {
+      value: {
+        src: string;
+      };
+    };
+  };
   featured: Field<boolean>;
 };
 
@@ -26,7 +32,7 @@ type FeaturedSpeakersProps = ComponentProps & {
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
   <div className="item-grid">
     <div className="grid-content">
-      {props.fields.data.item.children.results &&
+      {props.fields.data?.item?.children?.results &&
         props.fields.data.item.children.results
           .filter((item) => item.featured.value)
           .sort()

@@ -32,9 +32,7 @@ type Room = {
 };
 
 type Timeslot = {
-  fields: {
-    Name: Field<string>;
-  };
+  name: string;
 };
 
 type Day = {

@@ -8,7 +8,7 @@ using Sitecore.Services.GraphQL.Content.TemplateGeneration.FieldMapping;
 using Sitecore.Services.GraphQL.EdgeSchema.GraphTypes.FieldTypes;
 using Sitecore.Services.GraphQL.EdgeSchema.TemplateGeneration.FieldMapping;
 
-namespace Sitecore.Demo.Edge.Website.CustomFields
+namespace Sitecore.Demo.Edge.Website.CustomFieldMapping
 {
     
     public class DemoFieldTypeFactoryStore : IFieldTypeFactoryStore
@@ -40,6 +40,7 @@ namespace Sitecore.Demo.Edge.Website.CustomFields
             _fieldTypes.Add("reference", new GenericFieldTypeFactory<LookupFieldGraphType>());
             _fieldTypes.Add("tree", new GenericFieldTypeFactory<LookupFieldGraphType>());
             _fieldTypes.Add("default", new GenericFieldTypeFactory<ItemFieldGraphType>());
+            //DEMO TEAM CUSTOMIZATION: Add CmpMultiListField here so it's serializes as a MultiListField for graphQL
             _fieldTypes.Add("CmpMultiList", new GenericFieldTypeFactory<MultilistFieldGraphType>());
         }
 
