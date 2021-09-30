@@ -10,6 +10,21 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/16x16/document_tag.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    {
+      item(path: "/sitecore/content/EdgeWebsite/Data/Config" language: "en") {
+        id
+        path
+        ... on SiteConfiguration {
+          headerLogo {
+            jsonValue
+            alt
+          }
+        }
+      }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -34,11 +49,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e4fb5378-4477-496e-9689-dedfeb399057"
+      Value: "768daed1-bc9e-4ee7-868f-0bd0bca5ea82"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210909T204346Z
+      Value: 20210913T083038Z

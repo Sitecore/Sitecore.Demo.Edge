@@ -1,26 +1,23 @@
 ﻿---
-ID: "35d340e9-48f7-4515-b930-74cd3abc22c6"
+ID: "4c23e8e4-ba94-4840-8888-d769f0f57835"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Ed Jones
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: UrmgPS8B4UCqYHJe3zg2iw
+  Value: "6xGGrJo1yEOmyd--AfS6-A"
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
-    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
-      Hint: TwitterProfileLink
-      Value: "https://twitter.com/edjones"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210726T171709Z
-    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
-      Hint: InstagramProfileLink
-      Value: "https://instagram.com/edjones"
+      Value: 20210924T175340Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Barcelona, Spain
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,42 +28,30 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a1c379a9-2465-4662-82e5-0868a0524790"
+      Value: "187cf8a8-e419-40d5-a527-dae740b4d52f"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
-      Value: Microsoft
-    - ID: "9918e001-7869-44b7-add9-c863bac4b1ed"
-      Hint: Country
-      Value: Canada
+      Value: Alba
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "7 mindset strategies to raise your game 23 [Item not found]|{F7584D58-C1C2-4D57-B9E6-B2A1A5E1F14F}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value: <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.&nbsp;</p><p>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&nbsp;</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>sed diam nonumy eirmod tempor</li><li>invidunt ut labore et dolore</li><li>magna aliquyam erat</li></ul><p>ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgddlsdjfhg lsdfjhlgsdkjf lkjsdhfgslieuriuealkjh lkfg sdlfjghsldjfhglhsarekjgalkerj jkh.</p>
+      Value:        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
-      Hint: Position
-      Value: Sales
+      Hint: JobTitle
+      Value: Director of Sales
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T161755Z
-    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
-      Hint: FacebookProfileLink
-      Value: "https://facebook.com/edjones"
-    - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
-      Hint: Role
-      Value: Speaker
+      Value: 20210924T175953Z
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
-      Value: Ed Jones
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
       Value: Ed Jones
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35409" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35409/thumbnail" src="https://mint.stylelabs.io/api/public/content/6a7bc7f0109040eb89dba97136683d2d?v=517c8757" mediaid="" stylelabs-content-type="Image" alt="ed-jones.jpeg" height="200" width="200" />
-    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
-      Hint: LinkedinProfileLink
-      Value: "https://linkedin.com/edjones"
+        <image stylelabs-content-id="32033" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/32033/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/3e7d827a8ae4436d81fbe70d2fb909ff?v=7aa3a947" mediaid="" stylelabs-content-type="Image" alt="ed-jones.jpeg" height="200" width="200" />

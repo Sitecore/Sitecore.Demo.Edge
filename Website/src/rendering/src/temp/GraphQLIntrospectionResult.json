@@ -11850,6 +11850,18 @@
             "deprecationReason": null
           },
           {
+            "name": "footerLogo",
+            "description": "Footer Logo (ID: {AF909783-3A24-4708-B431-192E9B0C98B6}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "hasChildren",
             "description": null,
             "args": [
@@ -11886,6 +11898,18 @@
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "headerLogo",
+            "description": "Header Logo (ID: {32C00EA7-B305-40E4-B9BE-E03A92B05AE3}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -12036,6 +12060,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "startdate",
+            "description": "Start Date (ID: {3971A645-B079-4BC3-9971-BF655B7713FA}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "DateField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -19550,6 +19586,18 @@
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hero",
+            "description": "Hero (ID: {3C791AB5-7A98-4536-8ABB-52B28328A054}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

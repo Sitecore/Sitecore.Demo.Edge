@@ -14,7 +14,6 @@ using Sitecore.Globalization;
 using Sitecore.SecurityModel;
 using Sitecore.Data;
 
-
 namespace Sitecore.Demo.Edge.Website.Pipelines
 {
     public class DemoCmpMultilistFieldMapping : SaveFieldValues
@@ -33,8 +32,8 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
         public override void Process(ImportEntityPipelineArgs args, BaseLog logger)
         {
-            Assert.IsNotNull((object) args.Item, "The item is null.");
-            Assert.IsNotNull((object) args.Language, "The language is null.");
+            Assert.IsNotNull((object)args.Item, "The item is null.");
+            Assert.IsNotNull((object)args.Language, "The language is null.");
             using (new SecurityDisabler())
             {
                 using (new LanguageSwitcher(args.Language))
@@ -42,6 +41,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                     bool flag = false;
                     try
                     {
+                        Log.Info("DEMO CUSTOMIZATION: Processing Item: " + args.Item.Name, this);
                         args.Item.Editing.BeginEdit();
                         args.Item[Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
                         flag = this.TryMapConfiguredFields(args);
@@ -72,17 +72,20 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
         internal virtual bool TryMapConfiguredFields(ImportEntityPipelineArgs args)
         {
             if (args.EntityMappingItem == null)
+            {
                 args.EntityMappingItem = this._cmpHelper.GetEntityMappingItem(args);
-            Assert.IsNotNull((object) args.EntityMappingItem,
+            }
+            
+            Assert.IsNotNull((object)args.EntityMappingItem,
                 "Could not find any Entity Mapping item for the Entity Type (Schema): " + args.ContentTypeIdentifier);
             bool flag = false;
 
-            foreach (Item obj in args.EntityMappingItem.Children.Where<Item>((Func<Item, bool>) (i =>
-                i.TemplateID == Sitecore.Connector.CMP.Constants.RelationFieldMappingTemplateId)))
+            foreach (Item obj in args.EntityMappingItem.Children.Where<Item>((Func<Item, bool>)(i =>
+               i.TemplateID == Sitecore.Connector.CMP.Constants.RelationFieldMappingTemplateId)))
             {
                 string fieldName = obj[Sitecore.Connector.CMP.Constants.FieldMappingSitecoreFieldNameFieldId];
                 string str = obj[Sitecore.Connector.CMP.Constants.FieldMappingCmpFieldNameFieldId];
-                
+
                 if (!string.IsNullOrEmpty(fieldName))
                 {
                     if (!string.IsNullOrEmpty(str))
@@ -103,15 +106,17 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                             DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
                                             string.Format(
                                                 "Configuration of the field mapping '{0}' is incorrect. Required fields are not specified.",
-                                                (object) obj.ID)), (object) this);
+                                                (object)obj.ID)), (object)this);
                                     flag = true;
                                     continue;
                                 }
-                                
+
                                 if (args.Item.Fields[fieldName].Type == "CmpMultiList")
                                 {
+                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' initial value: " + args.Item[fieldName], this);
                                     args.Item[fieldName] = GetListfieldValue(args.Item[fieldName],
                                         args.Item.Fields[fieldName].Source, args.Item.Database);
+                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' edited with: " + args.Item[fieldName], this);
                                 }
                                 else
                                 {
@@ -120,7 +125,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                     args.Item[fieldName] = stringList.Count != 0
                                         ? string.Join(
                                             DemoCmpMultilistFieldMapping._settings.RelationFieldMappingSeparator,
-                                            (IEnumerable<string>) stringList)
+                                            (IEnumerable<string>)stringList)
                                         : string.Empty;
                                 }
                                 continue;
@@ -134,8 +139,8 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                         {
                             this.Logger.Error(BaseHelper.GetLogMessageText(
                                     DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
-                                    $"An error occurred during converting '{(object) str}' field to '{(object) fieldName}' field. Field mapping ID: '{(object) obj.ID}'."),
-                                ex, (object) this);
+                                    $"An error occurred during converting '{(object)str}' field to '{(object)fieldName}' field. Field mapping ID: '{(object)obj.ID}'."),
+                                ex, (object)this);
                             flag = true;
                             args.Exception = ex;
                             continue;
@@ -145,7 +150,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
                 this.Logger.Error(
                     BaseHelper.GetLogMessageText(DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
-                        $"Configuration of the field mapping '{(object) obj.ID}' is incorrect. Required fields are not specified."), (object) this);
+                        $"Configuration of the field mapping '{(object)obj.ID}' is incorrect. Required fields are not specified."), (object)this);
                 flag = true;
             }
 
@@ -157,7 +162,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
         {
             if (string.IsNullOrEmpty(value)) return string.Empty;
 
-            string[] nameValues = value.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries);
+            string[] nameValues = value.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             string[] newValues = new string[nameValues.Length];
 
             if (nameValues.Length <= 0) return string.Empty;
@@ -194,13 +199,12 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
         public Item GetItemByDisplayName(string displayName)
         {
-            var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index"); 
+            var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index");
             using (var context = searchIndex.CreateSearchContext())
             {
                 var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
 
-
-                return searchResultItems == null ? null : searchResultItems.GetItem();
+                return searchResultItems?.GetItem();
             }
         }
 

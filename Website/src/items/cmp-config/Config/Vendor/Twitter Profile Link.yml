@@ -9,7 +9,7 @@ SharedFields:
   Value: 200
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: TwitterProfileLink
+  Value: Vendor_TwitterLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{025898A9-3BEB-4AFA-B37A-E45E00F2FF2F}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a0c1911a-d5e7-4e4e-b995-6cf7cd5ae782"
+      Value: "acb77b6b-6422-4fc3-8a1a-80d114dba0b5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195045Z
+      Value: 20210915T195058Z

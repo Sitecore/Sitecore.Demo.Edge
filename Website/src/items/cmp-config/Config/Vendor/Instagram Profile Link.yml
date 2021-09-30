@@ -9,7 +9,7 @@ SharedFields:
   Value: 300
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: InstagramProfileLink
+  Value: Vendor_InstagramLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{2696B94C-FB09-4392-999A-9A7A7223F228}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5dc3a53e-b41c-44fd-a953-a2aea3ba7b2d"
+      Value: "cf012393-18cc-4c3c-ad84-e426d2be5cdb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195049Z
+      Value: 20210915T195043Z

@@ -4,13 +4,11 @@ import { useEffect } from 'react';
 // END CUSTOMIZATION
 import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
-import Script from 'next/script';
 import NProgress from 'nprogress';
-import {
-  isCdpConfigured,
-  CDP_API_TARGET_ENDPOINT,
-  CDP_CLIENT_KEY,
-} from 'src/services/BoxeverService';
+import { CdpScripts } from 'src/services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
 // Using nprogress are completely optional.
 //  nprogress provides a loading indicator on page/route changes.
@@ -46,24 +44,6 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 
   const { dictionary, ...rest } = pageProps;
 
-  // DEMO TEAM CUSTOMIZATION - CDP integration
-  const cdpScripts = isCdpConfigured ? (
-    <>
-      <Script id="cdpSettings">{`
-        // Define the Boxever queue
-        var _boxeverq = _boxeverq || [];
-
-        // Define the Boxever settings
-        _boxever_settings = {
-          client_key: '${CDP_CLIENT_KEY}',
-          target: '${CDP_API_TARGET_ENDPOINT}',
-          cookie_domain: '.edge.localhost',
-        };`}</Script>
-      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
-    </>
-  ) : undefined;
-  // END CUSTOMIZATION
-
   // DEMO TEAM CUSTOMIZATION - Add head section
   return (
     <>
@@ -84,7 +64,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       </I18nProvider>
 
       {/* DEMO TEAM CUSTOMIZATION - CDP integration */}
-      {cdpScripts}
+      {CdpScripts}
       {/* END CUSTOMIZATION*/}
     </>
   );

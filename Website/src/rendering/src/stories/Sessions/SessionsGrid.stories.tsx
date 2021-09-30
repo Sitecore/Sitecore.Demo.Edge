@@ -21,13 +21,54 @@ const speaker = {
   },
 } as Speaker;
 
+const rooms = [
+  {
+    fields: {
+      Name: {
+        value: 'Room 1',
+      },
+    },
+  },
+  {
+    fields: {
+      Name: {
+        value: 'Room 2',
+      },
+    },
+  },
+];
+
+const timeslots = [
+  {
+    fields: {
+      Name: {
+        value: '8 am',
+      },
+    },
+  },
+  {
+    fields: {
+      Name: {
+        value: '9 am',
+      },
+    },
+  },
+];
+
+const days = [
+  {
+    fields: {
+      Name: {
+        value: 'Day 1',
+      },
+    },
+  },
+];
+
 const session1 = {
   fields: {
     Name: {
       value: 'Fitbit',
-    },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
     },
     Image: {
       value: {
@@ -35,6 +76,12 @@ const session1 = {
       },
     },
     Speakers: [speaker],
+    Day: days,
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: {
+      value: true,
+    },
   },
 } as Session;
 
@@ -43,15 +90,18 @@ const session2 = {
     Name: {
       value: 'Fitbit',
     },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
     Speakers: [speaker],
+    Day: days,
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: {
+      value: false,
+    },
   },
 } as Session;
 
@@ -60,15 +110,18 @@ const session3 = {
     Name: {
       value: 'Fitbit',
     },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
     Speakers: [speaker],
+    Day: days,
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: {
+      value: true,
+    },
   },
 } as Session;
 
@@ -77,15 +130,18 @@ const session4 = {
     Name: {
       value: 'Fitbit',
     },
-    Date: {
-      value: '2021-07-29T06:00:00Z',
-    },
     Image: {
       value: {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
     Speakers: [speaker],
+    Day: days,
+    Rooms: rooms,
+    Timeslots: timeslots,
+    Premium: {
+      value: false,
+    },
   },
 } as Session;
 

@@ -12,7 +12,7 @@ SharedFields:
   Value: 175
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Level
+  Value: Tier
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: TaxonomyName
@@ -40,11 +40,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b2a08a05-4c43-4bef-97ac-100c3d361b6c"
+      Value: "801295b8-8b61-454e-8b63-7421b9c1f783"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210811T195032Z
+      Value: 20210922T175543Z

@@ -18,19 +18,19 @@ Languages:
     - ID: "5ab24ab7-c4bb-5f03-8ce5-16c14e3e04bd"
       Hint: Sponsors
       Value: |
-        {4DAAC9F1-F114-4F68-88E3-C10E4AD8BD66}
-        {66B52F82-BE43-49CB-A7E1-9E53586C6BD9}
+        {6739AA91-337E-4B9E-B661-6670D3020AF3}
+        {66DC9354-0DCB-4AD5-9500-ABC5096F0826}
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b6fab5ea-eed7-424d-ae49-dd726c9cd4bb"
+      Value: "823d712e-705f-4071-9d2a-b0cee2edd9d5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T181623Z
+      Value: 20210922T190914Z
