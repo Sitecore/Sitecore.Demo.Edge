@@ -49,7 +49,7 @@
     @apply flex;
 
     div + div {
-      @apply ml-2;
+      @apply md:ml-2;
     }
   }
 
