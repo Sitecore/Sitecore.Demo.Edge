@@ -37,7 +37,7 @@ Languages:
     - ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="35904" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35904/thumbnail" src="https://mint.stylelabs.io/api/public/content/2ad57854ddde4d54895b6f464ca8727b?v=4bf5facb" mediaid="" stylelabs-content-type="Image" alt="Striva.jpg" height="3125" width="3125" />
+        <image stylelabs-content-id="35904" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35904/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/2ad57854ddde4d54895b6f464ca8727b?v=4bf5facb" mediaid="" stylelabs-content-type="Image" alt="Striva.jpg" height="3125" width="3125" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

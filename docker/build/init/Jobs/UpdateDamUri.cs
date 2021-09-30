@@ -54,7 +54,8 @@ namespace Sitecore.Demo.Init.Jobs
 				yamlObjectUpdated = UpdateValues(yamlObject);
 			}
 			
-			WriteYaml(yamlObjectUpdated, filepath);
+			if (yamlObjectUpdated != null)
+				WriteYaml(yamlObjectUpdated, filepath);
 		}
 
 		private void WriteYaml(YamlItemModel yamlObject, string filepath)
@@ -69,6 +70,8 @@ namespace Sitecore.Demo.Init.Jobs
 
 		private YamlItemModel UpdateValues(YamlItemModel yamlObject)
 		{
+			var updateFlag = false;
+
 			if (yamlObject != null & yamlObject?.SharedFields != null)
 			{
 				foreach (var sharedField in yamlObject?.SharedFields)
@@ -76,7 +79,10 @@ namespace Sitecore.Demo.Init.Jobs
 					if ((bool)(sharedField?.Hint.StartsWith("__")))
 						continue;
 					else if (sharedField?.Value != null && (bool)(sharedField?.Value.Contains("stylelabs-content-id")))
-						sharedField.Value = GetUpdatedDamHost(sharedField.Value);	
+					{
+						updateFlag = true;
+						sharedField.Value = GetUpdatedDamHost(sharedField.Value);
+					}
 				}
 			}
 			
@@ -91,7 +97,10 @@ namespace Sitecore.Demo.Init.Jobs
 							if ((bool)(field?.Hint.StartsWith("__")))
 								continue;
 							else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
+							{
+								updateFlag = true;
 								field.Value = GetUpdatedDamHost(field.Value);
+							}
 						}
 					}
 					if (language?.Versions != null)
@@ -105,15 +114,18 @@ namespace Sitecore.Demo.Init.Jobs
 									if ((bool)(field?.Hint.StartsWith("__")))
 										continue;
 									else if (field?.Value != null && (bool)(field?.Value.Contains("stylelabs-content-id")))
+									{
+										updateFlag = true;
 										field.Value = GetUpdatedDamHost(field.Value);
+									}
 								}
 							}
 						}
 					}
 				}
 			}
-
-			return yamlObject;
+			
+			return updateFlag ? yamlObject : null;
 		}
 
 		private string GetUpdatedDamHost(string existingFieldValue)
