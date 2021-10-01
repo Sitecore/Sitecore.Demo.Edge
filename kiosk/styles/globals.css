@@ -15,3 +15,4 @@
 @import './layout/Ticket';
 @import './layout/TicketTiers';
 @import './layout/PaymentForm';
+@import './layout/PaymentConfirmation';
