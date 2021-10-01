@@ -1,5 +1,5 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
-import { required } from '../lib/util';
+import Script from 'next/script';
 
 // ***** TYPES *****
 
@@ -114,9 +114,25 @@ type GuestProfileResponse = GuestProfile | undefined;
 // ***** API *****
 
 const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
-export const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
-export const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
-export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
+const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
+const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
+const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
+
+export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
+  <>
+    <Script id="cdpSettings">{`
+      // Define the Boxever queue
+      var _boxeverq = _boxeverq || [];
+
+      // Define the Boxever settings
+      _boxever_settings = {
+        client_key: '${CDP_CLIENT_KEY}',
+        target: '${CDP_API_TARGET_ENDPOINT}',
+        cookie_domain: '.edge.localhost',
+      };`}</Script>
+    <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
+  </>
+) : undefined;
 
 function isBoxeverConfiguredInBrowser(): boolean {
   return !!(
@@ -140,7 +156,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
     {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
-      channel: 'WEBSITE',
+      channel: 'WEB',
       language: 'EN',
       currency: 'CAD',
       pos: 'PLAY! Summit',
@@ -240,34 +256,57 @@ function callFlows(flowConfig: Record<string, unknown>) {
 }
 
 // Boxever view page tracking
-export function logViewEvent(): Promise<unknown> {
-  const eventConfig = {
-    type: 'VIEW',
-    sitecoreTemplateName: '',
-  };
+export function logViewEvent(additionalData?: Record<string, unknown>): Promise<unknown> {
+  const eventConfig = Object.assign(
+    {
+      type: 'VIEW',
+    },
+    additionalData
+  );
 
   return sendEventCreate(eventConfig);
 }
 
 // Boxever identification
 export function identifyVisitor(
-  firstname: string | undefined = required(),
-  lastname: string | undefined = required(),
-  email: string | undefined = required()
+  email: string,
+  firstName?: string,
+  lastName?: string,
+  phoneNumber?: string
 ): Promise<unknown> {
-  return sendEventCreate({
+  const eventConfig: Record<string, unknown> = {
     type: 'IDENTITY',
-    firstname: firstname,
-    lastname: lastname,
     email: email,
-  });
+    identifiers: [
+      {
+        provider: 'email',
+        id: email,
+      },
+    ],
+  };
+  if (firstName) {
+    eventConfig.firstname = firstName;
+  }
+  if (lastName) {
+    eventConfig.lastname = lastName;
+  }
+  if (phoneNumber) {
+    eventConfig.phone = phoneNumber;
+  }
+
+  return sendEventCreate(eventConfig);
 }
 
 // Boxever identification from an email address
-export function identifyByEmail(email: string | undefined = required()): Promise<unknown> {
+export function identifyByEmail(email: string): Promise<unknown> {
   return sendEventCreate({
     type: 'IDENTITY',
-    email: email,
+    identifiers: [
+      {
+        provider: 'email',
+        id: email,
+      },
+    ],
   });
 }
 
@@ -358,7 +397,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 
 // TEMP: Keeping this commented method for near future use
 // function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Boxever${action}`;
+//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
 //   const options: AxiosRequestConfig = {
 //     method: 'POST',
@@ -374,7 +413,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 // }
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Boxever${action}`;
+  const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'GET',
@@ -388,7 +427,7 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 
 // TEMP: Keeping this commented method for near future use
 // function boxeverDelete(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Boxever${action}`;
+//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
 //   const options: AxiosRequestConfig = {
 //     method: 'DELETE',
@@ -406,13 +445,11 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 // ********************************
 // Get non-expanded guest profile
 // ********************************
-function getGuestProfilePromise(
-  guestRef: GuestRef | undefined = required()
-): Promise<GuestProfileResponse> {
+function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileResponse> {
   return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
-export function getGuestProfileResponse(guestRef: GuestRef): Promise<GuestProfileResponse> {
+export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
   if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<undefined>(function (resolve) {
       resolve(undefined);
@@ -429,13 +466,11 @@ export function getGuestProfileResponse(guestRef: GuestRef): Promise<GuestProfil
 // ********************************
 // isAnonymousGuest
 // ********************************
-export function isAnonymousGuestInGuestResponse(
-  guestResponse: GuestProfileResponse | undefined = required()
-): boolean {
+export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
   return !guestResponse?.data?.email;
 }
 
-export function isAnonymousGuest(guestRef: GuestRef): Promise<boolean> {
+export function isAnonymousGuest(guestRef?: GuestRef): Promise<boolean> {
   const defaultValue = true;
 
   if (!isBoxeverConfiguredInBrowser()) {
@@ -456,7 +491,7 @@ export function isAnonymousGuest(guestRef: GuestRef): Promise<boolean> {
 // getGuestFullName
 // ********************************
 export function getGuestFullNameInGuestResponse(
-  guestResponse: GuestProfileResponse | undefined = required()
+  guestResponse: GuestProfileResponse
 ): string | undefined {
   const data = guestResponse?.data;
 
@@ -467,7 +502,7 @@ export function getGuestFullNameInGuestResponse(
   return `${data.firstName} ${data.lastName}`;
 }
 
-export function getGuestFullName(guestRef: GuestRef): Promise<string | undefined> {
+export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefined> {
   const defaultValue = '';
 
   if (!isBoxeverConfiguredInBrowser()) {
