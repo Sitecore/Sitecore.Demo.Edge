@@ -2,6 +2,7 @@ import {
   BoxeverScripts,
   logViewEvent as boxeverLogViewEvent,
   identifyVisitor as boxeverIdentifyVisitor,
+  forgetCurrentGuest as boxeverForgetCurrentGuest
 } from './BoxeverService';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
@@ -24,4 +25,11 @@ export function identifyVisitor(
   phoneNumber?: string
 ): Promise<unknown> {
   return boxeverIdentifyVisitor(email, firstName, lastName, phoneNumber);
+}
+
+/**
+ * Forgets the current CDP guest and start a new anonymous guest session.
+ */
+export function forgetCurrentGuest(): Promise<void> {
+  return boxeverForgetCurrentGuest();
 }

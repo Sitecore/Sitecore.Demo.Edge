@@ -1,14 +1,24 @@
-import Link from 'next/link';
+import { FormEvent } from 'react';
+import Router from 'next/router';
 import qr from '../public/tickets/qr.png';
 import { Ticket } from '../models/ticket';
 import Image from 'next/image';
 import TicketView from './Ticket';
+import { forgetCurrentGuest } from '../services/CdpService';
 
 type PaymentConfirmationProps = {
   ticket: Ticket;
 };
 
 const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    return await forgetCurrentGuest().then(() => {
+      Router.push('/');
+    });
+  };
+
   return (
     <div className="min-h-full checkout bg-black mx-auto flex flex-row">
       <div className="panel flex flex-1 flex-col md:flex-row shadow-lg">
@@ -26,13 +36,11 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
             <div className="max-w-xs mx-auto ">
               <Image src={qr} alt="QR" width="200" height="200" />
             </div>
-            <div className="mb-3 p-5">
-              <Link href="/" passHref>
-                <button className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3">
-                  End Session
-                </button>
-              </Link>
-            </div>
+            <form className="mb-3 p-5" onSubmit={handleFormSubmit}>
+              <button className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3" type="submit">
+                End Session
+              </button>
+            </form>
           </div>
         </div>
         <div className="panel-right w-full md:w-1/3 rounded-r">

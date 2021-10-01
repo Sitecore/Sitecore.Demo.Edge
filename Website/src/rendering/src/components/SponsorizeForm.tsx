@@ -87,7 +87,9 @@ const SponsorizeForm = (): JSX.Element => {
         </div>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round">Submit</button>
+        <button className="btn--main btn--main--round" type="submit">
+          Submit
+        </button>
       </div>
       <div className="footnote">
         <p>
