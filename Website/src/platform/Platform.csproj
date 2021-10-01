@@ -115,6 +115,8 @@
   <ItemGroup>
     <Compile Include="CustomFields\CmpListField.cs" />
     <Compile Include="CustomFieldMapping\DemoFieldTypeFactoryStore.cs" />
+    <Compile Include="FieldSerializer\DemoImageFieldSerializer.cs" />
+    <Compile Include="FieldSerializer\GetDemoImageFieldSerializer.cs" />
     <Compile Include="Pipelines\DemoCmpFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
     <Compile Include="Utilities\IndexRebuild.aspx.cs">
