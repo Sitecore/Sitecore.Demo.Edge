@@ -27,7 +27,7 @@
       }
 
       .logo {
-        @apply pt-5 hidden;
+        @apply hidden;
         @apply md:block;
 
         img {
@@ -42,7 +42,7 @@
       }
 
       .expo {
-        @apply text-yellow;
+        @apply text-orange;
 
         font-weight: 400;
         font-size: 1.5em;
