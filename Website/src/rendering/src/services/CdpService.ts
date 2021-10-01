@@ -33,9 +33,10 @@ export function logViewEvent(route: RouteData): Promise<unknown> {
  * Merges the visitor with any existing CDP profile with the same information.
  */
 export function identifyVisitor(
-  firstname: string,
-  lastname: string,
-  email: string
+  email: string,
+  firstName?: string,
+  lastName?: string,
+  phoneNumber?: string
 ): Promise<unknown> {
-  return boxeverIdentifyVisitor(firstname, lastname, email);
+  return boxeverIdentifyVisitor(email, firstName, lastName, phoneNumber);
 }

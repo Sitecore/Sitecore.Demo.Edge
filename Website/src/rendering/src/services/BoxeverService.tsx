@@ -269,14 +269,13 @@ export function logViewEvent(additionalData?: Record<string, unknown>): Promise<
 
 // Boxever identification
 export function identifyVisitor(
-  firstname: string,
-  lastname: string,
-  email: string
+  email: string,
+  firstName?: string,
+  lastName?: string,
+  phoneNumber?: string
 ): Promise<unknown> {
-  return sendEventCreate({
+  const eventConfig: Record<string, unknown> = {
     type: 'IDENTITY',
-    firstname: firstname,
-    lastname: lastname,
     email: email,
     identifiers: [
       {
@@ -284,14 +283,30 @@ export function identifyVisitor(
         id: email,
       },
     ],
-  });
+  };
+  if (firstName) {
+    eventConfig.firstname = firstName;
+  }
+  if (lastName) {
+    eventConfig.lastname = lastName;
+  }
+  if (phoneNumber) {
+    eventConfig.phone = phoneNumber;
+  }
+
+  return sendEventCreate(eventConfig);
 }
 
 // Boxever identification from an email address
 export function identifyByEmail(email: string): Promise<unknown> {
   return sendEventCreate({
     type: 'IDENTITY',
-    email: email,
+    identifiers: [
+      {
+        provider: 'email',
+        id: email,
+      },
+    ],
   });
 }
 

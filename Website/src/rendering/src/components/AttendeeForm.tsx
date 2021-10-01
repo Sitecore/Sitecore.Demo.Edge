@@ -16,7 +16,7 @@ const AttendeeForm = (): JSX.Element => {
       return;
     }
 
-    return await identifyVisitor(firstName, lastName, email).then(() => {
+    return await identifyVisitor(email, firstName, lastName).then(() => {
       Router.push(`/tickets/payment`);
     });
   };
