@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { identifyVisitor } from '../services/CdpService';
 
 const AttendeeForm = (): JSX.Element => {
+  const ticketId =
+    typeof window === 'undefined' ? '0' : new URLSearchParams(window.location.search).get('ticket');
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -17,7 +20,7 @@ const AttendeeForm = (): JSX.Element => {
     }
 
     return await identifyVisitor(email, firstName, lastName).then(() => {
-      Router.push(`/tickets/payment`);
+      Router.push(`/tickets/payment?ticket=${ticketId}`);
     });
   };
 
