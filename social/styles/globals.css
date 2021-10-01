@@ -19,5 +19,7 @@ a {
   box-sizing: border-box;
 }
 
-@import url("Home.module.css");
+@import url("home.css");
+@import url("phone.css");
 @import url("instagram.css");
+@import url("navigation.css");

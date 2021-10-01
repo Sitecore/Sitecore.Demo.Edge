@@ -11,6 +11,7 @@ import React from "react";
 import InstagramHeader from "../components/instagram/InstagramHeader";
 import InstagramFooter from "../components/instagram/InstagramFooter";
 import InstagramPost from "../components/instagram/InstagramPost";
+import NavButton from "../components/NavButton";
 
 type PostProps = {
   posts: Post[];
@@ -19,7 +20,7 @@ type PostProps = {
 
 export default function Instagram(props: PostProps) {
   return (
-    <div className="instagram-container">
+    <>
       <div className="center">
         <div className="iphone-case">
           <div className="iphone">
@@ -36,7 +37,8 @@ export default function Instagram(props: PostProps) {
           <div className="power-button"></div>
         </div>
       </div>
-    </div>
+      <NavButton />
+    </>
   );
 }
 

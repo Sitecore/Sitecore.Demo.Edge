@@ -9,7 +9,7 @@ html {
   height: 100%;
 } */
 
-.instagram-container {
+body {
   height: 100vh;
   background-color: #dededf;
   /* background: linear-gradient(145deg, #03187c 10%, #750268 70%) no-repeat; */
@@ -17,85 +17,6 @@ html {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-/* the phone */
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transition: transform 0.5s;
-  transform: translate(-50%, -50%);
-}
-@media screen and (max-height: 700px) {
-  .center {
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-}
-@media screen and (max-height: 500px) {
-  .center {
-    transform: translate(-50%, -50%) scale(0.6);
-  }
-}
-.iphone-case {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.iphone {
-  position: relative;
-  width: 320px;
-  height: 630px;
-  margin: 15px;
-  border: 6px solid #000;
-  border-radius: 45px;
-  background-color: #fff;
-}
-.iphone:after {
-  content: "";
-  position: absolute;
-  bottom: 6px;
-  left: 50%;
-  width: 100px;
-  height: 3px;
-  border-radius: 2px;
-  transform: translatex(-50%);
-  background-color: #000;
-  z-index: 1000;
-}
-.volume-button {
-  position: absolute;
-  height: 26px;
-  left: 13px;
-  top: 92px;
-  width: 3px;
-  border-radius: 3px;
-  background: #000;
-}
-.volume-button::after,
-.volume-button::before {
-  content: "";
-  position: absolute;
-  background: #000;
-  height: 50px;
-  left: 0;
-  width: 3px;
-}
-.volume-button::after {
-  top: 48px;
-}
-.volume-button::before {
-  top: 112px;
-}
-.power-button {
-  position: absolute;
-  height: 80px;
-  right: 12px;
-  top: 160px;
-  width: 3px;
-  border-radius: 3px;
-  background: #000;
 }
 
 /* INSTAGEAM */

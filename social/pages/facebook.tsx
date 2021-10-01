@@ -9,6 +9,8 @@ import { GetStaticProps } from "next";
 import { Post } from "../interfaces/index";
 import { getFacebookPosts } from "../pages/api/queries/getFacebookPosts";
 import FooterButton from "../components/FooterButton";
+import React from "react";
+import NavButton from "../components/NavButton";
 
 type PostProps = {
   posts: Post[];
@@ -31,6 +33,7 @@ export default function Facebook(props: PostProps) {
         </div>
       </div>
       <FooterButton />
+      <NavButton />
     </div>
   );
 }
