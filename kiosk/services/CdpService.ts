@@ -2,7 +2,7 @@ import {
   BoxeverScripts,
   logViewEvent as boxeverLogViewEvent,
   identifyVisitor as boxeverIdentifyVisitor,
-  forgetCurrentGuest as boxeverForgetCurrentGuest
+  forgetCurrentGuest as boxeverForgetCurrentGuest,
 } from './BoxeverService';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;

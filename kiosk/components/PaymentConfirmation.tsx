@@ -37,7 +37,10 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
               <Image src={qr} alt="QR" width="200" height="200" />
             </div>
             <form className="mb-3 p-5" onSubmit={handleFormSubmit}>
-              <button className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3" type="submit">
+              <button
+                className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
+                type="submit"
+              >
                 End Session
               </button>
             </form>

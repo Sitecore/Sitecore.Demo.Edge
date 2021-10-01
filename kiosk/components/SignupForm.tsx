@@ -93,7 +93,10 @@ const SignupForm = (): JSX.Element => {
               </div>
             </div>
             <div className="pt-5">
-              <button className="btn--main btn--main--round btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3" type="submit">
+              <button
+                className="btn--main btn--main--round btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3"
+                type="submit"
+              >
                 <i className="mdi mdi-lock-outline mr-1"></i> Submit
               </button>
             </div>
