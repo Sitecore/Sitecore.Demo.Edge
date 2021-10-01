@@ -130,6 +130,7 @@ export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
         client_key: '${CDP_CLIENT_KEY}',
         target: '${CDP_API_TARGET_ENDPOINT}',
         cookie_domain: '.edge.localhost',
+        web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',
       };`}</Script>
     <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
   </>
@@ -157,7 +158,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
     {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
-      channel: 'WEBSITE',
+      channel: 'WEB',
       language: 'EN',
       currency: 'CAD',
       pos: 'PLAY! Summit',
