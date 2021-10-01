@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-// import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -29,22 +29,26 @@ export default function Home() {
               <p>Find in-depth information about Next.js features and API.</p>
             </a>
           </Link>
-          <a href="/twitter" className={styles.card}>
-            <h2>Twitter &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="/instagram" className={styles.card}>
-            <h2>Instagram &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="/linkedin" className={styles.card}>
-            <h2>Linkedin &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          <Link href="/twitter" passHref>
+            <a className={styles.card}>
+              <h2>Twitter &rarr;</h2>
+              <p>Learn about Next.js in an interactive course with quizzes!</p>
+            </a>
+          </Link>
+          <Link href="/instagram" passHref>
+            <a className={styles.card}>
+              <h2>Instagram &rarr;</h2>
+              <p>Discover and deploy boilerplate example Next.js projects.</p>
+            </a>
+          </Link>
+          <Link href="/linkedin" passHref>
+            <a className={styles.card}>
+              <h2>Linkedin &rarr;</h2>
+              <p>
+                Instantly deploy your Next.js site to a public URL with Vercel.
+              </p>
+            </a>
+          </Link>
         </div>
       </main>
 
