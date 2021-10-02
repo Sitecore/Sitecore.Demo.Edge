@@ -21,23 +21,14 @@ type PostProps = {
 export default function Instagram(props: PostProps) {
   return (
     <>
-      <div className="center">
-        <div className="iphone-case">
-          <div className="iphone">
-            <div className="instagram">
-              <InstagramHeader />
-              <div className="content overflow-x-auto">
-                <InstagramPost />
-                <InstagramPost />
-              </div>
-              <InstagramFooter />
-            </div>
-          </div>
-          <div className="volume-button"> </div>
-          <div className="power-button"></div>
+      <div className="instagram">
+        <InstagramHeader />
+        <div className="content overflow-x-auto">
+          <InstagramPost />
+          <InstagramPost />
         </div>
+        <InstagramFooter />
       </div>
-      <NavButton />
     </>
   );
 }

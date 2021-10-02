@@ -5,11 +5,16 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 const NavButton = () => {
   return (
-    <Link href="/" passHref>
-      <a className="nav-button">
-        <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
-      </a>
-    </Link>
+    <div>
+      <Link href="/" passHref>
+        <a className="nav-button">
+          <FontAwesomeIcon
+            icon={faHome}
+            style={{ fontSize: 40 }}
+          ></FontAwesomeIcon>
+        </a>
+      </Link>
+    </div>
   );
 };
 export default NavButton;

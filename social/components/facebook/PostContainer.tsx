@@ -9,6 +9,8 @@ import {
   faSurprise,
   faThumbsUp,
 } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import profileLogo from "../../public/PLAY_Sumit_black.png";
 
 type PostProps = {
   posts: Post[];
@@ -23,14 +25,16 @@ export default function PostContainer(props: PostProps) {
           return (
             <div
               key={index}
-              className="w-full shadow h-auto bg-white my-2 rounded-md post"
+              className="w-full shadow h-auto bg-white my-2 rounded-md post flex-col"
             >
               <div className="flex items-center space-x-2 p-3 px-4">
                 <div className="w-10 h-10">
-                  <img
-                    src="https://picsum.photos/200"
-                    className="w-full h-full rounded-full"
-                    alt="dp"
+                  <Image
+                    className="rounded-full"
+                    src={profileLogo}
+                    alt="logo"
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <div className="flex-grow flex flex-col">
