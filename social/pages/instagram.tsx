@@ -26,6 +26,7 @@ export default function Instagram(props: PostProps) {
         <div className="content overflow-x-auto">
           <InstagramPost />
           <InstagramPost />
+          <InstagramPost />
         </div>
         <InstagramFooter />
       </div>

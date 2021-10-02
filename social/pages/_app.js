@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   const showHomeButton =
     typeof window !== "undefined" && window.location.pathname == "/"
       ? "hidden"
-      : "";
+      : "visible";
 
   return (
     <>

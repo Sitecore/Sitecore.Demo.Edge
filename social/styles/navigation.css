@@ -1,8 +1,4 @@
 .nav-button {
-  @apply bg-black absolute bottom-2 left-2 w-12 h-12
-   text-white rounded-3xl inline-block align-middle pt-2 font-bold text-center;
+  @apply w-12 h-12 bg-black text-white fixed left-2 bottom-2 p-2 rounded-full;
 
-   svg{
-     @apply w-12 h-12;
-   }
 }

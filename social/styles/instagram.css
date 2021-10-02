@@ -70,69 +70,71 @@ body {
   flex-direction: column;
   height: 100%;
 }
-.content {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.content::-webkit-scrollbar {
-  display: none;
-}
-.content .post {
-  display: flex;
-  align-items: center;
-  padding: 0px 10px;
-  justify-content: space-between;
-}
-.content .post * {
-  padding: 5px 0px;
-}
-.content .post .profile-img {
-  border-radius: 50%;
-}
-.content .post .name {
-  display: flex;
-  justify-content: flex-start;
-}
-.content .post .name p {
-  padding-left: 5px;
-  font-weight: bold;
-  font-size: 0.8em;
-}
+.instagram {
+  .content {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .content::-webkit-scrollbar {
+    display: none;
+  }
+  .content .post {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    justify-content: space-between;
+  }
+  .content .post * {
+    padding: 5px 0px;
+  }
+  .content .post .profile-img {
+    border-radius: 50%;
+  }
+  .content .post .name {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .content .post .name p {
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 0.8em;
+  }
 
-.content .likes {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.content .likes * {
-  padding: 5px 5px;
-  display: inline;
-}
+  .content .likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .content .likes * {
+    padding: 5px 5px;
+    display: inline;
+  }
 
-.content .like-count {
-  display: flex;
-  align-items: center;
-  padding: 0px 10px;
-}
-.content .like-count p {
-  font-size: 0.7em;
-  padding: 5px;
-  font-weight: bold;
-}
-.content .detail {
-  padding: 0px 10px;
-  font-size: 0.7em;
-}
+  .content .like-count {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+  }
+  .content .like-count p {
+    font-size: 0.7em;
+    padding: 5px;
+    font-weight: bold;
+  }
+  .content .detail {
+    padding: 0px 10px;
+    font-size: 0.7em;
+  }
 
-.content .detail .username {
-  font-weight: bold;
-}
+  .content .detail .username {
+    font-weight: bold;
+  }
 
-footer {
-  color: #fff;
-  padding-top: 5px;
-  font-size: 0.8em;
-}
-footer a {
-  color: #aaa;
+  footer {
+    color: #fff;
+    padding-top: 5px;
+    font-size: 0.8em;
+  }
+  footer a {
+    color: #aaa;
+  }
 }
