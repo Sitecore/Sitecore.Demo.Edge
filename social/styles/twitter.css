@@ -1,0 +1,31 @@
+.twitter {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+}
+.twitter .content {
+  @apply overflow-x-auto h-full bg-gray-100;
+
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  height: 554px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .tweets {
+    @apply flex flex-col justify-center;
+
+    .tweet {
+      @apply border-b border-solid border-gray-300 p-2 pb-4 mb-2 w-full text-sm;
+    }
+  }
+}
+.twitter .content::-webkit-scrollbar {
+  display: none;
+}
+
+.twitter .navbar {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+}

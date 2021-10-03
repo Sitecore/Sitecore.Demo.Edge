@@ -39,7 +39,7 @@ export default function PostContainer(props: PostProps) {
                       width={100}
                       height={100}
                     />
-                  </div>{" "}
+                  </div>
                   <div className="justify-start">
                     <span className="text-gray-500 font-semibold">
                       Play! Summit
