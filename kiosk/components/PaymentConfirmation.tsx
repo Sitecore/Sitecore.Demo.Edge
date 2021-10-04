@@ -38,7 +38,7 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
             <div className="qr">
               <Image src={qr} alt={props.ticket.name} width="200" height="200" />
             </div>
-            <form className="mb-3 p-5" onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit}>
               <button
                 className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
                 type="submit"
