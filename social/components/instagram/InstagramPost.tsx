@@ -15,7 +15,6 @@ const InstagramPost = () => {
           src="https://image.flaticon.com/icons/svg/149/149947.svg"
           width="5%"
         />
-        {/* style="opacity:0.5;"        */}
       </div>
       <div className="post-image">
         <img
