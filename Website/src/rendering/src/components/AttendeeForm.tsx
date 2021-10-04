@@ -1,22 +1,63 @@
+import React, { FormEvent, useState } from 'react';
+import Router from 'next/router';
 import Link from 'next/link';
+import { identifyVisitor } from '../services/CdpService';
 
 const AttendeeForm = (): JSX.Element => {
   const ticketId =
     typeof window === 'undefined' ? '0' : new URLSearchParams(window.location.search).get('ticket');
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!firstName.trim() || !lastName.trim() || !email.trim()) {
+      alert('All form fields must be filled.');
+      return;
+    }
+
+    return await identifyVisitor(email, firstName, lastName).then(() => {
+      Router.push(`/tickets/payment?ticket=${ticketId}`);
+    });
+  };
+
   return (
-    <div className="form attendee-registration-form">
+    <form className="form attendee-registration-form" onSubmit={handleFormSubmit}>
       <h2>Attendee Registration</h2>
       <div className="floating-label-wrap">
-        <input type="text" placeholder="First Name" id="firstName" />
+        <input
+          type="text"
+          placeholder="First Name"
+          id="firstName"
+          autoComplete="given-name"
+          required
+          onChange={(e) => setFirstName(e.target.value)}
+        />
         <label htmlFor="firstName">First Name</label>
       </div>
       <div className="floating-label-wrap">
-        <input type="text" placeholder="Last Name" id="lastName" />
+        <input
+          type="text"
+          placeholder="Last Name"
+          id="lastName"
+          autoComplete="family-name"
+          required
+          onChange={(e) => setLastName(e.target.value)}
+        />
         <label htmlFor="lastName">Last Name</label>
       </div>
       <div className="floating-label-wrap">
-        <input type="text" placeholder="Email" id="email" />
+        <input
+          type="text"
+          placeholder="Email"
+          id="email"
+          autoComplete="email"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <label htmlFor="email">Email</label>
       </div>
       {/* TODO: Implement later when registration is setup
@@ -35,9 +76,9 @@ const AttendeeForm = (): JSX.Element => {
         </span>
       </label>
       <div className="button-area">
-        <Link href={`/tickets/payment?ticket=${ticketId}`}>
-          <a className="btn--main btn--main--round">Next</a>
-        </Link>
+        <button className="btn--main btn--main--round" type="submit">
+          Next
+        </button>
       </div>
       <div className="footnote">
         <p>
@@ -48,7 +89,7 @@ const AttendeeForm = (): JSX.Element => {
           our <Link href="/privacy">privacy statement</Link>
         </p>
       </div>
-    </div>
+    </form>
   );
 };
 
