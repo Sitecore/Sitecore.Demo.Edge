@@ -2,6 +2,9 @@ import {
   BoxeverScripts,
   logViewEvent as boxeverLogViewEvent,
   identifyVisitor as boxeverIdentifyVisitor,
+  trackEventByName as boxeverTrackEventByName,
+  getGuestRef,
+  boxeverPost,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 
@@ -39,4 +42,27 @@ export function identifyVisitor(
   phoneNumber?: string
 ): Promise<unknown> {
   return boxeverIdentifyVisitor(email, firstName, lastName, phoneNumber);
+}
+
+export function logEventByName(
+  eventName: string,
+  payload?: Record<string, unknown>
+): Promise<unknown> {
+  return boxeverTrackEventByName(eventName, payload);
+}
+
+export function createDataExtensionByName(
+  extName: string,
+  payload?: Record<string, unknown>
+): Promise<unknown> {
+  return getGuestRef()
+    .then((response) => {
+      return boxeverPost(
+        '/createguestdataextension?guestRef=' + response.guestRef + '&dataExtensionName=' + extName,
+        payload
+      );
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }

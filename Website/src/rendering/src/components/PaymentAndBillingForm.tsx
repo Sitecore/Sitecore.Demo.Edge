@@ -1,11 +1,35 @@
-import Link from 'next/link';
+import router from 'next/router';
+import { FormEvent } from 'react';
+import { logEventByName, createDataExtensionByName } from '../services/CdpService';
 
 const PaymentAndBillingForm = (): JSX.Element => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!ticketId?.trim()) {
+      alert(
+        'Ticket information unavailable. Please go back to the tickets page and select a valid ticket.'
+      );
+      return;
+    }
+
+    const payload = { ticket_id: ticketId };
+    const pushPayload = { ...payload, key: 'Ticket Type' };
+
+    return await logEventByName('TICKET_PURCHASED', payload)
+      .then(() => {
+        createDataExtensionByName('TicketPurchased', pushPayload);
+      })
+      .then(() => {
+        router.push('/tickets/payment/confirmed?ticket=' + ticketId);
+      });
+  };
+
   const ticketId =
     typeof window === 'undefined' ? '0' : new URLSearchParams(window.location.search).get('ticket');
 
   return (
-    <div className="form payment-and-billing-form">
+    <form className="form payment-and-billing-form" onSubmit={handleFormSubmit}>
       <h2>Payment Information</h2>
       <div className="payment-methods">
         <input type="radio" value="Visa" name="payment" id="visa" />{' '}
@@ -98,11 +122,14 @@ const PaymentAndBillingForm = (): JSX.Element => {
         </p>
       </div>
       <div className="button-area">
-        <Link href={`/tickets/payment/confirmed?ticket=${ticketId}`}>
+        <button type="submit" className="btn--main btn--main--round">
+          Confirm Purchase
+        </button>
+        {/* <Link href={`/tickets/payment/confirmed?ticket=${ticketId}`}>
           <a className="btn--main btn--main--round">Confirm Purchase</a>
-        </Link>
+        </Link> */}
       </div>
-    </div>
+    </form>
   );
 };
 
