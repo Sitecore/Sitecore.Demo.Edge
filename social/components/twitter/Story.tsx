@@ -1,22 +1,86 @@
-import React from 'react';
+import { Post } from "../../interfaces/index";
+import React from "react";
+import Image from "next/image";
+import profileLogo from "../../public/PLAY_Summit_black.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckCircle,
+  faComment,
+  faEllipsisV,
+  faHeart,
+  faRetweet,
+  faShareAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
-const Story = () => {
+type StoryProps = {
+  post: Post;
+};
+
+const Story = (props: StoryProps) => {
   return (
-    <div
-      className='w-28 h-48 relative rounded-xl p-3 to-pink-500 shadow cursor-pointer'
-      style={{ backgroundImage: `url('https://picsum.photos/400')` }}
-    >
-      <div className='absolute'>
-        <img
-          src='https://picsum.photos/400'
-          className='w-10 h-10 rounded-full border-4 border-white'
-          alt='story'
+    <>
+      <div className="flex items-center">
+        <Image
+          className="rounded-full h-6 w-6"
+          src={profileLogo}
+          alt="logo"
+          width={50}
+          height={50}
         />
+        <div>
+          <div className="flex flex-row gap-2 align-top h-6 ml-4">
+            <span className="flex items-start font-bold text-gray-900 leading-5">
+              Play! Summit
+            </span>
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              className="w-4 h-4 inline-flex text-blue-500"
+            ></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faEllipsisV}
+              className="w-4 h-4 inline-flex text-gray-500 justify-end items-end absolute right-4"
+            ></FontAwesomeIcon>
+          </div>
+          <div className="ml-4">
+            <span className="text-gray-500 inline">@Play!Summit</span>
+          </div>
+        </div>
       </div>
-      <div className='absolute text-center' style={{ bottom: '5%' }}>
-        <p className='text-white font-semibold'>Play! Summit</p>
+      <div className="mb-2 leading-normal whitespace-pre-wrap text-gray-700 text-sm py-2">
+        Learn to sell. Learn to build. If you can do both, you will be
+        unstoppable.
       </div>
-    </div>
+      <span> 3:27 AM - May 31, 2018</span>
+      <div className="flex text-gray-700 mt-2 justify-between">
+        <div>
+          <FontAwesomeIcon
+            icon={faComment}
+            className="w-4 h-4 inline-flex text-gray-600 mr-1"
+          ></FontAwesomeIcon>
+          <span>117</span>
+        </div>
+        <div>
+          <FontAwesomeIcon
+            icon={faRetweet}
+            className="w-4 h-4 inline-flex text-gray-600 mr-1"
+          ></FontAwesomeIcon>
+          <span>117</span>
+        </div>
+        <div>
+          <FontAwesomeIcon
+            icon={faHeart}
+            className="w-4 h-4 inline-flex text-gray-600 mr-1"
+          ></FontAwesomeIcon>
+          <span>117</span>
+        </div>
+        <div>
+          <FontAwesomeIcon
+            icon={faShareAlt}
+            className="w-4 h-4 inline-flex text-gray-600"
+          ></FontAwesomeIcon>
+        </div>
+      </div>
+    </>
   );
 };
 

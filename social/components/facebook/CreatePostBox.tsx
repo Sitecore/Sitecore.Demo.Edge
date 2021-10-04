@@ -1,9 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImages, faSmile, faVideo } from "@fortawesome/free-solid-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
-import profileLogo from "../../public/PLAY_Sumit_black.png";
+import profileLogo from "../../public/PLAY_Summit_black.png";
 
 const CreatePostBox = () => {
   return (
@@ -18,7 +17,7 @@ const CreatePostBox = () => {
             height={100}
           />
         </div>
-        <button className="hover:bg-gray-200 focus:bg-gray-300 focus:outline-none flex-grow bg-gray-100 text-gray-500 text-left pl-2 rounded-full h-10 pl-5">
+        <button className="hover:bg-gray-200 focus:bg-gray-300 focus:outline-none flex-grow bg-gray-100 text-gray-500 text-left pl-2 rounded-full h-10">
           What&apos;s on your mind?
         </button>
       </div>

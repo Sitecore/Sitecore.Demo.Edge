@@ -16,7 +16,7 @@ export default function Home() {
           <a>
             <FontAwesomeIcon
               icon={faFacebookSquare}
-              className="text-7xl"
+              className="text-6xl"
             ></FontAwesomeIcon>
             <p>Facebook</p>
           </a>
@@ -25,7 +25,7 @@ export default function Home() {
           <a>
             <FontAwesomeIcon
               icon={faTwitterSquare}
-              className="text-7xl"
+              className="text-6xl"
             ></FontAwesomeIcon>
             <p>Twitter</p>
           </a>
@@ -34,7 +34,7 @@ export default function Home() {
           <a>
             <FontAwesomeIcon
               icon={faInstagramSquare}
-              className="text-7xl"
+              className="text-6xl"
             ></FontAwesomeIcon>
             <p>Instagram</p>
           </a>
@@ -43,7 +43,7 @@ export default function Home() {
           <a>
             <FontAwesomeIcon
               icon={faLinkedin}
-              className="text-7xl"
+              className="text-6xl"
             ></FontAwesomeIcon>
             <p>Linkedin</p>
           </a>
