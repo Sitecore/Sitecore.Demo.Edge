@@ -1,7 +1,17 @@
-import Link from 'next/link';
+import { FormEvent } from 'react';
+import Router from 'next/router';
 import Image from 'next/image';
+import { forgetCurrentGuest } from '../services/CdpService';
 
 const SignupConfirmation = (): JSX.Element => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    return await forgetCurrentGuest().then(() => {
+      Router.push('/');
+    });
+  };
+
   return (
     <section
       className="signupConfirmation banner"
@@ -33,11 +43,14 @@ const SignupConfirmation = (): JSX.Element => {
             </p>
 
             <div className="pt-5">
-              <Link href="/" passHref>
-                <button className="btn--main btn--main--round btn--main--big w-full">
+              <form className="mb-3 p-5" onSubmit={handleFormSubmit}>
+                <button
+                  className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
+                  type="submit"
+                >
                   End Session
                 </button>
-              </Link>
+              </form>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import NProgress from 'nprogress';
-import { CdpScripts } from 'src/services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { CdpScripts } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;

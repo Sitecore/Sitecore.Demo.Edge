@@ -1,13 +1,23 @@
-import Link from 'next/link';
+import { FormEvent } from 'react';
+import Router from 'next/router';
 import qr from '../public/tickets/qr.png';
 import { Ticket } from '../models/ticket';
 import Image from 'next/image';
+import { forgetCurrentGuest } from '../services/CdpService';
 
 type PaymentConfirmationProps = {
   ticket: Ticket;
 };
 
 const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    return await forgetCurrentGuest().then(() => {
+      Router.push('/');
+    });
+  };
+
   return (
     <section
       className="paymentConfirmation banner"
@@ -28,11 +38,14 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
             <div className="qr">
               <Image src={qr} alt={props.ticket.name} width="200" height="200" />
             </div>
-            <Link href="/" passHref>
-              <button className="btn--main btn--main--round btn--main--big block rounded-lg py-3">
+            <form className="mb-3 p-5" onSubmit={handleFormSubmit}>
+              <button
+                className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
+                type="submit"
+              >
                 End Session
               </button>
-            </Link>
+            </form>
           </div>
         </div>
       </div>

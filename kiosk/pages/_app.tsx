@@ -2,13 +2,7 @@ import '../styles/globals.css';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Script from 'next/script';
-import {
-  isCdpConfigured,
-  CDP_API_TARGET_ENDPOINT,
-  CDP_CLIENT_KEY,
-} from '../services/BoxeverService';
-import { logViewEvent } from '../services/BoxeverService';
+import { CdpScripts, logViewEvent } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 
 function App({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -22,24 +16,6 @@ function App({ Component, pageProps, router }: AppProps) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router]);
-
-  // DEMO TEAM CUSTOMIZATION - CDP integration
-  const cdpScripts = isCdpConfigured ? (
-    <>
-      <Script id="cdpSettings">{`
-        // Define the Boxever queue
-        var _boxeverq = _boxeverq || [];
-
-        // Define the Boxever settings
-        _boxever_settings = {
-          client_key: '${CDP_CLIENT_KEY}',
-          target: '${CDP_API_TARGET_ENDPOINT}',
-          cookie_domain: '.edge.localhost',
-        };`}</Script>
-      <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
-    </>
-  ) : undefined;
-  // END CUSTOMIZATION
 
   return (
     <div className="screen">
@@ -66,7 +42,7 @@ function App({ Component, pageProps, router }: AppProps) {
       </main>
 
       {/* DEMO TEAM CUSTOMIZATION - CDP integration */}
-      {cdpScripts}
+      {CdpScripts}
       {/* END CUSTOMIZATION*/}
     </div>
   );
