@@ -43,9 +43,9 @@ const SignupConfirmation = (): JSX.Element => {
             </p>
 
             <div className="pt-5">
-              <form className="mb-3 p-5" onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit}>
                 <button
-                  className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
+                  className="btn--main btn--main--round btn--main--big block rounded-lg"
                   type="submit"
                 >
                   End Session
