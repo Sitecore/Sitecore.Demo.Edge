@@ -11,7 +11,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
     <div className="paymentForm">
       <div className="title">Checkout</div>
 
-      <div className="panel flex flex-1 flex-col md:flex-row">
+      <div className="panel">
         <div className="ticket">
           <TicketView ticket={props.ticket} activeCssClass="" />
         </div>

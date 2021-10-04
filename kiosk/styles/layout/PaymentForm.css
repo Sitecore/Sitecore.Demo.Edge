@@ -9,6 +9,10 @@
     @apply w-full md:w-1/3 rounded-r p-5;
   }
 
+  .panel {
+    @apply flex flex-1 flex-col md:flex-row;
+  }
+
   .payment {
     @apply w-full md:w-2/3 rounded-l p-10 text-white;
 

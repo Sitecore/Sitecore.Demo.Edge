@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const SignupForm = (): JSX.Element => {
   return (
@@ -12,6 +13,15 @@ const SignupForm = (): JSX.Element => {
       }}
     >
       <div className="signupForm__container container">
+        <div className="logo">
+          <Image
+            src="https://demoedge.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+            width={200}
+            height={100}
+            className="left float"
+            alt="Logo"
+          />
+        </div>
         <div className="signupForm__container__content">
           <div className="signupForm__container__content__text">
             <form action="#">
