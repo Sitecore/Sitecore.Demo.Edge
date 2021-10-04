@@ -1,8 +1,8 @@
 .paymentForm {
-  @apply min-h-full w-full px-10 bg-black-light;
+  @apply min-h-full bg-black-light py-5 px-10 w-full grid grid-flow-row;
 
   .title {
-    @apply uppercase w-full pt-5 text-white;
+    @apply uppercase w-full text-white;
   }
 
   .ticket {
