@@ -16,3 +16,5 @@
 @import './layout/TicketTiers';
 @import './layout/PaymentForm';
 @import './layout/PaymentConfirmation';
+@import './layout/SignupForm';
+@import './layout/SignupConfirmation';

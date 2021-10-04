@@ -1,4 +1,4 @@
-.paymentConfirmation {
+.signupConfirmation {
   @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative min-h-full flex justify-center items-stretch flex-row;
 
   &__container {
@@ -17,20 +17,16 @@
         @apply md:p-12;
       }
 
-      .heading {
-        @apply uppercase text-orange py-2;
+      .headline {
+        @apply text-yellow uppercase;
       }
 
-      h2 {
-        @apply text-3xl py-2;
+      .title {
+        @apply py-3 text-3xl font-bold;
       }
 
       p {
-        @apply py-2;
-      }
-
-      .qr {
-        @apply py-5;
+        @apply py-3;
       }
     }
   }

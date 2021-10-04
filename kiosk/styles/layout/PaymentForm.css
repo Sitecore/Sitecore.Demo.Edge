@@ -24,7 +24,7 @@
       }
 
       input {
-        @apply w-full bg-black px-3 py-2 mb-1 border-2 rounded-md focus:outline-none transition-colors;
+        @apply w-full bg-black-light px-3 py-2 mb-1 border rounded-md focus:outline-none transition-colors;
       }
     }
 

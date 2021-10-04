@@ -1,4 +1,4 @@
-.paymentConfirmation {
+.signupForm {
   @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative min-h-full flex justify-center items-stretch flex-row;
 
   &__container {
@@ -17,19 +17,23 @@
         @apply md:p-12;
       }
 
-      .heading {
-        @apply uppercase text-orange py-2;
+      .headline {
+        @apply text-yellow uppercase;
       }
 
-      h2 {
-        @apply text-3xl py-2;
+      .title {
+        @apply py-3 text-3xl font-bold;
       }
 
-      p {
+      .fields {
         @apply py-2;
+
+        input {
+          @apply w-full bg-black-light px-3 py-2 mb-1 border rounded-md focus:outline-none transition-colors;
+        }
       }
 
-      .qr {
+      .checkboxes {
         @apply py-5;
       }
     }

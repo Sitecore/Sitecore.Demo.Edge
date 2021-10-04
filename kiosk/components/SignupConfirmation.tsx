@@ -1,37 +1,37 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 const SignupConfirmation = (): JSX.Element => {
   return (
-    <div className="min-h-full checkout bg-black mx-auto flex flex-row">
-      <div className="panel flex flex-1 flex-col md:flex-row shadow-lg">
-        <div className="panel-left w-full md:w-2/3 bg-white rounded-l">
-          <h1 className="text-3xl font-normal p-10 border-b border-solid border-grey-light">
-            Thank you for signing up!
-          </h1>
-          <div className="p-5 pt-8 border-b border-solid border-grey-light">
-            <div className="mb-3 p-5">
-              <p>
-                We&apos;ve sent a information package to your inbox. Stay tuned for lots of PLAY!
-                Summit info coming your way.
-              </p>
-            </div>
-            <div className="mb-3 p-5">
+    <section
+      className="signupConfirmation banner"
+      style={{
+        backgroundImage:
+          'url(' +
+          'https://demoedge.sitecoresandbox.cloud/api/public/content/16ff8c68694a48a0bd6311025cb6a5c9?v=5d942ccf' +
+          ')',
+      }}
+    >
+      <div className="signupConfirmation__container container">
+        <div className="signupConfirmation__container__content">
+          <div className="signupConfirmation__container__content__text">
+            <span className="headline">Stay Connected</span>
+            <h1 className="title">Thank you!</h1>
+            <p>
+              We&apos;ve sent a information package to your inbox. Stay tuned for lots of PLAY!
+              Summit info coming your way.
+            </p>
+
+            <div className="pt-5">
               <Link href="/" passHref>
-                <button className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3">
+                <button className="btn--main btn--main--round btn--main--big w-full">
                   End Session
                 </button>
               </Link>
             </div>
           </div>
         </div>
-        <div className="panel-right w-full md:w-1/3 text-white rounded-r flex">
-          <div className="p-10 flex-1 relative">
-            <Image alt="Banner" src="/tickets/sport.jpg" layout="fill" objectFit="cover" />
-          </div>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
