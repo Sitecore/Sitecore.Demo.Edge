@@ -40,7 +40,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
             <h1 className="heading">Enter your payment details</h1>
             <div className="fields">
               <div className="mb-3">
-                <label>First Name</label>
+                <label>First Name *</label>
                 <div>
                   <input
                     placeholder="Last Name"
@@ -53,7 +53,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
               </div>
 
               <div className="mb-3">
-                <label>Last Name</label>
+                <label>Last Name *</label>
                 <div>
                   <input
                     placeholder="Last Name"
@@ -66,7 +66,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
               </div>
 
               <div className="mb-3">
-                <label>Email</label>
+                <label>Email *</label>
                 <div>
                   <input
                     placeholder="Email"

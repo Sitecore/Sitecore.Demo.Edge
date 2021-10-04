@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import Router from 'next/router';
 import Image from 'next/image';
 import { identifyVisitor } from '../services/CdpService';
+import Link from 'next/link';
 
 const SignupForm = (): JSX.Element => {
   const [email, setEmail] = useState('');
