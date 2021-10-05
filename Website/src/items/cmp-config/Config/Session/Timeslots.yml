@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Session/Timeslots
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 700
+  Value: 900
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
   Value: TimeslotToSession
@@ -37,11 +37,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f0674f1e-09fe-435c-bb4d-6e71be57f01c"
+      Value: "967e2182-afb2-43cf-916d-51a4a432f691"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210923T025503Z
+      Value: 20211005T121642Z

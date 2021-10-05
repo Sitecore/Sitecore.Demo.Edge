@@ -19,7 +19,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Our history is rich and we&rsquo;re proud to celebrate 50 years running.&nbsp;The rise and fall of the great US running movement has been a roller coaster of emotions, and in the end, there were no easy choices. You&rsquo;ll remember the highs and lows of the past, but you&rsquo;ll also know that we put our heart and soul into every run, every day, and every year. We&rsquo;ve been involved in running since 1971, and we&rsquo;ve been passionate about running since the day we picked up the first running shoes.</p>
-                   
+                       
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T224229Z
@@ -55,11 +55,14 @@ Languages:
       Value: "{A5673B41-FABE-450B-9037-14132FA734DA}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e903fd22-ce6a-4de7-8c1a-26c5c0681383"
+      Value: "3a2494a1-0260-4d80-bd45-a5ade60436a0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180612Z
+      Value: 20211005T123250Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Running recap: 50 years of passion"

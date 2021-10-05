@@ -17,7 +17,11 @@ Languages:
       Value: "{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}|{6AB3A378-547F-4B38-8BE4-7538313020B2}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
-      Value:          
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T183455Z
@@ -53,11 +57,14 @@ Languages:
       Value: "{FD2E5B87-2430-4051-ADF9-8B76481774C2}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5dc2de17-caed-4b6c-be62-266373e3a13d"
+      Value: "29237660-c568-42c7-bbbd-a63025c2a3d2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180745Z
+      Value: 20211005T122521Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Ask an expert: ski and snowboard gear"

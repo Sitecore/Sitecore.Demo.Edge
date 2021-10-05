@@ -9,7 +9,7 @@ SharedFields:
   Value: 
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 175
+  Value: 500
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
   Value: SponsorLevel
@@ -40,11 +40,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bf32789b-273a-414b-9271-f4215fc9c295"
+      Value: "360c57de-7a4a-4197-8f51-6e06b53b9dd3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210729T025715Z
+      Value: 20211005T124959Z

@@ -22,7 +22,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Event organizers and participants collaborate with the&nbsp;community to create an experience that bridges the gap between the physical and mental demands of athletes.&nbsp; A successful cycling event motivates all stakeholders to ensure&nbsp;a fun, safe, and challenging event. Is it possible? This is your chance to learn from experienced veteran organizers.</p>
-                   
+                       
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T231449Z
@@ -58,11 +58,14 @@ Languages:
       Value: "{374B55AB-B656-4588-A347-A0D28CB2AC99}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "95c2e0de-0bf8-4726-afa6-a6794833dd7a"
+      Value: "0f22ede5-4e4f-4adb-bfe4-936bd42e27d9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180634Z
+      Value: 20211005T123317Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Organizing the impossible: How to host a cycling race"

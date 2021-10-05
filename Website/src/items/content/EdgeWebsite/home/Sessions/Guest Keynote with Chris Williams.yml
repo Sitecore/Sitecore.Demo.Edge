@@ -19,7 +19,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Join&nbsp;<strong>Tour de France</strong>&nbsp;champion Chris Williams for an exclusive Q&amp;A in which he&rsquo;ll discuss his professional journey and highlights from his career.</p>
-                   
+        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T203448Z
@@ -55,11 +55,14 @@ Languages:
       Value: "{C53A4814-4956-427E-A3C0-1DAEE197459C}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ddd3ac92-64db-4c87-8dfa-abdd4d8bf3a0"
+      Value: "ffe1b798-d53c-4669-8e84-2f1caf2540d7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180455Z
+      Value: 20211005T122624Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Guest Keynote with Chris Williams

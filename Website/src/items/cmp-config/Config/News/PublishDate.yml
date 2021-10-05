@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/News/PublishDate
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 700
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: 23141_PublishDate
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1ce0f3ec-cce7-4b79-a63e-3e415eb66ffd"
+      Value: "9a3d5505-395a-4d3e-93c4-5f3abd8d46f2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210809T175436Z
+      Value: 20211005T121908Z

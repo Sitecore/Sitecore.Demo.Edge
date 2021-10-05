@@ -1,18 +1,18 @@
 ﻿---
-ID: "c19de1fb-fe9d-4e37-b447-dbd49c0c9d96"
-Parent: "331f7a34-cb11-4ac9-b7c0-c6867eb160e9"
+ID: "48e080e1-a010-406a-b662-3f6b38118453"
+Parent: "e073f9a4-6376-4922-9786-580050546c22"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
-Path: /sitecore/system/Modules/CMP/Config/Vendor/Facebook Profile Link
+Path: /sitecore/system/Modules/CMP/Config/Sponsor/Description
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 700
+  Value: 300
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: Vendor_FacebookLink
+  Value: Description
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
-  Value: "{DA7733F4-3061-4F93-A870-9AFF906AF40B}"
+  Value: "{5A1F6707-D155-4618-B051-966216449B1C}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: 
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ab4ab4bc-511f-4ba2-94c0-b99379254604"
+      Value: "feacf7e8-b30f-4da4-b4f4-898c48f75dd3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T121830Z
+      Value: 20211005T125006Z

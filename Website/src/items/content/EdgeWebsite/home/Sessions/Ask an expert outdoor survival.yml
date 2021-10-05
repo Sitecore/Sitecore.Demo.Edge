@@ -23,7 +23,7 @@ Languages:
         <p>Every once in a while, though, really crazy or interesting gear will pops up that will turn your head and make you pay attention.&nbsp;If you add that new item to your cart, chances are it comes with an afterthought &ndash; hoping you won&rsquo;t end up with just another gimmic on your hands.</p>
         
         <p>We&#39;ll review&nbsp;some of the most interesting products being offered on the market for those of us who&nbsp;love the outdoors.</p>
-           
+               
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210921T183319Z
@@ -59,11 +59,14 @@ Languages:
       Value: "{3BC52CBD-3EE1-496F-918E-C0D55A96B7C9}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f567661f-3254-49cc-9bda-0dfcb71bdf11"
+      Value: "549d9183-1aa2-43c0-b7c4-bd7ad2d32f1f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180733Z
+      Value: 20211005T122537Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Ask an expert: outdoor survival"

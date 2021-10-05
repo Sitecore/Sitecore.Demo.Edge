@@ -28,13 +28,13 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f0bdaf25-4166-48c6-a5b3-59d5b7660db9"
+      Value: "f7a9dbef-96e1-471f-a89d-b14a97438a05"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Striva
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}|Intro to Cycling - Sponsored by Striva [Item not found]"
+      Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -42,19 +42,24 @@ Languages:
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
       Value: |
-        <p>Mary Asada</p>
-               
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Chief Product Officer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180008Z
+      Value: 20211005T123713Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
+      Value: Mary Asada
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
       Value: Mary Asada
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture

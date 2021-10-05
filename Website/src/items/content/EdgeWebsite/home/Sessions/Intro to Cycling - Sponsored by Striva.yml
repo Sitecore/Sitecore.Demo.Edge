@@ -2,7 +2,7 @@
 ID: "e35fd211-a2cd-49d4-87cc-4dd07bc14b8c"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: /sitecore/content/EdgeWebsite/home/sessions/Intro to Cycling
+Path: "/sitecore/content/EdgeWebsite/home/sessions/Intro to Cycling - Sponsored by Striva"
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -19,7 +19,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet ligula.ipsum sit ligula.ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit ama.Lorem ipsum sit amet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra.</p>
-           
+               
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085613Z
@@ -55,11 +55,14 @@ Languages:
       Value: "{6FE42A91-749B-4B13-BBA6-826DABE94B00}|{2ACD0217-A6FE-401C-9E0C-FF625CAD8CC3}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ac7a81c8-39b1-4077-a551-ad25b1436fcb"
+      Value: "7e3ab376-a049-4404-94e1-f17c523f77a1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180346Z
+      Value: 20211005T122744Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Intro to Cycling - Sponsored by Striva"

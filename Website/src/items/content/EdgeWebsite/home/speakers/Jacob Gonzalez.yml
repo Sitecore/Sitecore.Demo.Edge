@@ -28,31 +28,38 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7999aa57-db05-4468-9c43-4f6812169afb"
+      Value: "bc28fd19-ad1d-4baf-8956-771e7a49477c"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Striva
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{39226DC6-0A62-459B-9299-54EC88AF6935}|Intro to Cycling - Sponsored by Striva [Item not found]"
+      Value: "{39226DC6-0A62-459B-9299-54EC88AF6935}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value:        
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: Product Speacialist
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T175924Z
+      Value: 20211005T123822Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
+      Value: Jacob Gonzalez
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
       Value: Jacob Gonzalez
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
