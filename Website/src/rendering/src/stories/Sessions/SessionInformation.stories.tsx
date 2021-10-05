@@ -113,17 +113,13 @@ const rooms = [
 
 const timeslots = [
   {
-    fields: {
-      Name: {
-        value: '8 am',
-      },
+    name: {
+      value: '8 am',
     },
   },
   {
-    fields: {
-      Name: {
-        value: '9 am',
-      },
+    name: {
+      value: '9 am',
     },
   },
 ];
