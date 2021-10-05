@@ -114,9 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomFields\CmpListField.cs" />
-    <Compile Include="CustomFieldMapping\DemoFieldTypeFactoryStore.cs" />
     <Compile Include="FieldSerializer\DemoImageFieldSerializer.cs" />
     <Compile Include="FieldSerializer\GetDemoImageFieldSerializer.cs" />
+    <Compile Include="FieldMapping\DemoFieldTypeFactoryStore.cs" />
     <Compile Include="Pipelines\DemoCmpMultilistFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
     <Compile Include="Utilities\IndexRebuild.aspx.cs">

@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
-using System.Collections.Generic;
 using Sitecore.Services.GraphQL.Content.TemplateGeneration.FieldMapping;
 using Sitecore.Services.GraphQL.EdgeSchema.GraphTypes.FieldTypes;
 using Sitecore.Services.GraphQL.EdgeSchema.TemplateGeneration.FieldMapping;
 
-namespace Sitecore.Demo.Edge.Website.CustomFieldMapping
+namespace Sitecore.Demo.Edge.Website.FieldMapping
 {
-    
+    // DEMO TEAM CUSTOMIZATION: This class is a copy of the Sitecore.Services.GraphQL.EdgeSchema.TemplateGeneration.FieldMapping.DefaultFieldTypeFactoryStore class with added field types.
+    // TODO: Compare this file with the original class every time we upgrade Sitecore, Headless Services module, and Experience Edge module.
     public class DemoFieldTypeFactoryStore : IFieldTypeFactoryStore
     {
         private Dictionary<string, IFieldTypeFactory> _fieldTypes;
+
+        public IFieldTypeFactory Default => _fieldTypes["default"];
 
         public DemoFieldTypeFactoryStore()
         {
@@ -40,8 +41,9 @@ namespace Sitecore.Demo.Edge.Website.CustomFieldMapping
             _fieldTypes.Add("reference", new GenericFieldTypeFactory<LookupFieldGraphType>());
             _fieldTypes.Add("tree", new GenericFieldTypeFactory<LookupFieldGraphType>());
             _fieldTypes.Add("default", new GenericFieldTypeFactory<ItemFieldGraphType>());
-            //DEMO TEAM CUSTOMIZATION: Add CmpMultiListField here so it's serializes as a MultiListField for graphQL
+            // DEMO TEAM CUSTOMIZATION: Add CmpMultiList field so it serializes as a MultiList field for GraphQL
             _fieldTypes.Add("CmpMultiList", new GenericFieldTypeFactory<MultilistFieldGraphType>());
+            // END CUSTOMIZATION
         }
 
         public IFieldTypeFactory GetFieldFactory(string fieldType)
@@ -49,7 +51,5 @@ namespace Sitecore.Demo.Edge.Website.CustomFieldMapping
             _fieldTypes.TryGetValue(fieldType, out var factory);
             return factory;
         }
-
-        public IFieldTypeFactory Default => _fieldTypes["default"];
     }
 }

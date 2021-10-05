@@ -15,44 +15,48 @@ SharedFields:
   Value: |
     query {
       item(path: "/sitecore/content/EdgeWebsite/home/sessions", language: "en") {
-        children(hasLayout: true, first: 30) {
+        children(hasLayout: true, first: 200) {
           total
           results {
             ... on Session {
-              name
+              itemName: name
+              name: field(name: "name") {
+                value
+              }
               premium {
                 value
               }
               image {
                 jsonValue
               }
-              rooms: field(name: "Rooms") {
-                ... on MultilistField {
-                  targetItems {
-                    name
-                  }
-                }
-              }
               day{
                 ... on MultilistField {
                   targetItems {
-                    name
+                    name: field(name: "name") {
+                      value
+                    }
                   }
                 }
               }
               timeslots{
                 ... on MultilistField {
                   targetItems {
-                    name
+                    name: field(name: "name") {
+                      value
+                    }
                   }
                 }
               }
               speakers{
                 ... on MultilistField {
                   targetItems {
-                    name
-                    role: field(name:"role"){
-                      value
+                    ... on Speaker {
+                      name: field(name: "name") {
+                        value
+                      }
+                      role{
+                        value
+                      }
                     }
                   }
                 }

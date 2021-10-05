@@ -113,10 +113,14 @@ const rooms = [
 
 const timeslots = [
   {
-    name: '8 am',
+    name: {
+      value: '8 am',
+    },
   },
   {
-    name: '9 am',
+    name: {
+      value: '9 am',
+    },
   },
 ];
 

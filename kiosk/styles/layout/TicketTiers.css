@@ -1,8 +1,8 @@
 .tickets {
-  @apply min-h-full bg-black justify-center items-center p-5 w-full grid grid-flow-row;
+  @apply min-h-full bg-black-light justify-center items-center p-5 w-full grid grid-flow-row;
 
   .title {
-    @apply capitalize text-white w-full;
+    @apply uppercase text-white w-full;
   }
 
   .section__tickets {

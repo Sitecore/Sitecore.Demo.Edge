@@ -1,12 +1,9 @@
 ﻿---
-ID: "6cf37ff6-755c-5b1a-b5eb-63f03481db4a"
-Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
-Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
-Path: /sitecore/content/EdgeWebsite/home/sponsors/sponsorize
+ID: "03f1be36-1a55-4e14-b124-91ea0a5fb451"
+Parent: "fb92c880-ac62-46d7-968e-f649cefcb3f5"
+Template: "fb92c880-ac62-46d7-968e-f649cefcb3f5"
+Path: /sitecore/templates/Project/edgewebsite/PaymentProgress/__Standard Values
 SharedFields:
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 550
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -35,65 +32,65 @@ SharedFields:
           key="jss-section-content"
           md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
         <r
+          uid="{9B9A789D-4B84-5E15-81D6-E0F05459F29C}"
           rname="Header"
           id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
           par=""
-          ph="/jss-header"
-          uid="{2FA22010-FC3D-5D46-9007-36B27E8DFEFE}" />
+          ph="/jss-header" />
         <r
+          uid="{86519445-70A0-59EA-A5D6-F628B01D3E0B}"
           rname="MainNavigation"
           id="{09516A66-F92F-5638-B073-8F9A79765778}"
           par=""
-          ph="/jss-header/jss-header-content-{2FA22010-FC3D-5D46-9007-36B27E8DFEFE}-0"
-          uid="{1A2B0992-4811-55E5-AF93-8245C027238D}" />
+          ph="/jss-header/jss-header-content-{9B9A789D-4B84-5E15-81D6-E0F05459F29C}-0" />
         <r
-          rname="Section"
-          ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          uid="{AD58E241-2A2B-5B1C-B1AF-CB57F69AEB70}"
+          rname="Breadcrumb"
+          id="{780D897C-7065-585F-8585-28118565FA00}"
           par=""
-          ph="/jss-main"
-          uid="{D7D16A53-6F7E-53E2-B8FE-CD3530C00068}" />
+          ph="/jss-main" />
         <r
-          rname="NewsGrid"
-          ds="{0E4A63DA-7496-557E-BF80-5BD52255E431}"
-          id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+          uid="{387DB9D1-F359-5E17-ABF3-96F70FF63317}"
+          rname="ProductDetail"
+          id="{9E28A6C1-7D05-5C7F-81AF-1AF94C7A2F4D}"
           par=""
-          ph="/jss-main/jss-section-content-{D7D16A53-6F7E-53E2-B8FE-CD3530C00068}-0"
-          uid="{23B18355-D91A-5287-95F2-079D7C28F16A}" />
+          ph="/jss-main" />
         <r
+          uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}"
+          rname="FullImageCTASection"
+          id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
+          par=""
+          ph="/jss-main" />
+        <r
+          uid="{794BC956-E900-5DCF-B609-170F413C058C}"
           rname="Section"
           ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           par=""
-          ph="/jss-main"
-          uid="{5DFFE6B6-9B7E-5CD0-BE2F-F09C6CEBE6E3}" />
+          ph="/jss-main" />
         <r
+          uid="{08F0DC5D-BC3F-58D1-887F-5AEA888167E9}"
           rname="SponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
-          ph="/jss-main/jss-section-content-{5DFFE6B6-9B7E-5CD0-BE2F-F09C6CEBE6E3}-0"
-          uid="{7A298658-BE07-5772-B4EA-8CDA7CCA55DD}" />
+          ph="/jss-main/jss-section-content-{794BC956-E900-5DCF-B609-170F413C058C}-0" />
         <r
+          uid="{8C98BB69-A969-5159-8B4D-C609D3E114D2}"
           rname="Footer"
           id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
           par=""
-          ph="/jss-footer"
-          uid="{EF648399-0498-5A1C-8FC0-F67769210D74}" />
+          ph="/jss-footer" />
       </d>
     </r>
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Sponsorize
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210625T201846Z
+      Value: 20210825T162001Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -104,14 +101,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6f3fb6e2-ac03-49a6-bb92-d4858d46f5fa"
+      Value: "6e703fac-8a3c-45c2-8172-4ba3970552ce"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T162405Z
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
-      Value: Sponsorize
+      Value: 20210914T221854Z

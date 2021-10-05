@@ -10,7 +10,10 @@ export default {
 } as ComponentMeta<typeof Section>;
 
 const speaker = {
-  name: 'Item Name',
+  itemName: 'Item Name',
+  name: {
+    value: 'Item Name',
+  },
   picture: {
     jsonValue: {
       value: {

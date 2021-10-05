@@ -21,12 +21,15 @@ SharedFields:
         children(hasLayout: true) {
           results {
             ... on Speaker {
-              name
+              itemName: name
+              name: field(name: "name") {
+                value
+              }
               picture {
                 jsonValue
               }
-              featured{
-                value:boolValue
+              featured {
+                value: boolValue
               }
             }
           }

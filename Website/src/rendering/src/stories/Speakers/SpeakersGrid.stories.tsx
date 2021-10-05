@@ -11,7 +11,10 @@ export default {
 const Template: ComponentStory<typeof SpeakersGrid> = (args) => <SpeakersGrid {...args} />;
 
 const speaker1 = {
-  name: 'First Speaker Name',
+  itemName: 'First Speaker Name',
+  name: {
+    value: 'First Speaker Name',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -29,7 +32,10 @@ const speaker1 = {
 } as Speaker;
 
 const speaker2 = {
-  name: 'Sophia Taylor',
+  itemName: 'Sophia Taylor',
+  name: {
+    value: 'Sophia Taylor',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -47,7 +53,10 @@ const speaker2 = {
 } as Speaker;
 
 const speaker3 = {
-  name: 'Jalen Taylor',
+  itemName: 'Jalen Taylor',
+  name: {
+    value: 'Jalen Taylor',
+  },
   picture: {
     jsonValue: {
       value: {

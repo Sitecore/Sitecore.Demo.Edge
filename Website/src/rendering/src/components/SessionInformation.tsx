@@ -9,6 +9,7 @@ import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
+import { Timeslot } from '../interfaces/Timeslot';
 
 type Speaker = {
   fields: {
@@ -29,10 +30,6 @@ type Room = {
   fields: {
     Name: Field<string>;
   };
-};
-
-type Timeslot = {
-  name: string;
 };
 
 type Day = {
