@@ -1,8 +1,37 @@
-.roomList {
-  @apply bg-white p-10;
+body,
+html {
+  height: 100%;
+}
 
-  min-width: 1184px;
-  min-height: 582px;
+.roomList {
+  @apply p-10 w-screen h-screen overflow-hidden relative;
+
+  background-image: url(../../public/conference-hallway.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+
+  .tv-one {
+    @apply absolute cursor-pointer;
+
+    top: 545px;
+    left: 415px;
+    width: 329px;
+    height: 203px;
+    clip-path: polygon(0 0, 100% 17%, 100% 95%, 0% 100%);
+    text-indent: -9999px;
+  }
+
+  .tv-two {
+    @apply absolute;
+
+    top: 628px;
+    left: 1249px;
+    width: 98px;
+    height: 99px;
+    clip-path: polygon(0 0, 100% 12%, 100% 95%, 0% 100%);
+    cursor: pointer;
+    text-indent: -9999px;
+  }
 
   ul {
     @apply w-full grid grid-cols-2 gap-4;

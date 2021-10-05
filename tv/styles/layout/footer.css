@@ -7,7 +7,7 @@
   align-items: center;
 
   .controller {
-    transition: all 1s linear;
+    transition: all 300 linear;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -26,7 +26,7 @@
   }
 
   .controls {
-    transition: all 1s linear;
+    transition: all 300 linear;
     bottom: 0;
     position: absolute;
     visibility: hidden;
@@ -38,7 +38,7 @@
     }
   }
 
-  &.active {
+  &:hover {
     .controller {
       bottom: 50px;
 
@@ -54,7 +54,7 @@
     .controls {
       max-height: 50px;
       visibility: visible;
-      transition: all 1s linear;
+      transition: all 300 linear;
       display: flex;
 
       a {

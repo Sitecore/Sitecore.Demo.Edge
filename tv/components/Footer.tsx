@@ -1,21 +1,17 @@
 import Link from 'next/link';
-import { useState } from 'react';
 
 const Footer = (): JSX.Element => {
-  const [showMe, setShowMe] = useState(false);
-  function toggle() {
-    setShowMe(!showMe);
-    document.getElementsByClassName('footer')[0].classList.toggle('active');
-  }
-
   return (
     <div className="footer">
-      <div className="controller" onClick={toggle}>
+      <div className="controller">
         <span className="controller-text">^</span>
       </div>
       <div className="controls">
         <Link href="/rooms" passHref>
           <a>Rooms</a>
+        </Link>
+        <Link href="/" passHref>
+          <a>Home</a>
         </Link>
         <Link href="/schedule" passHref>
           <a>Schedule</a>

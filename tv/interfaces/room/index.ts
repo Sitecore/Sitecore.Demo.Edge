@@ -19,3 +19,22 @@ export interface Room {
   id: string;
   name: string;
 }
+
+export interface Session {
+  id: string;
+  name: string;
+  speakers: Speaker[];
+  timeslots: Timeslot[];
+  sessionImage: {
+    urls: string;
+  };
+}
+
+export interface Speaker {
+  id: string;
+  name: string;
+}
+
+export interface Timeslot {
+  taxonomyLabel: string;
+}

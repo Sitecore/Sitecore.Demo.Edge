@@ -6,13 +6,19 @@ import { Carousel } from 'react-responsive-carousel';
 
 export default function Home() {
   return (
-    <Carousel autoPlay={true} showThumbs={false}>
-      <div>
-        <Image src={banner1} alt="Sample" />
+    <div id="container">
+      <div id="monitor">
+        <div id="monitorscreen">
+          <Carousel autoPlay={true} showThumbs={false}>
+            <div>
+              <Image src={banner1} alt="Sample" />
+            </div>
+            <div>
+              <Image src={banner2} alt="Sample" />
+            </div>
+          </Carousel>
+        </div>
       </div>
-      <div>
-        <Image src={banner2} alt="Sample" />
-      </div>
-    </Carousel>
+    </div>
   );
 }

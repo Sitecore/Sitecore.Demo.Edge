@@ -13,13 +13,7 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <main>
-        <div id="container">
-          <div id="monitor">
-            <div id="monitorscreen">
-              <Component {...pageProps} />
-            </div>
-          </div>
-        </div>
+        <Component {...pageProps} />
       </main>
 
       <footer>
