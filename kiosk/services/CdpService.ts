@@ -3,9 +3,10 @@ import {
   logViewEvent as boxeverLogViewEvent,
   identifyVisitor as boxeverIdentifyVisitor,
   forgetCurrentGuest as boxeverForgetCurrentGuest,
-  getGuestRef,
-  boxeverPost,
+  logEvent,
+  saveDataExtension,
 } from './BoxeverService';
+import { TICKETS } from '../models/mock-tickets';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
@@ -36,18 +37,25 @@ export function forgetCurrentGuest(): Promise<void> {
   return boxeverForgetCurrentGuest();
 }
 
-export function createDataExtensionByName(
-  extName: string,
-  payload?: Record<string, unknown>
-): Promise<unknown> {
-  return getGuestRef()
-    .then((response) => {
-      return boxeverPost(
-        '/createguestdataextension?guestRef=' + response.guestRef + '&dataExtensionName=' + extName,
-        payload
-      );
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+/**
+ * Logs the purchase of a ticket as an event, and stores the owned ticket in the visitor CDP profile.
+ */
+export function logTicketPurchase(ticketId: number): Promise<unknown> {
+  const ticket = TICKETS[ticketId];
+  const dataExtensionName = 'Ticket';
+
+  const eventPayload = {
+    ticketId: ticketId,
+    ticketName: ticket.name,
+    pricePaid: ticket.price,
+  };
+  const dataExtensionPayload = {
+    key: dataExtensionName,
+    ticketId: ticketId,
+    ticketName: ticket.name,
+  };
+
+  return logEvent('TICKET_PURCHASED', eventPayload).then(() =>
+    saveDataExtension(dataExtensionName, dataExtensionPayload)
+  );
 }

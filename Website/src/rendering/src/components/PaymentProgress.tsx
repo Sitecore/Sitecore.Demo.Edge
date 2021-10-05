@@ -24,22 +24,22 @@ function GetActiveClass(activeStep: number, index: number) {
 
 const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
   const router = useRouter();
-  const ticketId = router?.query?.ticket ? router?.query?.ticket : 0;
+  const ticketId = router?.query?.ticket ?? 0;
 
   const steps = [
     {
       index: 1,
-      link: '/tickets/registration/attendee?ticket=' + ticketId,
+      link: `/tickets/registration/attendee?ticket=${ticketId}`,
       text: 'Personal Information',
     },
     {
       index: 2,
-      link: '/tickets/payment?ticket=' + ticketId,
+      link: `/tickets/payment?ticket=${ticketId}`,
       text: 'Payment Information',
     },
     {
       index: 3,
-      link: '/tickets/payment/confirmed?ticket=' + ticketId,
+      link: `/tickets/payment/confirmed?ticket=${ticketId}`,
       text: 'Payment Confirmation',
     },
   ];

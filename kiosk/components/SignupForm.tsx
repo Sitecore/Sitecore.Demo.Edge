@@ -10,9 +10,7 @@ const SignupForm = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    return await identifyVisitor(email).then(() => {
-      Router.push(`/signup/confirmed`);
-    });
+    return await identifyVisitor(email).then(() => Router.push(`/signup/confirmed`));
   };
 
   return (
@@ -49,7 +47,6 @@ const SignupForm = (): JSX.Element => {
                       className="w-full px-3 py-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
                       placeholder="Email"
                       type="text"
-                      autoComplete="email"
                       required
                       onChange={(e) => setEmail(e.target.value)}
                     />

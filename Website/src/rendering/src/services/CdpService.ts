@@ -2,11 +2,11 @@ import {
   BoxeverScripts,
   logViewEvent as boxeverLogViewEvent,
   identifyVisitor as boxeverIdentifyVisitor,
-  trackEventByName as boxeverTrackEventByName,
-  getGuestRef,
-  boxeverPost,
+  logEvent,
+  saveDataExtension,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
+import { TICKETS } from '../models/mock-tickets';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
@@ -44,25 +44,25 @@ export function identifyVisitor(
   return boxeverIdentifyVisitor(email, firstName, lastName, phoneNumber);
 }
 
-export function logEventByName(
-  eventName: string,
-  payload?: Record<string, unknown>
-): Promise<unknown> {
-  return boxeverTrackEventByName(eventName, payload);
-}
+/**
+ * Logs the purchase of a ticket as an event, and stores the owned ticket in the visitor CDP profile.
+ */
+export function logTicketPurchase(ticketId: number): Promise<unknown> {
+  const ticket = TICKETS[ticketId];
+  const dataExtensionName = 'Ticket';
 
-export function createDataExtensionByName(
-  extName: string,
-  payload?: Record<string, unknown>
-): Promise<unknown> {
-  return getGuestRef()
-    .then((response) => {
-      return boxeverPost(
-        '/createguestdataextension?guestRef=' + response.guestRef + '&dataExtensionName=' + extName,
-        payload
-      );
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+  const eventPayload = {
+    ticketId: ticketId,
+    ticketName: ticket.name,
+    pricePaid: ticket.price,
+  };
+  const dataExtensionPayload = {
+    key: dataExtensionName,
+    ticketId: ticketId,
+    ticketName: ticket.name,
+  };
+
+  return logEvent('TICKET_PURCHASED', eventPayload).then(() =>
+    saveDataExtension(dataExtensionName, dataExtensionPayload)
+  );
 }

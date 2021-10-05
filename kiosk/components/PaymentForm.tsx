@@ -1,8 +1,8 @@
 import { FormEvent, useState } from 'react';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import { Ticket } from '../models/ticket';
 import TicketView from './Ticket';
-import { createDataExtensionByName, identifyVisitor } from '../services/CdpService';
+import { identifyVisitor, logTicketPurchase } from '../services/CdpService';
 import Link from 'next/link';
 
 type PaymentFormProps = {
@@ -14,33 +14,20 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
-  const router = useRouter();
-  const ticketId = router.query?.id?.toString() ?? '0';
-
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (!ticketId?.trim()) {
-      alert(
-        'Ticket information unavailable. Please go back to the tickets page and select a valid ticket.'
-      );
-      return;
-    }
 
     if (!firstName.trim() || !lastName.trim() || !email.trim()) {
       alert('All form fields must be filled.');
       return;
     }
 
-    const payload = { ticket_id: ticketId };
-    const pushPayload = { ...payload, key: 'Ticket Type' };
-
     return await identifyVisitor(email, firstName, lastName)
-      .then(() => {
-        createDataExtensionByName('TicketPurchased', pushPayload);
-      })
-      .then(() => {
-        router.push(`/payment/confirmed/${props.ticket.id}`);
+      .then(() => logTicketPurchase(parseInt(props.ticket.id)))
+      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}`))
+      .catch((e) => {
+        console.log(e);
+        alert('An error occured while processing the purchase.');
       });
   };
 

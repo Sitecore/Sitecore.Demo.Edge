@@ -1,6 +1,6 @@
-import router from 'next/router';
 import { FormEvent } from 'react';
-import { logEventByName, createDataExtensionByName } from '../services/CdpService';
+import Router from 'next/router';
+import { logTicketPurchase } from '../services/CdpService';
 
 const PaymentAndBillingForm = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -18,15 +18,11 @@ const PaymentAndBillingForm = (): JSX.Element => {
       return;
     }
 
-    const payload = { ticket_id: ticketId };
-    const pushPayload = { ...payload, key: 'Ticket Type' };
-
-    return await logEventByName('TICKET_PURCHASED', payload)
-      .then(() => {
-        createDataExtensionByName('TicketPurchased', pushPayload);
-      })
-      .then(() => {
-        router.push('/tickets/payment/confirmed?ticket=' + ticketId);
+    return await logTicketPurchase(parseInt(ticketId))
+      .then(() => Router.push(`/tickets/payment/confirmed?ticket=${ticketId}`))
+      .catch((e) => {
+        console.log(e);
+        alert('An error occured while processing the purchase.');
       });
   };
 
@@ -124,12 +120,9 @@ const PaymentAndBillingForm = (): JSX.Element => {
         </p>
       </div>
       <div className="button-area">
-        <button type="submit" className="btn--main btn--main--round">
+        <button className="btn--main btn--main--round" type="submit">
           Confirm Purchase
         </button>
-        {/* <Link href={`/tickets/payment/confirmed?ticket=${ticketId}`}>
-          <a className="btn--main btn--main--round">Confirm Purchase</a>
-        </Link> */}
       </div>
     </form>
   );
