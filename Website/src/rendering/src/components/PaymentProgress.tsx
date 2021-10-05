@@ -2,6 +2,7 @@ import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import RequireDatasource from './RequireDatasource';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 type PaymentProgressProps = ComponentProps & {
   fields: {
@@ -22,20 +23,23 @@ function GetActiveClass(activeStep: number, index: number) {
 }
 
 const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
+  const router = useRouter();
+  const ticketId = router.query.ticket;
+
   const steps = [
     {
       index: 1,
-      link: '/tickets/registration/attendee',
+      link: '/tickets/registration/attendee?ticket=' + ticketId,
       text: 'Personal Information',
     },
     {
       index: 2,
-      link: '/tickets/payment',
+      link: '/tickets/payment?ticket=' + ticketId,
       text: 'Payment Information',
     },
     {
       index: 3,
-      link: '/tickets/payment/confirmed',
+      link: '/tickets/payment/confirmed?ticket=' + ticketId,
       text: 'Payment Confirmation',
     },
   ];
