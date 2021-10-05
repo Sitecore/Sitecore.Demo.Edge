@@ -51,7 +51,7 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
             }
             foreach (HtmlAttribute attribute in (IEnumerable<HtmlAttribute>)htmlNode.Attributes)
             {
-                string transformationValue = (attribute.Name == "src" && renderedField.Contains("stylelabs-content-id")) ? "&t=" + sourceValue : "";
+                string transformationValue = (attribute.Name == "src" && renderedField.Contains("stylelabs-content-id") && !string.IsNullOrWhiteSpace(sourceValue)) ? "&t=" + sourceValue : "";
 
                 dictionary[attribute.Name] = HttpUtility.HtmlDecode(attribute.Value + transformationValue);
 
