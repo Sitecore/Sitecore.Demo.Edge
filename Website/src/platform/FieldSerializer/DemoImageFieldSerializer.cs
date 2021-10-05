@@ -35,8 +35,6 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
 
         protected virtual IDictionary<string, string> ParseRenderedImage(string renderedField, string sourceValue)
         {
-            sourceValue = sourceValue ?? "web";
-
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             HtmlDocument htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(renderedField);
