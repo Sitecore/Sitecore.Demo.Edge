@@ -15,7 +15,28 @@ SharedFields:
   Value: Office/16x16/person.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: 
+  Value: |
+    query {
+      item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
+        children(hasLayout: true) {
+          results {
+            ... on Speaker {
+              itemName: name
+              name: field(name: "name") {
+                value
+              }
+              picture {
+                jsonValue
+              }
+              featured {
+                value: boolValue
+              }
+            }
+          }
+        }
+      }
+    }
+    
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -27,7 +48,7 @@ SharedFields:
   Value: "{FDF43AAD-C5D1-54E4-9909-59BFDDC86689}"
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{2F5C334E-5615-423C-8281-9FC180191302}"
+  Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: 
@@ -49,11 +70,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7823a5b8-6bb5-4248-8583-f19acd96b214"
+      Value: "b45075a8-ff1a-4b86-8617-bde7956a2589"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T204850Z
+      Value: 20210930T220355Z
