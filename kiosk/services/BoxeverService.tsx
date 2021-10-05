@@ -396,22 +396,24 @@ export function getGuestRef(): Promise<GuestRefResponse> {
   }) as Promise<GuestRefResponse>;
 }
 
-// TEMP: Keeping this commented method for near future use
-// function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
+export function boxeverPost(
+  action: string,
+  payload?: Record<string, unknown>
+): AxiosPromise<unknown> {
+  const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
-//   const options: AxiosRequestConfig = {
-//     method: 'POST',
-//     headers: {
-//       'content-type': 'application/json',
-//     },
-//     data: payload,
-//     withCredentials: false,
-//     url,
-//   };
+  const options: AxiosRequestConfig = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    data: payload,
+    withCredentials: false,
+    url,
+  };
 
-//   return axios(options);
-// }
+  return axios(options);
+}
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
   const url = `${CDP_PROXY_URL}/Cdp${action}`;

@@ -6,6 +6,11 @@ const PaymentAndBillingForm = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const ticketId =
+      typeof window === 'undefined'
+        ? '0'
+        : new URLSearchParams(window.location.search).get('ticket');
+
     if (!ticketId?.trim()) {
       alert(
         'Ticket information unavailable. Please go back to the tickets page and select a valid ticket.'
@@ -24,9 +29,6 @@ const PaymentAndBillingForm = (): JSX.Element => {
         router.push('/tickets/payment/confirmed?ticket=' + ticketId);
       });
   };
-
-  const ticketId =
-    typeof window === 'undefined' ? '0' : new URLSearchParams(window.location.search).get('ticket');
 
   return (
     <form className="form payment-and-billing-form" onSubmit={handleFormSubmit}>

@@ -3,6 +3,8 @@ import {
   logViewEvent as boxeverLogViewEvent,
   identifyVisitor as boxeverIdentifyVisitor,
   forgetCurrentGuest as boxeverForgetCurrentGuest,
+  getGuestRef,
+  boxeverPost,
 } from './BoxeverService';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
@@ -32,4 +34,20 @@ export function identifyVisitor(
  */
 export function forgetCurrentGuest(): Promise<void> {
   return boxeverForgetCurrentGuest();
+}
+
+export function createDataExtensionByName(
+  extName: string,
+  payload?: Record<string, unknown>
+): Promise<unknown> {
+  return getGuestRef()
+    .then((response) => {
+      return boxeverPost(
+        '/createguestdataextension?guestRef=' + response.guestRef + '&dataExtensionName=' + extName,
+        payload
+      );
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }

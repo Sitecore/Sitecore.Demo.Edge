@@ -406,7 +406,6 @@ export function getGuestRef(): Promise<GuestRefResponse> {
   }) as Promise<GuestRefResponse>;
 }
 
-// TEMP: Keeping this commented method for near future use
 export function boxeverPost(
   action: string,
   payload?: Record<string, unknown>
