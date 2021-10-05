@@ -10,27 +10,34 @@ export default {
 } as ComponentMeta<typeof Section>;
 
 const speaker = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  itemName: 'Item Name',
+  name: {
+    value: 'Item Name',
+  },
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
       },
     },
-    Featured: { value: true },
+  },
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker Role',
   },
 } as Speaker;
 
 const speakerProps = {
   fields: {
-    items: [speaker, speaker, speaker, speaker],
+    data: {
+      item: {
+        children: {
+          results: [speaker, speaker, speaker, speaker],
+        },
+      },
+    },
   },
 } as SpeakersGridProps;
 

@@ -13,12 +13,40 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/16x16/document_tag.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query {
+      item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
+        children(hasLayout: true, first: 22) {
+          total
+          results {
+            ... on Speaker {
+              itemName: name
+              name: field(name: "name") {
+                value
+              }
+              role {
+                value
+              }
+              picture {
+                jsonValue
+              }
+              featured {
+                value:boolValue
+              }
+            }
+          }
+        }
+      }
+    }
+    
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{FC5201C0-7E5F-483C-818B-BFE8A55A5A0F}"
+  Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: 

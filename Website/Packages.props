@@ -17,5 +17,7 @@
     <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="18.0.0" />
     <PackageReference Update="Sitecore.JavaScriptServices.ViewEngine" Version="18.0.0" />
     <PackageReference Update="Sitecore.Connector.CMP" Version="3.1.0" />
+    <PackageReference Update="Sitecore.Services.GraphQL" Version="10.1.0" />
+    <PackageReference Update="Sitecore.Services.GraphQL.EdgeSchema" Version="5.1.0" />
   </ItemGroup>
 </Project>
