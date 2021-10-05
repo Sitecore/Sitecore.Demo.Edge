@@ -11,38 +11,40 @@ export default {
 const Template: ComponentStory<typeof SessionsGrid> = (args) => <SessionsGrid {...args} />;
 
 const speaker = {
-  name: 'Joe Rogan',
+  name: {
+    value: 'Joe Rogan',
+  },
   role: {
     value: 'Speaker',
   },
 } as Speaker;
 
-const rooms = [
-  {
-    name: 'Room 1',
-  },
-  {
-    name: 'Room 2',
-  },
-];
-
 const timeslots = [
   {
-    name: '8 am',
+    name: {
+      value: '8 am',
+    },
   },
   {
-    name: '9 am',
+    name: {
+      value: '9 am',
+    },
   },
 ];
 
 const days = [
   {
-    name: 'Day 1',
+    name: {
+      value: 'Day 1',
+    },
   },
 ];
 
 const session1 = {
-  name: 'Fitbit',
+  itemName: 'Fitbit',
+  name: {
+    value: 'Fitbit',
+  },
   premium: {
     value: false,
   },
@@ -55,9 +57,6 @@ const session1 = {
   },
   speakers: {
     targetItems: [speaker],
-  },
-  rooms: {
-    targetItems: rooms,
   },
   day: {
     targetItems: days,
@@ -68,7 +67,10 @@ const session1 = {
 } as Session;
 
 const session2 = {
-  name: 'Eat smart',
+  itemName: 'Eat smart',
+  name: {
+    value: 'Eat smart',
+  },
   premium: {
     value: false,
   },
@@ -82,9 +84,6 @@ const session2 = {
   speakers: {
     targetItems: [speaker],
   },
-  rooms: {
-    targetItems: rooms,
-  },
   day: {
     targetItems: days,
   },
@@ -94,7 +93,10 @@ const session2 = {
 } as Session;
 
 const session3 = {
-  name: 'Premium Session',
+  itemName: 'Premium Session',
+  name: {
+    value: 'Premium Session',
+  },
   premium: {
     value: true,
   },
@@ -107,9 +109,6 @@ const session3 = {
   },
   speakers: {
     targetItems: [speaker],
-  },
-  rooms: {
-    targetItems: rooms,
   },
   day: {
     targetItems: days,
@@ -120,7 +119,10 @@ const session3 = {
 } as Session;
 
 const session4 = {
-  name: 'Workout',
+  itemName: 'Workout',
+  name: {
+    value: 'Workout',
+  },
   premium: {
     value: true,
   },
@@ -133,9 +135,6 @@ const session4 = {
   },
   speakers: {
     targetItems: [speaker],
-  },
-  rooms: {
-    targetItems: rooms,
   },
   day: {
     targetItems: days,

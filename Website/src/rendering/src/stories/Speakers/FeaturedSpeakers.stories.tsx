@@ -11,7 +11,10 @@ export default {
 const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
 
 const speaker = {
-  name: 'First Speaker Name',
+  itemName: 'First Speaker Name',
+  name: {
+    value: 'First Speaker Name',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -26,7 +29,10 @@ const speaker = {
 } as Speaker;
 
 const speaker1 = {
-  name: 'Second Speaker',
+  itemName: 'Second Speaker',
+  name: {
+    value: 'Second Speaker',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -41,7 +47,10 @@ const speaker1 = {
 } as Speaker;
 
 const speaker2 = {
-  name: 'Third Speaker',
+  itemName: 'Third Speaker',
+  name: {
+    value: 'Third Speaker',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -56,7 +65,10 @@ const speaker2 = {
 } as Speaker;
 
 const speaker3 = {
-  name: 'Another Speaker',
+  itemName: 'Another Speaker',
+  name: {
+    value: 'Another Speaker',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -71,7 +83,10 @@ const speaker3 = {
 } as Speaker;
 
 const speaker4 = {
-  name: 'Last Speaker',
+  itemName: 'Last Speaker',
+  name: {
+    value: 'Last Speaker',
+  },
   picture: {
     jsonValue: {
       value: {
