@@ -69,7 +69,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
                   </div>
                 )}
                 <div className="item-details item-details-left">
-                  <div className="item-title">{session.name.value}</div>
+                  <Text tag="div" className="item-title" field={session.name}></Text>
                   {session.day?.targetItems &&
                     session.day.targetItems.length > 0 &&
                     session.day.targetItems.map((day, index) => (
