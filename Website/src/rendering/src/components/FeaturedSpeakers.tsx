@@ -1,17 +1,19 @@
 import Link from 'next/link';
-import { Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type Speaker = {
-  name: string;
+  // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
+  itemName: string;
+  name: Field<string>;
   picture: {
     jsonValue: {
-      value: {
-        src: string;
-      };
+      value: ImageField;
     };
   };
-  featured: Field<boolean>;
+  featured: {
+    value: boolean;
+  };
 };
 
 type FeaturedSpeakersProps = ComponentProps & {
@@ -38,7 +40,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
           .sort()
           .slice(0, parseInt(props.params.NumberOfSpeakers))
           .map((speaker, index) => (
-            <Link key={index} href={'/speakers/' + speaker.name} passHref>
+            <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
               <a className="grid-item">
                 <Image
                   field={speaker.picture.jsonValue}
@@ -48,7 +50,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
                   loading="lazy"
                 />
                 <div className="item-details">
-                  <p>{speaker.name}</p>
+                  <Text tag="p" field={speaker.name}></Text>
                 </div>
               </a>
             </Link>

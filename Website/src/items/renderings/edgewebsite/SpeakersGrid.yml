@@ -18,17 +18,21 @@ SharedFields:
   Value: |
     query {
       item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
-        children(hasLayout: true) {
+        children(hasLayout: true, first: 22) {
+          total
           results {
             ... on Speaker {
-              name
-              role{
+              itemName: name
+              name: field(name: "name") {
+                value
+              }
+              role {
                 value
               }
               picture {
                 jsonValue
               }
-              featured{
+              featured {
                 value:boolValue
               }
             }

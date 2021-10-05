@@ -1,6 +1,6 @@
-import { Timeslot } from 'src/interfaces/Timeslot';
+import { Timeslot } from '../interfaces/Timeslot';
 
-export const getTimeString = (time: number, isEndTime: boolean): string => {
+const getTimeString = (time: number, isEndTime: boolean): string => {
   const minutes = isEndTime ? ':55' : ':00';
   time = isEndTime ? time - 1 : time;
   if (time == 12) {
@@ -18,11 +18,13 @@ export const getSessionTime = (timeslots: Timeslot[]): string => {
   if (timeslots) {
     const times: number[] = [];
     timeslots.forEach((timeslot) => {
-      let startTime = parseInt(timeslot.name ?? '');
-      if (startTime < 7) {
-        startTime = startTime + 12;
+      let startTime = parseInt(timeslot.name?.value ?? timeslot.name ?? '');
+      if (startTime !== NaN) {
+        if (startTime < 7) {
+          startTime = startTime + 12;
+        }
+        times.push(startTime);
       }
-      times.push(startTime);
     });
     times.sort();
     if (timeslots.length > 1) {

@@ -1,36 +1,31 @@
+import { CSSProperties } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
+import { Timeslot } from '../interfaces/Timeslot';
 
 type Speaker = {
-  name: string;
+  name: Field<string>;
   role: Field<string>;
 };
 
-type Room = {
-  name: string;
-};
-
-type Timeslot = {
-  name: string;
-};
-
 type Day = {
-  name: string;
+  name: Field<string>;
 };
 
 type Session = {
-  name: string;
+  // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
+  itemName: string;
+  name: Field<string>;
   premium: Field<boolean>;
-  image: { jsonValue: { value: { src: string } } };
+  image: {
+    jsonValue: ImageField;
+  };
   speakers: {
     targetItems: Speaker[];
-  };
-  rooms: {
-    targetItems: Room[];
   };
   day: {
     targetItems: Day[];
@@ -52,67 +47,70 @@ type SessionsGridProps = ComponentProps & {
   };
 };
 
-const SessionsGrid = (props: SessionsGridProps): JSX.Element => (
-  <div className="item-grid sessions-grid">
-    <div className="grid-content">
-      {props.fields.data?.item?.children?.results &&
-        props.fields.data.item.children.results.map((session, index) => (
-          <Link key={index} href={'/sessions/' + session.name} passHref>
-            <a className="grid-item">
-              <div
-                className="image-hover-zoom"
-                style={{
-                  backgroundImage: 'url(' + session.image.jsonValue.value.src + ')',
-                  backgroundSize: 'cover',
-                }}
-              ></div>
-              {session.premium?.value && (
-                <div className="session-featured" title="Premium">
-                  <FontAwesomeIcon className="icon-yellow" icon={faStar} />
-                </div>
-              )}
-              <div className="item-details item-details-left">
-                <div className="item-title">{session.name}</div>
-                {session.day?.targetItems &&
-                  session.day.targetItems.length > 0 &&
-                  session.day.targetItems.map((day, index) => (
-                    <p key={index}>
-                      <span>
-                        <FontAwesomeIcon className="icon" icon={faCalendar} />
-                      </span>
-                      <span>{day.name}</span>
-                    </p>
-                  ))}
-                {session.timeslots?.targetItems && session.timeslots.targetItems.length > 0 && (
-                  <p>
-                    <span>
-                      <FontAwesomeIcon className="icon" icon={faClock} />
-                    </span>
-                    {getSessionTime(session.timeslots.targetItems)}
-                  </p>
+const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
+  const getImageStyles = (session: Session): CSSProperties =>
+    session?.image?.jsonValue?.value?.src
+      ? {
+          backgroundImage: `url(${session.image.jsonValue.value.src})`,
+        }
+      : {};
+
+  return (
+    <div className="item-grid sessions-grid">
+      <div className="grid-content">
+        {props.fields.data?.item?.children?.results &&
+          props.fields.data.item.children.results.map((session, index) => (
+            <Link key={index} href={`/sessions/${session.itemName}`} passHref>
+              <a className="grid-item">
+                <div className="image-hover-zoom" style={getImageStyles(session)}></div>
+                {session.premium?.value && (
+                  <div className="session-featured" title="Premium">
+                    <FontAwesomeIcon className="icon-yellow" icon={faStar} />
+                  </div>
                 )}
-                {session.speakers?.targetItems &&
-                  session.speakers.targetItems.map((speaker, index) => (
-                    <p key={index}>
-                      <span>
-                        <FontAwesomeIcon className="icon" icon={faUser} />
-                      </span>
-                      <span className="speaker-name">{speaker.name}</span>
-                      {speaker.role.value && (
+                <div className="item-details item-details-left">
+                  <div className="item-title">{session.name.value}</div>
+                  {session.day?.targetItems &&
+                    session.day.targetItems.length > 0 &&
+                    session.day.targetItems.map((day, index) => (
+                      <p key={index}>
                         <span>
-                          {' | '}
-                          <Text tag="span" field={speaker.role}></Text>
+                          <FontAwesomeIcon className="icon" icon={faCalendar} />
                         </span>
-                      )}
+                        <Text tag="span" field={day.name}></Text>
+                      </p>
+                    ))}
+                  {session.timeslots?.targetItems && session.timeslots.targetItems.length > 0 && (
+                    <p>
+                      <span>
+                        <FontAwesomeIcon className="icon" icon={faClock} />
+                      </span>
+                      {getSessionTime(session.timeslots.targetItems)}
                     </p>
-                  ))}
-              </div>
-            </a>
-          </Link>
-        ))}
+                  )}
+                  {session.speakers?.targetItems &&
+                    session.speakers.targetItems.map((speaker, index) => (
+                      <p key={index}>
+                        <span>
+                          <FontAwesomeIcon className="icon" icon={faUser} />
+                        </span>
+                        <Text tag="span" className="speaker-name" field={speaker.name}></Text>
+                        {speaker.role?.value && (
+                          <span>
+                            {' | '}
+                            <Text tag="span" field={speaker.role}></Text>
+                          </span>
+                        )}
+                      </p>
+                    ))}
+                </div>
+              </a>
+            </Link>
+          ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export type { Session, Speaker };
 export default SessionsGrid;
