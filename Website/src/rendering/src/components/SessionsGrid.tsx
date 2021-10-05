@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
