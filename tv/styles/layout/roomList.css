@@ -13,7 +13,7 @@ html {
   .tv-one {
     @apply absolute cursor-pointer;
 
-    top: 545px;
+    top: 425px;
     left: 415px;
     width: 329px;
     height: 203px;
@@ -24,7 +24,7 @@ html {
   .tv-two {
     @apply absolute;
 
-    top: 628px;
+    top: 508px;
     left: 1249px;
     width: 98px;
     height: 99px;
