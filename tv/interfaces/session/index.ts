@@ -20,7 +20,7 @@ export interface SessionResult {
   name: string;
   description: string;
   room: RoomResults;
-  speakers: SpeakerResults
+  speakers: SpeakerResults;
   roomName: string;
   timeslotName: string;
   timeslotOrder: number;
