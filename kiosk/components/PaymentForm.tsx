@@ -23,7 +23,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
     }
 
     return await identifyVisitor(email, firstName, lastName).then(() => {
-      Router.push(`/payment/confirmed/${props.ticket.id}`);
+      Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`);
     });
   };
 
