@@ -1,4 +1,4 @@
-import { getSessions } from '../../api/queries/getSessions';
+import { getSessionsByRoom } from '../../api/queries/getSessions';
 import { getRoomById, getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Room } from '../../interfaces/room';
@@ -50,7 +50,7 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessions(params.id);
+  const { sessions } = await getSessionsByRoom(params.id);
   const { room } = await getRoomById(params.id);
 
   return {

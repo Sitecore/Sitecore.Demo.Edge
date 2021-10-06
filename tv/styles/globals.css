@@ -15,6 +15,7 @@
 @import './layout/roomDisplay.css';
 @import './layout/currentSession.css';
 @import './layout/speakerList.css';
+@import './layout/SpeakerDisplay.css';
 
 body {
   @apply font-sans;
