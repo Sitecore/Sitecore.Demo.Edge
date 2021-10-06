@@ -24,7 +24,7 @@ export interface Session {
   id: string;
   name: string;
   speakers: Speaker[];
-  timeslots: Timeslot[];
+  timeslotToSession: Timeslot[];
   sessionImage: {
     urls: string;
   };

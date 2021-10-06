@@ -1,10 +1,12 @@
 import { Session } from '../interfaces/session';
+import { Room } from '../interfaces/room';
 import Image from 'next/image';
 import qr from '../public/play_qr.png';
 import logo from '../public/p_logo_transparent.png';
 
 type RoomProps = {
   sessions: Session[];
+  room: Room;
 };
 
 const RoomDisplay = (props: RoomProps): JSX.Element => {
@@ -29,13 +31,13 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
                 <div className="w-full">
                   <Image className="logo" src={logo} alt="logo" width={60} height={80} />
                   <div className="room-name text-right text-white text-7xl font-extrabold inline right-0 absolute pt-10">
-                    203
+                    {props.room.name}
                   </div>
                 </div>
                 <h1 className="eyebrow">Happening now</h1>
-                <h1 className="title">Creating the ultimate outdoor experience</h1>
+                <h1 className="title">{props.sessions[0]?.name}</h1>
                 <div className="detail">
-                  Richard Johnson
+                  {props.sessions[0]?.speaker}
                   <br />
                   10:00 AM - 11:00 AM
                 </div>

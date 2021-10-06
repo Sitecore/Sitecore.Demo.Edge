@@ -18,6 +18,10 @@ export interface Image {
   results: AssetResult[];
 }
 
+export interface SpeakerResults {
+  results: SpeakerResult[];
+}
+
 export interface SpeakerResult {
   id: string;
   name: string;

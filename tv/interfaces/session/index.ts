@@ -1,4 +1,5 @@
 import { RoomResults } from '../room';
+import { SpeakerResults } from '../speaker';
 
 export interface TaxonomyLabel {
   'en-US': string;
@@ -19,10 +20,11 @@ export interface SessionResult {
   name: string;
   description: string;
   room: RoomResults;
+  speakers: SpeakerResults
   roomName: string;
   timeslotName: string;
   timeslotOrder: number;
-  timeslots: Timeslots;
+  timeslotToSession: Timeslots;
 }
 
 export interface AllDemoSession {
@@ -42,6 +44,7 @@ export interface Session {
   name: string;
   description: string;
   room: string | undefined;
+  speaker: string | undefined;
   timeslot: string;
   sortOrder: number;
 }

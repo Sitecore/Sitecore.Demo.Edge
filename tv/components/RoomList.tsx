@@ -10,14 +10,24 @@ type RoomListProps = {
 
 const RoomList = (props: RoomListProps): JSX.Element => {
   return (
-    <div className="roomList">
-      <Link href={'/rooms/' + props.rooms[0].id} passHref>
-        <img className="tv-one" src="../public/tv-mock.png" alt="" />
-      </Link>
-      <Link href={'/rooms/' + props.rooms[1].id} passHref>
-        <img className="tv-two" src="../public/tv-mock.png" alt="" />
-      </Link>
-    </div>
+    <>
+      <ul className="absolute p-5 top-0 left-0 z-50 text-black-lightest">
+        {props.rooms.map((room, index) => (
+          <li key={index}>
+            <Link href={'/rooms/' + room.id}>{room.name}</Link>
+          </li>
+        ))}
+      </ul>
+
+      <div className="roomList">
+        <Link href={'/rooms/' + props.rooms[0].id} passHref>
+          <img className="tv-one" src="../public/tv-mock.png" alt="" />
+        </Link>
+        <Link href={'/rooms/' + props.rooms[1].id} passHref>
+          <img className="tv-two" src="../public/tv-mock.png" alt="" />
+        </Link>
+      </div>
+    </>
   );
 };
 

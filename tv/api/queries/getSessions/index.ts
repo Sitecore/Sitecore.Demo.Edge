@@ -18,11 +18,17 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
             }
           }
 
-          timeslots {
+          timeslotToSession {
             results {
               id
               taxonomyLabel
               sortOrder
+            }
+          }
+
+          speakers {
+            results {
+              name
             }
           }
         }
@@ -45,9 +51,13 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
             session.room = s.room.results[0].name;
           }
 
-          if (s.timeslots.results.length > 0) {
-            session.timeslot = s.timeslots.results[0].taxonomyLabel['en-US'];
-            session.sortOrder = s.timeslots.results[0].sortOrder;
+          if (s.speakers.results.length > 0) {
+            session.speaker = s.speakers.results[0].name;
+          }
+
+          if (s.timeslotToSession.results.length > 0) {
+            session.timeslot = s.timeslotToSession.results[0].taxonomyLabel['en-US'];
+            session.sortOrder = s.timeslotToSession.results[0].sortOrder;
           }
 
           sessions.push(session);
@@ -65,6 +75,7 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
             id: '1',
             room: 'Room 1001',
             timeslot: '09:00am - 10:00am',
+            speaker: "Speaker",
             sortOrder: 0,
           },
           {
@@ -74,6 +85,7 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
             id: '1',
             room: 'Room 1001',
             timeslot: '10:00am - 11:00am',
+            speaker: "Speaker",
             sortOrder: 1,
           },
           {
@@ -83,6 +95,7 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
             id: '1',
             room: 'Room 1001',
             timeslot: '11:00am - 10:00pm',
+            speaker: "Speaker",
             sortOrder: 2,
           },
           {
@@ -92,6 +105,7 @@ export const getSessions = async (room: string): Promise<{ sessions: Session[] }
             id: '1',
             room: 'Room 1001',
             timeslot: '02:00pm - 3:00pm',
+            speaker: "Speaker",
             sortOrder: 3,
           },
         ],
