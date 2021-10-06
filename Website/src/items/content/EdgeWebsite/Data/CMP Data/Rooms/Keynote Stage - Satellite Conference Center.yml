@@ -22,7 +22,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Keynote Stage - Satellite Conference Center</p>
-                
+                 
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,7 +33,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "50a91054-e90f-48ea-9d7f-ed133099268c"
+      Value: "49b9f94e-d863-4798-9e20-b97c542351e5"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: "Keynote Stage - Satellite Conference Center"
@@ -43,7 +43,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174006Z
+      Value: 20211006T112802Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{443A690D-1909-4C5C-A1A4-3F9824C73FF6}"
