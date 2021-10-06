@@ -9,26 +9,6 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
         results {
           id
           name
-          sessions: room {
-            results {
-              name
-              speakers:speakers{
-                results{
-                  name
-                }
-              }
-              timeslots:timeslotToSession{
-                results{
-                  taxonomyLabel
-                }
-              }
-              image:sessionImage{
-                results{
-                  urls
-                }
-              }
-            }
-          }
         }
       }
     }
@@ -37,11 +17,9 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     const results: AllRoomsResponse = (await fetchGraphQL(roomsQuery)) as AllRoomsResponse;
 
     if (results) {
-      console.log(results);
       const rooms: Room[] = results.data.allDemo_Room.results;
       return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
     } else {
-      console.log('no results');
       return {
         rooms: [
           {
