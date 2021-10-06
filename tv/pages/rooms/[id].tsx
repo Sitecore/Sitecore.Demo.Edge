@@ -22,7 +22,13 @@ export default function RoomPage(props: RoomProps) {
         backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
       }}
     >
-      <RoomDisplay sessions={props.sessions} room={props.room} />
+      <div id="container">
+        <div id="monitor">
+          <div id="monitorscreen">
+            <RoomDisplay sessions={props.sessions} room={props.room} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
