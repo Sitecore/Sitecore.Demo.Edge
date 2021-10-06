@@ -9,7 +9,6 @@
 /* 2. Our styles */
 
 @import './layout/frame.css';
-@import './layout/Header.css';
 @import './layout/sessionList.css';
 @import './layout/roomList.css';
 @import './layout/roomDisplay.css';

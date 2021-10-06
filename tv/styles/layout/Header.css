@@ -1,7 +1,0 @@
-.header {
-  @apply p-5;
-
-  a {
-    @apply px-5;
-  }
-}

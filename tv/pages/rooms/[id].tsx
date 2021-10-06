@@ -21,6 +21,7 @@ export default function RoomPage(props: RoomProps) {
       style={{
         backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
       }}
+      onClick={() => window.location.href = '/rooms' }
     >
       <div id="container">
         <div id="monitor">
