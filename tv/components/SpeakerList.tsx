@@ -13,7 +13,7 @@ const SpeakerList = (props: SpeakerListProps): JSX.Element => {
       <ul>
         {props.speakers.map((speaker, index) => (
           <li key={index}>
-            <Link href={'/speakers/' + speaker.id}>
+            <Link href={'/speakers/' + speaker.id} passHref>
               <div className="speaker">
                 <div className="photo">
                   <Image

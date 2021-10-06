@@ -8,6 +8,8 @@ type RoomProps = {
 };
 
 const RoomDisplay = (props: RoomProps): JSX.Element => {
+  console.log(props.sessions);
+
   return (
     <div id="container">
       <div id="monitor">
