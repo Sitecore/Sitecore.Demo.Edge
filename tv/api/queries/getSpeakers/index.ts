@@ -1,5 +1,6 @@
 import { fetchGraphQL } from '../..';
-import { AllSpeakersResponse, Image, Speaker, SpeakerResult } from '../../../interfaces/speaker';
+import { AllSpeakersResponse, Speaker, SpeakerResult } from '../../../interfaces/speaker';
+import { Image } from '../../../interfaces/asset';
 
 const parseSpeaker = function (speakerResult: SpeakerResult): Speaker {
   const speaker = { ...speakerResult } as Speaker;

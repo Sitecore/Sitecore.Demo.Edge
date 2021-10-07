@@ -4,9 +4,7 @@
   min-width: 1200px;
 
   .image-left {
-    @apply flex-1 bg-cover bg-center h-full w-1/2 absolute;
-
-    background-image: url(/room-bg.jpg);
+    @apply flex-1 h-full w-1/2 absolute;
 
     .checkin-qrcode {
       @apply absolute bg-blue-light bottom-0 left-4 h-56 w-44 p-2 pt-0;

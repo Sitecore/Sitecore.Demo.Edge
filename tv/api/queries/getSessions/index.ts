@@ -4,12 +4,26 @@ import { RoomResult } from '../../../interfaces/room';
 
 const sessionsQuery = `
 query {
-  allDemo_Session{
-    results{
+  allDemo_Session {
+    results {
       id
       name
+      sessionImage {
+        results {
+          id
+          fileName
+          assetToPublicLink(first: 1) {
+            results {
+              id
+              relativeUrl
+              versionHash
+            }
+          }
+        }
+      }
+
       room {
-        results{
+        results {
           id
           name
         }
@@ -43,6 +57,7 @@ const fallbackResponse = [
     room: 'Room 1001',
     timeslot: '09:00am - 10:00am',
     speaker: 'Speaker',
+    image: '',
     sortOrder: 0,
   },
   {
@@ -53,6 +68,7 @@ const fallbackResponse = [
     room: 'Room 1001',
     timeslot: '10:00am - 11:00am',
     speaker: 'Speaker',
+    image: '',
     sortOrder: 1,
   },
 ];
@@ -61,6 +77,12 @@ const parseSession = function (s: SessionResult) {
   const session = {} as Session;
   session.id = s.id;
   session.name = s.name;
+
+  const asset = s.sessionImage.results[0]?.assetToPublicLink.results[0];
+  const relativeUrl = asset?.relativeUrl;
+  const versionHash = asset?.versionHash;
+
+  session.image = `${relativeUrl}?v=${versionHash}`;
 
   if (s.room.results.length > 0) {
     session.room = s.room.results[0].name;

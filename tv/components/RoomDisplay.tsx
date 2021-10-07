@@ -3,6 +3,7 @@ import { Room } from '../interfaces/room';
 import Image from 'next/image';
 import qr from '../public/play_qr.png';
 import logo from '../public/p_logo_transparent.png';
+import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type RoomProps = {
   sessions: Session[];
@@ -13,6 +14,16 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
   return (
     <div className="roomDisplay">
       <div className="image-left">
+        {props.sessions.length > 0 && (
+          <Image
+            loader={contentHubImageLoader}
+            src={props.sessions[0]?.image}
+            layout="fill"
+            objectFit="cover"
+            alt="Sample"
+          />
+        )}
+
         <div className="checkin-qrcode">
           <div className="checkin-text">CHECK IN</div>
           <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
