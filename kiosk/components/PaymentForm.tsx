@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import Router from 'next/router';
 import { Ticket } from '../models/ticket';
 import TicketView from './Ticket';
-import { identifyVisitor } from '../services/CdpService';
+import { identifyVisitor, logTicketPurchase } from '../services/CdpService';
 import Link from 'next/link';
 
 type PaymentFormProps = {
@@ -22,9 +22,13 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
       return;
     }
 
-    return await identifyVisitor(email, firstName, lastName).then(() => {
-      Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`);
-    });
+    return await identifyVisitor(email, firstName, lastName)
+      .then(() => logTicketPurchase(parseInt(props.ticket.id)))
+      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`))
+      .catch((e) => {
+        console.log(e);
+        alert('An error occured while processing the purchase.');
+      });
   };
 
   return (
@@ -43,9 +47,8 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
                 <label>First Name *</label>
                 <div>
                   <input
-                    placeholder="Last Name"
+                    placeholder="First Name"
                     type="text"
-                    autoComplete="given-name"
                     required
                     onChange={(e) => setFirstName(e.target.value)}
                   />
@@ -58,7 +61,6 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
                   <input
                     placeholder="Last Name"
                     type="text"
-                    autoComplete="family-name"
                     required
                     onChange={(e) => setLastName(e.target.value)}
                   />
@@ -71,7 +73,6 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
                   <input
                     placeholder="Email"
                     type="text"
-                    autoComplete="email"
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -91,7 +92,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
         </div>
       </div>
       <div className="paymentForm__buttons">
-        <Link href="/">
+        <Link href="/tickets">
           <a className="btn--main btn--main--round btn--main--big">Previous</a>
         </Link>
       </div>

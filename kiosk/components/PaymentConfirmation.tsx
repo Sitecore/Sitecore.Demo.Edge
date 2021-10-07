@@ -14,9 +14,7 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    return await forgetCurrentGuest().then(() => {
-      Router.push('/');
-    });
+    return await forgetCurrentGuest().then(() => Router.push('/'));
   };
 
   const handleQrClick = () => {

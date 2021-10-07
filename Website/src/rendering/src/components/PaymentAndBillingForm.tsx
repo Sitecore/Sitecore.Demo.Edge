@@ -1,11 +1,33 @@
-import Link from 'next/link';
+import { FormEvent } from 'react';
+import Router from 'next/router';
+import { logTicketPurchase } from '../services/CdpService';
 
 const PaymentAndBillingForm = (): JSX.Element => {
-  const ticketId =
-    typeof window === 'undefined' ? '0' : new URLSearchParams(window.location.search).get('ticket');
+  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const ticketId =
+      typeof window === 'undefined'
+        ? '0'
+        : new URLSearchParams(window.location.search).get('ticket');
+
+    if (!ticketId?.trim()) {
+      alert(
+        'Ticket information unavailable. Please go back to the tickets page and select a valid ticket.'
+      );
+      return;
+    }
+
+    return await logTicketPurchase(parseInt(ticketId))
+      .then(() => Router.push(`/tickets/payment/confirmed?ticket=${ticketId}`))
+      .catch((e) => {
+        console.log(e);
+        alert('An error occured while processing the purchase.');
+      });
+  };
 
   return (
-    <div className="form payment-and-billing-form">
+    <form className="form payment-and-billing-form" onSubmit={handleFormSubmit}>
       <h2>Payment Information</h2>
       <div className="payment-methods">
         <input type="radio" value="Visa" name="payment" id="visa" />{' '}
@@ -98,11 +120,11 @@ const PaymentAndBillingForm = (): JSX.Element => {
         </p>
       </div>
       <div className="button-area">
-        <Link href={`/tickets/payment/confirmed?ticket=${ticketId}`}>
-          <a className="btn--main btn--main--round">Confirm Purchase</a>
-        </Link>
+        <button className="btn--main btn--main--round" type="submit">
+          Confirm Purchase
+        </button>
       </div>
-    </div>
+    </form>
   );
 };
 
