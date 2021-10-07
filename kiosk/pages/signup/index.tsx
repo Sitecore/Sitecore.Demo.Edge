@@ -1,5 +1,10 @@
 import SignupForm from '../../components/SignupForm';
+import Screen from '../../components/Screen';
 
 export default function Signup() {
-  return <SignupForm />;
+  return (
+    <Screen>
+      <SignupForm />
+    </Screen>
+  );
 }

@@ -91,7 +91,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
         </div>
       </div>
       <div className="paymentForm__buttons">
-        <Link href="/">
+        <Link href="/start">
           <a className="btn--main btn--main--round btn--main--big">Previous</a>
         </Link>
       </div>

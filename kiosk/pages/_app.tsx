@@ -26,19 +26,7 @@ function App({ Component, pageProps, router }: AppProps) {
       </Head>
 
       <main>
-        <div className="temp-wrapper temp-wrapper--wider">
-          <div className="px px--ls">
-            <div className="px__body"></div>
-
-            <div className="px__screen">
-              <div className="px__screen__">
-                <div className="px__screen__frame">
-                  <Component {...pageProps} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Component {...pageProps} />
       </main>
 
       {/* DEMO TEAM CUSTOMIZATION - CDP integration */}

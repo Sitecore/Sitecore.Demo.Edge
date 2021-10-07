@@ -8,7 +8,7 @@ const SignupConfirmation = (): JSX.Element => {
     event.preventDefault();
 
     return await forgetCurrentGuest().then(() => {
-      Router.push('/');
+      Router.push('/start');
     });
   };
 
