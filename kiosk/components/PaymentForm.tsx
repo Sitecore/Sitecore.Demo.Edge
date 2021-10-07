@@ -24,7 +24,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
 
     return await identifyVisitor(email, firstName, lastName)
       .then(() => logTicketPurchase(parseInt(props.ticket.id)))
-      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}`))
+      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`))
       .catch((e) => {
         console.log(e);
         alert('An error occured while processing the purchase.');

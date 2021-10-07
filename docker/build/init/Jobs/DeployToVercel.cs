@@ -173,6 +173,7 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
+            cmd.Run($"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");

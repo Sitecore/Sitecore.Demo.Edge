@@ -307,19 +307,6 @@ export function identifyVisitor(
   return sendEventCreate(eventConfig);
 }
 
-// Boxever identification from an email address
-export function identifyByEmail(email: string): Promise<unknown> {
-  return sendEventCreate({
-    type: 'IDENTITY',
-    identifiers: [
-      {
-        provider: 'email',
-        id: email,
-      },
-    ],
-  });
-}
-
 // ****************************************************************************
 // Flush Boxever local storage for current guest and starts a new anonymous
 // visitor session.
