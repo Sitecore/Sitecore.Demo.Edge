@@ -65,7 +65,7 @@
         }
 
         .left-content {
-          @apply flex-row z-20 py-4 pl-4;
+          @apply flex-row z-20 py-4 pl-4 w-full;
 
           .eyebrow {
             @apply text-orange-light uppercase text-base pt-0;

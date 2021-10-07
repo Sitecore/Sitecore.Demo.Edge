@@ -25,7 +25,7 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
         <div className="wrapper">
           <div className="w-full">
             <Image className="logo" src={logo} alt="logo" width={60} height={80} />
-            <div className="room-name text-right text-white text-7xl font-extrabold inline right-0 absolute pt-10">
+            <div className="room-name text-right text-white text-6xl font-extrabold inline right-0 absolute pt-10">
               {props.room.name}
             </div>
           </div>
@@ -40,8 +40,8 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
             <div className="background"></div>
             <div className="left-content">
               <div className="eyebrow">Coming up next...</div>
-              <div className="title">Creating the ultimate outdoor experience</div>
-              <div className="detail">Richard Johnson | 11 - 12</div>
+              <div className="title">{props.sessions[1]?.name}</div>
+              <div className="detail">{props.sessions[1]?.speaker} | 11:00 AM - 12:00 PM</div>
             </div>
             <div className="right-content">
               <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />

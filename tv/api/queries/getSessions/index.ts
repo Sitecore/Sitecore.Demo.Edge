@@ -8,7 +8,6 @@ query {
     results{
       id
       name
-      description
       room {
         results{
           id
@@ -62,7 +61,6 @@ const parseSession = function (s: SessionResult) {
   const session = {} as Session;
   session.id = s.id;
   session.name = s.name;
-  session.description = s.description;
 
   if (s.room.results.length > 0) {
     session.room = s.room.results[0].name;
@@ -107,6 +105,7 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
 export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions: Session[] }> => {
   try {
     const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
+
     if (results) {
       const sessions: Session[] = [];
 
