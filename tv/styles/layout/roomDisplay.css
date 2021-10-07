@@ -39,10 +39,10 @@
     }
 
     .wrapper {
-      @apply mb-auto mt-auto max-w-lg z-50 w-full h-full pl-10 pt-10 absolute;
+      @apply mb-auto mt-auto z-50 w-full h-full px-10 pt-10 absolute;
 
       .room-name {
-        @apply top-0;
+        @apply top-0 px-10;
       }
 
       .eyebrow {
@@ -58,7 +58,7 @@
       }
 
       .next-session {
-        @apply flex flex-row bottom-10 absolute;
+        @apply flex flex-row bottom-10 absolute w-full max-w-lg;
 
         .background {
           @apply bg-black-dark opacity-80 absolute w-full h-full z-10;
