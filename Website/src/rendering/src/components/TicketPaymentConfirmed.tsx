@@ -14,8 +14,8 @@ const TicketPaymentConfirmed = (): JSX.Element => (
       </Link>
     </div>
     <div>
-      <Link href="/support">
-        <a className="btn--main btn--main--round btn-block">Contact Support</a>
+      <Link href="/sessions">
+        <a className="btn--main btn--main--round btn-block">Browse Sessions</a>
       </Link>
     </div>
   </div>

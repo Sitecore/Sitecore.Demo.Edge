@@ -6,6 +6,8 @@ export const TICKETS: Ticket[] = [
     name: 'Online Ticket',
     pass: 'Digital Pass',
     price: 99,
+    fees: 7,
+    isUpgrade: false,
     color: 'pink',
     benefits: [
       'Digital Pass',
@@ -21,6 +23,8 @@ export const TICKETS: Ticket[] = [
     name: 'Regular Ticket',
     pass: 'Standard Pass',
     price: 199,
+    fees: 7,
+    isUpgrade: false,
     color: 'orange',
     benefits: [
       'Standard pass',
@@ -36,6 +40,8 @@ export const TICKETS: Ticket[] = [
     name: 'VIP Ticket',
     pass: 'All Access VIP Pass',
     price: 399,
+    fees: 7,
+    isUpgrade: false,
     color: 'blue',
     benefits: [
       'All access VIP pass',
@@ -45,5 +51,14 @@ export const TICKETS: Ticket[] = [
       'Print and digital ticket',
       'Unlimited customize your agenda',
     ],
+  },
+  {
+    id: '3',
+    name: 'Regular to VIP Ticket Upgrade',
+    pass: 'VIP Pass Upgrade',
+    price: 200,
+    fees: 0,
+    isUpgrade: true,
+    upgradeTargetTicket: 2,
   },
 ];

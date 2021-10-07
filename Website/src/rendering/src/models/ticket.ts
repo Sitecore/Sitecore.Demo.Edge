@@ -1,8 +1,11 @@
 export interface Ticket {
   id: string;
+  name: string;
   pass: string;
   price: number;
-  name: string;
-  color: string;
-  benefits: string[];
+  fees: number;
+  isUpgrade: boolean;
+  color?: string;
+  benefits?: string[];
+  upgradeTargetTicket?: number;
 }
