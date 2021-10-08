@@ -5,7 +5,7 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
   try {
     const roomsQuery = `
     query {
-      allDemo_Room {
+      allDemo_Room(orderBy: NAME_ASC, first: 10, where: { name_contains: "hall" }) {
         results {
           id
           name
@@ -15,6 +15,7 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     `;
 
     const results: AllRoomsResponse = (await fetchGraphQL(roomsQuery)) as AllRoomsResponse;
+
     if (results) {
       const rooms: Room[] = results.data.allDemo_Room.results;
       return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
@@ -40,6 +41,40 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     console.log(err);
     return {
       rooms: [],
+    };
+  }
+};
+
+export const getRoomById = async (id: string): Promise<{ room: Room }> => {
+  try {
+    const roomByIdQuery = `
+    query {
+      allDemo_Room (where:{id_eq:"${id}"}){
+        results {
+          id
+          name
+        }
+      }
+    }
+    `;
+
+    const results: AllRoomsResponse = (await fetchGraphQL(roomByIdQuery)) as AllRoomsResponse;
+    if (results) {
+      return {
+        room: { ...results.data.allDemo_Room.results[0] },
+      };
+    } else {
+      return {
+        room: {
+          id: '1',
+          name: 'Room 1001',
+        },
+      };
+    }
+  } catch (err) {
+    console.log(err);
+    return {
+      room: {} as Room,
     };
   }
 };

@@ -1,3 +1,7 @@
+body {
+  background: url(/backgrounds/conference.webp) no-repeat center center fixed;
+}
+
 .temp-wrapper {
   margin: 20px;
 }

@@ -9,9 +9,7 @@ namespace Sitecore.Demo.Init.Jobs
 
     class DeployToVercel : TaskBase
     {
-        private string? contentHubApiKey;
         private const string SitecoreApiKey = "{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}";
-        private const string ContentHubEdgeEndpoint = "https://edge.sitecorecloud.io/api/graphql/v1";
 
         public DeployToVercel(InitContext initContext)
             : base(initContext)
@@ -47,10 +45,17 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            contentHubApiKey = Environment.GetEnvironmentVariable("CONTENT_HUB_API_KEY");
-            if (string.IsNullOrEmpty(contentHubApiKey))
+            var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
+            if (string.IsNullOrEmpty(cmpEndpointUrl))
             {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CONTENT_HUB_API_KEY is not configured");
+              Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
+              return;
+            }
+      
+            var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
+            if (string.IsNullOrEmpty(cmpApiKey))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_API_KEY is not configured");
                 return;
             }
 
@@ -75,14 +80,14 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            DeployTv(ns, contentHubApiKey, token, scope);
+            DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
             DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
 
             await Complete();
         }
 
-        private static void DeployTv(string ns, string contentHubApiKey, string token, string scope)
+        private static void DeployTv(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
         {
             var sourceDirectory = "C:\\app\\tv";
             var targetDirectory = $"C:\\app\\{ns}-tv";
@@ -100,9 +105,9 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Configure env. variables
             cmd.Run(
-                $"echo | set /p=\"{ContentHubEdgeEndpoint}\" | vercel env add DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{contentHubApiKey}\" | vercel env add DELIVERY_API_KEY production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
@@ -165,7 +170,6 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Create new project
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
-            var productionUrl = $"https://{ns}-kiosk-{scope}.vercel.app";
 
             // Configure env. variables
             cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");

@@ -1,5 +1,6 @@
 import { fetchGraphQL } from '../..';
-import { AllSpeakersResponse, Image, Speaker, SpeakerResult } from '../../../interfaces/speaker';
+import { AllSpeakersResponse, Speaker, SpeakerResult } from '../../../interfaces/speaker';
+import { Image } from '../../../interfaces/asset';
 
 const parseSpeaker = function (speakerResult: SpeakerResult): Speaker {
   const speaker = { ...speakerResult } as Speaker;
@@ -16,7 +17,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
   try {
     const speakersQuery = `
     query {
-      allDemo_Speaker {
+      allDemo_Speaker(first: 8) {
         results {
           id
           name
@@ -40,6 +41,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     `;
 
     const results: AllSpeakersResponse = (await fetchGraphQL(speakersQuery)) as AllSpeakersResponse;
+
     if (results) {
       const speakers: Speaker[] = [];
       for (const speakerResult of results.data.allDemo_Speaker.results) {

@@ -7,7 +7,9 @@ const SignupConfirmation = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    return await forgetCurrentGuest().then(() => Router.push('/'));
+    return await forgetCurrentGuest().then(() => {
+      Router.push('/start');
+    });
   };
 
   return (
