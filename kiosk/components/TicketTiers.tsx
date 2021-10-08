@@ -51,7 +51,7 @@ class TicketTiers extends React.Component {
           />
         </div>
         <div className="tickets__buttons">
-          <Link href="/">
+          <Link href="/start">
             <a className="btn--main btn--main--round btn--main--big">Previous</a>
           </Link>
           {this.state.selectedTicket ? (

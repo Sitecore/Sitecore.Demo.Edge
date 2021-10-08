@@ -5,7 +5,7 @@
     @apply m-auto p-6;
 
     .room {
-      @apply font-semibold py-3 uppercase text-yellow-400;
+      @apply font-semibold py-3 uppercase text-yellow-dark;
 
       min-width: 592px;
     }
@@ -15,7 +15,7 @@
     }
 
     .timeSlot {
-      @apply text-2xl py-3 font-semibold uppercase text-yellow-400;
+      @apply text-2xl py-3 font-semibold uppercase text-yellow-dark;
     }
 
     .description {

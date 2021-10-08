@@ -1,4 +1,4 @@
-import { getSessions } from '../../api/queries/getSessions';
+import { getSessionsBySpeaker } from '../../api/queries/getSessions';
 import { getSpeakers, getSpeakerById } from '../../api/queries/getSpeakers';
 import { Speaker } from '../../interfaces/speaker';
 import { Session } from '../../interfaces/session';
@@ -15,7 +15,15 @@ export declare type SpeakerParams = {
 };
 
 export default function SpeakerPage(props: SpeakerProps) {
-  return <SpeakerDisplay {...props} />;
+  return (
+    <div id="container">
+      <div id="monitor">
+        <div id="monitorscreen">
+          <SpeakerDisplay {...props} />{' '}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // This function gets called at build time
@@ -36,7 +44,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export const getStaticProps = async ({ params }: SpeakerParams) => {
   const { speaker } = await getSpeakerById(params.id);
-  const { sessions } = await getSessions('8zA5upmX40i227rWgxskxA');
+  const { sessions } = await getSessionsBySpeaker(speaker.id);
 
   return {
     props: {

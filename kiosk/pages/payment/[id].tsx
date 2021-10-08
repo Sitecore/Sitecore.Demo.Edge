@@ -1,6 +1,7 @@
 import PaymentForm from '../../components/PaymentForm';
 import { TICKETS } from '../../models/mock-tickets';
 import { Ticket } from '../../models/ticket';
+import Screen from '../../components/Screen';
 
 export interface Params {
   id: string;
@@ -11,7 +12,11 @@ export declare type PaymentParams = {
 };
 
 export default function Payment(ticket: Ticket) {
-  return <PaymentForm ticket={ticket}></PaymentForm>;
+  return (
+    <Screen>
+      <PaymentForm ticket={ticket}></PaymentForm>
+    </Screen>
+  );
 }
 
 // This function gets called at build time

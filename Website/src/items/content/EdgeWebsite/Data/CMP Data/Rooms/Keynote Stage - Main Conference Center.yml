@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|Opening Keynote [Item not found]"
+      Value: "{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 1000
@@ -24,8 +24,8 @@ Languages:
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
       Value: |
-        <p>Keynote Stage - Main Conference Center</p>
-                
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere.</p>
+        
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -36,7 +36,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2ee44a2f-9094-4eb6-a402-2f1ab8f68617"
+      Value: "2e8ca38e-1467-4f6e-ab48-9f48ebe76889"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: "Keynote Stage - Main Conference Center"
@@ -46,7 +46,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174003Z
+      Value: 20211006T112551Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{B6D5789C-3F8E-4CAC-97E5-B0334FD67DE8}"

@@ -1,5 +1,6 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 import Script from 'next/script';
+import BoxeverServiceConfig from './BoxeverServiceConfig';
 
 // ***** TYPES *****
 
@@ -157,7 +158,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
     {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
-      channel: 'WEB',
+      channel: BoxeverServiceConfig.channel,
       language: 'EN',
       currency: 'CAD',
       pos: 'PLAY! Summit',
@@ -268,6 +269,15 @@ export function logViewEvent(additionalData?: Record<string, unknown>): Promise<
   return sendEventCreate(eventConfig);
 }
 
+export function logEvent(eventName: string, payload?: Record<string, unknown>): Promise<unknown> {
+  const eventConfig = {
+    type: eventName,
+    ...payload,
+  };
+
+  return sendEventCreate(eventConfig);
+}
+
 // Boxever identification
 export function identifyVisitor(
   email: string,
@@ -296,19 +306,6 @@ export function identifyVisitor(
   }
 
   return sendEventCreate(eventConfig);
-}
-
-// Boxever identification from an email address
-export function identifyByEmail(email: string): Promise<unknown> {
-  return sendEventCreate({
-    type: 'IDENTITY',
-    identifiers: [
-      {
-        provider: 'email',
-        id: email,
-      },
-    ],
-  });
 }
 
 // ****************************************************************************
@@ -396,22 +393,21 @@ export function getGuestRef(): Promise<GuestRefResponse> {
   }) as Promise<GuestRefResponse>;
 }
 
-// TEMP: Keeping this commented method for near future use
-// function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
+function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
+  const url = `${CDP_PROXY_URL}/Cdp${action}`;
 
-//   const options: AxiosRequestConfig = {
-//     method: 'POST',
-//     headers: {
-//       'content-type': 'application/json',
-//     },
-//     data: payload,
-//     withCredentials: false,
-//     url,
-//   };
+  const options: AxiosRequestConfig = {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    data: payload,
+    withCredentials: false,
+    url,
+  };
 
-//   return axios(options);
-// }
+  return axios(options);
+}
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
   const url = `${CDP_PROXY_URL}/Cdp${action}`;
@@ -442,6 +438,27 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 
 //   return axios(options);
 // }
+
+// ********************************
+// Data Extensions
+// ********************************
+export function saveDataExtension(
+  dataExtensionName: string,
+  payload?: Record<string, unknown>
+): Promise<unknown> {
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise<undefined>(function (resolve) {
+      resolve(undefined);
+    });
+  }
+
+  return getGuestRef().then((response) =>
+    boxeverPost(
+      `/createguestdataextension?guestRef=${response.guestRef}&dataExtensionName=${dataExtensionName}`,
+      payload
+    )
+  );
+}
 
 // ********************************
 // Get non-expanded guest profile

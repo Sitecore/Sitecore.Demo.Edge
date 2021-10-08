@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Footer from '../components/Footer';
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,18 +12,8 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <main>
-        <div id="container">
-          <div id="monitor">
-            <div id="monitorscreen">
-              <Component {...pageProps} />
-            </div>
-          </div>
-        </div>
+        <Component {...pageProps} />
       </main>
-
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }

@@ -1,21 +1,7 @@
-export interface PublicLink {
-  id: string;
-  relativeUrl: string;
-  versionHash: string;
-}
+import { Image } from '../asset';
 
-export interface AssetToPublicLink {
-  results: PublicLink[];
-}
-
-export interface AssetResult {
-  id: string;
-  fileName: string;
-  assetToPublicLink: AssetToPublicLink;
-}
-
-export interface Image {
-  results: AssetResult[];
+export interface SpeakerResults {
+  results: SpeakerResult[];
 }
 
 export interface SpeakerResult {

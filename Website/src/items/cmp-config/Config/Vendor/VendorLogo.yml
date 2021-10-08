@@ -3,8 +3,10 @@ ID: "5d06e737-e416-4770-b66b-4143f9b24abd"
 Parent: "331f7a34-cb11-4ac9-b7c0-c6867eb160e9"
 Template: "1c18fef2-0603-4012-9c03-f9ed654854c4"
 Path: /sitecore/system/Modules/CMP/Config/Vendor/VendorLogo
-BranchID: "36e36e00-9f7f-45f9-830e-26d309ac4295"
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
   Value: VendorLogo
@@ -32,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "76d46c53-563a-4608-a16e-be584eaed2ea"
+      Value: "bbf0d270-dd51-4859-91d5-66a0183b0809"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T184019Z
+      Value: 20211005T121830Z

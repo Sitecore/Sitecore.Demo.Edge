@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}|{1EB8E6C4-6F95-47CB-B9BC-E2F4F4121920}"
+      Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}|{91404CDE-DFEE-4269-B6E8-BAB6CE8F15B9}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 75
@@ -24,7 +24,8 @@ Languages:
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
       Value: |
-        <p>Curie Hall&nbsp;</p>
+        <p>A large hall that can hold up to 75 people and has great acoustics.</p>
+        
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,7 +36,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "af3ed550-8f8c-4869-b702-53cf6622698e"
+      Value: "57e7c2c7-7231-418c-9235-edf2ef2fe6b1"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Curie Hall
@@ -45,7 +46,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174117Z
+      Value: 20211006T112635Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{B6D5789C-3F8E-4CAC-97E5-B0334FD67DE8}"

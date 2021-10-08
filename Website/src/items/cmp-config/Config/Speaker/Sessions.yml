@@ -3,11 +3,13 @@ ID: "104b7632-7c8c-47fd-b9fd-3376095fceaf"
 Parent: "6b835483-0d83-4a75-a4f2-7743cd6d588e"
 Template: "49652eb6-f98e-4114-b46a-925b9815578a"
 Path: /sitecore/system/Modules/CMP/Config/Speaker/Sessions
-BranchID: "45dfeca8-d42a-4f2d-8dec-6a308aebf23d"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: 
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
   Value: Speakers
@@ -38,11 +40,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ea8eb332-242b-48d3-9308-f0bb2f122b6c"
+      Value: "439e8e3d-0fcf-4c30-8c05-1d95d68b9975"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T175822Z
+      Value: 20211005T121517Z

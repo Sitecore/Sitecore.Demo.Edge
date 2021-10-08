@@ -1,6 +1,7 @@
 import PaymentConfirmation from '../../../components/PaymentConfirmation';
 import { TICKETS } from '../../../models/mock-tickets';
 import { Ticket } from '../../../models/ticket';
+import Screen from '../../../components/Screen';
 
 export interface Params {
   id: string;
@@ -11,7 +12,11 @@ export declare type PaymentConfirmedParams = {
 };
 
 export default function PaymentConfirmed(ticket: Ticket) {
-  return <PaymentConfirmation ticket={ticket}></PaymentConfirmation>;
+  return (
+    <Screen>
+      <PaymentConfirmation ticket={ticket}></PaymentConfirmation>
+    </Screen>
+  );
 }
 
 // This function gets called at build time

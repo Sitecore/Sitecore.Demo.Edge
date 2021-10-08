@@ -1,11 +1,13 @@
-import { getSessions } from '../../api/queries/getSessions';
-import { getRooms } from '../../api/queries/getRooms';
+import { getSessionsByRoom } from '../../api/queries/getSessions';
+import { getRoomById, getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
+import { Room } from '../../interfaces/room';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 
 type RoomProps = {
   sessions: Session[];
+  room: Room;
 };
 
 export declare type RoomParams = {
@@ -13,7 +15,23 @@ export declare type RoomParams = {
 };
 
 export default function RoomPage(props: RoomProps) {
-  return <RoomDisplay sessions={props.sessions} />;
+  return (
+    <div
+      className="h-screen w-screen"
+      style={{
+        backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
+      }}
+      onClick={() => (window.location.href = '/rooms')}
+    >
+      <div id="container">
+        <div id="monitor">
+          <div id="monitorscreen">
+            <RoomDisplay sessions={props.sessions} room={props.room} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 // This function gets called at build time
@@ -33,11 +51,13 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessions(params.id);
+  const { sessions } = await getSessionsByRoom(params.id);
+  const { room } = await getRoomById(params.id);
 
   return {
     props: {
       sessions: sessions,
+      room: room,
     },
     revalidate: 10,
   };

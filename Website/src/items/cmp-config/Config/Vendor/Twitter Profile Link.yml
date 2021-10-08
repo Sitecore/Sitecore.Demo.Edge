@@ -6,7 +6,7 @@ Path: /sitecore/system/Modules/CMP/Config/Vendor/Twitter Profile Link
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 900
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: Vendor_TwitterLink
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "acb77b6b-6422-4fc3-8a1a-80d114dba0b5"
+      Value: "3ccfdd9a-e298-4399-a4fd-e25368dba7f8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210915T195058Z
+      Value: 20211005T121830Z

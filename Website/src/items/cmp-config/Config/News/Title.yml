@@ -4,6 +4,9 @@ Parent: "832af3f6-e535-46e6-8944-2d02523b4c0c"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
 Path: /sitecore/system/Modules/CMP/Config/News/Title
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: 23141_Title
@@ -31,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "91231b8b-f292-4b59-974f-6876318d2fcf"
+      Value: "0414286b-3519-43e3-b47e-a19e7f268069"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210809T175506Z
+      Value: 20211005T121908Z
