@@ -5,7 +5,7 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
   try {
     const roomsQuery = `
     query {
-      allDemo_Room(first: 10) {
+      allDemo_Room(orderBy:NAME_ASC, first: 10) {
         results {
           id
           name
