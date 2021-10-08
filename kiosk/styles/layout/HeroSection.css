@@ -13,21 +13,20 @@
       /* stylelint-disable */
       background: linear-gradient(
         135deg,
-        rgba(80, 80, 80, .9) 0%,
-        rgba(60, 60, 60, .9) 50%,
-        rgba(50, 50, 50, .9) 100%
+        rgba(80, 80, 80, 0.9) 0%,
+        rgba(60, 60, 60, 0.9) 50%,
+        rgba(50, 50, 50, 0.9) 100%
       );
       /* stylelint-enable */
 
       box-shadow: 0 0 20px #232323;
 
       &__text {
-        @apply p-6 relative;
-        @apply md:p-12;
+        @apply px-12 py-6 relative;
       }
 
       .logo {
-        @apply pt-5 hidden;
+        @apply hidden;
         @apply md:block;
 
         img {
@@ -42,7 +41,7 @@
       }
 
       .expo {
-        @apply text-yellow;
+        @apply text-orange;
 
         font-weight: 400;
         font-size: 1.5em;

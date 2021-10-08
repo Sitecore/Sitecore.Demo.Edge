@@ -89,6 +89,14 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+    <PackageReference Include="Sitecore.Services.GraphQL">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.Services.GraphQL.EdgeSchema">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Sitecore.LoadBalancing.config" />
@@ -98,6 +106,7 @@
     <Content Include="Utilities\IndexRebuild.aspx" />
     <Content Include="Utilities\Restart.aspx" />
     <Content Include="App_Config\Include\Sitecore.Demo.CustomFields.config" />
+    <Content Include="App_Config\Include\Sitecore.Demo.SerializeDepth.config" />
     <None Include="Platform.wpp.targets" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="README.md" />
@@ -105,7 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomFields\CmpListField.cs" />
-    <Compile Include="Pipelines\DemoCmpMultilistFieldMapping.cs" />
+    <Compile Include="FieldSerializer\DemoImageFieldSerializer.cs" />
+    <Compile Include="FieldSerializer\GetDemoImageFieldSerializer.cs" />
+    <Compile Include="FieldMapping\DemoFieldTypeFactoryStore.cs" />
+    <Compile Include="Pipelines\DemoCmpFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
     <Compile Include="Utilities\IndexRebuild.aspx.cs">
       <DependentUpon>IndexRebuild.aspx</DependentUpon>

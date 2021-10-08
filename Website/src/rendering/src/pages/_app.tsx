@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { I18nProvider } from 'next-localization';
 import Head from 'next/head';
 import NProgress from 'nprogress';
-import { CdpScripts } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { CdpScripts, identifyVisitor } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
@@ -40,6 +40,21 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       router.events.off('routeChangeError', nProgressDone);
     };
   }, [router]);
+  // END CUSTOMIZATION
+
+  // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links
+  const emailQueryStringValue = router.query['email'];
+  if (emailQueryStringValue) {
+    let email = '';
+
+    if (typeof emailQueryStringValue === 'string') {
+      email = emailQueryStringValue as string;
+    } else if (typeof emailQueryStringValue === 'object') {
+      email = emailQueryStringValue[0];
+    }
+
+    identifyVisitor(email);
+  }
   // END CUSTOMIZATION
 
   const { dictionary, ...rest } = pageProps;

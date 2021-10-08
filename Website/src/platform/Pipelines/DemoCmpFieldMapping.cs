@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using HtmlAgilityPack;
 using Sitecore.Abstractions;
 using Sitecore.Connector.CMP;
 using Sitecore.Connector.CMP.Conversion;
@@ -16,17 +17,17 @@ using Sitecore.Data;
 
 namespace Sitecore.Demo.Edge.Website.Pipelines
 {
-    public class DemoCmpMultilistFieldMapping : SaveFieldValues
+    public class DemoCmpFieldMapping : SaveFieldValues
     {
         private static CmpSettings _settings;
         private readonly ICmpConverterMapper _mapper;
         private readonly CmpHelper _cmpHelper;
 
-        public DemoCmpMultilistFieldMapping(ICmpConverterMapper mapper, BaseLog logger, CmpHelper cmpHelper,
+        public DemoCmpFieldMapping(ICmpConverterMapper mapper, BaseLog logger, CmpHelper cmpHelper,
             CmpSettings settings) : base(mapper, logger, cmpHelper, settings)
         {
             this._mapper = mapper;
-            DemoCmpMultilistFieldMapping._settings = settings;
+            DemoCmpFieldMapping._settings = settings;
             this._cmpHelper = cmpHelper;
         }
 
@@ -75,11 +76,11 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             {
                 args.EntityMappingItem = this._cmpHelper.GetEntityMappingItem(args);
             }
-            
+
             Assert.IsNotNull((object)args.EntityMappingItem,
                 "Could not find any Entity Mapping item for the Entity Type (Schema): " + args.ContentTypeIdentifier);
             bool flag = false;
-
+            
             foreach (Item obj in args.EntityMappingItem.Children.Where<Item>((Func<Item, bool>)(i =>
                i.TemplateID == Sitecore.Connector.CMP.Constants.RelationFieldMappingTemplateId)))
             {
@@ -103,7 +104,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                 {
                                     this.Logger.Error(
                                         BaseHelper.GetLogMessageText(
-                                            DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
+                                            DemoCmpFieldMapping._settings.LogMessageTitle,
                                             string.Format(
                                                 "Configuration of the field mapping '{0}' is incorrect. Required fields are not specified.",
                                                 (object)obj.ID)), (object)this);
@@ -124,7 +125,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                                         this._cmpHelper.TryMapRelationPropertyValues(args, cmpRelationName, str);
                                     args.Item[fieldName] = stringList.Count != 0
                                         ? string.Join(
-                                            DemoCmpMultilistFieldMapping._settings.RelationFieldMappingSeparator,
+                                            DemoCmpFieldMapping._settings.RelationFieldMappingSeparator,
                                             (IEnumerable<string>)stringList)
                                         : string.Empty;
                                 }
@@ -138,7 +139,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                         catch (Exception ex)
                         {
                             this.Logger.Error(BaseHelper.GetLogMessageText(
-                                    DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
+                                    DemoCmpFieldMapping._settings.LogMessageTitle,
                                     $"An error occurred during converting '{(object)str}' field to '{(object)fieldName}' field. Field mapping ID: '{(object)obj.ID}'."),
                                 ex, (object)this);
                             flag = true;
@@ -149,7 +150,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                 }
 
                 this.Logger.Error(
-                    BaseHelper.GetLogMessageText(DemoCmpMultilistFieldMapping._settings.LogMessageTitle,
+                    BaseHelper.GetLogMessageText(DemoCmpFieldMapping._settings.LogMessageTitle,
                         $"Configuration of the field mapping '{(object)obj.ID}' is incorrect. Required fields are not specified."), (object)this);
                 flag = true;
             }

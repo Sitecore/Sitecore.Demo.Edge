@@ -5,34 +5,44 @@ import { ComponentProps } from 'lib/component-props';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 type Speaker = {
-  fields: {
-    Name: Field<string>;
-    Role: Field<string>;
-    Picture: ImageField;
-    Featured: Field<boolean>;
+  // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
+  itemName: string;
+  name: Field<string>;
+  picture: {
+    jsonValue: ImageField;
   };
+  featured: {
+    value: boolean;
+  };
+  role: Field<string>;
 };
 
 type SpeakersGridProps = ComponentProps & {
   fields: {
-    items: Speaker[];
+    data: {
+      item: {
+        children: {
+          results: Speaker[];
+        };
+      };
+    };
   };
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
   <div className="section__speakers__grid container">
-    {props.fields.items &&
-      props.fields.items.map((speaker, index) => (
-        <Link key={index} href={'/speakers/' + speaker.fields.Name.value} passHref>
+    {props.fields.data?.item?.children?.results &&
+      props.fields.data.item.children.results.map((speaker, index) => (
+        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
           <a className="section__speakers__grid__speaker">
             <Image
               className="speaker__image"
-              field={speaker.fields.Picture}
-              alt={speaker.fields.Name.value}
+              field={speaker.picture.jsonValue}
+              alt={speaker.name}
             />
-            <Text className="speaker__name" tag="p" field={speaker.fields.Name}></Text>
-            <Text className="speaker__role" tag="p" field={speaker.fields.Role}></Text>
-            {speaker.fields.Featured?.value && (
+            <Text className="speaker__name" tag="p" field={speaker.name}></Text>
+            <Text className="speaker__role" tag="p" field={speaker.role}></Text>
+            {speaker.featured?.value && (
               <div className="speaker__featured" title="Featured">
                 <FontAwesomeIcon className="icon" icon={faStar} />
               </div>

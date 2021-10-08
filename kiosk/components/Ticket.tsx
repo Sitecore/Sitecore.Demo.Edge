@@ -21,9 +21,9 @@ const TicketView = (props: TicketProps): JSX.Element => {
     >
       <div className="slanted-spacer"></div>
       <div className="ticket-text">
-        <h2 className="ticket-name">Online Ticket</h2>
+        <h2 className="ticket-name">{props.ticket.name}</h2>
         <div className="ticket-subtitle">Save 20% on early bird!</div>
-        <div className="ticket-price">{props.ticket.price}</div>
+        <div className="ticket-price">${props.ticket.price}</div>
         <ul>
           <li>
             <FontAwesomeIcon icon={faCheck} /> {props.ticket.pass}

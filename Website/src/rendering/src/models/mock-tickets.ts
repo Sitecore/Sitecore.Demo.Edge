@@ -34,7 +34,7 @@ export const TICKETS: Ticket[] = [
   {
     id: '2',
     name: 'VIP Ticket',
-    pass: 'All access VIP pass',
+    pass: 'All Access VIP Pass',
     price: 399,
     color: 'blue',
     benefits: [
