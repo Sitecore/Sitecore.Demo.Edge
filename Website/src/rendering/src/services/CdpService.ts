@@ -48,18 +48,23 @@ export function identifyVisitor(
  * Logs the purchase of a ticket as an event, and stores the owned ticket in the visitor CDP profile.
  */
 export function logTicketPurchase(ticketId: number): Promise<unknown> {
-  const ticket = TICKETS[ticketId];
+  const purchasedTicketItem = TICKETS[ticketId];
+  // If the purchased ticket is an upgrade, store the target upgrade ticket in the data extension
+  const ownedTicket =
+    typeof purchasedTicketItem.upgradeTargetTicket !== 'undefined'
+      ? TICKETS[purchasedTicketItem.upgradeTargetTicket]
+      : purchasedTicketItem;
   const dataExtensionName = 'Ticket';
 
   const eventPayload = {
     ticketId: ticketId,
-    ticketName: ticket.name,
-    pricePaid: ticket.price,
+    ticketName: purchasedTicketItem.name,
+    pricePaid: purchasedTicketItem.price,
   };
   const dataExtensionPayload = {
     key: dataExtensionName,
-    ticketId: ticketId,
-    ticketName: ticket.name,
+    ticketId: parseInt(ownedTicket.id),
+    ticketName: ownedTicket.name,
   };
 
   return logEvent('TICKET_PURCHASED', eventPayload).then(() =>

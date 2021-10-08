@@ -28,8 +28,7 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
     updateSitecoreContext && updateSitecoreContext(context);
 
     // DEMO TEAM CUSTOMIZATION - Log page views in CDP
-    const { route } = context;
-    logViewEvent(route);
+    logViewEvent(context.route);
     // END CUSTOMIZATION
   }, [context, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
 

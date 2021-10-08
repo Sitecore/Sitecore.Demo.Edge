@@ -1,5 +1,6 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 import Script from 'next/script';
+import BoxeverServiceConfig from './BoxeverServiceConfig';
 
 // ***** TYPES *****
 
@@ -157,7 +158,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
     {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
-      channel: 'WEB',
+      channel: BoxeverServiceConfig.channel,
       language: 'EN',
       currency: 'CAD',
       pos: 'PLAY! Summit',
