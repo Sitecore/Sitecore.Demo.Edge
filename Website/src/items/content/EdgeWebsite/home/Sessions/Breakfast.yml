@@ -16,7 +16,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Daily breakfast available to all attendees...</p>
-                   
+                       
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085106Z
@@ -52,11 +52,14 @@ Languages:
       Value: "{D1518172-C562-4572-A6F8-0ACFDC811F29}|{CE3A0E1D-2DCA-4D50-8D42-5E8BA22B73C2}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1c1cade5-c6bf-49b6-97c7-6942faa372a8"
+      Value: "204d0e9a-829e-4a7d-acfb-f49d8ae7b060"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180439Z
+      Value: 20211005T122703Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Breakfast

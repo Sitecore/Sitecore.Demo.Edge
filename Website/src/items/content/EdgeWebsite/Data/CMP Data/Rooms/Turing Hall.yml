@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "{ECB47DD1-8390-4551-9EDD-EA680B7466E2}|{ECB47DD1-8390-4551-9EDD-EA680B7466E2}"
+      Value: "{ECB47DD1-8390-4551-9EDD-EA680B7466E2}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 75
@@ -23,7 +23,7 @@ Languages:
       Value: 20210924T164612Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:         
+      Value:          
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,7 +34,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "764c4563-5682-4ffc-8b4b-f63aa38551a3"
+      Value: "83933a34-6e50-444d-9351-d45b814d9f92"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Turing Hall
@@ -44,7 +44,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174027Z
+      Value: 20211006T113010Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{B6D5789C-3F8E-4CAC-97E5-B0334FD67DE8}"

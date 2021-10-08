@@ -22,7 +22,7 @@ Languages:
       Hint: Description
       Value: |
         <p>Our mission is to make yoga accessible to anyone who wants to deepen their knowledge in yoga or become a yoga teacher.&nbsp;We are a group of passionate and experienced teachers who are passionate about helping others to improve their health and fitness, whether through yoga, Pilates, or other fitness modalities. We are dedicated to providing a safe, nurturing environment to help you achieve your goals, regardless of your age, fitness level, or goals.</p>
-                   
+                       
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210920T223834Z
@@ -58,11 +58,14 @@ Languages:
       Value: "{4D920373-9BC1-44A5-A586-0AF23C5711A1}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1e5fa14c-5bf7-42b1-8d5f-194567bb3f25"
+      Value: "fd346d3b-ff25-48ca-b974-80164eefd255"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T180600Z
+      Value: 20211005T123236Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "So you want to be a yoga teacher?"

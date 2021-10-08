@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "{09F14D56-7984-41A8-8468-6A2B99BB88CB}|Intro to Cycling - Sponsored by Striva [Item not found]"
+      Value: "{09F14D56-7984-41A8-8468-6A2B99BB88CB}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 25
@@ -23,7 +23,7 @@ Languages:
       Value: 20210924T165210Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:         
+      Value:          
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,7 +34,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "94f9862b-2e90-4251-95a4-3c84ca4d5ca4"
+      Value: "979aaeca-6ebb-4384-9ae7-a4b55fcba266"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Workshop Room 2
@@ -44,7 +44,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174241Z
+      Value: 20211006T113058Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{859A5ABE-462B-485E-BAA6-948CF70D8204}"
