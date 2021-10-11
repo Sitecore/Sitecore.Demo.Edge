@@ -2,8 +2,7 @@ import { fetchGraphQL } from '../../../api';
 import { Room, AllRoomsResponse } from '../../../interfaces/room';
 
 export const getRooms = async (): Promise<{ rooms: Room[] }> => {
-  try {
-    const roomsQuery = `
+  const roomsQuery = `
     query {
       allDemo_Room(orderBy: NAME_ASC, first: 10, where: { name_contains: "hall" }) {
         results {
@@ -14,40 +13,18 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     }
     `;
 
-    const results: AllRoomsResponse = (await fetchGraphQL(roomsQuery)) as AllRoomsResponse;
-
-    if (results) {
-      const rooms: Room[] = results.data.allDemo_Room.results;
-      return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
-    } else {
-      return {
-        rooms: [
-          {
-            id: '1',
-            name: 'Room 1001',
-          },
-          {
-            id: '2',
-            name: 'Room 1002',
-          },
-          {
-            id: '3',
-            name: 'Room 1003',
-          },
-        ],
-      };
-    }
-  } catch (err) {
-    console.log(err);
-    return {
-      rooms: [],
-    };
+  if (process.env.CI === 'true') {
+    return { rooms: [] as Room[] };
   }
+
+  const results: AllRoomsResponse = (await fetchGraphQL(roomsQuery)) as AllRoomsResponse;
+  const rooms: Room[] = results.data.allDemo_Room.results;
+
+  return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
 };
 
 export const getRoomById = async (id: string): Promise<{ room: Room }> => {
-  try {
-    const roomByIdQuery = `
+  const roomByIdQuery = `
     query {
       allDemo_Room (where:{id_eq:"${id}"}){
         results {
@@ -58,23 +35,12 @@ export const getRoomById = async (id: string): Promise<{ room: Room }> => {
     }
     `;
 
-    const results: AllRoomsResponse = (await fetchGraphQL(roomByIdQuery)) as AllRoomsResponse;
-    if (results) {
-      return {
-        room: { ...results.data.allDemo_Room.results[0] },
-      };
-    } else {
-      return {
-        room: {
-          id: '1',
-          name: 'Room 1001',
-        },
-      };
-    }
-  } catch (err) {
-    console.log(err);
-    return {
-      room: {} as Room,
-    };
+  if (process.env.CI === 'true') {
+    return { room: {} as Room };
   }
+
+  const results: AllRoomsResponse = (await fetchGraphQL(roomByIdQuery)) as AllRoomsResponse;
+  return {
+    room: { ...results.data.allDemo_Room.results[0] },
+  };
 };
