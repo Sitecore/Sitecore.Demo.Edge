@@ -9,6 +9,10 @@ SharedFields:
   Value: Bm3vv4WWfkSyzwyaHC7P3Q
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Fuel for life: nutrition 101"
   Versions:
   - Version: 1
     Fields:
@@ -55,14 +59,14 @@ Languages:
       Value: "{05508583-1AE2-40C8-A87E-1A54351B0117}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ef371772-8eb5-4871-9bdb-9073a9bdafc7"
+      Value: "a63b15e7-71e2-4c65-ba51-46a576a34fbc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T122637Z
+      Value: 20211008T213335Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Fuel for life: nutrition 101"

@@ -14,6 +14,7 @@ using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using Sitecore.SecurityModel;
 using Sitecore.Data;
+using System.Web;
 
 namespace Sitecore.Demo.Edge.Website.Pipelines
 {
@@ -203,11 +204,26 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index");
             using (var context = searchIndex.CreateSearchContext())
             {
-                var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
+                //Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if yet: ", this);
+                var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i["_displayname"] != null && i["_displayname"].Equals(HttpUtility.HtmlEncode(displayName)));
+                Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if: " + searchResultItems?.Name + " | " + searchResultItems["_displayname"] + " | " + HttpUtility.HtmlDecode(searchResultItems["_displayname"]), this);
+
+                if (searchResultItems == null)
+                {
+                    searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
+
+                    //Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - in name if: " + searchResultItems?.Name, this);
+                }
 
                 return searchResultItems?.GetItem();
             }
         }
 
+    }
+
+    public class ExtendedSearchResultItem : SearchResultItem
+    {
+        [IndexField("_displayname")]
+        public string DisplayName { get; set; }
     }
 }

@@ -9,6 +9,10 @@ SharedFields:
   Value: ECWmqi7stUOCJ3iC5MTpZg
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Meet a pro: Q&amp;A with Chris Williams"
   Versions:
   - Version: 1
     Fields:
@@ -60,14 +64,14 @@ Languages:
       Value: "{05508583-1AE2-40C8-A87E-1A54351B0117}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "444e57de-35e9-444e-b148-27bf3831e591"
+      Value: "392fdada-4021-4676-9253-6eb03593bd8a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        default\Anonymous
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123118Z
+      Value: 20211008T213346Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Meet a pro: Q&A with Chris Williams"
