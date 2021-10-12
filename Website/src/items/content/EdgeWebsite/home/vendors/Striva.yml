@@ -38,10 +38,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33907" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33907/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/eedb5823aed04b39ab8bd2c498583631?v=08c9fb07" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
+        <image stylelabs-content-id="42887" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/42887/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/584e9f0a0a12481cb7c50f6cd3198589?v=fca25139" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4bc11e5c-4c07-46a9-a5cb-d241d995bf56"
+      Value: "2ecbcdbe-5457-49d4-923f-89bb170a47e9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -56,7 +56,7 @@ Languages:
       Value: Striva
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124606Z
+      Value: 20211006T183255Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"
