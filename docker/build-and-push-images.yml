@@ -146,9 +146,6 @@ stages:
     timeoutInMinutes: 120
     strategy:
       matrix:
-        windows2004:
-          poolName: 'docker-2004-agents'
-          osVersion: '2004'
         ltsc2019:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
