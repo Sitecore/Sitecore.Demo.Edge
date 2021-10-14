@@ -28,7 +28,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "285ddd55-bdad-4ed2-9376-0d39e2db551b"
+      Value: "09b95b54-6cd1-40a1-9b19-d6d3c89288c8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -38,8 +38,8 @@ Languages:
       Value: news
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210803T215520Z
+      Value: 20211006T165950Z
     - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
       Hint: backgroundImage
       Value: |
-        <image mediaid="{DEAF21AB-DEA6-5FEF-8893-4CFEB946819F}" alt="Sample Image" />
+        <image mediaid="{528A9F67-4C62-4E1A-BFEE-82EB119D99FC}" />

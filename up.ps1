@@ -81,17 +81,35 @@ try {
 
     # Populate Solr managed schemas to avoid errors during item deploy
     Write-Host "Populating Solr managed schema..." -ForegroundColor Green
-    $token = (Get-Content .\.sitecore\user.json | ConvertFrom-Json).endpoints.default.accessToken
-    Invoke-RestMethod "https://cm.edge.localhost/sitecore/admin/PopulateManagedSchema.aspx?indexes=all" -Headers @{Authorization = "Bearer $token"} -UseBasicParsing | Out-Null
+    # DEMO TEAM CUSTOMIZATION - Populate Solr managed schemas using Sitecore CLI. Must run it twice because some indexes are failing the first time.
+    dotnet sitecore index schema-populate
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Populating Solr managed schema failed, see errors above."
+    }
+    dotnet sitecore index schema-populate
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Populating Solr managed schema failed, see errors above."
+    }
 
     # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
     # Push the serialized items
     Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
     dotnet sitecore ser push
-    dotnet sitecore publish
-
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Serialization push failed, see errors above."
+    }
+    # DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
+    dotnet sitecore publish
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Serialization publish failed, see errors above."
+    }
+
+    # DEMO TEAM CUSTOMIZATION - Rebuild indexes using Sitecore CLI.
+    # Rebuild indexes
+    Write-Host "Rebuilding indexes ..." -ForegroundColor Green
+    dotnet sitecore index rebuild
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Rebuild indexes failed, see errors above."
     }
 } catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
