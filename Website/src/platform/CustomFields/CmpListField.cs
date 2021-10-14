@@ -1,20 +1,11 @@
-﻿using System;
-using Sitecore.Shell.Applications.ContentEditor;
+﻿using Sitecore.Data.Fields;
 
 namespace Sitecore.Demo.Edge.Website.CustomFields
 {
-    public class CmpMultiList : TreeList
+    public class CmpMultiList : MultilistField
     {
-        public CmpMultiList()
+        public CmpMultiList(Field innerField) : base(innerField)
         {
-            this.Class = "scContentControl scContentControlTreelist";
-            this.Activation = true;
-            this.ReadOnly = false;
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
         }
     }
 }
