@@ -224,10 +224,4 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
         }
 
     }
-
-    public class ExtendedSearchResultItem : SearchResultItem
-    {
-        [IndexField("_displayname")]
-        public string DisplayName { get; set; }
-    }
 }
