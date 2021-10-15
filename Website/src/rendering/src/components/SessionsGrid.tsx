@@ -1,46 +1,18 @@
 import { CSSProperties } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
-import { Timeslot } from '../interfaces/Timeslot';
-
-type Speaker = {
-  name: Field<string>;
-  role: Field<string>;
-};
-
-type Day = {
-  name: Field<string>;
-};
-
-type Session = {
-  // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
-  itemName: string;
-  name: Field<string>;
-  premium: Field<boolean>;
-  image: {
-    jsonValue: ImageField;
-  };
-  speakers: {
-    targetItems: Speaker[];
-  };
-  day: {
-    targetItems: Day[];
-  };
-  timeslots: {
-    targetItems: Timeslot[];
-  };
-};
+import { CustomSession } from 'src/types/session';
 
 type SessionsGridProps = ComponentProps & {
   fields: {
     data: {
       item: {
         children: {
-          results: Session[];
+          results: CustomSession[];
         };
       };
     };
@@ -48,7 +20,7 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
-  const getImageStyles = (session: Session): CSSProperties =>
+  const getImageStyles = (session: CustomSession): CSSProperties =>
     session?.image?.jsonValue?.value?.src
       ? {
           backgroundImage: `url(${session.image.jsonValue.value.src})`,
@@ -112,5 +84,4 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
   );
 };
 
-export type { Session, Speaker };
 export default SessionsGrid;

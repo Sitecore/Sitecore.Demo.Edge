@@ -1,14 +1,7 @@
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-
-type Vendor = {
-  fields: {
-    Name: Field<string>;
-    Level: Field<string>;
-    Logo: ImageField;
-  };
-};
+import { Vendor } from '../types/vendor';
 
 type FeaturedVendorsProps = ComponentProps & {
   fields: {

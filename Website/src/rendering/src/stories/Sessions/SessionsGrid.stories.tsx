@@ -1,7 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionsGrid, { Session, Speaker } from '../../components/SessionsGrid';
+import SessionsGrid from '../../components/SessionsGrid';
+import { CustomSpeaker } from 'src/types/speaker';
+import { CustomSession } from 'src/types/session';
 
 export default {
   title: 'Components/Sessions/SessionsGrid',
@@ -17,7 +19,7 @@ const speaker = {
   role: {
     value: 'Speaker',
   },
-} as Speaker;
+} as CustomSpeaker;
 
 const timeslots = [
   {
@@ -64,7 +66,7 @@ const session1 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as Session;
+} as CustomSession;
 
 const session2 = {
   itemName: 'Eat smart',
@@ -90,7 +92,7 @@ const session2 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as Session;
+} as CustomSession;
 
 const session3 = {
   itemName: 'Premium Session',
@@ -116,7 +118,7 @@ const session3 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as Session;
+} as CustomSession;
 
 const session4 = {
   itemName: 'Workout',
@@ -142,7 +144,7 @@ const session4 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as Session;
+} as CustomSession;
 
 export const Default = Template.bind({});
 Default.args = {

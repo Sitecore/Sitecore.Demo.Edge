@@ -126,6 +126,10 @@ const timeslots = [
 
 const days = [
   {
+    name: {
+      value: 'Day 1',
+    },
+
     fields: {
       Name: {
         value: 'Day 1',

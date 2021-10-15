@@ -11,33 +11,9 @@ import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
 import { Timeslot } from '../interfaces/Timeslot';
-
-type Speaker = {
-  fields: {
-    Name: Field<string>;
-    Picture: ImageField;
-    JobTitle: Field<string>;
-    Company: Field<string>;
-    Location: Field<string>;
-    Description: Field<string>;
-    FacebookProfileLink?: Field<string>;
-    TwitterProfileLink?: Field<string>;
-    InstagramProfileLink?: Field<string>;
-    LinkedinProfileLink?: Field<string>;
-  };
-};
-
-type Room = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-
-type Day = {
-  fields: {
-    Name: Field<string>;
-  };
-};
+import { Speaker } from '../types/speaker';
+import { Day } from 'src/types/day';
+import { Room } from 'src/types/room';
 
 export type SessionInformationProps = ComponentProps & {
   fields: {

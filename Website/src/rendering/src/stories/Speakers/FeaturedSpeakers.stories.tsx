@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedSpeakers, { Speaker } from '../../components/FeaturedSpeakers';
+import FeaturedSpeakers from '../../components/FeaturedSpeakers';
+import { CustomSpeaker } from '../../types/speaker';
 
 export default {
   title: 'Components/Speakers/FeaturedSpeakers',
@@ -26,7 +27,10 @@ const speaker = {
   featured: {
     value: true,
   },
-} as Speaker;
+  role: {
+    value: '',
+  },
+} as CustomSpeaker;
 
 const speaker1 = {
   itemName: 'Second Speaker',
@@ -44,7 +48,10 @@ const speaker1 = {
   featured: {
     value: true,
   },
-} as Speaker;
+  role: {
+    value: '',
+  },
+} as CustomSpeaker;
 
 const speaker2 = {
   itemName: 'Third Speaker',
@@ -62,7 +69,10 @@ const speaker2 = {
   featured: {
     value: true,
   },
-} as Speaker;
+  role: {
+    value: '',
+  },
+} as CustomSpeaker;
 
 const speaker3 = {
   itemName: 'Another Speaker',
@@ -80,7 +90,10 @@ const speaker3 = {
   featured: {
     value: true,
   },
-} as Speaker;
+  role: {
+    value: '',
+  },
+} as CustomSpeaker;
 
 const speaker4 = {
   itemName: 'Last Speaker',
@@ -98,7 +111,10 @@ const speaker4 = {
   featured: {
     value: true,
   },
-} as Speaker;
+  role: {
+    value: '',
+  },
+} as CustomSpeaker;
 
 export const Default = Template.bind({});
 Default.args = {
