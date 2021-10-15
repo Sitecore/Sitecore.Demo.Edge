@@ -81,7 +81,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             Assert.IsNotNull((object)args.EntityMappingItem,
                 "Could not find any Entity Mapping item for the Entity Type (Schema): " + args.ContentTypeIdentifier);
             bool flag = false;
-            
+
             foreach (Item obj in args.EntityMappingItem.Children.Where<Item>((Func<Item, bool>)(i =>
                i.TemplateID == Sitecore.Connector.CMP.Constants.RelationFieldMappingTemplateId)))
             {
@@ -185,7 +185,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                 }
                 else
                 {
-                    item = GetItemByDisplayName(name);
+                    item = GetItemByDisplayName(name, source);
                     if (item != null)
                     {
                         newValues[i] = item.ID.ToString();
@@ -199,20 +199,24 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             return string.Join("|", newValues);
         }
 
-        public Item GetItemByDisplayName(string displayName)
+        public Item GetItemByDisplayName(string displayName, string source)
         {
             var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index");
             using (var context = searchIndex.CreateSearchContext())
             {
+
+                List<SearchResultItem> query = context.GetQueryable<SearchResultItem>()
+                    .Where(p => p.Path.StartsWith(source)).ToList();
+
                 //Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if yet: ", this);
-                var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i["_displayname"] != null && i["_displayname"].Equals(HttpUtility.HtmlEncode(displayName)));
-                Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if: " + searchResultItems?.Name + " | " + searchResultItems["_displayname"] + " | " + HttpUtility.HtmlDecode(searchResultItems["_displayname"]), this);
+                var searchResultItems =
+                    query.FirstOrDefault(i => i["Display Name"].Equals(HttpUtility.HtmlEncode(displayName)));
+
+                Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if: " + searchResultItems?.Name + " | " + searchResultItems["Display Name"] + " | " + HttpUtility.HtmlDecode(searchResultItems["Display Name"]), this);
 
                 if (searchResultItems == null)
                 {
                     searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
-
-                    //Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - in name if: " + searchResultItems?.Name, this);
                 }
 
                 return searchResultItems?.GetItem();
