@@ -11,6 +11,8 @@ import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
 import { Timeslot } from '../interfaces/Timeslot';
+import { SocialIcon } from './SocialIcon';
+import { SpeakerInfoLine } from './SpeakerInfoLine';
 
 type Speaker = {
   fields: {
@@ -60,6 +62,38 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
     ? 'Speaker'
     : 'Speakers';
 
+  const room =
+    props.fields.Rooms && props.fields.Rooms.length > 0 ? (
+      <div className="info-text">
+        <span>
+          <FontAwesomeIcon className="icon" icon={faDoorOpen} />
+        </span>
+        <Text tag="p" field={props.fields.Rooms[0].fields.Name}></Text>
+      </div>
+    ) : undefined;
+
+  const day =
+    props.fields.Day && props.fields.Day.length > 0
+      ? props.fields.Day.map((day, index) => (
+          <div key={index} className="info-text">
+            <span>
+              <FontAwesomeIcon className="icon" icon={faCalendar} />
+            </span>
+            <Text tag="p" field={day.fields.Name}></Text>
+          </div>
+        ))
+      : undefined;
+
+  const timeSlots =
+    props.fields.Timeslots && props.fields.Timeslots.length > 0 ? (
+      <div className="info-text">
+        <span>
+          <FontAwesomeIcon className="icon" icon={faClock} />
+        </span>
+        <span>{getSessionTime(props.fields.Timeslots)}</span>
+      </div>
+    ) : undefined;
+
   return (
     <>
       <Head>
@@ -72,32 +106,9 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
             <div className="image-col">
               <div>
                 <Image field={props.fields?.Image} alt={props.fields?.Name?.value} />
-                {props.fields.Rooms && props.fields.Rooms.length > 0 && (
-                  <div className="info-text">
-                    <span>
-                      <FontAwesomeIcon className="icon" icon={faDoorOpen} />
-                    </span>
-                    <Text tag="p" field={props.fields.Rooms[0].fields.Name}></Text>
-                  </div>
-                )}
-                {props.fields.Day &&
-                  props.fields.Day.length > 0 &&
-                  props.fields.Day.map((day, index) => (
-                    <div key={index} className="info-text">
-                      <span>
-                        <FontAwesomeIcon className="icon" icon={faCalendar} />
-                      </span>
-                      <Text tag="p" field={day.fields.Name}></Text>
-                    </div>
-                  ))}
-                {props.fields.Timeslots && props.fields.Timeslots.length > 0 && (
-                  <div className="info-text">
-                    <span>
-                      <FontAwesomeIcon className="icon" icon={faClock} />
-                    </span>
-                    <span>{getSessionTime(props.fields.Timeslots)}</span>
-                  </div>
-                )}
+                {room}
+                {day}
+                {timeSlots}
               </div>
               <div className="related-sessions" title="TODO: hardcoded for now...">
                 <div className="session-title">Related Sessions</div>
@@ -128,57 +139,38 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                           height={200}
                         />
                         <div className="social-bar">
-                          {!speaker.fields.FacebookProfileLink ? (
-                            ''
-                          ) : (
-                            <a href={speaker.fields.FacebookProfileLink.value}>
-                              <FontAwesomeIcon className="social-icon" icon={faFacebookF} />
-                            </a>
-                          )}
-                          {!speaker.fields.TwitterProfileLink ? (
-                            ''
-                          ) : (
-                            <a href={speaker.fields.TwitterProfileLink.value}>
-                              <FontAwesomeIcon className="social-icon" icon={faTwitter} />
-                            </a>
-                          )}
-                          {!speaker.fields.LinkedinProfileLink ? (
-                            ''
-                          ) : (
-                            <a href={speaker.fields.LinkedinProfileLink.value}>
-                              <FontAwesomeIcon className="social-icon" icon={faLinkedinIn} />
-                            </a>
-                          )}
-                          {!speaker.fields.InstagramProfileLink ? (
-                            ''
-                          ) : (
-                            <a href={speaker.fields.InstagramProfileLink.value}>
-                              <FontAwesomeIcon className="social-icon" icon={faInstagram} />
-                            </a>
-                          )}
+                          <SocialIcon
+                            Icon={faFacebookF}
+                            Link={speaker.fields.FacebookProfileLink}
+                          ></SocialIcon>
+                          <SocialIcon
+                            Icon={faTwitter}
+                            Link={speaker.fields.FacebookProfileLink}
+                          ></SocialIcon>
+                          <SocialIcon
+                            Icon={faLinkedinIn}
+                            Link={speaker.fields.FacebookProfileLink}
+                          ></SocialIcon>
+                          <SocialIcon
+                            Icon={faInstagram}
+                            Link={speaker.fields.FacebookProfileLink}
+                          ></SocialIcon>
                         </div>
                       </div>
                       <div>
                         <Text tag="h3" className="speaker-name" field={speaker.fields.Name}></Text>
-
-                        {speaker.fields.JobTitle && (
-                          <span>
-                            <span className="font-bold">Position: </span>
-                            <Text field={speaker.fields.JobTitle}></Text>
-                          </span>
-                        )}
-                        {speaker.fields.Company && (
-                          <span className="block">
-                            <span className="font-bold">Company: </span>
-                            <Text field={speaker.fields.Company}></Text>
-                          </span>
-                        )}
-                        {speaker.fields.Location && (
-                          <span className="block">
-                            <span className="font-bold">Location: </span>
-                            <Text field={speaker.fields.Location}></Text>
-                          </span>
-                        )}
+                        <SpeakerInfoLine
+                          title="Position"
+                          field={speaker.fields.JobTitle}
+                        ></SpeakerInfoLine>
+                        <SpeakerInfoLine
+                          title="Company"
+                          field={speaker.fields.Company}
+                        ></SpeakerInfoLine>
+                        <SpeakerInfoLine
+                          title="Location"
+                          field={speaker.fields.Location}
+                        ></SpeakerInfoLine>
                       </div>
                     </div>
                   ))}
