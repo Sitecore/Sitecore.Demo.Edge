@@ -12,6 +12,8 @@ Main PLAY! Summit website built with:
 - Next.js
 - Vercel
 
+### Project Content
+
 The `\Website` folder has:
 
 - A Visual Studio solution.
@@ -44,11 +46,13 @@ See Sitecore Content Serialization documentation for more information.
 
 ### Sitecore Platform Project
 
-This Visual Studio / MSBuild project is used to deploy code and configuration to the main Sitecore platform roles, known as Content Management. (This sample uses the XM1 container topology and thus only has a Standalone `cm`.)
+This Visual Studio / MSBuild project is used to deploy code and configuration to the main Sitecore platform roles, known as Content Management (CM). (This sample uses the XM1 container topology and thus only has a Standalone `cm`.)
 
-To deploy configuration, assemblies, and content from this project into your running Docker environment, run a Publish of it from Visual Studio. To debug, you can attach to the `w3wp` process within the `cm` container.
+### Rendering Next.js Project
 
-### Rendering
+The `\rendering` folder contains the main website JSS Next.js project. The content of this folder is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
+
+You can also run the Next.js application directly using `npm` commands within `src\rendering`. It is not recommended to run both the rendering Docker container and the npm commands at the same time as both use the same output folder. Stop the rendering Docker container if you want to run the Next.js application using `npm` commands.
 
 #### Storybook
 
@@ -62,80 +66,69 @@ If adding a component story, the title should be: `'Components/%Component Name H
 
 `jss scaffold [%OptionalComponentPath%]%ComponentName%` will automatically create the related component story.
 
+## Prerequisites
+
+Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
+
+### Optional: Sitecore CDP Module Configuration
+
+If you want the website use Sitecore CDP, you must:
+
+1. Edit the `.\.env` file.
+2. Fill the following values:
+   1. **CDP_API_TARGET_ENDPOINT**: The Sitecore CDP API target endpoint for your organisation. The URL must end with `.com` without the version. (e.g.: `https://api.boxever.com`)
+   2. **CDP_CLIENT_KEY**: Your Sitecore CDP organisation client key.
+   3. **CDP_API_TOKEN**: Your Sitecore CDP organisation API token.
+3. Save the file.
+
+### Optional: Sitecore Content Hub Module Configuration
+
+If you want the website use Sitecore Content Hub DAM and CMP, you must:
+
+1. Edit the `.\.env` file.
+2. Fill the following values:
+   1. **CMP_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;`
+   2. **CMP_ServiceBusEntityPathIn**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID`
+   3. **CMP_ServiceBusSubscription**: `hub_out_subscription`
+   4. **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
+   5. **DAM_ContentHub**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud`
+   6. **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
+3. Save the file.
+
 ## Running the Website
 
-### Running Prerequisites
+1. Ensure you have run the [prerequisites](Prerequisites) above.
+2. [Start the containers](../docker.md#Starting-the-Containers) and follow the login directions.
+3. Wait for the startup script to open browser tabs for the rendered site and Sitecore Launchpad.
 
-1. If your local IIS is listening on port 443, you'll need to stop it.
-   > This requires an elevated PowerShell or command prompt.
+## Stopping the Website
 
-   ```ps1
-   iisreset /stop
-   ```
-
-1. Before you can run the solution, you will need to prepare the following for the Sitecore container environment:
-   - A valid/trusted wildcard certificate for `*.edge.localhost`
-   - Hosts file entries for `edge.localhost`
-   - Required environment variable values in `.env` for the Sitecore instance
-     - (Can be done once, then checked into source control.)
-
-   See Sitecore Containers documentation for more information on these preparation steps. The provided `init.ps1` will take care of them, but **you should review its contents before running.**
-
-   > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for this command, PowerShell 7 is not supported at this time.
-
-    ```ps1
-    .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
-    ```
-
-    If you check your `.env` into source control, other developers can prepare a certificate and hosts file entries by simply running:
-
-    ```ps1
-    .\init.ps1
-    ```
-
-    > Out of the box, this example does not include `.env` in the `.gitignore`. Individual users may override values using process or system environment variables. This file does contain passwords that would provide access to the running containers in the developer's environment. If your Sitecore solution and/or its data are sensitive, you may want to exclude these from source control and provide another means of centrally configuring the information within.
-
-1. If this is your first time using `mkcert` with NodeJs, you will need to set the `NODE_EXTRA_CA_CERTS` environment variable. This variable must be set in your user or system environment variables. The `init.ps1` script will provide instructions on how to do this.
-    - Be sure to restart your terminal or VS Code for the environment variable to take effect.
-
-1. After completing this environment preparation, run the startup script from the solution root:
-
-    ```ps1
-    .\up.ps1
-    ```
-
-1. Wait for the startup script to open browser tabs for the rendered sit and Sitecore Launchpad.
+Stop the website by [stopping the containers](../docker.md#Stopping-the-Containers).
 
 ## Starting Over
 
-The `.\clean.ps1` script here can be used to "reset" the state of your containers. It clears all mounted data and deployed/copied build output.
+You can remove all databases and solr indexes content by following the [Docker starting over procedure](../docker.md#Starting-Over).
 
-## 📦 What's Included
+Changes to the front-end project must be reverted from your Git client.
 
-### 🐳 Docker
+## Developing the Website
 
-A `docker-compose` environment for a Sitecore XM1 topology.
+### Developing the Platform Visual Studio Solution
 
-The included `docker-compose.yml` is a stock XM1 environment from the Sitecore Container Support Package. All changes/additions for this solution are located in the `docker-compose.override.yml` file.
+#### Deploying the Platform Visual Studio Solution to the Running Containers
 
-The environment has some extra containers:
+To deploy configuration, assemblies, and content from this project into your running Docker environment, run a Publish of it from Visual Studio.
 
-#### Rendering Host
+#### Debugging the Platform Visual Studio Solution
 
-A Next.js rendering host container to render the main website. It runs the website in development mode with hot reloading.
+To debug, you can attach to the `w3wp` process within the `cm` container from Visual Studio.
 
-#### Sitecore CDP Proxy
+### Developing the Rendering Next.js Project
 
-A Sitecore CDP proxy container that uses a private API key for authenticated calls to Sitecore CDP. This is to keep the API key secret.
+#### Deploying the Rendering Next.js Project
 
-#### Init Container
+The content of the project is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
 
-It runs some startup jobs (mostly when deployed to AKS and Vercel) and warms up the website.
+#### Debugging the Rendering Next.js Project
 
-## Using the Solution
-
-- A Visual Studio / MSBuild publish of the `Platform` project will update the running `cm` service.
-- The running `rendering` service uses `next dev` against the mounted Next.js application, and will recompile automatically for any changes you make.
-- You can also run the Next.js application directly using `npm` commands within `src\rendering`.
-- Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
-- Review README's found in the projects and throughout the solution for additional information.
+Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.

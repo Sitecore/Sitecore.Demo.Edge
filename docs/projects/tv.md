@@ -10,14 +10,31 @@ It is built using:
 - Next.js
 - Vercel
 
-## Getting Started
+## Prerequisites
 
-First, run the development server:
+In an elevated PowerShell terminal:
 
-```bash
-npm run dev
-```
+1. Navigate to the tv folder: `cd .\tv`
+2. Install NodeJs packages from NPM: `npm install`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the TV
+
+In an elevated PowerShell terminal:
+
+1. Navigate to the tv folder: `cd .\tv`
+2. Run the development server: `npm run dev`
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 The pages auto-updates as you edit the sources.
+
+## Stopping the TV
+
+Hit `CTRL + C` in your PowerShell terminal.
+
+## Starting Over
+
+Changes to the front-end project must be reverted from your Git client.
+
+## Developing the TV
+
+All changes to the sources trigger a recompile and can be seen live in the browser at [http://localhost:3000](http://localhost:3000).
