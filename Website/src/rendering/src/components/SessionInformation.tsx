@@ -11,8 +11,8 @@ import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
 import { Timeslot } from '../interfaces/Timeslot';
-import { SocialIcon } from './SocialIcon';
-import { SpeakerInfoLine } from './SpeakerInfoLine';
+import SocialIcon from './SocialIcon';
+import SpeakerInfoLine from './SpeakerInfoLine';
 
 type Speaker = {
   fields: {
@@ -142,19 +142,16 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                           <SocialIcon
                             Icon={faFacebookF}
                             Link={speaker.fields.FacebookProfileLink}
-                          ></SocialIcon>
-                          <SocialIcon
-                            Icon={faTwitter}
-                            Link={speaker.fields.FacebookProfileLink}
-                          ></SocialIcon>
+                          />
+                          <SocialIcon Icon={faTwitter} Link={speaker.fields.TwitterProfileLink} />
                           <SocialIcon
                             Icon={faLinkedinIn}
-                            Link={speaker.fields.FacebookProfileLink}
-                          ></SocialIcon>
+                            Link={speaker.fields.LinkedinProfileLink}
+                          />
                           <SocialIcon
                             Icon={faInstagram}
-                            Link={speaker.fields.FacebookProfileLink}
-                          ></SocialIcon>
+                            Link={speaker.fields.InstagramProfileLink}
+                          />
                         </div>
                       </div>
                       <div>

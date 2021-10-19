@@ -1,6 +1,11 @@
 import { Field, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
-export function SpeakerInfoLine(props: { title: string; field: Field<string> }): JSX.Element {
+type SpeakerInfoLineProps = {
+  title: string;
+  field: Field<string>;
+};
+
+function SpeakerInfoLine(props: SpeakerInfoLineProps): JSX.Element {
   if (!props.field) {
     return <></>;
   }
@@ -12,3 +17,5 @@ export function SpeakerInfoLine(props: { title: string; field: Field<string> }):
     </span>
   );
 }
+
+export default SpeakerInfoLine;

@@ -7,7 +7,7 @@ type SocialIconProps = {
   Icon: IconProp;
 };
 
-export function SocialIcon(props: SocialIconProps): JSX.Element {
+function SocialIcon(props: SocialIconProps): JSX.Element {
   if (props.Link == undefined) {
     return <></>;
   }
@@ -18,3 +18,5 @@ export function SocialIcon(props: SocialIconProps): JSX.Element {
     </a>
   );
 }
+
+export default SocialIcon;
