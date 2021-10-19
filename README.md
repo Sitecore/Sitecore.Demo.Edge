@@ -1,4 +1,4 @@
-# PLAY! Summit
+# PLAY! Summit Demo
 
 This repository is used for the primary Sitecore DXP demo that uses:
 
@@ -12,9 +12,9 @@ This repository is used for the primary Sitecore DXP demo that uses:
 - Next.js
 - Vercel
 
-## 📖 Documentation
+## [📖 Documentation](docs/README.md)
 
-The setup, installation, development, and usage documentation is available in the [docs](docs/README.md) folder.
+The setup, installation, development, and usage documentation is available in the [docs folder](docs/README.md).
 
 ## ⚠ Important notice
 
