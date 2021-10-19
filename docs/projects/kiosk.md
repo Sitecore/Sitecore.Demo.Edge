@@ -14,6 +14,8 @@ It is built using:
 
 ## Prerequisites
 
+Ensure you have installed and followed the [global prerequisites](../prerequisites.md).
+
 In an elevated PowerShell terminal:
 
 1. Navigate to the kiosk folder: `cd .\kiosk`
@@ -39,6 +41,8 @@ If you want the kiosk application to save contact information in Sitecore CDP, y
    3. Save the file.
 
 ## Running the Kiosk
+
+Ensure you have run the [prerequisites](#Prerequisites) above.
 
 In an elevated PowerShell terminal:
 

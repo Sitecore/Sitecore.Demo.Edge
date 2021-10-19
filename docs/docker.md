@@ -14,6 +14,8 @@ The environment has some extra containers:
 
 Do these prerequisites before you start the main website or the kiosk projects.
 
+Ensure you have installed and followed the [global prerequisites](prerequisites.md).
+
 ### Preparing Docker
 
 1. Ensure you are running Windows containers:

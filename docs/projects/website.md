@@ -68,7 +68,8 @@ If adding a component story, the title should be: `'Components/%Component Name H
 
 ## Prerequisites
 
-Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
+1. Ensure you have installed and followed the [global prerequisites](../prerequisites.md).
+2. Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
 
 ### Optional: Sitecore CDP Module Configuration
 
