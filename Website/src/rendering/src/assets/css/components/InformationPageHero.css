@@ -1,0 +1,63 @@
+.information-page-hero {
+  @apply m-0 bg-black relative;
+
+  .container {
+    @apply flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden bg-left bg-no-repeat;
+
+    max-width: 1440px;
+
+    .logo {
+      @apply md:w-55;
+    }
+
+    .container-content {
+      @apply w-full bg-black-light;
+      @apply md:w-45;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(80, 80, 80, 1) 0%,
+          rgba(60, 60, 60, 1) 50%,
+          rgba(50, 50, 50, 1) 100%
+        );
+      box-shadow: 0 0 20px #232323;
+
+      .container-content-text {
+        @apply p-6 relative;
+        @apply md:p-12;
+
+        @screen md {
+          &::after {
+            @apply w-0 h-0 border-solid right-0 top-0 absolute;
+
+            content: '';
+            border-width: 0 110px 110px 0;
+            border-color: transparent #1c80ff transparent transparent;
+          }
+        }
+
+        .title,
+        .name {
+          @apply text-2xl uppercase font-bold;
+        }
+
+        .title {
+          @apply text-white;
+        }
+
+        .name {
+          @apply text-blue;
+        }
+
+        .external-website-icons {
+          @apply text-white space-x-4;
+
+          svg {
+            @apply h-4;
+          }
+        }
+      }
+    }
+  }
+}
