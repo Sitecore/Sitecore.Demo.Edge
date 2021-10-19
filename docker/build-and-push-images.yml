@@ -149,9 +149,6 @@ stages:
         ltsc2019:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
-        20H2:
-          poolName: 'docker-20H2-agents'
-          osVersion: '20H2'
     displayName: 'Build Windows Docker Images'
     pool:
       name: $(poolName)
