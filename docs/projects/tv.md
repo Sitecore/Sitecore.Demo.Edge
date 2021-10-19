@@ -19,6 +19,16 @@ In an elevated PowerShell terminal:
 1. Navigate to the tv folder: `cd .\tv`
 2. Install NodeJs packages from NPM: `npm install`
 
+### Sitecore Content Hub Module Configuration
+
+The TV project uses Sitecore Content Hub Edge.
+
+1. Edit the `.\tv\.env` file.
+2. Fill the following values:
+   1. **NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/api/graphql/preview/v1/`
+   2. **NEXT_PUBLIC_CMP_PREVIEW_API_KEY**: Your Content Hub Edge preview API key.
+3. Save the file.
+
 ## Running the TV
 
 Ensure you have run the [prerequisites](#Prerequisites) above.

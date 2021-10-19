@@ -98,7 +98,7 @@ If you want the website use Sitecore Content Hub DAM and CMP, you must:
 
 ## Running the Website
 
-1. Ensure you have run the [prerequisites](Prerequisites) above.
+1. Ensure you have run the [prerequisites](#Prerequisites) above.
 2. [Start the containers](../docker.md#Starting-the-Containers) and follow the login directions.
 3. Wait for the startup script to open browser tabs for the rendered site and Sitecore Launchpad.
 
@@ -133,3 +133,17 @@ The content of the project is mapped to the Rendering container using a Docker v
 #### Debugging the Rendering Next.js Project
 
 Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
+
+### Items Serialization
+
+If you change Sitecore content tree items, you must serialize these items using the Sitecore CLI and Sitecore Content Serialization (SCS). We created a PowerShell script to help with this. In an elevated PowerShell terminal:
+
+```ps1
+.\serpull.ps1
+```
+
+If you checkout a different branch while the containers are running or you manually modify serialized items, you must sync the serialized items back to the Sitecore databases. We created a PowerShell script to help with this. In an elevated PowerShell terminal:
+
+```ps1
+.\serpush.ps1
+```
