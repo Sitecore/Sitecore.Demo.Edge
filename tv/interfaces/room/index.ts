@@ -20,16 +20,6 @@ export interface Room {
   name: string;
 }
 
-export interface Session {
-  id: string;
-  name: string;
-  speakers: Speaker[];
-  timeslotToSession: Timeslot[];
-  sessionImage: {
-    urls: string;
-  };
-}
-
 export interface Speaker {
   id: string;
   name: string;

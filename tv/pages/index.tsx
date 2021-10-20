@@ -1,23 +1,17 @@
-import Image from 'next/image';
-import banner1 from '../public/banner1.png';
-import banner2 from '../public/banner2.png';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import Link from 'next/link';
+import React from 'react';
 
 export default function Home() {
   return (
-    <div id="container">
-      <div id="monitor">
-        <div id="monitorscreen">
-          <Carousel autoPlay={true} showThumbs={false}>
-            <div>
-              <Image src={banner1} alt="Sample" />
-            </div>
-            <div>
-              <Image src={banner2} alt="Sample" />
-            </div>
-          </Carousel>
-        </div>
+    <div className="flex flex-col">
+      <div>
+        <Link href="/schedule">Conference hall</Link>
+      </div>
+      <div>
+        <Link href="/speakers">Speakers</Link>
+      </div>
+      <div>
+        <Link href="/rooms">Rooms</Link>
       </div>
     </div>
   );
