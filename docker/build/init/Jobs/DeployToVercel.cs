@@ -120,6 +120,7 @@ namespace Sitecore.Demo.Init.Jobs
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
+            var apiKey = Environment.GetEnvironmentVariable("EXPERIENCE_EDGE_API_KEY");
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
 
@@ -138,9 +139,9 @@ namespace Sitecore.Demo.Init.Jobs
             // Configure env. variables
             cmd.Run(
                 $"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"{cm}\" | vercel env add SITECORE_API_HOST production --token {token} --scope {scope}");
+            cmd.Run($"echo | set /p=\"https://edge-beta.sitecorecloud.io\" | vercel env add SITECORE_API_HOST production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
+                $"echo | set /p=\"{apiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
             cmd.Run(
