@@ -58,6 +58,11 @@ query {
           taxonomyName
         }
       }
+
+      sessionsTypeToSessions {
+        taxonomyName
+      }
+
     }
   }
 }
@@ -91,6 +96,8 @@ const parseSessionWidthDay = function (s: SessionResult, d: string) {
   const relativeUrl = asset?.relativeUrl;
   const versionHash = asset?.versionHash;
 
+  session.type = s.sessionsTypeToSessions && s.sessionsTypeToSessions?.taxonomyName;
+  session.isPremium = s.isPremium;
   session.image = `${relativeUrl}?v=${versionHash}`;
 
   if (s.room.results.length > 0) {

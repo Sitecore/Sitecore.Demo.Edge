@@ -22,6 +22,10 @@ export interface DayResult {
   timeslotToDay: Timeslots;
 }
 
+export interface SessionType {
+  taxonomyName: string;
+}
+
 export interface Days {
   results: DayResult[];
 }
@@ -38,6 +42,8 @@ export interface SessionResult {
   timeslotOrder: number;
   timeslotToSession: Timeslots;
   dayToSession: Days;
+  sessionsTypeToSessions: SessionType;
+  isPremium: boolean;
 }
 
 export interface AllDemoSession {
@@ -80,6 +86,8 @@ export interface Session {
   timeslot: string;
   sortOrder: number;
   Day: string;
+  type: string;
+  isPremium: boolean;
 }
 
 export interface Day {

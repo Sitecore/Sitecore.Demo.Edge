@@ -9,11 +9,17 @@ type ScheduleProps = {
 
 const Schedule = (props: ScheduleProps): JSX.Element => {
   return (
-    <div className="flex flex-col space-y-2">
-      {props.schedule &&
-        props.schedule.map((value, index) => (
-          <ScheduleRow sessions={value.Sessions} timeslot={value.Timeslot} key={index} />
-        ))}
+    <div id="container">
+      <div id="monitor">
+        <div id="monitorscreen">
+          <div className="schedule">
+            {props.schedule &&
+              props.schedule.map((value, index) => (
+                <ScheduleRow sessions={value.Sessions} timeslot={value.Timeslot} key={index} />
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
