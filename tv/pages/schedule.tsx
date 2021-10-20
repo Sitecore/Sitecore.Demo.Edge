@@ -19,7 +19,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
               showThumbs={false}
               axis={'vertical'}
               infiniteLoop={true}
-              interval={5000}
+              interval={8000}
             >
               {props.schedule &&
                 props.schedule.map((value, index) => (
