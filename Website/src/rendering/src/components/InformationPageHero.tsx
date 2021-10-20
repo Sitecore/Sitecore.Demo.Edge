@@ -8,7 +8,7 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
-type InformationPageHeroProps = ComponentProps & {
+export type InformationPageHeroProps = ComponentProps & {
   fields: {
     Name: Field<string>;
     Level: Field<string>;
@@ -22,11 +22,11 @@ type InformationPageHeroProps = ComponentProps & {
 
 const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => (
   <section className="information-page-hero">
-    <div className="container">
-      <div className="logo">
+    <div className="content">
+      <div className="image-container">
         <Image field={props.fields.Logo} alt="Logo" loading="lazy" />
       </div>
-      <div className="container-content">
+      <div className="content-container">
         <div className="container-content-text">
           <p className="title">
             Meet the <Text tag="span" field={props.fields.Level} /> vendor:
@@ -64,6 +64,7 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => (
               </a>
             )}
           </div>
+          <div className="breakpoint"></div>
         </div>
       </div>
     </div>
