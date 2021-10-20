@@ -60,6 +60,11 @@ export interface AllDaysResponse {
   };
 }
 
+export type ScheduleSlot = {
+  Timeslot: string;
+  Sessions: Session[];
+};
+
 export interface Session {
   id: string;
   name: string;
