@@ -1,10 +1,12 @@
 .schedule {
   @apply flex flex-col;
 
+  height: inherit;
+
   .schedule-row {
     @apply flex bg-black-light border-b-2 border-solid border-gray uppercase;
 
-    min-height: 198px;
+    min-height: 30%;
 
     .schedule-time {
       @apply bg-gray text-black font-bold p-4;

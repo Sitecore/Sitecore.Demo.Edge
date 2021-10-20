@@ -1,6 +1,7 @@
 import { Session } from '../interfaces/session';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 import Image from 'next/image';
+import { Carousel } from 'react-responsive-carousel';
 
 type ScheduleRowProps = {
   sessions: Session[];
@@ -8,7 +9,6 @@ type ScheduleRowProps = {
 };
 
 const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
-  console.table(props);
   return (
     <div className="schedule-row">
       <div className="schedule-time">{props.timeslot}</div>
