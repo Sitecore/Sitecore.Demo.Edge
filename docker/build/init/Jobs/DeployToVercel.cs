@@ -139,7 +139,7 @@ namespace Sitecore.Demo.Init.Jobs
             // Configure env. variables
             cmd.Run(
                 $"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"https://edge-beta.sitecorecloud.io\" | vercel env add SITECORE_API_HOST production --token {token} --scope {scope}");
+            cmd.Run($"echo | set /p=\"https://edge-beta.sitecorecloud.io/api/graphql/v1\" | vercel env add GRAPH_QL_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{apiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
