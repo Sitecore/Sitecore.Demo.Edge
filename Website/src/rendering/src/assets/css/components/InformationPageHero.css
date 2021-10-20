@@ -79,30 +79,6 @@
             @apply h-4;
           }
         }
-
-        .breakpoint {
-          @apply text-white;
-
-          &::after {
-            content: 'sm';
-
-            @screen md {
-              content: 'md';
-            }
-
-            @screen lg {
-              content: 'lg';
-            }
-
-            @screen xl {
-              content: 'xl';
-            }
-
-            @screen 2xl {
-              content: '2xl';
-            }
-          }
-        }
       }
     }
   }

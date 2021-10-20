@@ -64,7 +64,6 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => (
               </a>
             )}
           </div>
-          <div className="breakpoint"></div>
         </div>
       </div>
     </div>
