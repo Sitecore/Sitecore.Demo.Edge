@@ -178,7 +178,7 @@ export const GetAllDays = async (): Promise<{ days: Day[] }> => {
     days.push(parseDay(s));
   });
 
-  return { days: days.sort((a, b) => b.sortOrder - a.sortOrder) };
+  return { days: days.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
 
 export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {

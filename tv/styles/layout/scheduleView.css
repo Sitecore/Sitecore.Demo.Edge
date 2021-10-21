@@ -1,19 +1,32 @@
-.schedule {
-  @apply flex flex-col;
+.conference-hall {
+  @apply p-10 w-screen h-screen overflow-hidden relative;
 
-  min-width: 1200px;
+  max-width: 2000px;
+  background-image: url(../../public/conference-hall.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.schedule {
+  @apply flex flex-col absolute;
+
+  top: 136px;
+  width: 1238px;
+  height: 528px;
+  left: 360px;
+  overflow: hidden;
 
   .schedule-row {
     @apply flex bg-black-light border-b-2 border-solid border-gray uppercase items-stretch;
 
-    min-height: 208px;
+    min-height: 176px;
 
     .carousel {
       .slider-wrapper {
-        height: 662px;
+        height: 528px;
 
         .slider {
-          height: 662px;
+          height: 528px;
         }
       }
     }
@@ -50,7 +63,7 @@
         &.keynote-session {
           @apply w-1/2 block h-full;
 
-          height: 195px;
+          height: 166px;
 
           .session-type {
             @apply absolute bottom-3 bg-blue-light px-2;
