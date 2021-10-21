@@ -73,7 +73,7 @@ If adding a component story, the title should be: `'Components/%Component Name H
 
 ### Optional: Sitecore CDP Module Configuration
 
-If you want the website use Sitecore CDP, you must:
+If you want the website to use Sitecore CDP, you must:
 
 1. Edit the `.\.env` file.
 2. Fill the following values:
@@ -84,7 +84,7 @@ If you want the website use Sitecore CDP, you must:
 
 ### Optional: Sitecore Content Hub Module Configuration
 
-If you want the website use Sitecore Content Hub DAM and CMP, you must:
+If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
 1. Edit the `.\.env` file.
 2. Fill the following values:
