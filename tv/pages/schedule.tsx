@@ -1,11 +1,11 @@
 import { getAllSessionsByDay } from '../api/queries/getSessions';
 import ScheduleRow from '../components/ScheduleRow';
 import { ScheduleSlot } from '../interfaces/session';
-import { groupBy } from '../utilities/GroupByArray';
+import { groupBy, SplitArray } from '../utilities/arrayUtilities';
 import { Carousel } from 'react-responsive-carousel';
 
 type ScheduleProps = {
-  schedule: ScheduleSlot[];
+  schedule: ScheduleSlot[][];
 };
 
 const Schedule = (props: ScheduleProps): JSX.Element => {
@@ -18,12 +18,20 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
               autoPlay={true}
               showThumbs={false}
               axis={'vertical'}
-              infiniteLoop={true}
+              infiniteLoop={false}
               interval={8000}
             >
               {props.schedule &&
                 props.schedule.map((value, index) => (
-                  <ScheduleRow sessions={value.Sessions} timeslot={value.Timeslot} key={index} />
+                  <div key={index}>
+                    {value.map((session, i) => (
+                      <ScheduleRow
+                        sessions={session.Sessions}
+                        timeslot={session.Timeslot}
+                        key={i}
+                      />
+                    ))}
+                  </div>
                 ))}
             </Carousel>
           </div>
@@ -38,7 +46,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      schedule: groupBy(sessions),
+      schedule: SplitArray(groupBy(sessions), 3),
     },
     revalidate: 10,
   };

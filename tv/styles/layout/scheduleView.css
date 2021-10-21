@@ -1,31 +1,68 @@
 .schedule {
   @apply flex flex-col;
 
+  min-width: 1200px;
+
   .schedule-row {
     @apply flex bg-black-light border-b-2 border-solid border-gray uppercase items-stretch;
+
+    min-height: 208px;
+
+    .carousel {
+      .slider-wrapper {
+        height: 662px;
+
+        .slider {
+          height: 662px;
+        }
+      }
+    }
 
     .schedule-time {
       @apply bg-gray text-black font-bold p-4;
     }
 
     .schedule-sessions {
-      @apply m-4 p-2 flex-1 text-white;
+      @apply m-4 flex-1 text-white relative h-full;
 
       &.premium-session {
-        @apply bg-orange;
+        @apply bg-orange flex flex-col;
       }
 
       &.keynote-session {
-        @apply bg-blue-light text-white;
+        @apply bg-blue-light text-white flex flex-row h-full;
       }
 
-      .session-name {
-        @apply font-bold;
+      .session-image {
+        @apply hidden;
+
+        background-size: cover;
+        background-position: center;
+
+        &.premium-session {
+          @apply w-full block h-24;
+
+          .session-type {
+            @apply hidden;
+          }
+        }
+
+        &.keynote-session {
+          @apply w-1/2 block h-full;
+
+          height: 195px;
+
+          .session-type {
+            @apply absolute bottom-3 bg-blue-light px-2;
+          }
+        }
       }
 
-      .session-type {
-        &::before {
-          content: '> ';
+      .session-content {
+        @apply p-2;
+
+        .session-name {
+          @apply font-bold;
         }
       }
     }

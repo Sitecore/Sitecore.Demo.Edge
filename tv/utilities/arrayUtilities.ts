@@ -17,3 +17,12 @@ export function groupBy(original: Session[]): ScheduleSlot[] {
     return output;
   }, initialOutput);
 }
+
+export function SplitArray(original: ScheduleSlot[], chunkSize: number): ScheduleSlot[][] {
+  const returnArray = [];
+  for (let i = 0; i < original.length; i += chunkSize) {
+    const temporary = original.slice(i, i + chunkSize);
+    returnArray.push(temporary);
+  }
+  return returnArray;
+}
