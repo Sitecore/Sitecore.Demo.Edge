@@ -66,6 +66,10 @@
 
         .title {
           @apply text-white;
+
+          .information-type {
+            @apply text-orange;
+          }
         }
 
         .name {

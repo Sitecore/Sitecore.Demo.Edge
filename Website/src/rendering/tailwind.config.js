@@ -49,7 +49,7 @@ module.exports = {
         darkest: '#937700',
       },
       orange: {
-        DEFAULT: '#ff8c00',
+        DEFAULT: '#ff8d00',
         light: '#ffab44',
         lightest: '#ffc988',
         dark: '#cc7000',

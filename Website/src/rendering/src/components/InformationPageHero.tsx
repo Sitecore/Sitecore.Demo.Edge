@@ -29,7 +29,7 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => (
       <div className="content-container">
         <div className="container-content-text">
           <p className="title">
-            Meet the <Text tag="span" field={props.fields.Level} /> vendor:
+            Meet the <Text className="information-type" tag="span" field={props.fields.Level} /> vendor:
           </p>
           <h1 className="name">
             <Text field={props.fields.Name} />
