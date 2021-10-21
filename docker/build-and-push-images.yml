@@ -149,9 +149,6 @@ stages:
         ltsc2019:
           poolName: 'docker-ltsc2019-agents'
           osVersion: 'ltsc2019'
-        20H2:
-          poolName: 'docker-20H2-agents'
-          osVersion: '20H2'
     displayName: 'Build Windows Docker Images'
     pool:
       name: $(poolName)
@@ -181,8 +178,6 @@ stages:
           $params.Add("DemoVersion", "$(tag)")
           $params.Add("DemoTeamRegistry","$(REGISTRY)")
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
-          $params.Add("IsolationMode","process")
-          $params.Add("WindowsVersion","$(osVersion)")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
 
           ./init-ci.ps1 @params
