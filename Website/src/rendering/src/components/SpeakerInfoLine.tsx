@@ -11,10 +11,10 @@ function SpeakerInfoLine(props: SpeakerInfoLineProps): JSX.Element {
   }
 
   return (
-    <span className="block">
-      <span className="font-bold">{props.title}: </span>
+    <div>
+      <span className="data-label">{props.title}: </span>
       <Text field={props.field}></Text>
-    </span>
+    </div>
   );
 }
 

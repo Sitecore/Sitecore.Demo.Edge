@@ -4,9 +4,10 @@ import {
   faLinkedinIn,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import SocialIcon from './SocialIcon';
+import SpeakerInfoLine from './SpeakerInfoLine';
 
 type Session = {
   name: Field<string>;
@@ -43,54 +44,16 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
           <div>
             <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
             <div className="external-website-icons">
-              {!props.fields.FacebookProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.FacebookProfileLink.value}>
-                  <FontAwesomeIcon icon={faFacebookF} />
-                </a>
-              )}
-              {!props.fields.TwitterProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.TwitterProfileLink.value}>
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
-              )}
-              {!props.fields.LinkedinProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.LinkedinProfileLink.value}>
-                  <FontAwesomeIcon icon={faLinkedinIn} />
-                </a>
-              )}
-              {!props.fields.InstagramProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.InstagramProfileLink.value}>
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-              )}
+              <SocialIcon Icon={faFacebookF} Link={props.fields.FacebookProfileLink} />
+              <SocialIcon Icon={faTwitter} Link={props.fields.TwitterProfileLink} />
+              <SocialIcon Icon={faLinkedinIn} Link={props.fields.LinkedinProfileLink} />
+              <SocialIcon Icon={faInstagram} Link={props.fields.InstagramProfileLink} />
             </div>
           </div>
-          {props.fields.JobTitle && props.fields.JobTitle.value != '' && (
-            <div>
-              <span className="data-label">Job Title:</span>{' '}
-              <Text field={props.fields.JobTitle}></Text>
-            </div>
-          )}
-          {props.fields.Company && props.fields.Company.value != '' && (
-            <div>
-              <span className="data-label">Company:</span>{' '}
-              <Text field={props.fields.Company}></Text>
-            </div>
-          )}
-          {props.fields.Location && props.fields.Location.value != '' && (
-            <div>
-              <span className="data-label">Location:</span>{' '}
-              <Text field={props.fields.Location}></Text>
-            </div>
-          )}
+
+          <SpeakerInfoLine title="Position" field={props.fields.JobTitle} />
+          <SpeakerInfoLine title="Company" field={props.fields.Company} />
+          <SpeakerInfoLine title="Location" field={props.fields.Location} />
         </div>
         <div className="description-col">
           <div>

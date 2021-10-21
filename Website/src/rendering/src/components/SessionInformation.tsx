@@ -4,7 +4,6 @@ import {
   faLinkedinIn,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -13,6 +12,7 @@ import { getSessionTime } from '../helpers/DateHelper';
 import { Timeslot } from '../interfaces/Timeslot';
 import SocialIcon from './SocialIcon';
 import SpeakerInfoLine from './SpeakerInfoLine';
+import InfoText from './InfoText';
 
 type Speaker = {
   fields: {
@@ -64,34 +64,25 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
 
   const room =
     props.fields.Rooms && props.fields.Rooms.length > 0 ? (
-      <div className="info-text">
-        <span>
-          <FontAwesomeIcon className="icon" icon={faDoorOpen} />
-        </span>
+      <InfoText Icon={faDoorOpen}>
         <Text tag="p" field={props.fields.Rooms[0].fields.Name}></Text>
-      </div>
+      </InfoText>
     ) : undefined;
 
   const day =
     props.fields.Day && props.fields.Day.length > 0
       ? props.fields.Day.map((day, index) => (
-          <div key={index} className="info-text">
-            <span>
-              <FontAwesomeIcon className="icon" icon={faCalendar} />
-            </span>
+          <InfoText key={index} Icon={faCalendar}>
             <Text tag="p" field={day.fields.Name}></Text>
-          </div>
+          </InfoText>
         ))
       : undefined;
 
   const timeSlots =
     props.fields.Timeslots && props.fields.Timeslots.length > 0 ? (
-      <div className="info-text">
-        <span>
-          <FontAwesomeIcon className="icon" icon={faClock} />
-        </span>
+      <InfoText Icon={faClock}>
         <span>{getSessionTime(props.fields.Timeslots)}</span>
-      </div>
+      </InfoText>
     ) : undefined;
 
   return (
@@ -156,18 +147,9 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
                       </div>
                       <div>
                         <Text tag="h3" className="speaker-name" field={speaker.fields.Name}></Text>
-                        <SpeakerInfoLine
-                          title="Position"
-                          field={speaker.fields.JobTitle}
-                        ></SpeakerInfoLine>
-                        <SpeakerInfoLine
-                          title="Company"
-                          field={speaker.fields.Company}
-                        ></SpeakerInfoLine>
-                        <SpeakerInfoLine
-                          title="Location"
-                          field={speaker.fields.Location}
-                        ></SpeakerInfoLine>
+                        <SpeakerInfoLine title="Position" field={speaker.fields.JobTitle} />
+                        <SpeakerInfoLine title="Company" field={speaker.fields.Company} />
+                        <SpeakerInfoLine title="Location" field={speaker.fields.Location} />
                       </div>
                     </div>
                   ))}
