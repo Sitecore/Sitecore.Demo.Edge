@@ -32,7 +32,7 @@
       box-shadow: 0 0 20px #232323;
 
       .container-content-text {
-        @apply h-full relative flex flex-col justify-center;
+        @apply h-full relative flex flex-col justify-center space-y-2;
 
         padding: 20px;
 
@@ -59,9 +59,9 @@
 
         .title,
         .name {
-          @apply text-2xl uppercase font-bold;
-          @apply md:text-xl;
-          @apply 2xl:text-3xl;
+          @apply text-2xl uppercase font-bold leading-7;
+          @apply md:text-xl md:leading-6;
+          @apply 2xl:text-3xl 2xl:leading-8;
         }
 
         .title {
@@ -74,6 +74,14 @@
 
         .name {
           @apply text-blue;
+        }
+
+        .informations {
+          @apply text-xs text-white;
+
+          .label {
+            @apply font-bold;
+          }
         }
 
         .external-website-icons {

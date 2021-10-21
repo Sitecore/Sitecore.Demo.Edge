@@ -1,0 +1,5 @@
+.information-page-hero.speaker-information-page-hero .content .image-container img {
+  @apply md:pr-0;
+
+  max-width: 15rem; /* To match max-h-60 */
+}

@@ -65,6 +65,7 @@
 @import "./components/SessionsFilters.css";
 @import "./components/SessionInformation.css";
 @import "./components/SpeakerInformation.css";
+@import "./components/SpeakerInformationPageHero.css";
 @import "./components/SpeakersGrid.css";
 @import "./components/SponsorsGrid.css";
 @import "./components/SummitFeatures.css";
@@ -75,6 +76,7 @@
 @import "./components/TicketGrid.css";
 @import "./components/TicketPaymentConfirmed.css";
 @import "./components/TicketUpsell.css";
+@import "./components/VendorInformationPageHero.css";
 
 /* 7. Our page-specific styles */
 

@@ -18,22 +18,37 @@ export type InformationPageHeroProps = ComponentProps & {
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
   };
+  type: string;
 };
 
 const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => (
-  <section className="information-page-hero">
+  <section className={`information-page-hero ${props.type}-information-page-hero`}>
     <div className="content">
       <div className="image-container">
         <Image field={props.fields.Logo} alt="Logo" loading="lazy" />
       </div>
       <div className="content-container">
         <div className="container-content-text">
-          <p className="title">
-            Meet the <Text className="information-type" tag="span" field={props.fields.Level} /> vendor:
-          </p>
-          <h1 className="name">
-            <Text field={props.fields.Name} />
-          </h1>
+          <div>
+            <p className="title">
+              Meet the <Text className="information-type" tag="span" field={props.fields.Level} />{' '}
+              {props.type}:
+            </p>
+            <h1 className="name">
+              <Text field={props.fields.Name} />
+            </h1>
+          </div>
+          <div className="informations">
+            <div>
+              <span className="label">Job Title:</span> <span>International Sales Director</span>
+            </div>
+            <div>
+              <span className="label">Company:</span> <span>Solstice</span>
+            </div>
+            <div>
+              <span className="label">Location:</span> <span>Paris, France</span>
+            </div>
+          </div>
           <div className="external-website-icons">
             {!props.fields.FacebookProfileLink ? (
               ''
