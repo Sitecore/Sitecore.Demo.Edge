@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import VendorInformationTypeHero from '../components/VendorInformationTypeHero';
 
 export default {
-  title: 'Components/VendorInformationTypeHero',
+  title: 'Components/InformationPageHero/VendorInformationTypeHero',
   component: VendorInformationTypeHero,
 } as ComponentMeta<typeof VendorInformationTypeHero>;
 
@@ -21,15 +21,15 @@ WithLargerImage.args = {
     Name: {
       value: 'Fitbit',
     },
-    Level: {
-      value: 'Featured',
-    },
     Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
         height: 133,
         width: 600,
       },
+    },
+    Level: {
+      value: 'Featured',
     },
     FacebookProfileLink: {
       value: 'https://facebook.com/asada',
@@ -55,13 +55,13 @@ WithSmallerImage.args = {
     Name: {
       value: 'Fitbit',
     },
-    Level: {
-      value: 'Featured',
-    },
     Logo: {
       value: {
         src: '/assets/img/aboutus/fitbit-logo.png',
       },
+    },
+    Level: {
+      value: 'Featured',
     },
     FacebookProfileLink: {
       value: 'https://facebook.com/asada',

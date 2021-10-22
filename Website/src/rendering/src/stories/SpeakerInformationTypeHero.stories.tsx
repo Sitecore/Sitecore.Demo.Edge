@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SpeakerInformationTypeHero from '../components/SpeakerInformationTypeHero';
 
 export default {
-  title: 'Components/SpeakerInformationTypeHero',
+  title: 'Components/InformationPageHero/SpeakerInformationTypeHero',
   component: SpeakerInformationTypeHero,
 } as ComponentMeta<typeof SpeakerInformationTypeHero>;
 
@@ -21,15 +21,24 @@ Speaker.args = {
     Name: {
       value: 'Alex Mena',
     },
-    Level: {
-      value: 'Featured',
+    Featured: {
+      value: true,
     },
-    Logo: {
+    Picture: {
       value: {
         src: 'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/8f466142f88c4d5c87e29461eddc222f?v=7a63a542',
         height: 1100,
         width: 1100,
       },
+    },
+    JobTitle: {
+      value: 'International Sales Director',
+    },
+    Company: {
+      value: 'Solstice',
+    },
+    Location: {
+      value: 'Paris, France',
     },
     FacebookProfileLink: {
       value: 'https://facebook.com/asada',

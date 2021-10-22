@@ -1,7 +1,66 @@
-import InformationPageHero, { InformationPageHeroProps } from './InformationPageHero';
+import { Field, ImageField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
+import InformationPageHero from './InformationPageHero';
 
-const SpeakerInformationTypeHero = (props: InformationPageHeroProps): JSX.Element => (
-  <InformationPageHero {...props} type="speaker" />
-);
+export type SpeakerInformationPageHeroProps = ComponentProps & {
+  fields: {
+    Name: Field<string>;
+    Featured: Field<boolean>;
+    Picture: ImageField;
+    JobTitle: Field<string>;
+    Company: Field<string>;
+    Location: Field<string>;
+    FacebookProfileLink?: Field<string>;
+    TwitterProfileLink?: Field<string>;
+    InstagramProfileLink?: Field<string>;
+    LinkedinProfileLink?: Field<string>;
+  };
+};
+
+const SpeakerInformationTypeHero = (props: SpeakerInformationPageHeroProps): JSX.Element => {
+  const { fields, ...propsRest } = props;
+  const newFields = {
+    Name: fields.Name,
+    Image: fields.Picture,
+    FacebookProfileLink: fields.FacebookProfileLink,
+    TwitterProfileLink: fields.TwitterProfileLink,
+    InstagramProfileLink: fields.InstagramProfileLink,
+    LinkedinProfileLink: fields.LinkedinProfileLink,
+  };
+  const qualificative = props.fields.Featured.value ? 'featured' : '';
+
+  const informations =
+    props.fields.JobTitle?.value || props.fields.Company?.value || props.fields.Location?.value ? (
+      <>
+        {props.fields.JobTitle?.value ? (
+          <div>
+            <span className="label">Job Title:</span>{' '}
+            <Text field={props.fields.JobTitle} tag="span" />
+          </div>
+        ) : undefined}
+        {props.fields.Company?.value ? (
+          <div>
+            <span className="label">Company:</span> <Text field={props.fields.Company} tag="span" />
+          </div>
+        ) : undefined}
+        {props.fields.Location?.value ? (
+          <div>
+            <span className="label">Location:</span>{' '}
+            <Text field={props.fields.Location} tag="span" />
+          </div>
+        ) : undefined}
+      </>
+    ) : undefined;
+
+  return (
+    <InformationPageHero
+      {...propsRest}
+      fields={newFields}
+      type="speaker"
+      qualificative={qualificative}
+      informations={informations}
+    />
+  );
+};
 
 export default SpeakerInformationTypeHero;

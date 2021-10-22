@@ -38,10 +38,7 @@ const informationPageHeroProps = {
     Name: {
       value: 'Fitbit',
     },
-    Level: {
-      value: 'Featured',
-    },
-    Logo: {
+    Image: {
       value: {
         src: '/assets/img/aboutus/fitbit-logo.png',
       },
@@ -59,6 +56,8 @@ const informationPageHeroProps = {
       value: 'https://linkedin.com/asada',
     },
   },
+  type: 'vendor',
+  qualificative: 'Featured',
 } as InformationPageHeroProps;
 
 const vendorInformationProps = {
