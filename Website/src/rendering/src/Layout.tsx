@@ -1,9 +1,12 @@
+import React from 'react';
 import Head from 'next/head';
+import deepEqual from 'deep-equal';
 import { useEffect } from 'react';
-import { getPublicUrl } from 'lib/util';
 import {
   Placeholder,
+  withSitecoreContext,
   useSitecoreContext,
+  getPublicUrl,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
@@ -14,35 +17,33 @@ import { logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION
 const publicUrl = getPublicUrl();
 
 // DEMO TEAM CUSTOMIZATION - Move navigation to a component
+interface LayoutProps {
+  sitecoreContext: SitecoreContextValue; // DEMO TEAM CUSTOMIZATION - Different type name
+}
 
-type LayoutProps = {
-  context: SitecoreContextValue; // DEMO TEAM CUSTOMIZATION - Different type name
-};
-
-const Layout = ({ context }: LayoutProps): JSX.Element => {
+const Layout = ({ sitecoreContext }: LayoutProps): JSX.Element => {
   const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
+  const { route } = sitecoreContext;
 
   // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
   // Note the context object type here matches the initial value in [[...path]].tsx.
   useEffect(() => {
-    updateSitecoreContext && updateSitecoreContext(context);
+    updateSitecoreContext && updateSitecoreContext(sitecoreContext);
 
     // DEMO TEAM CUSTOMIZATION - Log page views in CDP
-    logViewEvent(context.route);
+    logViewEvent(sitecoreContext.route);
     // END CUSTOMIZATION
-  }, [context, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
-
-  const { route } = context;
+  }, [sitecoreContext, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
 
   // DEMO TEAM CUSTOMIZATION - Add CSS classes when Experience Editor is active
   const isExperienceEditorActiveCssClass =
-    context.pageState === LayoutServicePageState.Edit ||
-    context.pageState === LayoutServicePageState.Preview
+    sitecoreContext.pageState === LayoutServicePageState.Edit ||
+    sitecoreContext.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
 
   // DEMO TEAM CUSTOMIZATION - Add Event start date and name to be used globally
-  const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
+  const contextTitle = sitecoreContext['EventInfo'] as NodeJS.Dict<string | string>;
   let pageTitle = contextTitle.titlePrefix;
   if (route?.fields?.pageTitle?.value) {
     pageTitle += ' - ' + route?.fields?.pageTitle?.value;
@@ -75,4 +76,10 @@ const Layout = ({ context }: LayoutProps): JSX.Element => {
   );
 };
 
-export default Layout;
+const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
+  if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
+
+  return false;
+};
+
+export default withSitecoreContext()(React.memo(Layout, propsAreEqual));

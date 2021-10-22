@@ -5,7 +5,7 @@
  * @returns component src boilerplate as a string
  */
 function generateComponentSrc(componentName: string): string {
-  return `import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
+  return `import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type ${componentName}Props = ComponentProps & {
@@ -20,7 +20,7 @@ const ${componentName} = (props: ${componentName}Props): JSX.Element => (
   </div>
 );
 
-export default ${componentName};
+export default withDatasourceCheck()<${componentName}Props>(${componentName});
 `;
 }
 // END CUSTOMIZATION
