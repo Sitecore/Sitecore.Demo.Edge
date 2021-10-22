@@ -10,10 +10,11 @@ resources:
 
 variables:
   GitVersion.SemVer: ''
-  SITECORE_VERSION: '10.1.0'
+  SITECORE_VERSION: '10.2.0'
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
   additionalImageTags: ''
+  preRelease: 'true'
 
 stages:
 - stage: Build_TV
@@ -179,7 +180,10 @@ stages:
           $params.Add("DemoTeamRegistry","$(REGISTRY)")
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
-
+          
+          if ("true" -eq "$(preRelease)"){
+            $params.Add("PreRelease", $true)
+          }
           ./init-ci.ps1 @params
 
           # Reset demo version to correct tag without build id
