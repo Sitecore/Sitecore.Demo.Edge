@@ -33,6 +33,7 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
         <div className="image-container">
           <Image field={props.fields.Image} alt="Image" loading="lazy" />
         </div>
+        <div className="gradient-container"></div>
         <div className="content-container">
           <div className="container-content-text">
             <div>

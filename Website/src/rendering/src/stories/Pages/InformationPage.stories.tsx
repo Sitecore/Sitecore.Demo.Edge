@@ -40,7 +40,9 @@ const informationPageHeroProps = {
     },
     Image: {
       value: {
-        src: '/assets/img/aboutus/fitbit-logo.png',
+        src: '/assets/img/sponsors/sponsors-fitbit.svg',
+        height: 133,
+        width: 600,
       },
     },
     FacebookProfileLink: {

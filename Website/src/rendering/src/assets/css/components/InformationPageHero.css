@@ -1,6 +1,15 @@
 .information-page-hero {
-  @apply m-0 bg-black relative;
+  @apply m-0 bg-white-light relative;
   @apply md:h-60;
+
+  @screen md {
+    /*
+    Not using Tailwind to be able to specify a 50% single gradient stop.
+    rgba(255, 255, 255, 1) = bg-white-light
+    rgba(35, 35, 35, 1) = bg-black
+    */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(35, 35, 35, 1) 50%);
+  }
 
   .content {
     @apply flex flex-col items-center justify-between box-border overflow-hidden h-full w-full px-0;
@@ -8,13 +17,18 @@
     @apply lg:container lg:mx-auto lg:pr-4;
 
     .image-container {
-      @apply flex items-center max-h-60;
-      @apply md:w-55 md:h-full;
+      @apply flex items-center max-h-60 bg-white-light;
+      @apply md:h-full;
 
       img {
         @apply max-h-60 px-5;
         @apply md:pr-6 md:pl-0;
       }
+    }
+
+    .gradient-container {
+      @apply hidden h-full flex-grow bg-gradient-to-l from-black-lightest to-white-light;
+      @apply md:block;
     }
 
     .content-container {
