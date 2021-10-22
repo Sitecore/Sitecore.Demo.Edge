@@ -26,7 +26,7 @@ Speaker.args = {
     },
     Logo: {
       value: {
-        src: 'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/b966a65f261c4eb48b85e593e608080e?v=4f899992',
+        src: 'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/8f466142f88c4d5c87e29461eddc222f?v=7a63a542',
         height: 1100,
         width: 1100,
       },

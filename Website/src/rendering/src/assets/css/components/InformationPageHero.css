@@ -12,8 +12,8 @@
       @apply md:w-55 md:h-full;
 
       img {
-        @apply max-h-60;
-        @apply md:pr-6;
+        @apply max-h-60 px-5;
+        @apply md:pr-6 md:pl-0;
       }
     }
 
