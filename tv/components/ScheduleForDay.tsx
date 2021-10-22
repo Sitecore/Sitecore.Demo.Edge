@@ -27,7 +27,7 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
           <Carousel
             autoPlay={false}
             axis={'vertical'}
-            infiniteLoop={true}
+            infiniteLoop={false}
             interval={8000}
             showArrows={false}
             showStatus={false}

@@ -5,23 +5,21 @@
   background-image: url(../../public/conference-hall.jpg);
   background-position: top left;
   background-repeat: no-repeat;
-}
 
-.schedule {
-  @apply flex flex-col absolute;
+  .schedule {
+    @apply flex flex-col absolute;
 
-  top: 136px;
-  width: 1238px;
-  height: 528px;
-  left: 360px;
-  overflow: hidden;
-
-  .schedule-row {
-    @apply flex bg-black-light border-b-2 border-solid border-gray uppercase items-stretch;
-
-    min-height: 176px;
+    top: 136px;
+    width: 1238px;
+    height: 528px;
+    left: 360px;
+    overflow: hidden;
 
     .carousel {
+      .control-disabled {
+        @apply hidden;
+      }
+
       .slider-wrapper {
         height: 528px;
 
@@ -31,51 +29,57 @@
       }
     }
 
-    .schedule-time {
-      @apply bg-gray text-black font-bold p-4;
-    }
+    .schedule-row {
+      @apply flex bg-black-light border-b-2 border-solid border-gray uppercase items-stretch;
 
-    .schedule-sessions {
-      @apply m-4 flex-1 text-white relative h-full;
+      min-height: 176px;
 
-      &.premium-session {
-        @apply bg-orange flex flex-col;
+      .schedule-time {
+        @apply bg-gray text-black font-bold p-4;
       }
 
-      &.keynote-session {
-        @apply bg-blue-light text-white flex flex-row h-full;
-      }
-
-      .session-image {
-        @apply hidden;
-
-        background-size: cover;
-        background-position: center;
+      .schedule-sessions {
+        @apply m-4 flex-1 text-white relative h-full;
 
         &.premium-session {
-          @apply w-full block h-24;
-
-          .session-type {
-            @apply hidden;
-          }
+          @apply bg-orange flex flex-col;
         }
 
         &.keynote-session {
-          @apply w-1/2 block h-full;
+          @apply bg-blue-light text-white flex flex-row h-full;
+        }
 
-          height: 166px;
+        .session-image {
+          @apply hidden;
 
-          .session-type {
-            @apply absolute bottom-3 bg-blue-light px-2;
+          background-size: cover;
+          background-position: center;
+
+          &.premium-session {
+            @apply w-full block h-24;
+
+            .session-type {
+              @apply hidden;
+            }
+          }
+
+          &.keynote-session {
+            @apply w-1/2 block h-full;
+
+            height: 166px;
+
+            .session-type {
+              @apply absolute bottom-3 bg-blue-light px-2;
+            }
           }
         }
-      }
 
-      .session-content {
-        @apply p-2;
+        .session-content {
+          @apply p-2;
 
-        .session-name {
-          @apply font-bold;
+          .session-name {
+            @apply font-bold;
+          }
         }
       }
     }
