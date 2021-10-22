@@ -137,11 +137,13 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-    if (s.room && s.room.results && s.room.results.find((e: RoomResult) => e.id == room)) {
-      sessions.push(parseSession(s));
-    }
-  });
+  results &&
+    results.data &&
+    results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+      if (s.room && s.room.results && s.room.results.find((e: RoomResult) => e.id == room)) {
+        sessions.push(parseSession(s));
+      }
+    });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
@@ -154,16 +156,18 @@ export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions:
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-    //TODO: fix the e.id == speaker lookup
-    if (
-      s.speakers &&
-      s.speakers.results &&
-      s.speakers.results.find((e: RoomResult) => e.id == speaker)
-    ) {
-      sessions.push(parseSession(s));
-    }
-  });
+  results &&
+    results.data &&
+    results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+      //TODO: fix the e.id == speaker lookup
+      if (
+        s.speakers &&
+        s.speakers.results &&
+        s.speakers.results.find((e: RoomResult) => e.id == speaker)
+      ) {
+        sessions.push(parseSession(s));
+      }
+    });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
@@ -175,9 +179,11 @@ export const GetAllDays = async (): Promise<{ days: Day[] }> => {
   const results: AllDaysResponse = (await fetchGraphQL(daysQuery)) as AllDaysResponse;
   const days: Day[] = [];
 
-  results.data.allDemo_Day.results.forEach((s: DayResult) => {
-    days.push(parseDay(s));
-  });
+  results &&
+    results.data &&
+    results.data.allDemo_Day.results.forEach((s: DayResult) => {
+      days.push(parseDay(s));
+    });
 
   return { days: days.sort((a, b) => parseInt(a.sortOrder) - parseInt(b.sortOrder)) };
 };
@@ -190,15 +196,17 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-    if (
-      s.dayToSession &&
-      s.dayToSession.results &&
-      s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
-    ) {
-      sessions.push(parseSession(s));
-    }
-  });
+  results &&
+    results.data &&
+    results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+      if (
+        s.dayToSession &&
+        s.dayToSession.results &&
+        s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
+      ) {
+        sessions.push(parseSession(s));
+      }
+    });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
