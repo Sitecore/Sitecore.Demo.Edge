@@ -56,6 +56,7 @@ query {
       dayToSession{
         results{
           taxonomyName
+          sortOrder
         }
       }
 
@@ -193,7 +194,7 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
     if (
       s.dayToSession &&
       s.dayToSession.results &&
-      s.dayToSession.results.find((e: DayResult) => e.taxonomyName == day)
+      s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
     ) {
       sessions.push(parseSession(s));
     }

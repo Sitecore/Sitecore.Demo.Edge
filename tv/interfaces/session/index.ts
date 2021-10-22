@@ -17,7 +17,7 @@ export interface Timeslots {
 }
 
 export interface DayResult {
-  sortOrder: number;
+  sortOrder: string;
   taxonomyName: string;
   timeslotToDay: Timeslots;
 }
@@ -92,6 +92,6 @@ export interface Session {
 
 export interface Day {
   name: string;
-  sortOrder: number;
+  sortOrder: string;
   timeslots: Timeslot[];
 }
