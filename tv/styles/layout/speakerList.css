@@ -1,0 +1,18 @@
+.speakerList {
+  @apply bg-white p-10;
+
+  min-width: 1184px;
+  min-height: 582px;
+
+  ul {
+    @apply w-full grid grid-cols-2 gap-4;
+
+    .speaker {
+      @apply mb-5 flex justify-start items-center bg-white shadow-lg rounded-lg text-left w-3/4 cursor-pointer;
+
+      .photo {
+        @apply h-20 w-20 mr-5;
+      }
+    }
+  }
+}

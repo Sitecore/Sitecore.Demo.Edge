@@ -1,0 +1,49 @@
+﻿---
+ID: "23cb91fd-daf7-5715-b5a4-1b806b3031c5"
+Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
+Template: "7ff7c2d7-f5e1-57f1-a3f3-812418ac08aa"
+Path: "/sitecore/content/EdgeWebsite/home/about-us/Page Components/Three Column CTA"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210726T155126Z
+    - ID: "3f8b5931-7a77-5142-b1f0-60e70c054056"
+      Hint: rightHeading
+      Value: 300+
+    - ID: "4eda31c4-fc05-5617-9af7-e0d1078beb16"
+      Hint: leftDescription
+      Value: Visitors
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "54372bd6-0da0-5051-b260-ddc7e6d7cc78"
+      Hint: leftHeading
+      Value: 200,000+
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "7644409c-22b8-5351-b56d-6f9f7a98a7ab"
+      Hint: middleDescription
+      Value: Globally recognised speakers
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5356d616-443f-4042-98d1-f9b68b1ed335"
+    - ID: "9067f7da-50eb-5d2f-bd0d-157b59412cfa"
+      Hint: rightDescription
+      Value: Exhibitors
+    - ID: "ac952184-5994-50aa-8680-9c6f40495491"
+      Hint: middleHeading
+      Value: 90+
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210726T155126Z

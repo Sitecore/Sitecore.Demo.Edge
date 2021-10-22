@@ -1,0 +1,38 @@
+﻿---
+ID: "eab5a681-36ea-4f6b-b5ed-13c110edfaab"
+Parent: "582f8e8f-453d-4ffc-adbc-de6abc4ff3b1"
+Template: "1c5fe58a-0bb1-45af-a6eb-b88ccecb57e6"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Speaker Type/Social Influencer
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: Demo.SpeakerType.SocialInfluencer
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210725T104445Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "75bc2d2c-9506-4d62-ba63-b4e605254af9"
+      Hint: Name
+      Value: Social Influencer
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dc9eaa14-ee8f-4423-af1f-453ccfb86043"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210919T092605Z

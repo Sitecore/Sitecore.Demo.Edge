@@ -1,0 +1,54 @@
+{
+  "sitecore": [
+    {
+      "url": "/sitecore/shell"
+    },
+    {
+      "url": "/sitecore/client/Applications/Launchpad"
+    },
+    {
+      "url": "/sitecore/shell/Applications/Content%20Editor.aspx?sc_bw=1"
+    },
+    {
+      "url": "/sitecore/client/Applications/ControlPanel.aspx?sc_bw=1"
+    },
+    {
+      "url": "/sitecore/client/Applications/FormsBuilder/Pages/Forms"
+    },
+    {
+      "url": "/sitecore/shell/Applications/Workbox.aspx?sc_bw=1"
+    },
+    {
+      "url": "/sitecore/api/graph/edge/ui"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/vendors%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/speakers%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/sessions%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/sessions/Ask-an-expert-outdoor-survival%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/vendors/Sydney-Cummings%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/speakers/Alex-Mena%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    },
+    {
+      "url": "/sitecore/api/graph/edge?sc_apikey={1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}&query=query%20{layout(site:%22edgewebsite%22,%20routePath:%22/%22,%20language:%22en%22)%20{%20item%20{%20rendered%20}%20}%20}"
+    }
+  ],
+  "xp": [
+    {
+      "url": "/"
+    }
+  ]
+}

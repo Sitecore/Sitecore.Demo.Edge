@@ -1,0 +1,55 @@
+﻿---
+ID: "4790380a-3f0c-443a-a954-269ecb2d5566"
+Parent: "854bd01a-0c22-48fc-a761-86a1eb694943"
+Template: "3e506d21-1b3b-433b-af8e-d8cc1613f620"
+Path: /sitecore/content/EdgeWebsite/Data/Config
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210831T220933Z
+    - ID: "32c00ea7-b305-40e4-b9be-e03a92b05ae3"
+      Hint: HeaderLogo
+      Value: |
+        <image mediaid="" stylelabs-content-id="33703" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33703/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd" stylelabs-content-type="Image" alt="play-logo-stacked-light.svg" height="46" width="120" />
+    - ID: "3971a645-b079-4bc3-9971-bf655b7713fa"
+      Hint: Startdate
+      Value: 20210909T060000Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCA998C5-0CC3-4F91-94D8-0A4E6CAECE88}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2c33a393-90bb-4234-bf29-0fb9afc75fa8"
+    - ID: "af909783-3a24-4708-b431-192e9b0c98b6"
+      Hint: FooterLogo
+      Value: |
+        <image stylelabs-content-id="33704" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33704/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd" mediaid="" stylelabs-content-type="Image" alt="play-logo-wide-light.svg" height="80" width="280" vspace="" hspace="" />
+    - ID: "b43d2551-9059-413a-92be-74ea74142c22"
+      Hint: SiteBrowserTitle
+      Value: "Play! Summit"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210913T083400Z

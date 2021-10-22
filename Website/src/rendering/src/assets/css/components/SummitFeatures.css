@@ -1,0 +1,23 @@
+.item-grid.summit-features {
+  .grid-content {
+    @apply sm:grid-cols-2;
+    @apply md:grid-cols-3;
+    @apply lg:grid-cols-4;
+
+    .grid-item {
+      @apply bg-gray-light;
+
+      img {
+        @apply w-full h-52 object-cover;
+      }
+
+      .item-details {
+        @apply space-y-5;
+
+        .item-description {
+          @apply text-sm;
+        }
+      }
+    }
+  }
+}

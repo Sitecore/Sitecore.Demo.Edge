@@ -1,0 +1,66 @@
+.item-grid.sessions-grid {
+  @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
+
+  .grid-content {
+    @apply sm:grid-cols-1;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-3;
+    @apply xl:grid-cols-4;
+
+    .grid-item {
+      @apply bg-white mx-auto w-full relative;
+
+      transform: scale(1);
+      transition: all 0.1s;
+
+      .icon {
+        @apply h-4 mr-2 inline text-black;
+
+        &-yellow {
+          @apply text-yellow;
+        }
+      }
+
+      .image-hover-zoom {
+        @apply overflow-hidden bg-cover bg-center;
+
+        height: 250px;
+        max-height: 250px;
+      }
+
+      &:hover {
+        box-shadow: 1px 1px 10px rgba(23, 23, 23, 0.45);
+        transform: scale(1.05);
+        transition: all 0.1s;
+        border: 1px solid gray;
+      }
+
+      .session-featured {
+        @apply absolute top-1 right-1 text-yellow;
+
+        svg {
+          filter: drop-shadow(1px 1px 2px black);
+        }
+      }
+
+      .item-details {
+        @apply space-y-3;
+
+        .item-title {
+          @apply uppercase text-lg;
+          @apply lg:text-base;
+        }
+
+        p {
+          @apply text-base;
+          @apply lg:text-sm;
+          @apply xl:text-xs;
+        }
+
+        .speaker-name {
+          @apply uppercase;
+        }
+      }
+    }
+  }
+}

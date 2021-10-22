@@ -1,0 +1,29 @@
+.form.payment-and-billing-form {
+  @apply text-center space-y-5;
+
+  h2 {
+    @apply pt-5 pb-1;
+  }
+
+  .payment-methods {
+    @apply flex items-center;
+
+    img {
+      width: 100px;
+    }
+
+    input:checked + label {
+      img {
+        @apply border border-gray-dark border-solid rounded-lg;
+      }
+    }
+
+    input {
+      @apply contents cursor-pointer invisible w-0;
+    }
+
+    label + input + label {
+      @apply ml-5;
+    }
+  }
+}

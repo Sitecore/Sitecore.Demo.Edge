@@ -1,0 +1,33 @@
+.sessionList {
+  .heading {
+    @apply text-gray-dark relative inline-block uppercase font-medium tracking-widest pb-6;
+  }
+
+  .session {
+    @apply flex mb-4;
+  }
+
+  .time {
+    @apply w-4/12;
+
+    span {
+      @apply text-sm text-gray-lighter block;
+    }
+  }
+
+  .icon {
+    @apply w-1/12;
+
+    span {
+      @apply bg-orange-dark h-2 w-2 rounded-full block mt-2;
+    }
+  }
+
+  .data {
+    @apply w-7/12;
+
+    .title {
+      @apply text-sm font-semibold block;
+    }
+  }
+}

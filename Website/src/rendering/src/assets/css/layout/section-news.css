@@ -1,0 +1,11 @@
+.section__news {
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: url(../../img/background-pattern-dark.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

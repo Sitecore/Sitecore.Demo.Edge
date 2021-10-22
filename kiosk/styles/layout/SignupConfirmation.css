@@ -1,0 +1,37 @@
+.signupConfirmation {
+  @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative min-h-full flex justify-center items-stretch flex-row;
+
+  &__container {
+    @apply flex flex-initial justify-between w-full my-0 mx-auto box-border overflow-hidden items-stretch flex-row;
+
+    max-width: 1440px;
+
+    .logo {
+      @apply self-end px-5;
+    }
+
+    &__content {
+      @apply w-full bg-black-light flex justify-between flex-col;
+      @apply md:w-5/12;
+
+      box-shadow: 0 0 20px #232323;
+
+      &__text {
+        @apply p-6 text-white relative;
+        @apply md:p-12;
+      }
+
+      .headline {
+        @apply text-yellow uppercase;
+      }
+
+      .title {
+        @apply py-3 text-3xl font-bold;
+      }
+
+      p {
+        @apply py-3;
+      }
+    }
+  }
+}

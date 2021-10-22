@@ -1,0 +1,51 @@
+.paymentForm {
+  @apply min-h-full bg-black-light py-5 px-10 w-full grid grid-flow-row;
+
+  .title {
+    @apply uppercase w-full text-white;
+  }
+
+  .ticket {
+    @apply w-full md:w-1/3 rounded-r p-5;
+  }
+
+  .panel {
+    @apply flex flex-1 flex-col md:flex-row;
+  }
+
+  .payment {
+    @apply w-full md:w-2/3 rounded-l p-10 text-white;
+
+    .heading {
+      @apply text-3xl px-5 font-bold;
+    }
+
+    .fields {
+      @apply p-5 pt-8;
+
+      label {
+        @apply font-bold text-sm mb-2 ml-1;
+      }
+
+      input {
+        @apply w-full bg-black-light px-3 py-2 mb-1 border rounded-md focus:outline-none transition-colors;
+      }
+    }
+
+    .complete {
+      @apply px-5;
+    }
+
+    .completePayment {
+      @apply block w-full mx-auto rounded-lg px-3 py-3;
+    }
+  }
+
+  .paymentForm__buttons {
+    @apply flex items-center justify-start;
+
+    .btn-right {
+      margin-left: auto;
+    }
+  }
+}

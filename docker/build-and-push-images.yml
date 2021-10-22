@@ -1,0 +1,345 @@
+# Build Sitecoredemo Docker images
+trigger:
+  branches:
+    include:
+    - develop
+
+resources:
+- repo: self
+  clean: true
+
+variables:
+  GitVersion.SemVer: ''
+  SITECORE_VERSION: '10.1.0'
+  GitVersion.PreReleaseLabel: ''
+  tag: '$(GitVersion.SemVer)'
+  additionalImageTags: ''
+
+stages:
+- stage: Build_TV
+  displayName: "Lint and Build TV"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: tv
+
+        - script: |
+            npm run lint
+          displayName: 'npm run lint'
+          workingDirectory: tv
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: tv
+
+- stage: Build_Kiosk
+  displayName: "Lint and Build Kiosk"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: kiosk
+
+        - script: |
+            npm run lint
+          displayName: 'npm run lint'
+          workingDirectory: kiosk
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: kiosk
+
+- stage: Build
+  displayName: "Lint and Build Website"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        name: 'docker-ltsc2019-agents'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: Website/src/rendering
+
+        - script: |
+            npm run lint
+          displayName: 'npm run lint'
+          workingDirectory: Website/src/rendering
+
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: Website/src/rendering
+
+- stage: Build_Storybook
+  displayName: "Build Website Storybook, Push to Chromatic"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        vmImage: 'windows-latest'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: Website/src/rendering
+
+        - script: |
+            npm run build-storybook
+          displayName: 'npm run build-storybook'
+          workingDirectory: Website/src/rendering
+
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: "Website/src/rendering/storybook-static"
+            artifact: "Storybook"
+            publishLocation: "pipeline"
+
+        - script: |
+            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
+          displayName: 'Push to Chromatic'
+          workingDirectory: Website/src/rendering
+
+- stage: Docker_Windows
+  displayName: "Build Windows Images"
+  dependsOn:
+  - Build
+  - Build_Storybook
+  - Build_TV
+  - Build_Kiosk
+  jobs:
+  - job: Build_Headless
+    timeoutInMinutes: 120
+    strategy:
+      matrix:
+        ltsc2019:
+          poolName: 'docker-ltsc2019-agents'
+          osVersion: 'ltsc2019'
+    displayName: 'Build Windows Docker Images'
+    pool:
+      name: $(poolName)
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.1.x'
+        installationPath: 'c:/program files/dotnet'
+        performMultiLevelLookup: true
+    - template: version.yml
+    - task: PowerShell@2
+      displayName: "Build and Push Images"
+      inputs:
+        targetType: 'inline'
+        script: |
+          $sitecoreRegistry = "$(sitecore.container.registry)"
+
+          if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
+            az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+            az acr login -n "$(sitecore.container.registry.short)"
+          }
+
+          az acr login -n $(container.registry.short)
+
+          $params = @{}
+          $params.Add("DemoVersion", "$(tag)")
+          $params.Add("DemoTeamRegistry","$(REGISTRY)")
+          $params.Add("SitecoreRegistry","$sitecoreRegistry")
+          $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
+
+          ./init-ci.ps1 @params
+
+          # Reset demo version to correct tag without build id
+          $env:DEMO_VERSION = "$(tag)"
+
+          docker-compose build $(no.cache)
+          docker-compose push
+
+          $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
+          if ($primaryBuild) {
+            $env:DEMO_VERSION = "$(additionalImageTags)"
+            docker-compose build
+            docker-compose push
+          }
+
+- stage: Release_Notes
+  displayName: "Create Release Notes"
+  dependsOn:
+    - Docker_Windows
+  condition: and(succeeded('Docker_Windows'),or( eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.SourceBranch'], 'refs/heads/main')))
+  jobs:
+    - job: Generate_Release_Notes
+      pool:
+        vmImage: "windows-latest"
+      displayName: "Generate Release Notes"
+      steps:
+        - template: version.yml
+        - task: XplatGenerateReleaseNotes@3
+          inputs:
+            outputfile: "$(Build.ArtifactStagingDirectory)/releasenotes-edge-xm0-$(GitVersion.SemVer).md"
+            templateLocation: "File"
+            templatefile: "release-notes-template.hb"
+            dumpPayloadToConsole: true
+            dumpPayloadToFile: false
+            replaceFile: true
+            appendToFile: false
+            getParentsAndChildren: False
+            sortWi: true
+            checkStage: false
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: "$(Build.ArtifactStagingDirectory)/releasenotes-edge-xm0-$(GitVersion.SemVer).md"
+            artifact: "Release Notes"
+            publishLocation: "pipeline"
+        - task: AzureCLI@2
+          displayName: "Upload release notes"
+          inputs:
+            azureSubscription: "$(azure.subscription)"
+            scriptType: "pscore"
+            scriptLocation: "inlineScript"
+            inlineScript: "az storage file upload --account-name dockerassets  --share-name release-notes --source $(Build.ArtifactStagingDirectory)/releasenotes-edge-xm0-$(GitVersion.SemVer).md"
+
+- stage: Redeploy_Nightly_Instance
+  displayName: "Redeploy 'nightly' test instance"
+  dependsOn:
+    - Update_Portal_Databases_Nightly
+  condition: and(succeeded('Update_Portal_Databases_Nightly'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  jobs:
+    - job: Redeploy
+      displayName: "Redeploy"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "3.1.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - task: PowerShell@2
+          inputs:
+            targetType: "inline"
+            script: |
+              Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/RedeployInstance" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', instanceId: $(NIGHTLY_TEST_INSTANCE_ID) }" -ContentType "application/json"
+
+- stage: Redeploy_Stable_Instance
+  displayName: "Redeploy 'stable' test instance"
+  dependsOn:
+    - Update_DEV_Portal_Databases_Stable
+  condition: and(succeeded('Update_DEV_Portal_Databases_Stable'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+    - job: Redeploy
+      displayName: "Redeploy"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "3.1.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - task: PowerShell@2
+          inputs:
+            targetType: "inline"
+            script: |
+              Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/RedeployInstance" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', instanceId: $(STABLE_TEST_INSTANCE_ID) }" -ContentType "application/json"
+
+- stage: Update_Portal_Databases_Nightly
+  displayName: "Update 'nightly' version in portal databases"
+  dependsOn:
+    - Release_Notes
+  condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  jobs:
+    - job: Update_Tags
+      displayName: "Update Tags"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "3.1.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - template: version.yml
+        - task: PowerShell@2
+          inputs:
+            targetType: "inline"
+            script: |
+              Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+
+- stage: Update_DEV_Portal_Databases_Stable
+  displayName: "Update 'stable' version in the DEV portal database"
+  dependsOn:
+    - Release_Notes
+  condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+    - job: Update_Dev_Database
+      displayName: "Update Dev Database"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "3.1.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - template: version.yml
+        - task: PowerShell@2
+          inputs:
+            targetType: "inline"
+            script: |
+              Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+
+- stage: Update_PROD_Portal_Database_Stable
+  displayName: "Update 'stable' version in the PROD portal database"
+  dependsOn:
+    - Release_Notes
+  condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+    - job: Update_Production_Database
+      displayName: "Update Production Database"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "3.1.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - template: version.yml
+        - task: PowerShell@2
+          inputs:
+            targetType: "inline"
+            script: |
+              Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+    - deployment: Update_Production_Database_Deployment
+      displayName: "Update Production Database Deployment"
+      environment: Production Portal Database

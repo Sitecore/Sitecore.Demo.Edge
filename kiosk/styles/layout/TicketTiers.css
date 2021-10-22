@@ -1,0 +1,36 @@
+.tickets {
+  @apply min-h-full bg-black-light justify-center items-center p-5 w-full grid grid-flow-row;
+
+  .title {
+    @apply uppercase text-white w-full;
+  }
+
+  .section__tickets {
+    @apply grid grid-cols-3 gap-5 grid-flow-col py-5;
+
+    .ticket-content {
+      @apply col-span-1;
+
+      transition: all 1s;
+      transform: scale(1);
+
+      &.inactive {
+        transition: all 1s;
+        opacity: 0.8;
+      }
+
+      &.active {
+        transition: all 1s;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .tickets__buttons {
+    @apply flex items-center justify-start;
+
+    .btn-right {
+      margin-left: auto;
+    }
+  }
+}

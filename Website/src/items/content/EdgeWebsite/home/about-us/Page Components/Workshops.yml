@@ -1,0 +1,48 @@
+﻿---
+ID: "c22c3613-e654-4d91-9104-8c38f066730e"
+Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
+Template: "ccf76f8e-4780-450a-b330-69f8502b140f"
+Path: /sitecore/content/EdgeWebsite/home/about-us/Page Components/Workshops
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210827T182233Z
+    - ID: "48454055-754f-4b2f-87a3-b840e3eada73"
+      Hint: Description
+      Value: "From transforming your mindset to improving your technique, learn practical tips from our line-up of experts."
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "72ca6c7d-0588-4bea-b47d-6067bdd5a7e9"
+      Hint: Logo
+      Value: |
+        <image mediaid="{A61B8F1F-643D-4074-84C7-0E72F6363701}" ></image>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bbe5ebb3-5209-47a5-b248-a5f16687fd88"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c63db4c4-d678-45cd-9d0d-4994b571eb7d"
+      Hint: Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210827T183620Z
+    - ID: "f395eb06-1e1d-4705-baba-b1f92a9aa780"
+      Hint: Title
+      Value: Workshops

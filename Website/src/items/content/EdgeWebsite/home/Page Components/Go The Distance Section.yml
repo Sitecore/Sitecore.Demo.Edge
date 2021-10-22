@@ -1,0 +1,70 @@
+﻿---
+ID: "5f6adee8-f8e2-4a92-85e3-0c1d0a82faf1"
+Parent: "99536ff1-02bf-5b2e-a94a-1bbba4cf50fa"
+Template: "675a1839-6fe8-59a6-a1e4-6ccbdbf2e966"
+Path: /sitecore/content/EdgeWebsite/home/Page Components/Go The Distance Section
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0454f4d4-38d7-51cc-a08a-e5c69eed9a5c"
+      Hint: RightTitle
+      Value: View Vendors
+    - ID: "07d6c7b7-7c29-540b-b602-00b15c377ed2"
+      Hint: Title
+      Value: GO THE DISTANCE
+    - ID: "0c09865d-f9e6-564a-8dc9-f46c7e49a687"
+      Hint: RightLogo
+      Value: |
+        <image mediaid="{D6AECB2C-9006-450A-ABD7-CFE9AF3C7136}" />
+    - ID: "1db8dbf5-944f-562d-ab5f-66e91325a159"
+      Hint: MiddleTitle
+      Value: 32 Speakers and Guest Speakers
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210727T194309Z
+    - ID: "2d39d751-cfc9-5e7b-a6b7-036eb48b0241"
+      Hint: RightLink
+      Value: |
+        <link text="View Vendors" anchor="" linktype="internal" class="" title=""  querystring="" id="{774E44E8-0F30-5879-B847-AD233FFB41AA}" />
+    - ID: "4bcf7d15-f018-5ca8-ae87-54499668a439"
+      Hint: LeftLink
+      Value: |
+        <link text="View Sessions" anchor="" linktype="internal" class="" title=""  querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "676de5cb-067f-50d4-b1e9-3a51f2c973c2"
+      Hint: MiddleLogo
+      Value: |
+        <image mediaid="{CCAA3DA2-F72A-4AED-8B44-674BBD9DC5A6}" />
+    - ID: "69c79660-030e-5751-a31b-b095949d2126"
+      Hint: LeftLogo
+      Value: |
+        <image mediaid="{21C5D87C-3E77-4AFA-82FF-665B15EA7806}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e3e7e12b-9e47-4dbb-9b1c-1c72ed37bda1"
+    - ID: "a8282684-a5d5-57be-b6f6-a509c6ccdbe3"
+      Hint: LeftTitle
+      Value: 48 Talks and Workshops
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "cffaaa85-da42-588a-8846-e91e1be15067"
+      Hint: MiddleLink
+      Value: |
+        <link text="View Speakers" anchor="" linktype="internal" class="" title=""  querystring="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210907T115620Z
+    - ID: "da225a0d-6c21-5207-9510-6089e5352730"
+      Hint: Subtitle
+      Value: "Whether you’re joining us in person or online, this year’s PLAY! Summit is set to be our biggest and best event yet. Look forward to an action-packed line-up featuring keynotes, Q&As, demos, and workshops across a mix of live and virtual stages."

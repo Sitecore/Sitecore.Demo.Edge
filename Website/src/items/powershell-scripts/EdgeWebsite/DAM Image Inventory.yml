@@ -1,0 +1,87 @@
+﻿---
+ID: "b5eb5a74-da3a-4b26-8ee9-5b2c8db65d34"
+Parent: "6053403f-2ebd-4546-bc1c-869bbb66c320"
+Template: "dd22f1b3-bd87-4db2-9e7d-f7a496888d43"
+Path: /sitecore/system/Modules/PowerShell/Script Library/SPE/Reporting/Content Reports/Reports/EdgeWebsite/DAM Image Inventory
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/revert_database.png
+- ID: "b1a94ff0-6897-47c0-9c51-aa6acb80b1f0"
+  Hint: Script
+  Value: |
+    $customList = New-Object System.Collections.Generic.List[PSObject]
+    function GetImageSrcFromItem {
+        Param([Sitecore.Data.Items.Item] $Item, [System.String] $FieldType, [Sitecore.Data.Fields.Field] $Field, [System.String] $Tag)
+        $ContentHubHostname = 'stylelabs'
+        $ContentHubHostname2 = 'sitecoresandbox'
+        if ($field.Type -eq $FieldType) {
+            $fieldValue = $Item.Fields[$field.Name].Value
+            $htmlDocument = New-Object -TypeName HtmlAgilityPack.HtmlDocument
+            $htmlDocument.LoadHtml($fieldValue)
+            foreach ($x in $htmlDocument.DocumentNode.SelectNodes("//$Tag")) {
+                $src = $x.Attributes["src"].Value
+                if ([string]::IsNullOrEmpty($src)) {
+                    $src = $x.Attributes["mediaid"].Value
+                }
+                $formatted = '<p style="background-color:Salmon; padding:5px;">' + $src + '</p>'
+                if ($src -like "*$ContentHubHostname*" -or $src -like "*$ContentHubHostname2*") {
+                    $formatted = '<p style="background-color:PaleGreen; padding:5px;">' + $src + '</p>'
+                }
+                $newObject = New-Object PSObject @{ItemPath = $_.FullPath; ItemName = $_.DisplayName; FieldName = $field.Name; FieldType = $FieldType; Value = $formatted}
+                $customList.Add($newObject)
+            }
+        }
+    }
+    $allItems = Get-ChildItem -Path 'master://sitecore/content/' -Recurse
+    $allItems | ForEach-Object {
+        foreach ($field in $_.Fields) {
+            GetImageSrcFromItem -Item $_ -FieldType "Image" -Field $field -Tag "image"
+            GetImageSrcFromItem -Item $_ -FieldType "Rich Text" -Field $field -Tag "img"
+        }
+    }
+    $reportProps = @{
+        Title           = "Media Item Inventory"
+        InfoTitle       = "All the Media Items used in this instance are listed below. Please check all pages."
+        InfoDescription = "Total entries found: $($customList.count)"
+        PageSize        = 25
+    }
+    $customList | Show-ListView @reportProps -Property `
+    @{ Label = "Item Name"; Expression = { $_.ItemName } },
+    @{ Label = "Item Path"; Expression = { $_.ItemPath } },
+    @{ Label = "Field Name"; Expression = { $_.FieldName } },
+    @{ Label = "Field Type"; Expression = { $_.FieldType } },
+    @{ Label = "Field Value"; Expression = { $_.Value } }
+Languages:
+- Language: en
+  Fields:
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: DAM Image Inventory
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: DAM Image Inventory
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20140408T002245Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9bac0ce9-9798-4302-9fe5-27855be59402"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        serialization\UnicornDataProvider
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210823T201701Z

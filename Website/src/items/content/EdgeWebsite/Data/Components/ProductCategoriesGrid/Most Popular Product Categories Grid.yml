@@ -1,0 +1,40 @@
+﻿---
+ID: "b480e5fa-e4d0-4c4a-b42d-033e697680ed"
+Parent: "2237f3f3-2d7a-534a-a2cd-f9700e85651b"
+Template: "7dfc82e1-f7a7-5853-9760-59c812f25776"
+Path: /sitecore/content/EdgeWebsite/Data/Components/ProductCategoriesGrid/Most Popular Product Categories Grid
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210729T134702Z
+    - ID: "4713aaa3-3832-5415-ad5c-0aa9f26939e7"
+      Hint: Categories
+      Value: |
+        {5610BF76-A85D-5A4C-85D5-1ADBEBD4C2AB}
+        {C80AF20E-C1CF-5C42-B221-8F5C7D50FB82}
+        {272032BA-8698-5212-BA98-EFF484A4CB31}
+        {C8446991-A591-5B6F-8768-C19ED6223366}
+        {61905C18-2A13-52CC-A07D-06311679FB9D}
+        {95AF830F-D226-52C4-BBD4-76B2AC713DCC}
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b91412bf-2313-4666-96ca-b6f8dc64b5e4"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210729T140633Z
