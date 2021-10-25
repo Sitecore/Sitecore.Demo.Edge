@@ -52,7 +52,6 @@ function Sync {
     )
 
     if(-not (Test-Path $Path -PathType Container)) {
-        New-Item -Path $Path -ItemType "directory"
         git clone https://github.com/adoprog/test-fetch $Path
     }
     else {
