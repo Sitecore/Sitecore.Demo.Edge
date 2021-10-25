@@ -29,11 +29,18 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/tv/package-lock.json'
+            path: '$(Build.SourcesDirectory)/tv/node_modules'
+            cacheHitVar: 'CacheRestored'
 
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: tv
+          condition: ne(variables['CacheRestored'],'true')
 
         - script: |
             npm run lint
