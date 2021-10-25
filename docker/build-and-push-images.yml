@@ -23,7 +23,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'docker-ltsc2019-agents'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
@@ -51,7 +51,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'docker-ltsc2019-agents'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
@@ -107,7 +107,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'docker-ltsc2019-agents'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
