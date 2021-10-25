@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { CustomSpeaker } from '../types/speaker';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
-type SpeakersGridProps = ComponentProps & {
+export type SpeakersGridProps = ComponentProps & {
   fields: {
     data: {
       item: {
         children: {
-          results: CustomSpeaker[];
+          results: GraphQLSpeaker[];
         };
       };
     };
@@ -41,5 +41,4 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
   </div>
 );
 
-export type { SpeakersGridProps };
 export default SpeakersGrid;

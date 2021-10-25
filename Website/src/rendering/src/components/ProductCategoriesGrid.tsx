@@ -1,19 +1,13 @@
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-
-export type Category = {
-  fields: {
-    Title: Field<string>;
-    Picture: ImageField;
-  };
-};
+import { ProductCategory } from 'src/types/productCategory';
 
 type ProductCategoriesProps = ComponentProps & {
   fields: {
     Title: Field<string>;
     Subtitle: Field<string>;
-    Categories: Category[];
+    Categories: ProductCategory[];
   };
 };
 

@@ -2,7 +2,7 @@ import profile from '../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
 import { Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { News } from '../types/news';
+import { News } from 'src/types/news';
 
 type NewsGridProps = ComponentProps & {
   fields: {
@@ -64,5 +64,4 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => (
   </div>
 );
 
-export type { News };
 export default NewsGrid;

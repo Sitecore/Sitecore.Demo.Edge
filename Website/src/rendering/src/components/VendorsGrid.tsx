@@ -1,14 +1,7 @@
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-
-type Vendor = {
-  fields: {
-    Name: Field<string>;
-    Level: Field<string>;
-    Logo: ImageField;
-  };
-};
+import { Vendor } from 'src/types/vendor';
 
 type VendorsGridProps = ComponentProps & {
   fields: {
@@ -96,5 +89,4 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => (
   </section>
 );
 
-export type { Vendor };
 export default VendorsGrid;

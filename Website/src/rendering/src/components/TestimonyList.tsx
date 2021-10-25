@@ -1,13 +1,6 @@
-import { Text, RichText, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, RichText, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-
-type Testimony = {
-  fields: {
-    Provider: Field<string>;
-    Testimony: Field<string>;
-    Logo: ImageField;
-  };
-};
+import { Testimony } from 'src/types/testimony';
 
 type TestimonyListProps = ComponentProps & {
   fields: {
@@ -55,5 +48,4 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => (
   </section>
 );
 
-export type { Testimony };
 export default TestimonyList;

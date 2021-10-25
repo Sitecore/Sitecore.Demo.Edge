@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Text, Image, RichText, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { News } from '../types/news';
+import { News } from 'src/types/news';
 
 type NewsListProps = ComponentProps & {
   fields: {
@@ -46,5 +46,4 @@ const NewsList = (props: NewsListProps): JSX.Element => (
   </section>
 );
 
-export type { News };
 export default NewsList;

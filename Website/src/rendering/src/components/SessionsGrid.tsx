@@ -5,14 +5,14 @@ import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
-import { CustomSession } from 'src/types/session';
+import { GraphQLSession } from 'src/types/session';
 
 type SessionsGridProps = ComponentProps & {
   fields: {
     data: {
       item: {
         children: {
-          results: CustomSession[];
+          results: GraphQLSession[];
         };
       };
     };
@@ -20,7 +20,7 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
-  const getImageStyles = (session: CustomSession): CSSProperties =>
+  const getImageStyles = (session: GraphQLSession): CSSProperties =>
     session?.image?.jsonValue?.value?.src
       ? {
           backgroundImage: `url(${session.image.jsonValue.value.src})`,

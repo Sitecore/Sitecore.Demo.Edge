@@ -1,6 +1,6 @@
 import { Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Timeslot } from '../interfaces/Timeslot';
-import { CustomSpeaker } from './speaker';
+import { GraphQLSpeaker } from './speaker';
 import { Day } from './day';
 
 export type Session = {
@@ -12,7 +12,7 @@ export type Session = {
   };
 };
 
-export type CustomSession = {
+export type GraphQLSession = {
   // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
   itemName: string;
   name: Field<string>;
@@ -21,7 +21,7 @@ export type CustomSession = {
     jsonValue: ImageField;
   };
   speakers: {
-    targetItems: CustomSpeaker[];
+    targetItems: GraphQLSpeaker[];
   };
   day: {
     targetItems: Day[];

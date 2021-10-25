@@ -11,7 +11,7 @@ import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
 import { Timeslot } from '../interfaces/Timeslot';
-import { Speaker } from '../types/speaker';
+import { Speaker } from 'src/types/speaker';
 import { Day } from 'src/types/day';
 import { Room } from 'src/types/room';
 
@@ -176,5 +176,4 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   );
 };
 
-export type { Speaker };
 export default SessionInformation;

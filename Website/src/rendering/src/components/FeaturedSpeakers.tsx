@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { CustomSpeaker } from '../types/speaker';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
-type FeaturedSpeakersProps = ComponentProps & {
+export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
     data: {
       item: {
         children: {
-          results: CustomSpeaker[];
+          results: GraphQLSpeaker[];
         };
       };
     };
@@ -46,5 +46,4 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
   </div>
 );
 
-export type { FeaturedSpeakersProps };
 export default FeaturedSpeakers;

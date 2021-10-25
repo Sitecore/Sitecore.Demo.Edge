@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { Vendor } from '../types/vendor';
+import { Vendor } from 'src/types/vendor';
 
 type FeaturedVendorsProps = ComponentProps & {
   fields: {
@@ -53,5 +53,4 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => (
   </section>
 );
 
-export type { Vendor };
 export default FeaturedVendors;

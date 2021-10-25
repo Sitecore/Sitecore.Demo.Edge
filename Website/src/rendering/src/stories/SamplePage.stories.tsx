@@ -6,8 +6,9 @@ import { HeaderProps } from '../components/Header';
 import HeroSection, { HeroProps } from '../components/HeroSection';
 import MainNavigation, { MainNavigationProps } from '../components/MainNavigation';
 import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
-import SponsorsGrid, { Sponsor, SponsorsProps } from '../components/SponsorsGrid';
+import SponsorsGrid, { SponsorsProps } from '../components/SponsorsGrid';
 import Footer, { FooterProps } from '../components/Footer';
+import { Sponsor } from 'src/types/sponsor';
 
 export default {
   title: 'Pages/Home',

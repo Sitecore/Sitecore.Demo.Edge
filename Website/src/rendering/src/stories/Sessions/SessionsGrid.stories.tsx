@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import SessionsGrid from '../../components/SessionsGrid';
-import { CustomSpeaker } from 'src/types/speaker';
-import { CustomSession } from 'src/types/session';
+import { GraphQLSpeaker } from 'src/types/speaker';
+import { GraphQLSession } from 'src/types/session';
 
 export default {
   title: 'Components/Sessions/SessionsGrid',
@@ -19,7 +19,7 @@ const speaker = {
   role: {
     value: 'Speaker',
   },
-} as CustomSpeaker;
+} as GraphQLSpeaker;
 
 const timeslots = [
   {
@@ -66,7 +66,7 @@ const session1 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as CustomSession;
+} as GraphQLSession;
 
 const session2 = {
   itemName: 'Eat smart',
@@ -92,7 +92,7 @@ const session2 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as CustomSession;
+} as GraphQLSession;
 
 const session3 = {
   itemName: 'Premium Session',
@@ -118,7 +118,7 @@ const session3 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as CustomSession;
+} as GraphQLSession;
 
 const session4 = {
   itemName: 'Workout',
@@ -144,7 +144,7 @@ const session4 = {
   timeslots: {
     targetItems: timeslots,
   },
-} as CustomSession;
+} as GraphQLSession;
 
 export const Default = Template.bind({});
 Default.args = {

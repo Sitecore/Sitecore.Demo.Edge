@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import FeaturedSpeakers from '../../components/FeaturedSpeakers';
-import { CustomSpeaker } from '../../types/speaker';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Speakers/FeaturedSpeakers',
@@ -30,7 +30,7 @@ const speaker = {
   role: {
     value: '',
   },
-} as CustomSpeaker;
+} as GraphQLSpeaker;
 
 const speaker1 = {
   itemName: 'Second Speaker',
@@ -51,7 +51,7 @@ const speaker1 = {
   role: {
     value: '',
   },
-} as CustomSpeaker;
+} as GraphQLSpeaker;
 
 const speaker2 = {
   itemName: 'Third Speaker',
@@ -72,7 +72,7 @@ const speaker2 = {
   role: {
     value: '',
   },
-} as CustomSpeaker;
+} as GraphQLSpeaker;
 
 const speaker3 = {
   itemName: 'Another Speaker',
@@ -93,7 +93,7 @@ const speaker3 = {
   role: {
     value: '',
   },
-} as CustomSpeaker;
+} as GraphQLSpeaker;
 
 const speaker4 = {
   itemName: 'Last Speaker',
@@ -114,7 +114,7 @@ const speaker4 = {
   role: {
     value: '',
   },
-} as CustomSpeaker;
+} as GraphQLSpeaker;
 
 export const Default = Template.bind({});
 Default.args = {
