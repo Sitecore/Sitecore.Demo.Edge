@@ -23,7 +23,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        vmImage: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
@@ -51,7 +51,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        vmImage: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
@@ -107,7 +107,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        vmImage: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
@@ -180,7 +180,7 @@ stages:
           $params.Add("DemoTeamRegistry","$(REGISTRY)")
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
-          
+
           if ("true" -eq "$(preRelease)"){
             $params.Add("PreRelease", $true)
           }
