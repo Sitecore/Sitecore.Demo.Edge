@@ -37,7 +37,6 @@ COPY --from=edge_assets C:\module\cm\xdt C:\module\xdt
 # Copy the Sitecore Horizon Module
 COPY --from=horizon_integration_assets /module/cm/content C:\inetpub\wwwroot
 
-
 # Copy and init the JSS / Headless Services Module
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=headless_services C:\module\tools C:\module\tools
@@ -57,6 +56,9 @@ COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.
 # Copy transform to container for DAM CSP access
 COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
 
+# Copy custom entrypoint
+COPY ./tools/ /tools/
+
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
 
@@ -71,3 +73,5 @@ RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse )
 RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/App_Config/ConnectionStrings*.xdt' -Recurse ) | `
     ForEach-Object { & '/tools/scripts/Invoke-XdtTransform.ps1' -Path '/inetpub/wwwroot/app_config/ConnectionStrings.config' -XdtPath $_.FullName `
     -XdtDllPath '/tools/bin/Microsoft.Web.XmlTransform.dll'; };
+
+ENTRYPOINT [ "powershell.exe", "C:\\tools\\entrypoints\\aks\\boot.ps1" ]
