@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type SocialIconProps = {
   Link?: Field<string>;
@@ -8,7 +8,7 @@ type SocialIconProps = {
 };
 
 function SocialIcon(props: SocialIconProps): JSX.Element {
-  if (props.Link == undefined) {
+  if (!props.Link) {
     return <></>;
   }
 

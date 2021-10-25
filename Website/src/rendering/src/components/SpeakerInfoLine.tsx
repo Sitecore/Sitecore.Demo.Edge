@@ -13,7 +13,7 @@ function SpeakerInfoLine(props: SpeakerInfoLineProps): JSX.Element {
   return (
     <div>
       <span className="data-label">{props.title}: </span>
-      <Text field={props.field}></Text>
+      <Text field={props.field} />
     </div>
   );
 }

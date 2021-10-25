@@ -44,14 +44,15 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
+  const sessions =
+    props.fields.data?.item?.children?.results &&
+    props.fields.data.item.children.results.map((session, index) => (
+      <SessionItem key={index} session={session} />
+    ));
+
   return (
     <div className="item-grid sessions-grid">
-      <div className="grid-content">
-        {props.fields.data?.item?.children?.results &&
-          props.fields.data.item.children.results.map((session, index) => (
-            <SessionItem key={index} session={session} />
-          ))}
-      </div>
+      <div className="grid-content">{sessions}</div>
     </div>
   );
 };

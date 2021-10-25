@@ -17,28 +17,27 @@ type SponsorsProps = ComponentProps & {
   };
 };
 
-const SponsorsGrid = (props: SponsorsProps): JSX.Element => (
-  <div className="section__sponsors__grid">
-    {props &&
-      props.fields &&
-      props.fields.Sponsors &&
-      props.fields.Sponsors.map((sponsor, index) => (
-        <Link key={index} href="#">
-          <a className="section__sponsors__grid__sponsor">
-            <div className="section__sponsors__grid__sponsor__imagecontainer">
-              <Image
-                field={sponsor.fields.Logo}
-                alt={sponsor.fields.Name.value}
-                width={180}
-                height={80}
-                loading="lazy"
-              />
-            </div>
-          </a>
-        </Link>
-      ))}
-  </div>
-);
+const SponsorsGrid = (props: SponsorsProps): JSX.Element => {
+  const sponsors =
+    props?.fields?.Sponsors &&
+    props.fields.Sponsors.map((sponsor, index) => (
+      <Link key={index} href="#">
+        <a className="section__sponsors__grid__sponsor">
+          <div className="section__sponsors__grid__sponsor__imagecontainer">
+            <Image
+              field={sponsor.fields.Logo}
+              alt={sponsor.fields.Name.value}
+              width={180}
+              height={80}
+              loading="lazy"
+            />
+          </div>
+        </a>
+      </Link>
+    ));
+
+  return <div className="section__sponsors__grid">{sponsors}</div>;
+};
 
 export type { Sponsor };
 export type { SponsorsProps };

@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PropsWithChildren } from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-type InfoTextProps = {
+type InfoTextProps = PropsWithChildren<{
   Icon: IconProp;
-  children: React.ReactNode;
-};
+}>;
 
 function InfoText(props: InfoTextProps): JSX.Element {
   return (
