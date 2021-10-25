@@ -27,7 +27,8 @@ param(
 )
 
 # Setup
-$ErrorActionPreference = "Stop"
+$env:GIT_REDIRECT_STDERR = '2>&1'
+$ErrorActionPreference = "Continue"
 $InformationPreference = "Continue"
 $timeFormat = "HH:mm:ss:fff"
 
@@ -70,7 +71,7 @@ function Sync {
         }
     }
 
-    $command = @("robocopy", "`"$Path`"", "`"$Destination`"", "/MIR", "/MT:4", "/NJH", "/NJS", "/FP", "/NDL", "/NFL", "/NP", "/NS", "/R:5", "/W:5")
+    $command = @("robocopy", "`"$Path`"", "`"$Destination`"", "/MT:4", "/NJH", "/NJS", "/FP", "/NDL", "/NFL", "/NP", "/NS", "/R:5", "/W:5")
 
     if ($ExcludeDirectories.Count -gt 0) {
         $command += "/XD "

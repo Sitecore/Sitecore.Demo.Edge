@@ -14,6 +14,6 @@ Start-Job -Name $JobName -ArgumentList $JobParameters -ScriptBlock {
 
     & "C:\tools\scripts\Git-Sync.ps1" @params
 
-} | Out-Null
+}
 
-& "C:\LogMonitor\LogMonitor.exe" "C:\ServiceMonitor.exe" "w3svc"
+& "C:\LogMonitor\LogMonitor.exe" "powershell" "C:\Run-W3SVCService.ps1" 

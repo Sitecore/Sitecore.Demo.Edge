@@ -22,6 +22,11 @@ FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
+# Install GIT
+WORKDIR C:\tools
+RUN Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/v2.30.1.windows.1/Git-2.30.1-64-bit.exe' -OutFile 'git.exe';
+RUN Start-Process "c:\tools\git.exe" -ArgumentList '/SP-', '/VERYSILENT', '/NORESTART', '/NOCANCEL', '/CLOSEAPPLICATIONS', '/RESTARTAPPLICATIONS' -Wait -NoNewWindow;
+
 WORKDIR C:\inetpub\wwwroot
 
 # Copy developer tools and entrypoint
