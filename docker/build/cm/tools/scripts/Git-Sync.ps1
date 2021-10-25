@@ -8,7 +8,7 @@ param(
     [string]$Destination,
 
     [Parameter(Mandatory = $false)]
-    [int]$Sleep = 10000,
+    [int]$Sleep = 60000,
 
     [Parameter(Mandatory = $false)]
     [int]$Timeout = 0,
