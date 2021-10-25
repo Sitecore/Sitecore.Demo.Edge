@@ -35,3 +35,7 @@
     }
   }
 }
+
+/* TODO: Rename to "information-section" once vendor, speaker, and session information sections have been converted to use this class */
+.information-section-with-sessions {
+}
