@@ -181,6 +181,7 @@ stages:
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
 
+
           if ("true" -eq "$(preRelease)"){
             $params.Add("PreRelease", $true)
             $params.Add("SitecoreNugetSource","$(INTERNAL_SITECORE_NUGET_SOURCE)")
