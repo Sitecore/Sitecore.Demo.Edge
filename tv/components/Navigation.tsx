@@ -1,22 +1,24 @@
+import Link from 'next/link';
 import React from 'react';
-import { getRooms } from '../api/queries/getRooms';
 import { getSchema } from '../api/queries/getSchema';
-import { Room } from '../interfaces/room';
-import { DayResult, DayResults } from '../interfaces/schema';
+import { DayResult, VenueResult } from '../interfaces/schema';
 
 interface NavigationState {
   days: DayResult[];
+  venues: VenueResult[];
 }
 
 class Navigation extends React.Component<null, NavigationState> {
   state: Readonly<NavigationState> = {
     days: [],
+    venues: [],
   };
 
   constructor(props: null) {
     super(props);
     this.state = {
       days: [],
+      venues: [],
     };
   }
 
@@ -24,6 +26,7 @@ class Navigation extends React.Component<null, NavigationState> {
     getSchema().then((schema) => {
       this.setState({
         days: schema.days,
+        venues: schema.venues,
       });
     });
   }
@@ -33,20 +36,58 @@ class Navigation extends React.Component<null, NavigationState> {
     return (
       <div className="menu">
         <div className="menu-button">+ </div>
-
-        <div className="menu-content">
-          <ul>
-            {this.state.days.map((day, index) => (
-              <li key={index}>
-                {day.taxonomyName}
-                <ul>
-                  {day.timeslotToDay.results.map((ts, i) => (
-                    <li key={i}>{ts.taxonomyLabel['en-US']}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
+        <div className="menu-content space-y-6">
+          <div>
+            <h2>Current Time: </h2>Aug 29th, 11:11 am
+          </div>
+          <div>
+            <h2 className="item-title">Days</h2>
+            <ul>
+              {this.state.days.map((day, index) => (
+                <li className="parent-link" key={index}>
+                  <Link href="/schedule/day" passHref>
+                    <a className="item-link bg-black-light text-white">{day.taxonomyName}</a>
+                  </Link>
+                  <ul className="child-link">
+                    {day.timeslotToDay.results.map((ts, i) => {
+                      return (
+                        <li key={i}>
+                          <Link href="/schedule/day/time">
+                            <a className="item-link bg-gray-light text-black">
+                              {ts.taxonomyLabel['en-US']}
+                            </a>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 className="item-title">Venues</h2>
+            <ul>
+              {this.state.venues.map((venue, index) => (
+                <li className="parent-link" key={index}>
+                  <Link href="/schedule/day">
+                    <a className="item-link bg-black-light text-white"> {venue.name}</a>
+                  </Link>
+                  <ul className="child-link">
+                    {venue.rooms.results.map((room, i) => {
+                      return (
+                        <li key={i}>
+                          <Link href="/schedule/day/time">
+                            <a className="item-link bg-gray-light text-black">{room.name}</a>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     );

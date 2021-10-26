@@ -1,8 +1,8 @@
 .menu {
   position: absolute;
   display: inline-block;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   z-index: 50;
 
   .menu-button {
@@ -11,11 +11,34 @@
 
   .menu-content {
     display: none;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    width: 400px;
     height: 100vh;
+    overflow-y: auto;
 
-    @apply bg-gray text-black z-50 mx-auto text-center p-20;
+    @apply bg-gray text-black z-50 mx-auto text-center px-8 py-20;
+
+    .item-title {
+      @apply p-2 bg-black text-white;
+    }
+
+    .item-link {
+      @apply p-2 w-full block cursor-pointer;
+
+      &:hover {
+        @apply bg-gray-dark text-white;
+      }
+    }
+
+    .parent-link {
+      .child-link {
+        display: none;
+      }
+
+      &:hover .child-link {
+        display: block;
+      }
+    }
   }
 
   &:hover .menu-content {

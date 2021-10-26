@@ -1,3 +1,4 @@
+import { RoomResults } from '../room';
 import { Timeslots } from '../session';
 import { SpeakerResults } from '../speaker';
 
@@ -22,9 +23,8 @@ export interface DayResults {
 }
 
 export interface VenueResult {
-  id: string;
-  sortOrder: string;
-  taxonomyLabel: string;
+  name: string;
+  rooms: RoomResults;
 }
 
 export interface VenueResults {
