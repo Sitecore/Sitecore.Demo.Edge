@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
-import { Session } from './SessionsGrid';
+import { GraphQLSession } from 'src/types/session';
 
 type SessionItemProps = {
-  session: Session;
+  session: GraphQLSession;
 };
 
 const SessionItem = (props: SessionItemProps): JSX.Element => {
-  const getImageStyles = (session: Session): CSSProperties =>
+  const getImageStyles = (session: GraphQLSession): CSSProperties =>
     session?.image?.jsonValue?.value?.src
       ? {
           backgroundImage: `url(${session.image.jsonValue.value.src})`,
