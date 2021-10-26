@@ -6,7 +6,6 @@ import MainNavigation, { MainNavigationProps } from '../../components/MainNaviga
 import InformationPageHero, {
   InformationPageHeroProps,
 } from '../../components/InformationPageHero';
-import TicketGrid from '../../components/TicketGrid';
 import VendorInformation, { VendorInformationProps } from '../../components/VendorInformation';
 import Footer, { FooterProps } from '../../components/Footer';
 

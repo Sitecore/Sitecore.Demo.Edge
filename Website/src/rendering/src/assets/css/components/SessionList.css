@@ -4,6 +4,7 @@
   .session-info {
     @apply grid grid-cols-3 gap-5 border border-gray items-stretch p-5;
     @apply md:grid-cols-10;
+
     .session-info-col-date {
       @apply col-span-1 align-top text-center order-1 self-center;
       @apply md:col-span-3;
