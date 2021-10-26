@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProductCategoriesGrid, { Category } from '../../components/ProductCategoriesGrid';
+import ProductCategoriesGrid from '../../components/ProductCategoriesGrid';
+import { ProductCategory } from 'src/types/productCategory';
 
 export default {
   title: 'Components/Products/ProductCategoriesGrid',
@@ -25,7 +26,7 @@ const category1 = {
       },
     },
   },
-} as Category;
+} as ProductCategory;
 
 const category2 = {
   Name: 'Item Name',
@@ -40,7 +41,7 @@ const category2 = {
       },
     },
   },
-} as Category;
+} as ProductCategory;
 
 const category3 = {
   Name: 'Item Name',
@@ -55,7 +56,7 @@ const category3 = {
       },
     },
   },
-} as Category;
+} as ProductCategory;
 
 export const Default = Template.bind({});
 Default.args = {
