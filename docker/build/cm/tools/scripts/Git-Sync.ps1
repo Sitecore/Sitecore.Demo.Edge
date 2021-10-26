@@ -51,7 +51,19 @@ function Sync {
         $ExcludeDirectories
     )
 
-    if(-not (Test-Path $Path -PathType Container)) {
+    if (-not (Test-Path $Path -PathType Container)) {
+        New-Item -Path "~\.ssh" -ItemType Directory
+        "Host github.com_StrictHostKeyChecking no".replace("_", [System.Environment]::NewLine) | Set-Content ~\.ssh\config
+
+        $privateKey = $env:GIT_SYNC_PRIVATE_KEY
+        $privateKey = $privateKey.replace(" OPENSSH PRIVATE KEY", "_OPENSSH_PRIVATE_KEY").replace(" ", [System.Environment]::NewLine).replace("_", " ")
+
+        $privateKey | Out-File ~\.ssh\id_rsa
+        $env:GIT_SYNC_PUBLIC_KEY | Out-File ~\.ssh\id_rsa.pub
+
+        ((Get-Content ~\.ssh\id_rsa) -join "`n") + "`n" | Set-Content -NoNewline -Encoding Ascii ~\.ssh\id_rsa
+        ((Get-Content ~\.ssh\id_rsa.pub) -join "`n") + "`n" | Set-Content -NoNewline -Encoding Ascii ~\.ssh\id_rsa.pub
+
         git clone https://github.com/adoprog/test-fetch $Path
     }
     else {
@@ -59,12 +71,11 @@ function Sync {
         git fetch
         $status = git status
     
-        if($status -match "git pull")
-        {
+        if ($status -match "git pull") {
             Write-Information "$(Get-Date -Format $timeFormat): Detected changes..."
             git pull
         }
-        else{
+        else {
             Write-Information "$(Get-Date -Format $timeFormat): Nothing to fetch...  $status"
             return
         }
