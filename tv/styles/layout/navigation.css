@@ -1,0 +1,28 @@
+.menu {
+  position: absolute;
+  display: inline-block;
+  top: 0px;
+  left: 0px;
+  z-index: 50;
+
+  .menu-button {
+    @apply absolute w-10 h-10 top-3 left-3 bg-black z-50 text-white text-3xl rounded-full mx-auto text-center;
+  }
+
+  .menu-content {
+    display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 100vh;
+
+    @apply bg-gray text-black z-50 mx-auto text-center p-20;
+  }
+
+  &:hover .menu-content {
+    display: block;
+  }
+
+  &:hover .menu-button {
+    display: none;
+  }
+}
