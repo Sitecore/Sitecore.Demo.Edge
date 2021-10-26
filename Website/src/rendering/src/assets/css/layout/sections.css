@@ -11,12 +11,8 @@
 }
 
 .section__content {
+  @include content;
   @include flex--center--column;
-
-  @apply w-full my-0 mx-auto box-border;
-
-  max-width: 1440px;
-  padding: 0 3%;
 
   &--left {
     @apply items-start justify-start;

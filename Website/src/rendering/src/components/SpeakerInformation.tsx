@@ -37,7 +37,7 @@ export type SpeakerInformationProps = ComponentProps & {
 
 const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => (
   <section className="section information-section speaker-information">
-    <div className="section__content left__content">
+    <div className="section__content left__content container">
       <div className="information-grid">
         <div className="image-col">
           <div>

@@ -14,7 +14,7 @@ type FullImageSectionProps = ComponentProps & {
 
 const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
   const sectionCssClasses = `section section__full-image ${fields.cssClass.value}`;
-  const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.value}`;
+  const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.value} container`;
 
   return (
     <section className={sectionCssClasses}>
