@@ -120,9 +120,11 @@ const RequestInfoForm = (): JSX.Element => {
     </>
   );
 
+  const formContent = isFormSubmitted ? thankYouMessage : form;
+
   return (
     <form className="form request-info-form" onSubmit={handleFormSubmit}>
-      {isFormSubmitted ? thankYouMessage : form}
+      {formContent}
     </form>
   );
 };

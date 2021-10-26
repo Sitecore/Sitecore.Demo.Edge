@@ -1,8 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SummitFeatures, { SummitFeaturesProps } from '../components/SummitFeatures';
+import SummitFeatures from '../components/SummitFeatures';
 import SummitFeature, { SummitFeatureProps } from '../components/SummitFeature';
+import { ComponentWithChildrenProps } from 'lib/component-props';
 
 export default {
   title: 'Components/SummitFeatures',
@@ -32,7 +33,7 @@ const featureArgs = {
   },
 } as SummitFeatureProps;
 
-const Template: ComponentStory<typeof SummitFeatures> = (args: SummitFeaturesProps) => (
+const Template: ComponentStory<typeof SummitFeatures> = (args: ComponentWithChildrenProps) => (
   <SummitFeatures {...args}>
     <SummitFeature {...featureArgs} />
   </SummitFeatures>
@@ -41,4 +42,4 @@ const Template: ComponentStory<typeof SummitFeatures> = (args: SummitFeaturesPro
 export const Default = Template.bind({});
 Default.args = {
   params: {},
-} as SummitFeaturesProps;
+};

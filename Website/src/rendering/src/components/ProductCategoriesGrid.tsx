@@ -12,31 +12,30 @@ type ProductCategoriesProps = ComponentProps & {
 };
 
 const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
-  return (
-    <div className="section__products__grid">
-      {props.fields.Categories &&
-        props.fields.Categories.map((category, index) => (
-          <div key={index} className="section__products__grid__product">
-            <Link href="/shop/teamsports">
-              <a>
-                <figure>
-                  <Image
-                    field={category.fields.Picture}
-                    alt="Category"
-                    width={265}
-                    height={265}
-                    loading="lazy"
-                  />
-                </figure>
-                <h3 className="product__category">
-                  <Text field={category.fields.Title} />
-                </h3>
-              </a>
-            </Link>
-          </div>
-        ))}
-    </div>
-  );
+  const categories =
+    props.fields.Categories &&
+    props.fields.Categories.map((category, index) => (
+      <div key={index} className="section__products__grid__product">
+        <Link href="/shop/teamsports">
+          <a>
+            <figure>
+              <Image
+                field={category.fields.Picture}
+                alt="Category"
+                width={265}
+                height={265}
+                loading="lazy"
+              />
+            </figure>
+            <h3 className="product__category">
+              <Text field={category.fields.Title} />
+            </h3>
+          </a>
+        </Link>
+      </div>
+    ));
+
+  return <div className="section__products__grid">{categories}</div>;
 };
 
 export default ProductCategoriesGrid;

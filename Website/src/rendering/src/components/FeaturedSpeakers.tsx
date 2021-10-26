@@ -18,32 +18,35 @@ export type FeaturedSpeakersProps = ComponentProps & {
   };
 };
 
-const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
-  <div className="item-grid">
-    <div className="grid-content">
-      {props.fields.data?.item?.children?.results &&
-        props.fields.data.item.children.results
-          .filter((item) => item.featured.value)
-          .sort()
-          .slice(0, parseInt(props.params.NumberOfSpeakers))
-          .map((speaker, index) => (
-            <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
-              <a className="grid-item">
-                <Image
-                  field={speaker.picture.jsonValue}
-                  alt={speaker.name}
-                  width={265}
-                  height={265}
-                  loading="lazy"
-                />
-                <div className="item-details">
-                  <Text tag="p" field={speaker.name}></Text>
-                </div>
-              </a>
-            </Link>
-          ))}
+const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
+  const speakers =
+    props.fields.data?.item?.children?.results &&
+    props.fields.data.item.children.results
+      .filter((item) => item.featured.value)
+      .sort()
+      .slice(0, parseInt(props.params.NumberOfSpeakers))
+      .map((speaker, index) => (
+        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
+          <a className="grid-item">
+            <Image
+              field={speaker.picture.jsonValue}
+              alt={speaker.name}
+              width={265}
+              height={265}
+              loading="lazy"
+            />
+            <div className="item-details">
+              <Text tag="p" field={speaker.name} />
+            </div>
+          </a>
+        </Link>
+      ));
+
+  return (
+    <div className="item-grid">
+      <div className="grid-content">{speakers}</div>
     </div>
-  </div>
-);
+  );
+};
 
 export default FeaturedSpeakers;

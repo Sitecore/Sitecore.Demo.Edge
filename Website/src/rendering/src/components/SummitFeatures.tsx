@@ -1,11 +1,7 @@
+import { ComponentWithChildrenProps } from 'lib/component-props';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
 
-export type SummitFeaturesProps = ComponentProps & {
-  children: React.ReactNode;
-};
-
-const SummitFeatures = (props: SummitFeaturesProps): JSX.Element => (
+const SummitFeatures = (props: ComponentWithChildrenProps): JSX.Element => (
   <div className="item-grid summit-features">
     <div className="grid-content">
       <Placeholder name="jss-summit-features-content" rendering={props.rendering} />

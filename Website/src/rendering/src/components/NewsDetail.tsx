@@ -7,6 +7,7 @@ import {
   DateField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { newsDateFormatter } from '../helpers/DateHelper';
 
 type NewsDetailProps = ComponentProps & {
   fields: {
@@ -30,14 +31,7 @@ const NewsDetail = (props: NewsDetailProps): JSX.Element => (
             tag="h3"
             className="news-date"
             field={props.fields.PublishDate}
-            render={(date) =>
-              date?.toLocaleDateString('en-US', {
-                weekday: 'short',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })
-            }
+            render={newsDateFormatter}
           />
           <Text tag="h2" className="news-title" field={props.fields.Title} />
           <RichText tag="div" className="news-excerpt" field={props.fields.Excerpt} />
