@@ -24,9 +24,11 @@ export const getSchema = async (): Promise<{
       }
       allDemo_Venue(first: 30) {
         results {
+          id
           name
           rooms(first: 30) {
             results {
+              id
               name
             }
           }

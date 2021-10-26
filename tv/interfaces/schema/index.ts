@@ -6,6 +6,14 @@ export interface SchemaResponse {
   data: SchemaData;
 }
 
+export interface VenueResponse {
+  data: VenueData;
+}
+
+export interface VenueData {
+  allDemo_Venue: VenueResults;
+}
+
 export interface SchemaData {
   allDemo_Day: DayResults;
   allDemo_Venue: VenueResults;
@@ -23,6 +31,7 @@ export interface DayResults {
 }
 
 export interface VenueResult {
+  id: string;
   name: string;
   rooms: RoomResults;
 }

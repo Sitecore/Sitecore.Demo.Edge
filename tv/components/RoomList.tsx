@@ -22,6 +22,7 @@ const RoomList = (props: RoomListProps): JSX.Element => {
           </ul>
 
           <div className="roomList">
+            <div className="hall-title">Conference Hall</div>
             <Link href={'/rooms/' + props.rooms[0].id} passHref>
               <div className="tv-one" />
             </Link>

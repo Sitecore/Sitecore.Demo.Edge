@@ -45,7 +45,7 @@ class Navigation extends React.Component<null, NavigationState> {
             <ul>
               {this.state.days.map((day, index) => (
                 <li className="parent-link" key={index}>
-                  <Link href="/schedule/day" passHref>
+                  <Link href={'/schedule/' + day.sortOrder} passHref>
                     <a className="item-link bg-black-light text-white">{day.taxonomyName}</a>
                   </Link>
                   <ul className="child-link">
@@ -70,14 +70,14 @@ class Navigation extends React.Component<null, NavigationState> {
             <ul>
               {this.state.venues.map((venue, index) => (
                 <li className="parent-link" key={index}>
-                  <Link href="/schedule/day">
-                    <a className="item-link bg-black-light text-white"> {venue.name}</a>
+                  <Link href={'/venues/' + venue.id}>
+                    <a className="item-link bg-black-light text-white">{venue.name}</a>
                   </Link>
                   <ul className="child-link">
                     {venue.rooms.results.map((room, i) => {
                       return (
                         <li key={i}>
-                          <Link href="/schedule/day/time">
+                          <Link href={'/rooms/' + room.id}>
                             <a className="item-link bg-gray-light text-black">{room.name}</a>
                           </Link>
                         </li>
