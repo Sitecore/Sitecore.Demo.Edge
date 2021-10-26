@@ -13,13 +13,13 @@ const RoomList = (props: RoomListProps): JSX.Element => {
     <>
       {props.rooms.length > 0 && (
         <>
-          <ul className="absolute p-5 top-0 left-0 z-50 text-black-lightest">
+          {/* <ul className="absolute p-5 top-0 left-0 z-50 text-black-lightest">
             {props.rooms.map((room, index) => (
               <li key={index}>
                 <Link href={'/rooms/' + room.id}>{room.name}</Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
 
           <div className="roomList">
             <div className="hall-title">Conference Hall</div>

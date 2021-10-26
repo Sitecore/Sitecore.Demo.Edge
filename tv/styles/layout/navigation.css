@@ -16,7 +16,7 @@
     height: 100vh;
     overflow-y: auto;
 
-    @apply bg-gray text-black z-50 mx-auto text-center px-8 py-20;
+    @apply bg-gray text-black z-50 mx-auto text-center px-8 py-10;
 
     .item-title {
       @apply p-2 bg-black text-white;
@@ -38,6 +38,11 @@
       &:hover .child-link {
         display: block;
       }
+    }
+
+    select,
+    button {
+      @apply block p-2 w-full mt-1;
     }
   }
 
