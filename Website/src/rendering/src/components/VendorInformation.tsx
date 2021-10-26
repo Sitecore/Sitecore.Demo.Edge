@@ -17,7 +17,7 @@ export type VendorInformationProps = ComponentProps & {
 
 const VendorInformation = (props: VendorInformationProps): JSX.Element => (
   <section className="section information-section-with-sessions">
-    <div className="section__content left__content">
+    <div className="section__content">
       <div className="information-grid">
         <div className="description-col">
           <div className="column-title">Vendor history:</div>

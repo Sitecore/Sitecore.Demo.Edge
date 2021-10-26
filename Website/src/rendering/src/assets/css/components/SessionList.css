@@ -1,33 +1,44 @@
 .session-list {
-  @apply space-y-5 w-full;
+  @apply space-y-5 min-w-full;
 
   .session-info {
     @apply grid grid-cols-3 gap-5 border border-gray items-stretch p-5;
-    @apply md:grid-cols-8;
-
+    @apply md:grid-cols-10;
     .session-info-col-date {
-      @apply col-span-1 align-top text-center order-1;
+      @apply col-span-1 align-top text-center order-1 self-center;
+      @apply md:col-span-3;
+
+      .session-info-ticket {
+        @apply inline uppercase px-3 w-full border border-gray text-black;
+      }
 
       .session-info-month {
-        @apply text-gray-dark font-bold text-2xl;
+        @apply block font-bold text-2xl text-gray-dark mt-1;
       }
 
       .session-info-date {
-        @apply text-3xl font-bold;
+        @apply text-4xl font-bold block leading-6;
       }
     }
 
     .session-info-col-title {
-      @apply col-span-3 order-4;
+      @apply col-span-2 order-4 pl-3;
       @apply sm:order-last;
-      @apply md:order-2;
+      @apply md:order-2 md:col-span-7;
+
+      .speaker-name {
+        @apply block m-0 p-0 underline;
+        @apply md:hover:underline md:no-underline;
+      }
 
       .session-info-time {
         @apply text-blue;
+
+        border-bottom: 1px solid rgb(0, 110, 249);
       }
 
       .session-info-title {
-        @apply font-bold uppercase;
+        @apply font-bold uppercase block mt-2 mb-0;
       }
     }
 
@@ -35,16 +46,32 @@
       @apply text-center self-center order-2;
       @apply sm:col-span-1;
       @apply md:col-span-2 md:order-3;
-
-      .session-info-ticket {
-        @apply font-bold uppercase;
-      }
     }
 
     .session-info-col-calendar {
-      @apply text-right self-center order-3 flex;
-      @apply sm:col-span-1;
-      @apply md:col-span-2 md:order-4;
+      @apply text-right  flex pt-2;
+    }
+
+    &.male {
+      @apply bg-blue border-0 text-white;
+    }
+
+    &.female {
+      @apply bg-pink border-0 text-white;
+    }
+
+    &.premium {
+      .session-info-time {
+        @apply text-white;
+
+        border-bottom: 1px solid white;
+      }
+
+      .session-info-col-date {
+        .session-info-ticket {
+          @apply border border-white text-white;
+        }
+      }
     }
   }
 }
