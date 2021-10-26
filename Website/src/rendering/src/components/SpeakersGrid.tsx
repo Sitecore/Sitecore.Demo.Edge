@@ -1,28 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
-type Speaker = {
-  // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
-  itemName: string;
-  name: Field<string>;
-  picture: {
-    jsonValue: ImageField;
-  };
-  featured: {
-    value: boolean;
-  };
-  role: Field<string>;
-};
-
-type SpeakersGridProps = ComponentProps & {
+export type SpeakersGridProps = ComponentProps & {
   fields: {
     data: {
       item: {
         children: {
-          results: Speaker[];
+          results: GraphQLSpeaker[];
         };
       };
     };
@@ -53,6 +41,4 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => (
   </div>
 );
 
-export type { Speaker };
-export type { SpeakersGridProps };
 export default SpeakersGrid;
