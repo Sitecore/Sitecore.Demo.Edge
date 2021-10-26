@@ -260,7 +260,7 @@ services:
     build:
       context: ./docker/build/authoringhost
       args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:2.26.0-${WINDOWSSERVERCORE_VERSION}
+        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:3.0-${WINDOWSSERVERCORE_VERSION}
     isolation: ${ISOLATION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
