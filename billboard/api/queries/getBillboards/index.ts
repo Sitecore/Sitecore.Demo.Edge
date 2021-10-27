@@ -1,46 +1,67 @@
-import { fetchGraphQL } from '../..';
-import { Room, AllRoomsResponse } from '../../../interfaces/room';
+import { fetchGraphQL } from "../..";
+import { BillboardResponse, BillboardResult } from "../../../interfaces/schema";
 
-export const getRooms = async (): Promise<{ rooms: Room[] }> => {
+export const getRooms = async (): Promise<{
+  billboards: BillboardResult[];
+}> => {
   const roomsQuery = `
     query {
-      allDemo_Room(orderBy: NAME_ASC, first: 10, where: { name_contains: "hall" }) {
+      allM_Content_Advertisement {
         results {
-          id
-          name
+          advertisement_Title
+          advertisement_Body
+          advertisement_Slogan
+          advertisement_Eyebrow
+          content_Name
+          advertisement_Logo{
+            results{
+               assetToPublicLink(first: 1) {
+                results {
+                  id
+                  relativeUrl
+                  versionHash
+                }
+              }
+            }
+          }
+          advertisement_Image{
+            results{
+               assetToPublicLink(first: 1) {
+                results {
+                  id
+                  relativeUrl
+                  versionHash
+                }
+              }
+            }
+          }
+          advertisement_Background{
+            results{
+               assetToPublicLink(first: 1) {
+                results {
+                  id
+                  relativeUrl
+                  versionHash
+                }
+              }
+            }
+          }
         }
       }
     }
     `;
 
-  if (process.env.CI === 'true') {
-    return { rooms: [] as Room[] };
+  if (process.env.CI === "true") {
+    return { billboards: [] as BillboardResult[] };
   }
 
-  const results: BillboardResponse = (await fetchGraphQL(roomsQuery)) as BillboardResponse;
-  const rooms: Room[] = results.data.allDemo_Room.results;
+  const results: BillboardResponse = (await fetchGraphQL(
+    roomsQuery
+  )) as BillboardResponse;
+  const billboards: BillboardResult[] =
+    results.data.allM_Content_Advertisement.results;
 
-  return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
-};
-
-export const getRoomById = async (id: string): Promise<{ room: Room }> => {
-  const roomByIdQuery = `
-    query {
-      allDemo_Room (where:{id_eq:"${id}"}){
-        results {
-          id
-          name
-        }
-      }
-    }
-    `;
-
-  if (process.env.CI === 'true') {
-    return { room: {} as Room };
-  }
-
-  const results: AllRoomsResponse = (await fetchGraphQL(roomByIdQuery)) as AllRoomsResponse;
   return {
-    room: { ...results.data.allDemo_Room.results[0] },
+    billboards: billboards,
   };
 };
