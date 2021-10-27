@@ -2,7 +2,6 @@ import { AssetResult } from "../asset";
 
 export interface BillboardResult {
   id: string;
-  name: string;
   advertisement_Title: string;
   advertisement_Body: string;
   advertisement_Slogan: string;
@@ -11,7 +10,6 @@ export interface BillboardResult {
   advertisement_Logo: Image;
   advertisement_Image: Image;
   advertisement_Background: Image;
-
 }
 
 export interface Image {

@@ -1,13 +1,14 @@
 import { fetchGraphQL } from "../..";
 import { BillboardResponse, BillboardResult } from "../../../interfaces/schema";
 
-export const getRooms = async (): Promise<{
+export const getBillboards = async (): Promise<{
   billboards: BillboardResult[];
 }> => {
-  const roomsQuery = `
+  const billboardQuery = `
     query {
       allM_Content_Advertisement {
         results {
+          id
           advertisement_Title
           advertisement_Body
           advertisement_Slogan
@@ -56,12 +57,20 @@ export const getRooms = async (): Promise<{
   }
 
   const results: BillboardResponse = (await fetchGraphQL(
-    roomsQuery
+    billboardQuery
   )) as BillboardResponse;
   const billboards: BillboardResult[] =
     results.data.allM_Content_Advertisement.results;
 
   return {
     billboards: billboards,
+  };
+};
+
+export const getBillboardById = async (id: string): Promise<{ billboard: BillboardResult }> => {
+  const { billboards } = await getBillboards();
+
+  return {
+    billboard: billboards.filter((v: BillboardResult) => v.id == id)[0],
   };
 };
