@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import deepEqual from 'deep-equal';
-import { useEffect } from 'react';
 import {
   Placeholder,
   withSitecoreContext,
-  useSitecoreContext,
   getPublicUrl,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -17,23 +15,18 @@ import { logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION
 const publicUrl = getPublicUrl();
 
 // DEMO TEAM CUSTOMIZATION - Move navigation to a component
+
 interface LayoutProps {
   sitecoreContext: SitecoreContextValue; // DEMO TEAM CUSTOMIZATION - Different type name
 }
 
-const Layout = ({ sitecoreContext }: LayoutProps): JSX.Element => {
-  const { updateSitecoreContext } = useSitecoreContext({ updatable: true });
-  const { route } = sitecoreContext;
-
-  // Update Sitecore Context if layoutData has changed (i.e. on client-side route change).
-  // Note the context object type here matches the initial value in [[...path]].tsx.
+// DEMO TEAM CUSTOMIZATION - Add sitecoreContext to destructuring
+const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): JSX.Element => {
+  // DEMO TEAM CUSTOMIZATION - Log page views in CDP
   useEffect(() => {
-    updateSitecoreContext && updateSitecoreContext(sitecoreContext);
-
-    // DEMO TEAM CUSTOMIZATION - Log page views in CDP
-    logViewEvent(sitecoreContext.route);
-    // END CUSTOMIZATION
-  }, [sitecoreContext, updateSitecoreContext]); // DEMO TEAM CUSTOMIZATION - Missing effect parameter to fix linting error
+    logViewEvent(route);
+  }, [route]);
+  // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Add CSS classes when Experience Editor is active
   const isExperienceEditorActiveCssClass =
@@ -41,8 +34,9 @@ const Layout = ({ sitecoreContext }: LayoutProps): JSX.Element => {
     sitecoreContext.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
+  // END CUSTOMIZATION
 
-  // DEMO TEAM CUSTOMIZATION - Add Event start date and name to be used globally
+  // DEMO TEAM CUSTOMIZATION - Use event name from context as the page title
   const contextTitle = sitecoreContext['EventInfo'] as NodeJS.Dict<string | string>;
   let pageTitle = contextTitle.titlePrefix;
   if (route?.fields?.pageTitle?.value) {
@@ -53,7 +47,7 @@ const Layout = ({ sitecoreContext }: LayoutProps): JSX.Element => {
   return (
     <>
       <Head>
-        {/*   // DEMO TEAM CUSTOMIZATION - Use Event name as the page title from context */}
+        {/* DEMO TEAM CUSTOMIZATION - Use event name from context as the page title */}
         <title>{pageTitle}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
