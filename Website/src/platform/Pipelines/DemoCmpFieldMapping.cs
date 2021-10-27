@@ -14,7 +14,6 @@ using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using Sitecore.SecurityModel;
 using Sitecore.Data;
-using System.Web;
 
 namespace Sitecore.Demo.Edge.Website.Pipelines
 {
