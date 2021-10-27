@@ -204,19 +204,15 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index");
             using (var context = searchIndex.CreateSearchContext())
             {
+                IQueryable<SearchResultItem> query = context.GetQueryable<SearchResultItem>()
+                    .Where(p => p.Path.StartsWith(source));
 
-                List<SearchResultItem> query = context.GetQueryable<SearchResultItem>()
-                    .Where(p => p.Path.StartsWith(source)).ToList();
-
-                //Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if yet: ", this);
-                var searchResultItems =
-                    query.FirstOrDefault(i => i["Display Name"].Equals(HttpUtility.HtmlEncode(displayName)));
-
-                Log.Info("DEMO CUSTOMIZATION: CmpMultiList field - not in if: " + searchResultItems?.Name + " | " + searchResultItems["Display Name"] + " | " + HttpUtility.HtmlDecode(searchResultItems["Display Name"]), this);
+                SearchResultItem searchResultItems =
+                    query.FirstOrDefault(i => i["_displayname"].Equals(displayName, StringComparison.OrdinalIgnoreCase));
 
                 if (searchResultItems == null)
                 {
-                    searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
+                    searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName, StringComparison.OrdinalIgnoreCase));
                 }
 
                 return searchResultItems?.GetItem();
