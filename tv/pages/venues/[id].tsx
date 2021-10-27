@@ -1,9 +1,4 @@
-import { getSessionsByRoom } from '../../api/queries/getSessions';
-import { getRoomById, getRooms } from '../../api/queries/getRooms';
-import { Session } from '../../interfaces/session';
-import { Room } from '../../interfaces/room';
 import { Params } from '../../interfaces';
-import RoomDisplay from '../../components/RoomDisplay';
 import { VenueResult } from '../../interfaces/schema';
 import React from 'react';
 import Venue from '../../components/Venue';
