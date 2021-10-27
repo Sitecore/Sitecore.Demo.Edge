@@ -5,7 +5,10 @@ Param (
     [switch]$SkipBuild,
 
     [Parameter(HelpMessage = "Whether to skip running init container.")]
-    [switch]$SkipInit
+    [switch]$SkipInit,
+
+    [Parameter(HelpMessage = "Whether to set up the environment with pre-release version of Sitecore products (internal only) .")]
+    [switch]$PreRelease
 )
 
 $ErrorActionPreference = "Stop";
@@ -17,7 +20,7 @@ if (-not $envCheck) {
     if (Test-Path "C:\License"){
         Write-Host "Initializing environment using default values" -ForegroundColor Yellow
         & .\init.ps1 -InitEnv -AdminPassword b -LicenseXmlPath C:\License\license.xml
-        & .\init-ci.ps1
+        & .\init-ci.ps1 -PreRelease
     }
     else {
         throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
