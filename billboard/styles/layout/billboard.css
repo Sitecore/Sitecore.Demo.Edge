@@ -1,0 +1,32 @@
+.billboard-list {
+  @apply flex flex-row w-full;
+
+  height: 100vh;
+}
+
+.billboard {
+  @apply p-0 m-0 bg-gray-light absolute;
+
+  background-image: url(../../public/running-alone.jpg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  width: 1800px;
+  height: 1200px;
+  background-size: contain;
+
+  .billboard-container {
+    @apply flex flex-row h-full w-full absolute;
+
+    width: 600px;
+    height: 400px;
+    border: 10px solid white;
+
+    .image-left {
+      @apply flex-1 h-full w-1/2 absolute;
+    }
+
+    .content-right {
+      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white;
+    }
+  }
+}
