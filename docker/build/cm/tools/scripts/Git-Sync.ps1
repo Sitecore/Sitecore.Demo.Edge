@@ -83,7 +83,7 @@ function Sync {
         }
     }
 
-    $command = @("robocopy", "`"$Path`"", "`"$Destination`"", "/MT:4", "/NJH", "/NJS", "/FP", "/NDL", "/NFL", "/NP", "/NS", "/R:5", "/W:5")
+    $command = @("robocopy", "`"$Path`"", "`"$Destination`"", "/E", "/MT:4", "/NJH", "/NJS", "/FP", "/NDL", "/NFL", "/NP", "/NS", "/R:5", "/W:5")
 
     if ($ExcludeDirectories.Count -gt 0) {
         $command += "/XD "
