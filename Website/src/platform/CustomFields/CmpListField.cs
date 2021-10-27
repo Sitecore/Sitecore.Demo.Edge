@@ -1,10 +1,10 @@
-﻿using Sitecore.Data.Fields;
+﻿using Sitecore.Shell.Applications.ContentEditor;
 
 namespace Sitecore.Demo.Edge.Website.CustomFields
 {
-    public class CmpMultiList : MultilistField
+    public class CmpMultiList : MultilistEx
     {
-        public CmpMultiList(Field innerField) : base(innerField)
+        public CmpMultiList()
         {
         }
     }
