@@ -64,7 +64,7 @@ function Sync {
         ((Get-Content ~\.ssh\id_rsa) -join "`n") + "`n" | Set-Content -NoNewline -Encoding Ascii ~\.ssh\id_rsa
         ((Get-Content ~\.ssh\id_rsa.pub) -join "`n") + "`n" | Set-Content -NoNewline -Encoding Ascii ~\.ssh\id_rsa.pub
 
-        git clone git@github.com:adoprog/test-fetch-private.git $Path
+        git clone $env:GIT_SYNC_REPO $Path
     }
     else {
         Set-Location $Path
