@@ -74,7 +74,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => (
             props.fields.items.map((vendor, index) => (
               <Link
                 key={index}
-                href={'/vendors/' + vendor.fields.Name.value.replace(/ /g, '')}
+                href={'/vendors/' + vendor.fields.Name.value.replace(/ /g, '-')}
                 passHref
               >
                 <a className="grid-item">
