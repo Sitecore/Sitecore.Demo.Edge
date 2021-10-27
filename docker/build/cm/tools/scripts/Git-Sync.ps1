@@ -56,7 +56,9 @@ function Sync {
         "Host github.com_StrictHostKeyChecking no".replace("_", [System.Environment]::NewLine) | Set-Content ~\.ssh\config
 
         $privateKey = $env:GIT_SYNC_PRIVATE_KEY
-        $privateKey = $privateKey.replace(" OPENSSH PRIVATE KEY", "_OPENSSH_PRIVATE_KEY").replace(" RSA PRIVATE KEY", "_RSA_PRIVATE_KEY").replace(" ", [System.Environment]::NewLine).replace("_", " ")
+        $privateKey = $privateKey.replace(" OPENSSH PRIVATE KEY", "_OPENSSH_PRIVATE_KEY")
+        $privateKey = $privateKey.replace(" RSA PRIVATE KEY", "_RSA_PRIVATE_KEY")
+        $privateKey = $privateKey.replace(" ", [System.Environment]::NewLine).replace("_", " ")
 
         $privateKey | Out-File ~\.ssh\id_rsa
         $env:GIT_SYNC_PUBLIC_KEY | Out-File ~\.ssh\id_rsa.pub
