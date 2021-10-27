@@ -37,41 +37,29 @@
 }
 
 /* TODO: Rename to "information-section" once vendor, speaker, and session information sections have been converted to use this class */
-.information-section-with-sessions {
-  @apply py-4;
-
-  ul {
-    @apply list-disc ml-0 border border-gray px-10 py-5 my-5;
-  }
+.section.information-section-with-sessions {
+  @apply py-8;
 
   .information-grid {
     @apply flex flex-col;
-    @apply md:flex-row;
-  }
+    @apply lg:flex-row;
 
-  .session-list {
-    @apply max-w-30;
-  }
+    .description-col {
+      @apply w-full order-2;
+      @apply lg:w-7/12 lg:pr-6 lg:order-1;
 
-  .information-section-with-sessions {
-    @apply w-4;
-  }
+      ul {
+        @apply list-disc pl-10 py-5;
+      }
+    }
 
-  .description-col {
-    @apply w-full order-2;
-    @apply md:w-6/12 md:pr-6 md:order-1;
-  }
+    .sessions-col {
+      @apply w-full order-1 pb-8;
+      @apply lg:w-5/12 lg:order-2 lg:pb-0;
+    }
 
-  .sessions-col {
-    @apply w-full order-1 pb-4;
-    @apply md:w-6/12 md:order-2 md:pb-0;
+    .column-title {
+      @apply font-bold;
+    }
   }
-
-  .section-info {
-    @apply w-full;
-  }
-}
-
-.column-title {
-  @apply font-bold;
 }

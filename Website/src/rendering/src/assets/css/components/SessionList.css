@@ -2,35 +2,31 @@
   @apply space-y-5 min-w-full;
 
   .session-info {
-    @apply grid grid-cols-3 gap-5 border border-gray items-stretch p-5;
-    @apply md:grid-cols-10;
+    @apply grid grid-cols-1 gap-5 border border-gray items-stretch p-5;
+    @apply xs:grid-cols-3;
+    @apply xl:grid-cols-10;
 
     .session-info-col-date {
-      @apply col-span-1 align-top text-center order-1 self-center;
-      @apply md:col-span-3;
+      @apply col-span-1 align-top text-center self-center uppercase;
+      @apply xl:col-span-3;
 
       .session-info-ticket {
-        @apply inline uppercase px-3 w-full border border-gray text-black;
+        @apply inline px-3 w-full border border-gray text-black;
       }
 
       .session-info-month {
-        @apply block font-bold text-2xl text-gray-dark mt-1;
+        @apply font-bold text-2xl text-gray-dark mt-1;
       }
 
       .session-info-date {
-        @apply text-4xl font-bold block leading-6;
+        @apply text-4xl font-bold leading-6 inline-block;
       }
     }
 
     .session-info-col-title {
-      @apply col-span-2 order-4 pl-3;
-      @apply sm:order-last;
-      @apply md:order-2 md:col-span-7;
-
-      .speaker-name {
-        @apply block m-0 p-0 underline;
-        @apply md:hover:underline md:no-underline;
-      }
+      @apply col-span-1;
+      @apply xs:col-span-2;
+      @apply xl:col-span-7;
 
       .session-info-time {
         @apply text-blue;
@@ -39,29 +35,22 @@
       }
 
       .session-info-title {
-        @apply font-bold uppercase block mt-2 mb-0;
+        @apply font-bold uppercase mt-2 mb-0;
+      }
+
+      .speaker-name {
+        @apply m-0 p-0 underline;
+        @apply md:hover:underline md:no-underline;
+      }
+
+      .session-info-col-calendar {
+        @apply text-right  flex pt-2;
       }
     }
 
-    .session-info-col-ticket {
-      @apply text-center self-center order-2;
-      @apply sm:col-span-1;
-      @apply md:col-span-2 md:order-3;
-    }
-
-    .session-info-col-calendar {
-      @apply text-right  flex pt-2;
-    }
-
-    &.male {
-      @apply bg-blue border-0 text-white;
-    }
-
-    &.female {
-      @apply bg-pink border-0 text-white;
-    }
-
     &.premium {
+      @apply bg-blue border-0 text-white;
+
       .session-info-time {
         @apply text-white;
 
@@ -71,6 +60,10 @@
       .session-info-col-date {
         .session-info-ticket {
           @apply border border-white text-white;
+        }
+
+        .session-info-month {
+          @apply text-gray;
         }
       }
     }
