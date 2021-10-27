@@ -64,7 +64,7 @@ function Sync {
         ((Get-Content ~\.ssh\id_rsa) -join "`n") + "`n" | Set-Content -NoNewline -Encoding Ascii ~\.ssh\id_rsa
         ((Get-Content ~\.ssh\id_rsa.pub) -join "`n") + "`n" | Set-Content -NoNewline -Encoding Ascii ~\.ssh\id_rsa.pub
 
-        git clone https://github.com/adoprog/test-fetch $Path
+        git clone git@github.com:adoprog/test-fetch-private.git $Path
     }
     else {
         Set-Location $Path
