@@ -2,7 +2,7 @@
 
 namespace Sitecore.Demo.Edge.Website.CustomFields
 {
-    public class CmpMultiList : MultilistEx
+    public class CmpMultiList : TreeList
     {
         public CmpMultiList()
         {
