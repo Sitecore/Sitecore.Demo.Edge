@@ -69,6 +69,10 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         <meta name="description" content="Play! Summit" />
       </Head>
 
+      {/* DEMO TEAM CUSTOMIZATION - CDP integration */}
+      {CdpScripts}
+      {/* END CUSTOMIZATION*/}
+
       {/*
         Use the next-localization (w/ rosetta) library to provide our translation dictionary to the app.
         Note Next.js does not (currently) provide anything for translation, only i18n routing.
@@ -77,10 +81,6 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
         <Component {...rest} />
       </I18nProvider>
-
-      {/* DEMO TEAM CUSTOMIZATION - CDP integration */}
-      {CdpScripts}
-      {/* END CUSTOMIZATION*/}
     </>
   );
   // END CUSTOMIZATION
