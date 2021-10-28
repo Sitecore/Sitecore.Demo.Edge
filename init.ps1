@@ -135,7 +135,7 @@ if ($InitEnv) {
 
     # SITECORE_ID_CERTIFICATE
     $idCertPassword = Get-SitecoreRandomString 8 -DisallowSpecial
-    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
+    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -KeyLength 2048 -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
 
     # SITECORE_ID_CERTIFICATE_PASSWORD
     Set-EnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
