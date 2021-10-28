@@ -38,11 +38,22 @@
     width: 1200px;
     height: 800px;
     border: 10px solid gray;
-    transform: perspective(900px) rotateY(34deg) scale(0.8) rotateX(0deg);
+    top: 10%;
+    left: 10%;
+    transition: transform 1000ms linear;
+    -webkit-transition: transform 1000ms linear;
+    -moz-transition: transform 1000ms linear;
+    -o-transition: transform 1000ms linear;
+    transform: perspective(900px) rotateY(34deg) scale(0.7) rotateX(0deg);
+    transition-delay: 500ms;
 
-    &.zoomed {
-      top: 10%;
-      left: 10%;
+    &:hover {
+      transform: perspective(0) rotateY(0deg) scale(1) rotateX(0deg);
+      transition: transform 1000ms linear;
+      -webkit-transition: transform 1000ms linear;
+      -moz-transition: transform 1000ms linear;
+      -o-transition: transform 1000ms linear;
+      transition-delay: 500ms;
     }
 
     .image-left {

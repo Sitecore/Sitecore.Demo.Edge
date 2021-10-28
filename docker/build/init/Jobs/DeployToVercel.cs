@@ -51,7 +51,7 @@ namespace Sitecore.Demo.Init.Jobs
               Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
               return;
             }
-      
+
             var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKey))
             {
@@ -81,6 +81,7 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope);
+            DeployBillboard(ns, cmpEndpointUrl, cmpApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
             DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
 
@@ -114,6 +115,35 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
+        }
+
+        private static void DeployBillboard(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
+        {
+            var sourceDirectory = "C:\\app\\billboard";
+            var targetDirectory = $"C:\\app\\{ns}-billboard";
+
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
+
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            // Remove project if already exists
+            cmd.Run($"vercel remove {ns}-billboard --token {token} --scope {scope} --yes");
+
+            // Create new project
+            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
+
+            // Configure env. variables
+            cmd.Run(
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+
+            // Deploy project files
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+
+            // Assign custom domain name
+            cmd.Run($"vercel domains add {ns}-billboard.sitecoredemo.com --token {token} --scope {scope}");
         }
 
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string token, string scope)
