@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeakerInformationPageHero from '../components/SpeakerInformationPageHero';
+import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
 
 export default {
-  title: 'Components/InformationPageHero/SpeakerInformationPageHero',
+  title: 'Components/Speakers/SpeakerInformationPageHero',
   component: SpeakerInformationPageHero,
 } as ComponentMeta<typeof SpeakerInformationPageHero>;
 
@@ -14,9 +14,6 @@ const Template: ComponentStory<typeof SpeakerInformationPageHero> = (args) => (
 
 export const Speaker = Template.bind({});
 Speaker.args = {
-  params: {
-    name: 'InformationPageHero',
-  },
   fields: {
     Name: {
       value: 'Alex Mena',

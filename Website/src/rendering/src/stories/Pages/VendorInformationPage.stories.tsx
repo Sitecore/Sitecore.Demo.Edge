@@ -3,15 +3,15 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header, { HeaderProps } from '../../components/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
-import InformationPageHero, {
-  InformationPageHeroProps,
-} from '../../components/InformationPageHero';
+import VendorInformationPageHero, {
+  VendorInformationPageHeroProps,
+} from '../../components/VendorInformationPageHero';
 import VendorInformation, { VendorInformationProps } from '../../components/VendorInformation';
 import Footer, { FooterProps } from '../../components/Footer';
 
 export default {
   title: 'Pages/VendorInformation',
-} as ComponentMeta<typeof InformationPageHero>;
+} as ComponentMeta<typeof VendorInformationPageHero>;
 
 const headerProps = {} as HeaderProps;
 
@@ -32,17 +32,20 @@ const mainNavigationArgs = {
   },
 } as MainNavigationProps;
 
-const informationPageHeroProps = {
+const vendorInformationPageHeroProps = {
   fields: {
     Name: {
       value: 'Fitbit',
     },
-    Image: {
+    Logo: {
       value: {
         src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a&t=profile',
         height: 133,
         width: 600,
       },
+    },
+    Level: {
+      value: 'premium',
     },
     FacebookProfileLink: {
       value: 'https://facebook.com/asada',
@@ -57,9 +60,7 @@ const informationPageHeroProps = {
       value: 'https://linkedin.com/asada',
     },
   },
-  type: 'vendor',
-  qualificative: 'Featured',
-} as InformationPageHeroProps;
+} as unknown as VendorInformationPageHeroProps;
 
 const vendorInformationProps = {
   fields: {
@@ -87,7 +88,7 @@ const footerProps = {
   },
 } as FooterProps;
 
-const Template: ComponentStory<typeof InformationPageHero> = () => {
+const Template: ComponentStory<typeof VendorInformationPageHero> = () => {
   return (
     <>
       <header>
@@ -95,7 +96,7 @@ const Template: ComponentStory<typeof InformationPageHero> = () => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <InformationPageHero {...informationPageHeroProps} />
+        <VendorInformationPageHero {...vendorInformationPageHeroProps} />
         <VendorInformation {...vendorInformationProps} />
       </main>
       <footer>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import VendorInformationPageHero from '../components/VendorInformationPageHero';
+import VendorInformationPageHero from '../../components/VendorInformationPageHero';
 
 export default {
-  title: 'Components/InformationPageHero/VendorInformationPageHero',
+  title: 'Components/Vendors/VendorInformationPageHero',
   component: VendorInformationPageHero,
 } as ComponentMeta<typeof VendorInformationPageHero>;
 
@@ -14,9 +14,6 @@ const Template: ComponentStory<typeof VendorInformationPageHero> = (args) => (
 
 export const WithLargerImage = Template.bind({});
 WithLargerImage.args = {
-  params: {
-    name: 'InformationPageHero',
-  },
   fields: {
     Name: {
       value: 'Fitbit',
