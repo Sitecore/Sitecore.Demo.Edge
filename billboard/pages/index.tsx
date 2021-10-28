@@ -2,7 +2,6 @@ import { getBillboards } from "../api/queries/getBillboards";
 import { BillboardResult } from "../interfaces/schema";
 import Link from "next/link";
 import {
-  contentHubImageLoader,
   contentHubImageSrcGenerator,
 } from "../utilities/contentHubImageLoader";
 
@@ -16,21 +15,20 @@ const Home = (props: BillboardProps): JSX.Element => {
   return (
     <div className="billboard-list">
       {props.billboards.map((billboard, index) => (
-        <Link key={index} href={"/" + billboard.id} passHref>
-          <div
-            className="flex-1"
-            style={{
-              backgroundImage:
-                "url(" +
-                contentHubImageSrcGenerator(
-                  billboard.advertisement_Background
-                ) +
-                ")",
-            }}
-          >
+        <div
+          key={index}
+          className="billboard-item"
+          style={{
+            backgroundImage:
+              "url(" +
+              contentHubImageSrcGenerator(billboard.advertisement_Background) +
+              ")",
+          }}
+        >
+          <Link href={"/" + billboard.id} passHref>
             {billboard.content_Name}
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );

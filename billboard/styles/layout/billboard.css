@@ -1,32 +1,68 @@
 .billboard-list {
-  @apply flex flex-row w-full;
+  @apply flex flex-col w-full justify-items-stretch;
 
+  width: 100%;
   height: 100vh;
+
+  .billboard-item {
+    @apply flex-1 text-5xl text-white font-bold h-full text-center inline-block align-middle;
+
+    background-size: cover;
+    background-position: top right;
+    text-shadow: 2px 2px black;
+    min-height: 300px;
+  }
 }
 
 .billboard {
   @apply p-0 m-0 bg-gray-light absolute;
 
-  background-image: url(../../public/running-alone.jpg);
   background-position: top left;
   background-repeat: no-repeat;
   width: 1800px;
   height: 1200px;
-  background-size: contain;
+  background-size: cover;
 
   .billboard-container {
     @apply flex flex-row h-full w-full absolute;
 
-    width: 600px;
-    height: 400px;
-    border: 10px solid white;
+    width: 1200px;
+    height: 800px;
+    border: 10px solid gray;
+
+    &.zoomed {
+      top: 10%;
+      left: 10%;
+    }
 
     .image-left {
       @apply flex-1 h-full w-1/2 absolute;
+
+      background-size: cover;
     }
 
     .content-right {
-      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white;
+      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-14 space-y-10;
+
+      .logo {
+        @apply w-full;
+      }
+
+      .slogan {
+        @apply w-full font-extrabold uppercase text-3xl;
+      }
+
+      .eyebrow {
+        @apply w-full text-yellow-light font-bold text-xl;
+      }
+
+      .title {
+        @apply w-full uppercase text-6xl font-extrabold;
+      }
+
+      .body {
+        @apply w-full text-lg;
+      }
     }
   }
 }

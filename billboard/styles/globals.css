@@ -8,6 +8,7 @@
 
 /* 2. Our styles */
 @import "./layout/billboard.css";
+@import "./layout/navigation.css";
 
 body {
   @apply font-sans;

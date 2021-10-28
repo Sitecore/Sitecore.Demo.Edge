@@ -1,11 +1,12 @@
 import { Params } from "../interfaces";
-import {
-  getBillboardById,
-  getBillboards,
-} from "../api/queries/getBillboards";
+import { getBillboardById, getBillboards } from "../api/queries/getBillboards";
 import { BillboardResult } from "../interfaces/schema";
 import Image from "next/image";
-import placeholderImage from "../public/running-alone.jpg";
+import {
+  contentHubImageSrcGenerator,
+} from "../utilities/contentHubImageLoader";
+import React from "react";
+import Navigation from "../components/Navigation";
 
 type BillboardProps = {
   billboard: BillboardResult;
@@ -17,35 +18,57 @@ export declare type BillboardParams = {
 
 export default function BillboardPage(props: BillboardProps) {
   return (
-    <div className="billboard">
-      {/* <Image
-            src={placeholderImage}
-            layout="fill"
-            objectFit="cover"
-            alt="background"
-          /> */}
-      <div className="billboard-container">
-        <div className="image-left">
-          <Image
-            src={placeholderImage}
-            layout="fill"
-            objectFit="cover"
-            alt="Sample"
-          />
-        </div>
-        <div className="content-right">
-          <div></div>
-          <div>
-            {props.billboard.content_Name}
-            {/* LOGO here */}
+    <>
+      <Navigation />
+      <div
+        className="billboard"
+        style={{
+          backgroundImage:
+            "url(" +
+            contentHubImageSrcGenerator(
+              props.billboard.advertisement_Background
+            ) +
+            ")",
+        }}
+      >
+        <div className="billboard-container zoomed">
+          <div
+            className="image-left"
+            style={{
+              backgroundImage:
+                "url(" +
+                contentHubImageSrcGenerator(
+                  props.billboard.advertisement_Image
+                ) +
+                ")",
+            }}
+          ></div>
+          <div className="content-right">
+            <div className="logo">
+              <Image
+                src={contentHubImageSrcGenerator(
+                  props.billboard.advertisement_Logo
+                )}
+                alt={props.billboard.content_Name}
+                height={150}
+                width={400}
+              />
+            </div>
+            <div className="slogan">{props.billboard.advertisement_Slogan}</div>
+            <div className="eyebrow">
+              {props.billboard.advertisement_Eyebrow}
+            </div>
+            <div className="title">{props.billboard.advertisement_Title}</div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.billboard.advertisement_Body,
+              }}
+              className="body"
+            ></div>
           </div>
-          <div>{props.billboard.advertisement_Slogan}</div>
-          <div>{props.billboard.advertisement_Eyebrow}</div>
-          <div>{props.billboard.advertisement_Title}</div>
-          <div>{props.billboard.advertisement_Body}</div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
