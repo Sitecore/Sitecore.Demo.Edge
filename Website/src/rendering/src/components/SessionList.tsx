@@ -3,11 +3,11 @@ import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getSessionTime } from '../helpers/DateHelper';
 import { Session } from 'src/types/session';
 
-type SessionListSessionProps = Session & {
+type SessionListItemProps = Session & {
   showSpeakers: boolean;
 };
 
-const SessionListSession = (props: SessionListSessionProps): JSX.Element => {
+const SessionListItem = (props: SessionListItemProps): JSX.Element => {
   const premiumCssClass = props.fields.Premium?.value ? 'premium' : '';
 
   const ticketTypeBadge = props.fields.Premium?.value && (
@@ -72,7 +72,7 @@ const SessionList = (props: SessionListProps): JSX.Element => {
   const sessions = props.sessions && props.sessions.length > 0 && (
     <div className="session-list">
       {props.sessions.map((session, index) => (
-        <SessionListSession {...session} showSpeakers={props.showSpeakers} key={index} />
+        <SessionListItem {...session} showSpeakers={props.showSpeakers} key={index} />
       ))}
     </div>
   );
