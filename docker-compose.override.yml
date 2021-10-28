@@ -6,8 +6,6 @@
 # Containers documentation for details.
 #
 
-version: "2.4"
-
 services:
 
   # A Windows-based nodejs base image
