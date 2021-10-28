@@ -3,7 +3,8 @@ interface Props {
 }
 
 export const contentHubImageLoader = ({ src }: Props) => {
-  const contentHubUrl = process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || 'https://playsummit.sitecoresandbox.cloud';
+  const contentHubUrl: string =
+    process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || 'https://playsummit.sitecoresandbox.cloud';
 
   return `${contentHubUrl}/api/public/content/${src}&t=web`;
 };
