@@ -18,5 +18,7 @@ module.exports = {
     ],
     "declaration-block-trailing-semicolon": null,
     "no-descending-specificity": null,
+    "value-keyword-case": null,
+    "function-name-case": null,
   },
 };
