@@ -21,7 +21,7 @@ export type SitecoreContextValue = LayoutServiceContext & {
  * Shared component props
  */
 export type ComponentProps = {
-  componentFactory: ComponentFactory;
+  // componentFactory: ComponentFactory; // Needed?
   rendering: ComponentRendering;
   params: ComponentParams;
 };
