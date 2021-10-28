@@ -10,8 +10,6 @@ type BillboardProps = {
 };
 
 const Home = (props: BillboardProps): JSX.Element => {
-  console.table(props);
-
   return (
     <div className="billboard-list">
       {props.billboards.map((billboard, index) => (

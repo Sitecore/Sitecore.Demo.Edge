@@ -5,12 +5,22 @@
   height: 100vh;
 
   .billboard-item {
-    @apply flex-1 text-5xl text-white font-bold h-full text-center inline-block align-middle;
+    @apply flex-1 text-5xl text-white font-bold h-full text-center inline-block align-middle flex;
 
     background-size: cover;
     background-position: top right;
     text-shadow: 2px 2px black;
     min-height: 300px;
+
+    filter: grayscale(1);
+
+    &:hover {
+      filter: grayscale(0);
+    }
+
+    a {
+      @apply m-auto;
+    }
   }
 }
 
