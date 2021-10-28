@@ -1,13 +1,21 @@
 import { TICKETS } from '../models/mock-tickets';
 
-const OrderSummary = (): JSX.Element => {
-  const ticketId =
-    typeof window === 'undefined'
-      ? '0'
-      : new URLSearchParams(window.location.search).get('ticket') || '0';
-  const ticket = TICKETS[parseInt(ticketId)];
+export type OrderSummaryProps = {
+  ticket?: string;
+};
 
-  const ticketPass = ticket.pass ? <div>x 1 {ticket.pass}</div> : undefined;
+const OrderSummary = (props?: OrderSummaryProps): JSX.Element => {
+  let ticketId = '0';
+  if (props?.ticket) {
+    ticketId = props.ticket;
+  }
+  if (typeof window !== 'undefined') {
+    const queryStringTicket = new URLSearchParams(window.location.search).get('ticket');
+    if (queryStringTicket) {
+      ticketId = queryStringTicket;
+    }
+  }
+  const ticket = TICKETS[parseInt(ticketId)];
 
   // The empty div in the else clause is required. Without it, the class="line-item total-line" of the total line is not rendered to the DOM for unknown reasons.
   const fees =
@@ -33,7 +41,7 @@ const OrderSummary = (): JSX.Element => {
             <div className="item-name">{ticket.name}</div>
             <div className="item-price">${ticket.price}.00</div>
           </div>
-          {ticketPass}
+          <div>x 1 {ticket.pass}</div>
         </div>
         {fees}
         <div className="line-item total-line">

@@ -1,6 +1,5 @@
-import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import RequireDatasource from './RequireDatasource';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -44,20 +43,16 @@ const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
     },
   ];
 
-  return props.fields ? (
-    <div className="payment-progress">
-      {steps.map((step, index) => (
-        <Link href={step.link} key={index}>
-          <a className={GetActiveClass(props.fields.ActiveStep.value, step.index)}>
-            {step.text}
-            <span>{step.index < steps.length ? '❯' : ''}</span>
-          </a>
-        </Link>
-      ))}
-    </div>
-  ) : (
-    <RequireDatasource />
-  );
+  const stepLinks = steps.map((step, index) => (
+    <Link href={step.link} key={index}>
+      <a className={GetActiveClass(props.fields.ActiveStep.value, step.index)}>
+        {step.text}
+        <span>{step.index < steps.length ? '❯' : ''}</span>
+      </a>
+    </Link>
+  ));
+
+  return <div className="payment-progress">{stepLinks}</div>;
 };
 
-export default PaymentProgress;
+export default withDatasourceCheck()(PaymentProgress);
