@@ -9,6 +9,7 @@ services:
       - "--providers.docker.exposedByDefault=false"
       - "--providers.file.directory=C:/etc/traefik/config/dynamic"
       - "--entryPoints.websecure.address=:443"
+      - "--entryPoints.websecure.forwardedHeaders.insecure"
     ports:
       - "443:443"
       - "8079:8080"
