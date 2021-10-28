@@ -32,7 +32,7 @@ const SessionItem = (props: SessionItemProps): JSX.Element => {
         <span>
           <FontAwesomeIcon className="icon" icon={faCalendar} />
         </span>
-        <Text tag="span" field={day.fields.Name} />
+        <Text tag="span" field={day.name} />
       </p>
     ));
 
