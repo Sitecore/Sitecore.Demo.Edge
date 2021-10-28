@@ -23,7 +23,7 @@ WithLargerImage.args = {
     },
     Image: {
       value: {
-        src: '/assets/img/sponsors/sponsors-fitbit.svg',
+        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a&t=profile',
         height: 133,
         width: 600,
       },

@@ -21,8 +21,10 @@
       @apply md:h-full;
 
       img {
-        @apply max-h-60 px-5;
+        @apply px-5;
         @apply md:pr-6 md:pl-0;
+
+        max-height: inherit;
       }
     }
 

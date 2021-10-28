@@ -1,4 +1,4 @@
-import { Field, ImageField, Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, ImageField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -31,7 +31,8 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
     <section className={`information-page-hero ${props.type}-information-page-hero`}>
       <div className="content">
         <div className="image-container">
-          <Image field={props.fields.Image} alt="Image" loading="lazy" />
+          {/* Purposefully not using a JSS Image component here to avoid width/height HTML attributes on the img tag */}
+          <img src={props.fields.Image.value?.src} alt="Image" loading="lazy" />
         </div>
         <div className="gradient-container"></div>
         <div className="content-container">

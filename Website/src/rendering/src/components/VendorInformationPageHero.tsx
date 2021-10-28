@@ -14,7 +14,7 @@ export type VendorInformationPageHeroProps = ComponentProps & {
   };
 };
 
-const VendorInformationTypeHero = (props: VendorInformationPageHeroProps): JSX.Element => {
+const VendorInformationPageHero = (props: VendorInformationPageHeroProps): JSX.Element => {
   const { fields, ...propsRest } = props;
   const newFields = {
     Name: fields.Name,
@@ -36,4 +36,4 @@ const VendorInformationTypeHero = (props: VendorInformationPageHeroProps): JSX.E
   );
 };
 
-export default VendorInformationTypeHero;
+export default VendorInformationPageHero;

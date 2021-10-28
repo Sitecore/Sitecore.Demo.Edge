@@ -17,7 +17,7 @@ export type SpeakerInformationPageHeroProps = ComponentProps & {
   };
 };
 
-const SpeakerInformationTypeHero = (props: SpeakerInformationPageHeroProps): JSX.Element => {
+const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX.Element => {
   const { fields, ...propsRest } = props;
   const newFields = {
     Name: fields.Name,
@@ -63,4 +63,4 @@ const SpeakerInformationTypeHero = (props: SpeakerInformationPageHeroProps): JSX
   );
 };
 
-export default SpeakerInformationTypeHero;
+export default SpeakerInformationPageHero;
