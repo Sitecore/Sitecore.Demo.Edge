@@ -1,9 +1,9 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
-const { constants, getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
+const {
+  getPublicUrl,
+} = require('@sitecore-jss/sitecore-jss-nextjs');
 
-const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
-const isDisconnected = process.env.JSS_MODE === constants.JSS_MODE.DISCONNECTED;
 const publicUrl = getPublicUrl();
 
 const nextConfig = {
@@ -25,37 +25,14 @@ const nextConfig = {
     locales: ['en'],
     // END CUSTOMIZATION
     // This is the locale that will be used when visiting a non-locale
-    // prefixed path e.g. `/about`.
+    // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
   },
-
+  
   // Enable React Strict Mode
   reactStrictMode: true,
 
   async rewrites() {
-    if (isDisconnected) {
-      // When disconnected we proxy to the local faux layout service host, see scripts/disconnected-mode-server.js
-      return [
-        {
-          source: '/sitecore/:path*',
-          destination: `${disconnectedServerUrl}/sitecore/:path*`,
-        },
-        {
-          source: '/:locale/sitecore/:path*',
-          destination: `${disconnectedServerUrl}/sitecore/:path*`,
-        },
-        // media items
-        {
-          source: '/data/media/:path*',
-          destination: `${disconnectedServerUrl}/data/media/:path*`,
-        },
-        {
-          source: '/:locale/data/media/:path*',
-          destination: `${disconnectedServerUrl}/data/media/:path*`,
-        },
-      ];
-    }
-
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
       {
@@ -86,16 +63,15 @@ const nextConfig = {
       },
     ];
   },
+  // DEMO TEAM CUSTOMIZATION - Add Content Hub images domain
   images: {
     domains: ['demoedge.sitecoresandbox.cloud'],
   },
+  // END CUSTOMIZATION
 
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
-    config.resolve.fallback = {
-      'sitecore/manifest/sitecore-import.json': false
-    };
 
     return config;
   },
@@ -123,7 +99,9 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
   return config;
 };
 
+// DEMO TEAM CUSTOMIZATION - Add Next bungle analyzer
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 module.exports = withBundleAnalyzer(nextConfig);
+// END CUSTOMIZATION

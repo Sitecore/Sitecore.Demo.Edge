@@ -18,9 +18,7 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
-// DEMO TEAM CUSTOMIZATION - Remove manifest scaffolding. We use Sitecore-first mode.
-// DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding.
-import generateStorySrc from './templates/story-src';
+import generateStorySrc from './templates/story-src'; // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding.
 
 const storyRootPath = 'src/stories';
 const componentRootPath = 'src/components';
