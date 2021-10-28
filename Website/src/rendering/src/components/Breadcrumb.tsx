@@ -43,11 +43,12 @@ function getBreadcrumbUrl(propItem: contextItem) {
 }
 
 const Breadcrumb = (props: BreadcrumbProps): JSX.Element => {
-  if (props?.fields?.data?.item == null) {
+  if (props?.fields?.data?.item === null) {
     return <div></div>;
   }
-  const propItem = props?.fields?.data?.item;
-  const propItemAncestors = props?.fields?.data?.item?.ancestors;
+
+  const propItem = props.fields.data.item;
+  const propItemAncestors = props.fields.data.item.ancestors;
   const breadcrumbs = [];
 
   const pageItems = {
@@ -68,18 +69,17 @@ const Breadcrumb = (props: BreadcrumbProps): JSX.Element => {
     });
   }
 
+  const breadcrumbListItems = breadcrumbs.reverse().map((bc, index) => (
+    <li key={index} className={bc.className}>
+      <a title={bc.title} href={bc.url}>
+        {bc.title}
+      </a>
+    </li>
+  ));
+
   return (
     <nav className="breadcrumb" aria-label="breadcrumbs">
-      <ol className="list">
-        {breadcrumbs.reverse() &&
-          breadcrumbs.map((bc, index) => (
-            <li key={index} className={bc.className}>
-              <a title={bc.title} href={bc.url}>
-                {bc.title}
-              </a>
-            </li>
-          ))}
-      </ol>
+      <ol className="list">{breadcrumbListItems}</ol>
     </nav>
   );
 };

@@ -1,36 +1,7 @@
 import { ComponentProps } from 'lib/component-props';
 import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import SessionList from './SessionList';
-import { Timeslot } from '../interfaces/Timeslot';
-
-type Speaker = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-
-type Room = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-
-type Day = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-
-type Session = {
-  fields: {
-    Name: Field<string>;
-    Speakers?: Speaker[];
-    Rooms: Room[];
-    Day: Day[];
-    Timeslots: Timeslot[];
-    Premium: Field<boolean>;
-  };
-};
+import { Session } from 'src/types/session';
 
 export type VendorInformationProps = ComponentProps & {
   fields: {

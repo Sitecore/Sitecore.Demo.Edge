@@ -1,29 +1,7 @@
 import { ComponentProps } from 'lib/component-props';
 import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
-import { Timeslot } from '../interfaces/Timeslot';
 import SessionList from './SessionList';
-
-type Room = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-
-type Day = {
-  fields: {
-    Name: Field<string>;
-  };
-};
-
-type Session = {
-  fields: {
-    Name: Field<string>;
-    Rooms: Room[];
-    Day: Day[];
-    Timeslots: Timeslot[];
-    Premium: Field<boolean>;
-  };
-};
+import { Session } from 'src/types/session';
 
 // TODO: Change the source of this component to a GraphQL query to get the expanded Timeslots and Day field values
 export type SpeakerInformationProps = ComponentProps & {

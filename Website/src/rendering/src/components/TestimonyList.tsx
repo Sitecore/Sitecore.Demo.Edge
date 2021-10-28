@@ -1,13 +1,6 @@
-import { Text, RichText, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, RichText, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-
-type Testimony = {
-  fields: {
-    Provider: Field<string>;
-    Testimony: Field<string>;
-    Logo: ImageField;
-  };
-};
+import { Testimony } from 'src/types/testimony';
 
 type TestimonyListProps = ComponentProps & {
   fields: {
@@ -17,43 +10,45 @@ type TestimonyListProps = ComponentProps & {
   };
 };
 
-const TestimonyList = (props: TestimonyListProps): JSX.Element => (
-  <section className="section section__testimonies">
-    <div className="section__content container">
-      <Text
-        tag="h2"
-        className="section__content__title section__content__title--light"
-        field={props.fields.Title}
-      ></Text>
-      <Text
-        tag="div"
-        className="section__content__p section__content__p--light"
-        field={props.fields.Subtitle}
-      ></Text>
-      <div className="testimonies-list">
-        {props.fields.Companies &&
-          props.fields.Companies.map((testimony, index) => (
-            <div key={index} className="list-item">
-              <div className="provider-image">
-                <Image
-                  field={testimony.fields.Logo}
-                  alt={testimony.fields.Provider.value}
-                  width={180}
-                  height={180}
-                />
-              </div>
-              <div className="testimony">
-                <RichText tag="blockquote" field={testimony.fields.Testimony} />
-                <div>
-                  - <Text tag="span" className="provider" field={testimony.fields.Provider} />
-                </div>
-              </div>
-            </div>
-          ))}
+const TestimonyList = (props: TestimonyListProps): JSX.Element => {
+  const testimonies =
+    props.fields.Companies &&
+    props.fields.Companies.map((company, index) => (
+      <div key={index} className="list-item">
+        <div className="provider-image">
+          <Image
+            field={company.fields.Logo}
+            alt={company.fields.Provider.value}
+            width={180}
+            height={180}
+          />
+        </div>
+        <div className="testimony">
+          <RichText tag="blockquote" field={company.fields.Testimony} />
+          <div>
+            - <Text tag="span" className="provider" field={company.fields.Provider} />
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    ));
 
-export type { Testimony };
+  return (
+    <section className="section section__testimonies">
+      <div className="section__content container">
+        <Text
+          tag="h2"
+          className="section__content__title section__content__title--light"
+          field={props.fields.Title}
+        />
+        <Text
+          tag="div"
+          className="section__content__p section__content__p--light"
+          field={props.fields.Subtitle}
+        />
+        <div className="testimonies-list">{testimonies}</div>
+      </div>
+    </section>
+  );
+};
+
 export default TestimonyList;

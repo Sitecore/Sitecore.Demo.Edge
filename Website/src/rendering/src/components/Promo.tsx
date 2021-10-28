@@ -26,7 +26,7 @@ const Promo = ({ fields }: PromoProps): JSX.Element => {
           <Link
             field={fields.callToActionLink}
             className="btn--main btn--main--round btn--main--big"
-          ></Link>
+          />
         </div>
         <div></div>
       </div>
