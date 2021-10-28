@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionInformation, { Speaker } from '../../components/SessionInformation';
+import SessionInformation from '../../components/SessionInformation';
+import { Speaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Sessions/SessionInformation',
@@ -126,6 +127,10 @@ const timeslots = [
 
 const days = [
   {
+    name: {
+      value: 'Day 1',
+    },
+
     fields: {
       Name: {
         value: 'Day 1',

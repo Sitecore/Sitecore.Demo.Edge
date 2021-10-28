@@ -4,9 +4,9 @@ import {
   faLinkedinIn,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, Text, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import SocialIcon from './SocialIcon';
 
 export type VendorInformationProps = ComponentProps & {
   fields: {
@@ -29,42 +29,18 @@ const VendorInformation = (props: VendorInformationProps): JSX.Element => (
           <div>
             <Image field={props.fields?.Logo} alt={props.fields?.Name?.value} />
             <div className="external-website-icons">
-              {!props.fields.FacebookProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.FacebookProfileLink.value}>
-                  <FontAwesomeIcon icon={faFacebookF} />
-                </a>
-              )}
-              {!props.fields.TwitterProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.TwitterProfileLink.value}>
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
-              )}
-              {!props.fields.LinkedinProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.LinkedinProfileLink.value}>
-                  <FontAwesomeIcon icon={faLinkedinIn} />
-                </a>
-              )}
-              {!props.fields.InstagramProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.InstagramProfileLink.value}>
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-              )}
+              <SocialIcon Icon={faFacebookF} Link={props.fields.FacebookProfileLink} />
+              <SocialIcon Icon={faTwitter} Link={props.fields.TwitterProfileLink} />
+              <SocialIcon Icon={faLinkedinIn} Link={props.fields.LinkedinProfileLink} />
+              <SocialIcon Icon={faInstagram} Link={props.fields.InstagramProfileLink} />
             </div>
           </div>
         </div>
         <div className="description-col">
           <div>
-            <Text tag="div" className="eyebrow" field={props.fields.Level}></Text>
+            <Text tag="div" className="eyebrow" field={props.fields.Level} />
           </div>
-          <Text tag="h1" className="name" field={props.fields.Name}></Text>
+          <Text tag="h1" className="name" field={props.fields.Name} />
           <RichText field={props.fields.Description} />
         </div>
       </div>

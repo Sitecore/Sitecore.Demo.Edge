@@ -23,6 +23,11 @@ function GetActiveClass(activeStep: number, index: number) {
 
 const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
   const router = useRouter();
+
+  if (!props.fields) {
+    return <RequireDatasource />;
+  }
+
   const ticketId = router?.query?.ticket ?? 0;
 
   const steps = [
@@ -43,18 +48,16 @@ const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
     },
   ];
 
-  return (
-    <div className="payment-progress">
-      {steps.map((step, index) => (
-        <Link href={step.link} key={index}>
-          <a className={GetActiveClass(props.fields.ActiveStep.value, step.index)}>
-            {step.text}
-            <span>{step.index < steps.length ? '❯' : ''}</span>
-          </a>
-        </Link>
-      ))}
-    </div>
-  );
+  const stepLinks = steps.map((step, index) => (
+    <Link href={step.link} key={index}>
+      <a className={GetActiveClass(props.fields.ActiveStep.value, step.index)}>
+        {step.text}
+        <span>{step.index < steps.length ? '❯' : ''}</span>
+      </a>
+    </Link>
+  ));
+
+  return <div className="payment-progress">{stepLinks}</div>;
 };
 
 export default withDatasourceCheck()(PaymentProgress);

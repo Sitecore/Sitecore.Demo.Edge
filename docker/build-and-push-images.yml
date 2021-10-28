@@ -239,6 +239,8 @@ stages:
   condition: and(succeeded('Update_Portal_Databases_Nightly'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Redeploy
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Redeploy"
       steps:
         - task: UseDotNet@2
@@ -260,6 +262,8 @@ stages:
   condition: and(succeeded('Update_DEV_Portal_Databases_Stable'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Redeploy
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Redeploy"
       steps:
         - task: UseDotNet@2
@@ -281,6 +285,8 @@ stages:
   condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Update_Tags
+      pool:
+        vmImage: 'ubuntu-latest'  
       displayName: "Update Tags"
       steps:
         - task: UseDotNet@2
@@ -304,6 +310,8 @@ stages:
   condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Dev_Database
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Update Dev Database"
       steps:
         - task: UseDotNet@2
@@ -326,6 +334,8 @@ stages:
   condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Production_Database
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Update Production Database"
       steps:
         - task: UseDotNet@2
