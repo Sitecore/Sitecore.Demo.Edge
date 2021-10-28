@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 
@@ -10,7 +10,7 @@ interface NavigationState {
   time: string;
 }
 
-class Navigation extends React.Component<null, NavigationState> {
+class Navigation extends React.Component<unknown, NavigationState> {
   state: Readonly<NavigationState> = {
     days: [],
     venues: [],
@@ -18,7 +18,7 @@ class Navigation extends React.Component<null, NavigationState> {
     time: '',
   };
 
-  constructor(props: null) {
+  constructor(props: unknown) {
     super(props);
     this.state = {
       days: [],
@@ -37,14 +37,14 @@ class Navigation extends React.Component<null, NavigationState> {
     });
   }
 
-  handleDayChange(e: any) {
+  handleDayChange(e: ChangeEvent<HTMLSelectElement>) {
     console.log('handle Day Change');
     console.log('===========> ' + e.target.value);
     this.setState({ day: e.target.value });
     console.log(this.state);
   }
 
-  handleTimeChange(e: any) {
+  handleTimeChange(e: ChangeEvent<HTMLSelectElement>) {
     console.log('handle Time Change');
     console.log('===========> ' + e.target.value);
     this.setState({ time: e.target.value });
@@ -54,10 +54,10 @@ class Navigation extends React.Component<null, NavigationState> {
   }
 
   render(): JSX.Element {
-    const selectedDay: DayResult = this.state.days.filter((d) => d.taxonomyName == this.state.day)
-      ? this.state.days.filter((d) => d.taxonomyName == this.state.day)[0]
-      : this.state.days[0];
-    console.table(selectedDay);
+    // const selectedDay: DayResult = this.state.days.filter((d) => d.taxonomyName == this.state.day)
+    //   ? this.state.days.filter((d) => d.taxonomyName == this.state.day)[0]
+    //   : this.state.days[0];
+
     return (
       <div className="menu">
         <div className="menu-button">+ </div>
