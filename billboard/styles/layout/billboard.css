@@ -29,6 +29,7 @@
     width: 1200px;
     height: 800px;
     border: 10px solid gray;
+    transform: perspective(900px) rotateY(34deg) scale(0.8) rotateX(0deg);
 
     &.zoomed {
       top: 10%;
