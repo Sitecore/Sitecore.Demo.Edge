@@ -1,6 +1,6 @@
 # PLAY! Summit Demo
 
-This repository is used for the primary Sitecore DXP demo that uses:
+This repository is used for the primary Sitecore DXP demo that uses: test
 
 - Sitecore Experience Management (XM)
 - Sitecore Experience Edge
