@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedVendors, { Vendor } from '../../components/FeaturedVendors';
+import FeaturedVendors from '../../components/FeaturedVendors';
+import { Vendor } from 'src/types/vendor';
 
 export default {
   title: 'Components/Vendors/FeaturedVendors',

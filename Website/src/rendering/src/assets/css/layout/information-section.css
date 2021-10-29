@@ -32,6 +32,10 @@
         @apply text-2xl font-extrabold text-blue;
         @apply md:text-3xl;
       }
+
+      .data-label {
+        @apply font-bold;
+      }
     }
   }
 }
