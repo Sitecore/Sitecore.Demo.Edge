@@ -34,9 +34,9 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
       <>
         {props.fields.Speakers.map((speaker, index) => (
           <div className="speaker-name" key={index}>
-            <a href="#">
-              <Text field={speaker.fields.Name} />
-            </a>
+            <Link href={`/speakers/${speaker.fields.Name.value}`} passHref>
+              <Text field={speaker.fields.Name} tag="a" />
+            </Link>
           </div>
         ))}
       </>
@@ -54,8 +54,8 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
         <Text field={props.fields.Name} tag="div" className="session-info-title" />
         {speakers}
         <div className="session-info-col-calendar">
-          <Link href="/tickets/attendee">
-            <a className="btn--main btn--main--round">Add to Calendar</a>
+          <Link href={`/sessions/${props.name}`}>
+            <a className="btn--main btn--main--round">More Information</a>
           </Link>
         </div>
       </div>

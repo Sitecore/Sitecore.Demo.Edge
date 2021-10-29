@@ -79,6 +79,7 @@ const speakerInformationProps = {
     },
     Sessions: [
       {
+        name: 'Fuel For Life Nutrition 101',
         fields: {
           Name: {
             value: 'Fuel For Life: Nutrition 101',
@@ -123,6 +124,7 @@ const speakerInformationProps = {
         },
       },
       {
+        name: 'Mountain Biking Tales From The Trail',
         fields: {
           Name: {
             value: 'Mountain Biking: Tales From The Trail',
@@ -188,9 +190,10 @@ const speakerInformationProps = {
         },
       },
       {
+        name: 'Train Smarter not harder',
         fields: {
           Name: {
-            value: 'Train Smarted, not harder',
+            value: 'Train Smarter - not harder',
           },
           Speakers: [
             {
@@ -253,6 +256,7 @@ const speakerInformationProps = {
         },
       },
       {
+        name: '7 Mindset Strategies To Raise Your Game',
         fields: {
           Name: {
             value: '7 Mindset Strategies To Raise Your Game',

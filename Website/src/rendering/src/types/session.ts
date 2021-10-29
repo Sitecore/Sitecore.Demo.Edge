@@ -5,6 +5,7 @@ import { Day } from './day';
 import { Room } from './room';
 
 export type Session = {
+  name: string;
   fields: {
     Name: Field<string>;
     Speakers?: MinimalSpeaker[];
