@@ -76,7 +76,7 @@
 .section__content__p {
   @apply pb-8 text-center text-black;
 
-  max-width: 40em;
+  width: 40em;
   line-height: 1.4;
 
   &--full {
