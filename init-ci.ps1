@@ -1,6 +1,6 @@
 # init-ci.ps1 is a script for Sitecore employees and build pipeline.
 # Do not execute this script otherwise.
-
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingPlainTextForPassword', '')]
 Param (
   [Parameter(
     HelpMessage = "Demo version used in image tagging.")]
@@ -16,7 +16,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Sitecore version")]
-  [string]$SitecoreVersion = "10.1.0"
+  [string]$SitecoreVersion = "10.2.0"
   ,
   [Parameter(
     HelpMessage = "Internal Sitecore NuGet source")]
@@ -37,104 +37,18 @@ Param (
   [Parameter(
     HelpMessage = "Internal NuGet password")]
   [string]$NugetPassword = ""
+  ,
+  [Parameter(
+    HelpMessage = "Switch to use public sources and ignore internal environment variables.")]
+  [switch]$PreRelease
 )
 
 $ErrorActionPreference = "Stop";
-
-Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Green
-
-################################################
-# Retrieve and import SitecoreDockerTools module
-################################################
-# Set correct TLS version
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-# Check for Sitecore Gallery
-Import-Module PowerShellGet
-$SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery" }
-if (-not $SitecoreGallery) {
-  Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
-  Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted -Verbose
-  $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
-}
-else {
-  Write-Host "Updating Sitecore PowerShell Gallery url..." -ForegroundColor Yellow
-  Set-PSRepository -Name $SitecoreGallery.Name -Source "https://sitecore.myget.org/F/sc-powershell/api/v2"
-}
-
-#Install and Import SitecoreDockerTools
-$dockerToolsVersion = "10.1.4"
-Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
-if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
-  Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
-  Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
-}
-Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
-Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
-
-###############################
-# Populate the environment file
-###############################
-
-Write-Host "Populating required demo team .env file values..." -ForegroundColor Green
-
-if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
-  # if it wasn't passed as a parameter, let's try to find it in environment
-  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
-}
-if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
-  Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
-} else {
-  Write-Host "The REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
-}
-
-###############################
-# Use internal Sitecore ACR (disabled)
-###############################
-
-# if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
-#   # if it wasn't passed as a parameter, let's try to find it in environment
-#   $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
-# }
-# if ($false -eq [string]::IsNullOrEmpty($SitecoreRegistry)) {
-#   Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
-# } else {
-#   Write-Host "The SITECORE_DOCKER_REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
-# }
-
-Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
-Set-DockerComposeEnvFileVariable "SITECORE_VERSION" -Value $SitecoreVersion
-
-############################
-# Edit the nuget.config file
-############################
-
-Write-Host "Editing nuget.config file..." -ForegroundColor Green
-
-if (!$PSScriptRoot) {
-  $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
-}
 
 $TOOLS_DIR = Join-Path $PSScriptRoot "tools"
 $NUGET_EXE = Join-Path $TOOLS_DIR "nuget.exe"
 $NUGET_URL = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
 $NUGET_CONFIG = Join-Path $PWD -ChildPath Website | Join-Path -ChildPath nuget.config
-
-if ([string]::IsNullOrEmpty($NugetUser)) {
-  # if it wasn't passed as a parameter, let's try to find it in environment
-  $NugetUser = $env:INTERNAL_NUGET_SOURCE_USERNAME
-}
-if ([string]::IsNullOrEmpty($NugetUser)) {
-  Write-Host "The NuGet user was not provided. Please validate if this was intended." -ForegroundColor Yellow
-}
-if ([string]::IsNullOrEmpty($NugetPassword)) {
-  # if it wasn't passed as a parameter, let's try to find it in environment
-  $NugetPassword = (& { if ([string]::IsNullOrEmpty("$env:INTERNAL_NUGET_SOURCE_PASSWORD")) { "$env:SYSTEM_ACCESSTOKEN" } else { "$env:INTERNAL_NUGET_SOURCE_PASSWORD" } })
-}
-if ([string]::IsNullOrEmpty($NugetPassword)) {
-  Write-Host "The NuGet password was not provided. Please validate if this was intended." -ForegroundColor Yellow
-}
-$NUGET_CREDENTIALS_PROVIDED = (($false -eq [string]::IsNullOrEmpty($NugetUser)) -and ($false -eq [string]::IsNullOrEmpty($NugetPassword)))
 
 function GetProxyEnabledWebClient {
   $wc = New-Object System.Net.WebClient
@@ -183,26 +97,135 @@ function EnsureNugetConfigSource($sourceName, $sourceValue) {
   if ($NUGET_CREDENTIALS_PROVIDED) {
     & "$NUGET_EXE" sources add -name "$sourceName" -source "$sourceValue" -ConfigFile $NUGET_CONFIG -username $NugetUser -password $NugetPassword -StorePasswordInClearText | Out-Null
     & "$NUGET_EXE" sources update -name "$sourceName" -source "$sourceValue" -ConfigFile $NUGET_CONFIG -username $NugetUser -password $NugetPassword -StorePasswordInClearText
-  } else {
+  }
+  else {
     & "$NUGET_EXE" sources add -name "$sourceName" -source "$sourceValue" -ConfigFile $NUGET_CONFIG | Out-Null
     & "$NUGET_EXE" sources update -name "$sourceName" -source "$sourceValue" -ConfigFile $NUGET_CONFIG
   }
 }
 
-if ([string]::IsNullOrEmpty($Sitecore2NugetSource)) {
-  # if it wasn't passed as a parameter, let's try to find it in environment
-  $Sitecore2NugetSource = $env:INTERNAL_SITECORE2_NUGET_SOURCE
-}
-if ($false -eq [string]::IsNullOrEmpty($Sitecore2NugetSource)) {
-  EnsureNugetConfigSource -sourceName "Sitecore2" -sourceValue $Sitecore2NugetSource
+Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Green
+
+################################################
+# Retrieve and import SitecoreDockerTools module
+################################################
+# Set correct TLS version
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+# Check for Sitecore Gallery
+Import-Module PowerShellGet
+if ($PreRelease) {
+  Write-Host "Setting environment up for pre-release"
+
+  ############################
+  # Get NuGet credentials
+  ############################
+
+  if ([string]::IsNullOrEmpty($NugetUser)) {
+    # if it wasn't passed as a parameter, let's try to find it in environment
+    $NugetUser = $env:INTERNAL_NUGET_SOURCE_USERNAME
+  }
+  if ([string]::IsNullOrEmpty($NugetUser)) {
+    Write-Host "The NuGet user was not provided. Please validate if this was intended." -ForegroundColor Yellow
+  }
+  if ([string]::IsNullOrEmpty($NugetPassword)) {
+    # if it wasn't passed as a parameter, let's try to find it in environment
+    $NugetPassword = (& { if ([string]::IsNullOrEmpty("$env:INTERNAL_NUGET_SOURCE_PASSWORD")) { "$env:SYSTEM_ACCESSTOKEN" } else { "$env:INTERNAL_NUGET_SOURCE_PASSWORD" } })
+  }
+  if ([string]::IsNullOrEmpty($NugetPassword)) {
+    Write-Host "The NuGet password was not provided. Please validate if this was intended." -ForegroundColor Yellow
+  }
+  $NUGET_CREDENTIALS_PROVIDED = (($false -eq [string]::IsNullOrEmpty($NugetUser)) -and ($false -eq [string]::IsNullOrEmpty($NugetPassword)))
+  if ([string]::IsNullOrEmpty($SitecoreGalleryNugetSource)) {
+    # if it wasn't passed as a parameter, let's try to find it in environment
+    $SitecoreGalleryNugetSource = $env:INTERNAL_SITECOREGALLERY_NUGET_SOURCE
+  }
+  if ($false -eq [string]::IsNullOrEmpty($SitecoreGalleryNugetSource)) {
+    EnsureNugetConfigSource -sourceName "SitecoreGalleryInternal" -sourceValue $SitecoreGalleryNugetSource
+  }
+
+  ###################################
+  # Install Sitecore Docker Tools
+  ###################################
+
+  $SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGalleryInternal" }
+  if (-not $SitecoreGallery) {
+    Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
+    Register-PSRepository -Name SitecoreGalleryInternal -SourceLocation $SitecoreGalleryNugetSource -InstallationPolicy Trusted -Verbose
+    $SitecoreGallery = Get-PSRepository -Name SitecoreGalleryInternal
+  }
+  else {
+    Write-Host "Updating Sitecore PowerShell Gallery url..." -ForegroundColor Yellow
+    Set-PSRepository -Name $SitecoreGallery.Name -Source $SitecoreGalleryNugetSource
+  }
+
+  #Install and Import SitecoreDockerTools
+  $dockerToolsVersion = "10.2.3"
+  Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
+  if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
+    Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
+    Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
+  }
+  Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
+  Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
+
+  ############################
+  # Edit the nuget.config file
+  ############################
+
+  Write-Host "Editing nuget.config file..." -ForegroundColor Green
+
+  if (!$PSScriptRoot) {
+    $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
+  }
+
+  if ([string]::IsNullOrEmpty($SitecoreNugetSource)) {
+    # if it wasn't passed as a parameter, let's try to find it in environment
+    $SitecoreNugetSource = $env:INTERNAL_SITECORE_NUGET_SOURCE
+  }
+  if ($false -eq [string]::IsNullOrEmpty($SitecoreNugetSource)) {
+    EnsureNugetConfigSource -sourceName "SitecoreInternal" -sourceValue $SitecoreNugetSource
+  }
+
+  if ([string]::IsNullOrEmpty($Sitecore2NugetSource)) {
+    # if it wasn't passed as a parameter, let's try to find it in environment
+    $Sitecore2NugetSource = $env:INTERNAL_SITECORE2_NUGET_SOURCE
+  }
+  if ($false -eq [string]::IsNullOrEmpty($Sitecore2NugetSource)) {
+    EnsureNugetConfigSource -sourceName "Sitecore2Internal" -sourceValue $Sitecore2NugetSource
+  }
 }
 
-if ([string]::IsNullOrEmpty($SitecoreGalleryNugetSource)) {
+###############################
+# Populate the environment file
+###############################
+
+Write-Host "Populating required demo team .env file values..." -ForegroundColor Green
+
+if ([string]::IsNullOrEmpty($DemoTeamRegistry)) {
   # if it wasn't passed as a parameter, let's try to find it in environment
-  $SitecoreGalleryNugetSource = $env:INTERNAL_SITECOREGALLERY_NUGET_SOURCE
+  $DemoTeamRegistry = $env:DEMO_TEAM_DOCKER_REGISTRY
 }
-if ($false -eq [string]::IsNullOrEmpty($SitecoreGalleryNugetSource)) {
-  EnsureNugetConfigSource -sourceName "SitecoreGallery" -sourceValue $SitecoreGalleryNugetSource
+if ($false -eq [string]::IsNullOrEmpty($DemoTeamRegistry)) {
+  Set-DockerComposeEnvFileVariable "REGISTRY" -Value $DemoTeamRegistry
 }
+else {
+  Write-Host "The REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
+}
+if ($PreRelease) {
+  if ([string]::IsNullOrEmpty($SitecoreRegistry)) {
+    # if it wasn't passed as a parameter, let's try to find it in environment
+    $SitecoreRegistry = $env:INTERNAL_SITECORE_DOCKER_REGISTRY
+  }
+  if ($false -eq [string]::IsNullOrEmpty($SitecoreRegistry)) {
+    Set-DockerComposeEnvFileVariable "SITECORE_DOCKER_REGISTRY" -Value $SitecoreRegistry
+  }
+  else {
+    Write-Host "The SITECORE_DOCKER_REGISTRY .env file variable was not modified. Please validate if this was intended." -ForegroundColor Yellow
+  }
+}
+
+Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
+Set-DockerComposeEnvFileVariable "SITECORE_VERSION" -Value $SitecoreVersion
 
 Write-Host "Done!" -ForegroundColor Green

@@ -10,10 +10,11 @@ resources:
 
 variables:
   GitVersion.SemVer: ''
-  SITECORE_VERSION: '10.1.0'
+  SITECORE_VERSION: '10.2.0'
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
   additionalImageTags: ''
+  preRelease: 'true'
 
 stages:
 - stage: Build_TV
@@ -22,17 +23,24 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/tv/package-lock.json'
+            path: '$(Build.SourcesDirectory)/tv/node_modules'
+            cacheHitVar: 'CacheRestored'
 
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: tv
+          condition: ne(variables['CacheRestored'],'true')
 
         - script: |
             npm run lint
@@ -50,18 +58,23 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/kiosk/package-lock.json'
+            path: '$(Build.SourcesDirectory)/kiosk/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: kiosk
-
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -84,12 +97,17 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/Website/src/rendering/package-lock.json'
+            path: '$(Build.SourcesDirectory)/Website/src/rendering/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
-
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -106,17 +124,23 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/Website/src/rendering/package-lock.json'
+            path: '$(Build.SourcesDirectory)/Website/src/rendering/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
+          condition: ne(variables['CacheRestored'],'true')
 
         - script: |
             npm run build-storybook
@@ -180,6 +204,15 @@ stages:
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
 
+
+          if ("true" -eq "$(preRelease)"){
+            $params.Add("PreRelease", $true)
+            $params.Add("SitecoreNugetSource","$(INTERNAL_SITECORE_NUGET_SOURCE)")
+            $params.Add("Sitecore2NugetSource","$(INTERNAL_SITECORE2_NUGETSOURCE)")
+            $params.Add("SitecoreGalleryNugetSource","$(INTERNAL_SITECOREGALLERY_NUGET_SOURCE)")
+            $params.Add("NugetUser","$(INTERNAL_NUGET_SOURCE_USERNAME)")
+            $params.Add("NugetPassword","$(INTERNAL_NUGET_SOURCE_PASSWORD)")
+          }
           ./init-ci.ps1 @params
 
           # Reset demo version to correct tag without build id
