@@ -30,8 +30,14 @@
         .slide-container {
           @apply absolute top-0 left-0 bottom-0 right-0 invisible;
 
+          transition: all 500ms ease-in-out;
+          transition-delay: 500ms;
+
           &.active {
             @apply visible;
+
+            transition: all 500ms ease-in-out;
+            transition-delay: 500ms;
           }
 
           .slide {
