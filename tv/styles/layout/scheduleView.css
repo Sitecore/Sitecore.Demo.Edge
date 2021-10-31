@@ -17,48 +17,39 @@
     left: 15%;
     resize: both;
     max-width: inherit;
+    transition: all 300ms linear;
 
     #monitorscreen {
       padding-bottom: 45%;
-    }
-  }
 
-  .schedule {
-    @apply flex flex-col absolute;
+      .schedule {
+        @apply flex flex-col absolute top-0 left-0 bottom-0 right-0;
 
-    overflow: hidden;
-    height: 100%;
+        overflow: hidden;
 
-    .carousel {
-      .control-disabled {
-        @apply hidden;
-      }
+        .slide-container {
+          @apply absolute top-0 left-0 bottom-0 right-0 invisible;
 
-      .slider-wrapper {
-        height: 100% !important;
+          &.active {
+            @apply visible;
+          }
 
-        .slider {
-          height: 100% !important;
-
-          .schedule-row {
-            @apply flex bg-black-light border-b-2 border-solid border-gray uppercase items-stretch;
-
-            /* min-height: 176px; */
-            height: 33% !important;
+          .slide {
+            @apply flex bg-black-light border-b-2 border-solid border-gray uppercase h-1/3;
 
             .schedule-time {
               @apply bg-gray text-black font-bold p-4;
             }
 
             .schedule-sessions {
-              @apply m-4 flex-1 text-white relative h-full;
+              @apply m-4 flex-1 text-white relative;
 
               &.premium-session {
                 @apply bg-orange flex flex-col;
               }
 
               &.keynote-session {
-                @apply bg-blue-light text-white flex flex-row h-full;
+                @apply bg-blue-light text-white flex flex-row;
               }
 
               .session-image {
@@ -68,7 +59,7 @@
                 background-position: center;
 
                 &.premium-session {
-                  @apply w-full block h-24;
+                  @apply w-full block;
 
                   .session-type {
                     @apply hidden;
@@ -76,7 +67,7 @@
                 }
 
                 &.keynote-session {
-                  @apply w-1/2 block h-full;
+                  @apply w-1/2 block;
 
                   height: 166px;
 

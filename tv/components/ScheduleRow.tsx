@@ -7,7 +7,7 @@ type ScheduleRowProps = {
 
 const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
   return (
-    <div className="schedule-row">
+    <>
       <div className="schedule-time">{props.timeslot}</div>
       {props.sessions.map((session, index) => {
         const premiumClass = session.isPremium ? ' premium-session ' : '';
@@ -39,7 +39,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 
