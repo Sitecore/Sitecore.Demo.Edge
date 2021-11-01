@@ -6,6 +6,13 @@ export const SESSIONS: GraphQLSession[] = [
     name: {
       value: 'Fuel For Life: Nutrition 101',
     },
+    image: {
+      jsonValue: {
+        value: {
+          src: '/assets/img/tickets/Banner2.jpg',
+        },
+      },
+    },
     speakers: {
       targetItems: [
         {
@@ -54,6 +61,13 @@ export const SESSIONS: GraphQLSession[] = [
     itemName: 'Mountain Biking Tales From The Trail',
     name: {
       value: 'Mountain Biking: Tales From The Trail',
+    },
+    image: {
+      jsonValue: {
+        value: {
+          src: '/assets/img/tickets/Banner2.jpg',
+        },
+      },
     },
     speakers: {
       targetItems: [
@@ -131,6 +145,13 @@ export const SESSIONS: GraphQLSession[] = [
     name: {
       value: 'Train Smarter - not harder',
     },
+    image: {
+      jsonValue: {
+        value: {
+          src: '/assets/img/tickets/Banner2.jpg',
+        },
+      },
+    },
     speakers: {
       targetItems: [
         {
@@ -206,6 +227,13 @@ export const SESSIONS: GraphQLSession[] = [
     itemName: '7 Mindset Strategies To Raise Your Game',
     name: {
       value: '7 Mindset Strategies To Raise Your Game',
+    },
+    image: {
+      jsonValue: {
+        value: {
+          src: '/assets/img/tickets/Banner2.jpg',
+        },
+      },
     },
     speakers: {
       targetItems: [
