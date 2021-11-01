@@ -28,12 +28,6 @@
       @apply xs:col-span-2;
       @apply xl:col-span-7;
 
-      .session-info-time {
-        @apply text-blue;
-
-        border-bottom: 1px solid rgb(0, 110, 249);
-      }
-
       .session-info-title {
         @apply font-bold uppercase mt-2 mb-0;
       }
@@ -50,12 +44,6 @@
 
     &.premium {
       @apply bg-blue border-0 text-white;
-
-      .session-info-time {
-        @apply text-white;
-
-        border-bottom: 1px solid white;
-      }
 
       .session-info-col-date {
         .session-info-ticket {

@@ -1,41 +1,48 @@
 import Link from 'next/link';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getSessionTime } from '../helpers/DateHelper';
-import { Session } from 'src/types/session';
+import { GraphQLSession } from 'src/types/session';
 
-type SessionListItemProps = Session & {
+type SessionListItemProps = GraphQLSession & {
   showSpeakers: boolean;
 };
 
 const SessionListItem = (props: SessionListItemProps): JSX.Element => {
-  const premiumCssClass = props.fields.Premium?.value ? 'premium' : '';
+  const premiumCssClass = props.premium?.value ? 'premium' : '';
 
-  const ticketTypeBadge = props.fields.Premium?.value && (
+  const ticketTypeBadge = props.premium?.value && (
     <span className="session-info-ticket">premium</span>
   );
 
-  // TODO: Remove the fallback day when all users of SessionList are providing days
   const day =
-    props.fields.Day && typeof props.fields.Day === 'object' && props.fields.Day.length > 0
-      ? props.fields.Day[0].fields.Name.value[props.fields.Day[0].fields.Name.value.length - 1]
-      : '1';
+    props.day?.targetItems &&
+    typeof props.day.targetItems === 'object' &&
+    props.day.targetItems.length > 0 &&
+    props.day.targetItems[0].name?.value
+      ? props.day.targetItems[0].name.value[props.day.targetItems[0].name.value.length - 1]
+      : '?';
 
-  // TODO: Remove the fallback time when all users of SessionList are providing timeslots
-  const time =
-    props.fields.Timeslots &&
-    typeof props.fields.Timeslots === 'object' &&
-    props.fields.Timeslots.length > 0
-      ? getSessionTime(props.fields.Timeslots)
-      : '9:00 am - 9:55 am';
+  const time = props.timeslots?.targetItems &&
+    typeof props.timeslots.targetItems === 'object' &&
+    props.timeslots.targetItems.length > 0 && (
+      <span className="session-info-time">{getSessionTime(props.timeslots.targetItems)}</span>
+    );
+
+  const room = props.rooms?.targetItems &&
+    typeof props.rooms.targetItems === 'object' &&
+    props.rooms.targetItems.length > 0 &&
+    props.rooms.targetItems[0].name?.value && (
+      <Text field={props.rooms.targetItems[0].name} tag="div" />
+    );
 
   const speakers = props.showSpeakers &&
-    props.fields.Speakers &&
-    props.fields.Speakers.length > 0 && (
+    props.speakers?.targetItems &&
+    props.speakers.targetItems.length > 0 && (
       <>
-        {props.fields.Speakers.map((speaker, index) => (
+        {props.speakers.targetItems.map((speaker, index) => (
           <div className="speaker-name" key={index}>
-            <Link href={`/speakers/${speaker.fields.Name.value}`} passHref>
-              <Text field={speaker.fields.Name} tag="a" />
+            <Link href={`/speakers/${speaker.itemName}`} passHref>
+              <Text field={speaker.name} tag="a" />
             </Link>
           </div>
         ))}
@@ -50,9 +57,10 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
         <div className="session-info-date">{day}</div>
       </div>
       <div className="session-info-col-title">
-        <span className="session-info-time">{time}</span>
-        <Text field={props.fields.Name} tag="div" className="session-info-title" />
+        <Text field={props.name} tag="div" className="session-info-title" />
         {speakers}
+        {time}
+        {room}
         <div className="session-info-col-calendar">
           <Link href={`/sessions/${props.name}`}>
             <a className="btn--main btn--main--round">More Information</a>
@@ -64,7 +72,7 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
 };
 
 export type SessionListProps = {
-  sessions: Session[];
+  sessions: GraphQLSession[];
   showSpeakers: boolean;
 };
 

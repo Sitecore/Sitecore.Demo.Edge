@@ -1,20 +1,29 @@
 import { ComponentProps } from 'lib/component-props';
 import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import SessionList from './SessionList';
-import { Session } from 'src/types/session';
+import { GraphQLSession } from 'src/types/session';
 
-// TODO: Change the source of this component to a GraphQL query to get the expanded Timeslots and Day field values
 export type SpeakerInformationProps = ComponentProps & {
   fields: {
-    Description: Field<string>;
-    Sessions: Session[];
+    data: {
+      contextItem: {
+        description: Field<string>;
+        sessions: {
+          targetItems: GraphQLSession[];
+        };
+      };
+    };
   };
 };
 
 const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => {
   const sessions =
-    props.fields.Sessions && props.fields.Sessions.length > 0 ? (
-      <SessionList sessions={props.fields.Sessions} showSpeakers={false} />
+    props.fields?.data?.contextItem?.sessions?.targetItems &&
+    props.fields.data.contextItem.sessions.targetItems.length > 0 ? (
+      <SessionList
+        sessions={props.fields.data.contextItem.sessions.targetItems}
+        showSpeakers={false}
+      />
     ) : (
       <div>No sessions</div>
     );
@@ -25,7 +34,7 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => {
         <div className="information-grid">
           <div className="description-col">
             <div className="column-title">Biography:</div>
-            <RichText field={props.fields.Description} />
+            <RichText field={props.fields?.data?.contextItem?.description} />
           </div>
           <div className="sessions-col">
             <div className="column-title">Sessions:</div>
