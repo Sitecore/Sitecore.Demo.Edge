@@ -6,6 +6,7 @@ import {
   LayoutServiceContext,
   RouteData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { PropsWithChildren } from 'react'; // DEMO TEAM CUSTOMIZATION - Add ComponentWithChildrenProps
 
 // DEMO TEAM CUSTOMIZATION - Rename types to remove references to Styleguide. Remove StyleguideSpecimenFields.
 /**
@@ -24,6 +25,11 @@ export type ComponentProps = {
   rendering: ComponentRendering;
   params: ComponentParams;
 };
+
+/**
+ * Component props with React children
+ */
+export type ComponentWithChildrenProps = PropsWithChildren<ComponentProps>;
 
 /**
  * Component props with context

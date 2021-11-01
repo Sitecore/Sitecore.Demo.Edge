@@ -2,7 +2,8 @@ interface Props {
   src: string;
 }
 
-const contentHubUrl = 'https://playsummit.sitecoresandbox.cloud';
+const contentHubUrl: string =
+  process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || 'https://playsummit.sitecoresandbox.cloud';
 const port = '8443';
 const transformation = '';
 

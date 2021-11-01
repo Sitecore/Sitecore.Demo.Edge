@@ -1,18 +1,23 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import OrderSummary from '../../components/OrderSummary';
+import OrderSummary, { OrderSummaryProps } from '../../components/OrderSummary';
 
 export default {
   title: 'Components/Payment/OrderSummary',
   component: OrderSummary,
 } as ComponentMeta<typeof OrderSummary>;
 
-const Template: ComponentStory<typeof OrderSummary> = () => <OrderSummary />;
+const Template: ComponentStory<typeof OrderSummary> = (args?: OrderSummaryProps) => (
+  <OrderSummary {...args} />
+);
 
-export const Default = Template.bind({});
-Default.args = {
-  params: {
-    name: 'OrderSummary',
-  },
+export const WithFees = Template.bind({});
+WithFees.args = {
+  ticket: '0',
+};
+
+export const WithoutFees = Template.bind({});
+WithoutFees.args = {
+  ticket: '3',
 };
