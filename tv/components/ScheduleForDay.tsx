@@ -1,6 +1,6 @@
 import ScheduleRow from './ScheduleRow';
 import { Day, ScheduleSlot } from '../interfaces/session';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import hallImage from '../public/conference-hall.jpg';
@@ -12,25 +12,25 @@ type ScheduleForDayProps = {
 };
 
 const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
-  const [activeSlide, setActiveSlide] = useState(0);
-
   useEffect(() => {
-    function handleCarousel() {
-      console.log('timing out' + Date.now());
-      const slidecontainers = document.querySelectorAll('.slide-container');
-
-      console.log('activeSlide = ' + activeSlide);
-      const newSlide = activeSlide + 1 >= slidecontainers.length ? 0 : activeSlide + 1;
-
-      setActiveSlide(newSlide);
-      for (let i = 0; i < slidecontainers.length; i++) {
-        slidecontainers[i].classList.remove('active');
+    let slideIndex = 0;
+    function showSlides() {
+      const slides = document.getElementsByClassName('slide-container');
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
       }
-      slidecontainers.item(activeSlide).classList.add('active');
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].classList.add('active');
+      setTimeout(showSlides, 10000);
     }
 
-    setInterval(handleCarousel, 10000);
-  }, [activeSlide]);
+    showSlides();
+  }, []);
+
+  console.table(props.schedule);
 
   return (
     <>
@@ -44,7 +44,7 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
         ))}
       </ul>
       <div className="conference-hall">
-        <Image className="image" src={hallImage} alt="asda" layout="responsive" />
+        <Image className="image" src={hallImage} alt="Conference lobby" layout="responsive" />
         <div id="container">
           <div id="monitor">
             <div id="monitorscreen">

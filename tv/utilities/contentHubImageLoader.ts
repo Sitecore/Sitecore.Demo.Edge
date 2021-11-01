@@ -2,8 +2,18 @@ interface Props {
   src: string;
 }
 
-export const contentHubImageLoader = ({ src }: Props) => {
-  const contentHubUrl = 'https://playsummit.sitecoresandbox.cloud';
+const contentHubUrl = 'https://playsummit.sitecoresandbox.cloud';
+const port = '8443';
+const transformation = '';
 
-  return `${contentHubUrl}/api/public/content/${src}&t=web`;
+export const contentHubImageLoader = ({ src }: Props) => {
+  return `${contentHubUrl}${port ? ':' + port : ''}/api/public/content/${src}${
+    transformation ? '&t=' + transformation : ''
+  }`;
 };
+
+export function contentHubImageSrcGenerator(src: string) {
+  return `${contentHubUrl}${port ? ':' + port : ''}/api/public/content/${src}${
+    transformation ? '&t=' + transformation : ''
+  }`;
+}
