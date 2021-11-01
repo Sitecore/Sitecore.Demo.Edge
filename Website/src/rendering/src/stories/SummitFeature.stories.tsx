@@ -16,7 +16,7 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     Title: {
-      value: 'Sports and Leisure Expo',
+      value: 'Sports and Recreation Expo',
     },
     Description: {
       value:

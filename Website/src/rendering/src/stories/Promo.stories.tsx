@@ -20,7 +20,7 @@ Default.args = {
       value: 'left',
     },
     title: {
-      value: 'Sports and Leisure Expo',
+      value: 'Sports and Recreation Expo',
     },
     subtitle: {
       value: 'RAISE YOUR GAME',
