@@ -30,8 +30,6 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
     showSlides();
   }, []);
 
-  console.table(props.schedule);
-
   return (
     <>
       <ul className="absolute p-5 top-0 left-0 z-50 text-black-lightest">
