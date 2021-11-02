@@ -27,6 +27,15 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
       setTimeout(showSlides, 10000);
     }
 
+    document.addEventListener('keypress', (e) => {
+      if (e.key == 'z') {
+        console.log(e.key);
+
+        const container = document.querySelector('.conference-hall');
+        container?.classList.toggle('zoomed');
+      }
+    });
+
     showSlides();
   }, []);
 

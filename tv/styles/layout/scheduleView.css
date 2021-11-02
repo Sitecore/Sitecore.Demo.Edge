@@ -5,6 +5,20 @@
     width: 100%;
   }
 
+  &.zoomed {
+    #container {
+      position: unset;
+
+      #monitor {
+        position: unset;
+
+        #monitorscreen {
+          position: unset;
+        }
+      }
+    }
+  }
+
   #container {
     position: absolute;
     top: 4%;
