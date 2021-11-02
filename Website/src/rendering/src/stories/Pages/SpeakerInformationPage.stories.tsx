@@ -11,7 +11,7 @@ import Footer, { FooterProps } from '../../components/Footer';
 import { SESSIONS } from '../../models/mock-sessions';
 
 export default {
-  title: 'Pages/SpeakerInformation',
+  title: 'Pages/Speaker Information Page',
 } as ComponentMeta<typeof SpeakerInformationPageHero>;
 
 const headerProps = {} as HeaderProps;

@@ -10,7 +10,7 @@ import VendorInformation, { VendorInformationProps } from '../../components/Vend
 import Footer, { FooterProps } from '../../components/Footer';
 
 export default {
-  title: 'Pages/VendorInformation',
+  title: 'Pages/Vendor Information Page',
 } as ComponentMeta<typeof VendorInformationPageHero>;
 
 const headerProps = {} as HeaderProps;

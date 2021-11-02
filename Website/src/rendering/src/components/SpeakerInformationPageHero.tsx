@@ -25,7 +25,7 @@ export type SpeakerInformationPageHeroProps = ComponentProps & {
 
 const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
-  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const isPageEditing = sitecoreContext?.pageState === LayoutServicePageState.Edit;
 
   const { fields, ...propsRest } = props;
   const newFields = {

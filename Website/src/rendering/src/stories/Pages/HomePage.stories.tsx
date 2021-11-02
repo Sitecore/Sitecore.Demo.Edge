@@ -13,7 +13,7 @@ import Footer, { FooterProps } from '../../components/Footer';
 import { Sponsor } from 'src/types/sponsor';
 
 export default {
-  title: 'Pages/Home',
+  title: 'Pages/Home Page',
 } as ComponentMeta<typeof HeroSection>;
 
 const headerProps = {} as HeaderProps;
