@@ -1,3 +1,5 @@
+import React from 'react';
+import { SitecoreContextReactContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import "../src/assets/css/abstracts/mixins.css"
 import "../src/assets/css/main.css"
 
@@ -29,3 +31,20 @@ Object.defineProperty(nextImage, 'default', {
   configurable: true,
   value: props => <img {...props} />
 });
+
+const mockSitecoreContext = {
+  context: {
+    pageEditing: false,
+  },
+  setContext: () => {
+    // nothing
+  },
+};
+
+export const decorators = [
+  (Story) => (
+    <SitecoreContextReactContext.Provider value={mockSitecoreContext}>
+      <Story />
+    </SitecoreContextReactContext.Provider>
+  ),
+];

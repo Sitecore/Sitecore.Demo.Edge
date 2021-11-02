@@ -12,8 +12,8 @@ const Template: ComponentStory<typeof SpeakerInformationPageHero> = (args) => (
   <SpeakerInformationPageHero {...args} />
 );
 
-export const Speaker = Template.bind({});
-Speaker.args = {
+export const Default = Template.bind({});
+Default.args = {
   fields: {
     Name: {
       value: 'Alex Mena',
