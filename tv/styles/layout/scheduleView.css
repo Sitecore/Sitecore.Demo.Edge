@@ -1,12 +1,7 @@
 .conference-hall {
   @apply w-screen h-screen overflow-hidden relative;
 
-  /* background-image: url(../../public/conference-hall.jpg);
-  background-position: top left;
-  background-repeat: no-repeat; */
-
   .image {
-    /* height: 100%; */
     width: 100%;
   }
 

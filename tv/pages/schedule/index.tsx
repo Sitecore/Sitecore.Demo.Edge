@@ -11,12 +11,12 @@ type ScheduleProps = {
 };
 
 const Schedule = (props: ScheduleProps): JSX.Element => {
-  return <ScheduleForDay days={props.days} schedule={props.schedule} day={'1'} />;
+  return <ScheduleForDay days={props.days} schedule={props.schedule} day={'0'} />;
 };
 
 // This also gets called at build time
 export const getStaticProps = async () => {
-  const { sessions } = await getAllSessionsByDay('1');
+  const { sessions } = await getAllSessionsByDay('0');
   const { days } = await GetAllDays();
   return {
     props: {

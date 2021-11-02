@@ -6,6 +6,7 @@ import {
   SessionResult,
   AllDaysResponse,
   DayResult,
+  TimeslotResult,
 } from '../../../interfaces/session';
 import { RoomResult } from '../../../interfaces/room';
 
@@ -19,8 +20,6 @@ query {
 
       sessionImage {
         results {
-          id
-          fileName
           assetToPublicLink(first: 1) {
             results {
               id
@@ -85,10 +84,16 @@ query {
 }`;
 
 const parseSession = function (s: SessionResult) {
-  return parseSessionWidthDay(s, '');
+  return parseSessionWithTimeSlot(s, {
+    id: '',
+    sortOrder: 0,
+    taxonomyLabel: {
+      'en-US': '',
+    },
+  });
 };
 
-const parseSessionWidthDay = function (s: SessionResult, d: string) {
+const parseSessionWithTimeSlot = function (s: SessionResult, ts: TimeslotResult) {
   const session = {} as Session;
   session.id = s.id;
   session.name = s.name;
@@ -109,11 +114,14 @@ const parseSessionWidthDay = function (s: SessionResult, d: string) {
     session.speaker = s.speakers.results[0].name;
   }
 
-  session.Day = d != '' ? d : s.dayToSession.results[0].taxonomyName;
+  session.Day = s.dayToSession.results[0].taxonomyName;
 
-  if (s.timeslotToSession.results.length > 0) {
+  if (ts.id == '' && s.timeslotToSession.results.length > 0) {
     session.timeslot = s.timeslotToSession.results[0].taxonomyLabel['en-US'];
     session.sortOrder = s.timeslotToSession.results[0].sortOrder;
+  } else {
+    session.timeslot = ts.taxonomyLabel['en-US'];
+    session.sortOrder = ts.sortOrder;
   }
 
   return session;
@@ -204,32 +212,13 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
         s.dayToSession.results &&
         s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
       ) {
-        sessions.push(parseSession(s));
+        if (s.timeslotToSession.results) {
+          s.timeslotToSession.results.map((ts) => {
+            sessions.push(parseSessionWithTimeSlot(s, ts));
+          });
+        }
       }
     });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
-};
-
-export const getAllSessionsSortedByDay = async (): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
-  const sessions: Session[] = [];
-
-  results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-    if (s.dayToSession && s.dayToSession.results) {
-      s.dayToSession.results.map((d) => {
-        sessions.push(parseSessionWidthDay(s, d.taxonomyName));
-      });
-    }
-  });
-
-  return {
-    sessions: sessions
-      .sort((a, b) => a.sortOrder - b.sortOrder)
-      .sort((a, b) => a.Day.localeCompare(b.Day)),
-  };
 };
