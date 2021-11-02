@@ -3,9 +3,13 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TICKETS } from '../models/mock-tickets';
 
-const TicketGrid = (): JSX.Element => (
-  <section className="container section__tickets">
-    {TICKETS.filter((ticket) => !ticket.isUpgrade).map((ticket, ticketIndex) => (
+const TicketGrid = (): JSX.Element => {
+  const ticketsToDisplay = TICKETS.filter((ticket) => !ticket.isUpgrade);
+
+  const tickets =
+    ticketsToDisplay &&
+    ticketsToDisplay.length > 0 &&
+    ticketsToDisplay.map((ticket, ticketIndex) => (
       <div className={`ticket-grid-block ticket-grid-block--${ticket.color}`} key={ticketIndex}>
         <div className="ticket-content">
           <div className="slanted-spacer"></div>
@@ -30,8 +34,9 @@ const TicketGrid = (): JSX.Element => (
           </Link>
         </div>
       </div>
-    ))}
-  </section>
-);
+    ));
+
+  return <section className="container section__tickets">{tickets}</section>;
+};
 
 export default TicketGrid;

@@ -22,7 +22,7 @@ Default.args = {
       value: 'READY | STEADY | PLAY!',
     },
     Expo: {
-      value: 'Sports and Leisure Expo',
+      value: 'Sports and Recreation Expo',
     },
     Title: {
       value: 'RAISE YOUR GAME',

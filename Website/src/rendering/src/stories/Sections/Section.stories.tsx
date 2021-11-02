@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Section from '../../components/Section';
-import SpeakersGrid, { Speaker, SpeakersGridProps } from '../../components/SpeakersGrid';
+import SpeakersGrid, { SpeakersGridProps } from '../../components/SpeakersGrid';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Sections/Section',
@@ -27,7 +28,7 @@ const speaker = {
   role: {
     value: 'Speaker Role',
   },
-} as Speaker;
+} as GraphQLSpeaker;
 
 const speakerProps = {
   fields: {

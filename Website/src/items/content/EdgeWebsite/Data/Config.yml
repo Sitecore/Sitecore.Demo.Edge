@@ -21,7 +21,7 @@ Languages:
     - ID: "32c00ea7-b305-40e4-b9be-e03a92b05ae3"
       Hint: HeaderLogo
       Value: |
-        <image mediaid="" stylelabs-content-id="33703" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33703/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd" stylelabs-content-type="Image" alt="play-logo-stacked-light.svg" height="120" width="365" />
+        <image mediaid="" stylelabs-content-id="33703" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33703/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd" stylelabs-content-type="Image" alt="play-logo-stacked-light.svg" height="46" width="120" />
     - ID: "3971a645-b079-4bc3-9971-bf655b7713fa"
       Hint: Startdate
       Value: 20210909T060000Z
