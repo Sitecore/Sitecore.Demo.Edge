@@ -1,5 +1,6 @@
-import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import RequireDatasource from './RequireDatasource';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -23,6 +24,11 @@ function GetActiveClass(activeStep: number, index: number) {
 
 const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
   const router = useRouter();
+
+  if (!props.fields) {
+    return <RequireDatasource />;
+  }
+
   const ticketId = router?.query?.ticket ?? 0;
 
   const steps = [
@@ -55,4 +61,4 @@ const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
   return <div className="payment-progress">{stepLinks}</div>;
 };
 
-export default withDatasourceCheck()(PaymentProgress);
+export default PaymentProgress;

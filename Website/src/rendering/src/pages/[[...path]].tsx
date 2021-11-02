@@ -30,12 +30,11 @@ const SitecorePage = ({
 
   return (
     <ComponentPropsContext value={componentProps}>
-      {/* DEMO TEAM CUSTOMIZATION - Different type name */}
+      {/* DEMO TEAM CUSTOMIZATION (next line) - Different type name */}
       <SitecoreContext<SitecoreContextValue>
         componentFactory={componentFactory}
         context={sitecoreContext}
       >
-        {/* END CUSTOMIZATION */}
         <Layout />
       </SitecoreContext>
     </ComponentPropsContext>
