@@ -1,5 +1,11 @@
-import { Field, ImageField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Field,
+  ImageField,
+  LayoutServicePageState,
+  Text,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import InformationPageHero from './InformationPageHero';
 
 export type SpeakerInformationPageHeroProps = ComponentProps & {
@@ -18,6 +24,9 @@ export type SpeakerInformationPageHeroProps = ComponentProps & {
 };
 
 const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+
   const { fields, ...propsRest } = props;
   const newFields = {
     Name: fields.Name,
@@ -30,20 +39,23 @@ const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX
   const qualificative = props.fields.Featured.value ? 'featured' : '';
 
   const informations =
-    props.fields.JobTitle?.value || props.fields.Company?.value || props.fields.Location?.value ? (
+    props.fields.JobTitle?.value ||
+    props.fields.Company?.value ||
+    props.fields.Location?.value ||
+    isPageEditing ? (
       <>
-        {props.fields.JobTitle?.value ? (
+        {props.fields.JobTitle?.value || isPageEditing ? (
           <div>
             <span className="label">Job Title:</span>{' '}
             <Text field={props.fields.JobTitle} tag="span" />
           </div>
         ) : undefined}
-        {props.fields.Company?.value ? (
+        {props.fields.Company?.value || isPageEditing ? (
           <div>
             <span className="label">Company:</span> <Text field={props.fields.Company} tag="span" />
           </div>
         ) : undefined}
-        {props.fields.Location?.value ? (
+        {props.fields.Location?.value || isPageEditing ? (
           <div>
             <span className="label">Location:</span>{' '}
             <Text field={props.fields.Location} tag="span" />
