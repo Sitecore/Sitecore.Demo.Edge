@@ -1,74 +1,43 @@
-import {
-  faFacebookF,
-  faTwitter,
-  faLinkedinIn,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons';
 import { ComponentProps } from 'lib/component-props';
-import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { Session } from 'src/types/session';
-import SocialIcon from './SocialIcon';
-import SpeakerInfoLine from './SpeakerInfoLine';
+import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import SessionList from './SessionList';
+import { GraphQLSession } from 'src/types/session';
 
 export type SpeakerInformationProps = ComponentProps & {
   fields: {
-    Name: Field<string>;
-    Role: Field<string>;
-    Picture: ImageField;
-    JobTitle: Field<string>;
-    Company: Field<string>;
-    Location: Field<string>;
-    Description: Field<string>;
-    FacebookProfileLink?: Field<string>;
-    TwitterProfileLink?: Field<string>;
-    InstagramProfileLink?: Field<string>;
-    LinkedinProfileLink?: Field<string>;
-    Sessions: Session[];
-    Featured: Field<boolean>;
+    data: {
+      contextItem: {
+        description: Field<string>;
+        sessions: {
+          targetItems: GraphQLSession[];
+        };
+      };
+    };
   };
 };
 
 const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => {
-  const featuredEyebrow = props.fields.Featured?.value && <div className="eyebrow">Featured</div>;
-
-  const sessions = props.fields.Sessions && props.fields.Sessions.length > 0 && (
-    <div className="talks-section">
-      <h2 className="talks-title">Talks</h2>
-      {props.fields.Sessions.map((session, index) => (
-        <div key={index} className="talk">
-          <p>Mon, 19th | 9:00 AM</p>
-          <p className="talk-name">{session.name}</p>
-        </div>
-      ))}
-    </div>
-  );
+  const sessions =
+    props.fields?.data?.contextItem?.sessions?.targetItems &&
+    props.fields.data.contextItem.sessions.targetItems.length > 0 ? (
+      <SessionList
+        sessions={props.fields.data.contextItem.sessions.targetItems}
+        showSpeakers={false}
+      />
+    ) : (
+      <div>No sessions</div>
+    );
 
   return (
-    <section className="section information-section speaker-information">
-      <div className="section__content left__content">
+    <section className="section information-section-with-sessions">
+      <div className="section__content container">
         <div className="information-grid">
-          <div className="image-col">
-            <div>
-              <Image field={props.fields?.Picture} alt={props.fields?.Name?.value} />
-              <div className="external-website-icons">
-                <SocialIcon Icon={faFacebookF} Link={props.fields.FacebookProfileLink} />
-                <SocialIcon Icon={faTwitter} Link={props.fields.TwitterProfileLink} />
-                <SocialIcon Icon={faLinkedinIn} Link={props.fields.LinkedinProfileLink} />
-                <SocialIcon Icon={faInstagram} Link={props.fields.InstagramProfileLink} />
-              </div>
-            </div>
-
-            <SpeakerInfoLine title="Position" field={props.fields.JobTitle} />
-            <SpeakerInfoLine title="Company" field={props.fields.Company} />
-            <SpeakerInfoLine title="Location" field={props.fields.Location} />
-          </div>
           <div className="description-col">
-            <div>
-              <Text tag="div" className="eyebrow" field={props.fields.Role} />
-              {featuredEyebrow}
-            </div>
-            <Text tag="h1" className="name" field={props.fields.Name} />
-            <RichText field={props.fields.Description} />
+            <div className="column-title">Biography:</div>
+            <RichText field={props.fields?.data?.contextItem?.description} />
+          </div>
+          <div className="sessions-col">
+            <div className="column-title">Sessions:</div>
             {sessions}
           </div>
         </div>

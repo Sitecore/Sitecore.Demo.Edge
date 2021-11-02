@@ -39,3 +39,31 @@
     }
   }
 }
+
+/* TODO: Rename to "information-section" once vendor, speaker, and session information sections have been converted to use this class */
+.section.information-section-with-sessions {
+  @apply py-8;
+
+  .information-grid {
+    @apply flex flex-col;
+    @apply lg:flex-row;
+
+    .description-col {
+      @apply w-full order-2;
+      @apply lg:w-7/12 lg:pr-6 lg:order-1;
+
+      ul {
+        @apply list-disc pl-10 py-5;
+      }
+    }
+
+    .sessions-col {
+      @apply w-full order-1 pb-8;
+      @apply lg:w-5/12 lg:order-2 lg:pb-0;
+    }
+
+    .column-title {
+      @apply font-bold;
+    }
+  }
+}
