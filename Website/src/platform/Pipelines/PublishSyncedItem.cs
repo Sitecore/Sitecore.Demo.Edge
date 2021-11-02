@@ -3,7 +3,6 @@ using Sitecore.Abstractions;
 using Sitecore.Connector.CMP;
 using Sitecore.Connector.CMP.Pipelines.ImportEntity;
 using Sitecore.Diagnostics;
-using Sitecore.Data;
 using Sitecore.Publishing;
 using Sitecore.Configuration;
 
