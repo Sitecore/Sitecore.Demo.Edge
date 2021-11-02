@@ -14,7 +14,7 @@
 
     .provider-image {
       @apply hidden;
-      @apply md:block;
+      @apply md:block w-32 h-32;
     }
 
     .testimony {

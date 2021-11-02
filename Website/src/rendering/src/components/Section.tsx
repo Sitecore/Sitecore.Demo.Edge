@@ -27,7 +27,9 @@ const Section = (props: SectionProps): JSX.Element => {
   const titleAndContent = props.fields && (
     <>
       <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
-      <RichText tag="div" field={props.fields.content} className={contentCssClasses} />
+      {props.fields.content && (
+        <RichText tag="div" field={props.fields.content} className={contentCssClasses} />
+      )}
     </>
   );
 
