@@ -53,8 +53,8 @@ SharedFields:
           ph="/jss-header/jss-header-content-{DD4B4F17-3606-5C0C-9B08-2F5C225CF804}-0"
           uid="{F966B56F-A772-5676-9145-1CB48E76727D}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
+          rname="VendorInformationPageHero"
+          id="{08A71664-6AF2-4CDB-A1EC-F27D4939EE3A}"
           par=""
           ph="/jss-main"
           uid="{6E015E42-B3DE-5C03-8B35-5C2EC06BDBE4}" />
@@ -64,14 +64,6 @@ SharedFields:
           par=""
           ph="/jss-main"
           uid="{CD67317D-CF1A-51DB-B98B-CCB5C42C4877}" />
-        <r
-          rname="SessionList"
-          ds=""
-          id="{2BCFA87E-B224-546E-9247-80B2ABAE98B9}"
-          par=""
-          ph="/jss-main"
-          uid="{2F7D660B-CF5C-5C64-A791-1457AC3B7376}"
-          ccb="Clear on publish" />
         <r
           rname="FullImageSection"
           ds="{BD8B0390-574A-57F3-B801-1C3A4F42B3D6}"

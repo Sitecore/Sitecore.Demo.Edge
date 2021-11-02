@@ -53,8 +53,8 @@ SharedFields:
           ph="/jss-header/jss-header-content-{2C75508C-1C34-584F-9B69-3496D386DACE}-0"
           uid="{CB853DDF-47A0-5691-8998-BE9CCB913526}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
+          rname="SpeakerInformationPageHero"
+          id="{84040441-931E-48AD-AC7F-FD0145ADEB09}"
           par=""
           ph="/jss-main"
           uid="{99503209-8F2B-563A-B886-A5131C9C4131}" />
@@ -109,11 +109,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a00f7bfc-4af7-4b97-a9ac-0277f4ab298a"
+      Value: "3115d876-bcb7-46cc-b4cb-e8cadb998c1a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T150538Z
+      Value: 20211028T145140Z

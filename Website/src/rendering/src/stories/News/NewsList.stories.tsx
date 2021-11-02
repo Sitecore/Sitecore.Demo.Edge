@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import NewsList, { News } from '../../components/NewsList';
+import NewsList from '../../components/NewsList';
+import { News } from 'src/types/news';
 
 export default {
   title: 'Components/News/NewsList',

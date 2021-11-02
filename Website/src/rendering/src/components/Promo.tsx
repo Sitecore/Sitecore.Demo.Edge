@@ -14,7 +14,7 @@ export type PromoProps = ComponentProps & {
 
 const Promo = ({ fields }: PromoProps): JSX.Element => {
   const sectionCssClasses = `section section__promo ${fields.cssClass.value}`;
-  const positionCssClasses = `section__content section__promo__content section__promo__content--${fields.position.value}`;
+  const positionCssClasses = `section__content section__promo__content section__promo__content--${fields.position.value} container`;
 
   return (
     <section className={sectionCssClasses}>
@@ -26,7 +26,7 @@ const Promo = ({ fields }: PromoProps): JSX.Element => {
           <Link
             field={fields.callToActionLink}
             className="btn--main btn--main--round btn--main--big"
-          ></Link>
+          />
         </div>
         <div></div>
       </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SponsorsGrid, { Sponsor } from '../../components/SponsorsGrid';
+import SponsorsGrid from '../../components/SponsorsGrid';
+import { Sponsor } from 'src/types/sponsor';
 
 export default {
   title: 'Components/Sponsors/SponsorsGrid',

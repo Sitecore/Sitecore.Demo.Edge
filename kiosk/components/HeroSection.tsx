@@ -24,7 +24,7 @@ const HeroSection = (): JSX.Element => {
               />
             </div>
             <p className="slogan">READY | STEADY | PLAY!</p>
-            <h1 className="expo">Sports and Leisure Expo</h1>
+            <h1 className="expo">Sports and Recreation Expo</h1>
             <h3 className="title">Book Your Ticket</h3>
             <p className="subtitle">Don&apos;t miss the super early bird offer.</p>
             <h3 className="date">August 24th – 25th</h3>
