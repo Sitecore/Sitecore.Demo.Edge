@@ -1,53 +1,28 @@
-.billboard-list {
-  @apply flex flex-col w-full justify-items-stretch;
-
-  width: 100%;
-  height: 100vh;
-
-  .billboard-item {
-    @apply flex-1 text-5xl text-white font-bold h-full text-center inline-block align-middle flex;
-
-    background-size: cover;
-    background-position: top right;
-    text-shadow: 2px 2px black;
-    min-height: 300px;
-    filter: grayscale(1);
-
-    &:hover {
-      filter: grayscale(0);
-    }
-
-    a {
-      @apply m-auto;
-    }
-  }
-}
-
 .billboard {
-  @apply p-0 m-0 bg-gray-light absolute;
+  @apply w-screen h-screen overflow-hidden relative;
 
-  background-position: top left;
-  background-repeat: no-repeat;
-  width: 1800px;
-  height: 1200px;
-  background-size: cover;
+  .billboard-frame {
+    @apply relative left-32 hidden;
+
+    bottom: 72rem;
+  }
 
   .billboard-container {
-    @apply flex flex-row h-full w-full absolute;
+    @apply flex flex-row h-full w-full absolute top-20 left-20 z-50;
 
     width: 1200px;
-    height: 800px;
-    border: 10px solid gray;
-    top: 10%;
-    left: 10%;
+    height: 650px;
+    border: 10px outset darkgray;
+    outline: 20px darkgray inset;
+    outline-offset: -6px;
     transition: transform 1000ms linear;
     -webkit-transition: transform 1000ms linear;
     -moz-transition: transform 1000ms linear;
     -o-transition: transform 1000ms linear;
-    transform: perspective(900px) rotateY(34deg) scale(0.7) rotateX(0deg);
+    transform: perspective(1000px) rotateY(34deg) scale(0.7) rotateX(0deg);
     transition-delay: 500ms;
 
-    &:hover {
+    &.active {
       transform: perspective(0) rotateY(0deg) scale(1) rotateX(0deg);
       transition: transform 1000ms linear;
       -webkit-transition: transform 1000ms linear;
@@ -57,13 +32,11 @@
     }
 
     .image-left {
-      @apply flex-1 h-full w-1/2 absolute;
-
-      background-size: cover;
+      @apply flex-1 h-full w-1/2 absolute bg-cover;
     }
 
     .content-right {
-      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-14 space-y-10;
+      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-14 space-y-8;
 
       .logo {
         @apply w-full;
@@ -85,5 +58,17 @@
         @apply w-full text-lg;
       }
     }
+  }
+
+  .cylinder {
+    @apply absolute overflow-hidden w-12 z-40;
+
+    margin: 0 auto;
+    height: 350px;
+    border-radius: 50px/25px;
+    top: 37rem;
+    left: 40rem;
+    background-image: url("../../public/billboard-post.png");
+    background-position: bottom center;
   }
 }

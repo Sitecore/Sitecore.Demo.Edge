@@ -7,6 +7,18 @@
   left: 0;
   z-index: 50;
 
+  &.zoom-menu {
+    top: 50px;
+
+    .menu-button::after {
+      content: "+";
+    }
+
+    .menu-button.active::after {
+      content: "-";
+    }
+  }
+
   .menu-button {
     @apply absolute w-10 h-10 top-3 left-3 bg-black z-50 text-white text-3xl rounded-full mx-auto text-center font-bold leading-8 cursor-pointer;
 
