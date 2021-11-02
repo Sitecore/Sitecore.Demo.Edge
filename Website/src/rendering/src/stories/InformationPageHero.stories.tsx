@@ -76,6 +76,25 @@ WithSmallerImage.args = {
   qualificative: 'Featured',
 };
 
+export const WithoutSocialIcons = Template.bind({});
+WithoutSocialIcons.args = {
+  params: {
+    name: 'InformationPageHero',
+  },
+  fields: {
+    Name: {
+      value: 'Fitbit',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/aboutus/fitbit-logo.png',
+      },
+    },
+  },
+  type: 'vendor',
+  qualificative: 'Featured',
+};
+
 export const WithoutQualificative = Template.bind({});
 WithoutQualificative.args = {
   params: {

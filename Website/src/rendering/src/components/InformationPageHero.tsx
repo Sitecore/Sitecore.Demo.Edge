@@ -1,12 +1,12 @@
 import { Field, ImageField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
   faTwitter,
   faLinkedinIn,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
+import SocialIcon from './SocialIcon';
 
 export type InformationPageHeroProps = ComponentProps & {
   fields: {
@@ -48,34 +48,10 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
             </div>
             {informations}
             <div className="external-website-icons">
-              {!props.fields.FacebookProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.FacebookProfileLink.value}>
-                  <FontAwesomeIcon icon={faFacebookF} />
-                </a>
-              )}
-              {!props.fields.TwitterProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.TwitterProfileLink.value}>
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
-              )}
-              {!props.fields.LinkedinProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.LinkedinProfileLink.value}>
-                  <FontAwesomeIcon icon={faLinkedinIn} />
-                </a>
-              )}
-              {!props.fields.InstagramProfileLink ? (
-                ''
-              ) : (
-                <a href={props.fields.InstagramProfileLink.value}>
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-              )}
+              <SocialIcon Icon={faFacebookF} Link={props.fields.FacebookProfileLink} />
+              <SocialIcon Icon={faTwitter} Link={props.fields.TwitterProfileLink} />
+              <SocialIcon Icon={faLinkedinIn} Link={props.fields.LinkedinProfileLink} />
+              <SocialIcon Icon={faInstagram} Link={props.fields.InstagramProfileLink} />
             </div>
           </div>
         </div>
