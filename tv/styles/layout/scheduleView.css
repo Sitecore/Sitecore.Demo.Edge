@@ -28,8 +28,18 @@
     max-width: inherit;
     transition: all 300ms linear;
 
+    #monitor {
+      border-bottom: none;
+      border-radius: 12px;
+      padding: 1%;
+
+      &::after {
+        display: none;
+      }
+    }
+
     #monitorscreen {
-      padding-bottom: 45%;
+      padding-bottom: 46%;
 
       .schedule {
         @apply flex flex-col absolute top-0 left-0 bottom-0 right-0;
