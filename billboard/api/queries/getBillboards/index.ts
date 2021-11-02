@@ -25,7 +25,7 @@ export const getBillboards = async (): Promise<{
               }
             }
           }
-          advertisement_Image{
+          advertisement_Image: cmpContentToMasterLinkedAsset{
             results{
                assetToPublicLink(first: 1) {
                 results {

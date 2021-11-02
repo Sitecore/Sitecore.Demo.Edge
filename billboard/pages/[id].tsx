@@ -17,24 +17,9 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
-  const customHandleClick = () => {
-    var menuButton = document.querySelectorAll(".zoom-menu .menu-button");
-
-    if (menuButton.length < 1) return;
-    menuButton[0].classList.toggle("active");
-
-    const billboard = document.getElementsByClassName("billboard-container");
-    if (billboard.length < 1) return;
-    billboard[0].classList.toggle("active");
-  };
-
   return (
     <>
       <Navigation />
-      <div className="menu zoom-menu">
-        <div onClick={customHandleClick} className="menu-button"></div>
-      </div>
-
       <div className="billboard">
         <div className="image-container">
           <Image
