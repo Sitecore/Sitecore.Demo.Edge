@@ -19,4 +19,5 @@
    2. [Kiosk](projects/kiosk.md#Developing-the-Kiosk)
    3. [TV](projects/tv.md#Developing-the-TV)
 7. [Deploying](deploying.md)
-8. [Contributing](contributing.md)
+8. [Upgrading](upgrading.md)
+9. [Contributing](contributing.md)

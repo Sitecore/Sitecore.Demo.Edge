@@ -7,13 +7,13 @@ import {
   LayoutServiceData,
   LayoutService,
   editingDataService,
-  EditingPreviewData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { componentModule } from 'temp/componentFactory';
-import packageJson from '../../package.json'; // DEMO TEAM CUSTOMIZATION - Rename import name to fix rendering container warning
+import pkg from '../../package.json';
+import { SitecoreContextValue } from './component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 
 /**
  * Extract normalized Sitecore item path from query
@@ -66,18 +66,15 @@ export class SitecorePagePropsFactory {
       layoutData: LayoutServiceData | null,
       dictionary: DictionaryPhrases,
       componentProps = {},
-      notFound = false;
+      notFound = false,
+      sitecoreContext: SitecoreContextValue | null = null; // DEMO TEAM CUSTOMIZATION - Different type name
 
     if (context.preview) {
       /**
        * Preview mode
        */
       // If we're in preview (editing) mode, use data already sent along with the editing request
-      // DEMO TEAM CUSTOMIZATION - Cast previewData as EditingPreviewData to fix "jss build" incompatible type issue with nextjs 11
-      const data = await editingDataService.getEditingData(
-        context.previewData as EditingPreviewData
-      );
-      // END CUSTOMIZATION
+      const data = await editingDataService.getEditingData(context.previewData);
       if (!data) {
         throw new Error(
           `Unable to get editing data for preview ${JSON.stringify(context.previewData)}`
@@ -94,7 +91,7 @@ export class SitecorePagePropsFactory {
       const path = extractPath(context.params);
 
       // Use context locale if Next.js i18n is configured, otherwise use language defined in package.json
-      locale = context.locale ?? packageJson.config.language; // DEMO TEAM CUSTOMIZATION - Rename import name to fix rendering container warning
+      locale = context.locale ?? pkg.config.language;
 
       // Fetch layout data, passing on req/res for SSR
       layoutData = await this.layoutService.fetchLayoutData(
@@ -119,24 +116,31 @@ export class SitecorePagePropsFactory {
 
     // Retrieve component props using side-effects defined on components level
     if (layoutData?.sitecore?.route) {
+      sitecoreContext = {
+        route: layoutData.sitecore.route,
+        itemId: layoutData.sitecore.route?.itemId,
+        ...layoutData.sitecore.context,
+      };
+
       if (isServerSidePropsContext(context)) {
         componentProps = await this.componentPropsService.fetchServerSideComponentProps({
-          layoutData: layoutData,
+          layoutData,
           context,
           componentModule,
         });
       } else {
         componentProps = await this.componentPropsService.fetchStaticComponentProps({
-          layoutData: layoutData,
+          layoutData,
           context,
           componentModule,
         });
       }
     }
+
     return {
       locale,
-      layoutData,
       dictionary,
+      sitecoreContext,
       componentProps,
       notFound,
     };

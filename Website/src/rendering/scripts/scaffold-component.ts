@@ -18,12 +18,10 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
-// DEMO TEAM CUSTOMIZATION - Remove manifest scaffolding. We use Sitecore-first mode.
-// DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding.
-import generateStorySrc from './templates/story-src';
+import generateStorySrc from './templates/story-src'; // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
 
-const storyRootPath = 'src/stories';
 const componentRootPath = 'src/components';
+const storyRootPath = 'src/stories'; // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
 
 // Matches component names that start with a capital letter, and contain only letters, number,
 // underscores, or dashes. Optionally, the component name can be preceded by a relative path
@@ -43,7 +41,7 @@ dashes, or underscores. If specifying a path, it must be relative to src/compone
 
 const componentPath = regExResult[1];
 const componentName = regExResult[2];
-const componentFilename = `${componentName}.tsx`;
+const componentFilename = `${componentName}.tsx`; // DEMO TEAM CUSTOMIZATION - Change variable name
 
 const componentOutputPath = scaffoldFile(
   componentRootPath,
@@ -51,6 +49,7 @@ const componentOutputPath = scaffoldFile(
   componentFilename
 );
 
+// DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
 if (!componentOutputPath) {
   throw `Skipping creating ${componentArg}; already exists.`;
 }
@@ -62,6 +61,7 @@ const storyOutputPath = scaffoldFile(
   generateStorySrc(componentName, componentPath),
   storyFilename
 );
+// END CUSTOMIZATION
 
 console.log(
   chalk.green(`
@@ -69,18 +69,15 @@ Scaffolding of ${componentName} complete.
 Next steps:`)
 );
 
-// DEMO TEAM CUSTOMIZATION - Reworked next steps order and content.
+// DEMO TEAM CUSTOMIZATION - Reworked next steps order and content
 console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);
 if (storyOutputPath) {
   console.log(`* Test the component in Storybook by running ${chalk.green('jss storybook')}.`);
   console.log(`* Add mock data as needed in the ${chalk.green(storyOutputPath)} Storybook story.`);
 }
-console.log(
-  `* Scaffold the component in Sitecore using '${chalk.green(
-    `jss deploy component ${componentName} --allowedPlaceholders placeholder-for-component`
-  )}, or create the rendering item and datasource template yourself.`
-);
+console.log(`* Manually create the rendering item and datasource template in Sitecore.`);
 console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);
+// END CUSTOMIZATION
 
 /**
  * Force to use `crlf` line endings, we are using `crlf` across the project.
