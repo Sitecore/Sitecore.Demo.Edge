@@ -220,6 +220,7 @@ services:
       JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
+      SITECORE_APPSETTINGS_ROLE:DEFINE: Standalone
       ## Custom variable to allow override in AKS
       RENDERING_HOST_ENDPOINT_URI: "http://rendering:3000/api/editing/render"
       RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
