@@ -14,7 +14,6 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   return <ScheduleForDay days={props.days} schedule={props.schedule} day={'1'} />;
 };
 
-// This also gets called at build time
 export const getStaticProps = async () => {
   const { sessions } = await getAllSessionsByDay('1');
   const { days } = await GetAllDays();

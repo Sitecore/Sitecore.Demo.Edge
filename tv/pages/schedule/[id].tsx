@@ -1,9 +1,10 @@
 import { GetAllDays, getAllSessionsByDay } from '../../api/queries/getSessions';
-import { Day, ScheduleSlot } from '../../interfaces/session';
+import { Day, ScheduleSlot, Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import { groupBy, SplitArray } from '../../utilities/arrayUtilities';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ScheduleForDay from '../../components/ScheduleForDay';
+import { getQueryStringValue } from '../../utilities/queryString';
 
 type ScheduleProps = {
   day: string;
@@ -19,22 +20,34 @@ export default function SchedulePage(props: ScheduleProps) {
   return <ScheduleForDay days={props.days} schedule={props.schedule} day={props.day} />;
 }
 
-// This function gets called at build time
+export function GetDay(): Session[] {
+  useEffect(() => {
+    async function fetchData() {
+      console.log(window.location);
+      const day = getQueryStringValue('day') as string;
+      console.log('day => ' + day);
+      if (day) {
+        const { sessions } = await getAllSessionsByDay(day);
+        console.table(sessions);
+        return sessions;
+      }
+    }
+    fetchData();
+  });
+  return [];
+}
+[];
+
 export async function getStaticPaths() {
-  // Call an external API endpoint to get rooms
   const { days } = await GetAllDays();
 
-  // Get the paths we want to pre-render based on rooms
   const paths = days.map((day) => ({
     params: { id: day.sortOrder.toString() },
   }));
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
   return { paths, fallback: false };
 }
 
-// This also gets called at build time
 export const getStaticProps = async ({ params }: ScheduleParams) => {
   const { sessions } = await getAllSessionsByDay(params.id);
   const { days } = await GetAllDays();

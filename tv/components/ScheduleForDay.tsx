@@ -12,6 +12,7 @@ type ScheduleForDayProps = {
 const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
   return (
     <div className="conference-hall">
+      <h1>{props.day}</h1>
       <div className="schedule">
         <Carousel
           autoPlay={false}

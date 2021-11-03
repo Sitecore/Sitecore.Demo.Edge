@@ -2,9 +2,13 @@ import Link from 'next/link';
 import React, { ChangeEvent } from 'react';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
+import { TimeslotResult } from '../interfaces/session';
+import { setQueryStringValue } from '../utilities/queryString';
+import Router from 'next/router';
 
 interface NavigationState {
   days: DayResult[];
+  times: TimeslotResult[];
   venues: VenueResult[];
   day: string;
   time: string;
@@ -13,6 +17,7 @@ interface NavigationState {
 class Navigation extends React.Component<unknown, NavigationState> {
   state: Readonly<NavigationState> = {
     days: [],
+    times: [],
     venues: [],
     day: '',
     time: '',
@@ -22,6 +27,7 @@ class Navigation extends React.Component<unknown, NavigationState> {
     super(props);
     this.state = {
       days: [],
+      times: [],
       venues: [],
       day: '',
       time: '',
@@ -32,32 +38,28 @@ class Navigation extends React.Component<unknown, NavigationState> {
     getSchema().then((schema) => {
       this.setState({
         days: schema.days,
+        times: schema.timeslots,
         venues: schema.venues,
       });
     });
   }
 
   handleDayChange(e: ChangeEvent<HTMLSelectElement>) {
-    console.log('handle Day Change');
-    console.log('===========> ' + e.target.value);
     this.setState({ day: e.target.value });
-    console.log(this.state);
+    setQueryStringValue('day', e.target.value);
   }
 
   handleTimeChange(e: ChangeEvent<HTMLSelectElement>) {
-    console.log('handle Time Change');
-    console.log('===========> ' + e.target.value);
     this.setState({ time: e.target.value });
-    console.log(this.state);
+    setQueryStringValue('time', e.target.value);
+  }
 
-    //TODO: handle adding day and time to querystring here if we cant add the formatted url as the href in the link for the time link on line 108-ish
+  refreshPage() {
+    //Router.reload(window.location.pathname);
+    Router.reload();
   }
 
   render(): JSX.Element {
-    // const selectedDay: DayResult = this.state.days.filter((d) => d.taxonomyName == this.state.day)
-    //   ? this.state.days.filter((d) => d.taxonomyName == this.state.day)[0]
-    //   : this.state.days[0];
-
     return (
       <div className="menu">
         <div className="menu-button">+ </div>
@@ -71,7 +73,7 @@ class Navigation extends React.Component<unknown, NavigationState> {
               <div>
                 <select value={this.state.day} onChange={this.handleDayChange.bind(this)}>
                   {this.state.days.map((day, index) => (
-                    <option key={index} value={day.taxonomyName}>
+                    <option key={index} value={day.sortOrder}>
                       {day.taxonomyName}
                     </option>
                   ))}
@@ -79,15 +81,17 @@ class Navigation extends React.Component<unknown, NavigationState> {
               </div>
               <div>
                 <select value={this.state.time} onChange={this.handleTimeChange.bind(this)}>
-                  {this.state.days.length > 0 &&
-                    this.state.days[0].timeslotToDay.results.map((ts, index) => (
-                      <option key={index} value={ts.taxonomyLabel['en-US']}>
+                  {this.state.times.length > 0 &&
+                    this.state.times.map((ts, index) => (
+                      <option key={index} value={ts.sortOrder}>
                         {ts.taxonomyLabel['en-US']}
                       </option>
                     ))}
                 </select>
               </div>
-              <button>GO</button>
+              <button onClick={this.refreshPage.bind(this)} className="bg-black text-white">
+                GO
+              </button>
             </div>
           </div>
           <div>
@@ -99,12 +103,10 @@ class Navigation extends React.Component<unknown, NavigationState> {
                     <a className="item-link bg-black-light text-white">{day.taxonomyName}</a>
                   </Link>
                   <ul className="child-link">
-                    {day.timeslotToDay.results.map((ts, i) => {
+                    {this.state.times.map((ts, i) => {
                       return (
-                        <li key={i}>
-                          <a className="item-link bg-gray-light text-black">
-                            {ts.taxonomyLabel['en-US']}
-                          </a>
+                        <li className="item-link bg-gray-light text-black" key={i}>
+                          {ts.taxonomyLabel['en-US']}
                         </li>
                       );
                     })}

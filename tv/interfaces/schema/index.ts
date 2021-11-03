@@ -1,5 +1,5 @@
 import { RoomResults } from '../room';
-import { Timeslots } from '../session';
+import { TimeslotResult, Timeslots } from '../session';
 import { SpeakerResults } from '../speaker';
 
 export interface SchemaResponse {
@@ -16,6 +16,7 @@ export interface VenueData {
 
 export interface SchemaData {
   allDemo_Day: DayResults;
+  allDemo_Timeslot: TimeslotResults;
   allDemo_Venue: VenueResults;
   allDemo_Speaker: SpeakerResults;
 }
@@ -28,6 +29,10 @@ export interface DayResult {
 
 export interface DayResults {
   results: DayResult[];
+}
+
+export interface TimeslotResults {
+  results: TimeslotResult[];
 }
 
 export interface VenueResult {
