@@ -16,8 +16,6 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
   useEffect(() => {
     document.addEventListener('keypress', (e) => {
       if (e.key == 'z') {
-        console.log(e.key);
-
         const container = document.querySelector('.conference-hall');
         container?.classList.toggle('zoomed');
       }
