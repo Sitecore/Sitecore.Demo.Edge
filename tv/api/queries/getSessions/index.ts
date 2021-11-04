@@ -2,7 +2,8 @@ import { fetchGraphQL } from '../../../api';
 import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
 import { Room } from '../../../interfaces/room';
 import { TimeslotResult } from '../../../interfaces/timeslot';
-import { AllDaysResponse, Day, DayResult } from '../../../interfaces/day';
+import { DayResult } from '../../../interfaces/day';
+import { SpeakerResult } from '../../../interfaces/speaker';
 
 const sessionsQuery = `
 query {
@@ -62,21 +63,6 @@ query {
 }
 `;
 
-const daysQuery = `
-query {
-  allDemo_Day {
-    results {
-      taxonomyName
-      sortOrder
-      timeslotToDay {
-        results {
-          taxonomyLabel
-        }
-      }
-    }
-  }
-}`;
-
 const parseSession = function (s: SessionResult) {
   return parseSessionWithTimeSlot(s, {
     id: '',
@@ -121,16 +107,6 @@ const parseSessionWithTimeSlot = function (s: SessionResult, ts: TimeslotResult)
   return session;
 };
 
-const parseDay = function (s: DayResult) {
-  const day = {} as Day;
-  day.name = s.taxonomyName;
-  day.sortOrder = s.sortOrder;
-  day.timeslots = s.timeslotToDay.results.map((ts) => ({
-    taxonomyLabel: ts.taxonomyLabel['en-US'],
-  }));
-  return day;
-};
-
 export const getSessionsByRoom = async (room: string): Promise<{ sessions: Session[] }> => {
   if (process.env.CI === 'true') {
     return { sessions: [] as Session[] };
@@ -139,8 +115,7 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results &&
-    results.data &&
+  results?.data?.allDemo_Session?.results &&
     results.data.allDemo_Session.results.forEach((s: SessionResult) => {
       if (s.room && s.room.results && s.room.results.find((e: Room) => e.id == room)) {
         sessions.push(parseSession(s));
@@ -158,36 +133,18 @@ export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions:
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results &&
-    results.data &&
-    results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+  results?.data?.allDemo_Session?.results &&
+    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
       //TODO: fix the e.id == speaker lookup
       if (
-        s.speakers &&
-        s.speakers.results &&
-        s.speakers.results.find((e: Room) => e.id == speaker)
+        session.speakers?.results &&
+        session.speakers.results.find((speakerResult: SpeakerResult) => speakerResult.id == speaker)
       ) {
-        sessions.push(parseSession(s));
+        sessions.push(parseSession(session));
       }
     });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
-};
-
-export const GetAllDays = async (): Promise<{ days: Day[] }> => {
-  if (process.env.CI === 'true') {
-    return { days: [] as Day[] };
-  }
-  const results: AllDaysResponse = (await fetchGraphQL(daysQuery)) as AllDaysResponse;
-  const days: Day[] = [];
-
-  results &&
-    results.data &&
-    results.data.allDemo_Day.results.forEach((s: DayResult) => {
-      days.push(parseDay(s));
-    });
-
-  return { days: days.sort((a, b) => parseInt(a.sortOrder) - parseInt(b.sortOrder)) };
 };
 
 export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {
@@ -198,8 +155,7 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results &&
-    results.data &&
+  results?.data?.allDemo_Session?.results &&
     results.data.allDemo_Session.results.forEach((s: SessionResult) => {
       if (
         s.dayToSession &&

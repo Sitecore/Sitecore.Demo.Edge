@@ -1,4 +1,5 @@
-import { GetAllDays, getAllSessionsByDay } from '../../api/queries/getSessions';
+import { getAllSessionsByDay } from '../../api/queries/getSessions';
+import { getAllDays } from '../../api/queries/getDays';
 import { Day } from '../../interfaces/day';
 import { ScheduleSlot } from '../../interfaces/schedule';
 import { Session } from '../../interfaces/session';
@@ -23,7 +24,7 @@ export default function SchedulePage(props: ScheduleProps) {
 // This function gets called at build time
 export async function getStaticPaths() {
   // Call an external API endpoint to get days
-  const { days } = await GetAllDays();
+  const { days } = await getAllDays();
 
   // Get the paths we want to pre-render based on days
   const paths = days.map((day) => ({
@@ -38,7 +39,7 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export const getStaticProps = async ({ params }: ScheduleParams) => {
   const { sessions } = await getAllSessionsByDay(params.id);
-  const { days } = await GetAllDays();
+  const { days } = await getAllDays();
 
   return {
     props: {
