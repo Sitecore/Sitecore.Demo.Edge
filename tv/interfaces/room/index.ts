@@ -7,7 +7,7 @@ export interface RoomResults {
   results: RoomResult[];
 }
 
-export interface Data {
+interface Data {
   allDemo_Room: RoomResults;
 }
 
@@ -18,13 +18,4 @@ export interface AllRoomsResponse {
 export interface Room {
   id: string;
   name: string;
-}
-
-export interface Speaker {
-  id: string;
-  name: string;
-}
-
-export interface Timeslot {
-  taxonomyLabel: string;
 }

@@ -1,4 +1,5 @@
-import { Day, ScheduleSlot } from '../../interfaces/session';
+import { Day } from '../../interfaces/day';
+import { ScheduleSlot } from '../../interfaces/schedule';
 import { GetAllDays, getAllSessionsByDay } from '../../api/queries/getSessions';
 import { groupBy, SplitArray } from '../../utilities/arrayUtilities';
 import React from 'react';

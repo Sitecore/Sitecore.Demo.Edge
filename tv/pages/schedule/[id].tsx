@@ -1,5 +1,6 @@
 import { GetAllDays, getAllSessionsByDay } from '../../api/queries/getSessions';
-import { Day, ScheduleSlot } from '../../interfaces/session';
+import { Day } from '../../interfaces/day';
+import { ScheduleSlot } from '../../interfaces/schedule';
 import { Params } from '../../interfaces';
 import { groupBy, SplitArray } from '../../utilities/arrayUtilities';
 import React from 'react';
@@ -16,15 +17,15 @@ export declare type ScheduleParams = {
 };
 
 export default function SchedulePage(props: ScheduleProps) {
-  return <ScheduleForDay days={props.days} schedule={props.schedule} day={props.day} />;
+  return <ScheduleForDay {...props} />;
 }
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  // Call an external API endpoint to get rooms
+  // Call an external API endpoint to get days
   const { days } = await GetAllDays();
 
-  // Get the paths we want to pre-render based on rooms
+  // Get the paths we want to pre-render based on days
   const paths = days.map((day) => ({
     params: { id: day.sortOrder.toString() },
   }));

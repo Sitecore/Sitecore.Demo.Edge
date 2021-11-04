@@ -1,14 +1,8 @@
 import { fetchGraphQL } from '../../../api';
-import {
-  Session,
-  Day,
-  AllSessionsResponse,
-  SessionResult,
-  AllDaysResponse,
-  DayResult,
-  TimeslotResult,
-} from '../../../interfaces/session';
+import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
 import { RoomResult } from '../../../interfaces/room';
+import { TimeslotResult } from '../../../interfaces/timeslot';
+import { AllDaysResponse, Day, DayResult } from '../../../interfaces/day';
 
 const sessionsQuery = `
 query {

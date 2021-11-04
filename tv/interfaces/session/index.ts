@@ -1,34 +1,8 @@
-import { RoomResults, Speaker, Timeslot } from '../room';
+import { RoomResults } from '../room';
 import { SpeakerResults } from '../speaker';
 import { Image } from '../asset';
-
-export interface TaxonomyLabel {
-  'en-US': string;
-}
-
-export interface TimeslotResult {
-  sortOrder: number;
-  id: string;
-  taxonomyLabel: TaxonomyLabel;
-}
-
-export interface Timeslots {
-  results: TimeslotResult[];
-}
-
-export interface DayResult {
-  sortOrder: string;
-  taxonomyName: string;
-  timeslotToDay: Timeslots;
-}
-
-export interface SessionType {
-  taxonomyName: string;
-}
-
-export interface Days {
-  results: DayResult[];
-}
+import { Timeslot, Timeslots } from '../timeslot';
+import { Days } from '../day';
 
 export interface SessionResult {
   id: string;
@@ -42,39 +16,27 @@ export interface SessionResult {
   timeslotOrder: number;
   timeslotToSession: Timeslots;
   dayToSession: Days;
-  sessionsTypeToSessions: SessionType;
+  sessionsTypeToSessions: {
+    taxonomyName: string;
+  };
   isPremium: boolean;
 }
 
-export interface AllDemoSession {
-  results: SessionResult[];
-}
-
-export interface Data {
-  allDemo_Session: AllDemoSession;
-}
-
 export interface AllSessionsResponse {
-  data: Data;
-}
-
-export interface AllDaysResponse {
   data: {
-    allDemo_Day: {
-      results: DayResult[];
+    allDemo_Session: {
+      results: SessionResult[];
     };
   };
 }
 
-export type ScheduleSlot = {
-  Timeslot: string;
-  Sessions: Session[];
-};
-
 export interface Session {
   id: string;
   name: string;
-  speakers: Speaker[];
+  speakers: {
+    id: string;
+    name: string;
+  }[];
   timeslotToSession: Timeslot[];
   sessionImage: {
     urls: string;
@@ -88,10 +50,4 @@ export interface Session {
   Day: string;
   type: string;
   isPremium: boolean;
-}
-
-export interface Day {
-  name: string;
-  sortOrder: string;
-  timeslots: Timeslot[];
 }

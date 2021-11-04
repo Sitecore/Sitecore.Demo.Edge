@@ -1,5 +1,6 @@
 import ScheduleRow from './ScheduleRow';
-import { Day, ScheduleSlot } from '../interfaces/session';
+import { Day } from '../interfaces/day';
+import { ScheduleSlot } from '../interfaces/schedule';
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';

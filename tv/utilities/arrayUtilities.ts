@@ -1,4 +1,5 @@
-import { ScheduleSlot, Session } from '../interfaces/session';
+import { ScheduleSlot } from '../interfaces/schedule';
+import { Session } from '../interfaces/session';
 
 export function groupBy(original: Session[]): ScheduleSlot[] {
   let currentOutputIndex = -1;
