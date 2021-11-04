@@ -1,6 +1,11 @@
 .section__hero {
   @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative min-h-full flex justify-center items-stretch flex-row;
 
+  &.banner {
+    background-size: cover;
+    background-position: center;
+  }
+
   &__container {
     @apply flex flex-initial justify-end w-full my-0 mx-auto box-border overflow-hidden items-stretch flex-row pr-12;
 
@@ -22,7 +27,7 @@
       box-shadow: 0 0 20px #232323;
 
       &__text {
-        @apply px-12 py-6 relative;
+        @apply px-10 py-6 relative;
       }
 
       .logo {
@@ -35,13 +40,11 @@
       }
 
       .slogan {
-        @apply text-white uppercase pt-5 pb-2 font-normal;
-
-        font-size: 1em;
+        @apply text-white uppercase pt-5 pb-2 font-normal text-2xl font-bold;
       }
 
       .expo {
-        @apply text-orange;
+        @apply text-orange-light;
 
         font-weight: 400;
         font-size: 1.5em;
@@ -57,9 +60,8 @@
       }
 
       .subtitle {
-        @apply text-white py-2 italic text-lg;
+        @apply text-white py-2 text-lg text-orange-light;
 
-        font-size: 0.9em;
         line-height: 1.4;
       }
     }
