@@ -22,7 +22,7 @@
     }
 
     .content-right {
-      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-10 pt-4 space-y-4;
+      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-10 pt-4 space-y-4 overflow-hidden;
 
       .logo {
         @apply w-1/2 h-10;

@@ -4,7 +4,7 @@
   .billboard-item {
     @apply flex-1 text-5xl text-white font-bold h-full text-center flex bg-cover;
 
-    background-position: top right;
+    background-position: center;
     text-shadow: 2px 2px black;
     min-height: 300px;
     filter: grayscale(1);

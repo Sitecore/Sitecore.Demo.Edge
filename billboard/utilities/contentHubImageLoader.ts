@@ -13,8 +13,9 @@ export const contentHubImageLoader = ({ src }: Props) => {
 export function contentHubImageSrcGenerator(src: Image) {
   const contentHubUrl = "https://playsummit.sitecoresandbox.cloud:8443";
 
-  return (
-    src?.results[0]?.assetToPublicLink?.results[0] &&
-    `${contentHubUrl}/api/public/content/${src.results[0].assetToPublicLink.results[0].relativeUrl}?v=${src.results[0].assetToPublicLink.results[0].versionHash}`
-  );
+  if (src?.results[0]?.assetToPublicLink?.results[0]) {
+    return `${contentHubUrl}/api/public/content/${src.results[0].assetToPublicLink.results[0].relativeUrl}?v=${src.results[0].assetToPublicLink.results[0].versionHash}`;
+  } else {
+    return "/background.jpg";
+  }
 }
