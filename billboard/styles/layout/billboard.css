@@ -2,73 +2,47 @@
   @apply w-screen h-screen overflow-hidden relative;
 
   .billboard-frame {
-    @apply relative left-32 hidden;
-
-    bottom: 72rem;
+    position: absolute;
+    left: 11rem;
+    top: 7rem;
+    transform: perspective(400px) rotateY(10deg) scale(0.9);
   }
 
   .billboard-container {
-    @apply flex flex-row h-full w-full absolute top-20 left-20 z-50;
+    @apply flex flex-row absolute;
 
-    width: 1200px;
-    height: 650px;
-    border: 10px outset darkgray;
-    outline: 20px darkgray inset;
-    outline-offset: -6px;
-    transition: transform 1000ms linear;
-    -webkit-transition: transform 1000ms linear;
-    -moz-transition: transform 1000ms linear;
-    -o-transition: transform 1000ms linear;
-    transform: perspective(1000px) rotateY(34deg) scale(0.7) rotateX(0deg);
-    transition-delay: 500ms;
-
-    &.active {
-      transform: perspective(0) rotateY(0deg) scale(1) rotateX(0deg);
-      transition: transform 1000ms linear;
-      -webkit-transition: transform 1000ms linear;
-      -moz-transition: transform 1000ms linear;
-      -o-transition: transform 1000ms linear;
-      transition-delay: 500ms;
-    }
+    position: absolute;
+    top: 1.7rem;
+    left: 2.7rem;
+    bottom: 32rem;
+    right: 2.3rem;
 
     .image-left {
       @apply flex-1 h-full w-1/2 absolute bg-cover;
     }
 
     .content-right {
-      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-14 space-y-8;
+      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-10 pt-4 space-y-4;
 
       .logo {
-        @apply w-full;
+        @apply w-1/2 h-10;
       }
 
       .slogan {
-        @apply w-full font-extrabold uppercase text-3xl;
+        @apply w-full font-extrabold uppercase text-2xl;
       }
 
       .eyebrow {
-        @apply w-full text-yellow-light font-bold text-xl;
+        @apply w-full text-yellow-light font-bold text-lg;
       }
 
       .title {
-        @apply w-full uppercase text-6xl font-extrabold;
+        @apply w-full uppercase text-5xl font-extrabold;
       }
 
       .body {
         @apply w-full text-lg;
       }
     }
-  }
-
-  .cylinder {
-    @apply absolute overflow-hidden w-12 z-40;
-
-    margin: 0 auto;
-    height: 350px;
-    border-radius: 50px/25px;
-    top: 37rem;
-    left: 40rem;
-    background-image: url("../../public/billboard-post.png");
-    background-position: bottom center;
   }
 }
