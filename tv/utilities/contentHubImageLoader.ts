@@ -1,20 +1,14 @@
-interface Props {
+interface ContentHubImageLoaderProps {
   src: string;
 }
 
-const contentHubUrl: string =
-  process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || 'https://playsummit.sitecoresandbox.cloud';
-const port = '8443';
-const transformation = '';
-
-export const contentHubImageLoader = ({ src }: Props) => {
-  return `${contentHubUrl}${port ? ':' + port : ''}/api/public/content/${src}${
-    transformation ? '&t=' + transformation : ''
-  }`;
-};
-
 export function contentHubImageSrcGenerator(src: string) {
-  return `${contentHubUrl}${port ? ':' + port : ''}/api/public/content/${src}${
-    transformation ? '&t=' + transformation : ''
-  }`;
+  const contentHubUrl: string =
+    process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || 'https://playsummit.sitecoresandbox.cloud';
+
+  return `${contentHubUrl}:8443/api/public/content/${src}`;
 }
+
+export const contentHubImageLoader = ({ src }: ContentHubImageLoaderProps) => {
+  return contentHubImageSrcGenerator(src);
+};
