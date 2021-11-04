@@ -1,6 +1,6 @@
 import { fetchGraphQL } from '../../../api';
 import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
-import { RoomResult } from '../../../interfaces/room';
+import { Room } from '../../../interfaces/room';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 import { AllDaysResponse, Day, DayResult } from '../../../interfaces/day';
 
@@ -142,7 +142,7 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
   results &&
     results.data &&
     results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-      if (s.room && s.room.results && s.room.results.find((e: RoomResult) => e.id == room)) {
+      if (s.room && s.room.results && s.room.results.find((e: Room) => e.id == room)) {
         sessions.push(parseSession(s));
       }
     });
@@ -165,7 +165,7 @@ export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions:
       if (
         s.speakers &&
         s.speakers.results &&
-        s.speakers.results.find((e: RoomResult) => e.id == speaker)
+        s.speakers.results.find((e: Room) => e.id == speaker)
       ) {
         sessions.push(parseSession(s));
       }
