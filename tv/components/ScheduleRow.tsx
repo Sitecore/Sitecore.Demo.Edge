@@ -12,8 +12,9 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
       <div className="schedule-time">{props.timeslot}</div>
       {props.sessions.map((session, index) => {
         const premiumClass = session.isPremium ? ' premium-session ' : '';
-        const keynoteClass = session.type?.toLowerCase() == 'keynote' ? ' keynote-session ' : '';
+        const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
         const noSpeakerClass = session.speaker ? '' : ' no-speaker';
+
         return (
           <div
             className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}
