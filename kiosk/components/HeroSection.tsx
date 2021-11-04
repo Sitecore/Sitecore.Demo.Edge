@@ -8,7 +8,6 @@ type HeroSectionProps = {
 };
 
 const HeroSection = (props: HeroSectionProps): JSX.Element => {
-  console.log(props.hero);
   return (
     <section
       className="section__hero banner"
