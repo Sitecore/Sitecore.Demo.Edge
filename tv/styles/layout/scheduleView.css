@@ -2,7 +2,7 @@
   @apply w-screen h-screen overflow-hidden relative;
 
   .image {
-    width: 100%;
+    @apply w-full;
   }
 
   &.zoomed {
@@ -20,7 +20,8 @@
   }
 
   #container {
-    position: absolute;
+    @apply absolute;
+
     top: 4%;
     width: 68%;
     left: 15%;
@@ -34,7 +35,7 @@
       padding: 1%;
 
       &::after {
-        display: none;
+        @apply hidden;
       }
     }
 
@@ -42,25 +43,17 @@
       padding-bottom: 46%;
 
       .schedule {
-        @apply flex flex-col absolute top-0 left-0 bottom-0 right-0;
-
-        overflow: hidden;
+        @apply flex flex-col absolute top-0 left-0 bottom-0 right-0 overflow-hidden;
 
         .slide-container {
           @apply absolute top-0 left-0 bottom-0 right-0 invisible;
 
           animation: fadeout 2s;
-          -moz-animation: fadeout 2s; /* Firefox */
-          -webkit-animation: fadeout 2s; /* Safari and Chrome */
-          -o-animation: fadeout 2s; /* Opera */
 
           &.active {
             @apply visible;
 
             animation: fadein 2s;
-            -moz-animation: fadein 2s; /* Firefox */
-            -webkit-animation: fadein 2s; /* Safari and Chrome */
-            -o-animation: fadein 2s; /* Opera */
           }
 
           .slide {
@@ -86,10 +79,7 @@
               }
 
               .session-image {
-                @apply hidden;
-
-                background-size: cover;
-                background-position: center;
+                @apply hidden bg-cover bg-center;
 
                 &.premium-session {
                   @apply w-full h-1/2 block;
@@ -135,85 +125,7 @@
   }
 }
 
-@-moz-keyframes fadein {
-  /* Firefox */
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@-webkit-keyframes fadein {
-  /* Safari and Chrome */
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@-o-keyframes fadein {
-  /* Opera */
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
 @keyframes fadeout {
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@-moz-keyframes fadeout {
-  /* Firefox */
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@-webkit-keyframes fadeout {
-  /* Safari and Chrome */
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@-o-keyframes fadeout {
-  /* Opera */
   from {
     opacity: 1;
     visibility: visible;
