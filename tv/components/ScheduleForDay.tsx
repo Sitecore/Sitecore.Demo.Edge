@@ -14,20 +14,6 @@ type ScheduleForDayProps = {
 
 const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
   useEffect(() => {
-    let slideIndex = 0;
-    function showSlides() {
-      const slides = document.getElementsByClassName('slide-container');
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove('active');
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].classList.add('active');
-      setTimeout(showSlides, 10000);
-    }
-
     document.addEventListener('keypress', (e) => {
       if (e.key == 'z') {
         console.log(e.key);
@@ -36,8 +22,6 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
         container?.classList.toggle('zoomed');
       }
     });
-
-    showSlides();
   }, []);
 
   return (
@@ -57,22 +41,15 @@ const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
           <div id="monitor">
             <div id="monitorscreen">
               <div className="schedule">
-                {props.schedule &&
-                  props.schedule.map((value, index) => (
-                    <div
-                      id={'slide' + index}
-                      className={index == 0 ? 'slide-container active' : 'slide-container'}
-                      key={index}
-                    >
-                      {value.map((session, i) => {
-                        return (
-                          <div className="slide" key={i}>
-                            <ScheduleRow sessions={session.Sessions} timeslot={session.Timeslot} />
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ))}
+                {props.schedule && props.schedule.length > 0 && (
+                  <div className="slide-container active">
+                    {props.schedule[0].map((session, i) => (
+                      <div className="slide" key={i}>
+                        <ScheduleRow sessions={session.Sessions} timeslot={session.Timeslot} />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
