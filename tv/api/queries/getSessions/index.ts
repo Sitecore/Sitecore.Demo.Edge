@@ -63,8 +63,8 @@ query {
 }
 `;
 
-const parseSession = function (s: SessionResult) {
-  return parseSessionWithTimeSlot(s, {
+const parseSession = function (sessionResult: SessionResult) {
+  return parseSessionWithTimeSlot(sessionResult, {
     id: '',
     sortOrder: 0,
     taxonomyLabel: {
@@ -73,35 +73,39 @@ const parseSession = function (s: SessionResult) {
   });
 };
 
-const parseSessionWithTimeSlot = function (s: SessionResult, ts: TimeslotResult) {
+const parseSessionWithTimeSlot = function (
+  sessionResult: SessionResult,
+  timeslotResult: TimeslotResult
+) {
   const session = {} as Session;
-  session.id = s.id;
-  session.name = s.name;
+  session.id = sessionResult.id;
+  session.name = sessionResult.name;
 
-  const asset = s.sessionImage.results[0]?.assetToPublicLink.results[0];
+  const asset = sessionResult.sessionImage.results[0]?.assetToPublicLink.results[0];
   const relativeUrl = asset?.relativeUrl;
   const versionHash = asset?.versionHash;
 
-  session.type = s.sessionsTypeToSessions && s.sessionsTypeToSessions?.taxonomyName;
-  session.isPremium = s.isPremium;
+  session.type =
+    sessionResult.sessionsTypeToSessions && sessionResult.sessionsTypeToSessions.taxonomyName;
+  session.isPremium = sessionResult.isPremium;
   session.image = `${relativeUrl}?v=${versionHash}`;
 
-  if (s.room.results.length > 0) {
-    session.room = s.room.results[0].name;
+  if (sessionResult.room.results.length > 0) {
+    session.room = sessionResult.room.results[0].name;
   }
 
-  if (s.speakers.results.length > 0) {
-    session.speaker = s.speakers.results[0].name;
+  if (sessionResult.speakers.results.length > 0) {
+    session.speaker = sessionResult.speakers.results[0].name;
   }
 
-  session.Day = s.dayToSession.results[0].taxonomyName;
+  session.Day = sessionResult.dayToSession.results[0].taxonomyName;
 
-  if (ts.id == '' && s.timeslotToSession.results.length > 0) {
-    session.timeslot = s.timeslotToSession.results[0].taxonomyLabel['en-US'];
-    session.sortOrder = s.timeslotToSession.results[0].sortOrder;
+  if (timeslotResult.id === '' && sessionResult.timeslotToSession.results.length > 0) {
+    session.timeslot = sessionResult.timeslotToSession.results[0].taxonomyLabel['en-US'];
+    session.sortOrder = sessionResult.timeslotToSession.results[0].sortOrder;
   } else {
-    session.timeslot = ts.taxonomyLabel['en-US'];
-    session.sortOrder = ts.sortOrder;
+    session.timeslot = timeslotResult.taxonomyLabel['en-US'];
+    session.sortOrder = timeslotResult.sortOrder;
   }
 
   return session;
@@ -116,9 +120,12 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
   const sessions: Session[] = [];
 
   results?.data?.allDemo_Session?.results &&
-    results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-      if (s.room && s.room.results && s.room.results.find((e: Room) => e.id == room)) {
-        sessions.push(parseSession(s));
+    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
+      if (
+        session.room?.results &&
+        session.room.results.find((roomResult: Room) => roomResult.id == room)
+      ) {
+        sessions.push(parseSession(session));
       }
     });
 
@@ -135,7 +142,6 @@ export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions:
 
   results?.data?.allDemo_Session?.results &&
     results.data.allDemo_Session.results.forEach((session: SessionResult) => {
-      //TODO: fix the e.id == speaker lookup
       if (
         session.speakers?.results &&
         session.speakers.results.find((speakerResult: SpeakerResult) => speakerResult.id == speaker)
@@ -156,17 +162,16 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
   const sessions: Session[] = [];
 
   results?.data?.allDemo_Session?.results &&
-    results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
       if (
-        s.dayToSession &&
-        s.dayToSession.results &&
-        s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
+        session.dayToSession?.results &&
+        // It is important to use the == operator instead of === on the next line for the comparison to return true
+        session.dayToSession.results.find((dayResult: DayResult) => dayResult.sortOrder == day) &&
+        session.timeslotToSession?.results
       ) {
-        if (s.timeslotToSession.results) {
-          s.timeslotToSession.results.map((ts) => {
-            sessions.push(parseSessionWithTimeSlot(s, ts));
-          });
-        }
+        session.timeslotToSession.results.map((timeslot) => {
+          sessions.push(parseSessionWithTimeSlot(session, timeslot));
+        });
       }
     });
 
