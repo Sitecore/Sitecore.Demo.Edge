@@ -2,9 +2,9 @@ import Link from 'next/link';
 import React, { ChangeEvent } from 'react';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
-import { TimeslotResult } from '../interfaces/session';
 import { setQueryStringValue } from '../utilities/queryString';
 import Router from 'next/router';
+import { TimeslotResult } from '../interfaces/timeslot';
 
 interface NavigationState {
   days: DayResult[];

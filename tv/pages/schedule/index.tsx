@@ -1,8 +1,10 @@
-import { Day, ScheduleSlot } from '../../interfaces/session';
-import { GetAllDays, getAllSessionsByDay } from '../../api/queries/getSessions';
+import { getAllSessionsByDay } from '../../api/queries/getSessions';
 import { groupBy, SplitArray } from '../../utilities/arrayUtilities';
 import React from 'react';
 import ScheduleForDay from '../../components/ScheduleForDay';
+import { Day } from '../../interfaces/day';
+import { ScheduleSlot } from '../../interfaces/schedule';
+import { getAllDays } from '../../api/queries/getDays';
 
 type ScheduleProps = {
   day: string;
@@ -16,7 +18,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
 
 export const getStaticProps = async () => {
   const { sessions } = await getAllSessionsByDay('1');
-  const { days } = await GetAllDays();
+  const { days } = await getAllDays();
   return {
     props: {
       days: days,
