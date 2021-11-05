@@ -13,31 +13,17 @@ const Template: ComponentStory<typeof HeroSection> = (args: HeroProps) => <HeroS
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    Logo: {
-      value: {
-        src: '/assets/img/play-logo-wide-light.svg',
-      },
-    },
     Slogan: {
       value: 'READY | STEADY | PLAY!',
     },
-    Expo: {
+    Eyebrow: {
       value: 'Sports and Recreation Expo',
     },
     Title: {
       value: 'RAISE YOUR GAME',
     },
-    Subtitle: {
+    Body: {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
-    },
-    When: {
-      value: 'August 24th – 25th',
-    },
-    Link: {
-      value: {
-        href: '/tickets',
-        text: 'Book Tickets',
-      },
     },
   },
 } as HeroProps;
