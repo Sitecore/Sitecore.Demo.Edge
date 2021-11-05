@@ -1,7 +1,10 @@
 import ScheduleRow from './ScheduleRow';
-import { Day, ScheduleSlot } from '../interfaces/session';
-import { Carousel } from 'react-responsive-carousel';
-import React from 'react';
+import { Day } from '../interfaces/day';
+import { ScheduleSlot } from '../interfaces/schedule';
+import React, { useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import hallImage from '../public/conference-hall.jpg';
 
 type ScheduleForDayProps = {
   day: string;
@@ -10,33 +13,47 @@ type ScheduleForDayProps = {
 };
 
 const ScheduleForDay = (props: ScheduleForDayProps): JSX.Element => {
+  useEffect(() => {
+    document.addEventListener('keypress', (e) => {
+      if (e.key == 'z') {
+        const container = document.querySelector('.conference-hall');
+        container?.classList.toggle('zoomed');
+      }
+    });
+  }, []);
+
   return (
-    <div className="conference-hall">
-      <h1>{props.day}</h1>
-      <div className="schedule">
-        <Carousel
-          autoPlay={false}
-          axis={'vertical'}
-          infiniteLoop={false}
-          interval={8000}
-          showArrows={false}
-          showStatus={false}
-          showIndicators={false}
-          showThumbs={false}
-          useKeyboardArrows={true}
-          verticalSwipe={'natural'}
-        >
-          {props.schedule &&
-            props.schedule.map((value, index) => (
-              <div key={index}>
-                {value.map((session, i) => (
-                  <ScheduleRow sessions={session.Sessions} timeslot={session.Timeslot} key={i} />
-                ))}
+    <>
+      <ul className="absolute p-5 top-14 left-0 z-50 text-black-lightest">
+        {props.days.map((day, index) => (
+          <li key={index}>
+            <Link href={'/schedule/' + day.sortOrder}>
+              <a> {day.name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="conference-hall">
+        <Image className="image" src={hallImage} alt="Conference lobby" layout="responsive" />
+        <div id="container">
+          <div id="monitor">
+            <div id="monitorscreen">
+              <div className="schedule">
+                {props.schedule && props.schedule.length > 0 && (
+                  <div className="slide-container active">
+                    {props.schedule[0].map((session, i) => (
+                      <div className="slide" key={i}>
+                        <ScheduleRow sessions={session.Sessions} timeslot={session.Timeslot} />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            ))}
-        </Carousel>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

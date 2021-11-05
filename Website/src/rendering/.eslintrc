@@ -1,54 +1,25 @@
 {
   "root": true,
   "extends": [
-    // DEMO TEAM CUSTOMIZATION - Remove the React plugin to avoid loading it twice
+    "next",
+    "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
-    "plugin:yaml/recommended",
-    // DEMO TEAM CUSTOMIZATION - Add Next.js (based on React) and Web core vitals validators
-    "next",
-    "next/core-web-vitals"
-    // END CUSTOMIZATION
+    "plugin:yaml/recommended"
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
   "plugins": [
     "@typescript-eslint",
-    // DEMO TEAM CUSTOMIZATION - Remove the React plugin to avoid loading it twice.
     "prettier",
     "yaml"
   ],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
-  "globals": {
-    "React": "writable"
-  },
-  "ignorePatterns": [".generated/**/*", "src/components/**/*.d.ts", "**/*.js"],
+  "ignorePatterns": [".generated/**/*", "**/*.d.ts", "**/*.js"],
   "rules": {
-    // Prevent missing props validation in a React component definition
-    "react/prop-types": "off",
-    // enable prettier 
-    "prettier/prettier": "error",
-    // needed for NextJS's in order to use jsx without react import
-    "react/react-in-jsx-scope": "off",
-    "no-unused-vars": "error",
-    "jsx-quotes": ["error", "prefer-double"],
-    // DEMO TEAM CUSTOMIZATION - Disable no-img-element validation until Sitecore JSS supports the next/Image component
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off", // Don't force next/image (not currently compatible with Sitecore editing)
+    "jsx-a11y/alt-text": ["warn", { "elements": ["img"] }], // Don't force alt for <Image/> (sourced from Sitecore media)
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }

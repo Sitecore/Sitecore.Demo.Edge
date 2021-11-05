@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <div>
-        <Link href="/schedule">Conference hall</Link>
+        <Link href="/schedule/0">Conference hall</Link>
       </div>
       <div>
         <Link href="/speakers">Speakers</Link>

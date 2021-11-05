@@ -1,5 +1,5 @@
 import { RoomResults } from '../room';
-import { TimeslotResult, Timeslots } from '../session';
+import { TimeslotResult, Timeslots } from '../timeslot';
 import { SpeakerResults } from '../speaker';
 
 export interface SchemaResponse {

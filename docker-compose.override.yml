@@ -206,7 +206,7 @@ services:
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
-        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:5.0.0-${NANOSERVER_VERSION}
+        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:19.0-${NANOSERVER_VERSION}
         HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:3.0-${NANOSERVER_VERSION}
     depends_on:
@@ -220,6 +220,7 @@ services:
       JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       Sitecore_Horizon_ClientHost: https://${SH_HOST}
+      SITECORE_APPSETTINGS_ROLE:DEFINE: Standalone
       ## Custom variable to allow override in AKS
       RENDERING_HOST_ENDPOINT_URI: "http://rendering:3000/api/editing/render"
       RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
