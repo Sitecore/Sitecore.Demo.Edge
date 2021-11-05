@@ -64,12 +64,6 @@ SharedFields:
           ph="/jss-main/jss-section-content-{1FAC5274-9C46-55A0-8E17-9BC1C6A36329}-0"
           uid="{8D7D3783-B8C8-507F-A0FB-1CEC326C6ABD}" />
         <r
-          rname="CountdownSection"
-          id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
-          par=""
-          ph="/jss-main"
-          uid="{968BA4DD-A2B9-564D-8BC2-A9F25A8459CD}" />
-        <r
           rname="Section"
           ds="{3BE19CA9-2E8B-55FB-9DF1-AF71470DFE06}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
