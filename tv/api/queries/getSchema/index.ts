@@ -1,7 +1,7 @@
 import { fetchGraphQL } from '../..';
 import { DayResult, SchemaResponse, VenueResult } from '../../../interfaces/schema';
-import { TimeslotResult } from '../../../interfaces/session';
 import { SpeakerResult } from '../../../interfaces/speaker';
+import { TimeslotResult } from '../../../interfaces/timeslot';
 
 export const getSchema = async (): Promise<{
   days: DayResult[];
