@@ -114,6 +114,15 @@ Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Gr
 
 # Check for Sitecore Gallery
 Import-Module PowerShellGet
+
+# Set default SitecoreGallery
+$SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
+if (-not $SitecoreGallery) {
+    Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green 
+    Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
+    $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
+}
+
 if ($PreRelease) {
   Write-Host "Setting environment up for pre-release"
 
@@ -159,16 +168,6 @@ if ($PreRelease) {
     Set-PSRepository -Name $SitecoreGallery.Name -Source $SitecoreGalleryNugetSource
   }
 
-  #Install and Import SitecoreDockerTools
-  $dockerToolsVersion = "10.2.7"
-  Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
-  if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
-    Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
-    Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
-  }
-  Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
-  Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
-
   ############################
   # Edit the nuget.config file
   ############################
@@ -195,6 +194,16 @@ if ($PreRelease) {
     EnsureNugetConfigSource -sourceName "Sitecore2Internal" -sourceValue $Sitecore2NugetSource
   }
 }
+
+#Install and Import SitecoreDockerTools
+$dockerToolsVersion = "10.2.7"
+Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
+if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
+  Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
+  Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
+}
+Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
+Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion
 
 ###############################
 # Populate the environment file
