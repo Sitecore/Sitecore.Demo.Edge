@@ -14,7 +14,7 @@ variables:
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
   additionalImageTags: ''
-  preRelease: 'true'
+  preRelease: 'false'
 
 stages:
 - stage: Build_TV

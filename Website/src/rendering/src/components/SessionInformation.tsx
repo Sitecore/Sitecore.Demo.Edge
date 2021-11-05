@@ -100,7 +100,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
       </Head>
 
       <section className="section information-section session-information">
-        <div className="section__content left__content">
+        <div className="section__content left__content container">
           <div className="information-grid">
             <div className="image-col">
               <div>

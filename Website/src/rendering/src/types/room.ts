@@ -5,3 +5,7 @@ export type Room = {
     Name: Field<string>;
   };
 };
+
+export type GraphQLRoom = {
+  name: Field<string>;
+};

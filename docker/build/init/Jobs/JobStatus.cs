@@ -63,7 +63,7 @@ namespace Sitecore.Demo.Init.Jobs
 			switch (htmlJobName)
 			{
 				case string b when b.Contains("Index_Update"):
-					return nameof(IndexRebuild);
+					return "IndexRebuild";
 				default:
 					return htmlJobName;
 			}

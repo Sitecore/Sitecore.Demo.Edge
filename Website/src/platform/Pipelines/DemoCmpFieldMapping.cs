@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HtmlAgilityPack;
 using Sitecore.Abstractions;
 using Sitecore.Connector.CMP;
 using Sitecore.Connector.CMP.Conversion;
@@ -42,7 +41,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                     bool flag = false;
                     try
                     {
-                        Log.Info("DEMO CUSTOMIZATION: Processing Item: " + args.Item.Name, this);
+                        Log.Debug("DEMO CUSTOMIZATION: Processing Item: " + args.Item.Name, this);
                         args.Item.Editing.BeginEdit();
                         args.Item[Connector.CMP.Constants.EntityIdentifierFieldId] = args.EntityIdentifier;
                         flag = this.TryMapConfiguredFields(args);
@@ -80,7 +79,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             Assert.IsNotNull((object)args.EntityMappingItem,
                 "Could not find any Entity Mapping item for the Entity Type (Schema): " + args.ContentTypeIdentifier);
             bool flag = false;
-            
+
             foreach (Item obj in args.EntityMappingItem.Children.Where<Item>((Func<Item, bool>)(i =>
                i.TemplateID == Sitecore.Connector.CMP.Constants.RelationFieldMappingTemplateId)))
             {
@@ -114,10 +113,10 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
                                 if (args.Item.Fields[fieldName].Type == "CmpMultiList")
                                 {
-                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' initial value: " + args.Item[fieldName], this);
+                                    Log.Debug("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' initial value: " + args.Item[fieldName], this);
                                     args.Item[fieldName] = GetListfieldValue(args.Item[fieldName],
                                         args.Item.Fields[fieldName].Source, args.Item.Database);
-                                    Log.Info("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' edited with: " + args.Item[fieldName], this);
+                                    Log.Debug("DEMO CUSTOMIZATION: CmpMultiList field '" + args.Item.Fields[fieldName].Name + "' edited with: " + args.Item[fieldName], this);
                                 }
                                 else
                                 {
@@ -184,7 +183,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                 }
                 else
                 {
-                    item = GetItemByDisplayName(name);
+                    item = GetItemByDisplayName(name, source);
                     if (item != null)
                     {
                         newValues[i] = item.ID.ToString();
@@ -198,12 +197,21 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             return string.Join("|", newValues);
         }
 
-        public Item GetItemByDisplayName(string displayName)
+        public Item GetItemByDisplayName(string displayName, string source)
         {
             var searchIndex = ContentSearchManager.GetIndex("sitecore_master_index");
             using (var context = searchIndex.CreateSearchContext())
             {
-                var searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName));
+                IQueryable<SearchResultItem> query = context.GetQueryable<SearchResultItem>()
+                    .Where(p => p.Path.StartsWith(source));
+
+                SearchResultItem searchResultItems =
+                    query.FirstOrDefault(i => i["_displayname"].Equals(displayName, StringComparison.OrdinalIgnoreCase));
+
+                if (searchResultItems == null)
+                {
+                    searchResultItems = context.GetQueryable<SearchResultItem>().FirstOrDefault(i => i.Name.Equals(displayName, StringComparison.OrdinalIgnoreCase));
+                }
 
                 return searchResultItems?.GetItem();
             }

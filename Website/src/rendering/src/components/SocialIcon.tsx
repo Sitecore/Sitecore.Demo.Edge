@@ -8,7 +8,7 @@ type SocialIconProps = {
 };
 
 function SocialIcon(props: SocialIconProps): JSX.Element {
-  if (!props.Link) {
+  if (!props?.Link?.value) {
     return <></>;
   }
 

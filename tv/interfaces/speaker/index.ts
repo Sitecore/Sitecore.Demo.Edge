@@ -1,9 +1,5 @@
 import { Image } from '../asset';
 
-export interface SpeakerResults {
-  results: SpeakerResult[];
-}
-
 export interface SpeakerResult {
   id: string;
   name: string;
@@ -11,16 +7,14 @@ export interface SpeakerResult {
   image: Image;
 }
 
-export interface AllDemoSpeaker {
+export interface SpeakerResults {
   results: SpeakerResult[];
 }
 
-export interface Data {
-  allDemo_Speaker: AllDemoSpeaker;
-}
-
 export interface AllSpeakersResponse {
-  data: Data;
+  data: {
+    allDemo_Speaker: SpeakerResults;
+  };
 }
 
 export interface Speaker {
