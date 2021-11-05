@@ -1,4 +1,4 @@
-import { Text, Field, LinkField, Link, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, LinkField, RichText, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentWithChildrenProps } from 'lib/component-props';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 
@@ -19,7 +19,7 @@ const HeroSection = (props: HeroProps): JSX.Element => {
   return (
     <section
       className="section__hero banner"
-      style={{ backgroundImage: `url("${props.fields.Hero?.value?.src}")` }}
+      style={{ backgroundImage: `url("${props.fields.Image?.value?.src}")` }}
     >
       <div className="section__hero__container container">
         <div className="section__hero__container__content">
@@ -28,13 +28,13 @@ const HeroSection = (props: HeroProps): JSX.Element => {
               <Text field={props.fields.Slogan} />
             </p>
             <h1 className="expo">
-              <Text field={props.fields.Expo} />
+              <Text field={props.fields.Eyebrow} />
             </h1>
             <h3 className="title">
               <Text field={props.fields.Title} />
             </h3>
             <p className="subtitle">
-              <Text field={props.fields.Subtitle} />
+              <RichText field={props.fields.Body} />
             </p>
           </div>
           <Placeholder name="jss-summit-hero-cta" rendering={props.rendering} />

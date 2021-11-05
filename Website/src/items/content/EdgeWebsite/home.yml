@@ -67,14 +67,20 @@ SharedFields:
           uid="{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}"
           p:after="r[@uid='{04D6B23E-6CE3-51A1-9C9C-4CD56B29B6AA}']"
           s:rname="HeroSection"
-          s:ds="{39743651-6F92-4355-B88B-135CB41353A0}"
+          s:ds="{F2A3B54C-4474-4F5C-8B4E-3E049975000E}"
           s:id="{C8BE3A17-798F-5054-B012-4772CB23AC88}"
           s:par=""
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
-          uid="{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}"
+          uid="{9079BFE6-D63C-4BAC-AD53-5D0B06100CD1}"
           p:after="r[@uid='{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}']"
+          s:ds="{B505E955-F7BB-4A56-A956-A41FB1AE202D}"
+          s:id="{99F2FFE7-28C6-4B88-A52B-BD9B6B44C3C1}"
+          s:ph="/jss-main/jss-summit-hero-cta-{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}-0" />
+        <r
+          uid="{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}"
+          p:after="r[@uid='{9079BFE6-D63C-4BAC-AD53-5D0B06100CD1}']"
           s:rname="ThreeColumnsSection"
           s:ds="{5F6ADEE8-F8E2-4A92-85E3-0C1D0A82FAF1}"
           s:id="{279A5772-ADFA-5260-88E6-AB97D5C4D90A}"
@@ -173,6 +179,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210615T142052Z
@@ -186,14 +195,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1f35d57d-dfb1-4c9f-a03b-b3dc50dfd518"
+      Value: "ffc67d6f-ae44-46a3-b2c1-90ec68507af9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211105T123252Z
+      Value: 20211105T191042Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Home

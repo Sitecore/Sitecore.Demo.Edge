@@ -15,10 +15,10 @@ SharedFields:
   Value: Office/16x16/document_tag.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/HeroSection
+  Value: /sitecore/templates/Project/edgewebsite/CMP Entities/Advertisement
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/HeroSection
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/CMP Data/Advertisements
 Languages:
 - Language: en
   Versions:
@@ -37,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b4514668-5697-409a-b124-89f432abef51"
+      Value: "709679bc-3350-4692-9f48-bcbae4ba1ca2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211105T182554Z
+      Value: 20211105T190950Z

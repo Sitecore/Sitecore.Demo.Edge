@@ -47,20 +47,16 @@
         font-size: 1.5em;
       }
 
-      .date {
-        @apply text-yellow font-bold text-3xl;
-      }
-
       .title {
         @apply text-4xl text-white uppercase py-3 m-0 font-bold;
         @apply md:text-5xl;
       }
 
       .subtitle {
-        @apply text-white py-2 italic text-lg;
+        @apply text-orange py-2 italic text-lg;
 
-        font-size: 0.9em;
-        line-height: 1.4;
+        font-size: 1em;
+        line-height: 1.2;
       }
     }
   }
