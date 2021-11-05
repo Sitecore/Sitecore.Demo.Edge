@@ -54,12 +54,6 @@ SharedFields:
           ph="/jss-main"
           uid="{CE55D9B7-A8A2-5B44-AE6D-818E96BAB379}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{BA51EB3B-6425-5226-8A60-9DFD2EF4CC23}" />
-        <r
           rname="TextCta"
           ds="{2B4D4FE1-EC28-59DA-8ACA-C0ADADF00E21}"
           id="{CC9984B5-432C-5A1A-9ED0-E8F88E26E5A2}"

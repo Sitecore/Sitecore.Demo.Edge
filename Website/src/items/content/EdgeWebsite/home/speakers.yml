@@ -55,12 +55,6 @@ SharedFields:
           uid="{DC97D398-D7B5-5407-B2B2-B28516EB743F}"
           ccb="Clear on publish" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{1AD90955-9DD5-52F6-83A3-A54AE4F0FBDF}" />
-        <r
           ds=""
           id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
           par=""

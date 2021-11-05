@@ -76,13 +76,6 @@ SharedFields:
           s:par=""
           s:ph="/jss-main" />
         <r
-          uid="{2B2065DB-5D18-53F5-8605-B5F7CC9ADEBB}"
-          p:after="r[@uid='{68B377B9-8357-5E7C-B9CC-76765D5BB50D}']"
-          s:rname="Breadcrumb"
-          s:id="{780D897C-7065-585F-8585-28118565FA00}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
           uid="{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}"
           p:after="r[@uid='{2B2065DB-5D18-53F5-8605-B5F7CC9ADEBB}']"
           s:rname="Section"
