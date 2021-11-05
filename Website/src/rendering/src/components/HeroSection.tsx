@@ -5,12 +5,10 @@ import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 export type HeroProps = ComponentWithChildrenProps & {
   fields: {
     Hero: ImageField;
-    Logo: ImageField;
     Slogan: Field<string>;
-    Expo: Field<string>;
+    Eyebrow: Field<string>;
     Title: Field<string>;
-    Subtitle: Field<string>;
-    When: Field<string>;
+    Body: Field<string>;
   };
 };
 
@@ -18,7 +16,7 @@ const HeroSection = (props: HeroProps): JSX.Element => {
   return (
     <section
       className="section__hero banner"
-      style={{ backgroundImage: `url("${props.fields.Image?.value?.src}")` }}
+      style={{ backgroundImage: `url("${props.fields.Hero?.value?.src}")` }}
     >
       <div className="section__hero__container container">
         <div className="section__hero__container__content">

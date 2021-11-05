@@ -2,7 +2,7 @@
 ID: "69e8418c-5f11-40a8-9c0d-9e5eacc1229e"
 Parent: "225b4139-64bb-4c80-b057-9de9a159c75e"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Advertisement/Data/Image
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Advertisement/Data/Hero
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
