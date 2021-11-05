@@ -84,8 +84,14 @@ export const getHero = async (): Promise<{ hero: HeroResult }> => {
       },
     ],
   };
+
   console.log(heroes);
-  if (heroes?.length == 0) {
+
+  if (heroes) {
+    return {
+      hero: heroes[0],
+    };
+  } else {
     return {
       hero: {
         id: 'dummy',
@@ -98,10 +104,6 @@ export const getHero = async (): Promise<{ hero: HeroResult }> => {
         advertisement_Image: dummyImage,
         advertisement_Background: dummyImage,
       },
-    };
-  } else {
-    return {
-      hero: heroes[0],
     };
   }
 };
