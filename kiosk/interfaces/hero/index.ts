@@ -1,13 +1,13 @@
 export interface HeroResult {
   id: string;
-  advertisement_Title: string;
-  advertisement_Body: string;
-  advertisement_Slogan: string;
-  advertisement_Eyebrow: string;
-  content_Name: string;
-  advertisement_Logo: Image;
-  advertisement_Image: Image;
-  advertisement_Background: Image;
+  advertisement_title: string;
+  advertisement_body: string;
+  advertisement_slogan: string;
+  advertisement_eyebrow: string;
+  content_name: string;
+  advertisement_logo: Image;
+  advertisement_image: Image;
+  advertisement_background: Image;
 }
 
 export interface Image {

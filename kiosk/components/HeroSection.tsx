@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { HeroResult } from '../interfaces/hero';
-import { contentHubImageSrcGenerator } from '../utilities/contentHubImageLoader';
+import { contenthubimagesrcgenerator } from '../utilities/contentHubImageLoader';
 
 type HeroSectionProps = {
   hero: HeroResult;
@@ -12,7 +12,7 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
     <section
       className="section__hero banner"
       style={{
-        backgroundImage: 'url(' + contentHubImageSrcGenerator(props.hero.advertisement_Image) + ')',
+        backgroundImage: 'url(' + contenthubimagesrcgenerator(props.hero.advertisement_image) + ')',
       }}
     >
       <div className="section__hero__container container">
@@ -20,17 +20,17 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
           <div className="section__hero__container__content__text">
             <div className="logo">
               <Image
-                src={contentHubImageSrcGenerator(props.hero.advertisement_Logo)}
+                src={contenthubimagesrcgenerator(props.hero.advertisement_logo)}
                 width={400}
                 height={200}
                 alt="Logo"
               />
             </div>
-            <p className="slogan">{props.hero.advertisement_Slogan}</p>
-            <h1 className="expo">{props.hero.advertisement_Eyebrow}</h1>
-            <h3 className="title">{props.hero.advertisement_Title}</h3>
+            <p className="slogan">{props.hero.advertisement_slogan}</p>
+            <h1 className="expo">{props.hero.advertisement_eyebrow}</h1>
+            <h3 className="title">{props.hero.advertisement_title}</h3>
             <div
-              dangerouslySetInnerHTML={{ __html: props.hero.advertisement_Body }}
+              dangerouslySetInnerHTML={{ __html: props.hero.advertisement_body }}
               className="subtitle"
             ></div>
           </div>
