@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from '../components/Header';
 import { HeaderProps } from '../components/Header';
 import HeroSection, { HeroProps } from '../components/HeroSection';
+import HeroSectionCta, { HeroCtaProps } from '../components/HeroSectionCta';
 import MainNavigation, { MainNavigationProps } from '../components/MainNavigation';
 import ThreeColumnsSection, { ThreeColumnsSectionProps } from '../components/ThreeColumnsSection';
 import SponsorsGrid, { SponsorsProps } from '../components/SponsorsGrid';
@@ -17,11 +18,6 @@ export default {
 const headerProps = {} as HeaderProps;
 const heroProps = {
   fields: {
-    Logo: {
-      value: {
-        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
-      },
-    },
     Hero: {
       value: {
         src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=c63ff08e',
@@ -30,18 +26,20 @@ const heroProps = {
     Slogan: {
       value: 'READY | STEADY | PLAY!',
     },
-    Expo: {
+    Eyebrow: {
       value: 'Sports and Recreation Expo',
     },
     Title: {
       value: 'RAISE YOUR GAME',
     },
-    Subtitle: {
+    Body: {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
     },
-    When: {
-      value: 'August 24th – 25th',
-    },
+  },
+} as HeroProps;
+
+const heroCtaProps = {
+  fields: {
     Link: {
       value: {
         href: '/tickets',
@@ -49,7 +47,7 @@ const heroProps = {
       },
     },
   },
-} as HeroProps;
+} as HeroCtaProps;
 
 const sponsor1 = {
   Name: 'Item Name',
@@ -202,6 +200,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
       </header>
       <main>
         <HeroSection {...heroProps} />
+        <HeroSectionCta {...heroCtaProps} />
         <ThreeColumnsSection {...threeColProps} />
         <SponsorsGrid {...sponsorProps} />
       </main>
