@@ -89,14 +89,14 @@ export const getHero = async (): Promise<{ hero: HeroResult }> => {
     return {
       hero: {
         id: 'dummy',
-        content_name: 'dummy',
-        advertisement_slogan: 'READY | STEADY | PLAY!',
-        advertisement_eyebrow: 'Sports and Recreation Expo',
-        advertisement_title: 'RAISE YOUR GAME',
-        advertisement_body: 'Join us in person or online for the fifth annual PLAY! Summit.',
-        advertisement_logo: dummyImage,
-        advertisement_image: dummyImage,
-        advertisement_background: dummyImage,
+        content_Name: 'dummy',
+        advertisement_Slogan: 'READY | STEADY | PLAY!',
+        advertisement_Eyebrow: 'Sports and Recreation Expo',
+        advertisement_Title: 'RAISE YOUR GAME',
+        advertisement_Body: 'Join us in person or online for the fifth annual PLAY! Summit.',
+        advertisement_Logo: dummyImage,
+        advertisement_Image: dummyImage,
+        advertisement_Background: dummyImage,
       },
     };
   } else {

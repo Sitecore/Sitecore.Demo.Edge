@@ -12,7 +12,7 @@ export const contentHubImageLoader = ({ src }: Props) => {
   return `${contentHubUrl}/api/public/content/${src}`;
 };
 
-export const contenthubimagesrcgenerator = (src: Image) => {
+export const contentHubImageSrcGenerator = (src: Image) => {
   if (src?.results[0]?.assetToPublicLink?.results[0]) {
     return `${contentHubUrl}/api/public/content/${src.results[0].assetToPublicLink.results[0].relativeUrl}?v=${src.results[0].assetToPublicLink.results[0].versionHash}`;
   } else {

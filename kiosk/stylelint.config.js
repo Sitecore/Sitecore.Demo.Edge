@@ -1,22 +1,24 @@
 module.exports = {
-  extends: ["stylelint-config-standard"],
+  extends: ['stylelint-config-standard'],
   rules: {
-    "at-rule-no-unknown": [
+    'at-rule-no-unknown': [
       true,
       {
         ignoreAtRules: [
-          "tailwind",
-          "apply",
-          "variants",
-          "responsive",
-          "screen",
-          "layer",
-          "mixin",
-          "include",
+          'tailwind',
+          'apply',
+          'variants',
+          'responsive',
+          'screen',
+          'layer',
+          'mixin',
+          'include',
         ],
       },
     ],
-    "declaration-block-trailing-semicolon": null,
-    "no-descending-specificity": null,
+    'declaration-block-trailing-semicolon': null,
+    'no-descending-specificity': null,
+    'value-keyword-case': null,
+    'function-name-case': null,
   },
 };
