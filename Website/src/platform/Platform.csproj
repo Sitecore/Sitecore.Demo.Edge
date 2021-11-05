@@ -109,7 +109,6 @@
     <Content Include="App_Config\Include\Sitecore.Demo.SerializeDepth.config" />
     <None Include="Platform.wpp.targets" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="README.md" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +116,7 @@
     <Compile Include="FieldSerializer\DemoImageFieldSerializer.cs" />
     <Compile Include="FieldSerializer\GetDemoImageFieldSerializer.cs" />
     <Compile Include="FieldMapping\DemoFieldTypeFactoryStore.cs" />
+    <Compile Include="Pipelines\PublishSyncedItem.cs" />
     <Compile Include="Pipelines\DemoCmpFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
     <Compile Include="Utilities\IndexRebuild.aspx.cs">
