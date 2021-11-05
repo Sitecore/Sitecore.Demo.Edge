@@ -130,7 +130,7 @@ finally {
 
 # DEMO TEAM CUSTOMIZATION - Enable/Run/Disable init container
 if (-not $SkipInit) {
-    $dockerToolsVersion = "10.2.3"
+    $dockerToolsVersion = "10.2.7"
     Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
     if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
         Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green

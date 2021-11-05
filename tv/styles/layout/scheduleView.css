@@ -1,0 +1,138 @@
+.conference-hall {
+  @apply w-screen h-screen overflow-hidden relative;
+
+  .image {
+    @apply w-full;
+  }
+
+  &.zoomed {
+    #container {
+      position: unset;
+
+      #monitor {
+        position: unset;
+
+        #monitorscreen {
+          position: unset;
+        }
+      }
+    }
+  }
+
+  #container {
+    @apply absolute;
+
+    top: 4%;
+    width: 68%;
+    left: 15%;
+    resize: both;
+    max-width: inherit;
+    transition: all 300ms linear;
+
+    #monitor {
+      border-bottom: none;
+      border-radius: 12px;
+      padding: 1%;
+
+      &::after {
+        @apply hidden;
+      }
+    }
+
+    #monitorscreen {
+      padding-bottom: 46%;
+
+      .schedule {
+        @apply flex flex-col absolute top-0 left-0 bottom-0 right-0 overflow-hidden;
+
+        .slide-container {
+          @apply absolute top-0 left-0 bottom-0 right-0 invisible;
+
+          animation: fadeout 2s;
+
+          &.active {
+            @apply visible;
+
+            animation: fadein 2s;
+          }
+
+          .slide {
+            @apply flex bg-black-light border-b-2 border-solid border-gray uppercase h-1/3;
+
+            .schedule-time {
+              @apply bg-gray text-black font-bold p-4;
+            }
+
+            .schedule-sessions {
+              @apply m-4 flex-1 text-white relative;
+
+              &.premium-session {
+                @apply bg-orange flex flex-col;
+              }
+
+              &.keynote-session {
+                @apply bg-blue-light text-white flex flex-row;
+              }
+
+              &.no-speaker {
+                @apply bg-gray-dark text-black flex flex-row;
+              }
+
+              .session-image {
+                @apply hidden bg-cover bg-center;
+
+                &.premium-session {
+                  @apply w-full h-1/2 block;
+
+                  .session-type {
+                    @apply hidden;
+                  }
+                }
+
+                &.keynote-session {
+                  @apply w-1/2 block;
+
+                  .session-type {
+                    @apply absolute bottom-3 bg-blue-light px-2;
+                  }
+                }
+              }
+
+              .session-content {
+                @apply p-2;
+
+                .session-name {
+                  @apply font-bold;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

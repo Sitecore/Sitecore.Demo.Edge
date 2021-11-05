@@ -95,7 +95,7 @@ services:
       ADMIN_USER_NAME: "sitecore\\superuser"
       HOST_CM: "http://cm"
       HOST_ID: "http://id"
-      INIT_CONTEXT: Data Source=mssql;Initial Catalog=platform_init_ready;User ID=sa;Password=${SQL_SA_PASSWORD}
+      INIT_CONTEXT: Data Source=${SQL_SERVER};Initial Catalog=platform_init_ready;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
       VERCEL_TOKEN: ${VERCEL_TOKEN}
       ID_SERVER_DEMO_CLIENT_SECRET: ${ID_SERVER_DEMO_CLIENT_SECRET}
       PUBLIC_HOST_CM: ${PUBLIC_HOST_CM}
@@ -136,7 +136,7 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
     environment:
       SQL_SERVER: ${SQL_SERVER}
@@ -183,7 +183,7 @@ services:
     build:
       context: ./docker/build/id
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id6:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
@@ -205,7 +205,7 @@ services:
         TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/spe-assets:6.2-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:19.0-${NANOSERVER_VERSION}
         HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:3.0-${NANOSERVER_VERSION}

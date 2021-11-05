@@ -160,7 +160,7 @@ if ($PreRelease) {
   }
 
   #Install and Import SitecoreDockerTools
-  $dockerToolsVersion = "10.2.3"
+  $dockerToolsVersion = "10.2.7"
   Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
   if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
     Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
