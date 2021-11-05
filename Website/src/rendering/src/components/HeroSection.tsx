@@ -1,4 +1,4 @@
-import { Text, Field, LinkField, RichText, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, RichText, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentWithChildrenProps } from 'lib/component-props';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 
@@ -11,7 +11,6 @@ export type HeroProps = ComponentWithChildrenProps & {
     Title: Field<string>;
     Subtitle: Field<string>;
     When: Field<string>;
-    Link: LinkField;
   };
 };
 
