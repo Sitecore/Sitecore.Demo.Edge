@@ -47,6 +47,10 @@
           @apply text-white text-xl;
         }
       }
+
+      .btn__area {
+        @apply px-14;
+      }
     }
   }
 }
