@@ -1,5 +1,5 @@
 import { fetchGraphQL } from '../..';
-import { HeroResponse, HeroResult } from '../../../interfaces/hero';
+import { HeroResponse, HeroResult, Image } from '../../../interfaces/hero';
 
 export const getHeroes = async (): Promise<{
   heroes: HeroResult[];
@@ -58,7 +58,7 @@ export const getHeroes = async (): Promise<{
   }
 
   const results: HeroResponse = (await fetchGraphQL(heroQuery)) as HeroResponse;
-  const heroes: HeroResult[] = results.data.allM_Content_Advertisement.results;
+  const heroes: HeroResult[] = results?.data.allM_Content_Advertisement.results;
 
   return {
     heroes: heroes,
@@ -67,7 +67,41 @@ export const getHeroes = async (): Promise<{
 
 export const getHero = async (): Promise<{ hero: HeroResult }> => {
   const { heroes } = await getHeroes();
-  return {
-    hero: heroes[0],
+  const dummyImage: Image = {
+    results: [
+      {
+        id: '',
+        fileName: '',
+        assetToPublicLink: {
+          results: [
+            {
+              id: '',
+              relativeUrl: '',
+              versionHash: '',
+            },
+          ],
+        },
+      },
+    ],
   };
+  console.log(heroes);
+  if (heroes?.length == 0) {
+    return {
+      hero: {
+        id: 'dummy',
+        content_Name: 'dummy',
+        advertisement_Slogan: 'READY | STEADY | PLAY!',
+        advertisement_Eyebrow: 'Sports and Recreation Expo',
+        advertisement_Title: 'RAISE YOUR GAME',
+        advertisement_Body: 'Join us in person or online for the fifth annual PLAY! Summit.',
+        advertisement_Logo: dummyImage,
+        advertisement_Image: dummyImage,
+        advertisement_Background: dummyImage,
+      },
+    };
+  } else {
+    return {
+      hero: heroes[0],
+    };
+  }
 };

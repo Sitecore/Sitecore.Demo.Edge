@@ -18,12 +18,10 @@ export interface HeroResults {
   results: HeroResult[];
 }
 
-export interface Data {
-  allM_Content_Advertisement: HeroResults;
-}
-
 export interface HeroResponse {
-  data: Data;
+  data: {
+    allM_Content_Advertisement: HeroResults;
+  };
 }
 
 export interface PublicLink {
