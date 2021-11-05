@@ -1,13 +1,13 @@
 import { ComponentProps } from 'lib/component-props';
 import { LinkField, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 
-export type HeroProps = ComponentProps & {
+export type HeroCtaProps = ComponentProps & {
   fields: {
     Link: LinkField;
   };
 };
 
-const HeroSection = ({ fields }: HeroProps): JSX.Element => {
+const HeroSectionCta = ({ fields }: HeroCtaProps): JSX.Element => {
   return (
     <div className="btn__area">
       <Link field={fields.Link} className="btn--main btn--main--round btn--main--big" />
@@ -15,4 +15,4 @@ const HeroSection = ({ fields }: HeroProps): JSX.Element => {
   );
 };
 
-export default HeroSection;
+export default HeroSectionCta;

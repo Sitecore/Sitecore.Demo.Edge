@@ -73,16 +73,8 @@ SharedFields:
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
-          uid="{8EBFD638-FA30-4DD2-8E82-E5A5824C57AB}"
-          p:after="r[@uid='{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}']"
-          s:ds="{B505E955-F7BB-4A56-A956-A41FB1AE202D}"
-          s:id="{99F2FFE7-28C6-4B88-A52B-BD9B6B44C3C1}"
-          s:par=""
-          s:ph="jss-summit-hero-cta"
-          s:ccb="Clear on publish" />
-        <r
           uid="{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}"
-          p:after="r[@uid='{8EBFD638-FA30-4DD2-8E82-E5A5824C57AB}']"
+          p:after="r[@uid='{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}']"
           s:rname="ThreeColumnsSection"
           s:ds="{5F6ADEE8-F8E2-4A92-85E3-0C1D0A82FAF1}"
           s:id="{279A5772-ADFA-5260-88E6-AB97D5C4D90A}"
@@ -194,14 +186,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cc5d5951-8420-48cb-ac93-dcae06ec8db0"
+      Value: "1f35d57d-dfb1-4c9f-a03b-b3dc50dfd518"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211105T121040Z
+      Value: 20211105T123252Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Home
