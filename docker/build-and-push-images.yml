@@ -211,36 +211,18 @@ stages:
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker-compose build $(no.cache) solution
-          docker-compose push solution
+          docker-compose build $(no.cache) --parallel solution nodejs
+          docker-compose push solution nodejs
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build solution
-            docker-compose push solution
+            docker-compose build --parallel solution nodejs
+            docker-compose push solution nodejs
           }
   - job: Build_Headless
     dependsOn: Build_Solution
     timeoutInMinutes: 120
-    strategy:
-      matrix:
-        cm:
-          services: 'cm'
-        rendering:
-          services: 'nodejs rendering'
-        cdp:
-          services: 'cdp'
-        init:
-          services: 'init'
-        mssql-init:
-          services: 'mssql-init'
-        solr-init:
-          services: 'solr-init'
-        id:
-          services: 'id'
-        authoringhost:
-          services: 'authoringhost'
     displayName: 'Build Windows Docker Images'
     pool:
       name: 'docker-ltsc2019-agents'
@@ -286,15 +268,19 @@ stages:
 
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
+          $services = ([System.Collections.ArrayList] $(docker-compose config --services))
+          # Remove services already built in previous step
+          $services.Remove("solution")
+          $services.Remove("nodejs") #No need to build the solution image again
 
-          docker-compose build $(no.cache) $(services)
-          docker-compose push $(services)
+          docker-compose build $(no.cache) --parallel $services
+          docker-compose push $services
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build $(services)
-            docker-compose push $(services)
+            docker-compose build --parallel $services
+            docker-compose push $services
           }
 
 - stage: Release_Notes
