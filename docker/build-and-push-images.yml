@@ -233,7 +233,7 @@ stages:
 
           # Remove services already built in previous step
           $services.Remove("solution")
-          $services.Remove("nodejs") #No need to build the solution image again
+          $services.Remove("nodejs")
 
           docker-compose build $(no.cache) --parallel $services
           docker-compose push $services
