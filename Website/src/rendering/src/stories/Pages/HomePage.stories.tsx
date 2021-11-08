@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from '../../components/Header';
 import { HeaderProps } from '../../components/Header';
 import HeroSection, { HeroProps } from '../../components/HeroSection';
-import HeroSectionCta, { HeroCtaProps } from '../../components/HeroSectionCta';
+import HeroSectionCta from '../../components/HeroSectionCta';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
@@ -12,6 +12,7 @@ import ThreeColumnsSection, {
 import SponsorsGrid, { SponsorsProps } from '../../components/SponsorsGrid';
 import Footer, { FooterProps } from '../../components/Footer';
 import { Sponsor } from 'src/types/sponsor';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export default {
   title: 'Pages/Home Page',
@@ -38,18 +39,27 @@ const heroProps = {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
     },
   },
-} as HeroProps;
-
-const heroCtaProps = {
-  fields: {
-    Link: {
-      value: {
-        href: '/tickets',
-        text: 'Book Tickets',
-      },
+  rendering: {
+    placeholders: {
+      'jss-summit-hero-cta': [
+        {
+          uid: '04d6b23e-6ce3-51a1-9c9c-4cd56b29b6aa',
+          componentName: 'HeroSectionCta',
+          dataSource: '',
+          params: {},
+          fields: {
+            Link: {
+              value: {
+                href: '/tickets',
+                text: 'Book Tickets',
+              },
+            },
+          },
+        },
+      ],
     },
   },
-} as HeroCtaProps;
+} as unknown as HeroProps;
 
 const sponsor1 = {
   Name: 'Item Name',
@@ -193,23 +203,37 @@ const footerProps = {
   },
 } as FooterProps;
 
+const componentFactory = function (componentName: string) {
+  const components = new Map();
+  components.set('HeroSectionCta', HeroSectionCta);
+
+  const component = components.get(componentName);
+
+  // check that component should be dynamically imported
+  if (component?.element) {
+    // return next.js dynamic import
+    return component.element();
+  }
+
+  return component?.default || component;
+};
+
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
-    <>
+    <SitecoreContext componentFactory={componentFactory}>
       <header>
         <Header {...headerProps} />
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
         <HeroSection {...heroProps} />
-        <HeroSectionCta {...heroCtaProps} />
         <ThreeColumnsSection {...threeColProps} />
         <SponsorsGrid {...sponsorProps} />
       </main>
       <footer>
         <Footer {...footerProps} />
       </footer>
-    </>
+    </SitecoreContext>
   );
 };
 
