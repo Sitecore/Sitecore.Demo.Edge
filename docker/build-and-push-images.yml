@@ -166,62 +166,7 @@ stages:
   - Build_TV
   - Build_Kiosk
   jobs:
-  - job: Build_Solution
-    displayName: 'Build Solution Images'
-    pool:
-      name: 'docker-ltsc2019-agents'
-    steps:
-    - task: UseDotNet@2
-      inputs:
-        packageType: 'sdk'
-        version: '3.1.x'
-        installationPath: 'c:/program files/dotnet'
-        performMultiLevelLookup: true
-    - template: version.yml
-    - task: PowerShell@2
-      displayName: "Build and Push Solution Image"
-      inputs:
-        targetType: 'inline'
-        script: |
-          $sitecoreRegistry = "$(sitecore.container.registry)"
-          az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
-          if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
-            az acr login -n "$(sitecore.container.registry.short)"
-          }
-
-          az acr login -n $(container.registry.short)
-
-          $params = @{}
-          $params.Add("DemoVersion", "$(tag)")
-          $params.Add("DemoTeamRegistry","$(REGISTRY)")
-          $params.Add("SitecoreRegistry","$sitecoreRegistry")
-          $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
-
-
-          if ("true" -eq "$(preRelease)"){
-            $params.Add("PreRelease", $true)
-            $params.Add("SitecoreNugetSource","$(INTERNAL_SITECORE_NUGET_SOURCE)")
-            $params.Add("Sitecore2NugetSource","$(INTERNAL_SITECORE2_NUGETSOURCE)")
-            $params.Add("SitecoreGalleryNugetSource","$(INTERNAL_SITECOREGALLERY_NUGET_SOURCE)")
-            $params.Add("NugetUser","$(INTERNAL_NUGET_SOURCE_USERNAME)")
-            $params.Add("NugetPassword","$(INTERNAL_NUGET_SOURCE_PASSWORD)")
-          }
-          ./init-ci.ps1 @params
-
-          # Reset demo version to correct tag without build id
-          $env:DEMO_VERSION = "$(tag)"
-
-          docker-compose build $(no.cache) --parallel solution nodejs
-          docker-compose push solution nodejs
-
-          $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
-          if ($primaryBuild) {
-            $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build --parallel solution nodejs
-            docker-compose push solution nodejs
-          }
   - job: Build_Headless
-    dependsOn: Build_Solution
     timeoutInMinutes: 120
     displayName: 'Build Windows Docker Images'
     pool:
@@ -266,9 +211,26 @@ stages:
           }
           ./init-ci.ps1 @params
 
+          ### Build Solution
+
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
+
+          docker-compose build $(no.cache) --parallel solution nodejs
+
+          $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
+          if ($primaryBuild) {
+            $env:DEMO_VERSION = "$(additionalImageTags)"
+            docker-compose build --parallel solution nodejs
+          }
+
+          ### Build Demo images
+
+          # Reset demo version to correct tag without build id
+
+          $env:DEMO_VERSION = "$(tag)"
           $services = ([System.Collections.ArrayList] $(docker-compose config --services))
+
           # Remove services already built in previous step
           $services.Remove("solution")
           $services.Remove("nodejs") #No need to build the solution image again
