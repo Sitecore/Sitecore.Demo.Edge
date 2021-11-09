@@ -39,7 +39,8 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
           <div className={`container-content-text ${props.qualificative}`}>
             <div>
               <p className="title">
-                Meet the <span className="name">{props.qualificative}</span> {props.type}:
+                Meet the <span className="information-type">{props.qualificative}</span>{' '}
+                {props.type}:
               </p>
               <h1 className="name">
                 <Text field={props.fields.Name} />

@@ -2,13 +2,10 @@
   @apply space-y-5 min-w-full;
 
   .information-block {
-    @apply grid grid-cols-1 gap-5 border border-gray items-stretch p-5;
-    @apply xs:grid-cols-3;
-    @apply xl:grid-cols-10;
+    @apply flex flex-row gap-5 border border-gray items-stretch;
 
     .info-col-left {
-      @apply col-span-1 align-top text-center self-center uppercase;
-      @apply xl:col-span-3;
+      @apply align-top text-center self-center uppercase p-5;
 
       .session-info-ticket {
         @apply inline px-3 w-full border border-gray text-black;
@@ -24,9 +21,7 @@
     }
 
     .info-col-content {
-      @apply col-span-1 space-y-1;
-      @apply xs:col-span-2;
-      @apply xl:col-span-7;
+      @apply flex-grow space-y-1 p-5;
 
       .session-info-title {
         @apply font-bold uppercase mt-2 mb-0;
@@ -42,45 +37,56 @@
       }
 
       .info-text .icon {
-        @apply mr-2;
+        @apply w-6 mr-2;
       }
     }
   }
 
   &__session {
     .information-block {
-      &.premium {
-        @apply bg-blue border-0 text-white;
+      .info-col-left {
+        @apply w-48;
+      }
 
-        .session-info-col-date {
+      .info-col-content {
+        @apply flex-grow;
+      }
+
+      &.premium {
+        @apply bg-orange border-0 text-white;
+
+        .info-col-left {
           .session-info-ticket {
             @apply border border-white text-white;
           }
 
-          .session-info-month {
-            @apply text-gray;
+          .session-info-month,
+          .session-info-date {
+            @apply text-black;
           }
         }
+
+        /* .info-col-content {
+          @apply text-left;
+        } */
       }
     }
   }
 
   &__speaker {
     .information-block {
-      @apply bg-orange;
+      .info-col-left {
+        @apply p-0 flex h-60 w-52 pt-5 pr-0;
+      }
+
+      .info-col-content {
+        @apply pl-0 text-white;
+      }
+
+      @apply bg-blue;
 
       &.featured {
-        @apply bg-blue border-0 text-white;
-
-        .session-info-col-date {
-          .session-info-ticket {
-            @apply border border-white text-white;
-          }
-
-          .session-info-month {
-            @apply text-gray;
-          }
-        }
+        @apply bg-orange border-0 text-white;
       }
     }
   }

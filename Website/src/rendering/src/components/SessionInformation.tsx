@@ -34,8 +34,7 @@ export type SessionInformationProps = ComponentProps & {
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
-  const premiumSessionTitle = props.fields.Premium.value ? 'Premium' : '';
-  const speakerColumnTitle = props.fields.Speakers.length > 1 ? 'Speakers' : 'Speaker';
+  const premiumSessionTitle = props.fields.Premium.value ? 'premium' : '';
 
   const speakers = props.fields.Speakers && props.fields.Speakers.length > 0 && (
     <div className="sidebar-list sidebar-list__speaker">
@@ -50,8 +49,8 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
             <Image
               field={speaker.fields?.Picture}
               alt={speaker.fields?.Name?.value}
-              width={200}
-              height={200}
+              width={250}
+              height={300}
             />
           </div>
           <div className="info-col-content">
@@ -109,7 +108,8 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
             >
               <div>
                 <p className="title">
-                  <span className="name">{premiumSessionTitle}</span> Session
+                  Explore the <span className="information-type">{premiumSessionTitle}</span>{' '}
+                  session:
                 </p>
                 <h1 className="name">
                   <Text field={props.fields.Name} />
@@ -138,10 +138,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               <div className="column-title">Description:</div>
               <RichText field={props.fields?.Description} />
             </div>
-            <div className="sidebar-col">
-              <div className="column-title">{speakerColumnTitle}:</div>
-              {speakers}
-            </div>
+            <div className="sidebar-col">{speakers}</div>
           </div>
         </div>
       </section>
