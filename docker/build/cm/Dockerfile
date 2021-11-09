@@ -54,7 +54,8 @@ RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
 COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy the Content Hub Connector Module
-COPY --from=ch_assets C:\module\cm\content C:\inetpub\wwwroot
+COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
+RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.DiagnosticSource.dll);if ($lastexitcode -eq 0){write-host "Robocopy succeeded"}else{write-host $lastexitcode};
 COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
 

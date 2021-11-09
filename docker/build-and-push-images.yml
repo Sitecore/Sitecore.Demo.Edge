@@ -14,7 +14,7 @@ variables:
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
   additionalImageTags: ''
-  preRelease: 'true'
+  preRelease: 'false'
 
 stages:
 - stage: Build_TV
@@ -168,14 +168,9 @@ stages:
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
-    strategy:
-      matrix:
-        ltsc2019:
-          poolName: 'docker-ltsc2019-agents'
-          osVersion: 'ltsc2019'
     displayName: 'Build Windows Docker Images'
     pool:
-      name: $(poolName)
+      name: 'docker-ltsc2019-agents'
     steps:
     - task: UseDotNet@2
       inputs:
@@ -191,8 +186,9 @@ stages:
         script: |
           $sitecoreRegistry = "$(sitecore.container.registry)"
 
+          az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+
           if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
-            az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
             az acr login -n "$(sitecore.container.registry.short)"
           }
 
@@ -215,17 +211,38 @@ stages:
           }
           ./init-ci.ps1 @params
 
+          ### Build Solution
+
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker-compose build $(no.cache)
-          docker-compose push
+          docker-compose build $(no.cache) --parallel solution nodejs
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build
-            docker-compose push
+            docker-compose build --parallel solution nodejs
+          }
+
+          ### Build Demo images
+
+          # Reset demo version to correct tag without build id
+
+          $env:DEMO_VERSION = "$(tag)"
+          $services = ([System.Collections.ArrayList] $(docker-compose config --services))
+
+          # Remove services already built in previous step
+          $services.Remove("solution")
+          $services.Remove("nodejs")
+
+          docker-compose build $(no.cache) --parallel $services
+          docker-compose push $services
+
+          $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
+          if ($primaryBuild) {
+            $env:DEMO_VERSION = "$(additionalImageTags)"
+            docker-compose build --parallel $services
+            docker-compose push $services
           }
 
 - stage: Release_Notes
@@ -319,7 +336,7 @@ stages:
   jobs:
     - job: Update_Tags
       pool:
-        vmImage: 'ubuntu-latest'  
+        vmImage: 'ubuntu-latest'
       displayName: "Update Tags"
       steps:
         - task: UseDotNet@2
