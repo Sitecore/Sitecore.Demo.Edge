@@ -73,6 +73,13 @@
           }
         }
 
+        .info-text {
+          @apply text-white;
+
+          .icon {
+            @apply mr-2;
+          }
+        }
         .title,
         .name {
           @apply text-2xl uppercase font-bold leading-7;

@@ -41,7 +41,7 @@
 }
 
 /* TODO: Rename to "information-section" once vendor, speaker, and session information sections have been converted to use this class */
-.section.information-section-with-sessions {
+.section.information-section-with-sidebar {
   @apply py-8;
 
   .information-grid {
@@ -50,20 +50,20 @@
 
     .description-col {
       @apply w-full order-2;
-      @apply lg:w-7/12 lg:pr-6 lg:order-1;
+      @apply lg:w-55 lg:pr-6 lg:order-1 lg:ml-4;
 
       ul {
         @apply list-disc pl-10 py-5;
       }
     }
 
-    .sessions-col {
+    .sidebar-col {
       @apply w-full order-1 pb-8;
-      @apply lg:w-5/12 lg:order-2 lg:pb-0;
+      @apply lg:w-45 lg:order-2 lg:pb-0;
     }
 
     .column-title {
-      @apply font-bold;
+      @apply font-bold pb-2;
     }
   }
 }

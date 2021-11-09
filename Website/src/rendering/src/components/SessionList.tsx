@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getSessionTime } from '../helpers/DateHelper';
 import { GraphQLSession } from 'src/types/session';
+import React from 'react';
+import InfoText from './InfoText';
+import { faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 type SessionListItemProps = GraphQLSession & {
   showSpeakers: boolean;
@@ -25,14 +28,18 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
   const time = props.timeslots?.targetItems &&
     typeof props.timeslots.targetItems === 'object' &&
     props.timeslots.targetItems.length > 0 && (
-      <span className="session-info-time">{getSessionTime(props.timeslots.targetItems)}</span>
+      <InfoText Icon={faClock}>
+        <span className="session-info-time">{getSessionTime(props.timeslots.targetItems)}</span>
+      </InfoText>
     );
 
   const room = props.rooms?.targetItems &&
     typeof props.rooms.targetItems === 'object' &&
     props.rooms.targetItems.length > 0 &&
     props.rooms.targetItems[0].name?.value && (
-      <Text field={props.rooms.targetItems[0].name} tag="div" />
+      <InfoText Icon={faDoorOpen}>
+        <Text field={props.rooms.targetItems[0].name} tag="span" />
+      </InfoText>
     );
 
   const speakers = props.showSpeakers &&
@@ -50,13 +57,13 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
     );
 
   return (
-    <div className={`session-info ${premiumCssClass}`}>
-      <div className="session-info-col-date">
+    <div className={`information-block ${premiumCssClass}`}>
+      <div className="info-col-left">
         {ticketTypeBadge}
         <div className="session-info-month">day</div>
         <div className="session-info-date">{day}</div>
       </div>
-      <div className="session-info-col-title">
+      <div className="info-col-content">
         <Text field={props.name} tag="div" className="session-info-title" />
         {speakers}
         {time}
@@ -78,7 +85,7 @@ export type SessionListProps = {
 
 const SessionList = (props: SessionListProps): JSX.Element => {
   const sessions = props.sessions && props.sessions.length > 0 && (
-    <div className="session-list">
+    <div className="sidebar-list sidebar-list__speaker">
       {props.sessions.map((session, index) => (
         <SessionListItem {...session} showSpeakers={props.showSpeakers} key={index} />
       ))}

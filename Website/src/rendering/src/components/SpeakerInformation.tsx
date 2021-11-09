@@ -29,14 +29,14 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => {
     );
 
   return (
-    <section className="section information-section-with-sessions">
+    <section className="section information-section-with-sidebar">
       <div className="section__content container">
         <div className="information-grid">
           <div className="description-col">
             <div className="column-title">Biography:</div>
             <RichText field={props.fields?.data?.contextItem?.description} />
           </div>
-          <div className="sessions-col">
+          <div className="sidebar-col">
             <div className="column-title">Sessions:</div>
             {sessions}
           </div>

@@ -1,3 +1,13 @@
+.session-page {
+  p {
+    margin-bottom: 10px;
+  }
+
+  .content {
+    margin-left: -10px;
+  }
+}
+
 .information-section.session-information {
   .image-col {
     .icon {
