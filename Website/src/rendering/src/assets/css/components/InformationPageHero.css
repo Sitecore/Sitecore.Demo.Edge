@@ -38,12 +38,13 @@
       @apply sm:w-full;
       @apply md:w-45;
 
-      background: linear-gradient(
-        135deg,
-        rgba(80, 80, 80, 1) 0%,
-        rgba(60, 60, 60, 1) 50%,
-        rgba(50, 50, 50, 1) 100%
-      );
+      background:
+        linear-gradient(
+          135deg,
+          rgba(80, 80, 80, 1) 0%,
+          rgba(60, 60, 60, 1) 50%,
+          rgba(50, 50, 50, 1) 100%
+        );
       box-shadow: 0 0 20px #232323;
 
       .container-content-text {
