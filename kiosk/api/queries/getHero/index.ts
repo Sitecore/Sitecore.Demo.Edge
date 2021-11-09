@@ -4,7 +4,8 @@ import { HeroResponse, HeroResult, Image } from '../../../interfaces/hero';
 export const getHeroes = async (): Promise<{
   heroes: HeroResult[];
 }> => {
-  const id: string = process.env.NEXT_PUBLIC_CMP_HERO_CONTENT_ID || 'jnZOQnEVhUyWn1le6m5FyQ';
+  let id: string = process.env.NEXT_PUBLIC_CMP_HERO_CONTENT_ID || '';
+  if (id === '') id = 'jnZOQnEVhUyWn1le6m5FyQ';
   const heroQuery = `
     query {
       allM_Content_Advertisement(where:{id_eq:"${id}"}) {
@@ -70,14 +71,14 @@ export const getHero = async (): Promise<{ hero: HeroResult }> => {
   const dummyImage: Image = {
     results: [
       {
-        id: '',
-        fileName: '',
+        id: 'dummy',
+        fileName: 'dummy.jpg',
         assetToPublicLink: {
           results: [
             {
-              id: '',
-              relativeUrl: '',
-              versionHash: '',
+              id: 'dummy',
+              relativeUrl: 'b1a88e26f6a54a9ea64a5f759c5eea84',
+              versionHash: '5aea50fb',
             },
           ],
         },
@@ -85,9 +86,7 @@ export const getHero = async (): Promise<{ hero: HeroResult }> => {
     ],
   };
 
-  console.log(heroes);
-
-  if (heroes) {
+  if (heroes?.length > 0) {
     return {
       hero: heroes[0],
     };
