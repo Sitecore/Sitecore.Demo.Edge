@@ -2,9 +2,13 @@ import Link from 'next/link';
 import React, { ChangeEvent } from 'react';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
-import { setQueryStringValue } from '../utilities/queryString';
-import Router from 'next/router';
 import { TimeslotResult } from '../interfaces/timeslot';
+import {
+  dayDefaultValue,
+  DayTimeContext,
+  SetDayTimeFunction,
+  timeDefaultValue,
+} from '../contexts/DayTimeContext';
 
 interface NavigationState {
   days: DayResult[];
@@ -29,8 +33,8 @@ class Navigation extends React.Component<unknown, NavigationState> {
       days: [],
       times: [],
       venues: [],
-      day: '',
-      time: '',
+      day: dayDefaultValue,
+      time: timeDefaultValue,
     };
   }
 
@@ -46,100 +50,106 @@ class Navigation extends React.Component<unknown, NavigationState> {
 
   handleDayChange(e: ChangeEvent<HTMLSelectElement>) {
     this.setState({ day: e.target.value });
-    setQueryStringValue('day', e.target.value);
   }
 
   handleTimeChange(e: ChangeEvent<HTMLSelectElement>) {
     this.setState({ time: e.target.value });
-    setQueryStringValue('time', e.target.value);
   }
 
-  refreshPage() {
-    //Router.reload(window.location.pathname);
-    Router.reload();
+  // eslint-disable-next-line no-unused-vars
+  setDayAndTime(setDayTime: SetDayTimeFunction) {
+    setDayTime(this.state.day, this.state.time);
   }
 
   render(): JSX.Element {
     return (
-      <div className="menu">
-        <div className="menu-button">+ </div>
-        <div className="menu-content space-y-6">
-          <div>
-            <h2>Current Time: </h2>Aug 29th, 11:11 am
-          </div>
-          <div>
-            <div>
-              <h2>Select Day and Time</h2>
+      <DayTimeContext.Consumer>
+        {({ dayTime, setDayTime }) => (
+          <div className="menu">
+            <div className="menu-button">+ </div>
+            <div className="menu-content space-y-6">
               <div>
-                <select value={this.state.day} onChange={this.handleDayChange.bind(this)}>
+                <h2>Current Day: {dayTime.day}</h2>
+                <h2>Current Time: {dayTime.time}</h2>
+              </div>
+              <div>
+                <div>
+                  <h2>Select Day and Time</h2>
+                  <div>
+                    <select value={this.state.day} onChange={this.handleDayChange.bind(this)}>
+                      {this.state.days.map((day, index) => (
+                        <option key={index} value={day.sortOrder}>
+                          {day.taxonomyName}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <select value={this.state.time} onChange={this.handleTimeChange.bind(this)}>
+                      {this.state.times.length > 0 &&
+                        this.state.times.map((ts, index) => (
+                          <option key={index} value={ts.sortOrder}>
+                            {ts.taxonomyLabel['en-US']}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                  <button
+                    onClick={this.setDayAndTime.bind(this, setDayTime)}
+                    className="bg-black text-white"
+                  >
+                    GO
+                  </button>
+                </div>
+              </div>
+              <div>
+                <h2 className="item-title">Days</h2>
+                <ul>
                   {this.state.days.map((day, index) => (
-                    <option key={index} value={day.sortOrder}>
-                      {day.taxonomyName}
-                    </option>
+                    <li className="parent-link" key={index}>
+                      <Link href={'/schedule/' + day.sortOrder} passHref>
+                        <a className="item-link bg-black-light text-white">{day.taxonomyName}</a>
+                      </Link>
+                      <ul className="child-link">
+                        {this.state.times.map((ts, i) => {
+                          return (
+                            <li className="item-link bg-gray-light text-black" key={i}>
+                              {ts.taxonomyLabel['en-US']}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
                   ))}
-                </select>
+                </ul>
               </div>
               <div>
-                <select value={this.state.time} onChange={this.handleTimeChange.bind(this)}>
-                  {this.state.times.length > 0 &&
-                    this.state.times.map((ts, index) => (
-                      <option key={index} value={ts.sortOrder}>
-                        {ts.taxonomyLabel['en-US']}
-                      </option>
-                    ))}
-                </select>
+                <h2 className="item-title">Venues</h2>
+                <ul>
+                  {this.state.venues.map((venue, index) => (
+                    <li className="parent-link" key={index}>
+                      <Link href={'/venues/' + venue.id}>
+                        <a className="item-link bg-black-light text-white">{venue.name}</a>
+                      </Link>
+                      <ul className="child-link">
+                        {venue.rooms.results.map((room, i) => {
+                          return (
+                            <li key={i}>
+                              <Link href={'/rooms/' + room.id}>
+                                <a className="item-link bg-gray-light text-black">{room.name}</a>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <button onClick={this.refreshPage.bind(this)} className="bg-black text-white">
-                GO
-              </button>
             </div>
           </div>
-          <div>
-            <h2 className="item-title">Days</h2>
-            <ul>
-              {this.state.days.map((day, index) => (
-                <li className="parent-link" key={index}>
-                  <Link href={'/schedule/' + day.sortOrder} passHref>
-                    <a className="item-link bg-black-light text-white">{day.taxonomyName}</a>
-                  </Link>
-                  <ul className="child-link">
-                    {this.state.times.map((ts, i) => {
-                      return (
-                        <li className="item-link bg-gray-light text-black" key={i}>
-                          {ts.taxonomyLabel['en-US']}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h2 className="item-title">Venues</h2>
-            <ul>
-              {this.state.venues.map((venue, index) => (
-                <li className="parent-link" key={index}>
-                  <Link href={'/venues/' + venue.id}>
-                    <a className="item-link bg-black-light text-white">{venue.name}</a>
-                  </Link>
-                  <ul className="child-link">
-                    {venue.rooms.results.map((room, i) => {
-                      return (
-                        <li key={i}>
-                          <Link href={'/rooms/' + room.id}>
-                            <a className="item-link bg-gray-light text-black">{room.name}</a>
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+        )}
+      </DayTimeContext.Consumer>
     );
   }
 }
