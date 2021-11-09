@@ -34,7 +34,8 @@ export type SessionInformationProps = ComponentProps & {
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
-  // const premiumEyebrow = props.fields.Premium?.value && <div className="eyebrow">Premium</div>;
+  const premiumSessionTitle = props.fields.Premium.value ? 'Premium' : '';
+  const speakerColumnTitle = props.fields.Speakers.length > 1 ? 'Speakers' : 'Speaker';
 
   const speakers = props.fields.Speakers && props.fields.Speakers.length > 0 && (
     <div className="sidebar-list sidebar-list__speaker">
@@ -55,15 +56,21 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
           </div>
           <div className="info-col-content">
             <Text field={speaker.fields.Name} tag="div" className="session-info-title" />
-            <InfoText Icon={faUserTie}>
-              <Text tag="span" field={speaker.fields.JobTitle} />
-            </InfoText>
-            <InfoText Icon={faBuilding}>
-              <Text tag="span" field={speaker.fields.Company} />
-            </InfoText>
-            <InfoText Icon={faMapMarkerAlt}>
-              <Text tag="span" field={speaker.fields.Location} />
-            </InfoText>
+            {speaker.fields.JobTitle.value && (
+              <InfoText Icon={faUserTie}>
+                <Text tag="span" field={speaker.fields.JobTitle} />
+              </InfoText>
+            )}
+            {speaker.fields.Company.value && (
+              <InfoText Icon={faBuilding}>
+                <Text tag="span" field={speaker.fields.Company} />
+              </InfoText>
+            )}
+            {speaker.fields.Location.value && (
+              <InfoText Icon={faMapMarkerAlt}>
+                <Text tag="span" field={speaker.fields.Location} />
+              </InfoText>
+            )}
             <div className="session-info-col-calendar">
               <Link href={'/speakers/${speaker.fields.Name}'}>
                 <a className="btn--main btn--main--round">Learn more</a>
@@ -93,23 +100,32 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
             }}
           ></div>
           <div className="content-container">
-            <div className="container-content-text">
+            <div
+              className={
+                props.fields.Premium.value
+                  ? 'container-content-text premium'
+                  : 'container-content-text'
+              }
+            >
               <div>
-                <p className="title">Join us:</p>
+                <p className="title">
+                  <span className="name">{premiumSessionTitle}</span> Session
+                </p>
                 <h1 className="name">
                   <Text field={props.fields.Name} />
                 </h1>
               </div>
-              <InfoText Icon={faDoorOpen}>
-                <Text tag="span" field={props.fields.Rooms[0].fields.Name} />
-              </InfoText>
-              <InfoText Icon={faCalendar}>
-                <span>{getSessionDays(props.fields.Day)}</span>
-              </InfoText>
-              <InfoText Icon={faClock}>
-                <span>{getSessionTime(props.fields.Timeslots)}</span>
-              </InfoText>
-              <div className="external-website-icons"></div>
+              <div>
+                <InfoText Icon={faDoorOpen}>
+                  <Text tag="span" field={props.fields.Rooms[0].fields.Name} />
+                </InfoText>
+                <InfoText Icon={faCalendar}>
+                  <span>{getSessionDays(props.fields.Day)}</span>
+                </InfoText>
+                <InfoText Icon={faClock}>
+                  <span>{getSessionTime(props.fields.Timeslots)}</span>
+                </InfoText>
+              </div>
             </div>
           </div>
         </div>
@@ -123,7 +139,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
               <RichText field={props.fields?.Description} />
             </div>
             <div className="sidebar-col">
-              <div className="column-title">Speaker(s):</div>
+              <div className="column-title">{speakerColumnTitle}:</div>
               {speakers}
             </div>
           </div>

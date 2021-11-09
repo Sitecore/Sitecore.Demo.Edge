@@ -24,7 +24,7 @@
     }
 
     .info-col-content {
-      @apply col-span-1;
+      @apply col-span-1 space-y-1;
       @apply xs:col-span-2;
       @apply xl:col-span-7;
 
@@ -43,24 +43,6 @@
 
       .info-text .icon {
         @apply mr-2;
-      }
-    }
-  }
-
-  &__speaker {
-    .information-block {
-      &.premium {
-        @apply bg-blue border-0 text-white;
-
-        .session-info-col-date {
-          .session-info-ticket {
-            @apply border border-white text-white;
-          }
-
-          .session-info-month {
-            @apply text-gray;
-          }
-        }
       }
     }
   }
@@ -82,68 +64,24 @@
       }
     }
   }
-}
 
-/* .session-list {
-  @apply space-y-5 min-w-full;
+  &__speaker {
+    .information-block {
+      @apply bg-orange;
 
-  .session-info {
-    @apply grid grid-cols-1 gap-5 border border-gray items-stretch p-5;
-    @apply xs:grid-cols-3;
-    @apply xl:grid-cols-10;
+      &.featured {
+        @apply bg-blue border-0 text-white;
 
-    .session-info-col-date {
-      @apply col-span-1 align-top text-center self-center uppercase;
-      @apply xl:col-span-3;
+        .session-info-col-date {
+          .session-info-ticket {
+            @apply border border-white text-white;
+          }
 
-      .session-info-ticket {
-        @apply inline px-3 w-full border border-gray text-black;
-      }
-
-      .session-info-month {
-        @apply font-bold text-2xl text-gray-dark mt-1;
-      }
-
-      .session-info-date {
-        @apply text-4xl font-bold leading-6 inline-block;
-      }
-    }
-
-    .session-info-col-title {
-      @apply col-span-1;
-      @apply xs:col-span-2;
-      @apply xl:col-span-7;
-
-      .session-info-title {
-        @apply font-bold uppercase mt-2 mb-0;
-      }
-
-      .speaker-name {
-        @apply m-0 p-0 underline;
-        @apply md:hover:underline md:no-underline;
-      }
-
-      .session-info-col-calendar {
-        @apply text-right  flex pt-2;
-      }
-
-      .info-text .icon {
-        @apply mr-2;
-      }
-    }
-
-    &.premium {
-      @apply bg-blue border-0 text-white;
-
-      .session-info-col-date {
-        .session-info-ticket {
-          @apply border border-white text-white;
-        }
-
-        .session-info-month {
-          @apply text-gray;
+          .session-info-month {
+            @apply text-gray;
+          }
         }
       }
     }
   }
-} */
+}
