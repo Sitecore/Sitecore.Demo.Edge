@@ -64,7 +64,7 @@
             }
 
             .schedule-sessions {
-              @apply m-4 flex-1 text-white relative;
+              @apply m-4 flex-1 text-white relative cursor-pointer;
 
               &.premium-session {
                 @apply bg-orange flex flex-col;

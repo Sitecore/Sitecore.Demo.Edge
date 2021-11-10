@@ -92,6 +92,7 @@ const parseSessionWithTimeSlot = function (
 
   if (sessionResult.room.results.length > 0) {
     session.room = sessionResult.room.results[0].name;
+    session.roomId = sessionResult.room.results[0].id;
   }
 
   if (sessionResult.speakers.results.length > 0) {
