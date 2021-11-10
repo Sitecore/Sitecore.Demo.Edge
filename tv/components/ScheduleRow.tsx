@@ -19,14 +19,21 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
 
         return (
           <Link key={index} href={'/rooms/' + session.roomId} passHref>
-            <div className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}>
+            <div
+              className={
+                'schedule-sessions show-image ' + premiumClass + keynoteClass + noSpeakerClass
+              }
+            >
               <div
                 className={'session-image' + premiumClass + keynoteClass}
                 style={{
                   backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
                 }}
               >
-                {session.type && <div className="session-type">{session.type}</div>}
+                {session.type && session.type != 'Session' && (
+                  <div className="session-type">{session.type}</div>
+                )}
+                {session.isPremium && <div className="session-tier">Premium</div>}
               </div>
               <div className="session-content">
                 <div className="session-name">{session.name}</div>
