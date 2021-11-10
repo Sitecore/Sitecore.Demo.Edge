@@ -45,7 +45,6 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   const [schedule, setSchedule] = useState(props.schedule);
   const dayTimeContext = useContext(DayTimeContext);
 
-  // TODO: Setting a state in a useEffect might be bad
   useEffect(() => {
     getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
       setSchedule(splitArray(groupBy(data.sessions), 3));

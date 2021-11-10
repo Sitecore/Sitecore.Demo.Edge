@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren, useState } from 'react';
 
 export type DayTimeState = {
   day: string;
@@ -10,7 +10,6 @@ export type SetDayTimeFunction = (day: string, time: string) => void;
 
 export type DayTimeContextValue = {
   dayTime: DayTimeState;
-  // eslint-disable-next-line no-unused-vars
   setDayTime: SetDayTimeFunction;
 };
 
@@ -24,8 +23,26 @@ export const dayTimeDefaultValue = {
 const defaultValue: DayTimeContextValue = {
   dayTime: dayTimeDefaultValue,
   setDayTime: () => {
-    // Do nothing
+    // Do nothing for the default context value
   },
 };
 
 export const DayTimeContext = React.createContext(defaultValue);
+
+export const DayTimeContextProvider = (props: PropsWithChildren<unknown>): JSX.Element => {
+  const [dayTimeState, setDayTimeState] = useState(dayTimeDefaultValue);
+
+  const dayTimeContextValue: DayTimeContextValue = {
+    dayTime: dayTimeState,
+    setDayTime: (day: string, time: string) => {
+      setDayTimeState({
+        day,
+        time,
+      });
+    },
+  };
+
+  return (
+    <DayTimeContext.Provider value={dayTimeContextValue}>{props.children}</DayTimeContext.Provider>
+  );
+};
