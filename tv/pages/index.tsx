@@ -15,10 +15,11 @@ function groupSessionsByTimeslot(original: Session[]): ScheduleSlot[] {
 
   return original.reduce((output: ScheduleSlot[], currentValue: Session) => {
     // Create a new ScheduleSlot if needed
-    if (output.length === 0 || currentValue.timeslot !== output[currentOutputIndex].Timeslot) {
+    if (output.length === 0 || currentValue.sortOrder !== output[currentOutputIndex].SortOrder) {
       currentOutputIndex += 1;
       output.push({
         Timeslot: currentValue.timeslot,
+        SortOrder: currentValue.sortOrder,
         Sessions: [],
       });
     }
@@ -30,7 +31,11 @@ function groupSessionsByTimeslot(original: Session[]): ScheduleSlot[] {
   }, initialOutput);
 }
 
-function getSchedulePages(original: ScheduleSlot[], chunkSize: number): ScheduleSlot[][] {
+function filterPastScheduleSlots(scheduleSlots: ScheduleSlot[], selectedTimeslotOrder: number) {
+  return scheduleSlots.filter((scheduleSlot) => scheduleSlot.SortOrder >= selectedTimeslotOrder);
+}
+
+function paginateScheduleSlots(original: ScheduleSlot[], chunkSize: number): ScheduleSlot[][] {
   const returnArray = [];
 
   for (let i = 0; i < original.length; i += chunkSize) {
@@ -41,44 +46,13 @@ function getSchedulePages(original: ScheduleSlot[], chunkSize: number): Schedule
   return returnArray;
 }
 
-function getTimeslotOrder(timeslot: string): number {
-  switch (timeslot) {
-    case '08:00am - 09:00am':
-      return 1;
-    case '09:00am - 10:00am':
-      return 2;
-    case '10:00am - 11:00am':
-      return 3;
-    case '11:00am - 12:00pm':
-      return 4;
-    case '12:00pm - 01:00pm':
-      return 5;
-    case '01:00pm - 02:00pm':
-      return 6;
-    case '02:00pm - 03:00pm':
-      return 7;
-    case '03:00pm - 04:00pm':
-      return 8;
-    case '04:00pm - 05:00pm':
-      return 9;
-    default:
-      return 1;
-  }
-}
-
-function filterPassedScheduleSlots(scheduleSlots: ScheduleSlot[], selectedTimeslotOrder: number) {
-  return scheduleSlots.filter(
-    (scheduleSlot) => getTimeslotOrder(scheduleSlot.Timeslot) >= selectedTimeslotOrder
-  );
-}
-
 function generateSchedule(sessions: Session[], selectedTimeslotOrder: string): ScheduleSlot[][] {
   const scheduleSlots = groupSessionsByTimeslot(sessions);
-  const filteredScheduleSlots = filterPassedScheduleSlots(
+  const filteredScheduleSlots = filterPastScheduleSlots(
     scheduleSlots,
     parseInt(selectedTimeslotOrder)
   );
-  const schedulePages = getSchedulePages(filteredScheduleSlots, 3);
+  const schedulePages = paginateScheduleSlots(filteredScheduleSlots, 3);
 
   return schedulePages;
 }
