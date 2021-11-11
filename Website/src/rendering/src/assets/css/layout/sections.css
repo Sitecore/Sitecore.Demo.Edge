@@ -70,10 +70,7 @@
 }
 
 .section__content__p {
-  @apply pb-8 text-center text-black;
-
-  width: 40em;
-  line-height: 1.4;
+  @apply pb-8 text-center text-black sm:w-full md:w-2/3 lg:w-1/2 leading-normal;
 
   &--full {
     @apply max-w-full;
