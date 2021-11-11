@@ -19,12 +19,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\superuser
+    - ID: "6262be08-a560-4e73-b962-77b663054d61"
+      Hint: callToActionLink
+      Value: |
+        <link text="View all speakers" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
     - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
       Hint: NumberOfSpeakers
       Value: 6
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e42fdac5-d3fd-471e-b69f-c4f62b70ceaf"
+      Value: "2f7e1a08-6d08-455c-b5bc-eac0e231e4bb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -34,7 +38,7 @@ Languages:
       Value: "Catch up with some of the world&rsquo;s leading sports professionals, appearing in-person and online for exclusive interviews, workshops, and Q&amp;As."
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211111T212822Z
+      Value: 20211111T215822Z
     - ID: "ed5f032b-4ceb-4040-9384-edd6d02bbf21"
       Hint: title
       Value: "SPEAKER LINE-UP"

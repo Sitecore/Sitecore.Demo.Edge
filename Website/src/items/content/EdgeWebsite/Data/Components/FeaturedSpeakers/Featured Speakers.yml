@@ -21,20 +21,20 @@ Languages:
         sitecore\superuser
     - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
       Hint: NumberOfSpeakers
-      Value: 4
+      Value: 6
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "983263c9-fa0a-4769-a45b-2341d9e220a2"
+      Value: "b704fc60-9872-47e9-b451-0febaff166d9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "bf10b6af-c52a-460e-a67b-a0eac55ea63c"
       Hint: content
-      Value: test
+      Value: Our featured speakers showcase global industry leaders, offering insights into the technologies changing the sports world and our lives.
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211111T211158Z
+      Value: 20211111T225453Z
     - ID: "ed5f032b-4ceb-4040-9384-edd6d02bbf21"
       Hint: title
-      Value: test
+      Value: Featured speakers

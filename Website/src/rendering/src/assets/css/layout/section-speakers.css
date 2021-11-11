@@ -22,9 +22,10 @@
       @apply lg:grid-cols-3;
 
       .grid-item {
-        @apply mx-12 mb-8;
-        @apply md:mx-6 mb-6;
         @apply sm:mx-2 mb-2;
+        @apply md:mx-6 mb-4;
+        @apply lg:mx-8 mb-6;
+        @apply xl:mx-12 mb-8;
 
         .item-image {
           @apply bg-no-repeat;
