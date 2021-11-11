@@ -20,22 +20,33 @@ export type SpeakersGridProps = ComponentProps & {
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   const speakers =
     props.fields.data?.item?.children?.results &&
-    props.fields.data.item.children.results.map((speaker, index) => (
-      <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
-        <a className="section__speakers__grid__speaker">
-          <Image className="speaker__image" field={speaker.picture.jsonValue} alt={speaker.name} />
-          <Text className="speaker__name" tag="p" field={speaker.name} />
-          <Text className="speaker__role" tag="p" field={speaker.role} />
-          {speaker.featured?.value && (
-            <div className="speaker__featured" title="Featured">
-              <FontAwesomeIcon className="icon" icon={faStar} />
-            </div>
-          )}
-        </a>
-      </Link>
-    ));
+    props.fields.data.item.children.results
+      .filter((item) => !item.featured.value)
+      .map((speaker, index) => (
+        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
+          <a className="section__speakers__grid__speaker">
+            {/* <Image className="speaker__image" field={speaker.picture.jsonValue} alt={speaker.name} /> */}
+            <img
+              className="speaker__image"
+              src={
+                'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/4deed22efd2a4835b0d624db0ae3792f?v=1b14d29a'
+              }
+              alt={speaker.name.value}
+              width={265}
+              height={265}
+            />
+            <Text className="speaker__name" tag="p" field={speaker.name} />
+            <Text className="speaker__role" tag="p" field={speaker.role} />
+          </a>
+        </Link>
+      ));
 
-  return <div className="section__speakers__grid container">{speakers}</div>;
+  return (
+    <div className="section__speakers container">
+      <h2 className="section__content__title">Other event speakers</h2>
+      <div className="section__speakers__grid">{speakers}</div>
+    </div>
+  );
 };
 
 export default SpeakersGrid;

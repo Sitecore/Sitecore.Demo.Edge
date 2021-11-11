@@ -30,7 +30,7 @@
         .item-image {
           @apply bg-no-repeat;
 
-          background-color: orange;
+          background-color: rgba(255, 141, 0);
           background-image: url(../../img/background-element.svg);
         }
 
