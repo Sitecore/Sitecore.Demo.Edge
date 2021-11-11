@@ -1,4 +1,4 @@
-# PLAY! Summit Demo
+# PLAY! Summit Demo test
 
 This repository is used for the primary Sitecore DXP demo that uses:
 
