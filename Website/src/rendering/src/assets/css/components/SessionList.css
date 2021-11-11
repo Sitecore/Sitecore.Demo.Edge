@@ -7,6 +7,10 @@
     .info-col-left {
       @apply align-top text-center self-center uppercase p-5;
 
+      background-image: url('../../img/background-element.svg');
+      background-repeat: no-repeat;
+      background-position: bottom left;
+
       .session-info-ticket {
         @apply inline px-3 w-full border border-gray text-black;
       }
