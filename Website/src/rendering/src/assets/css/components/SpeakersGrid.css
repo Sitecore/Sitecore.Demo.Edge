@@ -1,13 +1,13 @@
 .section__speakers {
   .section__content__title {
-    @apply text-center text-blue;
+    @apply text-center text-blue normal-case;
   }
 
   .section__speakers__grid {
     @apply mx-auto grid grid-cols-1 gap-5;
     @apply sm:grid-cols-2;
     @apply md:grid-cols-3;
-    @apply lg:grid-cols-4;
+    @apply xl:grid-cols-4 gap-10;
 
     margin-top: 20px;
     margin-bottom: 40px;
@@ -15,10 +15,10 @@
     &__speaker {
       @apply box-border col-span-1 relative;
 
-      width: 100px;
+      /* width: 100px;
       min-width: 260px;
       padding: 10px;
-      margin: 10px;
+      margin: 10px; */
 
       &:hover img {
         box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
@@ -29,7 +29,7 @@
       }
 
       .speaker__image {
-        @apply w-full;
+        @apply w-full bg-no-repeat bg-cover;
 
         background-color: rgba(0, 110, 249);
         background-image: url(../../img/background-element.svg);
