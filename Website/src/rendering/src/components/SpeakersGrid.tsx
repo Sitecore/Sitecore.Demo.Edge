@@ -1,8 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
 export type SpeakersGridProps = ComponentProps & {

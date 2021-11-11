@@ -25,7 +25,7 @@ const speaker1 = {
     },
   },
   featured: {
-    value: true,
+    value: false,
   },
   role: {
     value: 'Speaker',
@@ -46,7 +46,7 @@ const speaker2 = {
     },
   },
   featured: {
-    value: true,
+    value: false,
   },
   role: {
     value: 'Speaker',
@@ -67,7 +67,7 @@ const speaker3 = {
     },
   },
   featured: {
-    value: true,
+    value: false,
   },
   role: {
     value: 'Speaker',

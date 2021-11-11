@@ -120,6 +120,11 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     data: {
+      source: {
+        title: { value: 'Featured speakers' },
+        content: { value: 'lorem inpus' },
+        numberOfSpeakers: { value: '6' },
+      },
       item: {
         children: {
           results: [speaker, speaker1, speaker2, speaker3, speaker4],

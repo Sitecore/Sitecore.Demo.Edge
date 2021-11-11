@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Field, LinkField, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 import React from 'react';
@@ -10,7 +10,7 @@ export type FeaturedSpeakersProps = ComponentProps & {
       source: {
         title: Field<string>;
         content: Field<string>;
-        callToActionLink: LinkField;
+        // callToActionLink: LinkField;
         numberOfSpeakers: Field<string>;
       };
       item: {
