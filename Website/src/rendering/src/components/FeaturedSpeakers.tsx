@@ -1,18 +1,17 @@
 import Link from 'next/link';
-import { Text, Image, Field, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, LinkField, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
+import React from 'react';
 
 export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
     data: {
       source: {
-        fields: {
-          title: Field<string>;
-          content: Field<string>;
-          callToActionLink: LinkField;
-          NumberOfSpeakers: string;
-        };
+        title: Field<string>;
+        content: Field<string>;
+        callToActionLink: LinkField;
+        numberOfSpeakers: Field<string>;
       };
       item: {
         children: {
@@ -27,9 +26,9 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
   const speakers = props.fields.data.item.children.results
     .filter((item) => item.featured.value)
     .sort()
-    //    .slice(0, parseInt(props.fields.data.source.fields.NumberOfSpeakers))
+    .slice(0, parseInt(props.fields.data.source.numberOfSpeakers.value))
     .map((speaker, index) => (
-      <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
+      <Link key={index} href={`/speakers/${speaker.itemName}`}>
         <a className="grid-item">
           <div className="item-image">
             <img
@@ -41,12 +40,12 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
               height={265}
             />
             {/* <Image
-        field={speaker.picture.jsonValue}
-        alt={speaker.name}
-        width={265}
-        height={265}
-        loading="lazy"
-      /> */}
+            field={speaker.picture.jsonValue}
+            alt={speaker.name}
+            width={265}
+            height={265}
+            loading="lazy"
+          /> */}
           </div>
           <div className="item-details">
             <Text tag="strong" field={speaker.name} />
@@ -55,14 +54,28 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
         </a>
       </Link>
     ));
-  console.log(props);
 
   return (
     <section className="section">
       <div className="section__content container featured-speakers">
+        {props.fields.data.source.title && (
+          <Text
+            tag="h2"
+            field={props.fields.data.source.title}
+            className="section__content__title"
+          />
+        )}
+        {props.fields.data.source.content && (
+          <RichText
+            tag="div"
+            field={props.fields.data.source.content}
+            className="section__content__p"
+          />
+        )}
         <div className="item-grid">
           <div className="grid-content">{speakers}</div>
         </div>
+        {/* TODO: Add Call to action here */}
       </div>
     </section>
   );
