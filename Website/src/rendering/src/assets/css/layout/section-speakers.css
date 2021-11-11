@@ -1,3 +1,32 @@
+.featured-speakers {
+  @apply bg-cover bg-center bg-no-repeat;
+
+  background: url(../../img/background-pattern-dark.svg);
+
+  .item-grid {
+    .grid-content {
+      @apply grid grid-cols-1;
+      @apply sm:grid-cols-2;
+      @apply lg:grid-cols-3;
+
+      .grid-item {
+        @apply mx-12 mb-8;
+
+        .item-image {
+          @apply bg-no-repeat;
+
+          background-color: orange;
+          background-image: url(../../img/background-element.svg);
+        }
+
+        .item-details {
+          @apply text-left text-white p-0;
+        }
+      }
+    }
+  }
+}
+
 .section__speakers {
   @apply bg-cover bg-center bg-no-repeat;
 

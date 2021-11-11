@@ -1,8 +1,8 @@
 ﻿---
-ID: "be567aca-7ee4-5063-b7f1-29ead100ba3a"
+ID: "4ec83342-656d-4cf7-a404-0f36df25128e"
 Parent: "50e74ac2-cc2c-51c1-883f-fc6e8ed07cb3"
 Template: "fdf43aad-c5d1-54e4-9909-59bfddc86689"
-Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers/Featured Speakers
+Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers/homepage Featured Speakers
 Languages:
 - Language: en
   Versions:
@@ -21,20 +21,20 @@ Languages:
         sitecore\superuser
     - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
       Hint: NumberOfSpeakers
-      Value: 4
+      Value: 6
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "983263c9-fa0a-4769-a45b-2341d9e220a2"
+      Value: "e42fdac5-d3fd-471e-b69f-c4f62b70ceaf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "bf10b6af-c52a-460e-a67b-a0eac55ea63c"
       Hint: content
-      Value: test
+      Value: "Catch up with some of the world&rsquo;s leading sports professionals, appearing in-person and online for exclusive interviews, workshops, and Q&amp;As."
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211111T211158Z
+      Value: 20211111T212822Z
     - ID: "ed5f032b-4ceb-4040-9384-edd6d02bbf21"
       Hint: title
-      Value: test
+      Value: "SPEAKER LINE-UP"
