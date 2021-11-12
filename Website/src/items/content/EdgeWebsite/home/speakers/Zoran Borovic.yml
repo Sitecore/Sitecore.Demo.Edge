@@ -9,6 +9,10 @@ SharedFields:
   Value: ggk8_TmieEasLv2FRkdyFg
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Zoran Borovic
   Versions:
   - Version: 1
     Fields:
@@ -31,7 +35,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "76bed6b9-f730-4e0e-891a-fc55bbd93c18"
+      Value: "f175ceea-5128-470e-ad61-7556fd59ba8c"
+    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
+      Hint: Company
+      Value: Sitecore
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
       Value: "Meet a pro: Q&A with Zoran Borovic [Item not found]|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
@@ -51,7 +58,7 @@ Languages:
       Value: Fishing World Champion
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123610Z
+      Value: 20211112T204109Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Social Influencer
@@ -64,4 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35014" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35014/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/04ba746e8875430cadec0de9f2347b50?v=b379ae95" mediaid="" stylelabs-content-type="Image" alt="zoran-borovic-1000.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="49374" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49374/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/4deed22efd2a4835b0d624db0ae3792f?v=1b14d29a" mediaid="" stylelabs-content-type="Image" alt="Zoran Borovic - No background" height="5284" width="5283" />

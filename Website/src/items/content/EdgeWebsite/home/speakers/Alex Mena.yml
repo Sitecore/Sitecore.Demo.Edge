@@ -9,6 +9,10 @@ SharedFields:
   Value: 8Ky4Zk8WDUyVpjKC8khw2Q
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Alex Mena
   Versions:
   - Version: 1
     Fields:
@@ -31,13 +35,13 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1ddac5aa-60ee-4d98-b9ac-0262a01b0dec"
+      Value: "0de84f34-e6a3-4f83-8a63-25b466932578"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Solstice
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{2BA9C4D5-7935-4E84-A0A3-DF8623B1B73C}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
+      Value: "Diversity and inclusion: Real world examples [Item not found]|{2BA9C4D5-7935-4E84-A0A3-DF8623B1B73C}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -54,7 +58,7 @@ Languages:
       Value: International Sales Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123513Z
+      Value: 20211112T202459Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
@@ -67,4 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35011" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35011/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/1e5095d600aa4a3291d64168c19ce54f?v=d8a6f28c" mediaid="" stylelabs-content-type="Image" alt="alex-mena-1000.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="49198" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49198/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/3625d965b17b414c8701baabd2061e38?v=2e088ca3" mediaid="" stylelabs-content-type="Image" alt="Alex Mena - No background" height="3358" width="3358" />

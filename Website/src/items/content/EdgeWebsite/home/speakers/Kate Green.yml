@@ -9,6 +9,10 @@ SharedFields:
   Value: "2TFe-9qTCUqwHT0GJQuMTw"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kate Green
   Versions:
   - Version: 1
     Fields:
@@ -28,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b177d965-52de-40b4-9be7-431ae123e557"
+      Value: "dc806939-291e-4b48-863f-d95f7b64ab5b"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Final Whistle
@@ -48,7 +52,7 @@ Languages:
       Value: Creative Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123846Z
+      Value: 20211112T205115Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sponsor
@@ -61,4 +65,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="31910" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31910/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/58c0d27e843043f38808892b116cf7b4?v=3aa6c247" mediaid="" stylelabs-content-type="Image" alt="kate-green.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="50172" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/50172/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a30f40276cfc45889c371fef01026a33?v=48b6aba1" mediaid="" stylelabs-content-type="Image" alt="Kate Green - No background" height="4272" width="4272" />

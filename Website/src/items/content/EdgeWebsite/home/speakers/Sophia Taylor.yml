@@ -9,6 +9,10 @@ SharedFields:
   Value: "B-4WIrYfBEKTqrbgQzdkPg"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Sophia Taylor
   Versions:
   - Version: 1
     Fields:
@@ -28,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "42cf4077-5f2d-4802-b4fd-946345d1fd87"
+      Value: "8ab4fa6c-0e27-4a2a-bc24-dbe6d7e038b4"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: ACE
@@ -51,7 +55,7 @@ Languages:
       Value: Public Relations Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124038Z
+      Value: 20211112T205412Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru
@@ -64,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="31976" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31976/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/e7e42833ab2843a88c098037b5740452?v=3f6f45e3" mediaid="" stylelabs-content-type="Image" alt="sophia-taylor.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="49241" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49241/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/2ff534ff94604f7ca26688b1b8952f38?v=1ca08199" mediaid="" stylelabs-content-type="Image" alt="Sophia Taylor - No background" height="3923" width="3923" />

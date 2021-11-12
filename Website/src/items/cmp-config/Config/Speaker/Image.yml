@@ -9,7 +9,7 @@ SharedFields:
   Value: 200
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Image
+  Value: SpeakerToMasterAsset
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{F5EB0181-F3AB-4EDB-A8F2-630E72F555D9}"

@@ -9,6 +9,10 @@ SharedFields:
   Value: 9Xfs1oR2gkCqau_X6uX8JQ
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Chris Williams
   Versions:
   - Version: 1
     Fields:
@@ -31,7 +35,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4540f67b-7b4d-423f-974b-e9856e130838"
+      Value: "552a0a9d-85aa-4245-ab64-b86fc54d0cf6"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
       Value: "Meet a pro: Q&A with Chris Williams [Item not found]|{39226DC6-0A62-459B-9299-54EC88AF6935}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}"
@@ -51,7 +55,7 @@ Languages:
       Value: Professional Cyclist
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123605Z
+      Value: 20211112T211120Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Athlete
@@ -64,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="31974" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31974/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/8b26400441374ea7a15301a6f01d70c1?v=ecc627d8" mediaid="" stylelabs-content-type="Image" alt="speaker-chris-williams-background.jpg" height="940" width="2000" />
+        <image stylelabs-content-id="49399" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49399/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/62319d1c1f084b888c2bab8d898ea71c?v=c2d61917" mediaid="" stylelabs-content-type="Image" alt="Chris Williams - No background" height="3785" width="3785" />
