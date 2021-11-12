@@ -66,15 +66,35 @@ class Navigation extends React.Component<unknown, NavigationState> {
       <DayTimeContext.Consumer>
         {({ dayTime, setDayTime }) => (
           <div className="menu">
-            <div className="menu-button">+ </div>
-            <div className="menu-content space-y-6">
-              <div>
-                <h2>Current Day: {dayTime.day}</h2>
-                <h2>Current Time: {dayTime.time}</h2>
-              </div>
-              <div>
+            <div className="menu-button">+</div>
+            <div className="menu-content">
+              <img src="p_logo_transparent.png" width="50" />
+              <ul>
+                {this.state.venues.map((venue, index) => (
+                  <li className="list-item venue-item" key={index}>
+                    <Link href={'/venues/' + venue.id}>
+                      <a className="item-link venue-link">{venue.name}</a>
+                    </Link>
+                    <ul className="room-list">
+                      {venue.rooms.results.map((room, i) => {
+                        return (
+                          <li className="list-item room-item" key={i}>
+                            <Link href={'/rooms/' + room.id}>
+                              <a className="item-link room-link">{room.name}</a>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+              <div className="menu-footer">
                 <div>
-                  <h2>Select Day and Time</h2>
+                  <h2>Current Day: {dayTime.day}</h2>
+                  <h2>Current Time: {dayTime.time}</h2>
+                </div>
+                <div>
                   <div>
                     <select value={this.state.day} onChange={this.handleDayChange.bind(this)}>
                       {this.state.days.map((day, index) => (
@@ -94,57 +114,8 @@ class Navigation extends React.Component<unknown, NavigationState> {
                         ))}
                     </select>
                   </div>
-                  <button
-                    onClick={this.setDayAndTime.bind(this, setDayTime)}
-                    className="bg-black text-white"
-                  >
-                    GO
-                  </button>
+                  <button onClick={this.setDayAndTime.bind(this, setDayTime)}>Set</button>
                 </div>
-              </div>
-              <div>
-                <h2 className="item-title">Days</h2>
-                <ul>
-                  {this.state.days.map((day, index) => (
-                    <li className="parent-link" key={index}>
-                      <Link href={'/schedule/' + day.sortOrder} passHref>
-                        <a className="item-link bg-black-light text-white">{day.taxonomyName}</a>
-                      </Link>
-                      <ul className="child-link">
-                        {this.state.times.map((ts, i) => {
-                          return (
-                            <li className="item-link bg-gray-light text-black" key={i}>
-                              {ts.taxonomyLabel['en-US']}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h2 className="item-title">Venues</h2>
-                <ul>
-                  {this.state.venues.map((venue, index) => (
-                    <li className="parent-link" key={index}>
-                      <Link href={'/venues/' + venue.id}>
-                        <a className="item-link bg-black-light text-white">{venue.name}</a>
-                      </Link>
-                      <ul className="child-link">
-                        {venue.rooms.results.map((room, i) => {
-                          return (
-                            <li key={i}>
-                              <Link href={'/rooms/' + room.id}>
-                                <a className="item-link bg-gray-light text-black">{room.name}</a>
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>

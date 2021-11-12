@@ -1,42 +1,41 @@
 .menu {
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  left: 0;
-  z-index: 50;
+  @apply absolute inline-block top-0 left-0 z-50;
 
   .menu-button {
     @apply absolute w-10 h-10 top-3 left-3 bg-black z-50 text-white text-3xl rounded-full mx-auto text-center;
   }
 
   .menu-content {
-    display: none;
+    @apply bg-black text-white h-screen z-50 mx-auto px-8 py-10 overflow-y-auto space-y-6 hidden;
+
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     width: 400px;
-    height: 100vh;
-    overflow-y: auto;
 
-    @apply bg-gray text-black z-50 mx-auto text-center px-8 py-10;
+    .list-item {
+      @apply w-full block;
 
-    .item-title {
-      @apply p-2 bg-black text-white;
-    }
-
-    .item-link {
-      @apply p-2 w-full block cursor-pointer;
-
-      &:hover {
-        @apply bg-gray-dark text-white;
+      .item-link {
+        @apply m-2 inline-block;
       }
     }
 
-    .parent-link {
-      .child-link {
-        display: none;
+    .venue-item {
+      @apply bg-white-light text-black-lightest;
+
+      .room-list {
+        @apply hidden;
+
+        .room-item {
+          @apply bg-black-lightest text-white;
+
+          .room-link {
+            @apply ml-10;
+          }
+        }
       }
 
-      &:hover .child-link {
-        display: block;
+      &:hover .room-list {
+        @apply block;
       }
     }
 
@@ -44,13 +43,27 @@
     button {
       @apply block p-2 w-full mt-1;
     }
+
+    select {
+      @apply text-black;
+    }
+
+    button {
+      @apply bg-yellow text-black font-bold uppercase;
+    }
+
+    .menu-footer {
+      @apply absolute bottom-0 left-0 w-full px-8 py-10;
+    }
   }
 
-  &:hover .menu-content {
-    display: block;
-  }
+  &:hover {
+    .menu-content {
+      @apply block;
+    }
 
-  &:hover .menu-button {
-    display: none;
+    .menu-button {
+      @apply hidden;
+    }
   }
 }
