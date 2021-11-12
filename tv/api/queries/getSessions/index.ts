@@ -13,7 +13,7 @@ query {
       name
       isPremium
 
-      sessionImage {
+    	sessionToMasterAsset {
         results {
           assetToPublicLink(first: 1) {
             results {
@@ -47,8 +47,8 @@ query {
         }
       }
 
-      dayToSession{
-        results{
+      dayToSession {
+        results {
           taxonomyName
           sortOrder
         }
@@ -57,7 +57,6 @@ query {
       sessionsTypeToSessions {
         taxonomyName
       }
-
     }
   }
 }
@@ -81,7 +80,7 @@ const parseSessionWithTimeSlot = function (
   session.id = sessionResult.id;
   session.name = sessionResult.name;
 
-  const asset = sessionResult.sessionImage.results[0]?.assetToPublicLink.results[0];
+  const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
   const relativeUrl = asset?.relativeUrl;
   const versionHash = asset?.versionHash;
 
