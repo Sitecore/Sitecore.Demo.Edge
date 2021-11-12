@@ -1,12 +1,10 @@
 import { fetchGraphQL } from '../..';
 import { DayResult, SchemaResponse, VenueResult } from '../../../interfaces/schema';
-import { SpeakerResult } from '../../../interfaces/speaker';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 
 export const getSchema = async (): Promise<{
   days: DayResult[];
   venues: VenueResult[];
-  speakers: SpeakerResult[];
   timeslots: TimeslotResult[];
 }> => {
   const schemaQuery = `
@@ -17,8 +15,8 @@ export const getSchema = async (): Promise<{
           sortOrder
         }
       }
-      allDemo_Timeslot{
-        results{
+      allDemo_Timeslot {
+        results {
           id
           sortOrder
           taxonomyLabel
@@ -36,26 +34,6 @@ export const getSchema = async (): Promise<{
           }
         }
       }
-      allDemo_Speaker(first: 30) {
-        results {
-          id
-          name
-          description
-          image {
-            results {
-              id
-              fileName
-              assetToPublicLink {
-                results {
-                  id
-                  relativeUrl
-                  versionHash
-                }
-              }
-            }
-          }
-        }
-      }
     }
   `;
 
@@ -64,7 +42,6 @@ export const getSchema = async (): Promise<{
       days: [] as DayResult[],
       timeslots: [] as TimeslotResult[],
       venues: [] as VenueResult[],
-      speakers: [] as SpeakerResult[],
     };
   }
 
@@ -73,12 +50,10 @@ export const getSchema = async (): Promise<{
   const days: DayResult[] = results.data.allDemo_Day.results;
   const timeslots: TimeslotResult[] = results.data.allDemo_Timeslot.results;
   const venues: VenueResult[] = results.data.allDemo_Venue.results;
-  const speakers: SpeakerResult[] = results.data.allDemo_Speaker.results;
 
   return {
     days: days.sort((a, b) => parseInt(a.sortOrder) - parseInt(b.sortOrder)),
     timeslots: timeslots.sort((a, b) => a.sortOrder - b.sortOrder),
     venues: venues.sort((c, d) => c.name.localeCompare(d.name)),
-    speakers: speakers.sort((e, f) => e.name.localeCompare(f.name)),
   };
 };
