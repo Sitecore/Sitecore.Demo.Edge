@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
@@ -16,6 +16,16 @@ export type SpeakersGridProps = ComponentProps & {
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
+  // TODO: remove this when the port number issue is fixed on content hub
+  props.fields.data.item.children.results.map((s) => {
+    if (s.picture.jsonValue.value) {
+      s.picture.jsonValue.value.src = s.picture.jsonValue.value.src?.replace(
+        'https://playsummit.sitecoresandbox.cloud',
+        'https://playsummit.sitecoresandbox.cloud:8443'
+      );
+    }
+  });
+
   const speakers =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results
@@ -23,15 +33,10 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
       .map((speaker, index) => (
         <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
           <a className="section__speakers__grid__speaker">
-            {/* <Image className="speaker__image" field={speaker.picture.jsonValue} alt={speaker.name} /> */}
-            <img
+            <Image
               className="speaker__image"
-              src={
-                'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/4deed22efd2a4835b0d624db0ae3792f?v=1b14d29a'
-              }
-              alt={speaker.name.value}
-              width={265}
-              height={265}
+              field={speaker.picture.jsonValue}
+              alt={speaker.name}
             />
             <Text className="speaker__name" tag="p" field={speaker.name} />
             <Text className="speaker__role" tag="p" field={speaker.role} />
