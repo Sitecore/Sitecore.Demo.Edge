@@ -2,8 +2,7 @@
   @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative min-h-full flex justify-center items-stretch flex-row;
 
   &.banner {
-    background-size: cover;
-    background-position: center;
+    @apply bg-cover bg-center;
   }
 
   &__container {
@@ -32,15 +31,11 @@
 
       .logo {
         @apply hidden;
-        @apply md:block;
-
-        img {
-          width: 240px;
-        }
+        @apply md:block md:w-1/2 lg:w-2/3;
       }
 
       .slogan {
-        @apply text-white uppercase pt-5 pb-2 font-normal text-2xl font-bold;
+        @apply text-white uppercase pt-5 pb-2 text-2xl font-bold;
       }
 
       .expo {
@@ -60,7 +55,7 @@
       }
 
       .subtitle {
-        @apply text-white py-2 text-lg text-orange-light;
+        @apply py-2 text-lg text-orange-light;
 
         line-height: 1.4;
       }

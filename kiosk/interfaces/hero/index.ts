@@ -1,45 +1,35 @@
 export interface HeroResult {
-  id: string;
   advertisement_Title: string;
   advertisement_Body: string;
   advertisement_Slogan: string;
   advertisement_Eyebrow: string;
-  content_Name: string;
   advertisement_Logo: Image;
   advertisement_Image: Image;
   advertisement_Background: Image;
 }
 
 export interface Image {
-  results: AssetResult[];
-}
-
-export interface HeroResults {
-  results: HeroResult[];
+  results: [
+    {
+      id: string;
+      fileName: string;
+      assetToPublicLink: {
+        results: [
+          {
+            id: string;
+            relativeUrl: string;
+            versionHash: string;
+          }
+        ];
+      };
+    }
+  ];
 }
 
 export interface HeroResponse {
   data: {
-    allM_Content_Advertisement: HeroResults;
+    allM_Content_Advertisement: {
+      results: HeroResult[];
+    };
   };
-}
-
-export interface PublicLink {
-  id: string;
-  relativeUrl: string;
-  versionHash: string;
-}
-
-export interface AssetToPublicLink {
-  results: PublicLink[];
-}
-
-export interface AssetResult {
-  id: string;
-  fileName: string;
-  assetToPublicLink: AssetToPublicLink;
-}
-
-export interface Image {
-  results: AssetResult[];
 }

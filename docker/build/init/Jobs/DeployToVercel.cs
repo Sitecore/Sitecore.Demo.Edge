@@ -51,11 +51,18 @@ namespace Sitecore.Demo.Init.Jobs
               Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
               return;
             }
-      
+
             var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKey))
             {
                 Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_API_KEY is not configured");
+                return;
+            }
+
+            var cmpKioskHeroId = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_HERO_CONTENT_ID");
+            if (string.IsNullOrEmpty(cmpKioskHeroId))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, NEXT_PUBLIC_CMP_HERO_CONTENT_ID is not configured");
                 return;
             }
 
@@ -178,6 +185,13 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
+
+            cmd.Run(
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cmpKioskHeroId}\" | vercel env add NEXT_PUBLIC_CMP_HERO_CONTENT_ID production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");

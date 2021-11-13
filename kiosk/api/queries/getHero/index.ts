@@ -1,5 +1,5 @@
 import { fetchGraphQL } from '../..';
-import { HeroResponse, HeroResult, Image } from '../../../interfaces/hero';
+import { HeroResponse, HeroResult } from '../../../interfaces/hero';
 
 export const getHeroes = async (): Promise<{
   heroes: HeroResult[];
@@ -10,12 +10,10 @@ export const getHeroes = async (): Promise<{
     query {
       allM_Content_Advertisement(where:{id_eq:"${id}"}) {
         results {
-          id
           advertisement_Title
           advertisement_Body
           advertisement_Slogan
           advertisement_Eyebrow
-          content_Name
           advertisement_Logo{
             results{
                assetToPublicLink(first: 1) {
@@ -28,17 +26,6 @@ export const getHeroes = async (): Promise<{
             }
           }
           advertisement_Image: cmpContentToMasterLinkedAsset{
-            results{
-               assetToPublicLink(first: 1) {
-                results {
-                  id
-                  relativeUrl
-                  versionHash
-                }
-              }
-            }
-          }
-          advertisement_Background{
             results{
                assetToPublicLink(first: 1) {
                 results {
@@ -68,41 +55,7 @@ export const getHeroes = async (): Promise<{
 
 export const getHero = async (): Promise<{ hero: HeroResult }> => {
   const { heroes } = await getHeroes();
-  const dummyImage: Image = {
-    results: [
-      {
-        id: 'dummy',
-        fileName: 'dummy.jpg',
-        assetToPublicLink: {
-          results: [
-            {
-              id: 'dummy',
-              relativeUrl: 'b1a88e26f6a54a9ea64a5f759c5eea84',
-              versionHash: '5aea50fb',
-            },
-          ],
-        },
-      },
-    ],
+  return {
+    hero: heroes[0],
   };
-
-  if (heroes?.length > 0) {
-    return {
-      hero: heroes[0],
-    };
-  } else {
-    return {
-      hero: {
-        id: 'dummy',
-        content_Name: 'dummy',
-        advertisement_Slogan: 'READY | STEADY | PLAY!',
-        advertisement_Eyebrow: 'Sports and Recreation Expo',
-        advertisement_Title: 'RAISE YOUR GAME',
-        advertisement_Body: 'Join us in person or online for the fifth annual PLAY! Summit.',
-        advertisement_Logo: dummyImage,
-        advertisement_Image: dummyImage,
-        advertisement_Background: dummyImage,
-      },
-    };
-  }
 };
