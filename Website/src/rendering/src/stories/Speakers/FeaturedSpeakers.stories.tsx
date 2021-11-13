@@ -122,8 +122,23 @@ Default.args = {
     data: {
       source: {
         title: { value: 'Featured speakers' },
-        content: { value: 'lorem inpus' },
+        content: { value: 'lorem ipsum' },
         numberOfSpeakers: { value: '6' },
+        callToActionLink: {
+          jsonValue: {
+            value: {
+              href: '/speakers',
+              text: 'View all speakers',
+              anchor: '',
+              linktype: 'internal',
+              class: '',
+              title: '',
+              target: '',
+              querystring: '',
+              id: '',
+            },
+          },
+        },
       },
       item: {
         children: {
