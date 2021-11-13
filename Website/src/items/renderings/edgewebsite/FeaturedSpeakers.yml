@@ -28,17 +28,14 @@ SharedFields:
           value
         }
         callToActionLink: field(name: "CallToActionLink") {
-          ... on LinkField {
-            text
-            url
-          }
+          jsonValue
         }
         numberOfSpeakers: field(name: "NumberOfSpeakers") {
           value
         }
       }
       item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
-        children(hasLayout: true) {
+        children(hasLayout: true, first: 20) {
           results {
             ... on Speaker {
               itemName: name
