@@ -1,8 +1,7 @@
-import { Text, Field, RichText, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentWithChildrenProps } from 'lib/component-props';
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, RichText, ImageField, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
 
-export type HeroProps = ComponentWithChildrenProps & {
+export type HeroProps = ComponentProps & {
   fields: {
     Hero: ImageField;
     Slogan: Field<string>;
@@ -34,7 +33,7 @@ const HeroSection = (props: HeroProps): JSX.Element => {
               <RichText field={props.fields.Body} />
             </p>
           </div>
-          <Placeholder name="jss-summit-hero-cta" rendering={props.rendering} />
+          <Placeholder name="jss-hero-section-content" rendering={props.rendering} />
         </div>
       </div>
     </section>

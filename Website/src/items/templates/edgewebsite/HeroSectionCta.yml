@@ -12,7 +12,7 @@ SharedFields:
   Value: 2300
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{AA7C2358-4A72-4AD3-89B4-DDE4420B3162}"
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -31,11 +31,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2e510eb3-7912-4950-8214-2cebe65d6c07"
+      Value: "42f58e07-901f-441e-bd9c-20e4a8838d1f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211105T120715Z
+      Value: 20211115T164501Z
