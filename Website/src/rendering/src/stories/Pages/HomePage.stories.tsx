@@ -41,7 +41,7 @@ const heroProps = {
   },
   rendering: {
     placeholders: {
-      'jss-summit-hero-cta': [
+      'jss-hero-section-content': [
         {
           uid: '04d6b23e-6ce3-51a1-9c9c-4cd56b29b6aa',
           componentName: 'HeroSectionCta',
