@@ -9,12 +9,16 @@ SharedFields:
   Value: eGM7KkkM4kixUEBbZRawDw
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Room 101
   Versions:
   - Version: 1
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "Meet a pro: Q&A with Chris Williams [Item not found]|{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
+      Value: "{F378DF03-E5E2-4D77-B0F6-FA59C64BAECB}|{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 40

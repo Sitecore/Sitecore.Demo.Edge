@@ -9,6 +9,10 @@ SharedFields:
   Value: "kPkhuVRenkK_rIy-otWuvg"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Closing Keynote
   Versions:
   - Version: 1
     Fields:
@@ -31,7 +35,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="36356" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36356/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/746b9fa62b6e408e993371ccb2e0d58a?v=68fa852f" mediaid="" stylelabs-content-type="Image" alt="satellite-conference-center-1.jpg" height="2164" width="4000" />
+        <image stylelabs-content-id="36356" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36356/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/746b9fa62b6e408e993371ccb2e0d58a?v=68fa852f" mediaid="" stylelabs-content-type="Image" alt="Satellite conference center 1" height="2164" width="4000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"

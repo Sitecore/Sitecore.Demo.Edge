@@ -9,12 +9,16 @@ SharedFields:
   Value: "TDC-HKkXykq6Ckjc389Qfw"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Keynote Stage
   Versions:
   - Version: 1
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
+      Value: "{5D1BB312-5D41-411D-B3F8-01AA35723E62}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 1000
@@ -39,7 +43,7 @@ Languages:
       Value: "2e8ca38e-1467-4f6e-ab48-9f48ebe76889"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
-      Value: "Keynote Stage - Main Conference Center"
+      Value: Keynote Stage
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
