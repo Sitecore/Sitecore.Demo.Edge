@@ -68,7 +68,9 @@ class Navigation extends React.Component<unknown, NavigationState> {
           <div className="menu">
             <div className="menu-button">+</div>
             <div className="menu-content">
-              <img src="p_logo_transparent.png" width="50" />
+              {/* TODO: Replace the image with the proper one */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="p_logo_transparent.png" width="50" alt="PLAY! Summit logo" />
               <ul>
                 {this.state.venues.map((venue, index) => (
                   <li className="list-item venue-item" key={index}>
