@@ -36,6 +36,14 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
   const premiumSessionTitle = props.fields.Premium.value ? 'premium' : '';
 
+  //TODO: remove block after port number issue is fixed
+  if (props.fields.Image.value) {
+    props.fields.Image.value.src = props.fields.Image.value.src?.replace(
+      'https://playsummit.sitecoresandbox.cloud',
+      'https://playsummit.sitecoresandbox.cloud:8443'
+    );
+  }
+
   const speakers = props.fields.Speakers && props.fields.Speakers.length > 0 && (
     <div className="sidebar-list sidebar-list__speaker">
       {props.fields.Speakers.map((speaker, index) => (
