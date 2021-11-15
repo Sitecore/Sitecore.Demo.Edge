@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import HeroSectionCta, { HeroCtaProps } from '../../components/HeroSectionCta';
+import HeroSectionCta, { HeroSectionCtaProps } from '../../components/HeroSectionCta';
 
 export default {
   title: 'Components/Sections/HeroSectionCta',
@@ -22,4 +21,4 @@ Default.args = {
       },
     },
   },
-} as HeroCtaProps;
+} as HeroSectionCtaProps;
