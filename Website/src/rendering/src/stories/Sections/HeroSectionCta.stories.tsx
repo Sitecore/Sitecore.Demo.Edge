@@ -7,7 +7,7 @@ export default {
   component: HeroSectionCta,
 } as ComponentMeta<typeof HeroSectionCta>;
 
-const Template: ComponentStory<typeof HeroSectionCta> = (args: HeroCtaProps) => (
+const Template: ComponentStory<typeof HeroSectionCta> = (args: HeroSectionCtaProps) => (
   <HeroSectionCta {...args} />
 );
 
