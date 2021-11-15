@@ -1,5 +1,5 @@
 import { fetchGraphQL } from '../..';
-import { HeroResponse, HeroResult } from '../../../interfaces/hero';
+import { HeroResponse, HeroResult, Image } from '../../../interfaces/hero';
 
 export const getHeroes = async (): Promise<{
   heroes: HeroResult[];
@@ -55,7 +55,39 @@ export const getHeroes = async (): Promise<{
 
 export const getHero = async (): Promise<{ hero: HeroResult }> => {
   const { heroes } = await getHeroes();
-  return {
-    hero: heroes[0],
+  const dummyImage: Image = {
+    results: [
+      {
+        id: 'dummy',
+        fileName: 'dummy.jpg',
+        assetToPublicLink: {
+          results: [
+            {
+              id: 'dummy',
+              relativeUrl: '',
+              versionHash: '',
+            },
+          ],
+        },
+      },
+    ],
   };
+
+  if (heroes?.length > 0) {
+    return {
+      hero: heroes[0],
+    };
+  } else {
+    return {
+      hero: {
+        advertisement_Slogan: '',
+        advertisement_Eyebrow: '',
+        advertisement_Title: '',
+        advertisement_Body: '',
+        advertisement_Logo: dummyImage,
+        advertisement_Image: dummyImage,
+        advertisement_Background: dummyImage,
+      },
+    };
+  }
 };
