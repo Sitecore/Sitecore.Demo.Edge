@@ -88,43 +88,48 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
       </Head>
 
       <section className="information-page-hero">
-        <div className="content flex">
-          <div
-            className="image-container bg-cover bg-gradient-to-l from-black-lightest to-white-light bg-center flex-1"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(60, 60, 60, 0) 70%, rgba(0, 0, 0, 1) 100%), url(' +
-                props.fields.Image.value?.src +
-                ')',
-            }}
-          ></div>
-          <div className="content-container">
+        <div
+          className="background-container"
+          style={{
+            backgroundImage: 'url(' + props.fields.Image.value?.src + ')',
+          }}
+        >
+          <div className="content">
             <div
-              className={
-                props.fields.Premium.value
-                  ? 'container-content-text premium'
-                  : 'container-content-text'
-              }
-            >
-              <div>
-                <p className="title">
-                  Explore the <span className="information-type">{premiumSessionTitle}</span>{' '}
-                  session:
-                </p>
-                <h1 className="name">
-                  <Text field={props.fields.Name} />
-                </h1>
-              </div>
-              <div>
-                <InfoText Icon={faDoorOpen}>
-                  <Text tag="span" field={props.fields.Rooms[0].fields.Name} />
-                </InfoText>
-                <InfoText Icon={faCalendar}>
-                  <span>{getSessionDays(props.fields.Day)}</span>
-                </InfoText>
-                <InfoText Icon={faClock}>
-                  <span>{getSessionTime(props.fields.Timeslots)}</span>
-                </InfoText>
+              className="image-container bg-cover  bg-center flex-1 min-h-full"
+              style={{
+                background:
+                  'linear-gradient(to right, rgba(60, 60, 60, 0) 70%, rgba(0, 0, 0, 1) 100%)',
+              }}
+            ></div>
+            <div className="content-container">
+              <div
+                className={
+                  props.fields.Premium.value
+                    ? 'container-content-text premium'
+                    : 'container-content-text'
+                }
+              >
+                <div>
+                  <p className="title">
+                    Explore the <span className="information-type">{premiumSessionTitle}</span>{' '}
+                    session:
+                  </p>
+                  <h1 className="name">
+                    <Text field={props.fields.Name} />
+                  </h1>
+                </div>
+                <div>
+                  <InfoText Icon={faDoorOpen}>
+                    <Text tag="span" field={props.fields.Rooms[0].fields.Name} />
+                  </InfoText>
+                  <InfoText Icon={faCalendar}>
+                    <span>{getSessionDays(props.fields.Day)}</span>
+                  </InfoText>
+                  <InfoText Icon={faClock}>
+                    <span>{getSessionTime(props.fields.Timeslots)}</span>
+                  </InfoText>
+                </div>
               </div>
             </div>
           </div>

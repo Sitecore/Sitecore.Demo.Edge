@@ -1,6 +1,6 @@
 .information-page-hero {
   @apply m-0 bg-white-light relative;
-  @apply md:h-60;
+  @apply md:h-64;
 
   @screen md {
     /*
@@ -11,13 +11,17 @@
     background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(35, 35, 35, 1) 50%);
   }
 
+  .background-container {
+    @apply flex bg-cover bg-center h-full;
+  }
+
   .content {
     @apply flex flex-col items-center justify-between box-border overflow-hidden h-full w-full px-0;
     @apply md:flex-row md:px-6;
     @apply lg:container lg:mx-auto lg:pr-4;
 
     .image-container {
-      @apply flex items-center max-h-60 bg-white-light;
+      @apply flex items-center h-full bg-white-light;
       @apply md:h-full;
 
       img {
