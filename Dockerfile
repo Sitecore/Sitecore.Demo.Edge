@@ -50,3 +50,4 @@ COPY --from=builder /build/deploy  ./sitecore/
 COPY Website/src/ ./src
 COPY tv/ ./src/tv
 COPY kiosk/ ./src/kiosk
+COPY billboard/ ./src/billboard
