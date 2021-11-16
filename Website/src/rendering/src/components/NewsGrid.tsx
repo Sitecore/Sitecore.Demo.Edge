@@ -18,11 +18,11 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
       .reverse()
       .slice(0, 4)
       .map((news, index) => (
-        <div
-          key={index}
-          className="section__news__grid__news__item"
-          style={{ backgroundImage: 'url(' + news.fields.Image.value?.src + ')' }}
-        >
+        <div key={index} className="section__news__grid__news__item">
+          <div
+            className="section__news__grid__news__image"
+            style={{ backgroundImage: 'url(' + news.fields.Image.value?.src + ')' }}
+          ></div>
           <Link href={'/news/' + news.name} passHref>
             <a>{news.fields.Title.value}</a>
           </Link>
