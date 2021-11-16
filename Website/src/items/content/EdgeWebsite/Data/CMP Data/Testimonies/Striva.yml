@@ -23,6 +23,9 @@ Languages:
     - ID: "30de01d7-233e-42ac-bb14-751e9d60b1cd"
       Hint: Provider
       Value: Striva
+    - ID: "32fcc3c3-e6bb-4376-8bd8-bddb62fedb57"
+      Hint: LogoTransformation
+      Value: profile
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,7 +36,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "38b28323-85a7-4cde-ba20-3cefbe516fb2"
+      Value: "0dc74ba1-a40f-46c8-bd22-e03c62459d62"
     - ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
       Hint: Logo
       Value: |
@@ -44,4 +47,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210731T030205Z
+      Value: 20211116T174902Z

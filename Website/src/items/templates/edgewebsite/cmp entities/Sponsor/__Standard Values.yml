@@ -47,6 +47,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "1f1be085-d547-46cc-a0ab-85d5c9456ac6"
+      Hint: LogoTransformation
+      Value: small
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T161122Z
@@ -61,13 +64,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
+      Hint: Name
+      Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f421ad34-e111-43ab-908b-533cfff7175c"
+      Value: "76736f24-dfc3-4c06-9277-0cda3b8d6887"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T172410Z
+      Value: 20211116T174702Z

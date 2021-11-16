@@ -5,6 +5,7 @@ using Sitecore.LayoutService.Serialization;
 using Sitecore.LayoutService.Serialization.FieldSerializers;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
+using Sitecore.Data.Items;
 
 namespace Sitecore.Demo.Edge.Website.FieldSerializer
 {
@@ -18,7 +19,7 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
         {
         }
 
-        protected override void WriteValue(Field field, JsonTextWriter writer) => this.WriteImageObject(this.ParseRenderedImage(this.GetRenderedValue(field), field.Source), field, writer);
+        protected override void WriteValue(Field field, JsonTextWriter writer) => this.WriteImageObject(this.ParseRenderedImage(this.GetRenderedValue(field), field), field, writer);
 
         protected override void WriteRenderedValue(Field field, JsonTextWriter writer)
         {
@@ -33,28 +34,47 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
             return this._renderedValue;
         }
 
-        protected virtual IDictionary<string, string> ParseRenderedImage(string renderedField, string sourceValue)
+        protected virtual IDictionary<string, string> ParseRenderedImage(string renderedField, Field field)
         {
-            Dictionary<string, string> dictionary = new Dictionary<string, string>();
-            HtmlDocument htmlDocument = new HtmlDocument();
-            htmlDocument.LoadHtml(renderedField);
-            if (htmlDocument.DocumentNode == null || !htmlDocument.DocumentNode.HasChildNodes)
-                return (IDictionary<string, string>)dictionary;
-            HtmlNode htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//img");
-            if (htmlNode == null)
+            string sourceValue = "web";
+            Item item = field.Item;
+            string fieldName = field.Name + "Transformation";
+            if (item?.Fields[fieldName] != null)
             {
-                htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//image");
-                if (htmlNode == null)
+                sourceValue = item.Fields[fieldName].Value;
+            }
+
+            try
+            {
+                Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                HtmlDocument htmlDocument = new HtmlDocument();
+                htmlDocument.LoadHtml(renderedField);
+                if (htmlDocument.DocumentNode == null || !htmlDocument.DocumentNode.HasChildNodes)
                     return (IDictionary<string, string>)dictionary;
+                HtmlNode htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//img");
+                if (htmlNode == null)
+                {
+                    htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//image");
+                    if (htmlNode == null)
+                        return (IDictionary<string, string>)dictionary;
+                }
+
+                foreach (HtmlAttribute attribute in (IEnumerable<HtmlAttribute>)htmlNode.Attributes)
+                {
+                    string transformationValue = (attribute.Name == "src" && renderedField.Contains("stylelabs-content-id") && !string.IsNullOrWhiteSpace(sourceValue)) ? "&t=" + sourceValue : "";
+
+                    dictionary[attribute.Name] = HttpUtility.HtmlDecode(attribute.Value + transformationValue);
+
+                }
+
+                return (IDictionary<string, string>)dictionary;
             }
-            foreach (HtmlAttribute attribute in (IEnumerable<HtmlAttribute>)htmlNode.Attributes)
+            catch
             {
-                string transformationValue = (attribute.Name == "src" && renderedField.Contains("stylelabs-content-id") && !string.IsNullOrWhiteSpace(sourceValue)) ? "&t=" + sourceValue : "";
-
-                dictionary[attribute.Name] = HttpUtility.HtmlDecode(attribute.Value + transformationValue);
 
             }
-            return (IDictionary<string, string>)dictionary;
+
+            return null;
         }
 
         protected virtual void WriteImageObject(

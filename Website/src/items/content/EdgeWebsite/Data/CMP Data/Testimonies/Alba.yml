@@ -23,6 +23,9 @@ Languages:
     - ID: "30de01d7-233e-42ac-bb14-751e9d60b1cd"
       Hint: Provider
       Value: Alba
+    - ID: "32fcc3c3-e6bb-4376-8bd8-bddb62fedb57"
+      Hint: LogoTransformation
+      Value: profile
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -33,15 +36,15 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4000c87f-b106-42a5-b135-ea35b776f13f"
+      Value: "85203702-a7ae-41ef-9b52-513ede880168"
     - ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="35890" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35890/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f380beecb80043c3849830195bb9139e?v=930ff2bc" mediaid="" stylelabs-content-type="Image" alt="Alba.jpg" height="3125" width="3125" />
+        <image stylelabs-content-id="35904" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35904/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/949c003d42af49be962cd99f31eb3efd?v=f6979300" mediaid="" stylelabs-content-type="Image" alt="Striva.jpg" height="3125" width="3125" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210731T030111Z
+      Value: 20211116T174907Z
