@@ -1,0 +1,54 @@
+﻿---
+ID: "b2dbdba0-bbac-4160-a97d-16e7166a0d05"
+Parent: "6c003c60-1b9a-5e5a-a5bf-93cc18b8c6b9"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: /sitecore/content/EdgeWebsite/Data/Components/Section/Terms of use Content
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Terms of use
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210615T142052Z
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: |
+        <p>These Terms of Use apply to the Sitecore demo websites and all other Sitecore owned and/or operated sites, including secure areas of these sites (collectively, &ldquo;Sites&rdquo;).
+        </p>
+        <p>
+        Some areas of the Sites, or Content provided on or through the Sites, may have additional rules, guidelines, license agreements, user agreements, or other terms and conditions that apply to your access to or use of that area of the Sites or that specific Content (including terms and conditions applicable to a corporation or other organization and its users) (collectively &ldquo;Additional Terms&rdquo;). The Additional Terms are hereby incorporated by reference into these Terms of Use, and if there is a conflict or inconsistency between these Terms of Use and the Additional Terms for a specific area of the Sites or for specific Content, the Additional Terms will take precedence with respect to the subject matter of such Additional Terms.
+        </p>
+        <p>
+        You represent and warrant that any information that you provide in connection with your use of the Sites is and will remain true, accurate, and complete, and that you will maintain and update such information regularly. You agree that if any information that you provide is or becomes false, inaccurate, obsolete, or incomplete, or infringes trademark or copyright laws, Sitecore may terminate your use of the Sites.
+        </p>
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: 
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "75b43458-95a2-489f-8a00-3ba394dec34a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: "left-full"
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: light
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211116T225055Z
