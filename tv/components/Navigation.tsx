@@ -81,11 +81,17 @@ const Navigation = (): JSX.Element => {
   }
 
   function handleDayChange(e: ChangeEvent<HTMLSelectElement>) {
-    selectedDay.current = e.target.value;
+    const selection = e.target.value;
+    if (selection !== '-1') {
+      selectedDay.current = selection;
+    }
   }
 
   function handleTimeChange(e: ChangeEvent<HTMLSelectElement>) {
-    selectedTime.current = e.target.value;
+    const selection = e.target.value;
+    if (selection !== '-1') {
+      selectedTime.current = selection;
+    }
   }
 
   function setDayAndTime() {
