@@ -9,17 +9,15 @@ const Venue = (props: VenueProps): JSX.Element => {
   return (
     <>
       {props.venue.rooms && props.venue.rooms.results.length > 0 && (
-        <>
-          <div className="roomList">
-            <div className="hall-title">{props.venue.name}</div>
-            <Link href={'/rooms/' + props.venue.rooms.results[0].id} passHref>
-              <div className="tv-one" />
-            </Link>
-            <Link href={'/rooms/' + props.venue.rooms.results[1].id} passHref>
-              <div className="tv-two" />
-            </Link>
-          </div>
-        </>
+        <div className="roomList">
+          <div className="hall-title">{props.venue.name}</div>
+          <Link href={'/rooms/' + props.venue.rooms.results[0].id} passHref>
+            <div className="tv-one" />
+          </Link>
+          <Link href={'/rooms/' + props.venue.rooms.results[1].id} passHref>
+            <div className="tv-two" />
+          </Link>
+        </div>
       )}
     </>
   );

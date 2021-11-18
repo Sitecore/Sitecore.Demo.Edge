@@ -32,9 +32,7 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
           </>
         )}
         {props.sessions.length === 0 && (
-          <>
-            <Image src={bg} layout="fill" objectFit="cover" alt="Sample" />
-          </>
+          <Image src={bg} layout="fill" objectFit="cover" alt="Sample" />
         )}
       </div>
       <div className="scheduled">
