@@ -1,139 +1,157 @@
+import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import React, { ChangeEvent } from 'react';
+import Router from 'next/router';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
-import {
-  dayDefaultValue,
-  DayTimeContext,
-  SetDayTimeFunction,
-  timeDefaultValue,
-} from '../contexts/DayTimeContext';
+import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
 
-interface NavigationState {
+type NavigationState = {
   days: DayResult[];
   times: TimeslotResult[];
   venues: VenueResult[];
-  day: string;
-  time: string;
-}
+};
 
-class Navigation extends React.Component<unknown, NavigationState> {
-  state: Readonly<NavigationState> = {
-    days: [],
-    times: [],
-    venues: [],
-    day: '',
-    time: '',
-  };
+const defaultNavigationState: NavigationState = {
+  days: [],
+  times: [],
+  venues: [],
+};
 
-  constructor(props: unknown) {
-    super(props);
-    this.state = {
-      days: [],
-      times: [],
-      venues: [],
-      day: dayDefaultValue,
-      time: timeDefaultValue,
-    };
-  }
+const Navigation = (): JSX.Element => {
+  const dayTimeContext = useContext(DayTimeContext);
+  const selectedDay = useRef(dayDefaultValue);
+  const selectedTime = useRef(timeDefaultValue);
+  const isSchemaFetched = useRef(false);
+  const [schema, setSchema] = useState(defaultNavigationState);
 
-  componentDidMount() {
-    getSchema().then((schema) => {
-      this.setState({
-        days: schema.days,
-        times: schema.timeslots,
-        venues: schema.venues,
+  useEffect(() => {
+    if (!isSchemaFetched.current) {
+      getSchema().then((schema) => {
+        isSchemaFetched.current = true;
+
+        setSchema({
+          days: schema.days,
+          times: schema.timeslots.map((timeslot) => {
+            return {
+              ...timeslot,
+              taxonomyLabel: {
+                'en-US': timeslot.taxonomyLabel['en-US']
+                  .slice(0, 7)
+                  .replace('am', ' AM')
+                  .replace('pm', ' PM'),
+              },
+            };
+          }),
+          venues: schema.venues,
+        });
       });
-    });
+    }
+  });
+
+  function getCurrentDisplayDay() {
+    const filteredDays = schema.days.filter((day) => day.sortOrder == dayTimeContext.dayTime.day);
+
+    if (filteredDays.length > 0) {
+      return filteredDays[0].taxonomyName;
+    }
+
+    return '';
   }
 
-  handleDayChange(e: ChangeEvent<HTMLSelectElement>) {
-    this.setState({ day: e.target.value });
+  function getCurrentDisplayTime() {
+    const filteredTimes = schema.times.filter(
+      (time) => time.sortOrder === parseInt(dayTimeContext.dayTime.time)
+    );
+
+    if (filteredTimes.length > 0) {
+      return filteredTimes[0].taxonomyLabel['en-US'];
+    }
+
+    return '';
   }
 
-  handleTimeChange(e: ChangeEvent<HTMLSelectElement>) {
-    this.setState({ time: e.target.value });
-  }
-
-  handleRoomChange(e: ChangeEvent<HTMLSelectElement>) {
+  function handleRoomChange(e: ChangeEvent<HTMLSelectElement>) {
     const selectedRoomId = e.target.value;
     if (selectedRoomId !== '0') {
-      // TODO: Navigate to room (`/rooms/${selectedRoomId}`)
-      console.log(selectedRoomId);
+      Router.push(`/rooms/${selectedRoomId}`);
     }
   }
 
-  setDayAndTime(setDayTime: SetDayTimeFunction) {
-    setDayTime(this.state.day, this.state.time);
+  function handleDayChange(e: ChangeEvent<HTMLSelectElement>) {
+    selectedDay.current = e.target.value;
   }
 
-  render(): JSX.Element {
-    return (
-      <DayTimeContext.Consumer>
-        {({ dayTime, setDayTime }) => (
-          <div className="menu">
-            <div className="menu-button">+</div>
-            <div className="menu-content">
-              {/* TODO: Replace the image with the proper one */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="p_logo_transparent.png" width="50" alt="PLAY! Summit logo" />
-              <div className="menu-navigation">
-                {this.state.venues.map((venue, venueIndex) => (
-                  <div key={venueIndex}>
-                    <div className="navigation-venue">
-                      <Link href={`/venues/${venue.id}`}>
-                        <a>{venue.name}</a>
-                      </Link>
-                    </div>
-                    <select value="0" onChange={this.handleRoomChange.bind(this)}>
-                      <option value="0">Choose a room...</option>
-                      {venue.rooms.results.map((room, roomIndex) => (
-                        <option key={roomIndex} value={room.id}>
-                          {room.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+  function handleTimeChange(e: ChangeEvent<HTMLSelectElement>) {
+    selectedTime.current = e.target.value;
+  }
+
+  function setDayAndTime() {
+    dayTimeContext.setDayTime(selectedDay.current, selectedTime.current);
+  }
+
+  return (
+    <div className="menu">
+      <div className="menu-button">+</div>
+      <div className="menu-content">
+        <Link href="/">
+          <a>
+            {/* TODO: Replace the image with the proper one */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="p_logo_transparent.png" width="50" alt="PLAY! Summit logo" />
+          </a>
+        </Link>
+        <div className="menu-navigation">
+          {schema.venues.map((venue, venueIndex) => (
+            <div key={venueIndex}>
+              <div className="navigation-venue">
+                <Link href={`/venues/${venue.id}`}>
+                  <a>{venue.name}</a>
+                </Link>
+              </div>
+              <select value="0" onChange={handleRoomChange}>
+                <option value="0">Choose a room...</option>
+                {venue.rooms.results.map((room, roomIndex) => (
+                  <option key={roomIndex} value={room.id}>
+                    {room.name}
+                  </option>
                 ))}
-              </div>
-              <div className="menu-footer">
-                <div className="daytime-columns">
-                  <div className="daytime-column">
-                    <div className="daytime-current">Day {dayTime.day}</div>
-                    <select name="day" onChange={this.handleDayChange.bind(this)}>
-                      <option value="-1">Select day...</option>
-                      {this.state.days.map((day, index) => (
-                        <option key={index} value={day.sortOrder}>
-                          {day.taxonomyName}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="daytime-column">
-                    <div className="daytime-current">{dayTime.time}:00 AM</div>
-                    <select name="time" onChange={this.handleTimeChange.bind(this)}>
-                      <option value="-1">Select time...</option>
-                      {this.state.times.length > 0 &&
-                        this.state.times.map((ts, index) => (
-                          <option key={index} value={ts.sortOrder}>
-                            {ts.taxonomyLabel['en-US']
-                              .slice(0, 7)
-                              .replace('am', ' AM')
-                              .replace('pm', ' PM')}
-                          </option>
-                        ))}
-                    </select>
-                  </div>
-                </div>
-                <button onClick={this.setDayAndTime.bind(this, setDayTime)}>Set</button>
-              </div>
+              </select>
+            </div>
+          ))}
+        </div>
+        <div className="menu-footer">
+          <div className="daytime-columns">
+            <div className="daytime-column">
+              <div className="daytime-current">{getCurrentDisplayDay()}</div>
+              <select name="day" onChange={handleDayChange}>
+                <option value="-1">Select day...</option>
+                {schema.days.length > 0 &&
+                  schema.days.map((day, index) => (
+                    <option key={index} value={day.sortOrder}>
+                      {day.taxonomyName}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className="daytime-column">
+              <div className="daytime-current">{getCurrentDisplayTime()}</div>
+              <select name="time" onChange={handleTimeChange}>
+                <option value="-1">Select time...</option>
+                {schema.times.length > 0 &&
+                  schema.times.map((time, index) => (
+                    <option key={index} value={time.sortOrder}>
+                      {time.taxonomyLabel['en-US']}
+                    </option>
+                  ))}
+              </select>
             </div>
           </div>
-        )}
-      </DayTimeContext.Consumer>
-    );
-  }
-}
+          <button onClick={setDayAndTime}>Set</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Navigation;
