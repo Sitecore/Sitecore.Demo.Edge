@@ -76,13 +76,6 @@ SharedFields:
           s:par=""
           s:ph="/jss-main" />
         <r
-          uid="{2B2065DB-5D18-53F5-8605-B5F7CC9ADEBB}"
-          p:after="r[@uid='{68B377B9-8357-5E7C-B9CC-76765D5BB50D}']"
-          s:rname="Breadcrumb"
-          s:id="{780D897C-7065-585F-8585-28118565FA00}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
           uid="{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}"
           p:after="r[@uid='{2B2065DB-5D18-53F5-8605-B5F7CC9ADEBB}']"
           s:rname="Section"
@@ -102,13 +95,6 @@ SharedFields:
           s:id="{9D27B323-AD63-54C8-A9BD-2DED29DFAF1D}"
           s:par=""
           s:ph="/jss-main/jss-section-content-{2FA4F61D-E97D-5CEB-948D-990E49B61C3D}-0" />
-        <r
-          uid="{31D2B39F-656D-5821-9EDA-30F8FCB41910}"
-          p:after="r[@uid='{D67366CF-9958-52E7-A9B1-7C38A02E06EE}']"
-          s:rname="CountdownSection"
-          s:id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
-          s:par=""
-          s:ph="/jss-main" />
         <r
           uid="{F503ED27-48D6-5198-9B04-64136F91868B}"
           p:after="r[@uid='{31D2B39F-656D-5821-9EDA-30F8FCB41910}']"

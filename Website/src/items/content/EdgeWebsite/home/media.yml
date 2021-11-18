@@ -47,12 +47,6 @@ SharedFields:
           ph="/jss-header/jss-header-content-{0B08A65D-5D3A-5B00-963D-FF70335AB40A}-0"
           uid="{8B2DBCEB-1CCB-5CF6-8E46-C697A8805A94}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{0994CC56-6246-5DB9-90F3-F06D77B9405F}" />
-        <r
           rname="Section"
           ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
