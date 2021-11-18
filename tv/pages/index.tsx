@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { getAllSessionsByDay } from '../api/queries/getSessions';
 import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
-import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
+import { dayDefaultValue, DayTimeContext } from '../contexts/DayTimeContext';
 
 type ScheduleProps = {
-  schedule: ScheduleSlot[][];
+  sessions: Session[];
+  displayedDay: string;
 };
 
 function groupSessionsByTimeslot(original: Session[]): ScheduleSlot[] {
@@ -57,14 +58,29 @@ function generateSchedule(sessions: Session[], selectedTimeslotOrder: string): S
   return schedulePages;
 }
 
+const defaultSchedule: ScheduleSlot[][] = [];
+
 const Schedule = (props: ScheduleProps): JSX.Element => {
-  const [schedule, setSchedule] = useState(props.schedule);
+  const displayedDaySessions = useRef(props.sessions);
+  const displayedDay = useRef(props.displayedDay);
+  const [schedule, setSchedule] = useState(defaultSchedule);
   const dayTimeContext = useContext(DayTimeContext);
 
   useEffect(() => {
-    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
-      setSchedule(generateSchedule(data.sessions, dayTimeContext.dayTime.time));
-    });
+    function generateAndSetSchedule() {
+      setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
+    }
+
+    if (displayedDay.current !== dayTimeContext.dayTime.day) {
+      displayedDay.current = dayTimeContext.dayTime.day;
+
+      getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
+        displayedDaySessions.current = data.sessions;
+        generateAndSetSchedule();
+      });
+    } else {
+      generateAndSetSchedule();
+    }
   }, [dayTimeContext.dayTime]);
 
   return <ScheduleForDay schedule={schedule} />;
@@ -75,7 +91,8 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      schedule: generateSchedule(sessions, timeDefaultValue),
+      sessions,
+      displayedDay: dayDefaultValue,
     },
     revalidate: 10,
   };
