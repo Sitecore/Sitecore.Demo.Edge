@@ -1,10 +1,12 @@
 import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import Image from 'next/image';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
 import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
+import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type NavigationState = {
   days: DayResult[];
@@ -96,9 +98,14 @@ const Navigation = (): JSX.Element => {
       <div className="menu-content">
         <Link href="/">
           <a>
-            {/* TODO: Replace the image with the proper one */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="p_logo_transparent.png" width="50" alt="PLAY! Summit logo" />
+            <Image
+              loader={contentHubImageLoader}
+              src="c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+              layout="fixed"
+              width="336"
+              height="95"
+              alt="PLAY! Summit logo"
+            />
           </a>
         </Link>
         <div className="menu-navigation">
