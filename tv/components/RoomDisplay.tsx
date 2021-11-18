@@ -16,12 +16,7 @@ type RoomProps = {
 const RoomDisplay = (props: RoomProps): JSX.Element => {
   const dayTimeContext = useContext(DayTimeContext);
 
-  console.table('props.sessions');
-  console.table(props.sessions);
-
   const selectedTime = parseInt(dayTimeContext.dayTime.time);
-  console.table('selectedTime: ' + selectedTime);
-
   const currentAndNextSessions = props.sessions.filter(
     (session) => session.sortOrder >= selectedTime
   );
@@ -41,11 +36,6 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
       nextSession = firstSession;
     }
   }
-
-  console.table('currentSession');
-  console.table(currentSession);
-  console.table('nextSession');
-  console.table(nextSession);
 
   return (
     <div className="roomDisplay">
