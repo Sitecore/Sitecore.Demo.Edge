@@ -13,7 +13,7 @@ query {
       name
       isPremium
 
-    	sessionToMasterAsset {
+      sessionToMasterAsset {
         results {
           assetToPublicLink(first: 1) {
             results {
