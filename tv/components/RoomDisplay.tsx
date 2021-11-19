@@ -16,9 +16,11 @@ type RoomProps = {
 const RoomDisplay = (props: RoomProps): JSX.Element => {
   const dayTimeContext = useContext(DayTimeContext);
 
+  const selectedDay = `Day ${parseInt(dayTimeContext.dayTime.day) + 1}`;
   const selectedTime = parseInt(dayTimeContext.dayTime.time);
+
   const currentAndNextSessions = props.sessions.filter(
-    (session) => session.sortOrder >= selectedTime
+    (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
   );
   let currentSession: Session | null = null;
   let nextSession: Session | null = null;

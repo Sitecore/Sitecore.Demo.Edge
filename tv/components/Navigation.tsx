@@ -102,18 +102,20 @@ const Navigation = (): JSX.Element => {
     <div className="menu">
       <div className="menu-button">+</div>
       <div className="menu-content">
-        <Link href="/">
-          <a>
-            <Image
-              loader={contentHubImageLoader}
-              src="c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
-              layout="fixed"
-              width="336"
-              height="95"
-              alt="PLAY! Summit logo"
-            />
-          </a>
-        </Link>
+        <div className="menu-logo">
+          <Link href="/">
+            <a>
+              <Image
+                loader={contentHubImageLoader}
+                src="c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+                layout="fixed"
+                width="336"
+                height="95"
+                alt="PLAY! Summit logo"
+              />
+            </a>
+          </Link>
+        </div>
         <div className="menu-navigation">
           {schema.venues.map((venue, venueIndex) => (
             <div key={venueIndex}>

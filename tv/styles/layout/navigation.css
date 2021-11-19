@@ -27,6 +27,10 @@
       }
     }
 
+    .menu-logo {
+      @apply mt-4;
+    }
+
     .menu-navigation {
       @apply text-black-lightest;
 
