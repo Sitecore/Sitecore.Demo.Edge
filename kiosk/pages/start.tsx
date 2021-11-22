@@ -16,7 +16,7 @@ const Home = (props: HeroSectionProps): JSX.Element => {
 };
 
 export const getStaticProps = async () => {
-  const { hero } = await getHero();
+  const { hero } = await getHero('jnZOQnEVhUyWn1le6m5FyQ');
 
   return {
     props: {
