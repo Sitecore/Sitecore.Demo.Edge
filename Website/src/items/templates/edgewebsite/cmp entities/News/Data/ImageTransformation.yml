@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/CMP Entities/News/Data/ImageTransf
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/EdgeWebsite/Data/Components/Transformations
+  Value: "{F65842D9-144E-432E-92B0-F0D768D476DA}"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Droplist
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0a4010f7-3224-423c-85b9-1abca030447a"
+      Value: "d7d9f5fe-7376-48f2-96d1-5201698f5d4e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211116T174302Z
+      Value: 20211122T184617Z
