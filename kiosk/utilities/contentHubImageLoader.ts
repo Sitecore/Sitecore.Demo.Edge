@@ -1,4 +1,4 @@
-import { Image } from '../interfaces/hero';
+import { Image } from '../interfaces';
 
 interface Props {
   src: string;

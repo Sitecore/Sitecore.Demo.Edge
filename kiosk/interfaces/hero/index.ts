@@ -1,3 +1,5 @@
+import { Image } from '../';
+
 export interface HeroResult {
   advertisement_Title: string;
   advertisement_Body: string;
@@ -6,24 +8,6 @@ export interface HeroResult {
   advertisement_Logo: Image;
   advertisement_Image: Image;
   advertisement_Background: Image;
-}
-
-export interface Image {
-  results: [
-    {
-      id: string;
-      fileName: string;
-      assetToPublicLink: {
-        results: [
-          {
-            id: string;
-            relativeUrl: string;
-            versionHash: string;
-          }
-        ];
-      };
-    }
-  ];
 }
 
 export interface HeroResponse {
