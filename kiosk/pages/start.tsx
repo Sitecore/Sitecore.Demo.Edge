@@ -3,11 +3,11 @@ import HeroSection from '../components/HeroSection';
 import Screen from '../components/Screen';
 import { HeroResult } from '../interfaces/hero';
 
-type HeroSectionProps = {
+type GetTicketKioskProps = {
   hero: HeroResult;
 };
 
-const Home = (props: HeroSectionProps): JSX.Element => {
+const GetTicketKiosk = (props: GetTicketKioskProps): JSX.Element => {
   return (
     <Screen>
       <HeroSection hero={props.hero} />
@@ -26,4 +26,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default Home;
+export default GetTicketKiosk;
