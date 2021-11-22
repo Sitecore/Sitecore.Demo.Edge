@@ -12,7 +12,7 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
     <section
       className="section__hero banner"
       style={{
-        backgroundImage: 'url(' + contentHubImageSrcGenerator(props.hero.advertisement_Image) + ')',
+        backgroundImage: `url(${contentHubImageSrcGenerator(props.hero.advertisement_Image)})`,
       }}
     >
       <div className="section__hero__container container">

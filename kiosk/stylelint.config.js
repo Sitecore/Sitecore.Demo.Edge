@@ -17,7 +17,5 @@ module.exports = {
       },
     ],
     "no-descending-specificity": null,
-    "value-keyword-case": null,
-    "function-name-case": null,
   },
 };
