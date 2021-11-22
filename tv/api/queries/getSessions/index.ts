@@ -13,7 +13,7 @@ query {
       name
       isPremium
 
-      sessionImage {
+      sessionToMasterAsset {
         results {
           assetToPublicLink(first: 1) {
             results {
@@ -47,8 +47,8 @@ query {
         }
       }
 
-      dayToSession{
-        results{
+      dayToSession {
+        results {
           taxonomyName
           sortOrder
         }
@@ -57,7 +57,6 @@ query {
       sessionsTypeToSessions {
         taxonomyName
       }
-
     }
   }
 }
@@ -81,7 +80,7 @@ const parseSessionWithTimeSlot = function (
   session.id = sessionResult.id;
   session.name = sessionResult.name;
 
-  const asset = sessionResult.sessionImage.results[0]?.assetToPublicLink.results[0];
+  const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
   const relativeUrl = asset?.relativeUrl;
   const versionHash = asset?.versionHash;
 
@@ -162,19 +161,15 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
-  results?.data?.allDemo_Session?.results &&
-    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
-      if (
-        session.dayToSession?.results &&
-        // It is important to use the == operator instead of === on the next line for the comparison to return true
-        session.dayToSession.results.find((dayResult: DayResult) => dayResult.sortOrder == day) &&
-        session.timeslotToSession?.results
-      ) {
-        session.timeslotToSession.results.map((timeslot) => {
-          sessions.push(parseSessionWithTimeSlot(session, timeslot));
-        });
-      }
-    });
+  results.data.allDemo_Session.results.forEach((s: SessionResult) => {
+    if (
+      s.dayToSession &&
+      s.dayToSession.results &&
+      s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
+    ) {
+      sessions.push(parseSession(s));
+    }
+  });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
