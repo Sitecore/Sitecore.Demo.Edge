@@ -1,18 +1,15 @@
 ﻿---
-ID: "69e8418c-5f11-40a8-9c0d-9e5eacc1229e"
-Parent: "225b4139-64bb-4c80-b057-9de9a159c75e"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Advertisement/Data/Image
+ID: "0f285023-372b-46ae-93e5-a6b7f129fe8f"
+Parent: "dc861650-fb23-5bb6-b07d-b9db7e1c33bc"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Project/edgewebsite/jss-hero-section-content"
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value:
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: Image
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 700
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "jss-hero-section-content"
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Value: "{99F2FFE7-28C6-4B88-A52B-BD9B6B44C3C1}"
 Languages:
 - Language: en
   Versions:
@@ -20,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210729T180347Z
+      Value: 20211105T165030Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,11 +28,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5801326b-7ac2-4d3f-b300-2790215d3a62"
+      Value: "9b8f8e0c-23df-4a32-ae13-4cad80ff4705"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211103T112508Z
+      Value: 20211115T172238Z

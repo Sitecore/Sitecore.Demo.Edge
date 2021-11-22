@@ -1,8 +1,8 @@
 ﻿---
-ID: "bcacd0a6-4a1d-5abd-9fa0-33bddc29b3eb"
-Parent: "b33a6d2b-aaa4-567b-8640-18c9e613435e"
+ID: "4f4f7a23-ec82-4c92-b49a-257109bc75e0"
+Parent: "76d550fa-6541-4c83-9f39-7b7e5b4cba62"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Project/edgewebsite/HeroSection/Data
+Path: /sitecore/templates/Project/edgewebsite/HeroSectionCta/Data
 Languages:
 - Language: en
   Versions:

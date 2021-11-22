@@ -1,50 +1,39 @@
+import { Text, Field, RichText, ImageField, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { Text, Field, LinkField, Link, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type HeroProps = ComponentProps & {
   fields: {
     Hero: ImageField;
-    Logo: ImageField;
     Slogan: Field<string>;
-    Expo: Field<string>;
+    Eyebrow: Field<string>;
     Title: Field<string>;
-    Subtitle: Field<string>;
-    When: Field<string>;
-    Link: LinkField;
+    Body: Field<string>;
   };
 };
 
-const HeroSection = ({ fields }: HeroProps): JSX.Element => {
+const HeroSection = (props: HeroProps): JSX.Element => {
   return (
     <section
       className="section__hero banner"
-      style={{ backgroundImage: `url("${fields.Hero?.value?.src}")` }}
+      style={{ backgroundImage: `url("${props.fields.Hero?.value?.src}")` }}
     >
       <div className="section__hero__container container">
         <div className="section__hero__container__content">
           <div className="section__hero__container__content__text">
-            <div className="logo">
-              <Image field={fields.Logo} alt="Logo" loading="lazy" />
-            </div>
             <p className="slogan">
-              <Text field={fields.Slogan} />
+              <Text field={props.fields.Slogan} />
             </p>
             <h1 className="expo">
-              <Text field={fields.Expo} />
+              <Text field={props.fields.Eyebrow} />
             </h1>
             <h3 className="title">
-              <Text field={fields.Title} />
+              <Text field={props.fields.Title} />
             </h3>
             <p className="subtitle">
-              <Text field={fields.Subtitle} />
+              <RichText field={props.fields.Body} />
             </p>
-            <h3 className="expo">
-              <Text field={fields.When} />
-            </h3>
           </div>
-          <div className="btn__area">
-            <Link field={fields.Link} className="btn--main btn--main--round btn--main--big" />
-          </div>
+          <Placeholder name="jss-hero-section-content" rendering={props.rendering} />
         </div>
       </div>
     </section>
