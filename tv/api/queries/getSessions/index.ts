@@ -13,7 +13,7 @@ query {
       name
       isPremium
 
-      sessionToMasterAsset {
+      sessionImage {
         results {
           assetToPublicLink(first: 1) {
             results {
@@ -80,7 +80,7 @@ const parseSessionWithTimeSlot = function (
   session.id = sessionResult.id;
   session.name = sessionResult.name;
 
-  const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
+  const asset = sessionResult.sessionImage.results[0]?.assetToPublicLink.results[0];
   const relativeUrl = asset?.relativeUrl;
   const versionHash = asset?.versionHash;
 

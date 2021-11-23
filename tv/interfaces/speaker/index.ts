@@ -4,7 +4,7 @@ export interface SpeakerResult {
   id: string;
   name: string;
   description: string;
-  speakerToMasterAsset: Image;
+  image: Image;
 }
 
 export interface SpeakerResults {
@@ -22,5 +22,5 @@ export interface Speaker {
   name: string;
   photo: string;
   description: string;
-  speakerToMasterAsset: Image;
+  image: Image;
 }
