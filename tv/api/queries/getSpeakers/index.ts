@@ -3,7 +3,7 @@ import { AllSpeakersResponse, Speaker, SpeakerResult } from '../../../interfaces
 
 const parseSpeaker = function (speakerResult: SpeakerResult): Speaker {
   const speaker = { ...speakerResult } as Speaker;
-  const asset = speakerResult.image.results[0]?.assetToPublicLink.results[0];
+  const asset = speakerResult.speakerToMasterAsset.results[0]?.assetToPublicLink.results[0];
   const relativeUrl = asset?.relativeUrl;
   const versionHash = asset?.versionHash;
 
@@ -20,7 +20,7 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
           id
           name
           description
-          image {
+          speakerToMasterAsset {
             results {
               id
               fileName
@@ -44,22 +44,25 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
 
   const results: AllSpeakersResponse = (await fetchGraphQL(speakersQuery)) as AllSpeakersResponse;
   const speakers: Speaker[] = [];
-  for (const speakerResult of results.data.allDemo_Speaker.results) {
-    speakers.push(parseSpeaker(speakerResult));
-  }
+  if (results && results.data) {
+    for (const speakerResult of results.data.allDemo_Speaker.results) {
+      speakers.push(parseSpeaker(speakerResult));
+    }
 
-  return { speakers: speakers.sort((a, b) => a.name.localeCompare(b.name)) };
+    return { speakers: speakers.sort((a, b) => a.name.localeCompare(b.name)) };
+  }
+  return { speakers: [] };
 };
 
 export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> => {
   const speakerByIdQuery = `
     query {
-      allDemo_Speaker (where:{id_eq:"${id}"}){
+      allDemo_Speaker (where:{id_eq:"${id}"}) {
         results {
           id
           name
           description
-          image{
+          speakerToMasterAsset {
             results {
               id
               fileName

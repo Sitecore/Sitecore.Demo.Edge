@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
 import { getRoomById, getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
@@ -21,7 +22,7 @@ export default function RoomPage(props: RoomProps) {
       style={{
         backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
       }}
-      onClick={() => (window.location.href = '/rooms')}
+      onClick={() => Router.back()}
     >
       <div id="container">
         <div id="monitor">
