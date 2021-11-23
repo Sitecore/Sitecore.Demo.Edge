@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using Sitecore.Data.Fields;
+using Sitecore.Data.Items;
 using Sitecore.LayoutService.Serialization;
 using Sitecore.LayoutService.Serialization.FieldSerializers;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
-using Sitecore.Data.Items;
 
 namespace Sitecore.Demo.Edge.Website.FieldSerializer
 {
@@ -19,7 +19,7 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
         {
         }
 
-        protected override void WriteValue(Field field, JsonTextWriter writer) => this.WriteImageObject(this.ParseRenderedImage(this.GetRenderedValue(field), field), field, writer);
+        protected override void WriteValue(Field field, JsonTextWriter writer) => this.WriteImageObject(ParseRenderedImage(GetRenderedValue(field), field), field, writer);
 
         protected override void WriteRenderedValue(Field field, JsonTextWriter writer)
         {
@@ -36,42 +36,46 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
 
         protected virtual IDictionary<string, string> ParseRenderedImage(string renderedField, Field field)
         {
-            string sourceValue = "web";
+            string transformation = "web";
             Item item = field.Item;
-            string fieldName = field.Name + "Transformation";
-            if (item?.Fields[fieldName] != null)
+            string transformationFieldName = field.Name + "Transformation";
+            if (item?.Fields[transformationFieldName] != null)
             {
-                sourceValue = item.Fields[fieldName].Value;
+                transformation = item.Fields[transformationFieldName].Value;
             }
 
             try
             {
-                Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                Dictionary<string, string> imageRawValueAttributesDictionary = new Dictionary<string, string>();
                 HtmlDocument htmlDocument = new HtmlDocument();
                 htmlDocument.LoadHtml(renderedField);
                 if (htmlDocument.DocumentNode == null || !htmlDocument.DocumentNode.HasChildNodes)
-                    return (IDictionary<string, string>)dictionary;
+                {
+                    return imageRawValueAttributesDictionary;
+                }
+
                 HtmlNode htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//img");
                 if (htmlNode == null)
                 {
                     htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//image");
                     if (htmlNode == null)
-                        return (IDictionary<string, string>)dictionary;
+                    {
+                        return imageRawValueAttributesDictionary;
+                    }
                 }
 
-                foreach (HtmlAttribute attribute in (IEnumerable<HtmlAttribute>)htmlNode.Attributes)
+                foreach (HtmlAttribute attribute in htmlNode.Attributes)
                 {
-                    string transformationValue = (attribute.Name == "src" && renderedField.Contains("stylelabs-content-id") && !string.IsNullOrWhiteSpace(sourceValue)) ? "&t=" + sourceValue : "";
+                    string transformationValue = (attribute.Name == "src" && renderedField.Contains("stylelabs-content-id") && !string.IsNullOrWhiteSpace(transformation)) ? "&t=" + transformation : "";
 
-                    dictionary[attribute.Name] = HttpUtility.HtmlDecode(attribute.Value + transformationValue);
-
+                    imageRawValueAttributesDictionary[attribute.Name] = HttpUtility.HtmlDecode(attribute.Value + transformationValue);
                 }
 
-                return (IDictionary<string, string>)dictionary;
+                return imageRawValueAttributesDictionary;
             }
             catch
             {
-
+                // Happens when Content Hub times out. We ignore and just return the larger image without the transformation.
             }
 
             return null;
@@ -83,7 +87,7 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
           JsonTextWriter writer)
         {
             writer.WriteStartObject();
-            foreach (KeyValuePair<string, string> imageProperty in (IEnumerable<KeyValuePair<string, string>>)imageProperties)
+            foreach (KeyValuePair<string, string> imageProperty in imageProperties)
             {
                 writer.WritePropertyName(imageProperty.Key);
                 writer.WriteValue(imageProperty.Value);
