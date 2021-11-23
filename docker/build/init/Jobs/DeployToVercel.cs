@@ -105,7 +105,9 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Configure env. variables
             cmd.Run(
-                $"echo | set /p=\"https://edge-beta.sitecorecloud.io\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"https://edge-beta.sitecorecloud.io\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
@@ -179,7 +181,9 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"https://edge-beta.sitecorecloud.io\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"https://edge-beta.sitecorecloud.io\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
