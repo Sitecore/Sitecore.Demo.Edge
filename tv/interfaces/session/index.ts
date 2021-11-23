@@ -53,6 +53,7 @@ export interface Session {
   timeslot: string;
   sortOrder: number;
   Day: string;
+  ShortDay: string;
   type: string;
   isPremium: boolean;
 }

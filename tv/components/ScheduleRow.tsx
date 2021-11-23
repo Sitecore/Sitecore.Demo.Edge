@@ -18,7 +18,11 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
         const noSpeakerClass = session.speaker ? '' : ' no-speaker';
 
         return (
-          <Link key={index} href={'/rooms/' + session.roomId} passHref>
+          <Link
+            key={index}
+            href={'/rooms/' + session.roomId + '?d=' + session.ShortDay + '&t=' + session.sortOrder}
+            passHref
+          >
             <div
               className={
                 'schedule-sessions show-image ' + premiumClass + keynoteClass + noSpeakerClass

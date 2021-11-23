@@ -1,3 +1,11 @@
+.room-background {
+  @apply h-screen w-screen bg-no-repeat;
+
+  background-color: #afa09b;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}
+
 .roomDisplay {
   @apply flex flex-row h-full w-full;
 

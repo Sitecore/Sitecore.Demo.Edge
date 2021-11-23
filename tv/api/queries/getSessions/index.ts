@@ -99,6 +99,7 @@ const parseSessionWithTimeSlot = function (
   }
 
   session.Day = sessionResult.dayToSession.results[0].taxonomyName;
+  session.ShortDay = sessionResult.dayToSession.results[0].sortOrder;
 
   if (timeslotResult.id === '' && sessionResult.timeslotToSession.results.length > 0) {
     session.timeslot = sessionResult.timeslotToSession.results[0].taxonomyLabel['en-US'];
@@ -125,7 +126,13 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
         session.room?.results &&
         session.room.results.find((roomResult: Room) => roomResult.id == room)
       ) {
-        sessions.push(parseSession(session));
+        if (session.timeslotToSession.results.length > 0) {
+          session.timeslotToSession.results.map((ts) => {
+            sessions.push(parseSessionWithTimeSlot(session, ts));
+          });
+        } else {
+          sessions.push(parseSession(session));
+        }
       }
     });
 
@@ -167,7 +174,13 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
       s.dayToSession.results &&
       s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
     ) {
-      sessions.push(parseSession(s));
+      if (s.timeslotToSession.results.length > 0) {
+        s.timeslotToSession.results.map((ts) => {
+          sessions.push(parseSessionWithTimeSlot(s, ts));
+        });
+      } else {
+        sessions.push(parseSession(s));
+      }
     }
   });
 

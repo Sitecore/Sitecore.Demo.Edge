@@ -1,24 +1,31 @@
 import { useContext } from 'react';
 import Image from 'next/image';
 import { Session } from '../interfaces/session';
-import { Room } from '../interfaces/room';
 import qr from '../public/play_qr.png';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 import { DayTimeContext } from '../contexts/DayTimeContext';
+import { useRouter } from 'next/router';
 
 type RoomProps = {
   sessions: Session[];
-  room: Room;
 };
 
 const RoomDisplay = (props: RoomProps): JSX.Element => {
+  const router = useRouter();
+
   const dayTimeContext = useContext(DayTimeContext);
 
-  const selectedDay = `Day ${parseInt(dayTimeContext.dayTime.day) + 1}`;
-  const selectedTime = parseInt(dayTimeContext.dayTime.time);
+  let selectedDay = `Day ${parseInt(dayTimeContext.dayTime.day) + 1}`;
+  let selectedTime = parseInt(dayTimeContext.dayTime.time);
 
+  if (router.query['d'] && router.query['t']) {
+    selectedDay = `Day ${parseInt(router.query['t'] as string) + 1}`;
+    selectedTime = parseInt(router.query['t'] as string);
+  }
+  console.log(selectedDay + ' ' + selectedTime);
+  console.table(props.sessions);
   const currentAndNextSessions = props.sessions.filter(
     (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
   );
@@ -68,7 +75,7 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
           <div className="w-full">
             <Image className="logo" src={logo} alt="logo" width={60} height={80} />
             <div className="room-name text-right text-white text-6xl font-extrabold inline right-0 absolute pt-10">
-              {props.room.name}
+              {props.sessions[0] ? props.sessions[0].room : ''}
             </div>
           </div>
 

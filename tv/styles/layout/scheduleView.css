@@ -88,7 +88,8 @@
                   }
 
                   .session-tier {
-                    @apply xl:absolute xl:bottom-0 xl:justify-start xl:bg-blue-light xl:px-2;
+                    @apply hidden;
+                    @apply xl:block xl:absolute xl:bottom-0 xl:justify-start xl:bg-blue-light xl:px-2;
                   }
                 }
               }
