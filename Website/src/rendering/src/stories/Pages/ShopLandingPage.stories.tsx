@@ -6,7 +6,7 @@ import Header, { HeaderProps } from '../../components/Header';
 import HeroSection from '../../components/HeroSection';
 import HeroSectionCta from '../../components/HeroSectionCta';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
-import Shop from '../../pages/shop';
+import Shop, { ShopProps } from '../../pages/shop';
 
 export default {
   title: 'Pages/Shop Landing Page',
@@ -31,6 +31,53 @@ const mainNavigationArgs = {
   },
 } as MainNavigationProps;
 
+const shopProps = {
+  categoryProps: {
+    categories: [
+      {
+        categoryName: 'Workout',
+        imageUrl: '',
+      },
+      {
+        categoryName: 'Golf',
+        imageUrl: '',
+      },
+      {
+        categoryName: 'Mountain bike',
+        imageUrl: '',
+      },
+      {
+        categoryName: 'Yoga',
+        imageUrl: '',
+      },
+    ],
+  },
+  productProps: {
+    products: [
+      {
+        id: 1,
+        imageUrl: '/assets/img/shop/helmet.jpeg',
+        price: 255.99,
+      },
+      {
+        id: 1,
+        imageUrl: '/assets/img/shop/helmet.jpeg',
+        price: 255.99,
+      },
+      {
+        id: 1,
+        imageUrl: '/assets/img/shop/helmet.jpeg',
+        price: 255.99,
+      },
+      {
+        id: 1,
+        imageUrl: '/assets/img/shop/helmet.jpeg',
+        price: 255.99,
+      },
+    ],
+  },
+} as ShopProps;
+
 const componentFactory = function (componentName: string) {
   const components = new Map();
   components.set('HeroSectionCta', HeroSectionCta);
@@ -54,7 +101,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <Shop />
+        <Shop {...shopProps} />
       </main>
     </SitecoreContext>
   );

@@ -1,14 +1,20 @@
-const Shop = (): JSX.Element => (
-  <div>
-    <FeatureProducts />
-    <ProductSearchBar />
-    <ShopByCategory />
-    <ShopByVendor />
-    <FooterLinks />
-  </div>
-);
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const FeatureProducts = (): JSX.Element => (
+const Shop = (props: ShopProps): JSX.Element => {
+  const { productProps, categoryProps } = props;
+  return (
+    <div>
+      <FeatureProducts products={productProps.products} />
+      <ProductSearchBar />
+      <ShopByCategory categories={categoryProps.categories} />
+      <ShopByVendor />
+      <FooterLinks />
+    </div>
+  );
+};
+
+const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
   <div>
     <div>
       <h4>Home &#62; Shop</h4>
@@ -19,22 +25,33 @@ const FeatureProducts = (): JSX.Element => (
       </p>
     </div>
     <div>
-      <Product url="/assets/img/shop/helmet.jpeg" price="250.99" />
-      <Product url="/assets/img/shop/helmet.jpeg" price="250.99" />
-      <Product url="/assets/img/shop/helmet.jpeg" price="250.99" />
+      {props.products.map((product) => (
+        <Product key={product.id} imageUrl={product.imageUrl} price={product.price} />
+      ))}
     </div>
   </div>
 );
 
 const ProductSearchBar = (): JSX.Element => (
   <div>
+    <FontAwesomeIcon icon={faSearch} />
     <input placeholder="Search for products"></input>
   </div>
 );
 
-const ShopByCategory = (): JSX.Element => (
+const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
   <div>
     <h2>Shop by category</h2>
+    <div>
+      {props.categories.map((category) => (
+        <Category
+          key={category.categoryName}
+          imageUrl={category.imageUrl}
+          categoryName={category.categoryName}
+        />
+      ))}
+    </div>
+    <button>View all categories</button>
   </div>
 );
 
@@ -52,7 +69,7 @@ const FooterLinks = (): JSX.Element => (
 
 const Product = (props: ProductProps): JSX.Element => (
   <div>
-    <img src={props.url} alt="Product image" />
+    <img src={props.imageUrl} alt="Product image" />
     <div>
       <b>Product name</b>
       <p>Vendor name</p>
@@ -61,11 +78,37 @@ const Product = (props: ProductProps): JSX.Element => (
   </div>
 );
 
+const Category = (props: CategoryProps): JSX.Element => (
+  <div>
+    <img src={props.imageUrl} alt="Category image" />
+    <p>{props.categoryName}</p>
+  </div>
+);
+
 export default Shop;
 
 // Interfaces
 
-interface ProductProps {
-  url: string;
-  price: string;
+export interface ShopProps {
+  categoryProps: ShopByCategoryProps;
+  productProps: FeatureProductsProps;
+}
+
+export interface ProductProps {
+  id: number;
+  imageUrl: string;
+  price: number;
+}
+
+export interface CategoryProps {
+  imageUrl: string;
+  categoryName: string;
+}
+
+export interface ShopByCategoryProps {
+  categories: CategoryProps[];
+}
+
+export interface FeatureProductsProps {
+  products: ProductProps[];
 }
