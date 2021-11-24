@@ -5,6 +5,7 @@ import {
   ImageField,
   Image,
   DateField,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { newsDateFormatter } from '../helpers/DateHelper';
@@ -44,4 +45,4 @@ const NewsDetail = (props: NewsDetailProps): JSX.Element => (
   </section>
 );
 
-export default NewsDetail;
+export default withDatasourceCheck()<NewsDetailProps>(NewsDetail);

@@ -5,6 +5,7 @@ import {
   Link,
   Placeholder,
   LinkField,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentWithChildrenProps } from 'lib/component-props';
 
@@ -56,4 +57,4 @@ const Section = (props: SectionProps): JSX.Element => {
   );
 };
 
-export default Section;
+export default withDatasourceCheck()<SectionProps>(Section);

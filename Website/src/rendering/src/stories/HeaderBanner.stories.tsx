@@ -41,6 +41,10 @@ const fieldsWithImage = {
 export const WithImage = Template.bind({});
 WithImage.args = {
   fields: fieldsWithImage,
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithoutImage = Template.bind({});

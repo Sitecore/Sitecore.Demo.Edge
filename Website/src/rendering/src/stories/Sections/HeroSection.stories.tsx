@@ -31,4 +31,8 @@ Default.args = {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as HeroProps;

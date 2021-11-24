@@ -52,4 +52,8 @@ Default.args = {
   fields: {
     items: [fitbit, sports],
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

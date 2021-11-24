@@ -43,6 +43,10 @@ WithLargerImage.args = {
   },
   type: 'vendor',
   qualificative: 'Featured',
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithSmallerImage = Template.bind({});
@@ -74,6 +78,10 @@ WithSmallerImage.args = {
   },
   type: 'vendor',
   qualificative: 'Featured',
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithoutSocialIcons = Template.bind({});
@@ -93,6 +101,10 @@ WithoutSocialIcons.args = {
   },
   type: 'vendor',
   qualificative: 'Featured',
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithoutQualificative = Template.bind({});
@@ -155,6 +167,10 @@ WithoutInformations.args = {
   },
   type: 'vendor',
   qualificative: '',
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithEmptyInformations = Template.bind({});
@@ -187,6 +203,10 @@ WithEmptyInformations.args = {
   type: 'vendor',
   qualificative: '',
   informations: <></>,
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithInformations = Template.bind({});
@@ -231,4 +251,8 @@ WithInformations.args = {
       </div>
     </>
   ),
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

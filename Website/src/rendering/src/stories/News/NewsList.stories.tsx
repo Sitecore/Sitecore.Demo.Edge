@@ -85,4 +85,8 @@ Default.args = {
   fields: {
     items: [news1, news2, news3],
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

@@ -4,6 +4,7 @@ import {
   LayoutServicePageState,
   Text,
   useSitecoreContext,
+  withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import InformationPageHero from './InformationPageHero';
@@ -75,4 +76,4 @@ const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX
   );
 };
 
-export default SpeakerInformationPageHero;
+export default withDatasourceCheck()<SpeakerInformationPageHeroProps>(SpeakerInformationPageHero);

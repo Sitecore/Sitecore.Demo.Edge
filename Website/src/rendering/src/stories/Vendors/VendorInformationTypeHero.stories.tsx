@@ -41,6 +41,10 @@ WithLargerImage.args = {
       value: 'https://linkedin.com/asada',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithSmallerImage = Template.bind({});
@@ -72,5 +76,9 @@ WithSmallerImage.args = {
     LinkedinProfileLink: {
       value: 'https://linkedin.com/asada',
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

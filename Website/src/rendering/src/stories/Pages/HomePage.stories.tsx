@@ -58,6 +58,7 @@ const heroProps = {
         },
       ],
     },
+    datasource: '/sitecore',
   },
 } as unknown as HeroProps;
 
@@ -167,6 +168,10 @@ const threeColProps = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as ThreeColumnsSectionProps;
 
 const mainNavigationArgs = {
@@ -200,6 +205,10 @@ const footerProps = {
         },
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as FooterProps;
 

@@ -1,4 +1,4 @@
-import { Field, ImageField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, ImageField, Text, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import {
   faFacebookF,
@@ -60,4 +60,4 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
   );
 };
 
-export default InformationPageHero;
+export default withDatasourceCheck()<InformationPageHeroProps>(InformationPageHero);

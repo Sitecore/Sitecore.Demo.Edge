@@ -6,7 +6,14 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import Head from 'next/head';
 import { ComponentProps } from 'lib/component-props';
-import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Field,
+  ImageField,
+  Image,
+  RichText,
+  Text,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionTime } from '../helpers/DateHelper';
 import { Timeslot } from '../interfaces/Timeslot';
@@ -143,4 +150,4 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   );
 };
 
-export default SessionInformation;
+export default withDatasourceCheck()<SessionInformationProps>(SessionInformation);

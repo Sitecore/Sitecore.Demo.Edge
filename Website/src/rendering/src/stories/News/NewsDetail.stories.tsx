@@ -33,4 +33,8 @@ Default.args = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

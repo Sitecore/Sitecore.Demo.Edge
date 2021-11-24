@@ -26,4 +26,8 @@ Default.args = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as MainNavigationProps;

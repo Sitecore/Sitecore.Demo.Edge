@@ -1,5 +1,5 @@
 import { ComponentProps } from 'lib/component-props';
-import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, RichText, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import SessionList from './SessionList';
 import { SESSIONS } from '../models/mock-sessions';
 
@@ -26,4 +26,4 @@ const VendorInformation = (props: VendorInformationProps): JSX.Element => (
   </section>
 );
 
-export default VendorInformation;
+export default withDatasourceCheck()<VendorInformationProps>(VendorInformation);

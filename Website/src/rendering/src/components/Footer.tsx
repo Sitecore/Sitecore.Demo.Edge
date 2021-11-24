@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type FooterProps = ComponentProps & {
@@ -118,4 +118,4 @@ const Footer = (props: FooterProps): JSX.Element => (
   </div>
 );
 
-export default Footer;
+export default withDatasourceCheck()<FooterProps>(Footer);

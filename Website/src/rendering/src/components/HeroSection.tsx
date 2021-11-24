@@ -1,4 +1,11 @@
-import { Text, Field, RichText, ImageField, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  Field,
+  RichText,
+  ImageField,
+  Placeholder,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type HeroProps = ComponentProps & {
@@ -40,4 +47,4 @@ const HeroSection = (props: HeroProps): JSX.Element => {
   );
 };
 
-export default HeroSection;
+export default withDatasourceCheck()<HeroProps>(HeroSection);

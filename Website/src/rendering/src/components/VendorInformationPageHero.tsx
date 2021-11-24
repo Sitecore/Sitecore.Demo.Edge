@@ -1,4 +1,4 @@
-import { Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import InformationPageHero from './InformationPageHero';
 
@@ -36,4 +36,4 @@ const VendorInformationPageHero = (props: VendorInformationPageHeroProps): JSX.E
   );
 };
 
-export default VendorInformationPageHero;
+export default withDatasourceCheck()<VendorInformationPageHeroProps>(VendorInformationPageHero);
