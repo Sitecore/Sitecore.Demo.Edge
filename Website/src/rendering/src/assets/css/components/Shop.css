@@ -39,3 +39,27 @@ div.product-details > b {
 div.product-details > p {
   font-size: 16px;
 }
+
+/* Search bar */
+
+section.section {
+  padding: 31px 55px;
+}
+
+input#search-input {
+  border: 2px solid #3c3c3c;
+  width: 100%;
+}
+
+input#search-input::placeholder {
+  padding-left: 51px;
+}
+
+#search-icon {
+  position: absolute;
+  left: 69px;
+}
+
+div.section__content.container {
+  padding: 0;
+}

@@ -35,7 +35,7 @@ const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
 const ProductSearchBar = (): JSX.Element => (
   <section className="section">
     <div className="section__content container">
-      <FontAwesomeIcon icon={faSearch} />
+      <FontAwesomeIcon id="search-icon" icon={faSearch} />
       <input id="search-input" placeholder="Search for products"></input>
     </div>
   </section>
