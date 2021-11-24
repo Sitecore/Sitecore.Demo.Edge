@@ -1,6 +1,5 @@
 import { ComponentWithChildrenProps } from 'lib/component-props';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const SummitFeatures = (props: ComponentWithChildrenProps): JSX.Element => (
   <div className="item-grid summit-features">
@@ -12,4 +11,4 @@ const SummitFeatures = (props: ComponentWithChildrenProps): JSX.Element => (
   </div>
 );
 
-export default withDatasourceCheck()<ComponentWithChildrenProps>(SummitFeatures);
+export default SummitFeatures;
