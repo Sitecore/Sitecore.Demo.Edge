@@ -21,7 +21,7 @@ Languages:
     - ID: "32c00ea7-b305-40e4-b9be-e03a92b05ae3"
       Hint: HeaderLogo
       Value: |
-        <image mediaid="" stylelabs-content-id="33703" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33703/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd" stylelabs-content-type="Image" alt="play-logo-stacked-light.svg" height="46" width="120" />
+        <image mediaid="" stylelabs-content-id="30940" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30940/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a3c057aee3fa45c5a1342ac3cc5121cf?v=a5de6ce5" stylelabs-content-type="Image" alt="PLAY! Summit logo - stacked light grey" height="113" width="274" />
     - ID: "3971a645-b079-4bc3-9971-bf655b7713fa"
       Hint: Startdate
       Value: 20210909T060000Z
@@ -38,11 +38,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2c33a393-90bb-4234-bf29-0fb9afc75fa8"
+      Value: "320b57ee-38f8-4649-9cdc-92a84d358471"
     - ID: "af909783-3a24-4708-b431-192e9b0c98b6"
       Hint: FooterLogo
       Value: |
-        <image stylelabs-content-id="33704" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33704/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd" mediaid="" stylelabs-content-type="Image" alt="play-logo-wide-light.svg" height="80" width="280" vspace="" hspace="" />
+        <image stylelabs-content-id="30936" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30936/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=47103907" mediaid="" stylelabs-content-type="Image" alt="PLAY! Summit long light grey" height="113" width="413" vspace="" hspace="" />
     - ID: "b43d2551-9059-413a-92be-74ea74142c22"
       Hint: SiteBrowserTitle
       Value: "Play! Summit"
@@ -52,4 +52,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210913T083400Z
+      Value: 20211124T190602Z

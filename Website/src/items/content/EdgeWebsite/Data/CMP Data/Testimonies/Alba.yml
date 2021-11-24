@@ -33,15 +33,15 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4000c87f-b106-42a5-b135-ea35b776f13f"
+      Value: "321edb1e-e57e-4a91-a36c-18eae5f51b26"
     - ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="35890" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35890/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f380beecb80043c3849830195bb9139e?v=930ff2bc" mediaid="" stylelabs-content-type="Image" alt="Alba.jpg" height="3125" width="3125" />
+        <image stylelabs-content-id="34000" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34000/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/949c003d42af49be962cd99f31eb3efd?v=0ee7879f" mediaid="" stylelabs-content-type="Image" alt="Alba Logo" height="3125" width="3125" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210731T030111Z
+      Value: 20211124T190450Z
