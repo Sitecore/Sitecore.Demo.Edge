@@ -30,7 +30,9 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
   const lowerCaseQualificative = props.qualificative.toLowerCase();
 
   return (
-    <section className={`information-page-hero ${props.type}-information-page-hero`}>
+    <section
+      className={`information-page-hero ${props.type}-information-page-hero ${lowerCaseQualificative}`}
+    >
       <div className="content">
         <div className="image-container">
           {/* Purposefully not using a JSS Image component here to avoid width/height HTML attributes on the img tag */}
@@ -38,7 +40,7 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
         </div>
         <div className="gradient-container"></div>
         <div className="content-container">
-          <div className={`container-content-text ${lowerCaseQualificative}`}>
+          <div className={`container-content-text`}>
             <div>
               <p className="title">
                 Meet the <span className="information-type">{lowerCaseQualificative}</span>{' '}
