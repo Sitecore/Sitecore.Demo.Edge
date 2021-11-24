@@ -33,10 +33,12 @@ const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
 );
 
 const ProductSearchBar = (): JSX.Element => (
-  <div id="search-bar-container">
-    <FontAwesomeIcon icon={faSearch} />
-    <input id="search-input" placeholder="Search for products"></input>
-  </div>
+  <section className="section">
+    <div className="section__content container">
+      <FontAwesomeIcon icon={faSearch} />
+      <input id="search-input" placeholder="Search for products"></input>
+    </div>
+  </section>
 );
 
 const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
@@ -51,7 +53,9 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
         />
       ))}
     </div>
-    <button id="view-all-button">View all categories</button>
+    <a id="view-all-button" className="btn--main btn--main--round" href="javascript:void(0)">
+      View all categories
+    </a>
   </div>
 );
 
@@ -63,7 +67,9 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
         <img key={url} src={url} alt="Vendor image" />
       ))}
     </div>
-    <button>View all vendors</button>
+    <a id="view-all-button" className="btn--main btn--main--round" href="javascript:void(0)">
+      View all vendors
+    </a>
   </div>
 );
 
