@@ -74,9 +74,9 @@ const FooterLinks = (): JSX.Element => (
 );
 
 const Product = (props: ProductProps): JSX.Element => (
-  <div>
-    <img src={props.imageUrl} alt="Product image" />
-    <div>
+  <div className="product">
+    <img className="product-image" src={props.imageUrl} alt="Product image" />
+    <div className="product-details">
       <b>Product name</b>
       <p>Vendor name</p>
       <p>${props.price}</p>
@@ -85,9 +85,9 @@ const Product = (props: ProductProps): JSX.Element => (
 );
 
 const Category = (props: CategoryProps): JSX.Element => (
-  <div>
-    <img src={props.imageUrl} alt="Category image" />
-    <p>{props.categoryName}</p>
+  <div className="category">
+    <img className="category-image" src={props.imageUrl} alt="Category image" />
+    <p className="category-name">{props.categoryName}</p>
   </div>
 );
 

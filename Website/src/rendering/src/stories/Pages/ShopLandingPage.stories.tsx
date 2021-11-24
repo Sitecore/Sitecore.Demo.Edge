@@ -2,6 +2,7 @@ import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
+import Footer, { FooterProps } from '../../components/Footer';
 import Header, { HeaderProps } from '../../components/Header';
 import HeroSection from '../../components/HeroSection';
 import HeroSectionCta from '../../components/HeroSectionCta';
@@ -84,6 +85,23 @@ const shopProps = {
   },
 } as ShopProps;
 
+const footerProps = {
+  fields: {
+    data: {
+      item: {
+        footerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as FooterProps;
+
 const componentFactory = function (componentName: string) {
   const components = new Map();
   components.set('HeroSectionCta', HeroSectionCta);
@@ -109,6 +127,9 @@ const Template: ComponentStory<typeof HeroSection> = () => {
       <main>
         <Shop {...shopProps} />
       </main>
+      <footer>
+        <Footer {...footerProps} />
+      </footer>
     </SitecoreContext>
   );
 };
