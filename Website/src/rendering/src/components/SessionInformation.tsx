@@ -2,20 +2,13 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import {
-  faBuilding,
-  faCalendar,
-  faClock,
-  faDoorOpen,
-  faMapMarkerAlt,
-  faUserTie,
-} from '@fortawesome/free-solid-svg-icons';
-import { getSessionDays, getSessionTime } from '../helpers/DateHelper';
+import { faBuilding, faMapMarkerAlt, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { Timeslot } from '../interfaces/Timeslot';
 import { Speaker } from 'src/types/speaker';
 import { Day } from 'src/types/day';
 import { Room } from 'src/types/room';
 import InfoText from './InfoText';
+import SessionInformationPageHero from './SessionInformationPageHero';
 
 export type SessionInformationProps = ComponentProps & {
   fields: {
@@ -33,7 +26,6 @@ export type SessionInformationProps = ComponentProps & {
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
-  const premiumSessionTitle = props.fields.Premium.value ? 'premium' : '';
 
   const speakers = props.fields.Speakers && props.fields.Speakers.length > 0 && (
     <div className="sidebar-list sidebar-list__speaker">
@@ -91,54 +83,11 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
         <meta name="premiumSession" content={premiumSessionMetaValue} />
       </Head>
 
-      <section className="information-page-hero">
-        <div
-          className="background-container"
-          style={{
-            backgroundImage: 'url(' + props.fields.Image.value?.src + ')',
-          }}
-        >
-          <div className="content">
-            <div
-              className="image-container bg-cover  bg-center flex-1 min-h-full"
-              style={{
-                background:
-                  'linear-gradient(to right, rgba(60, 60, 60, 0) 70%, rgba(0, 0, 0, 1) 100%)',
-              }}
-            ></div>
-            <div className="content-container">
-              <div
-                className={
-                  props.fields.Premium.value
-                    ? 'container-content-text premium'
-                    : 'container-content-text'
-                }
-              >
-                <div>
-                  <p className="title">
-                    Explore the <span className="information-type">{premiumSessionTitle}</span>{' '}
-                    session:
-                  </p>
-                  <h1 className="name">
-                    <Text field={props.fields.Name} />
-                  </h1>
-                </div>
-                <div>
-                  <InfoText Icon={faDoorOpen}>
-                    <Text tag="span" field={props.fields.Rooms[0].fields.Name} />
-                  </InfoText>
-                  <InfoText Icon={faCalendar}>
-                    <span>{getSessionDays(props.fields.Day)}</span>
-                  </InfoText>
-                  <InfoText Icon={faClock}>
-                    <span>{getSessionTime(props.fields.Timeslots)}</span>
-                  </InfoText>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/*
+        HACK: The SessionInformationPageHero component is added here to avoid creating a new Sitecore rendering, adding it to the page template, and serialize the Sitecore items. This is a temporary solution.
+        TODO: Create a Sitecore rendering for this component and remove it from here.
+      */}
+      <SessionInformationPageHero {...props} />
 
       <section className="section information-section-with-sidebar">
         <div className="section__content container">
