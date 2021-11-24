@@ -36,42 +36,38 @@ const shopProps = {
     categories: [
       {
         categoryName: 'Workout',
-        imageUrl: '',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315.png',
       },
       {
         categoryName: 'Golf',
-        imageUrl: '',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-1.png',
       },
       {
         categoryName: 'Mountain bike',
-        imageUrl: '',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-2.png',
       },
       {
         categoryName: 'Yoga',
-        imageUrl: '',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-3.png',
       },
     ],
   },
   productProps: {
     products: [
       {
-        id: 1,
-        imageUrl: '/assets/img/shop/helmet.jpeg',
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
         price: 255.99,
       },
       {
-        id: 1,
-        imageUrl: '/assets/img/shop/helmet.jpeg',
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
         price: 255.99,
       },
       {
-        id: 1,
-        imageUrl: '/assets/img/shop/helmet.jpeg',
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
         price: 255.99,
       },
       {
-        id: 1,
-        imageUrl: '/assets/img/shop/helmet.jpeg',
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
         price: 255.99,
       },
     ],

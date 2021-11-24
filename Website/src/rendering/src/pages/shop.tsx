@@ -26,7 +26,7 @@ const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
     </div>
     <div>
       {props.products.map((product) => (
-        <Product key={product.id} imageUrl={product.imageUrl} price={product.price} />
+        <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
       ))}
     </div>
   </div>
@@ -95,7 +95,6 @@ export interface ShopProps {
 }
 
 export interface ProductProps {
-  id: number;
   imageUrl: string;
   price: number;
 }
