@@ -9,6 +9,10 @@ SharedFields:
   Value: "pvQXkHYj-k-x_UA1QLY-4w"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Aly Nichols
   Versions:
   - Version: 1
     Fields:
@@ -31,7 +35,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b969dd07-92c9-4d97-908d-92bd4952cfa3"
+      Value: "11499580-22ea-4365-8123-7c70e029a596"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Pacifique
@@ -54,7 +58,7 @@ Languages:
       Value: Creative Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123600Z
+      Value: 20211124T150606Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sponsor
@@ -67,4 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35019" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35019/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/58d2b692ecf746efaee05a31a3f525e8?v=91853c61" mediaid="" stylelabs-content-type="Image" alt="aly-nichols-1000.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="49204" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49204/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/4deb61f4e691456a9eaa34243b85bd34?v=0c3d0bf1" mediaid="" stylelabs-content-type="Image" alt="Aly Nichols - No background" height="3504" width="3503" />

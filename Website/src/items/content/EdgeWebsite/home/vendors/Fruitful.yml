@@ -1,0 +1,52 @@
+﻿---
+ID: "4a95d3fb-a669-47e7-8454-119476231cb7"
+Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
+Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
+Path: /sitecore/content/EdgeWebsite/home/vendors/Fruitful
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: 43dbNYztHEKTECVKGTw7qA
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Fruitful
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211124T145721Z
+    - ID: "36288362-9494-4174-a8a2-d846d958149d"
+      Hint: Level
+      Value: Platinum
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="57046" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/57046/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/b8e19d4dc0584ed2ac0addbff1c756b5?v=e97d6a6c" mediaid="" stylelabs-content-type="Image" alt="logo fruitful black" height="1000" width="1000" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6ad79bd2-ddb0-4b05-8300-25e3d2ef4966"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
+      Hint: Name
+      Value: Fruitful
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T145736Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Fruitful

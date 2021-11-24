@@ -9,6 +9,10 @@ SharedFields:
   Value: tAtZEQnGJUePFwkICtJFvQ
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Ask an expert: outdoor survival"
   Versions:
   - Version: 1
     Fields:
@@ -33,10 +37,10 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38531" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38531/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/1939307bff0b4e53a8797d0d805aa0fe?v=2269254d" mediaid="" stylelabs-content-type="Image" alt="outdoor-expert.jpg" height="1524" width="2031" />
+        <image stylelabs-content-id="38531" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38531/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/1939307bff0b4e53a8797d0d805aa0fe?v=2269254d" mediaid="" stylelabs-content-type="Image" alt="Outdoor expert" height="1524" width="2031" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
+      Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -59,14 +63,14 @@ Languages:
       Value: "{3BC52CBD-3EE1-496F-918E-C0D55A96B7C9}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "549d9183-1aa2-43c0-b7c4-bd7ad2d32f1f"
+      Value: "3e99b992-4ccc-49ff-937e-2436295d9c96"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T122537Z
+      Value: 20211124T144354Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: outdoor survival"

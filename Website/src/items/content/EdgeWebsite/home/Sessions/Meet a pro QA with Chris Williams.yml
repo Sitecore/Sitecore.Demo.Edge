@@ -12,7 +12,7 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: "Meet a pro: Q&amp;A with Chris Williams"
+    Value: "Meet a pro: Q&A with Chris Williams"
   Versions:
   - Version: 1
     Fields:
@@ -38,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="31974" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31974/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/8b26400441374ea7a15301a6f01d70c1?v=ecc627d8" mediaid="" stylelabs-content-type="Image" alt="speaker-chris-williams-background.jpg" height="940" width="2000" />
+        <image stylelabs-content-id="49311" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49311/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/bcebe6a34e444993826746063558d5cc?v=00595745" mediaid="" stylelabs-content-type="Image" alt="Chris Williams" height="3755" width="5632" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
@@ -64,14 +64,14 @@ Languages:
       Value: "{05508583-1AE2-40C8-A87E-1A54351B0117}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "392fdada-4021-4676-9253-6eb03593bd8a"
+      Value: "2bf7a85c-1c48-4c19-a2df-efd813a705bf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211008T213346Z
+      Value: 20211124T143329Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Meet a pro: Q&A with Chris Williams"

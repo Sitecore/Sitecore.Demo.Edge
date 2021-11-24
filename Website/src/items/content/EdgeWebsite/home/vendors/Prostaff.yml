@@ -9,6 +9,10 @@ SharedFields:
   Value: bQ2_w8g9ekargCDUscmf9g
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Prostaff
   Versions:
   - Version: 1
     Fields:
@@ -38,10 +42,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="34188" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff.png" height="1001" width="1001" />
+        <image stylelabs-content-id="34188" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff Logo" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0fbbb1a9-daf2-40fc-9920-c76de46537da"
+      Value: "4e94e8f0-cc19-409e-a610-5f56803da488"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -56,7 +60,7 @@ Languages:
       Value: Prostaff
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124519Z
+      Value: 20211124T145901Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"
