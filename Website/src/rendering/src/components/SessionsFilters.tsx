@@ -1,5 +1,5 @@
 const SessionsFilters = (): JSX.Element => (
-  <section className="section">
+  <section className="section py-0">
     <div className="section__content form item-grid sessions-filters container">
       <h2 className="section__content__title section__content__title--light">Explore sessions</h2>
       <div className="filters-row">
