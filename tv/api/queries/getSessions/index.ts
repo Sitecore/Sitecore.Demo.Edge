@@ -186,7 +186,7 @@ const parseAndFilterSession = function (
       if (sessionResult.dayToSession.results.length > 1) {
         sessionResult.dayToSession.results.map((dayToSession) => {
           if (sessionResult.timeslotToSession.results.length > 1) {
-            sessionResult.timeslotToSession.results.map((tsToSession, index) => {
+            sessionResult.timeslotToSession.results.map((tsToSession) => {
               sessions.push(formattedSession(sessionResult, dayToSession, tsToSession));
             });
           } else {
@@ -201,7 +201,7 @@ const parseAndFilterSession = function (
         });
       } else {
         if (sessionResult.timeslotToSession.results.length > 1) {
-          sessionResult.timeslotToSession.results.map((tsToSession, index) => {
+          sessionResult.timeslotToSession.results.map((tsToSession) => {
             sessions.push(
               formattedSession(sessionResult, sessionResult.dayToSession.results[0], tsToSession)
             );
