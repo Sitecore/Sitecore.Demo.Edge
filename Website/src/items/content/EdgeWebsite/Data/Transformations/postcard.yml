@@ -1,15 +1,8 @@
 ﻿---
-ID: "0293d75b-a3fa-4bb1-9c4b-3f0c8177ec75"
-Parent: "854bd01a-0c22-48fc-a761-86a1eb694943"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/Data/CMP Data
-SharedFields:
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: Office/32x32/arrow_circle2.png
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 200
+ID: "eeb33aaf-1033-4f5e-b266-3adceaf4109b"
+Parent: "f65842d9-144e-432e-92b0-f0d768d476da"
+Template: "4d03ed76-4de7-4f96-9e65-6426e4421a45"
+Path: /sitecore/content/EdgeWebsite/Data/Transformations/postcard
 Languages:
 - Language: en
   Versions:
@@ -17,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210825T114417Z
+      Value: 20211116T155549Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +21,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aab8e24e-e047-4fa1-a28e-c6bba2013308"
+      Value: "2bfb0a5e-12b2-495f-ae68-d99d9d256784"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211122T184506Z
+      Value: 20211116T171503Z

@@ -91,17 +91,23 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\Admin
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: $name
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "47797260-57b8-4a65-ad4b-bea3859c0e70"
+      Value: "e063800f-b2f9-4730-9bac-14432521e12e"
+    - ID: "a186dea1-d336-4aa4-8448-fbdd419c31fe"
+      Hint: ImageTransformation
+      Value: postcard
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T204321Z
+      Value: 20211116T174823Z
