@@ -1,4 +1,6 @@
+import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import {
@@ -15,8 +17,6 @@ import { Speaker } from 'src/types/speaker';
 import { Day } from 'src/types/day';
 import { Room } from 'src/types/room';
 import InfoText from './InfoText';
-import React from 'react';
-import Link from 'next/link';
 
 export type SessionInformationProps = ComponentProps & {
   fields: {
@@ -36,56 +36,53 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
   const premiumSessionTitle = props.fields.Premium.value ? 'premium' : '';
 
-  //TODO: remove block after port number issue is fixed
-  if (props.fields.Image.value) {
-    props.fields.Image.value.src = props.fields.Image.value.src?.replace(
-      'https://playsummit.sitecoresandbox.cloud',
-      'https://playsummit.sitecoresandbox.cloud:8443'
-    );
-  }
-
   const speakers = props.fields.Speakers && props.fields.Speakers.length > 0 && (
     <div className="sidebar-list sidebar-list__speaker">
-      {props.fields.Speakers.map((speaker, index) => (
-        <div
-          key={index}
-          className={
-            speaker.fields.Featured.value ? 'information-block featured' : 'information-block'
-          }
-        >
-          <div className="info-col-left">
-            <Image
-              field={speaker.fields?.Picture}
-              alt={speaker.fields?.Name?.value}
-              width={250}
-              height={300}
-            />
-          </div>
-          <div className="info-col-content">
-            <Text field={speaker.fields.Name} tag="div" className="session-info-title" />
-            {speaker.fields.JobTitle.value && (
-              <InfoText Icon={faUserTie}>
-                <Text tag="span" field={speaker.fields.JobTitle} />
-              </InfoText>
-            )}
-            {speaker.fields.Company.value && (
-              <InfoText Icon={faBuilding}>
-                <Text tag="span" field={speaker.fields.Company} />
-              </InfoText>
-            )}
-            {speaker.fields.Location.value && (
-              <InfoText Icon={faMapMarkerAlt}>
-                <Text tag="span" field={speaker.fields.Location} />
-              </InfoText>
-            )}
-            <div className="session-info-col-calendar">
-              <Link href={'/speakers/${speaker.fields.Name}'}>
-                <a className="btn--main btn--main--round">Learn more</a>
-              </Link>
+      {props.fields.Speakers.map((speaker, index) => {
+        const featuredSpeakerCssClass = speaker.fields.Featured.value ? 'featured' : '';
+
+        const jobTitle = speaker.fields.JobTitle.value && (
+          <InfoText Icon={faUserTie}>
+            <Text tag="span" field={speaker.fields.JobTitle} />
+          </InfoText>
+        );
+
+        const company = speaker.fields.Company.value && (
+          <InfoText Icon={faBuilding}>
+            <Text tag="span" field={speaker.fields.Company} />
+          </InfoText>
+        );
+
+        const location = speaker.fields.Location.value && (
+          <InfoText Icon={faMapMarkerAlt}>
+            <Text tag="span" field={speaker.fields.Location} />
+          </InfoText>
+        );
+
+        return (
+          <div key={index} className={`information-block ${featuredSpeakerCssClass}`}>
+            <div className="info-col-left">
+              <Image
+                field={speaker.fields?.Picture}
+                alt={speaker.fields?.Name?.value}
+                width={250}
+                height={300}
+              />
+            </div>
+            <div className="info-col-content">
+              <Text field={speaker.fields.Name} tag="div" className="session-info-title" />
+              {jobTitle}
+              {company}
+              {location}
+              <div className="session-info-col-calendar">
+                <Link href={'/speakers/${speaker.fields.Name}'}>
+                  <a className="btn--main btn--main--round">Learn more</a>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 
