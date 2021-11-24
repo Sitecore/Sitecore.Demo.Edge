@@ -1,7 +1,6 @@
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSession } from 'src/types/session';
 import SessionItem from './SessionItem';
-import { withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 
 type SessionsGridProps = ComponentProps & {
   fields: {
@@ -29,4 +28,4 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
   );
 };
 
-export default withDatasourceCheck()<SessionsGridProps>(SessionsGrid);
+export default SessionsGrid;

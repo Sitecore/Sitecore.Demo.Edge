@@ -1,5 +1,5 @@
 import { ComponentProps } from 'lib/component-props';
-import { Field, RichText, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import SessionList from './SessionList';
 import { GraphQLSession } from 'src/types/session';
 
@@ -46,4 +46,4 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => {
   );
 };
 
-export default withDatasourceCheck()<SpeakerInformationProps>(SpeakerInformation);
+export default SpeakerInformation;

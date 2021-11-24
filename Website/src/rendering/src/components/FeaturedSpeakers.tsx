@@ -49,4 +49,4 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
   );
 };
 
-export default withDatasourceCheck()<FeaturedSpeakersProps>(FeaturedSpeakers);
+export default FeaturedSpeakers;

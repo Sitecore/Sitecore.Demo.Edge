@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { ImageField, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type MainNavigationProps = ComponentProps & {
@@ -86,4 +86,4 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   );
 };
 
-export default withDatasourceCheck()<MainNavigationProps>(MainNavigation);
+export default MainNavigation;
