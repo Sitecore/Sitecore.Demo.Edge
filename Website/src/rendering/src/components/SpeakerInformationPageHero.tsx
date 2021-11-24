@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import {
   Field,
   ImageField,
@@ -66,19 +65,13 @@ const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX
     ) : undefined;
 
   return (
-    <>
-      <Head>
-        <meta name="FeaturedSpeaker" content={props.fields.Featured.value ? 'true' : 'false'} />
-      </Head>
-
-      <InformationPageHero
-        {...propsRest}
-        fields={newFields}
-        type="speaker"
-        qualificative={qualificative}
-        informations={informations}
-      />
-    </>
+    <InformationPageHero
+      {...propsRest}
+      fields={newFields}
+      type="speaker"
+      qualificative={qualificative}
+      informations={informations}
+    />
   );
 };
 
