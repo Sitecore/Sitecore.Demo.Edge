@@ -23,7 +23,7 @@ export type SessionInformationPageHeroProps = ComponentProps & {
   TODO: Try to merge the differences of this component into InformationPageHero.tsx without breaking the SpeakerInformationPageHero.tsx and VendorInformationPageHero.tsx components. Then only add specific content for session page hero in this file. Similar to what is being done in SpeakerInformationPageHero.tsx
 */
 const SessionInformationPageHero = (props: SessionInformationPageHeroProps): JSX.Element => {
-  const premiumSessionTitle = props.fields.Premium.value ? 'premium' : '';
+  const premiumSessionQualificative = props.fields.Premium.value ? 'premium' : '';
 
   return (
     <section className="session-information-page-hero">
@@ -42,13 +42,11 @@ const SessionInformationPageHero = (props: SessionInformationPageHeroProps): JSX
             }}
           ></div>
           <div className="content-container">
-            <div
-              className={`container-content-text ${props.fields.Premium.value ? 'premium' : ''}`}
-            >
+            <div className={`container-content-text ${premiumSessionQualificative}`}>
               <div>
                 <p className="title">
-                  Explore the <span className="information-type">{premiumSessionTitle}</span>{' '}
-                  session:
+                  Explore the{' '}
+                  <span className="information-type">{premiumSessionQualificative}</span> session:
                 </p>
                 <h1 className="name">
                   <Text field={props.fields.Name} />
