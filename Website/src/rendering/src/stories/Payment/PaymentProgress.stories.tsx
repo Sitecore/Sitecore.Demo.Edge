@@ -20,7 +20,7 @@ Page1.args = {
   rendering: {
     componentName: 'Rendering',
     dataSource: '/sitecore',
-  }
+  },
 };
 
 export const Page2 = Template.bind({});
@@ -33,7 +33,7 @@ Page2.args = {
   rendering: {
     componentName: 'Rendering',
     dataSource: '/sitecore',
-  }
+  },
 };
 
 export const Page3 = Template.bind({});
@@ -46,5 +46,5 @@ Page3.args = {
   rendering: {
     componentName: 'Rendering',
     dataSource: '/sitecore',
-  }
+  },
 };

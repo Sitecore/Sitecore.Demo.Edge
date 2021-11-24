@@ -39,7 +39,7 @@ Left.args = {
   rendering: {
     componentName: 'Rendering',
     dataSource: '/sitecore',
-  }
+  },
 };
 
 export const Right = Template.bind({});
@@ -71,5 +71,5 @@ Right.args = {
   rendering: {
     componentName: 'Rendering',
     dataSource: '/sitecore',
-  }
+  },
 };
