@@ -23,7 +23,7 @@ const speaker1 = {
     },
     Picture: {
       value: {
-        src: 'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/3fcb3ce4bc0d4d778da7a3dc66fa1cb2?v=e3d5a7cb',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/3fcb3ce4bc0d4d778da7a3dc66fa1cb2?v=e3d5a7cb',
       },
     },
     JobTitle: {
@@ -67,7 +67,7 @@ const speaker2 = {
     },
     Picture: {
       value: {
-        src: 'https://playsummit.sitecoresandbox.cloud:8443/api/public/content/0fd271e931024667b36c3e21dd3256b1?v=82e3ff67',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/0fd271e931024667b36c3e21dd3256b1?v=82e3ff67',
       },
     },
     JobTitle: {

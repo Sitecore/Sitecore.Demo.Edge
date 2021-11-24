@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
   Field,
   ImageField,
@@ -6,8 +7,6 @@ import {
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
-import Head from 'next/head';
-import React from 'react';
 import InformationPageHero from './InformationPageHero';
 
 export type SpeakerInformationPageHeroProps = ComponentProps & {
@@ -71,6 +70,7 @@ const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX
       <Head>
         <meta name="FeaturedSpeaker" content={props.fields.Featured.value ? 'true' : 'false'} />
       </Head>
+
       <InformationPageHero
         {...propsRest}
         fields={newFields}

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getSessionTime } from '../helpers/DateHelper';
 import { GraphQLSession } from 'src/types/session';
-import React from 'react';
 import InfoText from './InfoText';
 import { faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
