@@ -32,7 +32,7 @@ export type SessionInformationProps = ComponentProps & {
 };
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
-  const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
+  const premiumSessionMetaValue = props.fields.Premium?.value ? 'true' : 'false';
 
   const room = props.fields.Rooms && props.fields.Rooms.length > 0 && (
     <InfoText Icon={faDoorOpen}>
