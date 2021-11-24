@@ -35,14 +35,17 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "008efeb6-abaf-4c70-8759-2b2aa76f853e"
+      Value: "bdff2a13-f131-4a83-acd7-602bb63e7ced"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: "20211110T050000:637721172000000000Z"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T153141Z
+      Value: 20211124T170715Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: "Around 50 acres of undeveloped land connecting Des Moines and Pleasant Hill will be turned into a new mountain bike park, according to PLAY! Summit director Rich Ronald."

@@ -48,7 +48,7 @@ Languages:
         default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
-      Value: "{3C8054D9-EE77-47CB-8142-5541A557260D}|{81801E88-1D20-4B32-A344-772504C234EA}"
+      Value: "{7E340507-E14C-4AF5-99F5-27CD67B1A72F}|{E8DBA284-C3EF-4AB6-8A4D-64A193AE62E2}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -64,14 +64,14 @@ Languages:
       Value: "{05508583-1AE2-40C8-A87E-1A54351B0117}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2bf7a85c-1c48-4c19-a2df-efd813a705bf"
+      Value: "172446c3-5504-4b6e-a8da-4a2aef91aa95"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T143329Z
+      Value: 20211124T173244Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Meet a pro: Q&A with Chris Williams"
