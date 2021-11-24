@@ -34,9 +34,8 @@
       .text-area {
         @apply p-14;
 
-        .section-title,
-        .date-time {
-          @apply text-2xl text-yellow font-semibold;
+        .section-title {
+          @apply text-2xl text-orange font-semibold;
         }
 
         .event-title {
@@ -44,7 +43,7 @@
         }
 
         .event-subtitle {
-          @apply text-white text-xl;
+          @apply text-orange text-xl;
         }
       }
 

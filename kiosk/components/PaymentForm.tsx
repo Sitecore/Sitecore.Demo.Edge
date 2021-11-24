@@ -27,7 +27,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
       .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`))
       .catch((e) => {
         console.log(e);
-        alert('An error occured while processing the purchase.');
+        alert('An error occurred while processing the purchase.');
       });
   };
 

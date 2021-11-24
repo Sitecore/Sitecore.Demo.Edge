@@ -48,10 +48,10 @@ namespace Sitecore.Demo.Init.Jobs
             var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrl))
             {
-              Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
-              return;
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
+                return;
             }
-      
+
             var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKey))
             {
@@ -82,7 +82,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
-            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
+            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, cmpEndpointUrl, cmpApiKey, token, scope);
 
             await Complete();
         }
@@ -155,7 +155,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
         }
 
-        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string token, string scope)
+        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
         {
             var sourceDirectory = "C:\\app\\kiosk";
             var targetDirectory = $"C:\\app\\{ns}-kiosk";
@@ -178,6 +178,10 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
             cmd.Run($"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");

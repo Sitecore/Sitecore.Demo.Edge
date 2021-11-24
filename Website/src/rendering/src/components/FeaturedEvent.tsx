@@ -6,9 +6,9 @@ const FeaturedEvent = (): JSX.Element => (
       <div className="triangle-area">
         <div className="text-area">
           <h1 className="section-title">Featured Event</h1>
-          <h3 className="event-title">STRIVA</h3>
-          <h3 className="date-time">Mon, 24th | 9:00 AM</h3>
-          <p className="event-subtitle">Train Smarter, Not Harder, John Johnson</p>
+          <h3 className="event-title">Guest Keynote</h3>
+          <p className="section-title">Chris Williams</p>
+          <p className="event-subtitle">Professional Cyclist</p>
         </div>
         <div className="btn__area">
           <Link href="/tickets">

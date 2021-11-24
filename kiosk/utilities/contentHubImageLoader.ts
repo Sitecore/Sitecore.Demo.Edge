@@ -1,10 +1,10 @@
-interface Props {
-  src: string;
-}
+import { Image } from '../interfaces';
 
-export const contentHubImageLoader = ({ src }: Props) => {
-  const contentHubUrl: string =
-    process.env.CONTENT_HUB_URL || 'https://playsummit.sitecoresandbox.cloud';
+const contentHubUrl = process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || '';
 
-  return `${contentHubUrl}/api/public/content/${src}`;
+//TODO: Remove the 8443 port number when content hub is fixed
+export const contentHubImageSrcGenerator = (src: Image) => {
+  const image = src.results[0].assetToPublicLink.results[0];
+
+  return `${contentHubUrl}:8443/api/public/content/${image.relativeUrl}?v=${image.versionHash}`;
 };

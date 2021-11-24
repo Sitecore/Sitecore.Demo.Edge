@@ -1,21 +1,17 @@
 ﻿---
-ID: "314545e5-6af8-531c-90fb-bcf1c36fe509"
-Parent: "bcacd0a6-4a1d-5abd-9fa0-33bddc29b3eb"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/HeroSection/Data/When
+ID: "5563f719-eb55-43fd-a280-fcd13267d926"
+Parent: "58a24f8c-f3f1-58b9-b895-2cb0007929e2"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: /sitecore/content/EdgeWebsite/Data/Components/HeroSectionCta
 SharedFields:
-- ID: "39847666-389d-409b-95bd-f2016f11eed5"
-  Hint: Unversioned
-  Value: 
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: "Single-Line Text"
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 600
-- ID: "be351a73-fcb0-4213-93fa-c302d8ab4f51"
-  Hint: Shared
-  Value: 
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/box_into.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
+    {76D550FA-6541-4C83-9F39-7B7E5B4CBA62}
 Languages:
 - Language: en
   Versions:
@@ -23,7 +19,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210727T181209Z
+      Value: 20210615T142049Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,11 +30,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b7228758-6633-4507-9add-abec09212f2f"
+      Value: "8cd05436-b8b2-4328-87d8-9ff32ecd5e2a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210913T104303Z
+      Value: 20211105T120818Z
