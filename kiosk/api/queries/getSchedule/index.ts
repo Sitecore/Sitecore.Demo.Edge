@@ -110,48 +110,6 @@ const parseSessionWithTimeSlot = function (
   return session;
 };
 
-export const getSessionsByRoom = async (room: string): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
-  const sessions: Session[] = [];
-
-  results?.data?.allDemo_Session?.results &&
-    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
-      if (
-        session.room?.results &&
-        session.room.results.find((roomResult: Room) => roomResult.id == room)
-      ) {
-        sessions.push(parseSession(session));
-      }
-    });
-
-  return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
-};
-
-export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
-  const sessions: Session[] = [];
-
-  results?.data?.allDemo_Session?.results &&
-    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
-      if (
-        session.speakers?.results &&
-        session.speakers.results.find((speakerResult: SpeakerResult) => speakerResult.id == speaker)
-      ) {
-        sessions.push(parseSession(session));
-      }
-    });
-
-  return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
-};
-
 export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {
   if (process.env.CI === 'true') {
     return { sessions: [] as Session[] };
@@ -166,7 +124,13 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
       s.dayToSession.results &&
       s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
     ) {
-      sessions.push(parseSession(s));
+      if (s.timeslotToSession.results.length > 1) {
+        s.timeslotToSession.results.map((timedSession) =>
+          sessions.push(parseSessionWithTimeSlot(s, timedSession))
+        );
+      } else {
+        sessions.push(parseSession(s));
+      }
     }
   });
 
