@@ -15,7 +15,7 @@ export interface SessionResult {
   room: RoomResults;
   speakers: SpeakerResults;
   roomName: string;
-  sessionToMasterAsset: Image;
+  sessionImage: Image;
   timeslotName: string;
   timeslotOrder: number;
   timeslotToSession: Timeslots;
