@@ -1,11 +1,5 @@
 import Link from 'next/link';
-import {
-  Text,
-  Image,
-  RichText,
-  DateField,
-  withDatasourceCheck,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image, RichText, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { News } from 'src/types/news';
 import { newsDateFormatter } from '../helpers/DateHelper';
@@ -49,4 +43,4 @@ const NewsList = (props: NewsListProps): JSX.Element => {
   );
 };
 
-export default withDatasourceCheck()<NewsListProps>(NewsList);
+export default NewsList;
