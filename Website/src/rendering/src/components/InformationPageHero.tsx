@@ -27,6 +27,8 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
     <div className="informations">{props.informations}</div>
   ) : undefined;
 
+  const lowerCaseQualificative = props.qualificative.toLowerCase();
+
   return (
     <section className={`information-page-hero ${props.type}-information-page-hero`}>
       <div className="content">
@@ -36,10 +38,10 @@ const InformationPageHero = (props: InformationPageHeroProps): JSX.Element => {
         </div>
         <div className="gradient-container"></div>
         <div className="content-container">
-          <div className={`container-content-text ${props.qualificative}`}>
+          <div className={`container-content-text ${lowerCaseQualificative}`}>
             <div>
               <p className="title">
-                Meet the <span className="information-type">{props.qualificative}</span>{' '}
+                Meet the <span className="information-type">{lowerCaseQualificative}</span>{' '}
                 {props.type}:
               </p>
               <h1 className="name">
