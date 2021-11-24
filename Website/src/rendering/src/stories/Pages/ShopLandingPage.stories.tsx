@@ -67,10 +67,6 @@ const shopProps = {
         imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
         price: 255.99,
       },
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
-      },
     ],
   },
   vendorProps: {
