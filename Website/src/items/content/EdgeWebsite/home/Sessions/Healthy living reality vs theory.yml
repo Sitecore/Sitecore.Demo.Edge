@@ -9,10 +9,6 @@ SharedFields:
   Value: kyi6dvc6j0any0c1zpkOyA
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "Healthy living: reality vs. theory"
   Versions:
   - Version: 1
     Fields:
@@ -35,7 +31,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38355" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38355/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/83da9d31fc674139affc0864b0acf074?v=234fb5ef" mediaid="" stylelabs-content-type="Image" alt="Dumbbells resting" height="3648" width="5472" />
+        <image stylelabs-content-id="38355" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38355/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/83da9d31fc674139affc0864b0acf074?v=234fb5ef" mediaid="" stylelabs-content-type="Image" alt="dumbbells-resting.jpg" height="3648" width="5472" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"

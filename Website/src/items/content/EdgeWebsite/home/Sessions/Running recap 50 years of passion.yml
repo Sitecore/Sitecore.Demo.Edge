@@ -9,10 +9,6 @@ SharedFields:
   Value: mQwdSixIAkWsO_Bkx2NvVg
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: "Running recap: 50 years of passion"
   Versions:
   - Version: 1
     Fields:
@@ -33,7 +29,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38091" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38091/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d84f82556a61431296d3e4d067c9d786?v=c9484b17" mediaid="" stylelabs-content-type="Image" alt="Running shoes" height="4000" width="6000" />
+        <image stylelabs-content-id="38091" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38091/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d84f82556a61431296d3e4d067c9d786?v=c9484b17" mediaid="" stylelabs-content-type="Image" alt="running-shoes.jpg" height="4000" width="6000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"

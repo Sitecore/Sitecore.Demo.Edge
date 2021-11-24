@@ -9,10 +9,6 @@ SharedFields:
   Value: "vRG7Lqf2QU-YJNoZ741ysg"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Striva Dining Hall
   Versions:
   - Version: 1
     Fields:
@@ -41,7 +37,7 @@ Languages:
       Value: "a6cacbdd-b6bf-4d16-b9b5-2e49b812433c"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
-      Value: Striva Dining Hall
+      Value: "Main Dining Hall - Sponsored by Striva"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

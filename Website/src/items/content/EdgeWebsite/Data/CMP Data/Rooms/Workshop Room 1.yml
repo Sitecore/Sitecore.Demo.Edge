@@ -9,10 +9,6 @@ SharedFields:
   Value: "ZJv5b-AD7UOJarXsYg5a2A"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Workshop Room 1
   Versions:
   - Version: 1
     Fields:

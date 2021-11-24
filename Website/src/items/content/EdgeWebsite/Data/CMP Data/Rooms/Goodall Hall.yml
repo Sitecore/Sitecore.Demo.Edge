@@ -9,16 +9,9 @@ SharedFields:
   Value: PFHp1YnqIUuoB8sZB1jhMg
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Goodall Hall
   Versions:
   - Version: 1
     Fields:
-    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
-      Hint: Sessions
-      Value: "{04B66E36-F791-497B-AE9F-D3458FBF5449}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 100

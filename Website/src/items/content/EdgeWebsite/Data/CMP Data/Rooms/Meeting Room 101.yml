@@ -9,10 +9,6 @@ SharedFields:
   Value: 5BpM2ijfikmHpNQLNWr82Q
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Meeting Room 1
   Versions:
   - Version: 1
     Fields:
@@ -41,7 +37,7 @@ Languages:
       Value: "6e0f9051-4c4a-448b-b141-c5afdb94c9d6"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
-      Value: Meeting Room 1
+      Value: Meeting Room 101
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

@@ -9,10 +9,6 @@ SharedFields:
   Value: "Fjm7bEdK3k-chKp9c316cw"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Seven mindset strategies to raise your game
   Versions:
   - Version: 1
     Fields:
@@ -24,7 +20,7 @@ Languages:
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
         
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat matti malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
         
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
@@ -35,7 +31,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38239" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38239/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/e67627244df04ec3a0ed5cdb5851160c?v=3df11beb" mediaid="" stylelabs-content-type="Image" alt="Inspirational" height="3840" width="5760" />
+        <image stylelabs-content-id="38239" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38239/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/e67627244df04ec3a0ed5cdb5851160c?v=3df11beb" mediaid="" stylelabs-content-type="Image" alt="inspirational.jpg" height="3840" width="5760" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
@@ -55,7 +51,7 @@ Languages:
       Value: Session
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: Seven mindset strategies to raise your game
+      Value: 7 mindset strategies to raise your game
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{A5673B41-FABE-450B-9037-14132FA734DA}"
@@ -71,4 +67,4 @@ Languages:
       Value: 20211005T122428Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: Seven mindset strategies to raise your game
+      Value: 7 mindset strategies to raise your game
