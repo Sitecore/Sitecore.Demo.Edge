@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
