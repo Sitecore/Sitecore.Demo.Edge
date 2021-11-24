@@ -31,11 +31,20 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4d539061-9614-4e7b-9ee1-3057e12e66aa"
+      Value: "d0d06af9-f08e-4d29-948a-282091eafe96"
+    - ID: "957519d5-5c6b-40c0-b462-b1dac8f12a03"
+      Hint: Eyebrow Title
+      Value: $name
+    - ID: "b536aa73-95d3-4472-95ec-cc02dfdc0633"
+      Hint: ImageTransformation
+      Value: banner
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211103T105659Z
+      Value: 20211116T174808Z
+    - ID: "e2d35418-b6ed-4838-90cb-26f98c1d7586"
+      Hint: Title
+      Value: $name
