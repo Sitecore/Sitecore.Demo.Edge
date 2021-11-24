@@ -10,7 +10,19 @@ const Shop = (): JSX.Element => (
 
 const FeatureProducts = (): JSX.Element => (
   <div>
-    <h2>Featured Products</h2>
+    <div>
+      <h4>Home &#62; Shop</h4>
+      <h2>Featured Products</h2>
+      <p>
+        Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
+        brands at this year’s PLAY! Summit.
+      </p>
+    </div>
+    <div>
+      <Product url="/assets/img/shop/helmet.jpeg" price="250.99" />
+      <Product url="/assets/img/shop/helmet.jpeg" price="250.99" />
+      <Product url="/assets/img/shop/helmet.jpeg" price="250.99" />
+    </div>
   </div>
 );
 
@@ -38,4 +50,22 @@ const FooterLinks = (): JSX.Element => (
   </div>
 );
 
+const Product = (props: ProductProps): JSX.Element => (
+  <div>
+    <img src={props.url} alt="Product image" />
+    <div>
+      <b>Product name</b>
+      <p>Vendor name</p>
+      <p>${props.price}</p>
+    </div>
+  </div>
+);
+
 export default Shop;
+
+// Interfaces
+
+interface ProductProps {
+  url: string;
+  price: string;
+}
