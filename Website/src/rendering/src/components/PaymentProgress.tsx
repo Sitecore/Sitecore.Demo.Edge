@@ -1,4 +1,4 @@
-import { Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import RequireDatasource from './RequireDatasource';
 import Link from 'next/link';
@@ -61,4 +61,4 @@ const PaymentProgress = (props: PaymentProgressProps): JSX.Element => {
   return <div className="payment-progress">{stepLinks}</div>;
 };
 
-export default withDatasourceCheck()<PaymentProgressProps>(PaymentProgress);
+export default PaymentProgress;
