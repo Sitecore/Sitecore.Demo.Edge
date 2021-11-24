@@ -9,6 +9,10 @@ SharedFields:
   Value: fZZXlBesN0etQLARXmSxtw
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Ask an expert: ski and snowboard gear"
   Versions:
   - Version: 1
     Fields:
@@ -31,7 +35,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38543" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38543/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a76e8a98fd844664805dead6907a2d74?v=ea307c17" mediaid="" stylelabs-content-type="Image" alt="ski-expert.jpg" height="3409" width="5123" />
+        <image stylelabs-content-id="38543" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38543/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a76e8a98fd844664805dead6907a2d74?v=ea307c17" mediaid="" stylelabs-content-type="Image" alt="Ski expert" height="3409" width="5123" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -57,14 +61,14 @@ Languages:
       Value: "{FD2E5B87-2430-4051-ADF9-8B76481774C2}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "29237660-c568-42c7-bbbd-a63025c2a3d2"
+      Value: "05932898-9d36-4dce-bc00-3df0742a9f53"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T122521Z
+      Value: 20211124T144445Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: ski and snowboard gear"

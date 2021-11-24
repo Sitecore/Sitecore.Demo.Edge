@@ -9,6 +9,10 @@ SharedFields:
   Value: hGZchsRPsUGmWXDWkmg7fA
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Run Right Through
   Versions:
   - Version: 1
     Fields:
@@ -38,10 +42,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="34199" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/34199/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/893cf2ebf17344d887e4cc5c35013541?v=bd27157d" mediaid="" stylelabs-content-type="Image" alt="RunRightThrough.png" height="1001" width="1001" />
+        <image stylelabs-content-id="34199" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34199/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/893cf2ebf17344d887e4cc5c35013541?v=bd27157d" mediaid="" stylelabs-content-type="Image" alt="Run Right Through Logo" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6b24fd59-c01c-457e-b358-314277af4c6f"
+      Value: "47c8cb12-215d-433f-adad-cf5bb161adc2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -56,7 +60,7 @@ Languages:
       Value: Run Right Through
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124557Z
+      Value: 20211124T145949Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"

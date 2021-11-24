@@ -9,6 +9,10 @@ SharedFields:
   Value: P9XWZ3FrkU6jTVyPP1YqoA
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Gameday
   Versions:
   - Version: 1
     Fields:
@@ -38,10 +42,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33954" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33954/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f11314c7d09e43e0a645185a255c99cf?v=537a6046" mediaid="" stylelabs-content-type="Image" alt="Gameday.png" height="1001" width="1001" />
+        <image stylelabs-content-id="33954" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33954/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f11314c7d09e43e0a645185a255c99cf?v=537a6046" mediaid="" stylelabs-content-type="Image" alt="Gameday Logo" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5d79aa40-2e09-4231-98e6-5c41a587c558"
+      Value: "0c49e012-ac19-4f98-b400-5cb9598c7269"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -58,7 +62,7 @@ Languages:
       Value: Gameday
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124403Z
+      Value: 20211124T145745Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"

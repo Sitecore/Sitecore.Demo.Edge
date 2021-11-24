@@ -9,9 +9,16 @@ SharedFields:
   Value: 7LReJAURUkugHlXs7usq6Q
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mary Asada
   Versions:
   - Version: 1
     Fields:
+    - ID: "087528fd-b211-4715-aca0-cbe90275951b"
+      Hint: Featured
+      Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T175350Z
@@ -28,7 +35,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f7a9dbef-96e1-471f-a89d-b14a97438a05"
+      Value: "402ddd33-0cda-41b1-98e1-246ef62ba631"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Striva
@@ -51,7 +58,7 @@ Languages:
       Value: Chief Product Officer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123713Z
+      Value: 20211124T150630Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
@@ -64,4 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="31918" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31918/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/dd0a66b1464d4607a681a57efea3509c?v=d7227dfc" mediaid="" stylelabs-content-type="Image" alt="mary-asada.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="49221" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49221/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ecdaf28c014d4ab2862c8ee0d2b779ea?v=e28503fa" mediaid="" stylelabs-content-type="Image" alt="Mary Asada - No background" height="5535" width="5535" />
