@@ -1,13 +1,11 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { ComponentProps } from 'lib/component-props';
-import { Field, ImageField, Image, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { faBuilding, faMapMarkerAlt, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { Field, ImageField, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Timeslot } from '../interfaces/Timeslot';
 import { Speaker } from 'src/types/speaker';
 import { Day } from 'src/types/day';
 import { Room } from 'src/types/room';
-import InfoText from './InfoText';
+import SpeakerList from './SpeakerList';
 import SessionInformationPageHero from './SessionInformationPageHero';
 
 export type SessionInformationProps = ComponentProps & {
@@ -27,55 +25,12 @@ export type SessionInformationProps = ComponentProps & {
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
   const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
 
-  const speakers = props.fields.Speakers && props.fields.Speakers.length > 0 && (
-    <div className="sidebar-list sidebar-list__speaker">
-      {props.fields.Speakers.map((speaker, index) => {
-        const featuredSpeakerCssClass = speaker.fields.Featured.value ? 'featured' : '';
-
-        const jobTitle = speaker.fields.JobTitle.value && (
-          <InfoText Icon={faUserTie}>
-            <Text tag="span" field={speaker.fields.JobTitle} />
-          </InfoText>
-        );
-
-        const company = speaker.fields.Company.value && (
-          <InfoText Icon={faBuilding}>
-            <Text tag="span" field={speaker.fields.Company} />
-          </InfoText>
-        );
-
-        const location = speaker.fields.Location.value && (
-          <InfoText Icon={faMapMarkerAlt}>
-            <Text tag="span" field={speaker.fields.Location} />
-          </InfoText>
-        );
-
-        return (
-          <div key={index} className={`information-block ${featuredSpeakerCssClass}`}>
-            <div className="info-col-left">
-              <Image
-                field={speaker.fields?.Picture}
-                alt={speaker.fields?.Name?.value}
-                width={250}
-                height={300}
-              />
-            </div>
-            <div className="info-col-content">
-              <Text field={speaker.fields.Name} tag="div" className="session-info-title" />
-              {jobTitle}
-              {company}
-              {location}
-              <div className="session-info-col-calendar">
-                <Link href={'/speakers/${speaker.fields.Name}'}>
-                  <a className="btn--main btn--main--round">Learn more</a>
-                </Link>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
+  const speakers =
+    props.fields?.Speakers && props.fields.Speakers.length > 0 ? (
+      <SpeakerList speakers={props.fields.Speakers} />
+    ) : (
+      <div>No speakers</div>
+    );
 
   return (
     <>
