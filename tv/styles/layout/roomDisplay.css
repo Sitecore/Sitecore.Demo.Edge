@@ -48,7 +48,8 @@
       @apply mb-auto mt-auto z-50 w-full h-full px-10 pt-10 absolute;
 
       .room-name {
-        @apply top-0 px-10;
+        @apply top-0 px-10 w-2/3 text-2xl;
+        @apply lg:text-4xl xl:text-6xl;
       }
 
       .eyebrow {

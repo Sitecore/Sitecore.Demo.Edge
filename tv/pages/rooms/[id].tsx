@@ -4,8 +4,6 @@ import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
-import { useContext } from 'react';
-import { DayTimeContext } from '../../contexts/DayTimeContext';
 
 type RoomProps = {
   sessions: Session[];
@@ -16,8 +14,6 @@ export declare type RoomParams = {
 };
 
 export default function RoomPage(props: RoomProps) {
-  const dayTimeContext = useContext(DayTimeContext);
-  const sessions = props.sessions.filter((s: Session) => s.ShortDay == dayTimeContext.dayTime.day);
   return (
     <>
       <div
@@ -30,12 +26,13 @@ export default function RoomPage(props: RoomProps) {
       <div id="container" className="absolute">
         <div id="monitor">
           <div id="monitorscreen">
-            <RoomDisplay sessions={sessions} />
+            <RoomDisplay sessions={props.sessions} />
           </div>
         </div>
       </div>
       <div className="absolute bottom-2 text-black-light">
-        <span className="text-xl">🛈</span> Click anywhere outside the TV to go back to the previous screen
+        <span className="text-xl">🛈</span> Click anywhere outside the TV to go back to the previous
+        screen
       </div>
     </>
   );

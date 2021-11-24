@@ -21,11 +21,10 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
   let selectedTime = parseInt(dayTimeContext.dayTime.time);
 
   if (router.query['d'] && router.query['t']) {
-    selectedDay = `Day ${parseInt(router.query['t'] as string) + 1}`;
+    selectedDay = `Day ${parseInt(router.query['d'] as string) + 1}`;
     selectedTime = parseInt(router.query['t'] as string);
   }
-  console.log(selectedDay + ' ' + selectedTime);
-  console.table(props.sessions);
+
   const currentAndNextSessions = props.sessions.filter(
     (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
   );
