@@ -47,7 +47,5 @@ export const newsDateFormatter = (date: Date | null): string | undefined =>
   });
 
 export const getSessionDays = (days: Day[]): string => {
-  const dayString: string[] = [];
-  days.map((day) => dayString.push(day.fields.Name.value.toString()));
-  return dayString.join(', ');
+  return days.map((day) => day.fields.Name.value.toString()).join(', ');
 };

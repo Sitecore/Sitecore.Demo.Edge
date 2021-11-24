@@ -143,6 +143,17 @@ const days = [
       },
     },
   },
+  {
+    name: {
+      value: 'Day 2',
+    },
+
+    fields: {
+      Name: {
+        value: 'Day 2',
+      },
+    },
+  },
 ];
 
 export const Default = Template.bind({});
