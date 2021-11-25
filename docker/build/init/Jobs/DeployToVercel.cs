@@ -110,7 +110,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            File.WriteAllTextAsync(Path.Combine(Directory.GetCurrentDirectory(), $"tv-deployment.state"), output);
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
@@ -149,7 +150,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
 
             // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token ###WRONGTOKEN###{token} --scope {scope}");
+            File.WriteAllTextAsync(Path.Combine(Directory.GetCurrentDirectory(), $"website-deployment.state"), output);
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
@@ -184,7 +186,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            File.WriteAllTextAsync(Path.Combine(Directory.GetCurrentDirectory(), $"kiosk-deployment.state"), output);
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-kiosks.sitecoredemo.com --token {token} --scope {scope}");
