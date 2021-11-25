@@ -3,7 +3,7 @@ import Link from 'next/link';
 const AllProducts = (): JSX.Element => (
   <section className="section section__allproducts">
     <div className="section__content container">
-      <h1 className="section__content__title section__content__title--light">All Products</h1>
+      <h1 className="section__content__title">All Products</h1>
       <div className="item-grid">
         <div className="grid-filters">
           <span>Filter by:</span>

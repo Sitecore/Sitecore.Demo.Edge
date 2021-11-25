@@ -21,7 +21,7 @@ const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element 
   return (
     <section className="section section--3-col">
       <div className="section__content section--3-col__content container">
-        <h2 className="section__content__title section__content__title--light">
+        <h2 className="section__content__title">
           <Text field={fields.Title} />
         </h2>
         <p className="section__content__p">

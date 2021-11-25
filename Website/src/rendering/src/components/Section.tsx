@@ -19,16 +19,20 @@ type SectionProps = ComponentWithChildrenProps & {
 };
 
 const Section = (props: SectionProps): JSX.Element => {
-  const sectionCssClasses = `section ${props.fields?.cssClass?.value}`;
-  const sectionContentCssClasses = `section__content ${props.fields?.cssClass?.value}__content container`;
-  const titleCssClasses = `section__content__title section__content__title--${props.fields?.brightness?.value}`;
-  const contentCssClasses = `section__content__p section__content__p--${props.fields?.brightness?.value}`;
+  const brighnessCssClass = props.fields?.brightness?.value
+    ? `section--${props.fields.brightness.value}`
+    : '';
+  const customCssClass = props.fields?.cssClass?.value ? props.fields.cssClass.value : '';
+  const customContentCssClass = customCssClass ? `${customCssClass}__content` : '';
+
+  const sectionCssClasses = `section ${brighnessCssClass} ${customCssClass}`;
+  const sectionContentCssClasses = `section__content ${customContentCssClass} container`;
 
   const titleAndContent = props.fields && (
     <>
-      <Text tag="h2" field={props.fields.title} className={titleCssClasses} />
+      <Text tag="h2" field={props.fields.title} className="section__content__title" />
       {props.fields.content && (
-        <RichText tag="div" field={props.fields.content} className={contentCssClasses} />
+        <RichText tag="div" field={props.fields.content} className="section__content__p" />
       )}
     </>
   );
