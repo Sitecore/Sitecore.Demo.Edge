@@ -125,8 +125,7 @@
     }
   }
 
-  &.premium,
-  &.featured {
+  &.premium {
     .content .content-container .container-content-text {
       @screen md {
         &::after {
