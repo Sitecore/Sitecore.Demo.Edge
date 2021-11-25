@@ -4,6 +4,7 @@ import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
 import Screen from '../components/Screen';
+import ScheduleHeader from '../components/ScheduleHeader';
 
 type ScheduleProps = {
   sessions: Session[];
@@ -52,6 +53,7 @@ function generateSchedule(sessions: Session[]): ScheduleSlot[][] {
 const Schedule = (props: ScheduleProps): JSX.Element => {
   return (
     <Screen>
+      <ScheduleHeader />
       <ScheduleForDay schedule={generateSchedule(props.sessions)} />
     </Screen>
   );

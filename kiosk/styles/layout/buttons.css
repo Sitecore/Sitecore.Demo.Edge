@@ -8,6 +8,14 @@
   .btn-right {
     @apply ml-auto md:ml-0;
   }
+
+  &--minimal {
+    @apply bg-none;
+
+    .btn--main--big {
+      padding: 0.4em 1em;
+    }
+  }
 }
 
 .btn--main {

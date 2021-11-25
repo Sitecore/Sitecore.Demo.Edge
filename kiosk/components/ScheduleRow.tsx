@@ -1,5 +1,5 @@
 import { Session } from '../interfaces/session';
-import { contentHubImageSrcGenerator } from '../utilities/contentHubImageLoader';
+import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
 
 type ScheduleRowProps = {
   sessions: Session[];
@@ -23,7 +23,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
             <div
               className={'session-image' + premiumClass + keynoteClass}
               style={{
-                backgroundImage: `url("${session.image}")`,
+                backgroundImage: `url("${contentHubImageSrcGeneratorFromString(session.image)}")`,
               }}
             >
               {session.type && <div className="session-type">{session.type}</div>}
