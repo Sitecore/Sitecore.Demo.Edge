@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ReactElement, useState } from 'react';
 import Section from '../components/Section';
-import { ReactElement } from 'react';
-import { useState } from 'react';
 
 const Shop = (props: ShopProps): JSX.Element => {
   const { productProps, categoryProps, vendorProps, searchBarProps } = props;
@@ -97,11 +96,17 @@ const ReflektionContent = (props: ReflektionContentProps): JSX.Element => {
 const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
   <Section
     fields={{
+      cssClass: {
+        value: '',
+      },
       brightness: {
         value: 'dark',
       },
       title: {
         value: 'Shop by category',
+      },
+      content: {
+        value: '',
       },
       callToActionLink: {
         value: {
@@ -110,6 +115,10 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
         },
       },
     }}
+    rendering={{
+      componentName: '',
+    }}
+    params={{}}
   >
     <div id="categories-container">
       {props.categories.map((category) => (
@@ -126,11 +135,17 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
 const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
   <Section
     fields={{
+      cssClass: {
+        value: '',
+      },
       brightness: {
         value: 'light',
       },
       title: {
         value: 'Shop by vendor',
+      },
+      content: {
+        value: '',
       },
       callToActionLink: {
         value: {
@@ -139,6 +154,10 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
         },
       },
     }}
+    rendering={{
+      componentName: '',
+    }}
+    params={{}}
   >
     <div id="categories-container">
       {props.vendorImageUrls.map((url) => (

@@ -113,7 +113,7 @@ div#reflektion-right-container {
   flex-wrap: wrap;
   max-height: 770px;
   overflow-y: scroll;
-  box-shadow: inset #0000001f -1px 0px 3px 2px;
+  box-shadow: inset #0000001f -1px 0 3px 2px;
   padding: 20px 0;
 }
 
