@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Section from '../components/Section';
 import { ReactElement } from 'react';
-import { useState } from '@storybook/addons';
+import { useState } from 'react';
 
 const Shop = (props: ShopProps): JSX.Element => {
   const { productProps, categoryProps, vendorProps, searchBarProps } = props;
@@ -39,7 +39,7 @@ const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
 );
 
 const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
-  // const [popupVisible, setpopupVisible] = useState(false);
+  const [popupVisible, setpopupVisible] = useState(false);
   return (
     <section className="section">
       <div className="section__content container">
@@ -47,11 +47,11 @@ const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
           <FontAwesomeIcon id="search-icon" icon={faSearch} />
           <input
             id="search-input"
-            // onFocus={() => setpopupVisible(true)}
-            // onBlur={() => setpopupVisible(false)}
+            onFocus={() => setpopupVisible(true)}
+            onBlur={() => setpopupVisible(false)}
             placeholder="Search for products"
           ></input>
-          <Popup visible={true}>
+          <Popup visible={popupVisible}>
             <ReflektionContent {...props.reflektionProps} />
           </Popup>
         </div>
