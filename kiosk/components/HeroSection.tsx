@@ -35,7 +35,7 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
             ></div>
           </div>
           <div className="btn__area">
-            <Link href="/schedule">
+            <Link href="/schedule/0">
               <a className="btn--main btn--main--round btn--main--round--primary btn--main--big">
                 Explore the event
               </a>
