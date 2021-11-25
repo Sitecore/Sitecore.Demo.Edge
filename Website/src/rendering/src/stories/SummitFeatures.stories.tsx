@@ -31,10 +31,6 @@ const featureArgs = {
       },
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 } as SummitFeatureProps;
 
 const Template: ComponentStory<typeof SummitFeatures> = (args: ComponentWithChildrenProps) => (

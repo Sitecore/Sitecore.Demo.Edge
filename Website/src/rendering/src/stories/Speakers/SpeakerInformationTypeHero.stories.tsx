@@ -50,8 +50,4 @@ Default.args = {
       value: 'https://linkedin.com/asada',
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 };

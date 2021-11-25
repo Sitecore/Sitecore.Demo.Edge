@@ -43,8 +43,4 @@ Page3.args = {
       value: 3,
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 };

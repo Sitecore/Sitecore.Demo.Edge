@@ -52,8 +52,4 @@ WithSessions.args = {
       contextItem: fieldsWithSessions,
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 };

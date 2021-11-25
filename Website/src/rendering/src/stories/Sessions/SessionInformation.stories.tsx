@@ -166,8 +166,4 @@ Default.args = {
       value: true,
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 };

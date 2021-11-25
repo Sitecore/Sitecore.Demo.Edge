@@ -22,8 +22,4 @@ const fields = {
 export const Default = Template.bind({});
 Default.args = {
   fields,
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 };
