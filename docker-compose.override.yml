@@ -10,7 +10,7 @@ services:
 
   # A Windows-based nodejs base image
   nodejs:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     build:
       context: ./docker/build/nodejs
       args:
@@ -22,7 +22,7 @@ services:
   # for the images which use its output. Setting "scale: 0" means docker-compose will not
   # include it in the running environment. See Dockerfile for more details.
   solution:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     build:
       context: ./
       args:
@@ -31,12 +31,12 @@ services:
     scale: 0
 
   rendering:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-rendering:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-rendering:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     build:
       context: ./docker/build/rendering
       target: ${BUILD_CONFIGURATION}
       args:
-        PARENT_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+        PARENT_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     mem_limit: 2GB
     volumes:
       - .\Website\src\rendering:C:\app
@@ -60,7 +60,7 @@ services:
 
   # Sitecore CDP Proxy
   cdp:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-cdp:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-cdp:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
       context: ./docker/build/cdp
     environment:
@@ -88,7 +88,7 @@ services:
       args:
         BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
         BASE_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         NODEJS_VERSION: ${NODEJS_VERSION}
     environment:
       ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
@@ -130,14 +130,15 @@ services:
 
   # Custom mssql init
   mssql-init:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
       context: ./docker/build/mssql-init
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
-        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
+        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     environment:
       SQL_SERVER: ${SQL_SERVER}
       SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
@@ -167,7 +168,7 @@ services:
   # Mount our Solr data folder and use our retagged Solr image.
   # Some modules (like SXA) also require additions to the Solr image.
   solr-init:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
       context: ./docker/build/solr-init
       args:
@@ -176,7 +177,7 @@ services:
   # Use our retagged Identity Server image.
   # Configure for a mounted license file instead of using SITECORE_LICENSE.
   id:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-id:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     depends_on:
       mssql-init:
         condition: service_healthy
@@ -196,12 +197,12 @@ services:
   # Folders are mounted below for code deployment and log output. See Dockerfile for details.
   # Configure for a mounted license file instead of using SITECORE_LICENSE.
   cm:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     build:
       context: ./docker/build/cm
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION:-latest}
+        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
@@ -253,7 +254,7 @@ services:
 
   # Horizon
   authoringhost:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION:-latest}
+    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
     build:

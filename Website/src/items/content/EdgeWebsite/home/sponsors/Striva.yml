@@ -9,13 +9,17 @@ SharedFields:
   Value: pPFv7VyGJkejhXjhk3ntGA
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Striva
   Versions:
   - Version: 1
     Fields:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="42887" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/42887/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/584e9f0a0a12481cb7c50f6cd3198589?v=fca25139" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
+        <image stylelabs-content-id="57878" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/57878/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/0568eb4ee9a241579b786d1a21e41554?v=fdec6fcb" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162431Z
@@ -37,7 +41,7 @@ Languages:
       Value: Striva
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a9a079fa-8a7a-469f-a266-ead210d34a83"
+      Value: "878b8af7-5eee-47d6-a2be-2c0df083adf5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -47,7 +51,7 @@ Languages:
       Value: Platinum
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211006T183949Z
+      Value: 20211124T150405Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Striva

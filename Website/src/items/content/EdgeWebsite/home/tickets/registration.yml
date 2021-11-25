@@ -51,12 +51,6 @@ SharedFields:
           ph="/jss-main"
           uid="{86C8A5B0-4A7F-55CD-87DD-765DEC81833D}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{B42AC1F6-E4D5-58E1-BB24-B5F44124EB6D}" />
-        <r
           rname="Section"
           ds="{FFC44113-0826-506C-B6D8-B7F4BC94E9A4}"
           id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -69,12 +63,6 @@ SharedFields:
           par=""
           ph="/jss-main/jss-section-content-{1FAC5274-9C46-55A0-8E17-9BC1C6A36329}-0"
           uid="{8D7D3783-B8C8-507F-A0FB-1CEC326C6ABD}" />
-        <r
-          rname="CountdownSection"
-          id="{6BDFBAC5-5BB9-5923-884D-D9ED1A13520C}"
-          par=""
-          ph="/jss-main"
-          uid="{968BA4DD-A2B9-564D-8BC2-A9F25A8459CD}" />
         <r
           rname="Section"
           ds="{3BE19CA9-2E8B-55FB-9DF1-AF71470DFE06}"

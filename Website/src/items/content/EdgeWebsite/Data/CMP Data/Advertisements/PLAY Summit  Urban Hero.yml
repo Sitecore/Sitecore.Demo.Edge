@@ -1,0 +1,55 @@
+﻿---
+ID: "f2a3b54c-4474-4f5c-8b4e-3e049975000e"
+Parent: "d0e54914-8373-4e4b-9dde-91e57437ced2"
+Template: "44262889-315a-4f8d-8fb5-243d793fd54a"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Advertisements/PLAY Summit  Urban Hero
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: jnZOQnEVhUyWn1le6m5FyQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "PLAY! Summit - Urban Hero"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211103T120016Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "69e8418c-5f11-40a8-9c0d-9e5eacc1229e"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="31904" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/31904/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=5ae3562e" mediaid="" stylelabs-content-type="Image" alt="home-hero-background.jpg" height="850" width="2000" />
+    - ID: "81af116e-235f-44ad-a8e0-794bc3504c7c"
+      Hint: Slogan
+      Value: "READY | STEADY | PLAY!"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5df2fd5f-f4d5-4872-9760-0d13cfd94ee3"
+    - ID: "957519d5-5c6b-40c0-b462-b1dac8f12a03"
+      Hint: Eyebrow Title
+      Value: Sports and Recreation Expo
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c068953c-33ee-4889-b473-395d5e0aea0f"
+      Hint: Body
+      Value: "<p>Join us in person or online for the fifth annual <strong>PLAY!</strong> Summit.</p>"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211103T130315Z
+    - ID: "e2d35418-b6ed-4838-90cb-26f98c1d7586"
+      Hint: Title
+      Value: Raise Your Game

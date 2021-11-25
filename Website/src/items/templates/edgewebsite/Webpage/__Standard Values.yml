@@ -7,6 +7,9 @@ SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
   Value: "{6DB09CEF-64A8-52A3-A980-38408109C4D7}"
+- ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
+  Hint: __Default workflow
+  Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -50,12 +53,6 @@ SharedFields:
           par=""
           ph="/jss-header/jss-header-content-{1CB49545-D7F4-538D-9748-FAAD4753D3CB}-0"
           uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}" />
-        <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}" />
         <r
           rname="Section"
           ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
@@ -110,11 +107,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0027232d-28c1-4796-8338-75803673bf33"
+      Value: "e2b7d373-f319-4fcf-940d-a62c2c0cccd1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210910T003143Z
+      Value: 20211123T184418Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: $name

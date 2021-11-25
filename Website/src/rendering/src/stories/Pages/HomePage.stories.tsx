@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Header from '../../components/Header';
 import { HeaderProps } from '../../components/Header';
 import HeroSection, { HeroProps } from '../../components/HeroSection';
+import HeroSectionCta from '../../components/HeroSectionCta';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
@@ -11,6 +12,7 @@ import ThreeColumnsSection, {
 import SponsorsGrid, { SponsorsProps } from '../../components/SponsorsGrid';
 import Footer, { FooterProps } from '../../components/Footer';
 import { Sponsor } from 'src/types/sponsor';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export default {
   title: 'Pages/Home Page',
@@ -19,11 +21,6 @@ export default {
 const headerProps = {} as HeaderProps;
 const heroProps = {
   fields: {
-    Logo: {
-      value: {
-        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
-      },
-    },
     Hero: {
       value: {
         src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=c63ff08e',
@@ -32,26 +29,37 @@ const heroProps = {
     Slogan: {
       value: 'READY | STEADY | PLAY!',
     },
-    Expo: {
+    Eyebrow: {
       value: 'Sports and Recreation Expo',
     },
     Title: {
       value: 'RAISE YOUR GAME',
     },
-    Subtitle: {
+    Body: {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
     },
-    When: {
-      value: 'August 24th – 25th',
-    },
-    Link: {
-      value: {
-        href: '/tickets',
-        text: 'Book Tickets',
-      },
+  },
+  rendering: {
+    placeholders: {
+      'jss-hero-section-content': [
+        {
+          uid: '04d6b23e-6ce3-51a1-9c9c-4cd56b29b6aa',
+          componentName: 'HeroSectionCta',
+          dataSource: '',
+          params: {},
+          fields: {
+            Link: {
+              value: {
+                href: '/tickets',
+                text: 'Book Tickets',
+              },
+            },
+          },
+        },
+      ],
     },
   },
-} as HeroProps;
+} as unknown as HeroProps;
 
 const sponsor1 = {
   Name: 'Item Name',
@@ -195,9 +203,24 @@ const footerProps = {
   },
 } as FooterProps;
 
+const componentFactory = function (componentName: string) {
+  const components = new Map();
+  components.set('HeroSectionCta', HeroSectionCta);
+
+  const component = components.get(componentName);
+
+  // check that component should be dynamically imported
+  if (component?.element) {
+    // return next.js dynamic import
+    return component.element();
+  }
+
+  return component?.default || component;
+};
+
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
-    <>
+    <SitecoreContext componentFactory={componentFactory}>
       <header>
         <Header {...headerProps} />
         <MainNavigation {...mainNavigationArgs} />
@@ -210,7 +233,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
       <footer>
         <Footer {...footerProps} />
       </footer>
-    </>
+    </SitecoreContext>
   );
 };
 

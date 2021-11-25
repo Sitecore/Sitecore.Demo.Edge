@@ -13,31 +13,22 @@ const Template: ComponentStory<typeof HeroSection> = (args: HeroProps) => <HeroS
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    Logo: {
+    Hero: {
       value: {
-        src: '/assets/img/play-logo-wide-light.svg',
+        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=c63ff08e',
       },
     },
     Slogan: {
       value: 'READY | STEADY | PLAY!',
     },
-    Expo: {
+    Eyebrow: {
       value: 'Sports and Recreation Expo',
     },
     Title: {
       value: 'RAISE YOUR GAME',
     },
-    Subtitle: {
+    Body: {
       value: 'Join us in person or online for the fifth annual PLAY! Summit.',
-    },
-    When: {
-      value: 'August 24th – 25th',
-    },
-    Link: {
-      value: {
-        href: '/tickets',
-        text: 'Book Tickets',
-      },
     },
   },
 } as HeroProps;

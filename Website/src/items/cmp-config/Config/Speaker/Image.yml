@@ -9,7 +9,7 @@ SharedFields:
   Value: 200
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: Image
+  Value: SpeakerToMasterAsset
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{F5EB0181-F3AB-4EDB-A8F2-630E72F555D9}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4c7e741f-8231-487f-a6c5-f7a76cf1e4ff"
+      Value: "5450506a-bd66-4be1-ba95-354efa3c08f3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T121517Z
+      Value: 20211124T145544Z

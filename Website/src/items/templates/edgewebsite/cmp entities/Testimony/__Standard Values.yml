@@ -18,6 +18,12 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T161122Z
+    - ID: "30de01d7-233e-42ac-bb14-751e9d60b1cd"
+      Hint: Provider
+      Value: $name
+    - ID: "32fcc3c3-e6bb-4376-8bd8-bddb62fedb57"
+      Hint: LogoTransformation
+      Value: profile
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
@@ -31,11 +37,11 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "efdc52b8-ad01-4b8a-80ab-0c38659cd128"
+      Value: "fc08b833-e5ed-417b-b1bb-2827179e047d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210730T215335Z
+      Value: 20211116T174851Z

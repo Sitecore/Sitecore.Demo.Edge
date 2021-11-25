@@ -1,0 +1,39 @@
+﻿---
+ID: "b505e955-f7bb-4a56-a956-a41fb1ae202d"
+Parent: "99536ff1-02bf-5b2e-a94a-1bbba4cf50fa"
+Template: "76d550fa-6541-4c83-9f39-7b7e5b4cba62"
+Path: /sitecore/content/EdgeWebsite/home/Page Components/HeroCta
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "02110427-7e12-40a8-9fee-9d79b24cf1ec"
+      Hint: Link
+      Value: |
+        <link text="Book Tickets" anchor="" linktype="internal" class="" title=""  querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210727T181349Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "397b2d55-49bf-4542-8f38-502f19b57966"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211105T121015Z

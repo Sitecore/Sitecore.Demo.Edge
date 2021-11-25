@@ -33,15 +33,15 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "38b28323-85a7-4cde-ba20-3cefbe516fb2"
+      Value: "0dc74ba1-a40f-46c8-bd22-e03c62459d62"
     - ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="35904" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35904/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/2ad57854ddde4d54895b6f464ca8727b?v=4bf5facb" mediaid="" stylelabs-content-type="Image" alt="Striva.jpg" height="3125" width="3125" />
+        <image stylelabs-content-id="57878" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/57878/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/0568eb4ee9a241579b786d1a21e41554?v=fdec6fcb" mediaid="" stylelabs-content-type="Image" alt="Striva Logo" height="3125" width="3125" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210731T030205Z
+      Value: 20211116T174902Z

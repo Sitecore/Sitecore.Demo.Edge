@@ -19,6 +19,10 @@
         );
       box-shadow: 0 0 20px #232323;
 
+      .btn__area {
+        @apply px-12;
+      }
+
       &__text {
         @apply p-6 relative;
         @apply md:p-12;
@@ -50,7 +54,7 @@
       }
 
       .expo {
-        @apply text-yellow;
+        @apply text-orange;
 
         font-weight: 600;
         font-size: 1.5em;
@@ -62,10 +66,10 @@
       }
 
       .subtitle {
-        @apply text-white py-2;
+        @apply text-orange py-2;
 
-        font-size: 0.8em;
-        line-height: 1.4;
+        font-size: 1em;
+        line-height: 1.2;
       }
     }
   }

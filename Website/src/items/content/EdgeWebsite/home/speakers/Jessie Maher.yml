@@ -9,6 +9,10 @@ SharedFields:
   Value: "dxJdgp-KB0qT_gl9_2aXOA"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Jessie Maher
   Versions:
   - Version: 1
     Fields:
@@ -28,13 +32,13 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9acdf3df-4e9a-4745-a090-b6316a445add"
+      Value: "aab2ddfb-2cf2-4724-846e-6c3d9b49a3e4"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: "PLAY! Summit"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
+      Value: "{BA087B4F-7F17-4461-98E0-9514123F1EBE}|{A39F9FBC-DA18-473D-BD74-47429B695614}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -44,14 +48,14 @@ Languages:
       Value: |
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
         
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse Suspendisse Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
         
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
       Hint: JobTitle
       Value: President and CEO
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123932Z
+      Value: 20211124T150948Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
@@ -64,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="37856" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/37856/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d5925318bb134ab68c157f961c501aeb?v=eaade405" mediaid="" stylelabs-content-type="Image" alt="jessie-maher.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="50150" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/50150/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/8e3bbc671ca44867b2b9cc74a071a51d?v=626c5fac" mediaid="" stylelabs-content-type="Image" alt="Jessie Maher - No background" height="3973" width="3973" />

@@ -1,4 +1,6 @@
 .btn__area {
+  @apply px-10 py-8;
+
   display: -webkit-flex;
   display: flex;
   align-items: center;
@@ -6,7 +8,6 @@
   background-image: url(../../public/img/btn-background.png);
   background-size: cover;
   background-position: bottom;
-  padding: 6%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 
   .btn-right {

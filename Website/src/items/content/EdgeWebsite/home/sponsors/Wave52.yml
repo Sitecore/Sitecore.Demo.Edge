@@ -9,13 +9,17 @@ SharedFields:
   Value: 7fpYZzdjOEimz9R1Op6mNQ
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Wave52
   Versions:
   - Version: 1
     Fields:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="36863" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/36863/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a1b876c38473498482a72109ef4c16e1?v=d5675a2a" mediaid="" stylelabs-content-type="Image" alt="wave52-logo.png" height="1200" width="1200" />
+        <image stylelabs-content-id="36863" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36863/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a1b876c38473498482a72109ef4c16e1?v=d5675a2a" mediaid="" stylelabs-content-type="Image" alt="Wave52 logo" height="1200" width="1200" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162528Z
@@ -37,7 +41,7 @@ Languages:
       Value: Wave52
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "70ffeccb-3eea-4e37-9da4-3500a09338cf"
+      Value: "493ef57f-178a-43e5-9233-929943cc2f2e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -47,7 +51,7 @@ Languages:
       Value: Gold
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T125242Z
+      Value: 20211124T150425Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Wave52
