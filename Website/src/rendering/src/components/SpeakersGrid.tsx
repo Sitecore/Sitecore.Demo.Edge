@@ -16,16 +16,6 @@ export type SpeakersGridProps = ComponentProps & {
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
-  // TODO: remove this when the port number issue is fixed on content hub
-  props.fields.data.item.children.results.map((s) => {
-    if (s.picture.jsonValue.value) {
-      s.picture.jsonValue.value.src = s.picture.jsonValue.value.src?.replace(
-        'https://playsummit.sitecoresandbox.cloud',
-        'https://playsummit.sitecoresandbox.cloud:8443'
-      );
-    }
-  });
-
   const speakers =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results
