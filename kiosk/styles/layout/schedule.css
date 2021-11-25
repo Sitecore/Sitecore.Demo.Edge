@@ -131,7 +131,6 @@
     @apply top-2 right-6 absolute text-yellow text-3xl z-50 p-4;
 
     filter: drop-shadow(1px 1px 5px black);
-    -webkit-filter: drop-shadow(1px 1px 5px black);
 
     &.from-center {
       border-radius: 100%;
