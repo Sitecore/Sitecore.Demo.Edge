@@ -1,4 +1,4 @@
-import { fetchGraphQL } from '../../../api';
+import { fetchGraphQL } from '../..';
 import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 import { DayResult } from '../../../interfaces/day';
@@ -96,8 +96,8 @@ const parseSessionWithTimeSlot = function (
     session.speaker = sessionResult.speakers.results[0].name;
     if (sessionResult.speakers.results.length > 1) {
       session.speaker = sessionResult.speakers.results
-        .map((session) => {
-          return session.name;
+        .map((speaker) => {
+          return speaker.name;
         })
         .join(', ');
     }

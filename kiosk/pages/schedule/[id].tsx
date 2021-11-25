@@ -1,4 +1,4 @@
-import { getAllSessionsByDay } from '../../api/queries/getSchedule';
+import { getAllSessionsByDay } from '../../api/queries/getSessions';
 import ScheduleForDay from '../../components/ScheduleForDay';
 import { ScheduleSlot } from '../../interfaces/schedule';
 import { Session } from '../../interfaces/session';
