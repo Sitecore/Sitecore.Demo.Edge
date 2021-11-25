@@ -6,22 +6,22 @@ import { ReactElement, useState } from 'react';
 
 import Section from './Section';
 
-export const FeaturedProducts = (props: FeaturedProductsProps): JSX.Element => (
+export const FeaturedProductHero = (): JSX.Element => (
   <section className="section section-featured-products">
     <div className="section__content container">
       <div id="featured-products-container">
         <div id="products-left-container">
           <h4>Home &#62; Shop</h4>
-          <h2>Featured Products</h2>
-          <p>
-            Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
-            brands at this year’s PLAY! Summit.
-          </p>
+          <h2>CenterCycle Ratchet Kit</h2>
+          <p>Small ratchet kit with a bag for your everyday bike travels and repairs.</p>
+          <div className="add-to-cart">
+            <Link href="/shop/product">
+              <a className="btn--main btn--main--round">Add to cart</a>
+            </Link>
+          </div>
         </div>
         <div id="products-right-container">
-          {props.products.map((product) => (
-            <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
-          ))}
+          <img src="/assets/img/shop/demo/ratchet.png" alt="CenterCycle Ratchet Kit" />
         </div>
       </div>
     </div>
@@ -229,10 +229,6 @@ export interface CategoryProps {
 
 export interface ShopByCategoryProps {
   categories: CategoryProps[];
-}
-
-export interface FeaturedProductsProps {
-  products: ProductProps[];
 }
 
 export interface VendorProps {

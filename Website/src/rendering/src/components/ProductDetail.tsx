@@ -43,12 +43,14 @@ const ProductDetail = (): JSX.Element => {
               <div className="product-brand">Striva</div>
               <div>
                 Advanced GPS bike computer for competing and navigation.
-                <br /><br />
+                <br />
+                <br />
                 Roll like you know every hill and curve. Plus, find the routes the locals hit most.
-                <br /><br />
-                Get lost in your ride knowing Edge will always get you back. No backseat rider
-                needed.
-                <br /><br />
+                <br />
+                <br />
+                Get lost in your ride knowing it will always get you back. No backseat rider needed.
+                <br />
+                <br />
                 Perform your very best, then beat it.
               </div>
               <div>

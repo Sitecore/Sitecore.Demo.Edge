@@ -3,7 +3,7 @@ import Footer, { FooterProps } from '../../components/Footer';
 import Header, { HeaderProps } from '../../components/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
 import {
-  FeaturedProducts,
+  FeaturedProductHero,
   ProductSearchBar,
   ShopByCategory,
   ShopByVendor,
@@ -27,23 +27,6 @@ const Shop = (): JSX.Element => {
       {
         categoryName: 'Yoga',
         imageUrl: '/assets/img/shop/demo/shutterstock_276857315-3.png',
-      },
-    ],
-  };
-
-  const productProps = {
-    products: [
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
-      },
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
-      },
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
       },
     ],
   };
@@ -219,7 +202,7 @@ const Shop = (): JSX.Element => {
       </header>
       <main>
         <div className="shop-container">
-          <FeaturedProducts products={productProps.products} />
+          <FeaturedProductHero />
           <section className="section">
             <div className="section__content container">
               <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />

@@ -6,6 +6,8 @@ div.shop-container {
   }
 
   .section.section-featured-products {
+    @apply py-3;
+
     background: #ff8d00;
   }
 
@@ -29,16 +31,21 @@ div.shop-container {
   }
 
   div#products-left-container > p {
-    width: 316px;
+    width: 436px;
   }
 
   div#products-right-container {
     display: flex;
+    height: 340px;
   }
 
   div#products-left-container > h4 {
     color: white;
     font-size: 14px;
+  }
+
+  div#products-left-container > .add-to-cart {
+    @apply pt-4;
   }
 
   .product {

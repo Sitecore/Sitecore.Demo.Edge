@@ -2,26 +2,9 @@ import Head from 'next/head';
 import Footer, { FooterProps } from '../../components/Footer';
 import Header, { HeaderProps } from '../../components/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
-import { FeaturedProducts, ProductSearchBar, ExpandableDropDown } from '../../components/Shop';
+import { FeaturedProductHero, ProductSearchBar, ExpandableDropDown } from '../../components/Shop';
 
 const Products = (): JSX.Element => {
-  const productProps = {
-    products: [
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
-      },
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
-      },
-      {
-        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-        price: 255.99,
-      },
-    ],
-  };
-
   const searchBarProps = {
     reflektionProps: {
       didYouMean: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
@@ -152,8 +135,7 @@ const Products = (): JSX.Element => {
       </header>
       <main>
         <div className="shop-container">
-          {/* TODO: Replace the hero by the Mountain bike category hero from mockup */}
-          <FeaturedProducts products={productProps.products} />
+          <FeaturedProductHero />
           <section className="section">
             <div className="section__content container">
               <div id="shop-content-container">
@@ -171,7 +153,7 @@ const Products = (): JSX.Element => {
               </div>
             </div>
           </section>
-          {/* TODO: Add facets, move search box, add products listing grid */}
+          {/* TODO: add products listing grid */}
         </div>
       </main>
       <footer>
