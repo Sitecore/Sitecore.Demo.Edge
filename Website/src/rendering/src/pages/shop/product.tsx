@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Footer, { FooterProps } from '../../components/Footer';
 import Header, { HeaderProps } from '../../components/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import ProductDetail from '../../components/ProductDetail';
 
 const Product = (): JSX.Element => {
   const headerProps = {} as HeaderProps;
@@ -52,7 +53,9 @@ const Product = (): JSX.Element => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <div id="shop-container">{/* TODO: Add product detail components */}</div>
+        <div id="shop-container">
+          <ProductDetail />
+        </div>
       </main>
       <footer>
         <Footer {...footerProps} />

@@ -1,7 +1,7 @@
-.product {
-  @apply max-w-screen-2xl my-0 mx-auto box-border overflow-hidden;
+.product-detail {
+  @apply my-0 box-border;
 
-  .product-detail {
+  .product-detail-hero {
     @apply grid gap-10;
     @apply sm:grid-cols-2;
     @apply md:grid-cols-3;
