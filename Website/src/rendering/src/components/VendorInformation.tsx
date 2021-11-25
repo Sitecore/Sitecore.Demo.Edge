@@ -10,7 +10,7 @@ export type VendorInformationProps = ComponentProps & {
 };
 
 const VendorInformation = (props: VendorInformationProps): JSX.Element => (
-  <section className="section information-section-with-sidebar">
+  <section className="section information-section">
     <div className="section__content container">
       <div className="information-grid">
         <div className="description-col">
