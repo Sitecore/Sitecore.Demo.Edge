@@ -3,8 +3,20 @@
   @apply lg:px-12;
   @apply absolute top-0 left-0 right-0 flex flex-row justify-items-start gap-10 w-full px-4 align-middle content-between py-4 bg-black h-20;
 
+  .schedule-logo {
+    @apply flex-auto flex;
+  }
+
   .btn__area--minimal {
-    @apply space-x-2;
+    @apply space-x-2 flex-auto flex;
+  }
+
+  .schedule-ticket {
+    @apply flex-auto justify-end flex;
+
+    .btn--main--big {
+      padding: 0.4em 1em;
+    }
   }
 }
 
@@ -42,7 +54,7 @@
 
         &.premium-session {
           .session-type {
-            @apply hidden;
+            @apply absolute bottom-8 bg-blue-light px-2;
           }
         }
 

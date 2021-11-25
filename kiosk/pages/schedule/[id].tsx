@@ -1,13 +1,21 @@
 import React from 'react';
-import { getAllSessionsByDay } from '../api/queries/getSchedule';
-import ScheduleForDay from '../components/ScheduleForDay';
-import { ScheduleSlot } from '../interfaces/schedule';
-import { Session } from '../interfaces/session';
-import Screen from '../components/Screen';
-import ScheduleHeader from '../components/ScheduleHeader';
+import { getAllSessionsByDay } from '../../api/queries/getSchedule';
+import ScheduleForDay from '../../components/ScheduleForDay';
+import { ScheduleSlot } from '../../interfaces/schedule';
+import { Session } from '../../interfaces/session';
+import Screen from '../../components/Screen';
+import ScheduleHeader from '../../components/ScheduleHeader';
+import { getAllDays } from '../../api/queries/getDays';
+import { Params } from '../../interfaces';
+import { Day } from '../../interfaces/day';
 
 type ScheduleProps = {
   sessions: Session[];
+  days: Day[];
+};
+
+export declare type ScheduleParams = {
+  [param: string]: Params;
 };
 
 function groupSessionsByTimeslot(original: Session[]): ScheduleSlot[] {
@@ -53,18 +61,29 @@ function generateSchedule(sessions: Session[]): ScheduleSlot[][] {
 const Schedule = (props: ScheduleProps): JSX.Element => {
   return (
     <Screen>
-      <ScheduleHeader />
+      <ScheduleHeader days={props.days} />
       <ScheduleForDay schedule={generateSchedule(props.sessions)} />
     </Screen>
   );
 };
 
-export const getStaticProps = async () => {
-  const { sessions } = await getAllSessionsByDay('0');
+export async function getStaticPaths() {
+  const { days } = await getAllDays();
+  const paths = days.map((day) => ({
+    params: { id: day.sortOrder.toString() },
+  }));
+
+  return { paths, fallback: false };
+}
+
+export const getStaticProps = async ({ params }: ScheduleParams) => {
+  const { sessions } = await getAllSessionsByDay(params.id);
+  const { days } = await getAllDays();
 
   return {
     props: {
       sessions,
+      days,
     },
     revalidate: 10,
   };

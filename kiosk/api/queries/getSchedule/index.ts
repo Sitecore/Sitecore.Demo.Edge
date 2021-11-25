@@ -1,9 +1,7 @@
 import { fetchGraphQL } from '../../../api';
 import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
-import { Room } from '../../../interfaces/room';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 import { DayResult } from '../../../interfaces/day';
-import { SpeakerResult } from '../../../interfaces/speaker';
 
 const sessionsQuery = `
 query {

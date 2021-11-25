@@ -1,11 +1,20 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Day } from '../interfaces/day';
 
-const ScheduleHeader = (): JSX.Element => {
+type ScheduleHeaderProps = {
+  days: Day[];
+};
+
+const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
+  const router = useRouter();
+  const dayId = router.query.id;
+
   return (
     <div className="schedule-header">
-      <div className="flex-auto flex">
+      <div className="schedule-logo">
         <Image
           src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
           width={200}
@@ -14,24 +23,25 @@ const ScheduleHeader = (): JSX.Element => {
           alt="Logo"
         />
       </div>
-      <div className="btn__area--minimal flex-auto flex">
-        <Link href="/signup">
-          <a className="btn--main btn--main--round btn--main--round--secondary btn--main--big">
-            Day 1
-          </a>
-        </Link>
-        <Link href="/signup">
-          <a className="btn--main btn--main--round btn--main--round--secondary btn--main--big">
-            Day 2
-          </a>
-        </Link>
-        <Link href="/signup">
-          <a className="btn--main btn--main--round btn--main--round--secondary btn--main--big">
-            Day 3
-          </a>
-        </Link>
+      <div className="btn__area--minimal">
+        {props.days &&
+          props.days.map((day, index) => {
+            const activeButtonClass = index.toString() == dayId ? 'active' : 'inactive';
+            return (
+              <Link key={index} href="/schedule/0">
+                <a
+                  className={
+                    'btn--main btn--main--round btn--main--round--secondary btn--main--big ' +
+                    activeButtonClass
+                  }
+                >
+                  {day.name}
+                </a>
+              </Link>
+            );
+          })}
       </div>
-      <div className="flex-auto justify-end flex">
+      <div className="schedule-ticket">
         <Link href="/signup">
           <a className="btn--main btn--main--round btn--main--round--primary btn--main--big btn-right">
             Book tickets

@@ -15,6 +15,11 @@
     .btn--main--big {
       padding: 0.4em 1em;
     }
+
+    .inactive {
+      @apply border-none text-white cursor-pointer;
+      @apply hover:text-black hover:border-yellow;
+    }
   }
 }
 

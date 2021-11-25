@@ -12,6 +12,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
       <div className="schedule-time">{props.timeslot}</div>
       {props.sessions.map((session, index) => {
         const premiumClass = session.isPremium ? ' premium-session ' : '';
+        const isKeynoteSession = session.type?.toLowerCase() === 'keynote';
         const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
         const noSpeakerClass = session.speaker ? '' : ' no-speaker';
 
@@ -26,7 +27,8 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
                 backgroundImage: `url("${contentHubImageSrcGeneratorFromString(session.image)}")`,
               }}
             >
-              {session.type && <div className="session-type">{session.type}</div>}
+              {session.isPremium && <div className="session-type">Premium</div>}
+              {isKeynoteSession && <div className="session-type">Keynote</div>}
             </div>
             <div className="session-content">
               <div className="session-name">{session.name}</div>
