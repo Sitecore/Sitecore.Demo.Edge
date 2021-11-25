@@ -58,7 +58,7 @@ const heroProps = {
         },
       ],
     },
-    datasource: '/sitecore',
+    dataSource: '/sitecore',
   },
 } as unknown as HeroProps;
 
@@ -113,6 +113,10 @@ const sponsorProps = {
       value: '',
     },
     Sponsors: [sponsor1, sponsor2, sponsor3],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as SponsorsProps;
 
@@ -205,11 +209,7 @@ const footerProps = {
         },
       },
     },
-  },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
+  }
 } as FooterProps;
 
 const componentFactory = function (componentName: string) {
