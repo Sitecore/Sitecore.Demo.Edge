@@ -82,3 +82,41 @@ div#categories-container {
 div#categories-container p {
   margin: 10px 0 30px 0;
 }
+
+/* popup */
+
+div#popup-container {
+  width: 100%;
+  position: relative;
+}
+
+div#reflektion-container {
+  position: absolute;
+  background: #e5e5e5;
+  width: 100%;
+  padding: 30px 60px;
+  font-size: 16px;
+  display: flex;
+}
+
+div#reflektion-left-container {
+  flex: 1 0 30%;
+}
+
+div#reflektion-left-container li:first-child {
+  font-weight: bold;
+}
+
+div#reflektion-right-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-height: 770px;
+  overflow-y: scroll;
+  box-shadow: inset #0000001f -1px 0px 3px 2px;
+  padding: 20px 0;
+}
+
+div#reflektion-right-container > .product {
+  margin-bottom: 52px;
+}

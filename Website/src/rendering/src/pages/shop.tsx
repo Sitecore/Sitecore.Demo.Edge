@@ -1,13 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Section from '../components/Section';
+import { ReactElement } from 'react';
+import { useState } from '@storybook/addons';
 
 const Shop = (props: ShopProps): JSX.Element => {
-  const { productProps, categoryProps, vendorProps } = props;
+  const { productProps, categoryProps, vendorProps, searchBarProps } = props;
   return (
     <div id="shop-container">
       <FeatureProducts products={productProps.products} />
-      <ProductSearchBar />
+      <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
       <ShopByCategory categories={categoryProps.categories} />
       <ShopByVendor vendorImageUrls={vendorProps.vendorImageUrls} />
     </div>
@@ -36,16 +38,61 @@ const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
   </section>
 );
 
-const ProductSearchBar = (): JSX.Element => (
-  <section className="section">
-    <div className="section__content container">
-      <div id="search-input-container">
-        <FontAwesomeIcon id="search-icon" icon={faSearch} />
-        <input id="search-input" placeholder="Search for products"></input>
+const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
+  // const [popupVisible, setpopupVisible] = useState(false);
+  return (
+    <section className="section">
+      <div className="section__content container">
+        <div id="search-input-container">
+          <FontAwesomeIcon id="search-icon" icon={faSearch} />
+          <input
+            id="search-input"
+            // onFocus={() => setpopupVisible(true)}
+            // onBlur={() => setpopupVisible(false)}
+            placeholder="Search for products"
+          ></input>
+          <Popup visible={true}>
+            <ReflektionContent {...props.reflektionProps} />
+          </Popup>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Popup = (props: PopupProps): JSX.Element => {
+  return props.visible ? <div id="popup-container">{props.children}</div> : <></>;
+};
+
+const ReflektionContent = (props: ReflektionContentProps): JSX.Element => {
+  return (
+    <div id="reflektion-container">
+      <div id="reflektion-left-container">
+        <ul>
+          <li>Did you mean?</li>
+          {props.didYouMean.map((text) => (
+            <li key={text}>
+              <a href="javascript:void(0)">{text}</a>
+            </li>
+          ))}
+        </ul>
+        <ul>
+          <li>Top categories</li>
+          {props.topCategories.map((text) => (
+            <li key={text}>
+              <a href="javascript:void(0)">{text}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div id="reflektion-right-container">
+        {props.products.map((product) => (
+          <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
+        ))}
       </div>
     </div>
-  </section>
-);
+  );
+};
 
 const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
   <Section
@@ -127,6 +174,7 @@ export interface ShopProps {
   categoryProps: ShopByCategoryProps;
   productProps: FeatureProductsProps;
   vendorProps: ShopByVendorProps;
+  searchBarProps: SearchBarProps;
 }
 
 export interface ProductProps {
@@ -149,4 +197,19 @@ export interface FeatureProductsProps {
 
 export interface ShopByVendorProps {
   vendorImageUrls: string[];
+}
+
+export interface PopupProps {
+  children: ReactElement;
+  visible: boolean;
+}
+
+export interface ReflektionContentProps {
+  products: ProductProps[];
+  didYouMean: string[];
+  topCategories: string[];
+}
+
+export interface SearchBarProps {
+  reflektionProps: ReflektionContentProps;
 }

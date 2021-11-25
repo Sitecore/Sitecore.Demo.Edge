@@ -79,6 +79,98 @@ const shopProps = {
       '/assets/img/shop/demo/SyndeyCummings-1.png',
     ],
   },
+  searchBarProps: {
+    reflektionProps: {
+      didYouMean: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
+      topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
+      products: [
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+      ],
+    },
+  },
 } as ShopProps;
 
 const footerProps = {
