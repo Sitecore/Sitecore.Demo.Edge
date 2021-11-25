@@ -25,13 +25,16 @@ const SignupForm = (): JSX.Element => {
     >
       <div className="signupForm__container container">
         <div className="logo">
-          <Image
-            src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
-            width={200}
-            height={100}
-            className="left float"
-            alt="Logo"
-          />
+          <Link href="/start" passHref>
+            <Image
+              src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+              width={200}
+              height={100}
+              className="left float"
+              alt="Logo"
+              title="Tap to go home"
+            />
+          </Link>
         </div>
         <div className="signupForm__container__content">
           <div className="signupForm__container__content__text">

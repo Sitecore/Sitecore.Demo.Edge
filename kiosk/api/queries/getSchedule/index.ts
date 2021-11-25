@@ -10,7 +10,7 @@ query {
       id
       name
       isPremium
-
+      description
       sessionToMasterAsset {
         results {
           assetToPublicLink(first: 1) {
@@ -77,6 +77,7 @@ const parseSessionWithTimeSlot = function (
   const session = {} as Session;
   session.id = sessionResult.id;
   session.name = sessionResult.name;
+  session.description = sessionResult.description;
 
   const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
   const relativeUrl = asset?.relativeUrl;
@@ -93,6 +94,13 @@ const parseSessionWithTimeSlot = function (
 
   if (sessionResult.speakers.results.length > 0) {
     session.speaker = sessionResult.speakers.results[0].name;
+    if (sessionResult.speakers.results.length > 1) {
+      session.speaker = sessionResult.speakers.results
+        .map((session) => {
+          return session.name;
+        })
+        .join(', ');
+    }
   }
 
   session.Day = sessionResult.dayToSession.results[0].taxonomyName;

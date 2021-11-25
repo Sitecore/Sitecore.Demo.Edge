@@ -24,6 +24,7 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
                 width={400}
                 height={200}
                 alt="Logo"
+                title="Tap to go home"
               />
             </div>
             <p className="slogan">{props.hero.advertisement_Slogan}</p>

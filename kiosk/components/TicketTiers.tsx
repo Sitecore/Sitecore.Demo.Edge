@@ -2,6 +2,7 @@ import React from 'react';
 import Ticket from './Ticket';
 import { TICKETS } from '../models/mock-tickets';
 import Link from 'next/link';
+import Router from 'next/router';
 
 interface TicketTiersState {
   selectedTicket: string;
@@ -51,9 +52,12 @@ class TicketTiers extends React.Component {
           />
         </div>
         <div className="tickets__buttons">
-          <Link href="/start">
-            <a className="btn--main btn--main--round--secondary btn--main--big">Previous</a>
-          </Link>
+          <span
+            className="btn--main btn--main--round--secondary btn--main--big"
+            onClick={() => Router.back()}
+          >
+            Previous
+          </span>
           {this.state.selectedTicket ? (
             <Link href={`/payment/${this.state.selectedTicket}`} passHref>
               <a className="btn--main btn--main--round--primary btn--main--big btn-right">

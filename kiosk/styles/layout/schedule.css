@@ -1,7 +1,7 @@
 .schedule-header {
-  @apply md:px-8;
-  @apply lg:px-12;
   @apply absolute top-0 left-0 right-0 flex flex-row justify-items-start gap-10 w-full px-4 align-middle content-between py-4 bg-black h-20 z-10;
+  @apply md:px-8;
+  @apply lg:px-10;
 
   .schedule-logo {
     @apply flex-auto flex;
@@ -35,7 +35,7 @@
     }
 
     .schedule-sessions {
-      @apply m-3 flex-1 text-white relative flex flex-row;
+      @apply m-3 flex-1 text-white relative flex flex-row cursor-pointer;
 
       &.premium-session {
         @apply bg-orange;
@@ -77,12 +77,54 @@
 }
 
 .session-detail {
+  @apply absolute left-0 right-0 top-0 bottom-0 w-full h-full z-40 block;
+
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+
   &.active {
-    @apply block;
+    transform: scale(1);
+    transition: all 0.4s ease-in-out;
   }
 
   .icon {
     @apply w-8;
+  }
+
+  .session-detail-image {
+    @apply w-full h-2/5 bg-cover bg-no-repeat bg-center relative;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .session-detail-meta {
+      @apply flex flex-col align-bottom justify-between p-2 m-2 bottom-0 right-0 absolute bg-yellow text-black font-bold shadow-lg;
+    }
+  }
+
+  .section-detail-content {
+    @apply bg-black w-full h-3/5 p-6 text-white space-y-4;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    .session-name {
+      @apply text-xl font-bold uppercase;
+      @apply lg:text-4xl;
+    }
+
+    .session-meta {
+      @apply flex flex-row align-middle w-full justify-between text-base;
+      @apply lg:text-xl;
+    }
+
+    .session-description {
+      @apply mt-12 bottom-4 overflow-y-auto pb-12 h-3/5;
+
+      p {
+        @apply pt-1;
+      }
+    }
   }
 
   .session-close-detail {
@@ -105,4 +147,20 @@
       background-size: 150% 150%;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

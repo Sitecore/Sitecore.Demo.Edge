@@ -15,13 +15,16 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
   return (
     <div className="schedule-header">
       <div className="schedule-logo">
-        <Image
-          src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
-          width={200}
-          height={40}
-          className="left float"
-          alt="Logo"
-        />
+        <Link href="/start" passHref>
+          <Image
+            src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+            width={200}
+            height={40}
+            className="left float"
+            alt="Logo"
+            title="Tap to go home"
+          />
+        </Link>
       </div>
       <div className="btn__area--minimal">
         {props.days &&
