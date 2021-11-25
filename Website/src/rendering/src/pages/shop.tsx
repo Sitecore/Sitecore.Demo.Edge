@@ -10,34 +10,39 @@ const Shop = (props: ShopProps): JSX.Element => {
       <ProductSearchBar />
       <ShopByCategory categories={categoryProps.categories} />
       <ShopByVendor vendorImageUrls={vendorProps.vendorImageUrls} />
-      <FooterLinks />
     </div>
   );
 };
 
 const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
-  <div id="featured-products-container">
-    <div id="products-left-container">
-      <h4>Home &#62; Shop</h4>
-      <h2>Featured Products</h2>
-      <p>
-        Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
-        brands at this year’s PLAY! Summit.
-      </p>
+  <section className="section">
+    <div className="section__content container">
+      <div id="featured-products-container">
+        <div id="products-left-container">
+          <h4>Home &#62; Shop</h4>
+          <h2>Featured Products</h2>
+          <p>
+            Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
+            brands at this year’s PLAY! Summit.
+          </p>
+        </div>
+        <div id="products-right-container">
+          {props.products.map((product) => (
+            <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
+          ))}
+        </div>
+      </div>
     </div>
-    <div id="products-right-container">
-      {props.products.map((product) => (
-        <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
-      ))}
-    </div>
-  </div>
+  </section>
 );
 
 const ProductSearchBar = (): JSX.Element => (
   <section className="section">
     <div className="section__content container">
-      <FontAwesomeIcon id="search-icon" icon={faSearch} />
-      <input id="search-input" placeholder="Search for products"></input>
+      <div id="search-input-container">
+        <FontAwesomeIcon id="search-icon" icon={faSearch} />
+        <input id="search-input" placeholder="Search for products"></input>
+      </div>
     </div>
   </section>
 );
@@ -94,12 +99,6 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
       ))}
     </div>
   </Section>
-);
-
-const FooterLinks = (): JSX.Element => (
-  <div id="footer-links-container">
-    <h2>Links</h2>
-  </div>
 );
 
 const Product = (props: ProductProps): JSX.Element => (

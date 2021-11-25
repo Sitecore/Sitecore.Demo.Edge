@@ -8,6 +8,12 @@ div#featured-products-container {
   padding: 30px 58px;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+}
+
+div#search-input-container {
+  width: 100%;
+  position: relative;
 }
 
 div#products-left-container > h2 {
@@ -57,9 +63,22 @@ input#search-input::placeholder {
 
 #search-icon {
   position: absolute;
-  left: 69px;
+  left: 17px;
+  top: 7px;
 }
 
 div.section__content.container {
   padding: 0;
+}
+
+div#categories-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  font-size: 25px;
+}
+
+div#categories-container p {
+  margin: 10px 0 30px 0;
 }

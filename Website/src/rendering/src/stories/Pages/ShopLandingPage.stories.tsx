@@ -72,10 +72,10 @@ const shopProps = {
   vendorProps: {
     vendorImageUrls: [
       '/assets/img/shop/demo/RunRightThrough.png',
-      '/assets/img/shop/demo/RunRightThrough-1.png',
       '/assets/img/shop/demo/Striva.png',
-      '/assets/img/shop/demo/Striva-1.png',
       '/assets/img/shop/demo/SyndeyCummings.png',
+      '/assets/img/shop/demo/RunRightThrough-1.png',
+      '/assets/img/shop/demo/Striva-1.png',
       '/assets/img/shop/demo/SyndeyCummings-1.png',
     ],
   },
