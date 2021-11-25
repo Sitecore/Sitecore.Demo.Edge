@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Footer, { FooterProps } from '../../components/Footer';
 import Header, { HeaderProps } from '../../components/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
-import { FeaturedProducts, ProductSearchBar } from '../../components/Shop';
+import { FeaturedProducts, ProductSearchBar, ExpandableDropDown } from '../../components/Shop';
 
 const Products = (): JSX.Element => {
   const productProps = {
@@ -28,87 +28,39 @@ const Products = (): JSX.Element => {
       topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
       products: [
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
           price: 255.99,
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-          price: 255.99,
-        },
-        {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
           price: 255.99,
         },
       ],
@@ -151,6 +103,42 @@ const Products = (): JSX.Element => {
     },
   } as FooterProps;
 
+  const dropdownControls = [
+    {
+      title: 'Brand',
+      dropdownItems: [
+        { text: 'Alba', value: 'Alba' },
+        { text: 'Striva', value: 'Striva' },
+      ],
+    },
+    {
+      title: 'Colors',
+      dropdownItems: [
+        { text: 'Black', value: 'Black' },
+        { text: 'White', value: 'White' },
+        { text: 'Silver', value: 'Silver' },
+      ],
+    },
+    {
+      title: 'Price',
+      dropdownItems: [
+        { text: '$0-$100', value: '1' },
+        { text: '$101-$500', value: '2' },
+        { text: '$501-$1000', value: '3' },
+      ],
+    },
+    {
+      title: 'Customer reviews',
+      dropdownItems: [
+        { text: '⭐', value: '1' },
+        { text: '⭐⭐', value: '2' },
+        { text: '⭐⭐⭐', value: '3' },
+        { text: '⭐⭐⭐⭐', value: '4' },
+        { text: '⭐⭐⭐⭐⭐', value: '5' },
+      ],
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -166,7 +154,23 @@ const Products = (): JSX.Element => {
         <div className="shop-container">
           {/* TODO: Replace the hero by the Mountain bike category hero from mockup */}
           <FeaturedProducts products={productProps.products} />
-          <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
+          <section className="section">
+            <div className="section__content container">
+              <div id="shop-content-container">
+                <div id="dropdown-container">
+                  {dropdownControls.map((dropdown) => (
+                    <ExpandableDropDown
+                      key={dropdown.title}
+                      title={dropdown.title}
+                      items={dropdown.dropdownItems}
+                      onClick={(value) => console.log(value)}
+                    />
+                  ))}
+                </div>
+                <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
+              </div>
+            </div>
+          </section>
           {/* TODO: Add facets, move search box, add products listing grid */}
         </div>
       </main>
