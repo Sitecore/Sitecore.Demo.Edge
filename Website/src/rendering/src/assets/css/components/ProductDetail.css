@@ -76,6 +76,11 @@
 
         .product {
           @apply bg-white-light p-1 m-0;
+
+          img {
+            width: 231px;
+            height: 231px;
+          }
         }
       }
 

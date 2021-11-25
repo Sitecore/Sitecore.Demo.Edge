@@ -156,8 +156,8 @@ export const Product = (props: ProductProps): JSX.Element => (
       <a>
         <img className="product-image" src={props.imageUrl} alt="Product image" />
         <div className="product-details">
-          <b>Product name</b>
-          <p>Vendor name</p>
+          <b>{props.name || 'Product Name'}</b>
+          <p>{props.vendor || 'Vendor Name'}</p>
           <p>${props.price}</p>
         </div>
       </a>
@@ -220,6 +220,8 @@ export const ExpandableDropDown = (props: ExpandableDropDownProps): JSX.Element 
 export interface ProductProps {
   imageUrl: string;
   price: number;
+  name?: string;
+  vendor?: string;
 }
 
 export interface CategoryProps {

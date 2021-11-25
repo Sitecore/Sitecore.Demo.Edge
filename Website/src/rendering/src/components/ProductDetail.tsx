@@ -3,26 +3,69 @@ import Link from 'next/link';
 import { Product } from './Shop';
 
 const ProductDetail = (): JSX.Element => {
-  const products = [
+  const alsoViewedProducts = [
     {
-      imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-      price: 255.99,
+      imageUrl: '/assets/img/shop/demo/bike-lights.jpg',
+      price: 25.99,
+      name: 'Outrace bike light set',
+      vendor: 'Outrace',
     },
     {
-      imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-      price: 255.99,
+      imageUrl: '/assets/img/shop/demo/pump-1.png',
+      price: 40,
+      name: 'CenterCycle Travel pump',
+      vendor: 'CenterCycle',
     },
     {
-      imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-      price: 255.99,
+      imageUrl: '/assets/img/shop/demo/ratchet-kit-3.jpg',
+      price: 52.95,
+      name: 'CenterCycle Ratchet kit',
+      vendor: 'CenterCycle',
     },
     {
-      imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-      price: 255.99,
+      imageUrl: '/assets/img/shop/demo/bike-seat-1.jpg',
+      price: 119.99,
+      name: 'Striva Ergonomic bike seat',
+      vendor: 'Striva',
     },
     {
-      imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
-      price: 255.99,
+      imageUrl: '/assets/img/shop/demo/bike-helmet-1.jpg',
+      price: 50,
+      name: 'Outrace lightweight bicycle helmet',
+      vendor: 'Outrace',
+    },
+  ];
+
+  const similarProducts = [
+    {
+      imageUrl: '/assets/img/shop/demo/tough-and-durable-012x.jpg',
+      price: 500,
+      name: 'OverUnder smartwatch',
+      vendor: 'OverUnder',
+    },
+    {
+      imageUrl: '/assets/img/shop/demo/smart-band-1.png',
+      price: 45,
+      name: 'Striva Smart band',
+      vendor: 'Striva',
+    },
+    {
+      imageUrl: '/assets/img/shop/demo/prod-habitat-striva5.jpeg',
+      price: 19.95,
+      name: 'Striva Smart fitness tracker',
+      vendor: 'Striva',
+    },
+    {
+      imageUrl: '/assets/img/shop/demo/Smart-audio-band-1.jpg',
+      price: 150,
+      name: 'Striva Smart audio band',
+      vendor: 'Striva',
+    },
+    {
+      imageUrl: '/assets/img/shop/demo/phone-holder.jpg',
+      price: 24.95,
+      name: 'Striva Bike phone holder',
+      vendor: 'Striva',
     },
   ];
 
@@ -73,7 +116,7 @@ const ProductDetail = (): JSX.Element => {
             <div className="product-list product-list-also-viewed">
               <h2>Customers who viewed this item also viewed</h2>
               <div className="shop-by-container">
-                {products.map((product, index) => (
+                {alsoViewedProducts.map((product, index) => (
                   <Product key={index} {...product} />
                 ))}
               </div>
@@ -81,7 +124,7 @@ const ProductDetail = (): JSX.Element => {
             <div className="product-list product-list-similar">
               <h2>Similar items to explore</h2>
               <div className="shop-by-container">
-                {products.map((product, index) => (
+                {similarProducts.map((product, index) => (
                   <Product key={index} {...product} />
                 ))}
               </div>
