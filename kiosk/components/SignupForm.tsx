@@ -19,19 +19,22 @@ const SignupForm = (): JSX.Element => {
       style={{
         backgroundImage:
           'url(' +
-          'https://demoedge.sitecoresandbox.cloud/api/public/content/16ff8c68694a48a0bd6311025cb6a5c9?v=5d942ccf' +
+          'https://playsummit.sitecoresandbox.cloud/api/public/content/16ff8c68694a48a0bd6311025cb6a5c9?v=5d942ccf' +
           ')',
       }}
     >
       <div className="signupForm__container container">
         <div className="logo">
-          <Image
-            src="https://demoedge.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
-            width={200}
-            height={100}
-            className="left float"
-            alt="Logo"
-          />
+          <Link href="/start" passHref>
+            <Image
+              src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+              width={200}
+              height={100}
+              className="left float"
+              alt="Logo"
+              title="Tap to go home"
+            />
+          </Link>
         </div>
         <div className="signupForm__container__content">
           <div className="signupForm__container__content__text">
@@ -73,7 +76,7 @@ const SignupForm = (): JSX.Element => {
               </div>
               <div className="pt-5">
                 <Link href="/signup/confirmed" passHref>
-                  <button className="btn--main btn--main--round btn--main--big w-full">
+                  <button className="btn--main btn--main--round btn--main--primary btn--main--big w-full">
                     Continue
                   </button>
                 </Link>
