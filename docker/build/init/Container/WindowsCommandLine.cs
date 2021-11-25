@@ -6,6 +6,8 @@ namespace Sitecore.Demo.Init.Container
     public class WindowsCommandLine
     {
         private readonly string workingDirectory;
+        private string standardOutput;
+        private string standardError;
 
         public WindowsCommandLine(string workingDirectory)
         {
@@ -22,19 +24,25 @@ namespace Sitecore.Demo.Init.Container
             cmd.StartInfo.CreateNoWindow = true;
             cmd.StartInfo.UseShellExecute = false;
             cmd.StartInfo.WorkingDirectory = workingDirectory;
-            cmd.Start();
+            cmd.ErrorDataReceived += new DataReceivedEventHandler(ErrorOutputHandler);
 
+
+            cmd.Start();
+            cmd.BeginErrorReadLine();
             cmd.StandardInput.WriteLine(command);
             cmd.StandardInput.Flush();
             cmd.StandardInput.Close();
-            var output = cmd.StandardOutput.ReadToEnd();
-            output += cmd.StandardError.ReadToEnd();
+            standardOutput = cmd.StandardOutput.ReadToEnd();
             cmd.WaitForExit();
 
-            output += cmd.StandardOutput.ReadToEnd();
-            output += cmd.StandardError.ReadToEnd();
-            Console.WriteLine(output);
-            return output;
+            standardOutput += cmd.StandardOutput.ReadToEnd();
+            return standardOutput + Environment.NewLine + standardError;
+        }
+        
+        void ErrorOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            standardError += outLine.Data;
+            Console.WriteLine(outLine.Data);
         }
     }
 }
