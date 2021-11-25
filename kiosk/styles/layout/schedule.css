@@ -1,7 +1,7 @@
 .schedule-header {
   @apply md:px-8;
   @apply lg:px-12;
-  @apply absolute top-0 left-0 right-0 flex flex-row justify-items-start gap-10 w-full px-4 align-middle content-between py-4 bg-black h-20;
+  @apply absolute top-0 left-0 right-0 flex flex-row justify-items-start gap-10 w-full px-4 align-middle content-between py-4 bg-black h-20 z-10;
 
   .schedule-logo {
     @apply flex-auto flex;
@@ -73,5 +73,11 @@
         }
       }
     }
+  }
+}
+
+.session-detail {
+  &.active {
+    @apply block;
   }
 }
