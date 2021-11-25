@@ -1,7 +1,9 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
+
 import Section from './Section';
 
 export const FeaturedProducts = (props: FeaturedProductsProps): JSX.Element => (
@@ -29,22 +31,18 @@ export const FeaturedProducts = (props: FeaturedProductsProps): JSX.Element => (
 export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
   const [popupVisible, setpopupVisible] = useState(false);
   return (
-    <section className="section">
-      <div className="section__content container">
-        <div id="search-input-container">
-          <FontAwesomeIcon id="search-icon" icon={faSearch} />
-          <input
-            id="search-input"
-            onFocus={() => setpopupVisible(true)}
-            onBlur={() => setpopupVisible(false)}
-            placeholder="Search for products"
-          ></input>
-          <Popup visible={popupVisible}>
-            <ReflektionContent {...props.reflektionProps} />
-          </Popup>
-        </div>
-      </div>
-    </section>
+    <div id="search-input-container">
+      <FontAwesomeIcon id="search-icon" icon={faSearch} />
+      <input
+        id="search-input"
+        onFocus={() => setpopupVisible(true)}
+        onBlur={() => setpopupVisible(false)}
+        placeholder="Search for products"
+      ></input>
+      <Popup visible={popupVisible}>
+        <ReflektionContent {...props.reflektionProps} />
+      </Popup>
+    </div>
   );
 };
 
@@ -189,6 +187,34 @@ export const Vendor = (props: VendorProps): JSX.Element => (
   </Link>
 );
 
+export const ExpandableDropDown = (props: ExpandableDropDownProps): JSX.Element => {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div className="dropdown-container">
+      <a
+        className="dropdown-header"
+        href="javascript:void(0)"
+        onClick={() => setExpanded(!expanded)}
+      >
+        <Text tag="p" field={{ value: props.title }} />
+        <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} />
+      </a>
+      <ul
+        className={expanded ? 'dropdown-items expanded' : 'dropdown-items'}
+        style={{ height: expanded ? props.items.length * 40 : 0 }}
+      >
+        {props.items.map((item) => (
+          <li key={item.text} className="dropdown-item">
+            <a href="javascript:void(0)" onClick={() => props.onClick(item.value)}>
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 // Interfaces
 
 export interface ProductProps {
@@ -231,4 +257,19 @@ export interface ReflektionContentProps {
 
 export interface SearchBarProps {
   reflektionProps: ReflektionContentProps;
+}
+
+export interface DropdownItem {
+  text: string;
+  value: string;
+}
+
+export interface ClickDelegate {
+  (value: string): void;
+}
+
+export interface ExpandableDropDownProps {
+  items: DropdownItem[];
+  title: string;
+  onClick: ClickDelegate;
 }

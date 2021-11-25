@@ -220,7 +220,11 @@ const Shop = (): JSX.Element => {
       <main>
         <div id="shop-container">
           <FeaturedProducts products={productProps.products} />
-          <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
+          <section className="section">
+            <div className="section__content container">
+              <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
+            </div>
+          </section>
           <ShopByCategory categories={categoryProps.categories} />
           <ShopByVendor vendors={vendorProps.vendors} />
         </div>
