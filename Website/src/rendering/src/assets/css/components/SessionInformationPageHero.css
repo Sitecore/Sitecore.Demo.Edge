@@ -1,6 +1,11 @@
-.information-page-hero {
+/*
+  HACK: This file is a duplicate of InformationPageHero.css with modifications for the session page hero.
+  TODO: Try to reuse most of InformationPageHero.css and only add specific styles for session page hero in this file. Similar to what is being done in SpeakerInformationPageHero.css
+*/
+
+.session-information-page-hero {
   @apply m-0 bg-white-light relative;
-  @apply md:h-60;
+  @apply md:h-64;
 
   @screen md {
     /*
@@ -11,13 +16,17 @@
     background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(35, 35, 35, 1) 50%);
   }
 
+  .background-container {
+    @apply flex bg-cover bg-center h-full;
+  }
+
   .content {
     @apply flex flex-col items-center justify-between box-border overflow-hidden h-full w-full px-0;
     @apply md:flex-row md:px-6;
     @apply lg:container lg:mx-auto lg:pr-4;
 
     .image-container {
-      @apply flex items-center max-h-60 bg-white-light;
+      @apply flex items-center h-full bg-white-light;
       @apply md:h-full;
 
       img {
@@ -48,7 +57,7 @@
       box-shadow: 0 0 20px #232323;
 
       .container-content-text {
-        @apply h-full relative flex flex-col justify-center space-y-2;
+        @apply h-full relative flex flex-col justify-center space-y-4;
 
         padding: 20px;
 
@@ -70,6 +79,14 @@
             @screen xl {
               border-width: 0 110px 110px 0;
             }
+          }
+        }
+
+        .info-text {
+          @apply text-white;
+
+          .icon {
+            @apply w-6 mr-2;
           }
         }
 
@@ -108,8 +125,7 @@
     }
   }
 
-  &.premium,
-  &.featured {
+  &.premium {
     .content .content-container .container-content-text {
       @screen md {
         &::after {

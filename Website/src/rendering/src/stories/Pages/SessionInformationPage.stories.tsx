@@ -1,17 +1,35 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionInformation from '../../components/SessionInformation';
+import Header, { HeaderProps } from '../../components/Header';
+import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
+import Footer, { FooterProps } from '../../components/Footer';
+import SessionInformation, { SessionInformationProps } from '../../components/SessionInformation';
 import { Speaker } from 'src/types/speaker';
 
 export default {
-  title: 'Components/Sessions/SessionInformation',
-  component: SessionInformation,
+  title: 'Pages/Session Information Page',
 } as ComponentMeta<typeof SessionInformation>;
 
-const Template: ComponentStory<typeof SessionInformation> = (args) => (
-  <SessionInformation {...args} />
-);
+const headerProps = {} as HeaderProps;
+
+const mainNavigationArgs = {
+  fields: {
+    data: {
+      item: {
+        headerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as MainNavigationProps;
 
 const speaker1 = {
   fields: {
@@ -156,8 +174,7 @@ const days = [
   },
 ];
 
-export const Default = Template.bind({});
-Default.args = {
+const sessionInformationProps = {
   params: {
     name: 'SessionInformation',
   },
@@ -183,4 +200,41 @@ Default.args = {
       value: true,
     },
   },
+} as unknown as SessionInformationProps;
+
+const footerProps = {
+  fields: {
+    data: {
+      item: {
+        footerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as FooterProps;
+
+const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
+  return (
+    <>
+      <header>
+        <Header {...headerProps} />
+        <MainNavigation {...mainNavigationArgs} />
+      </header>
+      <main>
+        <SessionInformation {...sessionInformationProps} />
+      </main>
+      <footer>
+        <Footer {...footerProps} />
+      </footer>
+    </>
+  );
 };
+
+export const Default = Template.bind({});
+Default.args = {};
