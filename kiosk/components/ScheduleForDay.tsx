@@ -1,6 +1,5 @@
 import ScheduleRow from './ScheduleRow';
 import { ScheduleSlot } from '../interfaces/schedule';
-import React from 'react';
 
 type ScheduleForDayProps = {
   schedule: ScheduleSlot[][];

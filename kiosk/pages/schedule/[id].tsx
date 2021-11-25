@@ -1,4 +1,3 @@
-import React from 'react';
 import { getAllSessionsByDay } from '../../api/queries/getSchedule';
 import ScheduleForDay from '../../components/ScheduleForDay';
 import { ScheduleSlot } from '../../interfaces/schedule';

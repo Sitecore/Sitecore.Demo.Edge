@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
 import Screen from '../components/Screen';
 
 const Custom404 = (): JSX.Element => {

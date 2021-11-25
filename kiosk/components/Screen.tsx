@@ -1,4 +1,4 @@
-import React, { ReactChildren, ReactChild } from 'react';
+import { ReactChildren, ReactChild } from 'react';
 
 interface ScreenProps {
   children: ReactChild | ReactChildren | ReactChild[] | ReactChildren[];

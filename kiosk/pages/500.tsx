@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
 import Screen from '../components/Screen';
 
-const Custom404 = (): JSX.Element => {
+const Custom500 = (): JSX.Element => {
   return (
     <Screen>
       <div
@@ -32,4 +31,4 @@ const Custom404 = (): JSX.Element => {
   );
 };
 
-export default Custom404;
+export default Custom500;
