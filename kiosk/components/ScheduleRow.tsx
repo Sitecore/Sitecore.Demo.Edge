@@ -17,7 +17,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
       {props.sessions.map((session, index) => {
         const premiumClass = session.isPremium ? ' premium-session ' : '';
         const isKeynoteSession = session.type?.toLowerCase() === 'keynote';
-        const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
+        const keynoteClass = isKeynoteSession ? ' keynote-session ' : '';
         const noSpeakerClass = session.speaker ? '' : ' no-speaker ';
 
         return (
