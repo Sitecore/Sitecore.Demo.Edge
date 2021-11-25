@@ -14,6 +14,7 @@ namespace Sitecore.Demo.Init.Container
             this.workingDirectory = workingDirectory;
         }
 
+        // The code below is written this way to avoid deadlocks, see https://stackoverflow.com/questions/4291912/process-start-how-to-get-the-output
         public string Run(string command)
         {
             var cmd = new Process();
@@ -24,8 +25,7 @@ namespace Sitecore.Demo.Init.Container
             cmd.StartInfo.CreateNoWindow = true;
             cmd.StartInfo.UseShellExecute = false;
             cmd.StartInfo.WorkingDirectory = workingDirectory;
-            cmd.ErrorDataReceived += new DataReceivedEventHandler(ErrorOutputHandler);
-
+            cmd.ErrorDataReceived += ErrorOutputHandler;
 
             cmd.Start();
             cmd.BeginErrorReadLine();
@@ -38,7 +38,7 @@ namespace Sitecore.Demo.Init.Container
             standardOutput += cmd.StandardOutput.ReadToEnd();
             return standardOutput + Environment.NewLine + standardError;
         }
-        
+
         void ErrorOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
         {
             standardError += outLine.Data;
