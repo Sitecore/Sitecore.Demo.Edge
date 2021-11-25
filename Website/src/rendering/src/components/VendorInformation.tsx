@@ -13,7 +13,7 @@ const VendorInformation = (props: VendorInformationProps): JSX.Element => (
   <section className="section information-section">
     <div className="section__content container">
       <div className="information-grid">
-        <div className="description-col">
+        <div className="main-col">
           <div className="column-title">Vendor history:</div>
           <RichText field={props.fields.Description} />
         </div>
