@@ -60,13 +60,13 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
                 alt={props.ticket.name}
                 width="200"
                 height="200"
-                title="Click to copy website personnal link"
+                title="Click to copy website personal link"
                 onClick={handleQrClick}
               />
             </div>
             <form onSubmit={handleFormSubmit}>
               <button
-                className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
+                className="btn--main btn--main--round--primary btn--main--big block rounded-lg px-3 py-3"
                 type="submit"
               >
                 End Session

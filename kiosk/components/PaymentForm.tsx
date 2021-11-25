@@ -82,7 +82,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
 
             <div className="complete">
               <button
-                className="btn--main btn--main--round btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3"
+                className="btn--main btn--main--round--primary btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3"
                 type="submit"
               >
                 <i className="mdi mdi-lock-outline mr-1"></i> PAY NOW
@@ -93,7 +93,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
       </div>
       <div className="paymentForm__buttons">
         <Link href="/tickets">
-          <a className="btn--main btn--main--round btn--main--big">Previous</a>
+          <a className="btn--main btn--main--round--secondary btn--main--big">Previous</a>
         </Link>
       </div>
     </div>

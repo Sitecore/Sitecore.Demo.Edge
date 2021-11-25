@@ -73,7 +73,7 @@ const SignupForm = (): JSX.Element => {
               </div>
               <div className="pt-5">
                 <Link href="/signup/confirmed" passHref>
-                  <button className="btn--main btn--main--round btn--main--big w-full">
+                  <button className="btn--main btn--main--round--primary btn--main--big w-full">
                     Continue
                   </button>
                 </Link>
