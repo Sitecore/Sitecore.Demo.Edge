@@ -1,14 +1,5 @@
-import {
-  faBorderAll,
-  faStar,
-  faArrowsAlt,
-  faCog,
-  faLink,
-  faNewspaper,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
 
 const ProductDetail = (): JSX.Element => (
   <section className="section">
@@ -21,104 +12,39 @@ const ProductDetail = (): JSX.Element => (
               src="/assets/img/shop/cycling/BikeTeal.jpeg"
               alt="bike"
             />
-            <img
-              className="product-image-thumbnails"
-              src="/assets/img/shop/cycling/thumbnail-bike.png"
-              alt="bike"
-            />
           </div>
           <div className="product-description">
+            <h2>FATHOM1</h2>
             <div>
-              <h2>FATHOM1</h2>
+              The combination of a lightweight hardtail frame, 130mm suspension fork and 27.5 wheels
+              with wide rims and high-volume tyres delivers loads of traction, speed and fun on the
+              trail.
             </div>
             <div>
-              <strong>$1,899</strong>
+              Price: <span className="product-price">$1,899</span>
             </div>
             <div>
-              <button
-                type="button"
-                className="product-variant-selector"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-                aria-label="Select Size"
-              >
-                <span className="product-variant-name">L</span>{' '}
-                <span className="product-variant-warning">Limited&nbsp;Stock</span>
-                <img src="/assets/img/icons/down-arrow.svg" alt="^" />
-              </button>
+              Quantity:{' '}
+              <div className="product-quantity">
+                <div className="quantity-number">2</div>
+              </div>
             </div>
-            <div>
-              In store now and available for pick up in 3- 5 business days at these Giant retailers
-              (distance from <span className="text-blue">Dublin</span>):
+            <div className="product-add-to-cart">
+              <Link href="#">
+                <a className="btn--main btn--main--round">Add to cart</a>
+              </Link>
             </div>
-            <hr />
-            <div>
-              FEEL GOOD BICYCLES LIMITED
-              <br />
-              77.2 KM | Virginia ULS
-              <br />
-              <u>SHOW DETAILS</u>
-            </div>
-            <hr />
-            <div>
-              <span className="text-blue-dark">Notify me when available at any Giant retailer</span>
-              <br />
-              SHARE
-              <br />
-              <img src="/assets/img/icons/share.png" alt="share" />
-            </div>
-            <hr />
             <div className="product-similar-items">
               3 OTHER BIKES THAT ARE SIMILAR TO THIS ONE
               <br />
               <span className="product-warning">LIMITED STOCK</span>
-              <br />
-              <img src="/assets/img/shop/cycling/similar-bikes.png" alt="share" />
             </div>
+            <img src="/assets/img/shop/cycling/similar-bikes.png" alt="share" />
           </div>
         </div>
         <div className="product-info">
-          <div className="product-info-header">
-            <a href="#specs">
-              <FontAwesomeIcon icon={faBorderAll} />
-              <br />
-              SPECS
-            </a>
-            <a href="#specs">
-              <FontAwesomeIcon icon={faStar} />
-              <br />
-              Highlights
-            </a>
-            <a href="#highlights">
-              <FontAwesomeIcon icon={faArrowsAlt} />
-              <br />
-              geometry
-            </a>
-            <a href="#geometry">
-              <FontAwesomeIcon icon={faCog} />
-              <br />
-              Techs
-            </a>
-            <a href="#similar">
-              <FontAwesomeIcon icon={faLink} />
-              <br />
-              Similar
-            </a>
-            <a href="#reviews">
-              <FontAwesomeIcon icon={faNewspaper} />
-              <br />
-              reviews
-            </a>
-          </div>
           <div id="specs" className="product-specs">
-            <p className="product-specs-section-title">SPECIFICATIONS</p>
-            <p>
-              Get your dose of singletrack on a fun hardtail that puts you in control. The
-              combination of a lightweight hardtail frame, 130mm suspension fork and 27.5 wheels
-              with wide rims and high-volume tyres delivers loads of traction, speed and fun on the
-              trail.
-            </p>
+            <p className="product-specs-section-title">PRODUCT DESCRIPTION AND SPECIFICATIONS</p>
             <p>
               With its updated ALUXX SL aluminium frame, quick-handling 27.5 wheels and high-volume
               tyres, Fathom is a great choice for technical terrain and singletrack shredding. It
@@ -128,21 +54,27 @@ const ProductDetail = (): JSX.Element => (
               geometry that includes a more relaxed head angle and a 130mm suspension fork.
             </p>
             <p className="product-specs-section-title">KEY PERFORMANCE FACTORS</p>
-            <p className="product-specs-section-subtitle">Trail Tuned Design</p>
-            <p>
-              ALUXX SL aluminium frameset is hand-built in-house by the world leader in aluminium
-              engineering.
-            </p>
-            <p className="product-specs-section-subtitle">Responsive Handling</p>
-            <p>
-              Frame geometry is designed to optimise the confident, stable handling of plush high
-              volume tyres (27.5x2.6), and is ideal for rugged, adventurous terrain.
-            </p>
-            <p className="product-specs-section-subtitle">Smooth Control</p>
-            <p>
-              More relaxed frame geometry (compared to XC) and control-focused components deliver
-              added control for trail riding conditions.
-            </p>
+            <div>
+              <p className="product-specs-section-subtitle">Trail Tuned Design</p>
+              <p>
+                ALUXX SL aluminium frameset is hand-built in-house by the world leader in aluminium
+                engineering.
+              </p>
+            </div>
+            <div>
+              <p className="product-specs-section-subtitle">Responsive Handling</p>
+              <p>
+                Frame geometry is designed to optimise the confident, stable handling of plush high
+                volume tyres (27.5x2.6), and is ideal for rugged, adventurous terrain.
+              </p>
+            </div>
+            <div>
+              <p className="product-specs-section-subtitle">Smooth Control</p>
+              <p>
+                More relaxed frame geometry (compared to XC) and control-focused components deliver
+                added control for trail riding conditions.
+              </p>
+            </div>
           </div>
           <div id="highlights" className="product-highlights">
             <div className="product-highlights-row">

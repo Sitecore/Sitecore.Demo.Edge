@@ -13,39 +13,43 @@
       &-main {
         @apply w-full;
       }
-
-      &-thumbnails {
-        @apply m-auto p-2 h-24;
-      }
     }
 
     .product-description {
-      @apply w-full space-y-3 text-sm pr-10 p-5;
+      @apply w-full space-y-4 text-sm p-5 pt-0;
 
-      .product-variant-selector {
-        @apply inline-flex justify-between border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-black-lightest w-full;
-        @apply hover:bg-gray-lighter;
-        @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-lighter focus:ring-blue-lightest;
+      h2 {
+        @apply font-bold text-4xl;
+      }
 
-        .product-variant-name {
-          @apply w-5 text-left;
+      .product-price {
+        @apply text-blue font-bold;
+      }
+
+      .product-quantity {
+        @apply inline-block w-20 border border-black px-3;
+
+        &::before {
+          content: '-';
         }
 
-        .product-variant-warning {
-          @apply w-1 text-yellow-dark;
+        &::after {
+          @apply text-right;
+
+          content: '+';
         }
 
-        img {
-          @apply h-5 w-5 text-right;
+        .quantity-number {
+          @apply inline-block w-10 text-center;
         }
       }
 
-      hr {
-        @apply border-gray;
+      .product-add-to-cart {
+        @apply py-3;
       }
 
       .product-similar-items .product-warning {
-        @apply text-yellow-dark;
+        @apply text-blue;
       }
     }
   }
@@ -53,19 +57,9 @@
   .product-info {
     @apply w-full;
 
-    &-header {
-      @apply mx-auto gap-5 w-2/3 grid grid-flow-col grid-cols-5 text-center p-10 uppercase;
-
-      svg {
-        @apply text-blue;
-
-        margin: 10px;
-      }
-    }
-
     .product-specs {
-      @apply bg-gray-light p-5 text-sm space-y-2;
-      @apply md:p-20;
+      @apply bg-gray-light p-5 text-sm space-y-5;
+      @apply md:p-10;
 
       &-section-title {
         @apply text-lg uppercase;
@@ -78,7 +72,7 @@
 
     .product-highlights {
       @apply bg-black-light text-white p-5 text-sm space-y-2;
-      @apply md:p-20;
+      @apply md:p-10;
 
       &-row {
         @apply grid grid-cols-6 w-full border-white	border-b-2 p-1;
@@ -93,18 +87,18 @@
       }
 
       &-notice {
-        @apply p-10 mx-auto w-full text-center;
+        @apply pt-10 mx-auto w-full text-center;
       }
     }
 
     .product-geometry {
       @apply p-5 text-sm space-y-5;
-      @apply md:p-20;
+      @apply md:p-10;
     }
 
     .product-other {
       @apply p-5 text-sm text-left space-y-5;
-      @apply md:p-20;
+      @apply md:p-10;
 
       &-grid {
         @apply grid grid-cols-1 gap-2;
@@ -133,7 +127,7 @@
 
     .product-events {
       @apply p-5 text-sm text-left space-y-5;
-      @apply md:p-20;
+      @apply md:p-10;
 
       &-grid {
         @apply grid grid-cols-1 gap-2 text-sm;
