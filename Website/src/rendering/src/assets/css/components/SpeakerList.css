@@ -22,7 +22,7 @@
       }
 
       .info-col-cta {
-        @apply text-right  flex pt-2;
+        @apply text-right flex pt-2;
       }
     }
 

@@ -6,6 +6,7 @@ import MainNavigation, { MainNavigationProps } from '../../components/MainNaviga
 import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
 import Footer, { FooterProps } from '../../components/Footer';
 import SessionInformation, { SessionInformationProps } from '../../components/SessionInformation';
+import { Speaker } from 'src/types/speaker';
 
 export default {
   title: 'Pages/Session Information Page',
