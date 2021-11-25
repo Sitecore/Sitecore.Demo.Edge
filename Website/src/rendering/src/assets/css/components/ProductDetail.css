@@ -2,7 +2,7 @@
   @apply my-0 box-border;
 
   .product-detail-hero {
-    @apply grid gap-10;
+    @apply grid gap-10 mb-8;
     @apply sm:grid-cols-2;
     @apply md:grid-cols-3;
 
@@ -11,7 +11,7 @@
       @apply md:col-span-2;
 
       &-main {
-        @apply w-full;
+        @apply mx-auto;
       }
     }
 
@@ -20,6 +20,10 @@
 
       h2 {
         @apply font-bold text-4xl;
+      }
+
+      .product-brand {
+        @apply font-bold text-xl;
       }
 
       .product-price {
