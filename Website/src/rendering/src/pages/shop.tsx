@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Section from '../components/Section';
 
 const Shop = (props: ShopProps): JSX.Element => {
   const { productProps, categoryProps, vendorProps } = props;
@@ -42,8 +43,22 @@ const ProductSearchBar = (): JSX.Element => (
 );
 
 const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
-  <div id="shop-category-container">
-    <h2>Shop by category</h2>
+  <Section
+    fields={{
+      brightness: {
+        value: 'dark',
+      },
+      title: {
+        value: 'Shop by category',
+      },
+      callToActionLink: {
+        value: {
+          href: '/shop/categories',
+          text: 'View all categories',
+        },
+      },
+    }}
+  >
     <div id="categories-container">
       {props.categories.map((category) => (
         <Category
@@ -53,24 +68,32 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
         />
       ))}
     </div>
-    <a id="view-all-button" className="btn--main btn--main--round" href="javascript:void(0)">
-      View all categories
-    </a>
-  </div>
+  </Section>
 );
 
 const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
-  <div id="shop-by-vendor-container">
-    <h2>Shop by vendor</h2>
-    <div id="vendors-container">
+  <Section
+    fields={{
+      brightness: {
+        value: 'light',
+      },
+      title: {
+        value: 'Shop by vendor',
+      },
+      callToActionLink: {
+        value: {
+          href: '/shop/vendors',
+          text: 'View all vendors',
+        },
+      },
+    }}
+  >
+    <div id="categories-container">
       {props.vendorImageUrls.map((url) => (
         <img key={url} src={url} alt="Vendor image" />
       ))}
     </div>
-    <a id="view-all-button" className="btn--main btn--main--round" href="javascript:void(0)">
-      View all vendors
-    </a>
-  </div>
+  </Section>
 );
 
 const FooterLinks = (): JSX.Element => (
