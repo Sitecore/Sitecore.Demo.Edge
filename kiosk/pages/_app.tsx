@@ -5,6 +5,8 @@ import Head from 'next/head';
 import { CdpScripts, logViewEvent } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 
 function App({ Component, pageProps, router }: AppProps) {
+  const backgroundClassName = router.pathname != '/' ? 'filtered' : '';
+
   useEffect(() => {
     logViewEvent();
 
@@ -26,6 +28,7 @@ function App({ Component, pageProps, router }: AppProps) {
       </Head>
 
       <main>
+        <div className={'kiosk-background ' + backgroundClassName}></div>
         <Component {...pageProps} />
       </main>
 

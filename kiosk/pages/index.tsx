@@ -1,5 +1,10 @@
+import Link from 'next/link';
+import React from 'react';
+
 export default function Home() {
   return (
-    <div className="h-screen w-screen" onClick={() => (window.location.href = '/start')}></div>
+    <Link href="/start">
+      <a className="h-full w-full absolute z-10"></a>
+    </Link>
   );
 }
