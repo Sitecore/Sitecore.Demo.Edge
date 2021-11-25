@@ -28,7 +28,7 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
           props.days.map((day, index) => {
             const activeButtonClass = index.toString() == dayId ? 'active' : 'inactive';
             return (
-              <Link key={index} href="/schedule/0">
+              <Link key={index} href={'/schedule/' + day.sortOrder}>
                 <a
                   className={
                     'btn--main btn--main--round btn--main--round--secondary btn--main--big ' +
@@ -42,7 +42,7 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
           })}
       </div>
       <div className="schedule-ticket">
-        <Link href="/signup">
+        <Link href="/tickets">
           <a className="btn--main btn--main--round btn--main--round--primary btn--main--big btn-right">
             Book tickets
           </a>

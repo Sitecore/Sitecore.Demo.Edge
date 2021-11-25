@@ -8,6 +8,7 @@ import ScheduleHeader from '../../components/ScheduleHeader';
 import { getAllDays } from '../../api/queries/getDays';
 import { Params } from '../../interfaces';
 import { Day } from '../../interfaces/day';
+import ScheduleDetails from '../../components/ScheduleDetails';
 
 type ScheduleProps = {
   sessions: Session[];
@@ -63,6 +64,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
     <Screen>
       <ScheduleHeader days={props.days} />
       <ScheduleForDay schedule={generateSchedule(props.sessions)} />
+      <ScheduleDetails sessions={props.sessions} />
     </Screen>
   );
 };
