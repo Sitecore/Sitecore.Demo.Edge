@@ -8,7 +8,7 @@ import ScheduleHeader from '../../components/ScheduleHeader';
 import { getAllDays } from '../../api/queries/getDays';
 import { Params } from '../../interfaces';
 import { Day } from '../../interfaces/day';
-import ScheduleDetails from '../../components/ScheduleDetails';
+// import ScheduleDetails from '../../components/ScheduleDetails';
 
 type ScheduleProps = {
   sessions: Session[];

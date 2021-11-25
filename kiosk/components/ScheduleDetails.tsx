@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Session } from '../interfaces/session';
-import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
+// import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCalendar,
