@@ -30,10 +30,6 @@ Page2.args = {
       value: 2,
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 };
 
 export const Page3 = Template.bind({});
