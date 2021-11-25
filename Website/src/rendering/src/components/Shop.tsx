@@ -172,7 +172,7 @@ export const Category = (props: CategoryProps): JSX.Element => (
     <a>
       <div className="category">
         <img className="category-image" src={props.imageUrl} alt={props.categoryName} />
-        <p className="category-name">{props.categoryName}</p>
+        <p className="item-name">{props.categoryName}</p>
       </div>
     </a>
   </Link>
@@ -183,7 +183,7 @@ export const Vendor = (props: VendorProps): JSX.Element => (
     <a>
       <div>
         <img src={props.imageUrl} alt={props.vendorName} />
-        <p>{props.vendorName}</p>
+        <p className="item-name">{props.vendorName}</p>
       </div>
     </a>
   </Link>

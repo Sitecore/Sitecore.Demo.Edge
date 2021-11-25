@@ -163,7 +163,7 @@ const Products = (): JSX.Element => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <div id="shop-container">
+        <div className="shop-container">
           {/* TODO: Replace the hero by the Mountain bike category hero from mockup */}
           <FeaturedProducts products={productProps.products} />
           <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />

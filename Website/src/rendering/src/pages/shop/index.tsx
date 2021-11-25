@@ -218,7 +218,7 @@ const Shop = (): JSX.Element => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <div id="shop-container">
+        <div className="shop-container">
           <FeaturedProducts products={productProps.products} />
           <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
           <ShopByCategory categories={categoryProps.categories} />

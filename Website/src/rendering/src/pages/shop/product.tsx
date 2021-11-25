@@ -53,7 +53,7 @@ const Product = (): JSX.Element => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <div id="shop-container">
+        <div className="shop-container">
           <ProductDetail />
         </div>
       </main>
