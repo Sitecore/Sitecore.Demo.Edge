@@ -1,4 +1,4 @@
-import { Image } from '../interfaces';
+import { Image } from '../interfaces/asset';
 
 const contentHubUrl = process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || '';
 

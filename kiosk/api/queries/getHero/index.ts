@@ -1,6 +1,6 @@
 import { fetchGraphQL } from '../..';
 import { HeroResponse, HeroResult } from '../../../interfaces/hero';
-import { Image } from '../../../interfaces';
+import { Image } from '../../../interfaces/asset';
 
 export const getHero = async (heroId: string): Promise<{ hero: HeroResult }> => {
   const dummyImage: Image = {

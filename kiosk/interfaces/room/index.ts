@@ -6,9 +6,3 @@ export interface Room {
 export interface RoomResults {
   results: Room[];
 }
-
-export interface AllRoomsResponse {
-  data: {
-    allDemo_Room: RoomResults;
-  };
-}
