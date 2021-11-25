@@ -2,10 +2,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
 import { ReactElement, useState } from 'react';
-import Footer, { FooterProps } from '../components/Footer';
-import Header, { HeaderProps } from '../components/Header';
-import MainNavigation, { MainNavigationProps } from '../components/MainNavigation';
-import Section from '../components/Section';
+import Footer, { FooterProps } from '../../components/Footer';
+import Header, { HeaderProps } from '../../components/Header';
+import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Section from '../../components/Section';
 
 const Shop = (): JSX.Element => {
   const categoryProps = {
@@ -307,8 +307,8 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
       },
       callToActionLink: {
         value: {
-          href: '/shop/categories',
-          text: 'View all categories',
+          href: '/shop/products',
+          text: 'View all products',
         },
       },
     }}
@@ -346,8 +346,8 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
       },
       callToActionLink: {
         value: {
-          href: '/shop/vendors',
-          text: 'View all vendors',
+          href: '/shop/products',
+          text: 'View all products',
         },
       },
     }}
@@ -356,6 +356,7 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
     }}
     params={{}}
   >
+    {/* TODO: Add vendor names under images */}
     <div id="categories-container">
       {props.vendorImageUrls.map((url) => (
         <img key={url} src={url} alt="Vendor image" />

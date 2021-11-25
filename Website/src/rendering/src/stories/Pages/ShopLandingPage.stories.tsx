@@ -1,13 +1,12 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import HeroSection from '../../components/HeroSection';
-import Shop from '../../pages/shop';
+import Shop from '../../pages/shop/index';
 
 export default {
   title: 'Pages/Shop Landing Page',
-} as ComponentMeta<typeof HeroSection>;
+} as ComponentMeta<typeof Shop>;
 
-const Template: ComponentStory<typeof HeroSection> = () => {
+const Template: ComponentStory<typeof Shop> = () => {
   return <Shop />;
 };
 
