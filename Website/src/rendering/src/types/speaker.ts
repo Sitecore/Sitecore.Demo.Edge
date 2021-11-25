@@ -12,6 +12,7 @@ export type Speaker = {
     TwitterProfileLink?: Field<string>;
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
+    Featured: Field<boolean>;
   };
 };
 

@@ -35,13 +35,13 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0de84f34-e6a3-4f83-8a63-25b466932578"
+      Value: "66bb01f0-f69a-4c40-be95-749c2e2057bc"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Solstice
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "Diversity and inclusion: Real world examples [Item not found]|{2BA9C4D5-7935-4E84-A0A3-DF8623B1B73C}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
+      Value: "{BA087B4F-7F17-4461-98E0-9514123F1EBE}|{2BA9C4D5-7935-4E84-A0A3-DF8623B1B73C}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -58,7 +58,7 @@ Languages:
       Value: International Sales Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211112T202459Z
+      Value: 20211124T150535Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker

@@ -35,13 +35,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f175ceea-5128-470e-ad61-7556fd59ba8c"
-    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
-      Hint: Company
-      Value: Sitecore
+      Value: "d722b412-9b26-4931-ade2-2ba9571800c6"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "Meet a pro: Q&A with Zoran Borovic [Item not found]|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
+      Value: "{EDAB61E8-A039-4F40-AC57-68A9C9EF4363}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -58,7 +55,7 @@ Languages:
       Value: Fishing World Champion
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211112T204109Z
+      Value: 20211124T150648Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Social Influencer

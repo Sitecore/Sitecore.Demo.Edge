@@ -10,13 +10,13 @@ Languages:
     Fields:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: News and Media
+      Value: Latest news and media
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210615T142052Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
-      Value: Check out over 2000 sports brands and test drive the latest fitness equipment and technology in our interactive demo space.
+      Value: 
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |

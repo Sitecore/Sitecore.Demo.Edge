@@ -9,7 +9,21 @@ SharedFields:
   Value: 1600
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
-  Value: 
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{B3825B6C-5987-4747-90A3-8B469AEFB642}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:ds="{2434D7D4-060C-4BC0-9EA4-815FBBEC8AAC}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Fields:
@@ -32,14 +46,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d87f639c-b9c1-44fb-8785-f56f6b112f6c"
+      Value: "1f7bcf91-158c-4f12-afe5-c74b2430965c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T114245Z
+      Value: 20211116T225701Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Privacy Policy

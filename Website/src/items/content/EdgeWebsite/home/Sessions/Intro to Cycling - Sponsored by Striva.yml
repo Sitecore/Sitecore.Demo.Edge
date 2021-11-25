@@ -9,6 +9,10 @@ SharedFields:
   Value: 27WHPQDA1k6v6ScH6DLCRA
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Intro to Cycling - Sponsored by Striva"
   Versions:
   - Version: 1
     Fields:
@@ -18,8 +22,8 @@ Languages:
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet ligula.ipsum sit ligula.ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit ama.Lorem ipsum sit amet, consectetur adipiscing elit. Sed&nbsp;ipsum, sit amet pharetra.</p>
-               
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum, sit amet pharetra ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210919T085613Z
@@ -29,7 +33,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38290" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38290/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/fbeff54120594339ac9c8ce2b32d82f5?v=b2aad55c" mediaid="" stylelabs-content-type="Image" alt="cycling-group.jpg" height="3000" width="4000" />
+        <image stylelabs-content-id="38290" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38290/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/fbeff54120594339ac9c8ce2b32d82f5?v=b2aad55c" mediaid="" stylelabs-content-type="Image" alt="Cycling group" height="3000" width="4000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -55,14 +59,14 @@ Languages:
       Value: "{6FE42A91-749B-4B13-BBA6-826DABE94B00}|{2ACD0217-A6FE-401C-9E0C-FF625CAD8CC3}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7e3ab376-a049-4404-94e1-f17c523f77a1"
+      Value: "4ea0fdf1-7f45-43d1-aeee-f8d822bd04fc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T122744Z
+      Value: 20211124T144913Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Intro to Cycling - Sponsored by Striva"

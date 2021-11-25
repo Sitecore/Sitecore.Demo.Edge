@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import React from 'react';
 import { Session } from '../interfaces/session';
 import { contentHubImageSrcGenerator } from '../utilities/contentHubImageLoader';
 
@@ -16,23 +18,33 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
         const noSpeakerClass = session.speaker ? '' : ' no-speaker';
 
         return (
-          <div
-            className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}
+          <Link
             key={index}
+            href={'/rooms/' + session.roomId + '?d=' + session.ShortDay + '&t=' + session.sortOrder}
+            passHref
           >
             <div
-              className={'session-image' + premiumClass + keynoteClass}
-              style={{
-                backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
-              }}
+              className={
+                'schedule-sessions show-image ' + premiumClass + keynoteClass + noSpeakerClass
+              }
             >
-              {session.type && <div className="session-type">{session.type}</div>}
+              <div
+                className={'session-image' + premiumClass + keynoteClass}
+                style={{
+                  backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
+                }}
+              >
+                {session.type && session.type != 'Session' && (
+                  <div className="session-type">{session.type}</div>
+                )}
+                {session.isPremium && <div className="session-tier">Premium</div>}
+              </div>
+              <div className="session-content">
+                <div className="session-name">{session.name}</div>
+                <div>{session.room}</div>
+              </div>
             </div>
-            <div className="session-content">
-              <div className="session-name">{session.name}</div>
-              <div>{session.room}</div>
-            </div>
-          </div>
+          </Link>
         );
       })}
     </>

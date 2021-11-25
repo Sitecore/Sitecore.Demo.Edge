@@ -30,6 +30,10 @@
             {
                 "name": "cmp-config",
                 "path": "/sitecore/system/Modules/CMP/Config"
+            },
+            {
+                "name": "demo-workflow",
+                "path": "/sitecore/system/Workflows/Demo Workflow"
             }
         ]
     }

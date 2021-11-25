@@ -35,10 +35,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0b915e24-c38b-45c6-974f-387afd1bc75c"
+      Value: "5d5f6dc2-4529-4cdf-a867-377e8f9084a9"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "Meet a pro: Q&A with Andre Favreau [Item not found]|Train smarter - not harder test [Item not found]|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
+      Value: "{9F8BBA60-5AB7-41E2-9D88-A5335D49407C}|{ECB47DD1-8390-4551-9EDD-EA680B7466E2}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -55,7 +55,7 @@ Languages:
       Value: Professional Basketball Player
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211112T202507Z
+      Value: 20211124T150705Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Athlete

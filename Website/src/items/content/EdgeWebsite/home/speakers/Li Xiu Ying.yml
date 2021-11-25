@@ -32,13 +32,13 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "eb295dbc-a157-4e8d-9d7a-4b93e1542fe7"
+      Value: "7510af5c-f45f-43ef-936c-d80775f05770"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Wave52
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "Diversity and inclusion: Real world examples [Item not found]"
+      Value: "{BA087B4F-7F17-4461-98E0-9514123F1EBE}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -55,7 +55,7 @@ Languages:
       Value: Business Intelligence
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211112T204139Z
+      Value: 20211124T150925Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker

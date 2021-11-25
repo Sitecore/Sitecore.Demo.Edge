@@ -64,8 +64,9 @@ const nextConfig = {
     ];
   },
   // DEMO TEAM CUSTOMIZATION - Add Content Hub images domain
+  // TODO: remove demoedge once its discontinued
   images: {
-    domains: ['demoedge.sitecoresandbox.cloud'],
+    domains: ['demoedge.sitecoresandbox.cloud', 'playsummit.sitecoresandbox.cloud'],
   },
   // END CUSTOMIZATION
 

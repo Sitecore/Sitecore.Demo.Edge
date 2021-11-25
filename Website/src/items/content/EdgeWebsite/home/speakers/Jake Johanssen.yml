@@ -32,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0e5e289b-1f1e-4a1e-a3f5-278e6e19ae84"
+      Value: "08a9e578-7282-413e-acc6-ca388bf4dc25"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
       Value: "{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}"
@@ -52,7 +52,7 @@ Languages:
       Value: Master of Ceremonies
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211112T203715Z
+      Value: 20211124T151057Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
@@ -65,4 +65,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="61009" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/61009/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/b2c46b732a864df581476b90bf75d4d0?v=6824b218" mediaid="" stylelabs-content-type="Image" alt="jake-johannsen.png" height="1608" width="1607" />
+        <image stylelabs-content-id="61009" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/61009/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/eba80f8fbf9041fcbe614b4a9e46b6bb?v=c387c678" mediaid="" stylelabs-content-type="Image" alt="jake-johannsen.png" height="1608" width="1607" />

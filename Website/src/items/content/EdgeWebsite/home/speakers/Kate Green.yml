@@ -32,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "dc806939-291e-4b48-863f-d95f7b64ab5b"
+      Value: "4f9207fc-df27-4fe0-91c3-83c862a73cc7"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Final Whistle
@@ -52,7 +52,7 @@ Languages:
       Value: Creative Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211112T205115Z
+      Value: 20211124T151020Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sponsor
@@ -65,4 +65,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="50172" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/50172/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a30f40276cfc45889c371fef01026a33?v=48b6aba1" mediaid="" stylelabs-content-type="Image" alt="Kate Green - No background" height="4272" width="4272" />
+        <image stylelabs-content-id="50172" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/50172/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/7cf789b6b8e5494c8a946a3f38b8bafe?v=ed61a959" mediaid="" stylelabs-content-type="Image" alt="Kate Green - No background" height="4272" width="4272" />

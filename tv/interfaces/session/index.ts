@@ -4,6 +4,10 @@ import { Image } from '../asset';
 import { Timeslot, Timeslots } from '../timeslot';
 import { Days } from '../day';
 
+export interface SessionType {
+  taxonomyName: string;
+}
+
 export interface SessionResult {
   id: string;
   name: string;
@@ -11,7 +15,7 @@ export interface SessionResult {
   room: RoomResults;
   speakers: SpeakerResults;
   roomName: string;
-  sessionImage: Image;
+  sessionToMasterAsset: Image;
   timeslotName: string;
   timeslotOrder: number;
   timeslotToSession: Timeslots;
@@ -44,10 +48,12 @@ export interface Session {
   description: string;
   image: string;
   room: string | undefined;
+  roomId: string | undefined;
   speaker: string | undefined;
   timeslot: string;
   sortOrder: number;
   Day: string;
+  ShortDay: string;
   type: string;
   isPremium: boolean;
 }

@@ -1,5 +1,5 @@
 ﻿---
-ID: "a8f6c58b-3699-5009-8c81-d2426424d98d"
+ID: "4ba4af1a-1170-421c-b345-28b0ea55a8b5"
 Parent: "3d1c809e-598d-5bd9-8104-ff05f7ca6011"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/content/EdgeWebsite/home/privacy/Page Components
@@ -20,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210625T201835Z
+      Value: 20210625T201833Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,11 +31,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ad61cd70-b84b-45a4-b785-74ac4fd86b0b"
+      Value: "d75d39f0-b69f-48a2-9c17-7eca934cf880"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\JssImport
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201835Z
+      Value: 20210625T201833Z

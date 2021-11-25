@@ -59,8 +59,8 @@ RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.D
 COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
 
-# Copy transform to container for DAM CSP access
-COPY ./Data/transforms/ /inetpub/wwwroot/transforms/
+# Copy additinal files to container
+COPY ./Data/ /inetpub/wwwroot/
 
 # Copy custom entrypoint
 COPY ./tools/ /tools/

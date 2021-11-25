@@ -18,6 +18,23 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{12933B4F-72B1-552A-9730-6B4C914F125B}" />
+        <r
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{12933B4F-72B1-552A-9730-6B4C914F125B}-0"
+          uid="{04D6B23E-6CE3-51A1-9C9C-4CD56B29B6AA}" />
+        <r
+          rname="HeroSection"
+          ds="{F2A3B54C-4474-4F5C-8B4E-3E049975000E}"
+          id="{C8BE3A17-798F-5054-B012-4772CB23AC88}"
+          par=""
+          ph="/jss-main"
           uid="{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}"
           p:after="r[@uid='{04D6B23E-6CE3-51A1-9C9C-4CD56B29B6AA}']"
           s:rname="HeroSection"
@@ -27,6 +44,16 @@ SharedFields:
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
+          uid="{9079BFE6-D63C-4BAC-AD53-5D0B06100CD1}"
+          ds="{B505E955-F7BB-4A56-A956-A41FB1AE202D}"
+          id="{99F2FFE7-28C6-4B88-A52B-BD9B6B44C3C1}"
+          ph="/jss-main/jss-hero-section-content-{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}-0" />
+        <r
+          rname="ThreeColumnsSection"
+          ds="{5F6ADEE8-F8E2-4A92-85E3-0C1D0A82FAF1}"
+          id="{279A5772-ADFA-5260-88E6-AB97D5C4D90A}"
+          par=""
+          ph="/jss-main"
           uid="{368C89F1-3640-58A1-BDE0-A1C0E8426D3E}"
           p:after="r[@uid='{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}']"
           s:rname="ThreeColumnsSection"
