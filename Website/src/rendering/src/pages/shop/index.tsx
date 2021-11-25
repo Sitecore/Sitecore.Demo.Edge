@@ -47,13 +47,31 @@ const Shop = (): JSX.Element => {
   };
 
   const vendorProps = {
-    vendorImageUrls: [
-      '/assets/img/shop/demo/RunRightThrough.png',
-      '/assets/img/shop/demo/Striva.png',
-      '/assets/img/shop/demo/SyndeyCummings.png',
-      '/assets/img/shop/demo/RunRightThrough-1.png',
-      '/assets/img/shop/demo/Striva-1.png',
-      '/assets/img/shop/demo/SyndeyCummings-1.png',
+    vendors: [
+      {
+        imageUrl: '/assets/img/shop/demo/RunRightThrough.png',
+        vendorName: 'Alba',
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/Striva.png',
+        vendorName: 'Striva',
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/SyndeyCummings.png',
+        vendorName: 'CenterCycle',
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/RunRightThrough-1.png',
+        vendorName: 'Run Right Through',
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/Striva-1.png',
+        vendorName: 'Overunder',
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/SyndeyCummings-1.png',
+        vendorName: 'Sydney Cummings',
+      },
     ],
   };
 
@@ -202,7 +220,7 @@ const Shop = (): JSX.Element => {
           <FeaturedProducts products={productProps.products} />
           <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
           <ShopByCategory categories={categoryProps.categories} />
-          <ShopByVendor vendorImageUrls={vendorProps.vendorImageUrls} />
+          <ShopByVendor vendors={vendorProps.vendors} />
         </div>
       </main>
       <footer>
@@ -317,13 +335,9 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
     }}
     params={{}}
   >
-    <div id="categories-container">
-      {props.categories.map((category) => (
-        <Category
-          key={category.categoryName}
-          imageUrl={category.imageUrl}
-          categoryName={category.categoryName}
-        />
+    <div className="shop-by-container">
+      {props.categories.map((category, index) => (
+        <Category key={index} {...category} />
       ))}
     </div>
   </Section>
@@ -356,10 +370,9 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
     }}
     params={{}}
   >
-    {/* TODO: Add vendor names under images */}
-    <div id="categories-container">
-      {props.vendorImageUrls.map((url) => (
-        <img key={url} src={url} alt="Vendor image" />
+    <div className="shop-by-container shop-by-vendor-container">
+      {props.vendors.map((vendor, index) => (
+        <Vendor key={index} {...vendor} />
       ))}
     </div>
   </Section>
@@ -378,8 +391,15 @@ const Product = (props: ProductProps): JSX.Element => (
 
 const Category = (props: CategoryProps): JSX.Element => (
   <div className="category">
-    <img className="category-image" src={props.imageUrl} alt="Category image" />
+    <img className="category-image" src={props.imageUrl} alt={props.categoryName} />
     <p className="category-name">{props.categoryName}</p>
+  </div>
+);
+
+const Vendor = (props: VendorProps): JSX.Element => (
+  <div>
+    <img src={props.imageUrl} alt={props.vendorName} />
+    <p>{props.vendorName}</p>
   </div>
 );
 
@@ -405,8 +425,13 @@ export interface FeaturedProductsProps {
   products: ProductProps[];
 }
 
+export interface VendorProps {
+  imageUrl: string;
+  vendorName: string;
+}
+
 export interface ShopByVendorProps {
-  vendorImageUrls: string[];
+  vendors: VendorProps[];
 }
 
 export interface PopupProps {

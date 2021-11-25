@@ -70,7 +70,7 @@ div#shop-container {
     top: 7px;
   }
 
-  div#categories-container {
+  div.shop-by-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -78,8 +78,16 @@ div#shop-container {
     font-size: 25px;
   }
 
-  div#categories-container p {
+  div.shop-by-container p {
     margin: 10px 0 30px 0;
+  }
+
+  div.shop-by-container.shop-by-vendor-container {
+    color: #3c3c3c;
+
+    p {
+      @apply text-center mt-0;
+    }
   }
 
   /* popup */
