@@ -64,7 +64,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
     <Screen>
       <ScheduleHeader days={props.days} />
       <ScheduleForDay schedule={generateSchedule(props.sessions)} />
-      <ScheduleDetails sessions={props.sessions} />
+      {/* <ScheduleDetails sessions={props.sessions} /> */}
     </Screen>
   );
 };

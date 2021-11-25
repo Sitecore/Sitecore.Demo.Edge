@@ -1,7 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Session } from '../interfaces/session';
 import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +7,6 @@ import {
   faCalendar,
   faClock,
   faDoorOpen,
-  faStar,
   faTag,
   faTimes,
   faUser,
@@ -45,30 +42,12 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
             backgroundImage: `url("/backgrounds/kiosk-hall.jpg")`,
           }}
         >
-          <div className="hidden flex flex-col align-bottom justify-between p-6 bottom-0 absolute bg-gray bg-opacity-50 text-yellow">
-            <div>
-              <span>
-                <FontAwesomeIcon className="icon" icon={faCalendar} />
-              </span>
-              Day 1
-            </div>
-            <div>
-              <span>
-                <FontAwesomeIcon className="icon" icon={faClock} />
-              </span>
-              10:00 am - 12:00 pm
-            </div>
-            <div>
-              <span>
-                <FontAwesomeIcon className="icon" icon={faDoorOpen} />
-              </span>
-              Meeting room hallway
-            </div>
+          <div className="flex flex-col align-bottom justify-between p-2 m-2 bottom-0 right-0 absolute bg-yellow text-black font-bold shadow-lg">
             <div>
               <span>
                 <FontAwesomeIcon className="icon" icon={faTag} />
               </span>
-              premium only
+              VIP tickets only
             </div>
           </div>
         </div>
@@ -95,23 +74,9 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
             </div>
             <div>
               <span>
-                <FontAwesomeIcon className="icon" icon={faTag} />
-              </span>
-              premium only
-            </div>
-          </div>
-          <div className="flex flex-row align-middle w-full justify-items-start text-xl space-x-4">
-            <div>
-              <span>
                 <FontAwesomeIcon className="icon" icon={faUser} />
               </span>
-              Speaker 1
-            </div>
-            <div>
-              <span>
-                <FontAwesomeIcon className="icon" icon={faUser} />
-              </span>
-              Speaker 2
+              Speaker 1, Speaker 2
             </div>
           </div>
           <div className="btn__area--minimal w-full">
