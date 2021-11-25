@@ -66,6 +66,7 @@
 @import "./components/SessionInformation.css";
 @import "./components/SessionInformationPageHero.css";
 @import "./components/SpeakerInformationPageHero.css";
+@import "./components/SpeakerList.css";
 @import "./components/SpeakersGrid.css";
 @import "./components/SponsorsGrid.css";
 @import "./components/SummitFeatures.css";

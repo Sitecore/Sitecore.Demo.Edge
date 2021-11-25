@@ -56,7 +56,7 @@ export type SpeakerListProps = {
 
 const SpeakerList = (props: SpeakerListProps): JSX.Element => {
   const speakers = props.speakers && props.speakers.length > 0 && (
-    <div className="sidebar-list sidebar-list__speaker">
+    <div className="speaker-list">
       {props.speakers.map((speaker, index) => (
         <SpeakerListItem {...speaker} key={index} />
       ))}

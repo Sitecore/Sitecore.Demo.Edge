@@ -1,11 +1,11 @@
-.session-list {
+.speaker-list {
   @apply space-y-5 min-w-full;
 
   .information-block {
-    @apply flex flex-row gap-5 border border-gray items-stretch;
+    @apply flex flex-row gap-5 border border-gray bg-blue items-stretch;
 
     .info-col-left {
-      @apply align-top text-center self-center uppercase p-5 w-48;
+      @apply align-top text-center self-center uppercase flex h-60 w-56 pt-5;
 
       background-image: url('../../img/background-element.svg');
       background-repeat: no-repeat;
@@ -25,7 +25,7 @@
     }
 
     .info-col-content {
-      @apply flex-grow space-y-1 p-5;
+      @apply flex-grow space-y-1 p-5 pl-0 text-white;
 
       .session-info-title {
         @apply font-bold uppercase mt-2 mb-0;
@@ -45,19 +45,8 @@
       }
     }
 
-    &.premium {
+    &.featured {
       @apply bg-orange border-0 text-white;
-
-      .info-col-left {
-        .session-info-ticket {
-          @apply border border-white text-white;
-        }
-
-        .session-info-month,
-        .session-info-date {
-          @apply text-black;
-        }
-      }
     }
   }
 }

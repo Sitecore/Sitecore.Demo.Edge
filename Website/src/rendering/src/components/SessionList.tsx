@@ -84,7 +84,7 @@ export type SessionListProps = {
 
 const SessionList = (props: SessionListProps): JSX.Element => {
   const sessions = props.sessions && props.sessions.length > 0 && (
-    <div className="sidebar-list sidebar-list__session">
+    <div className="session-list">
       {props.sessions.map((session, index) => (
         <SessionListItem {...session} showSpeakers={props.showSpeakers} key={index} />
       ))}
