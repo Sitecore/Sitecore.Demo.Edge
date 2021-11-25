@@ -209,7 +209,7 @@ const footerProps = {
         },
       },
     },
-  }
+  },
 } as FooterProps;
 
 const componentFactory = function (componentName: string) {
