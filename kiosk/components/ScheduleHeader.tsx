@@ -34,7 +34,7 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
               <Link key={index} href={'/schedule/' + day.sortOrder}>
                 <a
                   className={
-                    'btn--main btn--main--round btn--main--round--secondary btn--main--big ' +
+                    'btn--main btn--main--round btn--main--secondary btn--main--big ' +
                     activeButtonClass
                   }
                 >
@@ -46,7 +46,7 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
       </div>
       <div className="schedule-ticket">
         <Link href="/tickets">
-          <a className="btn--main btn--main--round btn--main--round--primary btn--main--big btn-right">
+          <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right">
             Book tickets
           </a>
         </Link>

@@ -24,7 +24,7 @@
 }
 
 .btn--main {
-  @apply font-bold;
+  @apply font-bold cursor-pointer;
   @apply hover:shadow-md;
 
   padding: 0.5em 1.55em;
@@ -39,16 +39,16 @@
 
   &--round {
     @apply rounded-md;
+  }
 
-    &--primary {
-      @apply bg-yellow text-black;
-      @apply hover:bg-yellow-dark hover:text-black;
-    }
+  &--primary {
+    @apply bg-yellow text-black;
+    @apply hover:bg-yellow-dark hover:text-black;
+  }
 
-    &--secondary {
-      @apply bg-black text-yellow border-yellow border-2;
-      @apply hover:bg-yellow-dark hover:text-black;
-    }
+  &--secondary {
+    @apply bg-black text-yellow border-yellow border-2;
+    @apply hover:bg-yellow-dark hover:text-black;
   }
 }
 

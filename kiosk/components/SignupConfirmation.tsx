@@ -49,7 +49,7 @@ const SignupConfirmation = (): JSX.Element => {
             <div className="pt-5">
               <form onSubmit={handleFormSubmit}>
                 <button
-                  className="btn--main btn--main--round--primary btn--main--big block rounded-lg"
+                  className="btn--main btn--main--round btn--main--primary btn--main--big block rounded-lg"
                   type="submit"
                 >
                   End Session

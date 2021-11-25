@@ -53,19 +53,19 @@ class TicketTiers extends React.Component {
         </div>
         <div className="tickets__buttons">
           <span
-            className="btn--main btn--main--round--secondary btn--main--big"
+            className="btn--main btn--main--round btn--main--secondary btn--main--big"
             onClick={() => Router.back()}
           >
             Previous
           </span>
           {this.state.selectedTicket ? (
             <Link href={`/payment/${this.state.selectedTicket}`} passHref>
-              <a className="btn--main btn--main--round--primary btn--main--big btn-right">
+              <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right">
                 Continue
               </a>
             </Link>
           ) : (
-            <a className="btn--main btn--main--round--primary btn--main--big btn-right btn--disabled">
+            <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right btn--disabled">
               Continue
             </a>
           )}

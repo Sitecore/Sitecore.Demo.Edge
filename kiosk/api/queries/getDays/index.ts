@@ -28,8 +28,6 @@ export const getAllDays = async (): Promise<{ days: Day[] }> => {
 
   results?.data?.allDemo_Day?.results &&
     results.data.allDemo_Day.results.forEach((dayResult: DayResult) => {
-      console.log('dayResult');
-      console.log(dayResult);
       days.push(parseDay(dayResult));
     });
 

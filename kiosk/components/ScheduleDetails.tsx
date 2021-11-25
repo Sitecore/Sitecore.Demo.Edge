@@ -89,7 +89,7 @@ const ScheduleDetails = (props: ScheduleDetailsProps): JSX.Element => {
               </div>
               <div className="btn__area--minimal w-full">
                 <Link href="/tickets">
-                  <a className="btn--main btn--main--round btn--main--round--primary btn--main--big btn-right block text-center">
+                  <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right block text-center">
                     Book tickets
                   </a>
                 </Link>

@@ -7,7 +7,6 @@ type ScheduleRowProps = {
 };
 
 const showDetail = (sessionId: string) => {
-  console.log('button clicked ==================> ' + sessionId);
   document.getElementById(sessionId)?.classList.add('active');
 };
 

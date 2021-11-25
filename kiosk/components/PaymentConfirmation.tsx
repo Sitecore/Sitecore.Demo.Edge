@@ -66,7 +66,7 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
             </div>
             <form onSubmit={handleFormSubmit}>
               <button
-                className="btn--main btn--main--round--primary btn--main--big block rounded-lg px-3 py-3"
+                className="btn--main btn--main--round btn--main--primary btn--main--big block rounded-lg px-3 py-3"
                 type="submit"
               >
                 End Session

@@ -37,12 +37,12 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
           </div>
           <div className="btn__area">
             <Link href="/schedule/0">
-              <a className="btn--main btn--main--round btn--main--round--primary btn--main--big">
+              <a className="btn--main btn--main--round btn--main--primary btn--main--big">
                 Explore the event
               </a>
             </Link>
             <Link href="/signup">
-              <a className="btn--main btn--main--round btn--main--round--secondary btn--main--big btn-right">
+              <a className="btn--main btn--main--round btn--main--secondary btn--main--big btn-right">
                 Stay connected
               </a>
             </Link>
