@@ -1,10 +1,8 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
-import { ReactElement, useState } from 'react';
 import Footer, { FooterProps } from '../../components/Footer';
 import Header, { HeaderProps } from '../../components/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import { FeaturedProducts, ProductSearchBar } from '../../components/Shop';
 
 const Products = (): JSX.Element => {
   const productProps = {
@@ -156,7 +154,7 @@ const Products = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Play! Summit - Shop</title>
+        <title>Play! Summit - Products</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -166,8 +164,10 @@ const Products = (): JSX.Element => {
       </header>
       <main>
         <div id="shop-container">
+          {/* TODO: Replace the hero by the Mountain bike category hero from mockup */}
           <FeaturedProducts products={productProps.products} />
           <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
+          {/* TODO: Add facets, move search box, add products listing grid */}
         </div>
       </main>
       <footer>
@@ -177,119 +177,4 @@ const Products = (): JSX.Element => {
   );
 };
 
-const FeaturedProducts = (props: FeaturedProductsProps): JSX.Element => (
-  <section className="section section-featured-products">
-    <div className="section__content container">
-      <div id="featured-products-container">
-        <div id="products-left-container">
-          <h4>Home &#62; Shop</h4>
-          <h2>Featured Products</h2>
-          <p>
-            Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
-            brands at this year’s PLAY! Summit.
-          </p>
-        </div>
-        <div id="products-right-container">
-          {props.products.map((product) => (
-            <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
-  const [popupVisible, setpopupVisible] = useState(false);
-  return (
-    <section className="section">
-      <div className="section__content container">
-        <div id="search-input-container">
-          <FontAwesomeIcon id="search-icon" icon={faSearch} />
-          <input
-            id="search-input"
-            onFocus={() => setpopupVisible(true)}
-            onBlur={() => setpopupVisible(false)}
-            placeholder="Search for products"
-          ></input>
-          <Popup visible={popupVisible}>
-            <ReflektionContent {...props.reflektionProps} />
-          </Popup>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Popup = (props: PopupProps): JSX.Element => {
-  return props.visible ? <div id="popup-container">{props.children}</div> : <></>;
-};
-
-const ReflektionContent = (props: ReflektionContentProps): JSX.Element => {
-  return (
-    <div id="reflektion-container">
-      <div id="reflektion-left-container">
-        <ul>
-          <li>Did you mean?</li>
-          {props.didYouMean.map((text) => (
-            <li key={text}>
-              <a href="javascript:void(0)">{text}</a>
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <li>Top categories</li>
-          {props.topCategories.map((text) => (
-            <li key={text}>
-              <a href="javascript:void(0)">{text}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div id="reflektion-right-container">
-        {props.products.map((product) => (
-          <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Product = (props: ProductProps): JSX.Element => (
-  <div className="product">
-    <img className="product-image" src={props.imageUrl} alt="Product image" />
-    <div className="product-details">
-      <b>Product name</b>
-      <p>Vendor name</p>
-      <p>${props.price}</p>
-    </div>
-  </div>
-);
-
 export default Products;
-
-// Interfaces
-
-export interface ProductProps {
-  imageUrl: string;
-  price: number;
-}
-
-export interface FeaturedProductsProps {
-  products: ProductProps[];
-}
-
-export interface PopupProps {
-  children: ReactElement;
-  visible: boolean;
-}
-
-export interface ReflektionContentProps {
-  products: ProductProps[];
-  didYouMean: string[];
-  topCategories: string[];
-}
-
-export interface SearchBarProps {
-  reflektionProps: ReflektionContentProps;
-}

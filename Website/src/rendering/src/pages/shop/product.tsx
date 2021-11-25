@@ -43,7 +43,7 @@ const Product = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Play! Summit - Shop</title>
+        <title>Play! Summit - FATHOM1</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -52,7 +52,7 @@ const Product = (): JSX.Element => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
-        <div id="shop-container"></div>
+        <div id="shop-container">{/* TODO: Add product detail components */}</div>
       </main>
       <footer>
         <Footer {...footerProps} />
@@ -62,5 +62,3 @@ const Product = (): JSX.Element => {
 };
 
 export default Product;
-
-// Interfaces
