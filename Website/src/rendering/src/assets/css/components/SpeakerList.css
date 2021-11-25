@@ -2,51 +2,32 @@
   @apply space-y-5 min-w-full;
 
   .information-block {
-    @apply flex flex-row gap-5 border border-gray bg-blue items-stretch;
+    @apply flex flex-row gap-5 bg-blue text-white items-stretch;
 
     .info-col-left {
-      @apply align-top text-center self-center uppercase flex h-60 w-56 pt-5;
+      @apply align-top text-center self-center uppercase flex h-60 w-56 pt-5 bg-no-repeat bg-left-bottom;
 
       background-image: url('../../img/background-element.svg');
-      background-repeat: no-repeat;
-      background-position: bottom left;
-
-      .session-info-ticket {
-        @apply inline px-3 w-full border border-gray text-black;
-      }
-
-      .session-info-month {
-        @apply font-bold text-2xl text-gray-dark mt-1;
-      }
-
-      .session-info-date {
-        @apply text-4xl font-bold leading-6 inline-block;
-      }
     }
 
     .info-col-content {
       @apply flex-grow space-y-1 p-5 pl-0 text-white;
 
-      .session-info-title {
+      .info-col-title {
         @apply font-bold uppercase mt-2 mb-0;
-      }
-
-      .speaker-name {
-        @apply m-0 p-0 underline;
-        @apply md:hover:underline md:no-underline;
-      }
-
-      .session-info-col-calendar {
-        @apply text-right  flex pt-2;
       }
 
       .info-text .icon {
         @apply w-6 mr-2;
       }
+
+      .info-col-cta {
+        @apply text-right  flex pt-2;
+      }
     }
 
     &.featured {
-      @apply bg-orange border-0 text-white;
+      @apply bg-orange;
     }
   }
 }

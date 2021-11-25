@@ -36,11 +36,11 @@ const SpeakerListItem = (speaker: Speaker): JSX.Element => {
         />
       </div>
       <div className="info-col-content">
-        <Text field={speaker.fields.Name} tag="div" className="session-info-title" />
+        <Text field={speaker.fields.Name} tag="div" className="info-col-title" />
         {jobTitle}
         {company}
         {location}
-        <div className="session-info-col-calendar">
+        <div className="info-col-cta">
           <Link href={'/speakers/${speaker.fields.Name}'}>
             <a className="btn--main btn--main--round">Learn more</a>
           </Link>

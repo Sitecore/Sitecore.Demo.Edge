@@ -3,7 +3,7 @@ import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getSessionTime } from '../helpers/DateHelper';
 import { GraphQLSession } from 'src/types/session';
 import InfoText from './InfoText';
-import { faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faDoorOpen, faUser } from '@fortawesome/free-solid-svg-icons';
 
 type SessionListItemProps = GraphQLSession & {
   showSpeakers: boolean;
@@ -47,9 +47,11 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
       <>
         {props.speakers.targetItems.map((speaker, index) => (
           <div className="speaker-name" key={index}>
-            <Link href={`/speakers/${speaker.itemName}`} passHref>
-              <Text field={speaker.name} tag="a" />
-            </Link>
+            <InfoText Icon={faUser}>
+              <Link href={`/speakers/${speaker.itemName}`} passHref>
+                <Text field={speaker.name} tag="a" />
+              </Link>
+            </InfoText>
           </div>
         ))}
       </>
@@ -63,11 +65,11 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
         <div className="session-info-date">{day}</div>
       </div>
       <div className="info-col-content">
-        <Text field={props.name} tag="div" className="session-info-title" />
+        <Text field={props.name} tag="div" className="info-col-title" />
         {speakers}
         {time}
         {room}
-        <div className="session-info-col-calendar">
+        <div className="info-col-cta">
           <Link href={`/sessions/${props.name}`}>
             <a className="btn--main btn--main--round">More Information</a>
           </Link>
