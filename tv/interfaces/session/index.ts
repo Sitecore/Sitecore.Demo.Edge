@@ -48,10 +48,12 @@ export interface Session {
   description: string;
   image: string;
   room: string | undefined;
+  roomId: string | undefined;
   speaker: string | undefined;
   timeslot: string;
   sortOrder: number;
   Day: string;
+  ShortDay: string;
   type: string;
   isPremium: boolean;
 }

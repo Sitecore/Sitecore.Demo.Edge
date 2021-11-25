@@ -126,11 +126,13 @@ const Navigation = (): JSX.Element => {
               </div>
               <select value="0" onChange={handleRoomChange}>
                 <option value="0">Choose a room...</option>
-                {venue.rooms.results.map((room, roomIndex) => (
-                  <option key={roomIndex} value={room.id}>
-                    {room.name}
-                  </option>
-                ))}
+                {venue.rooms.results
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((room, roomIndex) => (
+                    <option key={roomIndex} value={room.id}>
+                      {room.name}
+                    </option>
+                  ))}
               </select>
             </div>
           ))}
@@ -140,7 +142,6 @@ const Navigation = (): JSX.Element => {
             <div className="daytime-column">
               <div className="daytime-current">{getCurrentDisplayDay()}</div>
               <select name="day" onChange={handleDayChange}>
-                <option value="-1">Select day...</option>
                 {schema.days.length > 0 &&
                   schema.days.map((day, index) => (
                     <option key={index} value={day.sortOrder}>
@@ -152,7 +153,6 @@ const Navigation = (): JSX.Element => {
             <div className="daytime-column">
               <div className="daytime-current">{getCurrentDisplayTime()}</div>
               <select name="time" onChange={handleTimeChange}>
-                <option value="-1">Select time...</option>
                 {schema.times.length > 0 &&
                   schema.times.map((time, index) => (
                     <option key={index} value={time.sortOrder}>
