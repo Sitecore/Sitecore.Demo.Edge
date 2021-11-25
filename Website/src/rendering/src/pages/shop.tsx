@@ -1,22 +1,219 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Head from 'next/head';
 import { ReactElement, useState } from 'react';
+import Footer, { FooterProps } from '../components/Footer';
+import Header, { HeaderProps } from '../components/Header';
+import MainNavigation, { MainNavigationProps } from '../components/MainNavigation';
 import Section from '../components/Section';
 
-const Shop = (props: ShopProps): JSX.Element => {
-  const { productProps, categoryProps, vendorProps, searchBarProps } = props;
+const Shop = (): JSX.Element => {
+  const categoryProps = {
+    categories: [
+      {
+        categoryName: 'Workout',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315.png',
+      },
+      {
+        categoryName: 'Golf',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-1.png',
+      },
+      {
+        categoryName: 'Mountain bike',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-2.png',
+      },
+      {
+        categoryName: 'Yoga',
+        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-3.png',
+      },
+    ],
+  };
+
+  const productProps = {
+    products: [
+      {
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+        price: 255.99,
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+        price: 255.99,
+      },
+      {
+        imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+        price: 255.99,
+      },
+    ],
+  };
+
+  const vendorProps = {
+    vendorImageUrls: [
+      '/assets/img/shop/demo/RunRightThrough.png',
+      '/assets/img/shop/demo/Striva.png',
+      '/assets/img/shop/demo/SyndeyCummings.png',
+      '/assets/img/shop/demo/RunRightThrough-1.png',
+      '/assets/img/shop/demo/Striva-1.png',
+      '/assets/img/shop/demo/SyndeyCummings-1.png',
+    ],
+  };
+
+  const searchBarProps = {
+    reflektionProps: {
+      didYouMean: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
+      topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
+      products: [
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+        {
+          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          price: 255.99,
+        },
+      ],
+    },
+  };
+
+  const headerProps = {} as HeaderProps;
+
+  const mainNavigationArgs = {
+    fields: {
+      data: {
+        item: {
+          headerLogo: {
+            jsonValue: {
+              value: {
+                src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
+              },
+            },
+            alt: '',
+          },
+        },
+      },
+    },
+  } as MainNavigationProps;
+
+  const footerProps = {
+    fields: {
+      data: {
+        item: {
+          footerLogo: {
+            jsonValue: {
+              value: {
+                src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
+              },
+            },
+            alt: '',
+          },
+        },
+      },
+    },
+  } as FooterProps;
+
   return (
-    <div id="shop-container">
-      <FeatureProducts products={productProps.products} />
-      <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
-      <ShopByCategory categories={categoryProps.categories} />
-      <ShopByVendor vendorImageUrls={vendorProps.vendorImageUrls} />
-    </div>
+    <>
+      <Head>
+        <title>Play! Summit - Shop</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <header>
+        <Header {...headerProps} />
+        <MainNavigation {...mainNavigationArgs} />
+      </header>
+      <main>
+        <div id="shop-container">
+          <FeaturedProducts products={productProps.products} />
+          <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
+          <ShopByCategory categories={categoryProps.categories} />
+          <ShopByVendor vendorImageUrls={vendorProps.vendorImageUrls} />
+        </div>
+      </main>
+      <footer>
+        <Footer {...footerProps} />
+      </footer>
+    </>
   );
 };
 
-const FeatureProducts = (props: FeatureProductsProps): JSX.Element => (
-  <section className="section">
+const FeaturedProducts = (props: FeaturedProductsProps): JSX.Element => (
+  <section className="section section-featured-products">
     <div className="section__content container">
       <div id="featured-products-container">
         <div id="products-left-container">
@@ -106,7 +303,7 @@ const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
         value: 'Shop by category',
       },
       content: {
-        value: '',
+        value: ' ',
       },
       callToActionLink: {
         value: {
@@ -136,7 +333,7 @@ const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
   <Section
     fields={{
       cssClass: {
-        value: '',
+        value: ' ',
       },
       brightness: {
         value: 'light',
@@ -189,13 +386,6 @@ export default Shop;
 
 // Interfaces
 
-export interface ShopProps {
-  categoryProps: ShopByCategoryProps;
-  productProps: FeatureProductsProps;
-  vendorProps: ShopByVendorProps;
-  searchBarProps: SearchBarProps;
-}
-
 export interface ProductProps {
   imageUrl: string;
   price: number;
@@ -210,7 +400,7 @@ export interface ShopByCategoryProps {
   categories: CategoryProps[];
 }
 
-export interface FeatureProductsProps {
+export interface FeaturedProductsProps {
   products: ProductProps[];
 }
 
