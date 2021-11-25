@@ -31,8 +31,8 @@ const SpeakerListItem = (speaker: Speaker): JSX.Element => {
         <Image
           field={speaker.fields?.Picture}
           alt={speaker.fields?.Name?.value}
-          width={250}
-          height={300}
+          width={275}
+          height={275}
         />
       </div>
       <div className="info-col-content">

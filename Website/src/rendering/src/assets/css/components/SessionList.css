@@ -80,7 +80,7 @@
   &__speaker {
     .information-block {
       .info-col-left {
-        @apply p-0 flex h-60 w-52 pt-5 pr-0;
+        @apply p-0 flex h-60 w-56 pt-5 pr-0;
       }
 
       .info-col-content {
