@@ -122,6 +122,7 @@
     <Compile Include="Pipelines\DemoContextExtension.cs" />
     <Compile Include="Utilities\ClearAllCaches.aspx.cs">
       <DependentUpon>ClearAllCaches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Utilities\ClearAllCaches.aspx.designer.cs">
       <DependentUpon>ClearAllCaches.aspx</DependentUpon>
