@@ -1,25 +1,40 @@
-export async function fetchGraphQL(query: any, preview: any): Promise<any> {
-  let apiKey = process.env.DELIVERY_API_KEY;
-  let endpointUrl = process.env.DELIVERY_ENDPOINT_URL;
+type GraphQLResponseWithErrors = {
+  errors: unknown[];
+};
 
-  if (preview) {
-    apiKey = process.env.PREVIEW_API_KEY;
-    endpointUrl = process.env.PREVIEW_ENDPOINT_URL;
-  }
-
-  console.log(endpointUrl);
+export async function fetchGraphQL(query: string): Promise<unknown> {
+  const apiKey: string = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || "";
+  const endpointUrl: string =
+    process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || "";
 
   try {
-    const result = await fetch(endpointUrl!, {
+    return await fetch(endpointUrl + "/api/graphql/preview/v1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-GQL-Token": apiKey!,
+        "X-GQL-Token": apiKey,
       },
       body: JSON.stringify({ query }),
-    }).then((response: any) => response.json());
-    console.log(result);
-    return result;
+    })
+      .then((response: Response) => {
+        const jsonResponsePromise = response.json();
+        jsonResponsePromise.then((jsonResponse: unknown) => {
+          const responseWithErrors = jsonResponse as GraphQLResponseWithErrors;
+          if (
+            responseWithErrors.errors &&
+            responseWithErrors.errors.length > 0
+          ) {
+            console.error(
+              "An error was returned by a GraphQL query. See the associated logged object for details.",
+              responseWithErrors
+            );
+          }
+        });
+        return jsonResponsePromise;
+      })
+      .catch((error) => {
+        return console.log(error);
+      });
   } catch (error) {
     return console.log(error);
   }

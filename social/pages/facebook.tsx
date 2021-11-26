@@ -33,7 +33,7 @@ export default function Facebook(props: PostProps) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const { posts } = await getFacebookPosts(preview);
+  const { posts } = await getFacebookPosts();
   return {
     props: {
       posts: posts,
