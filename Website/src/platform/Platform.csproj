@@ -103,6 +103,7 @@
     <Content Include="App_Config\Include\Sitecore.Media.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.config" />
     <Content Include="App_Config\Include\Sitecore.Owin.Authentication.ClientCredentialsMapping.Mvp.config" />
+    <Content Include="Utilities\ClearAllCaches.aspx" />
     <Content Include="Utilities\IndexRebuild.aspx" />
     <Content Include="Utilities\Restart.aspx" />
     <Content Include="App_Config\Include\Sitecore.Demo.CustomFields.config" />
@@ -119,6 +120,12 @@
     <Compile Include="Pipelines\PublishSyncedItem.cs" />
     <Compile Include="Pipelines\DemoCmpFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
+    <Compile Include="Utilities\ClearAllCaches.aspx.cs">
+      <DependentUpon>ClearAllCaches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\ClearAllCaches.aspx.designer.cs">
+      <DependentUpon>ClearAllCaches.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\IndexRebuild.aspx.cs">
       <DependentUpon>IndexRebuild.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
