@@ -39,7 +39,7 @@
   overflow: hidden;
 
   .error {
-    @apply bg-black p-4 text-orange-light absolute -top-10 text-xl flex align-middle justify-center w-full;
+    @apply bg-black p-4 text-orange-light absolute -top-28 text-xl flex align-middle justify-center w-full;
 
     animation: 3s ease-out 1s 1 fadeIn;
     animation-iteration-count: 1;

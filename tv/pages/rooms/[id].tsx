@@ -21,7 +21,6 @@ export default function RoomPage(props: RoomProps) {
         style={{
           backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
         }}
-        onClick={() => Router.back()}
       ></div>
       <div id="container" className="absolute">
         <div id="monitor">
@@ -29,10 +28,6 @@ export default function RoomPage(props: RoomProps) {
             <RoomDisplay sessions={props.sessions} />
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-2 text-black-light">
-        <span className="text-xl">🛈</span> Click anywhere outside the TV to go back to the previous
-        screen
       </div>
     </>
   );

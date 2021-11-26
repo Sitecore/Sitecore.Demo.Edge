@@ -12,7 +12,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
   return (
     <>
       <div className="schedule-time">{props.timeslot}</div>
-      <div className="w-full flex-row flex mx-2">
+      <div className="w-full flex-row flex gap-4 p-4">
         {props.sessions.map((session, index) => {
           const premiumClass = session.isPremium ? ' premium-session ' : '';
           const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
@@ -37,10 +37,12 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
                     backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
                   }}
                 >
-                  {session.type && session.type != 'Session' && (
-                    <div className="session-type">{session.type}</div>
+                  {(session.type === 'Keynote' || session.isPremium) && (
+                    <div className="session-type">
+                      {session.type}
+                      {session.isPremium && <div>Premium</div>}
+                    </div>
                   )}
-                  {session.isPremium && <div className="session-tier">Premium</div>}
                 </div>
                 <div className="session-content">
                   <div className="session-name">{session.name}</div>
