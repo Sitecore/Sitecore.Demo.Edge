@@ -60,11 +60,11 @@
             @apply flex bg-black-light border-b-2 border-solid border-gray uppercase h-1/3;
 
             .schedule-time {
-              @apply bg-gray text-black font-bold p-4;
+              @apply bg-gray text-black font-bold p-4 w-1/5;
             }
 
             .schedule-sessions {
-              @apply m-4 flex-1 text-white relative cursor-pointer overflow-hidden;
+              @apply my-4 mx-2 flex-1 text-white relative cursor-pointer overflow-hidden flex;
 
               &.premium-session {
                 @apply bg-orange flex flex-row;
@@ -80,8 +80,8 @@
 
               &.show-image {
                 .session-image {
-                  @apply md:hidden;
-                  @apply xl:w-1/2 xl:block bg-cover bg-center;
+                  @apply lg:hidden;
+                  @apply xl:w-1/2 xl:block h-full bg-cover bg-center flex-1;
 
                   .session-type {
                     @apply xl:absolute xl:bottom-6 xl:justify-start xl:bg-blue-light xl:px-2;
@@ -95,7 +95,7 @@
               }
 
               .session-content {
-                @apply p-2;
+                @apply p-2 flex-1;
 
                 .session-name {
                   @apply font-bold;

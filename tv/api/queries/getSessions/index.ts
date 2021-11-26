@@ -267,7 +267,7 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
 
   const sessions: Session[] = parseAndFilterSession(
-    results.data.allDemo_Session.results,
+    results?.data?.allDemo_Session.results,
     'day',
     day
   );

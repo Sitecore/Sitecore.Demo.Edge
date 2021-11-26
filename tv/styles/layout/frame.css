@@ -17,7 +17,7 @@
 }
 
 #monitor::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 3%;
@@ -37,6 +37,20 @@
   height: 0;
   padding-bottom: 52.25%;
   overflow: hidden;
+
+  .error {
+    @apply bg-black p-4 text-orange-light absolute -top-10 text-xl flex align-middle justify-center w-full;
+
+    animation: 3s ease-out 1s 1 fadeIn;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    .error-icon {
+      @apply text-5xl pr-2;
+
+      color: red;
+    }
+  }
 }
 
 .screen {
@@ -56,4 +70,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 100px;
+  }
 }
