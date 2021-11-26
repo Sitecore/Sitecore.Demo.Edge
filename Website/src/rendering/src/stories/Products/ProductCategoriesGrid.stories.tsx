@@ -70,4 +70,8 @@ Default.args = {
     },
     Categories: [category1, category2, category3],
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

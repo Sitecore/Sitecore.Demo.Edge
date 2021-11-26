@@ -9,7 +9,7 @@ SharedFields:
   Value: 500
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: SessionImage
+  Value: SessionToMasterAsset
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{4B2D1962-60EB-4CD1-B8E9-A2C2762EC04C}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c154421f-1a09-465f-b7d0-04bfcb60713e"
+      Value: "bdf4cc5d-3ac9-4c94-be3f-0a38994bbfd3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T121642Z
+      Value: 20211124T140809Z

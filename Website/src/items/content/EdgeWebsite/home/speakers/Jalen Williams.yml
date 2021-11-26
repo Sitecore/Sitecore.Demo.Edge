@@ -9,6 +9,10 @@ SharedFields:
   Value: "WlK983dI-0K_xv8mdjjPxw"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Jalen Williams
   Versions:
   - Version: 1
     Fields:
@@ -31,10 +35,10 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "58b6eec5-0beb-4174-825d-822c92112524"
+      Value: "621b4576-ad56-4296-a4c4-9c6ab61a1a90"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{57011604-34AF-40B5-8892-5A194F76EEBE}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
+      Value: "{BA087B4F-7F17-4461-98E0-9514123F1EBE}|{57011604-34AF-40B5-8892-5A194F76EEBE}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -51,7 +55,7 @@ Languages:
       Value: Social Influencer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123658Z
+      Value: 20211124T150746Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Social Influencer
@@ -64,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="31912" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31912/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/9f927d12b18c4fe4acf25c75210778c8?v=b6ec49b9" mediaid="" stylelabs-content-type="Image" alt="jalen-williams.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="49451" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49451/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/df54130b412f44f99aa22ff9fa9872d7?v=a2c486a8" mediaid="" stylelabs-content-type="Image" alt="Jalen Williams - No background" height="5655" width="5655" />

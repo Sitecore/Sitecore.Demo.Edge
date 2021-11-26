@@ -1,7 +1,7 @@
-import React, { ReactChildren, ReactChild } from 'react';
+import { ReactChildren, ReactChild } from 'react';
 
 interface ScreenProps {
-  children: ReactChild | ReactChildren;
+  children: ReactChild | ReactChildren | ReactChild[] | ReactChildren[];
 }
 
 const Screen = (props: ScreenProps): JSX.Element => {

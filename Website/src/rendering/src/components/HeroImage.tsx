@@ -1,4 +1,4 @@
-import { ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type HeroImageProps = ComponentProps & {
@@ -20,4 +20,4 @@ const HeroImage = (props: HeroImageProps): JSX.Element => {
   return <div>Hero image is missing from the datasource</div>;
 };
 
-export default HeroImage;
+export default withDatasourceCheck()<HeroImageProps>(HeroImage);

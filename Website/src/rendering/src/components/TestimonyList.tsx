@@ -1,4 +1,10 @@
-import { Text, RichText, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  RichText,
+  Field,
+  Image,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { Testimony } from 'src/types/testimony';
 
@@ -51,4 +57,4 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => {
   );
 };
 
-export default TestimonyList;
+export default withDatasourceCheck()<TestimonyListProps>(TestimonyList);

@@ -61,7 +61,7 @@
 
             content: '';
             border-width: 0 70px 70px 0;
-            border-color: transparent #1c80ff transparent transparent;
+            border-color: transparent #006ef9 transparent transparent;
 
             @screen lg {
               border-width: 0 90px 90px 0;
@@ -73,23 +73,20 @@
           }
         }
 
-        .title,
-        .name {
-          @apply text-2xl uppercase font-bold leading-7;
-          @apply md:text-xl md:leading-6;
-          @apply 2xl:text-3xl 2xl:leading-8;
-        }
-
         .title {
-          @apply text-white;
+          @apply text-xl font-bold leading-7 text-white;
+          @apply md:text-lg md:leading-6;
+          @apply 2xl:text-2xl 2xl:leading-8;
 
           .information-type {
-            @apply text-orange;
+            @apply text-blue;
           }
         }
 
         .name {
-          @apply text-blue;
+          @apply text-2xl uppercase font-bold leading-7 text-blue;
+          @apply md:text-xl md:leading-6;
+          @apply 2xl:text-3xl 2xl:leading-8;
         }
 
         .informations {
@@ -107,6 +104,25 @@
             @apply h-4;
           }
         }
+      }
+    }
+  }
+
+  &.premium,
+  &.featured {
+    .content .content-container .container-content-text {
+      @screen md {
+        &::after {
+          border-color: transparent #ff8d00 transparent transparent;
+        }
+      }
+
+      .name {
+        @apply text-orange;
+      }
+
+      .title .information-type {
+        @apply text-orange;
       }
     }
   }

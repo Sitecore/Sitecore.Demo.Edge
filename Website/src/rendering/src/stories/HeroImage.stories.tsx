@@ -21,6 +21,10 @@ WithImage.args = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithoutImage = Template.bind({});
@@ -31,5 +35,9 @@ WithoutImage.args = {
         src: '',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

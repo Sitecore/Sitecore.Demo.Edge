@@ -9,6 +9,10 @@ SharedFields:
   Value: XvkuMwioqkec6hRWsXGnFg
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ryan Benton
   Versions:
   - Version: 1
     Fields:
@@ -28,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2f76042c-e4b6-487c-940b-77d1259466d0"
+      Value: "759cf247-ce98-449f-943c-2c0719020cc9"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Redsand
@@ -48,7 +52,7 @@ Languages:
       Value: Artistic Director
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123755Z
+      Value: 20211124T150830Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru
@@ -61,4 +65,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35010" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35010/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/824cc610ac6749f882855af8d7996ad5?v=967061ab" mediaid="" stylelabs-content-type="Image" alt="ryan-benton-1000.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="49474" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49474/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ccc946a0a0044535943f1254374dc182?v=922bf504" mediaid="" stylelabs-content-type="Image" alt="Ryan Benton - No background" height="5694" width="5693" />

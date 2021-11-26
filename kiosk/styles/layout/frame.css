@@ -1,5 +1,11 @@
-body {
-  background: url(/backgrounds/kiosk-hall.jpg) no-repeat center center fixed;
+.kiosk-background {
+  @apply p-0 m-0 bg-cover bg-no-repeat bg-center absolute top-0 left-0 bottom-0 right-0 z-0;
+
+  background-image: url(/backgrounds/kiosk-hall.jpg);
+
+  &.filtered {
+    filter: blur(4px);
+  }
 }
 
 .temp-wrapper {
