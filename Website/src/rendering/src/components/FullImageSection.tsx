@@ -1,4 +1,11 @@
-import { Field, Link, LinkField, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Field,
+  Link,
+  LinkField,
+  RichText,
+  Text,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type FullImageSectionProps = ComponentProps & {
@@ -14,7 +21,14 @@ type FullImageSectionProps = ComponentProps & {
 
 const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
   const sectionCssClasses = `section section__full-image ${fields.cssClass.value}`;
-  const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.value}`;
+  const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.value} container`;
+
+  const callToAction = fields.callToActionLink && (
+    <Link
+      field={fields.callToActionLink}
+      className="btn--main btn--main--round call-to-action-button"
+    />
+  );
 
   return (
     <section className={sectionCssClasses}>
@@ -23,16 +37,11 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
           <RichText tag="p" field={fields.content} />
-          {fields.callToActionLink && (
-            <Link
-              field={fields.callToActionLink}
-              className="btn--main btn--main--round call-to-action-button"
-            ></Link>
-          )}
+          {callToAction}
         </div>
       </div>
     </section>
   );
 };
 
-export default FullImageSection;
+export default withDatasourceCheck()<FullImageSectionProps>(FullImageSection);

@@ -1,0 +1,26 @@
+﻿---
+ID: "90dc024a-fc95-4d98-beb7-744039e3cda0"
+Parent: "2b2bfd63-9514-4f04-87b5-9d6508eebc8e"
+Template: "fb92c880-ac62-46d7-968e-f649cefcb3f5"
+Path: /sitecore/content/EdgeWebsite/Data/Components/PaymentProgress/PaymentProgress3
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210914T222139Z
+    - ID: "31a68f15-b503-4168-946f-8e7f1b9bab60"
+      Hint: ActiveStep
+      Value: 3
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d8dbe3a1-3a92-441f-88cd-e39b1bc33e4d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210914T222201Z

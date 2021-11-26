@@ -1,5 +1,13 @@
 import { ComponentProps } from 'lib/component-props';
-import { Text, Field, LinkField, Link, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  Field,
+  LinkField,
+  Link,
+  ImageField,
+  Image,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type ThreeColumnsSectionProps = ComponentProps & {
   fields: {
@@ -20,7 +28,7 @@ export type ThreeColumnsSectionProps = ComponentProps & {
 const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element => {
   return (
     <section className="section section--3-col">
-      <div className="section__content section--3-col__content">
+      <div className="section__content section--3-col__content container">
         <h2 className="section__content__title section__content__title--light">
           <Text field={fields.Title} />
         </h2>
@@ -29,21 +37,21 @@ const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element 
         </p>
         <div className="section--3-col__content__items">
           <div className="item item--1">
-            <Image field={fields.LeftLogo} alt={fields.LeftTitle} />
+            <Image field={fields.LeftLogo} alt={fields.LeftTitle} loading="lazy" />
             <p>
               <Text field={fields.LeftTitle} />
             </p>
             <Link field={fields.LeftLink} />
           </div>
           <div className="item item--2">
-            <Image field={fields.MiddleLogo} alt={fields.MiddleTitle} />
+            <Image field={fields.MiddleLogo} alt={fields.MiddleTitle} loading="lazy" />
             <p>
               <Text field={fields.MiddleTitle} />
             </p>
             <Link field={fields.MiddleLink} />
           </div>
           <div className="item item--3">
-            <Image field={fields.RightLogo} alt={fields.RightTitle} />
+            <Image field={fields.RightLogo} alt={fields.RightTitle} loading="lazy" />
             <p>
               <Text field={fields.RightTitle} />
             </p>
@@ -55,4 +63,4 @@ const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element 
   );
 };
 
-export default ThreeColumnsSection;
+export default withDatasourceCheck()<ThreeColumnsSectionProps>(ThreeColumnsSection);

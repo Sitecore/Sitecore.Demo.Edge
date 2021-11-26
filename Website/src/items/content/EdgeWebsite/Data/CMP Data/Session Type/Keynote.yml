@@ -6,10 +6,10 @@ Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Session Type/Keynote
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/32x32/users_family.png
+  Value: office/32x32/book2.png
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: Edge.SpeakerType.SocialInfluencer
+  Value: Demo.SpeakerType.Keynote
 Languages:
 - Language: en
   Versions:
@@ -31,11 +31,11 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "818a059c-6e39-4d66-a44e-9d7cbfa6f3ad"
+      Value: "79770643-f890-4b2f-b5e4-26b20e04c65e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T110930Z
+      Value: 20211004T132321Z

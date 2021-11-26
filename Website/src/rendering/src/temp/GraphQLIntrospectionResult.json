@@ -1242,6 +1242,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "NumberField",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "MultilistField",
             "ofType": null
           },
@@ -1262,6 +1267,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "IntegerField",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ImageField",
             "ofType": null
           },
@@ -1277,17 +1287,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "NumberField",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "NameValueListField",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "IntegerField",
             "ofType": null
           }
         ]
@@ -2154,6 +2154,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "PaymentProgress",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "News",
             "ofType": null
           },
@@ -2179,7 +2184,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "HeroSection",
+            "name": "HeroSectionCta",
             "ofType": null
           },
           {
@@ -2214,7 +2219,22 @@
           },
           {
             "kind": "OBJECT",
+            "name": "Audience",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "App",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Advertisement",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ActivityType",
             "ofType": null
           }
         ]
@@ -2354,6 +2374,118 @@
                 "name": "String",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "value",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ItemField",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "NumberField",
+        "description": null,
+        "fields": [
+          {
+            "name": "definition",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ItemTemplateField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": "The GUID of this field.",
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "jsonValue",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "numberValue",
+            "description": "The field's value as a floating-point number",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Float",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -2897,6 +3029,118 @@
                 "name": "ID",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "jsonValue",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "value",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ItemField",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "IntegerField",
+        "description": null,
+        "fields": [
+          {
+            "name": "definition",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ItemTemplateField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": "The GUID of this field.",
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "intValue",
+            "description": "The field's value as an integer",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4353,18 +4597,6 @@
         "description": "/sitecore/templates/Project/edgewebsite/CMP Entities/Venue template (ID: {A06B2851-C98A-4622-8773-98736DAADB13}).",
         "fields": [
           {
-            "name": "address",
-            "description": "Address (ID: {5526367B-610B-4424-A18B-719CE079F4AD}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "ancestors",
             "description": null,
             "args": [
@@ -4466,18 +4698,6 @@
                 "name": "ItemSearchResults",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "city",
-            "description": "City (ID: {D7DBC4AC-0A0E-4445-8C79-4A98B3B5F2E7}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4781,6 +5001,30 @@
             "deprecationReason": null
           },
           {
+            "name": "rooms",
+            "description": "Rooms (ID: {D7DBC4AC-0A0E-4445-8C79-4A98B3B5F2E7}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "size",
+            "description": "Size (ID: {5526367B-610B-4424-A18B-719CE079F4AD}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "NumberField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "template",
             "description": null,
             "args": [],
@@ -4850,6 +5094,18 @@
         "name": "Vendor",
         "description": "/sitecore/templates/Project/edgewebsite/CMP Entities/Vendor template (ID: {ADF8983F-D751-4AF2-804F-C9E3888F4219}).",
         "fields": [
+          {
+            "name": "activityType",
+            "description": "ActivityType (ID: {21BD2CE2-43B1-4A8A-8383-1470D503C504}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "ancestors",
             "description": null,
@@ -10726,18 +10982,6 @@
             "deprecationReason": null
           },
           {
-            "name": "country",
-            "description": "Country (ID: {9918E001-7869-44B7-ADD9-C863BAC4B1ED}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "description",
             "description": "Description (ID: {D0B11041-4E9D-4066-B833-2FB20C0CC47D}).",
             "args": [],
@@ -10780,6 +11024,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "featured",
+            "description": "Featured (ID: {087528FD-B211-4715-ACA0-CBE90275951B}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CheckboxField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -10940,6 +11196,18 @@
             "deprecationReason": null
           },
           {
+            "name": "jobTitle",
+            "description": "JobTitle (ID: {D410C57E-FDC1-43F4-B028-8B313217B6F9}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "language",
             "description": null,
             "args": [],
@@ -10978,6 +11246,18 @@
           {
             "name": "linkedinProfileLink",
             "description": "Linkedin Profile Link (ID: {FD7BC390-6104-4990-8271-9BD50CD4115E}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "location",
+            "description": "Location (ID: {44A57340-61F8-48A2-84A8-BC5D16929A3D}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -11068,18 +11348,6 @@
             "deprecationReason": null
           },
           {
-            "name": "position",
-            "description": "Position (ID: {D410C57E-FDC1-43F4-B028-8B313217B6F9}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "rendered",
             "description": null,
             "args": [],
@@ -11102,6 +11370,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "sessions",
+            "description": "Sessions (ID: {ADBE3132-D415-414C-941F-9D840EBCF9CD}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -11850,6 +12130,18 @@
             "deprecationReason": null
           },
           {
+            "name": "footerLogo",
+            "description": "Footer Logo (ID: {AF909783-3A24-4708-B431-192E9B0C98B6}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "hasChildren",
             "description": null,
             "args": [
@@ -11886,6 +12178,18 @@
                 "name": "Boolean",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "headerLogo",
+            "description": "Header Logo (ID: {32C00EA7-B305-40E4-B9BE-E03A92B05AE3}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -12036,6 +12340,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "startdate",
+            "description": "Start Date (ID: {3971A645-B079-4BC3-9971-BF655B7713FA}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "DateField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -12602,6 +12918,18 @@
             "deprecationReason": null
           },
           {
+            "name": "audience",
+            "description": "Audience (ID: {025DF6A5-2001-449F-8F76-02BE5353905C}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "children",
             "description": null,
             "args": [
@@ -12663,12 +12991,12 @@
             "deprecationReason": null
           },
           {
-            "name": "date",
-            "description": "Date (ID: {6E6CBCBF-1059-48DF-88C8-3F29E5127E5B}).",
+            "name": "day",
+            "description": "Day (ID: {51084853-806C-4E3D-90A3-0EAEC3FAA3AC}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "DateField",
+              "name": "MultilistField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -12969,6 +13297,18 @@
             "deprecationReason": null
           },
           {
+            "name": "premium",
+            "description": "Premium (ID: {054FFB1C-8892-4EC8-8A2E-6A8654C17ABC}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CheckboxField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "rendered",
             "description": null,
             "args": [],
@@ -12985,8 +13325,20 @@
             "deprecationReason": null
           },
           {
+            "name": "rooms",
+            "description": "Rooms (ID: {8C3DFF8B-74BC-4A65-AF6D-81452A3D9A11}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "speakers",
-            "description": "Speakers (ID: {91446149-9F4D-47F2-9FE4-7434EF130C43}).",
+            "description": "Speakers (ID: {3647D085-16E3-44EE-A3F7-C613D0FE17CE}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -13008,6 +13360,18 @@
                 "name": "ItemTemplate",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "timeslots",
+            "description": "Timeslots (ID: {5C88D198-7603-4A45-B9F6-682B908C60B9}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -14031,6 +14395,18 @@
             "deprecationReason": null
           },
           {
+            "name": "capacity",
+            "description": "Capacity (ID: {20C425F9-4BF1-4940-830C-4B66D703086F}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "NumberField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "children",
             "description": null,
             "args": [
@@ -14378,6 +14754,18 @@
             "deprecationReason": null
           },
           {
+            "name": "sessions",
+            "description": "Sessions (ID: {0172F895-F21C-445C-BE61-38A535BEF35B}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "template",
             "description": null,
             "args": [],
@@ -14405,6 +14793,18 @@
                 "name": "ItemUrl",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "venue",
+            "description": "Venue (ID: {DF1B77A7-FC50-4FA1-B584-EAF50BDAA651}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -16289,6 +16689,439 @@
       },
       {
         "kind": "OBJECT",
+        "name": "PaymentProgress",
+        "description": "/sitecore/templates/Project/edgewebsite/PaymentProgress template (ID: {FB92C880-AC62-46D7-968E-F649CEFCB3F5}).",
+        "fields": [
+          {
+            "name": "activeStep",
+            "description": "ActiveStep (ID: {31A68F15-B503-4168-946F-8E7F1B9BAB60}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "IntegerField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
         "name": "News",
         "description": "/sitecore/templates/Project/edgewebsite/CMP Entities/News template (ID: {4B8F13A2-EF1A-4A41-857D-A2191FD7C1E7}).",
         "fields": [
@@ -16333,6 +17166,18 @@
                   "ofType": null
                 }
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "audience",
+            "description": "Audience (ID: {49461C19-39AE-4DF4-ABF5-15BD7FAB54CE}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -17850,6 +18695,18 @@
             "deprecationReason": null
           },
           {
+            "name": "renderAsHTML",
+            "description": "Render as HTML (ID: {BBB8A1E0-F966-4710-B4F4-42F267598127}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CheckboxField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "rendered",
             "description": null,
             "args": [],
@@ -18641,6 +19498,18 @@
             "deprecationReason": null
           },
           {
+            "name": "renderAsHTML",
+            "description": "Render as HTML (ID: {BBB8A1E0-F966-4710-B4F4-42F267598127}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CheckboxField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "rendered",
             "description": null,
             "args": [],
@@ -19308,7 +20177,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "Layout_3a45a72364ee49199d4102fd40fd1466",
+            "name": "Layout",
             "ofType": null
           },
           {
@@ -19322,8 +20191,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "HeroSection",
-        "description": "/sitecore/templates/Project/edgewebsite/HeroSection template (ID: {B33A6D2B-AAA4-567B-8640-18C9E613435E}).",
+        "name": "HeroSectionCta",
+        "description": "/sitecore/templates/Project/edgewebsite/HeroSectionCta template (ID: {76D550FA-6541-4C83-9F39-7B7E5B4CBA62}).",
         "fields": [
           {
             "name": "ancestors",
@@ -19438,18 +20307,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "expo",
-            "description": "Expo (ID: {692CFD83-ACAE-5943-9598-09E078A83416}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -19635,23 +20492,11 @@
           },
           {
             "name": "link",
-            "description": "Link (ID: {666751A2-38BB-5F78-9A68-1C5D4C394C65}).",
+            "description": "Link (ID: {02110427-7E12-40A8-9FEE-9D79B24CF1EC}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
               "name": "LinkField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "logo",
-            "description": "Logo (ID: {B929602E-DC90-513B-9437-A6B675D5851C}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ImageField",
               "ofType": null
             },
             "isDeprecated": false,
@@ -19718,30 +20563,6 @@
             "deprecationReason": null
           },
           {
-            "name": "slogan",
-            "description": "Slogan (ID: {A32CD274-1DB8-5448-9727-87D275CEF3F8}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "subtitle",
-            "description": "Subtitle (ID: {E82805EF-5ECB-5CEC-8608-B049848C22BB}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "template",
             "description": null,
             "args": [],
@@ -19753,18 +20574,6 @@
                 "name": "ItemTemplate",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": "Title (ID: {B179796B-322E-5859-9226-D0A25A12EEB5}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -19797,18 +20606,6 @@
                 "name": "Int",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "when",
-            "description": "When (ID: {314545E5-6AF8-531C-90FB-BCF1C36FE509}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -22007,6 +22804,18 @@
             "deprecationReason": null
           },
           {
+            "name": "numberOfSpeakers",
+            "description": "Number of Speakers (ID: {82CFFD14-A277-4E1C-9AEC-8C99C6F29D05}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "NumberField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "parent",
             "description": null,
             "args": [],
@@ -22051,30 +22860,6 @@
             "deprecationReason": null
           },
           {
-            "name": "speakers",
-            "description": "Speakers (ID: {9DDBA344-5267-4DAB-9427-F6A440D61606}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "MultilistField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "subtitle",
-            "description": "Subtitle (ID: {83401B48-7EA2-5365-BB09-0E4A75CA7B06}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "template",
             "description": null,
             "args": [],
@@ -22086,18 +22871,6 @@
                 "name": "ItemTemplate",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": "Title (ID: {097EDBEE-00FC-5FE5-AE17-E4CFB6C43D09}).",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TextField",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -22478,6 +23251,456 @@
           {
             "name": "name_8b5b10d27531496bafcec0f7e51348c2",
             "description": "Name (ID: {8B5B10D2-7531-496B-AFCE-C0F7E51348C2}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ContentHubEntity",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Audience",
+        "description": "/sitecore/templates/Project/edgewebsite/CMP Entities/Audience template (ID: {C49FF72C-A4E8-4148-B8CF-BC362C655A52}).",
+        "fields": [
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "entityIdentifier",
+            "description": "EntityIdentifier (ID: {9B0343A9-9F69-4E0F-A059-9215BC8FE422}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name_af5cfb2c4e9f44259bfd2a333801288c",
+            "description": "Name (ID: {AF5CFB2C-4E9F-4425-9BFD-2A333801288C}).",
             "args": [],
             "type": {
               "kind": "OBJECT",
@@ -23018,6 +24241,954 @@
         "possibleTypes": null
       },
       {
+        "kind": "OBJECT",
+        "name": "Advertisement",
+        "description": "/sitecore/templates/Project/edgewebsite/CMP Entities/Advertisement template (ID: {44262889-315A-4F8D-8FB5-243D793FD54A}).",
+        "fields": [
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "body",
+            "description": "Body (ID: {C068953C-33EE-4889-B473-395D5E0AEA0F}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "RichTextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "entityIdentifier",
+            "description": "EntityIdentifier (ID: {9B0343A9-9F69-4E0F-A059-9215BC8FE422}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "eyebrow",
+            "description": "Eyebrow (ID: {957519D5-5C6B-40C0-B462-B1DAC8F12A03}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hero",
+            "description": "Hero (ID: {69E8418C-5F11-40A8-9C0D-9E5EACC1229E}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "slogan",
+            "description": "Slogan (ID: {81AF116E-235F-44AD-A8E0-794BC3504C7C}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": "Title (ID: {E2D35418-B6ED-4838-90CB-26F98C1D7586}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ContentHubEntity",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ActivityType",
+        "description": "/sitecore/templates/Project/edgewebsite/CMP Entities/Activity Type template (ID: {F2387810-B5E4-4CCB-A327-60738E440A66}).",
+        "fields": [
+          {
+            "name": "ancestors",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "children",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              },
+              {
+                "name": "first",
+                "description": "Limits the results to the first n children. Use with after for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "after",
+                "description": "Cursor value. Use with first for pagination.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemSearchResults",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "displayName",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "entityIdentifier",
+            "description": "EntityIdentifier (ID: {9B0343A9-9F69-4E0F-A059-9215BC8FE422}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "field",
+            "description": null,
+            "args": [
+              {
+                "name": "name",
+                "description": null,
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "null"
+              }
+            ],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "ItemField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fields",
+            "description": null,
+            "args": [
+              {
+                "name": "ownFields",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "false"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "ItemField",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hasChildren",
+            "description": null,
+            "args": [
+              {
+                "name": "hasLayout",
+                "description": "If set to true only items with existing presentation are returned",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": "null"
+              },
+              {
+                "name": "includeTemplateIDs",
+                "description": "Only consider child items with these template IDs.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "[]"
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [
+              {
+                "name": "format",
+                "description": ".NET GUID format to use. N = short id, B = long id, etc",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": "\"N\""
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "itemUri",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "language",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemLanguage",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "languages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INTERFACE",
+                  "name": "Item",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name_e6dd8379422c41c1863c947992df1836",
+            "description": "Name (ID: {E6DD8379-422C-41C1-863C-947992DF1836}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TextField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "INTERFACE",
+              "name": "Item",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "path",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rendered",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "template",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ItemUrl",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "version",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ContentHubEntity",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "Item",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "INTERFACE",
         "name": "Webpage",
         "description": "/sitecore/templates/Project/edgewebsite/Webpage template (ID: {6DB09CEF-64A8-52A3-A980-38408109C4D7}). Also implements Route.",
@@ -23246,6 +25417,18 @@
             "deprecationReason": null
           },
           {
+            "name": "renderAsHTML",
+            "description": "Render as HTML (ID: {BBB8A1E0-F966-4710-B4F4-42F267598127}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "CheckboxField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "renderingContentsResolver",
             "description": "Rendering Contents Resolver (ID: {B0B15510-B138-470E-8F33-8DA2E228AAFE}).",
             "args": [],
@@ -23276,7 +25459,7 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "Layout_3a45a72364ee49199d4102fd40fd1466",
+        "name": "Layout",
         "description": "/sitecore/templates/System/Layout/Layout template (ID: {3A45A723-64EE-4919-9D41-02FD40FD1466}).",
         "fields": [
           {
@@ -23425,6 +25608,21 @@
             "kind": "OBJECT",
             "name": "Day",
             "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Audience",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Advertisement",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ActivityType",
+            "ofType": null
           }
         ]
       },
@@ -23557,118 +25755,6 @@
             "ofType": null
           }
         ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "NumberField",
-        "description": null,
-        "fields": [
-          {
-            "name": "definition",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ItemTemplateField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "The GUID of this field.",
-            "args": [
-              {
-                "name": "format",
-                "description": ".NET GUID format to use. N = short id, B = long id, etc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": "\"N\""
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "jsonValue",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "JSON",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "numberValue",
-            "description": "The field's value as a floating-point number",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Float",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "value",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "ItemField",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
       },
       {
         "kind": "OBJECT",
@@ -23813,118 +25899,6 @@
                 "name": "NameValueListValue",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "ItemField",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "IntegerField",
-        "description": null,
-        "fields": [
-          {
-            "name": "definition",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ItemTemplateField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "The GUID of this field.",
-            "args": [
-              {
-                "name": "format",
-                "description": ".NET GUID format to use. N = short id, B = long id, etc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": "\"N\""
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "intValue",
-            "description": "The field's value as an integer",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "jsonValue",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "JSON",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "value",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

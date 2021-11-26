@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: {
     content: [
@@ -12,6 +14,10 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -49,7 +55,7 @@ module.exports = {
         darkest: '#937700',
       },
       orange: {
-        DEFAULT: '#ff8c00',
+        DEFAULT: '#ff8d00',
         light: '#ffab44',
         lightest: '#ffc988',
         dark: '#cc7000',
@@ -70,11 +76,9 @@ module.exports = {
       maxWidth: {
         '30': '30rem',
       },
-      backgroundImage: theme => ({
-        'home-hero': "url('/assets/img/home-hero-background.jpg')",
-       }),
       width: {
         '45': '45%',
+        '55': '55%',
       }
     },
   },

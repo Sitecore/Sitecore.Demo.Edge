@@ -1,0 +1,54 @@
+﻿---
+ID: "374b55ab-b656-4588-a347-a0d28cb2ac99"
+Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
+Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Room 103
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: GBF2P5fQekKNJlgH18dRiQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Room 103
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
+      Hint: Sessions
+      Value: "{9F8BBA60-5AB7-41E2-9D88-A5335D49407C}|{39226DC6-0A62-459B-9299-54EC88AF6935}"
+    - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
+      Hint: Capacity
+      Value: 40
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T164749Z
+    - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
+      Hint: Description
+      Value:          
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "fe073f1d-71ba-4a44-9f8a-8e4b905e2d8b"
+    - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
+      Hint: Name
+      Value: Room 103
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T143622Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{443A690D-1909-4C5C-A1A4-3F9824C73FF6}"

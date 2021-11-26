@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeakersGrid, { Speaker } from '../../components/SpeakersGrid';
+import SpeakersGrid from '../../components/SpeakersGrid';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Speakers/SpeakersGrid',
@@ -11,56 +12,81 @@ export default {
 const Template: ComponentStory<typeof SpeakersGrid> = (args) => <SpeakersGrid {...args} />;
 
 const speaker1 = {
-  fields: {
-    Name: {
-      value: 'Mary Asada',
-    },
-    Role: {
-      value: 'Athlete',
-    },
-    Picture: {
+  itemName: 'First Speaker Name',
+  name: {
+    value: 'First Speaker Name',
+  },
+  picture: {
+    jsonValue: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
       },
     },
   },
-} as Speaker;
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker',
+  },
+} as GraphQLSpeaker;
 
 const speaker2 = {
-  fields: {
-    Name: {
-      value: 'Sophia Taylor',
-    },
-    Role: {
-      value: 'Speaker',
-    },
-    Picture: {
+  itemName: 'Sophia Taylor',
+  name: {
+    value: 'Sophia Taylor',
+  },
+  picture: {
+    jsonValue: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/4b034f1b321b46f5be2235353e040aab?v=b291dcc7',
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
       },
     },
   },
-} as Speaker;
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker',
+  },
+} as GraphQLSpeaker;
 
 const speaker3 = {
-  fields: {
-    Name: {
-      value: 'Jalen Williams',
-    },
-    Role: {
-      value: 'Social Influencer',
-    },
-    Picture: {
+  itemName: 'Jalen Taylor',
+  name: {
+    value: 'Jalen Taylor',
+  },
+  picture: {
+    jsonValue: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/2677490fbdcf4d6dad717664b05b784e?v=67cf9134',
+        src: '/assets/img/shop/man-biker.jpg',
+        alt: '',
       },
     },
   },
-} as Speaker;
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker',
+  },
+} as GraphQLSpeaker;
 
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    items: [speaker1, speaker2, speaker3],
+    data: {
+      item: {
+        children: {
+          results: [speaker1, speaker2, speaker3],
+        },
+      },
+    },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

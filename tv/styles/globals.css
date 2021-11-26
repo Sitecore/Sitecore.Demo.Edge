@@ -2,16 +2,21 @@
 
 /* 1. Tailwind base styles */
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* 2. Our styles */
 
-@import "./layout/frame.css";
-@import "./layout/footer.css";
-@import "./layout/sessionList.css";
-@import "./layout/roomList.css";
-@import "./layout/roomDisplay.css";
-@import "./layout/currentSession.css";
-@import "./layout/speakerList.css";
+@import './layout/frame.css';
+@import './layout/navigation.css';
+@import './layout/sessionList.css';
+@import './layout/roomList.css';
+@import './layout/roomDisplay.css';
+@import './layout/scheduleView.css';
+@import './layout/speakerList.css';
+@import './layout/SpeakerDisplay.css';
+
+body {
+  @apply font-sans;
+}

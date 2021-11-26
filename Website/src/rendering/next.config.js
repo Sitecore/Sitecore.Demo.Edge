@@ -1,19 +1,15 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
-const { JSS_MODE_DISCONNECTED } = require('@sitecore-jss/sitecore-jss-nextjs');
+const {
+  getPublicUrl,
+} = require('@sitecore-jss/sitecore-jss-nextjs');
 
-const disconnectedServerUrl = `http://localhost:${process.env.PROXY_PORT || 3042}/`;
-const isDisconnected = process.env.JSS_MODE === JSS_MODE_DISCONNECTED;
-
-// A public URL (and uses below) is required for Sitecore Experience Editor support.
-// This is set to http://localhost:3000 by default. See .env for more details.
-const publicUrl = process.env.PUBLIC_URL;
+const publicUrl = getPublicUrl();
 
 const nextConfig = {
-
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,
-  
+
   // Allow specifying a distinct distDir when concurrently running app in a container
   distDir: process.env.NEXTJS_DIST_DIR || '.next',
 
@@ -29,95 +25,84 @@ const nextConfig = {
     locales: ['en'],
     // END CUSTOMIZATION
     // This is the locale that will be used when visiting a non-locale
-    // prefixed path e.g. `/about`.
+    // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
   },
+  
+  // Enable React Strict Mode
+  reactStrictMode: true,
 
   async rewrites() {
-    if (isDisconnected) {
-      // When disconnected we proxy to the local faux layout service host, see scripts/disconnected-mode-server.js
-      return [
-        {
-          source: '/sitecore/:path*',
-          destination: `${disconnectedServerUrl}/sitecore/:path*`,
-        },
-        {
-          source: '/:locale/sitecore/:path*',
-          destination: `${disconnectedServerUrl}/sitecore/:path*`,
-        },
-        // media items
-        {
-          source: '/data/media/:path*',
-          destination: `${disconnectedServerUrl}/data/media/:path*`,
-        },
-        {
-          source: '/:locale/data/media/:path*',
-          destination: `${disconnectedServerUrl}/data/media/:path*`,
-        },
-      ];
-    } else {
-      // When in connected mode we want to proxy Sitecore paths off to Sitecore
-      return [
-        {
-          source: '/sitecore/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
-        },
-        {
-          source: '/:locale/sitecore/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
-        },
-        // media items
-        {
-          source: '/-/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
-        },
-        {
-          source: '/:locale/-/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
-        },
-        // visitor identification
-        {
-          source: '/layouts/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
-        },
-        {
-          source: '/:locale/layouts/:path*',
-          destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
-        },
-      ];
-    }
+    // When in connected mode we want to proxy Sitecore paths off to Sitecore
+    return [
+      {
+        source: '/sitecore/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
+      },
+      {
+        source: '/:locale/sitecore/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
+      },
+      // media items
+      {
+        source: '/-/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
+      },
+      {
+        source: '/:locale/-/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
+      },
+      // visitor identification
+      {
+        source: '/layouts/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
+      },
+      {
+        source: '/:locale/layouts/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
+      },
+    ];
   },
-  
+  // DEMO TEAM CUSTOMIZATION - Add Content Hub images domain
+  // TODO: remove demoedge once its discontinued
+  images: {
+    domains: ['demoedge.sitecoresandbox.cloud', 'playsummit.sitecoresandbox.cloud'],
+  },
+  // END CUSTOMIZATION
+
   webpack: (config, options) => {
     applyGraphQLCodeGenerationLoaders(config, options);
 
+
     return config;
   },
-}
+};
 
 const applyGraphQLCodeGenerationLoaders = (config, options) => {
   config.module.rules.push({
     test: /\.graphql$/,
     exclude: /node_modules/,
     use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
-  })
+  });
 
   config.module.rules.push({
     test: /\.graphqls$/,
     exclude: /node_modules/,
     use: ['graphql-let/schema/loader'],
-  })
+  });
 
   config.module.rules.push({
     test: /\.ya?ml$/,
     type: 'json',
     use: 'yaml-loader',
-  })
+  });
 
   return config;
-}
+};
 
+// DEMO TEAM CUSTOMIZATION - Add Next bungle analyzer
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
-})
-module.exports = withBundleAnalyzer(nextConfig)
+});
+module.exports = withBundleAnalyzer(nextConfig);
+// END CUSTOMIZATION

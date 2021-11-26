@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* 1. Tailwind base styles */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* 2. Our styles */
+
+@import './base/typography.css';
+@import './layout/buttons.css';
+@import './layout/frame.css';
+@import './layout/HeroSection.css';
+@import './layout/schedule.css';
+@import './layout/Ticket';
+@import './layout/TicketTiers';
+@import './layout/PaymentForm';
+@import './layout/PaymentConfirmation';
+@import './layout/SignupForm';
+@import './layout/SignupConfirmation';

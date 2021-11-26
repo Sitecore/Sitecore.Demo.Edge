@@ -1,0 +1,59 @@
+﻿---
+ID: "5319ca3c-cd21-4d68-a68a-1eaf4d34f63d"
+Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
+Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
+Path: /sitecore/content/EdgeWebsite/home/sponsors/Alba
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "-EaKV1w5uEygdCUsyo9yJg"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Alba
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="34000" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34000/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/949c003d42af49be962cd99f31eb3efd?v=f6979300" mediaid="" stylelabs-content-type="Image" alt="Alba Logo" height="1001" width="1001" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T162444Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5a1f6707-d155-4618-b051-966216449b1c"
+      Hint: Description
+      Value: |
+        <p>Alba is a Spanish sports equipment company that designs and markets high-performance men&#39;s and women&#39;s shoes, clothing, and accessories. Headquartered in Barcelona, Alba products are available in 60 countries worldwide.</p>
+        
+        <p>Alba, founded in 1984, originally manufactured shoes for a broad range of sports.&nbsp;In 2001, the company&nbsp;refocused the brand solely on running, and its concentration on performance technology was increased. Alba continues to be a top&nbsp;selling brand in the specialty running shoe market with a 22% market share.</p>
+        
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
+      Hint: Name
+      Value: Alba
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "41fa0bca-633e-44b3-b45a-7adb3107e198"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "cf42c29f-ee3a-4f06-92ac-10fc51a42099"
+      Hint: Level
+      Value: Platinum
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150115Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Alba

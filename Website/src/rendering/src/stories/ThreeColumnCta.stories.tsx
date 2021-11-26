@@ -32,4 +32,8 @@ Default.args = {
       value: 'Exhibitors',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

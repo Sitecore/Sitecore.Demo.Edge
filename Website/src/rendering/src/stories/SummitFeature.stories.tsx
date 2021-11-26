@@ -16,7 +16,7 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     Title: {
-      value: 'Sports and Leisure Expo',
+      value: 'Sports and Recreation Expo',
     },
     Description: {
       value:
@@ -33,5 +33,9 @@ Default.args = {
         src: '/assets/img/categories/hiking.jpg',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as SummitFeatureProps;

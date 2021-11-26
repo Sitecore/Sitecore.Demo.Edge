@@ -20,7 +20,7 @@ Default.args = {
       value: 'left',
     },
     title: {
-      value: 'Sports and Leisure Expo',
+      value: 'Sports and Recreation Expo',
     },
     subtitle: {
       value: 'RAISE YOUR GAME',
@@ -34,5 +34,9 @@ Default.args = {
         text: 'Book Tickets',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as PromoProps;

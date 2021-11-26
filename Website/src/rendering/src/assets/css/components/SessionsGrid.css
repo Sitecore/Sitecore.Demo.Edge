@@ -8,21 +8,38 @@
     @apply xl:grid-cols-4;
 
     .grid-item {
-      @apply bg-white mx-auto w-full;
+      @apply bg-white mx-auto w-full relative;
+
+      transform: scale(1);
+      transition: all 0.1s;
+
+      .icon {
+        @apply h-4 mr-2 inline text-black;
+
+        &-yellow {
+          @apply text-yellow;
+        }
+      }
 
       .image-hover-zoom {
         @apply overflow-hidden bg-cover bg-center;
-      }
 
-      img {
-        @apply transform scale-100 duration-300 ease-in-out;
+        height: 250px;
+        max-height: 250px;
       }
 
       &:hover {
+        box-shadow: 1px 1px 10px rgba(23, 23, 23, 0.45);
+        transform: scale(1.05);
+        transition: all 0.1s;
         border: 1px solid gray;
+      }
 
-        img {
-          @apply transform scale-110 duration-300  ease-in-out;
+      .session-featured {
+        @apply absolute top-1 right-1 text-yellow;
+
+        svg {
+          filter: drop-shadow(1px 1px 2px black);
         }
       }
 

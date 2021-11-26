@@ -1,0 +1,57 @@
+﻿---
+ID: "443a690d-1909-4c5c-a1a4-3f9824c73ff6"
+Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
+Template: "a06b2851-c98a-4622-8773-98736daadb13"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Satellite Conference Center
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: OMo8A6NcHkeXTV0fLCah3g
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Satellite Conference Center
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="36268" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36268/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/e42479904c0949cca65974c3c1912eec?v=4547e936" mediaid="" stylelabs-content-type="Image" alt="Satellite conference center 2" height="4480" width="6720" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T164244Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 1000
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "50114afe-22ed-4601-8087-f66a3efbaf67"
+    - ID: "91e38983-3229-41b3-9161-c1136039a209"
+      Hint: Description
+      Value: |
+        <p>Satellite Conference Center</p>
+                         
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d7dbc4ac-0a0e-4445-8c79-4a98b3b5f2e7"
+      Hint: Rooms
+      Value: "{83DE6E70-F59D-456B-8D13-BC1A600E483F}|{39E4FDFC-14B8-432F-B646-D13BDD2F63B9}|{45D608DC-7707-4688-AF28-73F0CBBB227C}|{374B55AB-B656-4588-A347-A0D28CB2AC99}|{72DD2F9A-9EA1-4BD3-A8F5-927795E58AF9}|{05508583-1AE2-40C8-A87E-1A54351B0117}|{D1518172-C562-4572-A6F8-0ACFDC811F29}"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150047Z
+    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
+      Hint: Name
+      Value: Satellite Conference Center

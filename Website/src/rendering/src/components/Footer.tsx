@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import logo from '../assets/img/play-logo-wide-light.svg';
 import {
   faFacebookF,
   faYoutube,
@@ -10,12 +8,32 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Footer = (): JSX.Element => (
+import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
+
+export type FooterProps = ComponentProps & {
+  fields: {
+    data: {
+      item: {
+        footerLogo: {
+          jsonValue: ImageField;
+          alt: string;
+        };
+      };
+    };
+  };
+};
+
+const Footer = (props: FooterProps): JSX.Element => (
   <div className="footer__content container">
     <div className="footer__content__banner">
       <Link href="/">
         <a>
-          <Image src={logo} alt="PLAY! Summit" height="80" width="280" />
+          <Image
+            field={props.fields.data.item.footerLogo.jsonValue}
+            alt={props.fields.data.item.footerLogo.alt}
+            loading="lazy"
+          />
         </a>
       </Link>
     </div>
@@ -65,10 +83,10 @@ const Footer = (): JSX.Element => (
           <Link href="/tickets">Book Tickets</Link>
         </li>
         <li>
-          <Link href="/sponsors/sponsorize">Become a Sponsor</Link>
+          <Link href="/sponsors/become a sponsor">Become a Sponsor</Link>
         </li>
         <li>
-          <Link href="/sponsors/sponsorize">Become a Vendor</Link>
+          <Link href="/sponsors/become a sponsor">Become a Vendor</Link>
         </li>
       </ul>
       <ul className="footer__content__footer__col">

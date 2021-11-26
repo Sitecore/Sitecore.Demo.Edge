@@ -46,7 +46,7 @@ if (-not $SitecoreGallery) {
 }
 
 # Install and Import SitecoreDockerTools 
-$dockerToolsVersion = "10.1.4"
+$dockerToolsVersion = "10.2.7"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
     Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
@@ -135,7 +135,7 @@ if ($InitEnv) {
 
     # SITECORE_ID_CERTIFICATE
     $idCertPassword = Get-SitecoreRandomString 8 -DisallowSpecial
-    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
+    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -KeyLength 2048 -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
 
     # SITECORE_ID_CERTIFICATE_PASSWORD
     Set-EnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword

@@ -1,0 +1,57 @@
+﻿---
+ID: "b6d5789c-3f8e-4cac-97e5-b0334fd67de8"
+Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
+Template: "a06b2851-c98a-4622-8773-98736daadb13"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Main Conference Center
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: i6QAlByPsEmdIs47C8P4zg
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Main Conference Center
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="36203" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36203/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/9be07d19fc8d43a08dd5ab377f12c0b4?v=0a222754" mediaid="" stylelabs-content-type="Image" alt="Main conference center 1" height="3376" width="6000" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T164237Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 4000
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "039448ea-5083-4bf7-aaa2-0c127f198880"
+    - ID: "91e38983-3229-41b3-9161-c1136039a209"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a rhoncus ipsum, sit amet pharetra ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a ipsum,.</p>
+        
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d7dbc4ac-0a0e-4445-8c79-4a98b3b5f2e7"
+      Hint: Rooms
+      Value: "{0A844518-7B7E-4F9D-BFA9-05247DD91451}|{D3A3A6DF-FBF9-48B5-947C-A9A1257006F7}|{F14EF887-2C62-474E-A61E-F8EBEF6173CC}|{10BCB0AB-E716-4B05-8576-0732151460D9}|{A5673B41-FABE-450B-9037-14132FA734DA}|{42254A3E-44A5-4572-8C62-F918F36B034B}|{80268225-1D8E-477C-A866-0EA047A7876A}|{FD2E5B87-2430-4051-ADF9-8B76481774C2}|{3BC52CBD-3EE1-496F-918E-C0D55A96B7C9}|{421831DC-EE86-4E05-B974-8C0AE7A21D0E}|{CE3A0E1D-2DCA-4D50-8D42-5E8BA22B73C2}|{C53A4814-4956-427E-A3C0-1DAEE197459C}"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150029Z
+    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
+      Hint: Name
+      Value: Main Conference Center

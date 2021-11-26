@@ -2,7 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Section from '../../components/Section';
-import SpeakersGrid, { Speaker, SpeakersGridProps } from '../../components/SpeakersGrid';
+import SpeakersGrid, { SpeakersGridProps } from '../../components/SpeakersGrid';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Sections/Section',
@@ -10,26 +11,34 @@ export default {
 } as ComponentMeta<typeof Section>;
 
 const speaker = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Speaker Name',
-    },
-    Role: {
-      value: 'Speaker Role',
-    },
-    Picture: {
+  itemName: 'Item Name',
+  name: {
+    value: 'Item Name',
+  },
+  picture: {
+    jsonValue: {
       value: {
         src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
       },
     },
   },
-} as Speaker;
+  featured: {
+    value: true,
+  },
+  role: {
+    value: 'Speaker Role',
+  },
+} as GraphQLSpeaker;
 
 const speakerProps = {
   fields: {
-    items: [speaker],
+    data: {
+      item: {
+        children: {
+          results: [speaker, speaker, speaker, speaker],
+        },
+      },
+    },
   },
 } as SpeakersGridProps;
 

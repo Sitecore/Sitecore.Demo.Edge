@@ -5,7 +5,10 @@ Param (
     [switch]$SkipBuild,
 
     [Parameter(HelpMessage = "Whether to skip running init container.")]
-    [switch]$SkipInit
+    [switch]$SkipInit,
+
+    [Parameter(HelpMessage = "Whether to set up the environment with pre-release version of Sitecore products (internal only) .")]
+    [switch]$PreRelease
 )
 
 $ErrorActionPreference = "Stop";
@@ -14,10 +17,15 @@ $ErrorActionPreference = "Stop";
 $envCheckVariable = "HOST_LICENSE_FOLDER"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
-    if (Test-Path "C:\License"){
+    if (Test-Path "C:\License") {
         Write-Host "Initializing environment using default values" -ForegroundColor Yellow
         & .\init.ps1 -InitEnv -AdminPassword b -LicenseXmlPath C:\License\license.xml
-        & .\init-ci.ps1
+        if ($PreRelease) {
+            & .\init-ci.ps1 -PreRelease
+        }
+        else {
+            & .\init-ci.ps1
+        }
     }
     else {
         throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
@@ -51,7 +59,8 @@ do {
     Start-Sleep -Milliseconds 100
     try {
         $status = Invoke-RestMethod "http://localhost:8079/api/http/routers/cm-secure@docker"
-    } catch {
+    }
+    catch {
         if ($_.Exception.Response.StatusCode.value__ -ne "404") {
             throw
         }
@@ -81,31 +90,51 @@ try {
 
     # Populate Solr managed schemas to avoid errors during item deploy
     Write-Host "Populating Solr managed schema..." -ForegroundColor Green
-    $token = (Get-Content .\.sitecore\user.json | ConvertFrom-Json).endpoints.default.accessToken
-    Invoke-RestMethod "https://cm.edge.localhost/sitecore/admin/PopulateManagedSchema.aspx?indexes=all" -Headers @{Authorization = "Bearer $token"} -UseBasicParsing | Out-Null
+    # DEMO TEAM CUSTOMIZATION - Populate Solr managed schemas using Sitecore CLI. Must run it twice because some indexes are failing the first time.
+    dotnet sitecore index schema-populate
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Populating Solr managed schema failed, see errors above."
+    }
+    dotnet sitecore index schema-populate
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Populating Solr managed schema failed, see errors above."
+    }
 
     # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
     # Push the serialized items
     Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
     dotnet sitecore ser push
-    dotnet sitecore publish
-
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Serialization push failed, see errors above."
     }
-} catch {
+    # DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
+    dotnet sitecore publish
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Serialization publish failed, see errors above."
+    }
+
+    # DEMO TEAM CUSTOMIZATION - Rebuild indexes using Sitecore CLI.
+    # Rebuild indexes
+    Write-Host "Rebuilding indexes ..." -ForegroundColor Green
+    dotnet sitecore index rebuild
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Rebuild indexes failed, see errors above."
+    }
+}
+catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
-} finally {
+}
+finally {
     Pop-Location
 }
 
 # DEMO TEAM CUSTOMIZATION - Enable/Run/Disable init container
 if (-not $SkipInit) {
-    $dockerToolsVersion = "10.1.4"
+    $dockerToolsVersion = "10.2.7"
     Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
     if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
-      Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
-      Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
+        Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
+        Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
     }
     Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
     Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion

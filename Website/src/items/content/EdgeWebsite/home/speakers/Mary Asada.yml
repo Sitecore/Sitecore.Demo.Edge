@@ -1,26 +1,30 @@
 ﻿---
-ID: "61ac52cb-dc91-4791-a1ae-71d9cf675083"
+ID: "04013cfe-c1dd-4d16-bbc1-ad0b548fcd7f"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
 Path: /sitecore/content/EdgeWebsite/home/speakers/Mary Asada
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: "QRU-a06uPk65tshufL89Bg"
+  Value: 7LReJAURUkugHlXs7usq6Q
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Mary Asada
   Versions:
   - Version: 1
     Fields:
-    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
-      Hint: TwitterProfileLink
-      Value: "https://twitter.com/asada"
+    - ID: "087528fd-b211-4715-aca0-cbe90275951b"
+      Hint: Featured
+      Value: 1
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210726T170556Z
-    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
-      Hint: InstagramProfileLink
-      Value: "https://instagram.com/asada"
+      Value: 20210924T175350Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Boston, Massachusetts
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,32 +35,33 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e28ecd5f-6823-45f8-af79-df9ea17e9603"
+      Value: "402ddd33-0cda-41b1-98e1-246ef62ba631"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
-      Value: Sitecore
-    - ID: "9918e001-7869-44b7-add9-c863bac4b1ed"
-      Hint: Country
-      Value: Canada
+      Value: Striva
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
       Hint: Description
-      Value: <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&nbsp;</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>sed diam nonumy eirmod tempor</li><li>invidunt ut labore et dolore</li><li>magna aliquyam erat</li><li>sed diam voluptua</li></ul><p>ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgd. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p>
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
     - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
-      Hint: Position
-      Value: Manager
+      Hint: JobTitle
+      Value: Chief Product Officer
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T145131Z
-    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
-      Hint: FacebookProfileLink
-      Value: "https://facebook.com/asada"
+      Value: 20211124T150630Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
-      Value: Athlete
+      Value: Speaker
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: Mary Asada
@@ -66,7 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35423" thumbnailsrc="https://mint.stylelabs.io/api/gateway/35423/thumbnail" src="https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76" mediaid="" stylelabs-content-type="Image" alt="mary-asada.jpeg" height="200" width="200" />
-    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
-      Hint: LinkedinProfileLink
-      Value: "https://linkedin.com/asada"
+        <image stylelabs-content-id="49221" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49221/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ecdaf28c014d4ab2862c8ee0d2b779ea?v=e28503fa" mediaid="" stylelabs-content-type="Image" alt="Mary Asada - No background" height="5535" width="5535" />

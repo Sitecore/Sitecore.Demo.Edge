@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TestimonyList, { Testimony } from '../components/TestimonyList';
+import TestimonyList from '../components/TestimonyList';
+import { Testimony } from 'src/types/testimony';
 
 export default {
   title: 'Components/TestimonyList',
@@ -25,6 +26,10 @@ const testimony1 = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as Testimony;
 
 const testimony2 = {
@@ -41,6 +46,10 @@ const testimony2 = {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as Testimony;
 
@@ -59,6 +68,10 @@ const testimony3 = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as Testimony;
 
 export const Default = Template.bind({});
@@ -72,5 +85,9 @@ Default.args = {
         'Curabitur sodales mi in magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium.',
     },
     Companies: [testimony1, testimony2, testimony3],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

@@ -1,4 +1,5 @@
-import { getSessions } from '../../api/queries/getSessions';
+import Router from 'next/router';
+import { getSessionsByRoom } from '../../api/queries/getSessions';
 import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
@@ -13,7 +14,28 @@ export declare type RoomParams = {
 };
 
 export default function RoomPage(props: RoomProps) {
-  return <RoomDisplay sessions={props.sessions} />;
+  return (
+    <>
+      <div
+        className="room-background"
+        style={{
+          backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
+        }}
+        onClick={() => Router.back()}
+      ></div>
+      <div id="container" className="absolute">
+        <div id="monitor">
+          <div id="monitorscreen">
+            <RoomDisplay sessions={props.sessions} />
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-2 text-black-light">
+        <span className="text-xl">🛈</span> Click anywhere outside the TV to go back to the previous
+        screen
+      </div>
+    </>
+  );
 }
 
 // This function gets called at build time
@@ -33,7 +55,7 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessions(params.id);
+  const { sessions } = await getSessionsByRoom(params.id);
 
   return {
     props: {

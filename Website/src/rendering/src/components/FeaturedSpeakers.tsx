@@ -1,61 +1,52 @@
 import Link from 'next/link';
-import { Text, Field, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
-type Speaker = {
+export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
-    Name: Field<string>;
-    Role: Field<string>;
-    Picture: ImageField;
+    data: {
+      item: {
+        children: {
+          results: GraphQLSpeaker[];
+        };
+      };
+    };
+  };
+  params: {
+    NumberOfSpeakers: string;
   };
 };
 
-type FeaturedSpeakersProps = ComponentProps & {
-  fields: {
-    Title: Field<string>;
-    Subtitle: Field<string>;
-    Speakers: Speaker[];
-  };
-};
+const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
+  const speakers =
+    props.fields.data?.item?.children?.results &&
+    props.fields.data.item.children.results
+      .filter((item) => item.featured.value)
+      .sort()
+      .slice(0, parseInt(props.params.NumberOfSpeakers))
+      .map((speaker, index) => (
+        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
+          <a className="grid-item">
+            <Image
+              field={speaker.picture.jsonValue}
+              alt={speaker.name}
+              width={265}
+              height={265}
+              loading="lazy"
+            />
+            <div className="item-details">
+              <Text tag="p" field={speaker.name} />
+            </div>
+          </a>
+        </Link>
+      ));
 
-const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => (
-  <section className="section section--bg-white">
-    <div className="section__content">
-      <Text
-        tag="h1"
-        className="section__content__title section__content__title--light"
-        field={props.fields.Title}
-      />
-      <Text tag="p" className="section__content__subtitle--center" field={props.fields.Subtitle} />
-
-      <div className="item-grid">
-        <div className="grid-content">
-          {props.fields.Speakers &&
-            props.fields.Speakers.map((speaker, index) => (
-              <Link
-                key={index}
-                href={'/speakers/' + speaker.fields.Name.value.replace(/ /g, '')}
-                passHref
-              >
-                <a className="grid-item">
-                  <Image
-                    field={speaker.fields.Picture}
-                    alt={speaker.fields.Name?.value}
-                    width={265}
-                    height={265}
-                  />
-                  <div className="item-details">
-                    <Text tag="p" field={speaker.fields.Name}></Text>
-                  </div>
-                </a>
-              </Link>
-            ))}
-        </div>
-      </div>
+  return (
+    <div className="item-grid">
+      <div className="grid-content">{speakers}</div>
     </div>
-  </section>
-);
+  );
+};
 
-export type { Speaker };
-export type { FeaturedSpeakersProps };
 export default FeaturedSpeakers;

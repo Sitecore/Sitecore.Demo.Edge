@@ -4,6 +4,9 @@ Parent: "d30ddb56-a0f7-4750-8a3a-79c58bf5162b"
 Template: "e43e2773-7a50-4145-a266-312024f27382"
 Path: /sitecore/system/Modules/CMP/Config/Session/Name
 SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
   Value: Name
@@ -31,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cac3f9fa-e8d9-4daa-8bca-5b85fbab14ba"
+      Value: "47157081-36ff-4515-9f5e-080c1ebc86a5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210728T160148Z
+      Value: 20211005T121643Z

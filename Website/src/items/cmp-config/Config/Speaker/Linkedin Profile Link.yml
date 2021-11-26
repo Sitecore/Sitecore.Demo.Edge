@@ -6,10 +6,10 @@ Path: /sitecore/system/Modules/CMP/Config/Speaker/Linkedin Profile Link
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 1100
 - ID: "da990633-7884-44a2-8638-94389c5cbfec"
   Hint: CMP Field Name
-  Value: LinkedinProfileLink
+  Value: Speaker_LinkedinLink
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{FD7BC390-6104-4990-8271-9BD50CD4115E}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "13951948-6208-4bdf-8a88-f8cf0579e8fc"
+      Value: "40878f3f-803e-408b-b287-ccddaa35326d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210725T111654Z
+      Value: 20211005T121518Z

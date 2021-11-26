@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SponsorsGrid, { Sponsor } from '../../components/SponsorsGrid';
+import SponsorsGrid from '../../components/SponsorsGrid';
+import { Sponsor } from 'src/types/sponsor';
 
 export default {
   title: 'Components/Sponsors/SponsorsGrid',
@@ -62,5 +63,9 @@ Default.args = {
         'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
     },
     Sponsors: [sponsor1, sponsor2, sponsor3],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

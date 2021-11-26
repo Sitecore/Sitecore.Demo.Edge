@@ -1,26 +1,36 @@
 ﻿---
-ID: "e54c5a41-d2aa-44d1-8d44-1a06d6e054a5"
+ID: "63c32663-c4af-40c0-9347-47411c130e87"
 Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
 Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
 Path: /sitecore/content/EdgeWebsite/home/vendors/Outrace
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
-  Value: jwwlon45sUeOiuuO69B9JQ
+  Value: BMSAvK6iX0WxY3kQ9H8wCQ
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Outrace
   Versions:
   - Version: 1
     Fields:
     - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
       Hint: TwitterProfileLink
-      Value: "https://facebook.com"
+      Value: "https://twitter.com/#"
+    - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
+      Hint: ActivityType
+      Value: "{39C8070A-3BF0-4BB7-BB36-88AEC20A2A30}|{8EA1589B-71BD-4831-A8CC-45D7FACF4B6D}|{BA1091E3-0AA8-4C76-B952-140E1621AE27}|{252CE747-6A8F-478B-B59A-70DBE713E6E2}|{3A566E97-7A2C-45BE-8FB3-E391F70C8BFD}|{F1B8E570-AB94-4800-A635-2323A5525248}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210727T200632Z
+      Value: 20210924T163027Z
     - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
       Hint: InstagramProfileLink
-      Value: "https://facebook.com"
+      Value: "https://www.instagram.com/#"
+    - ID: "36288362-9494-4174-a8a2-d846d958149d"
+      Hint: Level
+      Value: Silver
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -29,29 +39,34 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="33980" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33980/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f4f6057bfdf345d389723e0d0d8fd095?v=dc95288b" mediaid="" stylelabs-content-type="Image" alt="Outrace Logo" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "17c01dd3-48d1-4d3c-96e0-818fbb539800"
+      Value: "b308a71f-de7f-407c-88b3-3d780a8a74ca"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
       Value: |
-        <p style="text-align:justify;">Suspendisse nibh ex, commodo nec nunc ac, varius lobortis massa. Aenean dapibus diam risus, nec congue ante tristique ut. Suspendisse a lacus et sapien scelerisque ornare. Praesent a mattis tortor. Pellentesque vitae massa eu arcu ornare sodales. Donec tempor auctor dolor, vel efficitur velit. Phasellus eget tempor elit, a sagittis lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia diam id egestas volutpat. Pellentesque sed arcu at leo pellentesque aliquam ut eu felis.</p><p style="text-align:justify;">Maecenas in pulvinar felis. Maecenas nec dui vitae sapien facilisis ultricies. Vestibulum pulvinar egestas massa ut mattis. Donec ac quam lacus. Mauris a vulputate felis. Vivamus scelerisque dignissim egestas. In odio velit, ullamcorper nec bibendum eu, pellentesque id neque.</p><p style="text-align:justify;">Quisque metus metus, eleifend et lobortis at, mattis ut augue. Mauris a sem lectus. Phasellus quis felis elit. Donec hendrerit, ligula et finibus pretium, purus nulla vehicula risus, nec tincidunt mauris quam et neque. Fusce laoreet congue libero id tempus. In consequat augue sit amet sapien sodales mattis. Sed id sapien enim. Sed ullamcorper nunc ante, ut fermentum quam luctus eget. Donec condimentum ligula et bibendum pharetra. In sed commodo erat. In placerat nulla massa, nec viverra mauris consequat sed. Cras malesuada augue dignissim tincidunt scelerisque. Mauris tristique est eleifend sem efficitur dictum. Proin vitae venenatis odio, nec euismod augue. Nulla facilisi. Etiam vel nunc sit amet ligula efficitur mattis.</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: Outrace
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210826T153942Z
+      Value: 20211124T145806Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
-      Value: "https://facebook.com"
+      Value: "https://www.facebook.com/#"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Outrace
     - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
       Hint: LinkedinProfileLink
-      Value: "https://facebook.com"
+      Value: "https://www.linkedin.com/#"

@@ -1,0 +1,49 @@
+.information-page-hero.speaker-information-page-hero {
+  @apply bg-blue;
+
+  @screen md {
+    /*
+    Not using Tailwind to be able to specify a 50% single gradient stop.
+    rgba(0, 110, 249, 1) = bg-blue
+    rgba(35, 35, 35, 1) = bg-black
+    */
+    background: linear-gradient(90deg, rgba(0, 110, 249, 1) 50%, rgba(35, 35, 35, 1) 50%);
+  }
+
+  .content {
+    .image-container {
+      @apply bg-blue;
+
+      img {
+        @apply md:pr-0;
+      }
+    }
+
+    .gradient-container {
+      @apply from-black-light to-blue;
+    }
+  }
+
+  &.featured {
+    @apply bg-orange;
+
+    @screen md {
+      /*
+      Not using Tailwind to be able to specify a 50% single gradient stop.
+      rgba(255, 141, 0, 1) = bg-orange
+      rgba(35, 35, 35, 1) = bg-black
+      */
+      background: linear-gradient(90deg, rgba(255, 141, 0, 1) 50%, rgba(35, 35, 35, 1) 50%);
+    }
+
+    .content {
+      .image-container {
+        @apply bg-orange;
+      }
+
+      .gradient-container {
+        @apply from-black-light to-orange;
+      }
+    }
+  }
+}

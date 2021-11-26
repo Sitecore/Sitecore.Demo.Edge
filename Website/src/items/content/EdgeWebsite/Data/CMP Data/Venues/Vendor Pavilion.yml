@@ -1,0 +1,57 @@
+﻿---
+ID: "859a5abe-462b-485e-baa6-948cf70d8204"
+Parent: "0f339ec6-b5bf-45c9-a77f-61029f6ff953"
+Template: "a06b2851-c98a-4622-8773-98736daadb13"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Venues/Vendor Pavilion
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "X2pQjfxo4kajCXj0-u_ASw"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Vendor Pavilion
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30916" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30916/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/7086de82b44d4684afb6ddced7fd1b22?v=f2bedad8" mediaid="" stylelabs-content-type="Image" alt="Parking garage banner" height="3024" width="4032" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T164249Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
+      Hint: Size
+      Value: 2500
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e2ec2b16-566c-4611-a24f-f3956891a85f"
+    - ID: "91e38983-3229-41b3-9161-c1136039a209"
+      Hint: Description
+      Value: |
+        <p>The Vendor Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms and&nbsp;underground parking.</p>
+                  
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d7dbc4ac-0a0e-4445-8c79-4a98b3b5f2e7"
+      Hint: Rooms
+      Value: "{4D920373-9BC1-44A5-A586-0AF23C5711A1}|{2ACD0217-A6FE-401C-9E0C-FF625CAD8CC3}|{6FE42A91-749B-4B13-BBA6-826DABE94B00}|{79DB435E-A1D1-42D3-9FC5-097E5C5085D9}"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150056Z
+    - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
+      Hint: Name
+      Value: Vendor Pavilion

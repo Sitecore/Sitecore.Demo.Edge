@@ -25,11 +25,11 @@
 @import "./layout/buttons.css";
 @import "./layout/forms.css";
 @import "./layout/grids.css";
+@import "./layout/information-section.css";
 @import "./layout/sections.css";
 @import "./layout/section-news.css";
 @import "./layout/section-speakers.css";
 @import "./layout/section-sponsors.css";
-@import "./layout/information-section.css";
 
 /* Tailwindify other components and pages from rest.css here */
 @import "./rest.css";
@@ -37,12 +37,12 @@
 /* 6. Our components */
 
 @import "./components/AttendeeForm.css";
-@import "./components/AttendeeRegistrationForm.css";
 @import "./components/Breadcrumb.css";
 @import "./components/CountdownSection.css";
 @import "./components/FeaturedEvent.css";
 @import "./components/Footer.css";
 @import "./components/FullImageSection.css";
+@import "./components/InformationPageHero.css";
 @import "./components/Header.css";
 @import "./components/HeaderBanner.css";
 @import "./components/HeroImage.css";
@@ -55,6 +55,7 @@
 @import "./components/PaymentAndBillingForm.css";
 @import "./components/PaymentConfirmed.css";
 @import "./components/PaymentForm.css";
+@import "./components/PaymentProgress.css";
 @import "./components/ProductDetail.css";
 @import "./components/Promo.css";
 @import "./components/RegistrationGrid.css";
@@ -62,7 +63,9 @@
 @import "./components/SessionsGrid.css";
 @import "./components/SessionList.css";
 @import "./components/SessionsFilters.css";
-@import "./components/SpeakerInformation.css";
+@import "./components/SessionInformationPageHero.css";
+@import "./components/SpeakerInformationPageHero.css";
+@import "./components/SpeakerList.css";
 @import "./components/SpeakersGrid.css";
 @import "./components/SponsorsGrid.css";
 @import "./components/SummitFeatures.css";

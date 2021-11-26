@@ -1,33 +1,26 @@
-.information-section {
+.section.information-section {
+  @apply py-8;
+
   .information-grid {
-    @apply grid grid-cols-1 gap-10;
-    @apply md:grid-cols-4;
+    @apply flex flex-col;
+    @apply lg:flex-row;
 
-    .image-col {
-      @apply col-span-1 space-y-5;
-      @apply md:col-span-1;
+    .main-col {
+      @apply w-full order-2;
+      @apply lg:w-55 lg:pr-6 lg:order-1;
 
-      .external-website-icons svg {
-        @apply h-4 m-2 inline text-blue;
-      }
-
-      .data-label {
-        @apply font-bold;
+      ul {
+        @apply list-disc pl-10 py-5;
       }
     }
 
-    .description-col {
-      @apply col-span-1 space-y-5;
-      @apply md:col-span-3;
+    .sidebar-col {
+      @apply w-full order-1 pb-8;
+      @apply lg:w-45 lg:order-2 lg:pb-0;
+    }
 
-      .eyebrow {
-        @apply uppercase;
-      }
-
-      .name {
-        @apply text-2xl font-extrabold text-blue;
-        @apply md:text-3xl;
-      }
+    .column-title {
+      @apply font-bold pb-2;
     }
   }
 }

@@ -1,0 +1,44 @@
+﻿---
+ID: "1aeb0850-24f1-4298-bfac-f3a5c8146e88"
+Parent: "2f3e9067-f772-5218-82c9-c8085255a158"
+Template: "b6cd17f1-c851-5816-be10-9c09488f7704"
+Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedVendors/Featured Vendors
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210727T152547Z
+    - ID: "453e6795-c512-4c06-a34f-326d1a999e14"
+      Hint: Vendors
+      Value: |
+        {5EE51C40-8986-44C0-B44A-D030D4482A43}
+        {0960F9C7-9CB8-49CA-9607-5099767C7128}
+        {561F1D47-78FF-4176-925E-EBB9AF6FE58D}
+        {01E09652-ABD7-4BB0-AD96-E609966330BD}
+    - ID: "4a849808-6c4e-483e-9bf3-e9ae01d7db6b"
+      Hint: Subtitle
+      Value: "Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit."
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "6c0ffd67-8f13-525a-b487-b7ef41d328bd"
+      Hint: Title
+      Value: FEATURED VENDORS
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "558df79c-79e7-40b3-9026-ed962ec05a4c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211006T162848Z

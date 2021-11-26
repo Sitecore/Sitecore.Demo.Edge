@@ -50,12 +50,6 @@ SharedFields:
           ph="/jss-header/jss-header-content-{0BC84953-0394-5F32-B12B-B049C7929393}-0"
           uid="{159B4C52-2540-5D79-8A4E-EB76279EB7FC}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{5979DB99-F1A0-58A1-B9FD-49DF9539F8FD}" />
-        <r
           id="{8F4E0A87-F61C-5EA3-B7AD-5FBDE3716333}"
           ph="/jss-main"
           uid="{20D05B20-378A-4C3B-8833-EB32A191CADE}" />
@@ -101,6 +95,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "2063a900-230c-4172-ba19-c00992f363f7"
+      Hint: ImageTransformation
+      Value: web
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T161122Z
@@ -115,13 +112,16 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\Admin
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "56a21e65-634a-4575-9c00-9f19f1d0b69a"
+      Value: "9633d568-356f-4bb1-a16e-bc2934f6e99e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210823T153445Z
+      Value: 20211116T174838Z

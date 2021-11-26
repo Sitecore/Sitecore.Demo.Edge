@@ -1,0 +1,55 @@
+﻿---
+ID: "71d297fd-89cc-4e74-a477-e4a4e3669206"
+Parent: "d0e54914-8373-4e4b-9dde-91e57437ced2"
+Template: "44262889-315a-4f8d-8fb5-243d793fd54a"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Advertisements/PLAY Summit  Mountain Hero
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: 4bwwmhx1jU2duqmDcxD0Qg
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "PLAY! Summit - Mountain Hero"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211124T152330Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "69e8418c-5f11-40a8-9c0d-9e5eacc1229e"
+      Hint: Hero
+      Value: |
+        <image stylelabs-content-id="30791" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30791/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/333f460883dd4e3bb40f1bbd0910aa6b?v=9a26247e" mediaid="" stylelabs-content-type="Image" alt="cycling-banner.jpg" height="3813" width="5713" />
+    - ID: "81af116e-235f-44ad-a8e0-794bc3504c7c"
+      Hint: Slogan
+      Value: "READY | STEADY | PLAY!"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e8b74c38-6d3f-46be-9793-384ce8cac3a9"
+    - ID: "957519d5-5c6b-40c0-b462-b1dac8f12a03"
+      Hint: Eyebrow
+      Value: Sports and Recreation Expo
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c068953c-33ee-4889-b473-395d5e0aea0f"
+      Hint: Body
+      Value: "<p>Join us in person or online for an amazing event that you will remember forever!</p>"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T152332Z
+    - ID: "e2d35418-b6ed-4838-90cb-26f98c1d7586"
+      Hint: Title
+      Value: The Event of a Lifetime

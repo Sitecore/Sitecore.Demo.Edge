@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionInformation, { Speaker } from '../../components/SessionInformation';
+import SessionInformation from '../../components/SessionInformation';
+import { Speaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Sessions/SessionInformation',
@@ -22,16 +23,16 @@ const speaker1 = {
     },
     Picture: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/3fcb3ce4bc0d4d778da7a3dc66fa1cb2?v=e3d5a7cb',
       },
     },
-    Position: {
+    JobTitle: {
       value: 'Manager',
     },
     Company: {
       value: 'Sitecore',
     },
-    Country: {
+    Location: {
       value: 'Canada',
     },
     Description: {
@@ -49,6 +50,9 @@ const speaker1 = {
     },
     LinkedinProfileLink: {
       value: 'https://linkedin.com/asada',
+    },
+    Featured: {
+      value: false,
     },
   },
 } as Speaker;
@@ -63,16 +67,16 @@ const speaker2 = {
     },
     Picture: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/0fd271e931024667b36c3e21dd3256b1?v=82e3ff67',
       },
     },
-    Position: {
+    JobTitle: {
       value: 'Manager',
     },
     Company: {
       value: 'Sitecore',
     },
-    Country: {
+    Location: {
       value: 'Canada',
     },
     Description: {
@@ -91,8 +95,66 @@ const speaker2 = {
     LinkedinProfileLink: {
       value: 'https://linkedin.com/asada',
     },
+    Featured: {
+      value: true,
+    },
   },
 } as Speaker;
+
+const rooms = [
+  {
+    fields: {
+      Name: {
+        value: 'Room 1',
+      },
+    },
+  },
+  {
+    fields: {
+      Name: {
+        value: 'Room 2',
+      },
+    },
+  },
+];
+
+const timeslots = [
+  {
+    name: {
+      value: '8 am',
+    },
+  },
+  {
+    name: {
+      value: '9 am',
+    },
+  },
+];
+
+const days = [
+  {
+    name: {
+      value: 'Day 1',
+    },
+
+    fields: {
+      Name: {
+        value: 'Day 1',
+      },
+    },
+  },
+  {
+    name: {
+      value: 'Day 2',
+    },
+
+    fields: {
+      Name: {
+        value: 'Day 2',
+      },
+    },
+  },
+];
 
 export const Default = Template.bind({});
 Default.args = {
@@ -105,9 +167,20 @@ Default.args = {
       value:
         '<p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p><p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla quis lorem ut libero malesuada feugiat. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>',
     },
-    Type: { value: 'Keynote' },
-    Date: { value: '2021-07-29T06:00:00Z' },
-    Image: { value: { src: '/assets/img/shop/man-biker.jpg' } },
+    Type: {
+      value: 'Keynote',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/shop/man-biker.jpg',
+      },
+    },
     Speakers: [speaker1, speaker2],
+    Rooms: rooms,
+    Day: days,
+    Timeslots: timeslots,
+    Premium: {
+      value: true,
+    },
   },
 };
