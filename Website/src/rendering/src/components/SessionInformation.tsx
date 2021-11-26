@@ -23,7 +23,7 @@ export type SessionInformationProps = ComponentProps & {
 };
 
 const SessionInformation = (props: SessionInformationProps): JSX.Element => {
-  const premiumSessionMetaValue = props.fields.Premium.value ? 'true' : 'false';
+  const premiumSessionMetaValue = props.fields.Premium?.value ? 'true' : 'false';
 
   const speakers =
     props.fields?.Speakers && props.fields.Speakers.length > 0 ? (

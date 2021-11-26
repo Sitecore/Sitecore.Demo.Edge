@@ -39,6 +39,10 @@ WithoutSessions.args = {
       contextItem: fieldsWithoutSessions,
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const WithSessions = Template.bind({});

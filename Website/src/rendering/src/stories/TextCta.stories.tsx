@@ -21,4 +21,8 @@ Default.args = {
         'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a 20% discount.',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

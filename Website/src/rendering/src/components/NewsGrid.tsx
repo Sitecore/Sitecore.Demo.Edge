@@ -1,6 +1,6 @@
 import profile from '../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
-import { Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { News } from 'src/types/news';
 
@@ -69,4 +69,4 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
   );
 };
 
-export default NewsGrid;
+export default withDatasourceCheck()<NewsGridProps>(NewsGrid);

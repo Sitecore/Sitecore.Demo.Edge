@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { Vendor } from 'src/types/vendor';
 
@@ -85,4 +85,4 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
   );
 };
 
-export default VendorsGrid;
+export default withDatasourceCheck()<VendorsGridProps>(VendorsGrid);

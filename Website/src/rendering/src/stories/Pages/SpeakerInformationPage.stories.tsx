@@ -31,6 +31,10 @@ const mainNavigationArgs = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as MainNavigationProps;
 
 const speakerInformationPageHeroProps = {
@@ -70,6 +74,10 @@ const speakerInformationPageHeroProps = {
       value: 'https://linkedin.com/asada',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as unknown as SpeakerInformationPageHeroProps;
 
 const speakerInformationProps = {
@@ -102,6 +110,10 @@ const footerProps = {
         },
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as FooterProps;
 
