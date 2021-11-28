@@ -1,6 +1,6 @@
 import { Image } from '../interfaces/asset';
 
-const contentHubUrl = process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || '';
+const contentHubUrl = process.env.NEXT_PUBLIC_DAM_URL || '';
 
 export const contentHubImageSrcGenerator = (src: Image) => {
   const image = src.results[0].assetToPublicLink.results[0];

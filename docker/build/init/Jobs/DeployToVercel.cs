@@ -47,6 +47,14 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
+            var damUrl = Environment.GetEnvironmentVariable("NEXT_PUBLIC_DAM_URL");
+            if (string.IsNullOrEmpty(damUrl))
+            {
+                Log.LogWarning(
+                    $"{this.GetType().Name} will not execute this time, NEXT_PUBLIC_DAM_URL is not configured");
+                return;
+            }
+
             var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrl))
             {
@@ -85,7 +93,7 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope);
+            DeployTv(ns, damUrl, cmpEndpointUrl, cmpApiKey, token, scope);
             DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
             DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, cmpEndpointUrl, cmpApiKey, token,
                 scope);
@@ -93,7 +101,7 @@ namespace Sitecore.Demo.Init.Jobs
             await Complete();
         }
 
-        private static void DeployTv(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
+        private static void DeployTv(string ns, string damUrl, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
         {
             var sourceDirectory = "C:\\app\\tv";
             var targetDirectory = $"C:\\app\\{ns}-tv";
@@ -110,6 +118,8 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
 
             // Configure env. variables
+            cmd.Run(
+                $"echo | set /p=\"{damUrl}\" | vercel env add NEXT_PUBLIC_DAM_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
