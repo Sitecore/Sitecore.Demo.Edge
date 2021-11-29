@@ -10,7 +10,6 @@ type PostProps = {
 };
 
 export default function Facebook(props: PostProps) {
-  console.log(props);
   return (
     <div className="facebook bg-gray-300">
       <Navbar />

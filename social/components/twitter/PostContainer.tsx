@@ -4,7 +4,6 @@ import Story from "./Story";
 
 type PostProps = {
   posts: Post[];
-  preview: boolean;
 };
 
 export default function PostContainer(props: PostProps) {

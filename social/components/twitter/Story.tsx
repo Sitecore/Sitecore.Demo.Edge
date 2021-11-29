@@ -11,6 +11,7 @@ import {
   faRetweet,
   faShareAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { contentHubImageSrcGenerator } from "../../utilities/contentHubImageLoader";
 
 type StoryProps = {
   post: Post;
@@ -46,9 +47,23 @@ const Story = (props: StoryProps) => {
           </div>
         </div>
       </div>
-      <div className="mb-2 leading-normal whitespace-pre-wrap text-gray-700 text-sm py-2">
-        Learn to sell. Learn to build. If you can do both, you will be
-        unstoppable.
+      <div
+        className="mb-2 leading-normal whitespace-pre-wrap text-gray-700 text-sm py-2"
+        dangerouslySetInnerHTML={{
+          __html: props.post.socialMediaMessage_Body,
+        }}
+      ></div>
+      <div className="w-full h-76 max-h-80">
+        {props.post.cmpContentToMasterLinkedAsset?.results[0] && (
+          <Image
+            src={contentHubImageSrcGenerator(
+              props.post.cmpContentToMasterLinkedAsset
+            )}
+            alt="post"
+            width="310"
+            height="250"
+          />
+        )}
       </div>
       <span> 3:27 AM - May 31, 2018</span>
       <div className="flex text-gray-700 mt-2 justify-between">

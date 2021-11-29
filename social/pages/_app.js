@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 function MyApp({ Component, pageProps }) {
-  //console.log(window.location);
   const showHomeButton =
     typeof window !== "undefined" && window.location.pathname == "/"
       ? "hidden"
