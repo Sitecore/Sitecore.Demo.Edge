@@ -7,6 +7,7 @@ import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
 import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
+import router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,8 +36,8 @@ const Navigation = (): JSX.Element => {
         isSchemaFetched.current = true;
 
         setSchema({
-          days: schema.days,
-          times: schema.timeslots.map((timeslot) => {
+          days: schema?.days,
+          times: schema?.timeslots?.map((timeslot) => {
             return {
               ...timeslot,
               taxonomyLabel: {
@@ -99,6 +100,10 @@ const Navigation = (): JSX.Element => {
   function handleRefreshClick() {
     // Set the context with new values
     dayTimeContext.setDayTime(selectedDay.current, selectedTime.current);
+    // Remove the query string from the URL, if any.
+    if (!!window.location.search) {
+      router.push(window.location.pathname);
+    }
   }
 
   function handleQuickRefreshClick() {
@@ -126,53 +131,65 @@ const Navigation = (): JSX.Element => {
             </Link>
           </div>
           <div className="menu-navigation">
-            {schema.venues.map((venue, venueIndex) => (
-              <div key={venueIndex}>
-                <div className="navigation-venue">
-                  <Link href={`/venues/${venue.id}`}>
-                    <a>{venue.name}</a>
-                  </Link>
+            {schema?.venues &&
+              schema.venues.length > 0 &&
+              schema.venues.map((venue, venueIndex) => (
+                <div key={venueIndex}>
+                  <div className="navigation-venue">
+                    <Link href={`/venues/${venue.id}`}>
+                      <a>{venue.name}</a>
+                    </Link>
+                  </div>
+                  <select value="0" onChange={handleRoomChange}>
+                    <option value="0">Choose a room...</option>
+                    {venue.rooms.results
+                      .sort((a, b) => a.name.localeCompare(b.name))
+                      .map((room, roomIndex) => (
+                        <option key={roomIndex} value={room.id}>
+                          {room.name}
+                        </option>
+                      ))}
+                  </select>
                 </div>
-                <select value="0" onChange={handleRoomChange}>
-                  <option value="0">Choose a room...</option>
-                  {venue.rooms.results
-                    .sort((a, b) => a.name.localeCompare(b.name))
-                    .map((room, roomIndex) => (
-                      <option key={roomIndex} value={room.id}>
-                        {room.name}
-                      </option>
-                    ))}
-                </select>
-              </div>
-            ))}
+              ))}
           </div>
-          <div className="menu-footer">
-            <div className="daytime-columns">
-              <div className="daytime-column">
-                <div className="daytime-current">{getCurrentDisplayDay()}</div>
-                <select name="day" onChange={handleDayChange}>
-                  {schema.days.length > 0 &&
-                    schema.days.map((day, index) => (
+          {schema?.days && schema.days.length > 0 && (
+            <div className="menu-footer">
+              <div className="daytime-columns">
+                <div className="daytime-column">
+                  <div className="daytime-current">{getCurrentDisplayDay()}</div>
+                  <select name="day" onChange={handleDayChange}>
+                    {schema.days.map((day, index) => (
                       <option key={index} value={day.sortOrder}>
                         {day.taxonomyName}
                       </option>
                     ))}
-                </select>
+                  </select>
+                </div>
+                <div className="daytime-column">
+                  <div className="daytime-current">{getCurrentDisplayTime()}</div>
+                  <select name="time" onChange={handleTimeChange}>
+                    {schema?.times &&
+                      schema.times.length > 0 &&
+                      schema.times.map((time, index) => (
+                        <option key={index} value={time.sortOrder}>
+                          {time.taxonomyLabel['en-US']}
+                        </option>
+                      ))}
+                  </select>
+                </div>
               </div>
-              <div className="daytime-column">
-                <div className="daytime-current">{getCurrentDisplayTime()}</div>
-                <select name="time" onChange={handleTimeChange}>
-                  {schema.times.length > 0 &&
-                    schema.times.map((time, index) => (
-                      <option key={index} value={time.sortOrder}>
-                        {time.taxonomyLabel['en-US']}
-                      </option>
-                    ))}
-                </select>
-              </div>
+              <button onClick={handleRefreshClick}>Refresh</button>
             </div>
-            <button onClick={handleRefreshClick}>Refresh</button>
-          </div>
+          )}
+
+          {!schema.days && (
+            <div className="text-xl">
+              There was a problem fetching the data needed to display here.
+              <br />
+              Please try again later.
+            </div>
+          )}
         </div>
       </div>
       <div className="menu-button refresh-button" onClick={handleQuickRefreshClick}>

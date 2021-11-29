@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import Router, { NextRouter, useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
 import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
@@ -86,7 +86,6 @@ export default function RoomPage(props: RoomProps) {
         style={{
           backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
         }}
-        onClick={() => Router.back()}
       ></div>
       <div id="container" className="absolute">
         <div id="monitor">
@@ -94,10 +93,6 @@ export default function RoomPage(props: RoomProps) {
             <RoomDisplay {...sessions} />
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-2 text-black-light">
-        <span className="text-xl">🛈</span> Click anywhere outside the TV to go back to the previous
-        screen
       </div>
     </>
   );
