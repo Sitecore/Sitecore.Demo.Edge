@@ -1,4 +1,4 @@
-import { fetchGraphQL } from "../../../api";
+import { fetchGraphQL } from "../..";
 import { Post } from "../../../../interfaces/index";
 
 const socialContentQuery = `
@@ -58,12 +58,19 @@ export const getPosts = async (): Promise<{ posts: Post[] }> => {
   }
 };
 
-export const getFacebookPosts = async (): Promise<{ posts: Post[] }> => {
+export const getPostsBySite = async (
+  site: string
+): Promise<{ posts: Post[] }> => {
   try {
     const results = await getPosts();
     if (results) {
-      results.posts.filter(post => post.socialMediaMessage_Site.taxonomyName==="Facebook")
-      return results;
+      console.log("results");
+      console.log(results);
+      const facebookPosts: Post[] = results.posts.filter(
+        (post) => post?.socialMediaMessage_Site?.taxonomyName == site
+      );
+      console.log(facebookPosts);
+      return { posts: facebookPosts };
     }
   } catch (err) {
     console.log(err);

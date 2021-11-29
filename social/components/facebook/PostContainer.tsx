@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faComment,
   faEllipsisH,
-  faGlobe,
   faGlobeAmericas,
   faHeart,
   faShare,
@@ -13,10 +12,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import profileLogo from "../../public/PLAY_Summit_black.png";
+import {
+  contentHubImageLoader,
+  contentHubImageSrcGenerator,
+} from "../../utilities/contentHubImageLoader";
 
 type PostProps = {
   posts: Post[];
-  preview: boolean;
 };
 
 export default function PostContainer(props: PostProps) {
@@ -59,15 +61,23 @@ export default function PostContainer(props: PostProps) {
                   ></FontAwesomeIcon>
                 </div>
               </div>
-              <div className="text-gray-500 px-3 text-sm">
-                {post.socialMediaMessage_Body}
-              </div>
+              <div
+                className="text-gray-500 px-3 text-sm"
+                dangerouslySetInnerHTML={{
+                  __html: post.socialMediaMessage_Body,
+                }}
+              ></div>
               <div className="w-full h-76 max-h-80">
-                <img
-                  src="https://picsum.photos/1080/1920"
-                  alt="postimage"
-                  className="w-full h-76 max-h-80"
-                />
+                {post.cmpContentToMasterLinkedAsset.results[0] && (
+                  <Image
+                    src={contentHubImageSrcGenerator(
+                      post.cmpContentToMasterLinkedAsset
+                    )}
+                    alt="post"
+                    width="310"
+                    height="250"
+                  />
+                )}
               </div>
               <div className="w-full flex flex-col space-y-1 p-2">
                 <div className="flex items-center justify-between px-3 pb-2 border-b text-gray-400 text-sm">

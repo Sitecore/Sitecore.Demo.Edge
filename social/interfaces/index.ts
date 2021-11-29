@@ -10,8 +10,12 @@ export interface Post {
     id: string;
     taxonomyName: string;
   };
-  cmpContentToMasterLinkedAsset: {
-    results: {
+  cmpContentToMasterLinkedAsset: Image;
+}
+
+export interface Image {
+  results: [
+    {
       assetToPublicLink: {
         results: [
           {
@@ -21,6 +25,6 @@ export interface Post {
           }
         ];
       };
-    };
-  };
+    }
+  ];
 }
