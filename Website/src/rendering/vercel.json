@@ -1,9 +1,9 @@
 {
   "functions": {
-    "api/editing/data/*.js": {
+    "src/pages/api/editing/render.ts": {
       "memory": 3008
     },
-    "api/editing/*.js": {
+    "src/pages/api/editing/data/*.ts": {
       "memory": 3008
     }
   }
