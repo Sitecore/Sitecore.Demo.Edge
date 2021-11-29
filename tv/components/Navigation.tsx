@@ -179,7 +179,7 @@ const Navigation = (): JSX.Element => {
                   </select>
                 </div>
               </div>
-              <button onClick={handleRefreshClick}>Set</button>
+              <button onClick={handleRefreshClick}>Refresh</button>
             </div>
           )}
 
