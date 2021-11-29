@@ -64,9 +64,12 @@ export const getPostsBySite = async (
   try {
     const results = await getPosts();
     if (results) {
-      const facebookPosts: Post[] = results.posts.filter(
-        (post) => post?.socialMediaMessage_Site?.taxonomyName == site
-      );
+      let facebookPosts: Post[] = results.posts;
+      if (site != "") {
+        facebookPosts = results.posts.filter(
+          (post) => post?.socialMediaMessage_Site?.taxonomyName == site
+        );
+      }
       return { posts: facebookPosts };
     }
   } catch (err) {

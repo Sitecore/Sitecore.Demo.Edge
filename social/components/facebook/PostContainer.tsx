@@ -13,7 +13,6 @@ import {
 import Image from "next/image";
 import profileLogo from "../../public/PLAY_Summit_black.png";
 import {
-  contentHubImageLoader,
   contentHubImageSrcGenerator,
 } from "../../utilities/contentHubImageLoader";
 

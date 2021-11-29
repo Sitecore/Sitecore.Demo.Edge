@@ -19,7 +19,8 @@ export default function Twitter(props: PostProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { posts } = await getPostsBySite("Twitter");
+  //const { posts } = await getPostsBySite("Twitter");
+  const { posts } = await getPostsBySite("");
   return {
     props: {
       posts: posts,
