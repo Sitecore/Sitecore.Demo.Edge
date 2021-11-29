@@ -37,9 +37,11 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
                     backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
                   }}
                 >
-                  {(session.type === 'Keynote' || session.isPremium) && (
+                  {(session.type === 'Keynote' ||
+                    session.type === 'Workshop' ||
+                    session.isPremium) && (
                     <div className="session-type">
-                      {session.type}
+                      {(session.type === 'Keynote' || session.type === 'Workshop') && session.type}
                       {session.isPremium && <div>Premium</div>}
                     </div>
                   )}

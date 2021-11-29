@@ -97,7 +97,10 @@ const Navigation = (): JSX.Element => {
 
   function setDayAndTime() {
     dayTimeContext.setDayTime(selectedDay.current, selectedTime.current);
-    router.push(window.location.pathname);
+    // Remove the query string from the URL, if any.
+    if (!!window.location.search) {
+      router.push(window.location.pathname);
+    }
   }
 
   return (
@@ -119,7 +122,8 @@ const Navigation = (): JSX.Element => {
           </Link>
         </div>
         <div className="menu-navigation">
-          {schema.venues &&
+          {schema?.venues &&
+            schema.venues.length > 0 &&
             schema.venues.map((venue, venueIndex) => (
               <div key={venueIndex}>
                 <div className="navigation-venue">
@@ -140,24 +144,24 @@ const Navigation = (): JSX.Element => {
               </div>
             ))}
         </div>
-        {schema?.days && schema?.days?.length > 0 && (
+        {schema?.days && schema.days.length > 0 && (
           <div className="menu-footer">
             <div className="daytime-columns">
               <div className="daytime-column">
                 <div className="daytime-current">{getCurrentDisplayDay()}</div>
                 <select name="day" onChange={handleDayChange}>
-                  {schema.days.length > 0 &&
-                    schema.days.map((day, index) => (
-                      <option key={index} value={day.sortOrder}>
-                        {day.taxonomyName}
-                      </option>
-                    ))}
+                  {schema.days.map((day, index) => (
+                    <option key={index} value={day.sortOrder}>
+                      {day.taxonomyName}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div className="daytime-column">
                 <div className="daytime-current">{getCurrentDisplayTime()}</div>
                 <select name="time" onChange={handleTimeChange}>
-                  {schema.times.length > 0 &&
+                  {schema?.times &&
+                    schema.times.length > 0 &&
                     schema.times.map((time, index) => (
                       <option key={index} value={time.sortOrder}>
                         {time.taxonomyLabel['en-US']}
