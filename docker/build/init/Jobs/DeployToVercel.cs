@@ -163,6 +163,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"sitecore-jss:*\" | vercel env add DEBUG production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"true\" | vercel env add DEBUG_MULTILINE production --token {token} --scope {scope}");
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
