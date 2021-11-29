@@ -4,7 +4,6 @@ import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
 import { dayDefaultValue, DayTimeContext } from '../contexts/DayTimeContext';
-import ErrorTv from '../components/ErrorTv';
 
 type ScheduleProps = {
   sessions: Session[];
@@ -72,11 +71,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
     });
   }, [dayTimeContext.dayTime]);
 
-  if (schedule.length == 0) {
-    return <ErrorTv />;
-  } else {
-    return <ScheduleForDay schedule={schedule} />;
-  }
+  return <ScheduleForDay schedule={schedule} />;
 };
 
 export const getStaticProps = async () => {
