@@ -1,12 +1,6 @@
 {
   "functions": {
-    "api/*.ts": {
-      "memory": 3008
-    },
-    "api/*.js": {
-      "memory": 3008
-    },
-    "api/editing/*.ts": {
+    "api/editing/data/*.js": {
       "memory": 3008
     },
     "api/editing/*.js": {
