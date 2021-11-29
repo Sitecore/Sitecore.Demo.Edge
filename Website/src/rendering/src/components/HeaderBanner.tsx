@@ -1,4 +1,4 @@
-import { Text, Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type HeaderBannerProps = ComponentProps & {
@@ -28,4 +28,4 @@ const HeaderBanner = (props: HeaderBannerProps): JSX.Element => {
   );
 };
 
-export default HeaderBanner;
+export default withDatasourceCheck()<HeaderBannerProps>(HeaderBanner);

@@ -24,6 +24,7 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
                 width={400}
                 height={200}
                 alt="Logo"
+                title="Tap to go home"
               />
             </div>
             <p className="slogan">{props.hero.advertisement_Slogan}</p>
@@ -35,11 +36,15 @@ const HeroSection = (props: HeroSectionProps): JSX.Element => {
             ></div>
           </div>
           <div className="btn__area">
-            <Link href="/tickets">
-              <a className="btn--main btn--main--round btn--main--big">Get Started</a>
+            <Link href="/schedule/0">
+              <a className="btn--main btn--main--round btn--main--primary btn--main--big">
+                Explore the event
+              </a>
             </Link>
             <Link href="/signup">
-              <a className="btn--main btn--main--round btn--main--big btn-right">Stay Connected</a>
+              <a className="btn--main btn--main--round btn--main--secondary btn--main--big btn-right">
+                Stay connected
+              </a>
             </Link>
           </div>
         </div>

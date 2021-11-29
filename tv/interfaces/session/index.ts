@@ -4,10 +4,6 @@ import { Image } from '../asset';
 import { Timeslot, Timeslots } from '../timeslot';
 import { Days } from '../day';
 
-export interface SessionType {
-  taxonomyName: string;
-}
-
 export interface SessionResult {
   id: string;
   name: string;

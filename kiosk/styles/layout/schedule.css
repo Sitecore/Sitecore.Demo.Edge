@@ -1,0 +1,165 @@
+.schedule-header {
+  @apply absolute top-0 left-0 right-0 flex flex-row justify-items-start gap-10 w-full px-4 align-middle content-between py-4 bg-black h-20 z-10;
+  @apply md:px-8;
+  @apply lg:px-10;
+
+  .schedule-logo {
+    @apply flex-auto flex;
+  }
+
+  .btn__area--minimal {
+    @apply space-x-2 flex-auto flex;
+  }
+
+  .schedule-ticket {
+    @apply flex-auto justify-end flex;
+
+    .btn--main--big {
+      padding: 0.4em 1em;
+    }
+  }
+}
+
+.schedule {
+  @apply flex flex-col overflow-y-auto bottom-0 top-20 -right-6 left-0 absolute;
+
+  .schedule-row {
+    @apply flex bg-black border-b-2 border-solid border-gray uppercase h-44;
+
+    min-height: 150px;
+
+    .schedule-time {
+      @apply bg-gray text-black font-bold p-4;
+
+      min-width: 195px;
+    }
+
+    .schedule-sessions {
+      @apply m-3 flex-1 text-white relative flex flex-row cursor-pointer;
+
+      &.premium-session {
+        @apply bg-orange;
+      }
+
+      &.keynote-session {
+        @apply bg-blue-light text-white;
+      }
+
+      &.no-speaker {
+        @apply bg-gray-dark text-black;
+      }
+
+      .session-image {
+        @apply bg-cover bg-center w-1/2 block;
+
+        &.premium-session {
+          .session-type {
+            @apply absolute bottom-8 bg-blue-light px-2;
+          }
+        }
+
+        &.keynote-session {
+          .session-type {
+            @apply absolute bottom-3 bg-blue-light px-2;
+          }
+        }
+      }
+
+      .session-content {
+        @apply p-2;
+
+        .session-name {
+          @apply font-bold;
+        }
+      }
+    }
+  }
+}
+
+.session-detail {
+  @apply absolute left-0 right-0 top-0 bottom-0 w-full h-full z-40 block;
+
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+
+  &.active {
+    transform: scale(1);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .icon {
+    @apply w-8;
+  }
+
+  .session-detail-image {
+    @apply w-full h-2/5 bg-cover bg-no-repeat bg-center relative;
+
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+    .session-detail-meta {
+      @apply flex flex-col align-bottom justify-between p-2 m-2 bottom-0 right-0 absolute bg-yellow text-black font-bold shadow-lg;
+    }
+  }
+
+  .section-detail-content {
+    @apply bg-black w-full h-3/5 p-6 text-white space-y-4;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    .session-name {
+      @apply text-xl font-bold uppercase;
+      @apply lg:text-4xl;
+    }
+
+    .session-meta {
+      @apply flex flex-row align-middle w-full justify-between text-base;
+      @apply lg:text-xl;
+    }
+
+    .session-description {
+      @apply mt-12 bottom-4 overflow-y-auto pb-12 h-3/5;
+
+      p {
+        @apply pt-1;
+      }
+    }
+  }
+
+  .session-close-detail {
+    @apply top-2 right-6 absolute text-yellow text-3xl z-50 p-4;
+
+    filter: drop-shadow(1px 1px 5px black);
+
+    &.from-center {
+      border-radius: 100%;
+      background: radial-gradient(farthest-side, black 98%, transparent) no-repeat, transparent;
+      background-size: 0% 0%;
+      background-position: center;
+      transition: 1s;
+    }
+
+    &:hover {
+      @apply bg-black;
+
+      background-size: 150% 150%;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

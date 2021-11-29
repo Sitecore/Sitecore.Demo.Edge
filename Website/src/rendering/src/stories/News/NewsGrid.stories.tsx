@@ -55,6 +55,10 @@ const news2 = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as News;
 
 const news3 = {
@@ -107,5 +111,9 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     items: [news1, news2, news3, news4],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

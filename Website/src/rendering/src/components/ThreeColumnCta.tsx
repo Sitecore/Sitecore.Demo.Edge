@@ -1,4 +1,4 @@
-import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type ThreeColumnCtaProps = ComponentProps & {
@@ -31,4 +31,4 @@ const ThreeColumnCta = (props: ThreeColumnCtaProps): JSX.Element => (
   </section>
 );
 
-export default ThreeColumnCta;
+export default withDatasourceCheck()<ThreeColumnCtaProps>(ThreeColumnCta);

@@ -1,4 +1,11 @@
-import { Field, Link, LinkField, RichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Field,
+  Link,
+  LinkField,
+  RichText,
+  Text,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 type FullImageSectionProps = ComponentProps & {
@@ -37,4 +44,4 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
   );
 };
 
-export default FullImageSection;
+export default withDatasourceCheck()<FullImageSectionProps>(FullImageSection);

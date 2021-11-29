@@ -8,7 +8,6 @@ import ErrorTv from '../components/ErrorTv';
 
 type ScheduleProps = {
   sessions: Session[];
-  displayedDay: string;
 };
 
 function groupSessionsByTimeslot(original: Session[]): ScheduleSlot[] {
@@ -63,25 +62,14 @@ const defaultSchedule: ScheduleSlot[][] = [];
 
 const Schedule = (props: ScheduleProps): JSX.Element => {
   const displayedDaySessions = useRef(props.sessions);
-  const displayedDay = useRef(props.displayedDay);
   const [schedule, setSchedule] = useState(defaultSchedule);
   const dayTimeContext = useContext(DayTimeContext);
 
   useEffect(() => {
-    function generateAndSetSchedule() {
+    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
+      displayedDaySessions.current = data.sessions;
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
-    }
-
-    if (displayedDay.current !== dayTimeContext.dayTime.day) {
-      displayedDay.current = dayTimeContext.dayTime.day;
-
-      getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
-        displayedDaySessions.current = data.sessions;
-        generateAndSetSchedule();
-      });
-    } else {
-      generateAndSetSchedule();
-    }
+    });
   }, [dayTimeContext.dayTime]);
 
   if (schedule.length == 0) {
@@ -97,7 +85,6 @@ export const getStaticProps = async () => {
   return {
     props: {
       sessions,
-      displayedDay: dayDefaultValue,
     },
     revalidate: 10,
   };

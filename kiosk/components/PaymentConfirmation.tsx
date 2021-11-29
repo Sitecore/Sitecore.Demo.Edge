@@ -43,7 +43,7 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
       style={{
         backgroundImage:
           'url(' +
-          'https://demoedge.sitecoresandbox.cloud/api/public/content/115758f6f42b4b5387dd2f97f5e9b486?v=92f5a28e' +
+          'https://playsummit.sitecoresandbox.cloud/api/public/content/69128c1b344947d283b3faf30b6078b1?v=288378d0' +
           ')',
       }}
     >
@@ -60,13 +60,13 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
                 alt={props.ticket.name}
                 width="200"
                 height="200"
-                title="Click to copy website personnal link"
+                title="Click to copy website personal link"
                 onClick={handleQrClick}
               />
             </div>
             <form onSubmit={handleFormSubmit}>
               <button
-                className="btn--main btn--main--round btn--main--big block rounded-lg px-3 py-3"
+                className="btn--main btn--main--round btn--main--primary btn--main--big block rounded-lg px-3 py-3"
                 type="submit"
               >
                 End Session

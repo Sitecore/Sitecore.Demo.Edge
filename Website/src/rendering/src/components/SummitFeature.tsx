@@ -1,4 +1,12 @@
-import { Field, ImageField, Text, LinkField, Link, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Field,
+  ImageField,
+  Text,
+  LinkField,
+  Link,
+  Image,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type SummitFeatureProps = ComponentProps & {
@@ -23,4 +31,4 @@ const SummitFeature = (props: SummitFeatureProps): JSX.Element => (
   </div>
 );
 
-export default SummitFeature;
+export default withDatasourceCheck()<SummitFeatureProps>(SummitFeature);
