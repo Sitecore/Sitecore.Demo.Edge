@@ -6,5 +6,6 @@
     "src/pages/api/editing/data/*.ts": {
       "memory": 3008
     }
-  }
+  },
+  "regions": ["cle1"]
 }
