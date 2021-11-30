@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Text, Image, withDatasourceCheck, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { GraphQLSpeaker } from 'src/types/speaker';
