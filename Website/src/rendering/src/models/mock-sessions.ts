@@ -14,7 +14,7 @@ export const SESSIONS: GraphQLSession[] = [
       },
     },
     imageTransformation: {
-      value: 'Fuel For Life: Nutrition 101',
+      value: 'medium',
     },
     speakers: {
       targetItems: [
@@ -73,7 +73,7 @@ export const SESSIONS: GraphQLSession[] = [
       },
     },
     imageTransformation: {
-      value: 'Fuel For Life: Nutrition 101',
+      value: 'medium',
     },
     speakers: {
       targetItems: [
@@ -159,7 +159,7 @@ export const SESSIONS: GraphQLSession[] = [
       },
     },
     imageTransformation: {
-      value: 'Fuel For Life: Nutrition 101',
+      value: 'medium',
     },
     speakers: {
       targetItems: [
@@ -245,7 +245,7 @@ export const SESSIONS: GraphQLSession[] = [
       },
     },
     imageTransformation: {
-      value: 'Fuel For Life: Nutrition 101',
+      value: 'medium',
     },
     speakers: {
       targetItems: [
