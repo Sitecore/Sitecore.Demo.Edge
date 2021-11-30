@@ -13,6 +13,9 @@ export const SESSIONS: GraphQLSession[] = [
         },
       },
     },
+    imageTransformation: {
+      value: 'Fuel For Life: Nutrition 101',
+    },
     speakers: {
       targetItems: [
         {
@@ -68,6 +71,9 @@ export const SESSIONS: GraphQLSession[] = [
           src: '/assets/img/tickets/Banner2.jpg',
         },
       },
+    },
+    imageTransformation: {
+      value: 'Fuel For Life: Nutrition 101',
     },
     speakers: {
       targetItems: [
@@ -152,6 +158,9 @@ export const SESSIONS: GraphQLSession[] = [
         },
       },
     },
+    imageTransformation: {
+      value: 'Fuel For Life: Nutrition 101',
+    },
     speakers: {
       targetItems: [
         {
@@ -234,6 +243,9 @@ export const SESSIONS: GraphQLSession[] = [
           src: '/assets/img/tickets/Banner2.jpg',
         },
       },
+    },
+    imageTransformation: {
+      value: 'Fuel For Life: Nutrition 101',
     },
     speakers: {
       targetItems: [

@@ -16,6 +16,9 @@ const speaker1 = {
   name: {
     value: 'First Speaker Name',
   },
+  pictureTransformation: {
+    value: 'profile',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -37,6 +40,9 @@ const speaker2 = {
   name: {
     value: 'Sophia Taylor',
   },
+  pictureTransformation: {
+    value: 'profile',
+  },
   picture: {
     jsonValue: {
       value: {
@@ -57,6 +63,9 @@ const speaker3 = {
   itemName: 'Jalen Taylor',
   name: {
     value: 'Jalen Taylor',
+  },
+  pictureTransformation: {
+    value: 'profile',
   },
   picture: {
     jsonValue: {
