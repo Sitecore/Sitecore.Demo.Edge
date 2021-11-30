@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import { getAllSessionsByDay } from '../../api/queries/getSessions';
 import ScheduleForDay from '../../components/ScheduleForDay';
 import { ScheduleSlot } from '../../interfaces/schedule';
@@ -8,10 +10,13 @@ import { getAllDays } from '../../api/queries/getDays';
 import { Params } from '../../interfaces';
 import { Day } from '../../interfaces/day';
 import ScheduleDetails from '../../components/ScheduleDetails';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 type ScheduleProps = {
   sessions: Session[];
   days: Day[];
+  day: string;
 };
 
 export declare type ScheduleParams = {
@@ -59,12 +64,42 @@ function generateSchedule(sessions: Session[]): ScheduleSlot[][] {
 }
 
 const Schedule = (props: ScheduleProps): JSX.Element => {
+  const router = useRouter();
+  const initialPageLoadDay = useRef(props.day);
+  const [sessions, setSessions] = useState(props.sessions);
+
+  function handleQuickRefreshClick() {
+    const day = router.query.id?.toString() || '0';
+    getAllSessionsByDay(day).then((data) => {
+      setSessions(data.sessions);
+    });
+  }
+
+  useEffect(() => {
+    // Do not get the sessions if the day has not changed This means they come from the props.
+    if (initialPageLoadDay.current !== router.query.id?.toString()) {
+      const day = router.query.id?.toString() || '0';
+      getAllSessionsByDay(day).then((data) => {
+        setSessions(data.sessions);
+      });
+    }
+
+    initialPageLoadDay.current = router.query.id?.toString() || '0';
+  }, [router]);
+
   return (
-    <Screen>
-      <ScheduleHeader days={props.days} />
-      <ScheduleForDay schedule={generateSchedule(props.sessions)} />
-      <ScheduleDetails sessions={props.sessions} />
-    </Screen>
+    <>
+      <div className="menu">
+        <div className="menu-button refresh-button" onClick={handleQuickRefreshClick}>
+          <FontAwesomeIcon className="icon" icon={faSyncAlt} />
+        </div>
+      </div>
+      <Screen>
+        <ScheduleHeader days={props.days} />
+        <ScheduleForDay schedule={generateSchedule(sessions)} />
+        <ScheduleDetails sessions={sessions} />
+      </Screen>
+    </>
   );
 };
 
@@ -85,6 +120,7 @@ export const getStaticProps = async ({ params }: ScheduleParams) => {
     props: {
       sessions,
       days,
+      day: params.id,
     },
     revalidate: 10,
   };
