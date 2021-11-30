@@ -1,17 +1,8 @@
 ﻿---
-ID: "f65842d9-144e-432e-92b0-f0d768d476da"
-Parent: "854bd01a-0c22-48fc-a761-86a1eb694943"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/Data/Transformations
-SharedFields:
-- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
-  Hint: __Masters
-  Value: |
-    {4D03ED76-4DE7-4F96-9E65-6426E4421A45}
-    {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 400
+ID: "cdd67662-c266-41e0-9dfa-5b14bca07012"
+Parent: "225eac13-d01e-4d05-9c41-031e5e1c234e"
+Template: "9d131d4b-98ed-4e44-a81d-144356aef00a"
+Path: "/sitecore/content/EdgeWebsite/Data/CssClassNames/section__full-image--offer"
 Languages:
 - Language: en
   Versions:
@@ -19,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211116T155249Z
+      Value: 20211130T184611Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -30,11 +21,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "dc432158-c7ff-4eb2-9dd4-5afc6f088b99"
+      Value: "3da549b5-a6ed-45b9-a0ed-f9ae23169c3c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211122T184506Z
+      Value: 20211130T184611Z
