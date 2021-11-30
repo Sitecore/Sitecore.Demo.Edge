@@ -24,6 +24,9 @@ const speaker = {
       },
     },
   },
+  pictureTransformation: {
+    value: 'profile',
+  },
   featured: {
     value: true,
   },
