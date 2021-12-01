@@ -19,12 +19,6 @@ namespace Sitecore.Demo.Init.Jobs
 
         public async Task Run()
         {
-            if (this.IsCompleted())
-            {
-                Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-                return;
-            }
-
             var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
             if (string.IsNullOrEmpty(ns))
             {
