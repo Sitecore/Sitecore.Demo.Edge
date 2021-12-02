@@ -15,7 +15,9 @@ const SessionItem = (props: SessionItemProps): JSX.Element => {
     session?.image?.jsonValue?.value?.src
       ? {
           backgroundImage: `url(${session.image.jsonValue.value.src}&t=${
-            session.imageTransformation?.value != '' ? session.imageTransformation.value : 'web'
+            session.imageTransformation && session.imageTransformation.value != ''
+              ? session.imageTransformation.value
+              : 'web'
           })`,
         }
       : {};
