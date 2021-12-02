@@ -79,10 +79,12 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope);
-            DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
-            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, cmpEndpointUrl, cmpApiKey, token,
-                scope);
+            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope));
+            Task website = Task.Factory.StartNew(() =>
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope));
+            Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
+                cmpEndpointUrl, cmpApiKey, token, scope));
+            Task.WaitAll(tv, website, kiosk);
 
             Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
