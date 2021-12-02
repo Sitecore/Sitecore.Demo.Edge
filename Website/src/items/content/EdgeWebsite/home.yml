@@ -19,7 +19,7 @@ SharedFields:
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
           uid="{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}"
-          p:after="r[@uid='{04D6B23E-6CE3-51A1-9C9C-4CD56B29B6AA}']"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
           s:rname="HeroSection"
           s:ds="{F2A3B54C-4474-4F5C-8B4E-3E049975000E}"
           s:id="{C8BE3A17-798F-5054-B012-4772CB23AC88}"
