@@ -84,6 +84,7 @@ namespace Sitecore.Demo.Init.Jobs
             DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, cmpEndpointUrl, cmpApiKey, token,
                 scope);
 
+            Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
         }
 
