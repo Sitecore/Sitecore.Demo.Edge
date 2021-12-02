@@ -39,7 +39,7 @@ SharedFields:
           results {
             ... on Speaker {
               itemName: name
-              role: jobTitle{
+              role: jobTitle {
                 value
               }
               name: field(name: "name") {
@@ -74,7 +74,7 @@ SharedFields:
   Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers
 Languages:
 - Language: en
   Versions:

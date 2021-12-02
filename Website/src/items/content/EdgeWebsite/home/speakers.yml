@@ -26,6 +26,7 @@ SharedFields:
         <r
           uid="{AB124E7A-EF78-4801-92BC-92DB133ECA28}"
           p:after="r[@uid='{DC97D398-D7B5-5407-B2B2-B28516EB743F}']"
+          s:rname="FeaturedSpeakers"
           s:ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
           s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
           s:par=""
@@ -34,6 +35,7 @@ SharedFields:
         <r
           uid="{FEA6367D-427C-44E9-B789-5876A6093332}"
           p:after="r[@uid='{AB124E7A-EF78-4801-92BC-92DB133ECA28}']"
+          s:rname="SpeakersGrid"
           s:ds=""
           s:id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
           s:par=""
