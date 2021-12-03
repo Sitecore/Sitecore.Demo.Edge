@@ -9,6 +9,10 @@ SharedFields:
   Value: "c0M7RkhSik2iDu7iPqi-5g"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Martin Moore
   Versions:
   - Version: 1
     Fields:
@@ -28,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b3b22773-5303-4c5a-b944-386f8bd532e2"
+      Value: "a7ab4cb8-eb39-4c74-87de-e71acb1651c0"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Spark
@@ -48,7 +52,7 @@ Languages:
       Value: Customer Success Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124016Z
+      Value: 20211124T151012Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Speaker
@@ -61,4 +65,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="31916" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/31916/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/c82829a260ff47bcaeaf2b07308a1b6b?v=6b071637" mediaid="" stylelabs-content-type="Image" alt="martin-moore.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="49458" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49458/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a241ebe4a45d4e0b9473474f16ad43fc?v=45418130" mediaid="" stylelabs-content-type="Image" alt="Martin Moore - No background" height="3778" width="3777" />

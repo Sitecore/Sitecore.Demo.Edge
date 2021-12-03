@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "src/pages/api/editing/render.ts": {
+      "memory": 3008
+    },
+    "src/pages/api/editing/data/*.ts": {
+      "memory": 3008
+    }
+  },
+  "regions": ["cle1"]
+}

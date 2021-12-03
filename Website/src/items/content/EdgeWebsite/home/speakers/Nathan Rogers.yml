@@ -9,6 +9,10 @@ SharedFields:
   Value: "98sjAjwF3kmZ_mV1ez1-UQ"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Nathan Rogers
   Versions:
   - Version: 1
     Fields:
@@ -28,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "568fbd6e-e068-4fc7-ba4e-9b58759d6cb1"
+      Value: "97aa1ffb-a7eb-4753-8432-8a0d4e077741"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: On the Green
@@ -48,7 +52,7 @@ Languages:
       Value: Product Design Manager
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123741Z
+      Value: 20211124T150816Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru
@@ -61,4 +65,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="35022" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/35022/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a8575404b33c4dc68324e9125db72e08?v=eca81cfd" mediaid="" stylelabs-content-type="Image" alt="nathan-rogers-1000.jpg" height="1000" width="1000" />
+        <image stylelabs-content-id="49460" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49460/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d67c678ada2c4ac7a1d7c86931531cf3?v=eeeb327a" mediaid="" stylelabs-content-type="Image" alt="NathanRogers - no background" height="5653" width="5653" />

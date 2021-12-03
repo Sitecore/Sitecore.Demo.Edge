@@ -36,6 +36,10 @@ Left.args = {
       value: 'PLAY! Summit Exclusive Offer',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const Right = Template.bind({});
@@ -63,5 +67,9 @@ Right.args = {
     title: {
       value: 'Chris Williams',
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

@@ -9,13 +9,17 @@ SharedFields:
   Value: "X2pQjfxo4kajCXj0-u_ASw"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Vendor Pavilion
   Versions:
   - Version: 1
     Fields:
     - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="30916" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/30916/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/7086de82b44d4684afb6ddced7fd1b22?v=f2bedad8" mediaid="" stylelabs-content-type="Image" alt="header-banner.jpg" height="3024" width="4032" />
+        <image stylelabs-content-id="30916" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30916/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/7086de82b44d4684afb6ddced7fd1b22?v=f2bedad8" mediaid="" stylelabs-content-type="Image" alt="Parking garage banner" height="3024" width="4032" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T164249Z
@@ -32,12 +36,12 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "41ee3b64-e4dc-4733-add8-632fa29122c6"
+      Value: "e2ec2b16-566c-4611-a24f-f3956891a85f"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |
         <p>The Vendor Pavilion is the largest venue for PLAY! Summit. This venue contains open floor for vendor booths as well as session rooms and&nbsp;underground parking.</p>
-           
+                  
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -47,7 +51,7 @@ Languages:
       Value: "{4D920373-9BC1-44A5-A586-0AF23C5711A1}|{2ACD0217-A6FE-401C-9E0C-FF625CAD8CC3}|{6FE42A91-749B-4B13-BBA6-826DABE94B00}|{79DB435E-A1D1-42D3-9FC5-097E5C5085D9}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174907Z
+      Value: 20211124T150056Z
     - ID: "fc3b2a6c-042b-421c-9c3d-88c83186ceb9"
       Hint: Name
       Value: Vendor Pavilion

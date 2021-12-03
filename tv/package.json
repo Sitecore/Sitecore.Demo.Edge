@@ -11,6 +11,9 @@
     "stylelint": "stylelint ./**/*.css ./**/*.tsx"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "next": "11.0.1",
     "postcss-import": "^14.0.2",
     "postcss-sassy-mixins": "^2.1.0",

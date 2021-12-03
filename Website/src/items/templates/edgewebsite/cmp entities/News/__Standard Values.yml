@@ -50,12 +50,6 @@ SharedFields:
           ph="/jss-header/jss-header-content-{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}-0"
           uid="{3BB48511-620A-50E4-A1E4-1FD6141CF80D}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{89F6C49E-DA31-5ED9-9735-896C2D2DDE36}" />
-        <r
           id="{3E02494C-9CB5-5FC4-A78B-C6AF4C44A559}"
           ph="/jss-main"
           uid="{B23088D0-D2AA-4FE6-BC92-2A98E2BC449A}" />
@@ -97,17 +91,23 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\Admin
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: $name
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "47797260-57b8-4a65-ad4b-bea3859c0e70"
+      Value: "e063800f-b2f9-4730-9bac-14432521e12e"
+    - ID: "a186dea1-d336-4aa4-8448-fbdd419c31fe"
+      Hint: ImageTransformation
+      Value: postcard
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T204321Z
+      Value: 20211116T174823Z

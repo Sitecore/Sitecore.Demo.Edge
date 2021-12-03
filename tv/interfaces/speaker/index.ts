@@ -1,26 +1,20 @@
 import { Image } from '../asset';
 
-export interface SpeakerResults {
-  results: SpeakerResult[];
-}
-
 export interface SpeakerResult {
   id: string;
   name: string;
   description: string;
-  image: Image;
+  speakerToMasterAsset: Image;
 }
 
-export interface AllDemoSpeaker {
+export interface SpeakerResults {
   results: SpeakerResult[];
 }
 
-export interface Data {
-  allDemo_Speaker: AllDemoSpeaker;
-}
-
 export interface AllSpeakersResponse {
-  data: Data;
+  data: {
+    allDemo_Speaker: SpeakerResults;
+  };
 }
 
 export interface Speaker {
@@ -28,5 +22,5 @@ export interface Speaker {
   name: string;
   photo: string;
   description: string;
-  image: Image;
+  speakerToMasterAsset: Image;
 }

@@ -1,4 +1,11 @@
-import { Text, Field, LinkField, RichText, Link } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  Field,
+  LinkField,
+  RichText,
+  Link,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 export type PromoProps = ComponentProps & {
@@ -14,7 +21,7 @@ export type PromoProps = ComponentProps & {
 
 const Promo = ({ fields }: PromoProps): JSX.Element => {
   const sectionCssClasses = `section section__promo ${fields.cssClass.value}`;
-  const positionCssClasses = `section__content section__promo__content section__promo__content--${fields.position.value}`;
+  const positionCssClasses = `section__content section__promo__content section__promo__content--${fields.position.value} container`;
 
   return (
     <section className={sectionCssClasses}>
@@ -34,4 +41,4 @@ const Promo = ({ fields }: PromoProps): JSX.Element => {
   );
 };
 
-export default Promo;
+export default withDatasourceCheck()<PromoProps>(Promo);

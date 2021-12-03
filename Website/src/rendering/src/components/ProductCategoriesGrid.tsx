@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { ProductCategory } from 'src/types/productCategory';
 
@@ -38,4 +38,4 @@ const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
   return <div className="section__products__grid">{categories}</div>;
 };
 
-export default ProductCategoriesGrid;
+export default withDatasourceCheck()<ProductCategoriesProps>(ProductCategoriesGrid);

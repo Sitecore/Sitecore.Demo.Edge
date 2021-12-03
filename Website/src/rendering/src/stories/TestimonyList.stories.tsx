@@ -26,6 +26,10 @@ const testimony1 = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as Testimony;
 
 const testimony2 = {
@@ -42,6 +46,10 @@ const testimony2 = {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as Testimony;
 
@@ -60,6 +68,10 @@ const testimony3 = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as Testimony;
 
 export const Default = Template.bind({});
@@ -73,5 +85,9 @@ Default.args = {
         'Curabitur sodales mi in magna accumsan, vitae finibus libero fringilla. Duis posuere a lorem quis pretium.',
     },
     Companies: [testimony1, testimony2, testimony3],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

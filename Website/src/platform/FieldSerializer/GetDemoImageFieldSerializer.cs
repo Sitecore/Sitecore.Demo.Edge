@@ -19,7 +19,7 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
         protected override void SetResult(GetFieldSerializerPipelineArgs args)
         {
             Assert.ArgumentNotNull((object)args, nameof(args));
-            Log.Info("DEMO TEAM CUSTOMIZATION: New Image Serialization", this);
+            Log.Debug("DEMO TEAM CUSTOMIZATION: New Image Serialization", this);
             args.Result = (IFieldSerializer)new DemoImageFieldSerializer(this.FieldRenderer);
         }
     }

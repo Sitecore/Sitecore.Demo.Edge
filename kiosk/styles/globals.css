@@ -12,6 +12,8 @@
 @import './layout/buttons.css';
 @import './layout/frame.css';
 @import './layout/HeroSection.css';
+@import './layout/navigation.css';
+@import './layout/schedule.css';
 @import './layout/Ticket';
 @import './layout/TicketTiers';
 @import './layout/PaymentForm';

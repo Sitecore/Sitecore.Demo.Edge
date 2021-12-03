@@ -9,6 +9,10 @@ SharedFields:
   Value: "tphcIE-FZ0WENXq96svNCw"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Mountain biking: maintenance or misfortune"
   Versions:
   - Version: 1
     Fields:
@@ -34,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38235" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38235/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/058c0634c01548109076fa51eb1414e7?v=d9cfda0c" mediaid="" stylelabs-content-type="Image" alt="bicycle-maintenance.jpg" height="3168" width="4752" />
+        <image stylelabs-content-id="38235" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38235/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/058c0634c01548109076fa51eb1414e7?v=d9cfda0c" mediaid="" stylelabs-content-type="Image" alt="Bicycle maintenance" height="3168" width="4752" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -60,14 +64,14 @@ Languages:
       Value: "{2ACD0217-A6FE-401C-9E0C-FF625CAD8CC3}|{6FE42A91-749B-4B13-BBA6-826DABE94B00}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "70537e17-3965-454d-8d87-127a12f316ff"
+      Value: "be8061e1-2225-419f-b24d-28da9483ff7f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123051Z
+      Value: 20211124T145116Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Mountain biking: maintenance or misfortune"

@@ -9,12 +9,16 @@ SharedFields:
   Value: eid0YBXeQkeWXzmQeHUMpg
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Room 102
   Versions:
   - Version: 1
     Fields:
     - ID: "0172f895-f21c-445c-be61-38a535bef35b"
       Hint: Sessions
-      Value: "Meet a pro: Q&A with Zoran Borovic [Item not found]"
+      Value: "{EDAB61E8-A039-4F40-AC57-68A9C9EF4363}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 40
@@ -23,7 +27,7 @@ Languages:
       Value: 20210924T164745Z
     - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
       Hint: Description
-      Value:         
+      Value:          
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -34,7 +38,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "760841c3-1c41-4dff-9131-8724b76fdddd"
+      Value: "7f7fa0a3-754a-4d9c-bdf6-885acd801270"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Room 102
@@ -44,7 +48,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210924T174149Z
+      Value: 20211124T143607Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{443A690D-1909-4C5C-A1A4-3F9824C73FF6}"

@@ -9,6 +9,10 @@ SharedFields:
   Value: HOl1YUjfoEScb2gWsvJGZA
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Train smarter - not harder"
   Versions:
   - Version: 1
     Fields:
@@ -29,17 +33,17 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38039" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38039/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a218d495616043568a73c79f05143a93?v=cf7bb555" mediaid="" stylelabs-content-type="Image" alt="fitness-tracker-2.jpg" height="4912" width="7360" />
+        <image stylelabs-content-id="38039" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38039/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a218d495616043568a73c79f05143a93?v=cf7bb555" mediaid="" stylelabs-content-type="Image" alt="Fitness tracker 2" height="4912" width="7360" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
-      Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
+      Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
         default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
-      Value: "{FA4BCD86-6377-476A-B5AF-0468B5889A59}"
+      Value: "{9FA93929-60C9-47DF-9E5A-C170E6EE2440}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -55,14 +59,14 @@ Languages:
       Value: "{80268225-1D8E-477C-A866-0EA047A7876A}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d7ebbd6c-5fe5-483b-b1de-82d20c55e687"
+      Value: "417ea8dd-07c4-4074-8d70-202497ec0b91"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211006T112956Z
+      Value: 20211124T145418Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Train smarter - not harder"

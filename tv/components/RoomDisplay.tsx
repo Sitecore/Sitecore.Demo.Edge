@@ -1,25 +1,24 @@
-import { Session } from '../interfaces/session';
-import { Room } from '../interfaces/room';
 import Image from 'next/image';
+import { Session } from '../interfaces/session';
 import qr from '../public/play_qr.png';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type RoomProps = {
-  sessions: Session[];
-  room: Room;
+  currentSession: Session | null;
+  nextSession: Session | null;
 };
 
-const RoomDisplay = (props: RoomProps): JSX.Element => {
+const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element => {
   return (
     <div className="roomDisplay">
       <div className="image-left">
-        {props.sessions.length > 0 && (
+        {currentSession && (
           <>
             <Image
               loader={contentHubImageLoader}
-              src={props.sessions[0]?.image}
+              src={currentSession.image}
               layout="fill"
               objectFit="cover"
               alt="Sample"
@@ -31,11 +30,7 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
             </div>
           </>
         )}
-        {props.sessions.length === 0 && (
-          <>
-            <Image src={bg} layout="fill" objectFit="cover" alt="Sample" />
-          </>
-        )}
+        {!currentSession && <Image src={bg} layout="fill" objectFit="cover" alt="Sample" />}
       </div>
       <div className="scheduled">
         <div className="black-container"></div>
@@ -45,42 +40,46 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
           <div className="w-full">
             <Image className="logo" src={logo} alt="logo" width={60} height={80} />
             <div className="room-name text-right text-white text-6xl font-extrabold inline right-0 absolute pt-10">
-              {props.room.name}
+              {currentSession && currentSession.room}
             </div>
           </div>
 
-          {props.sessions.length > 0 && (
+          {currentSession && (
             <>
               <h1 className="eyebrow">Happening now</h1>
-              <h1 className="title">{props.sessions[0]?.name}</h1>
+              <h1 className="title">{currentSession.name}</h1>
               <div className="detail">
-                {props.sessions[0]?.speaker}
+                {currentSession.speaker}
                 <br />
-                10:00 AM - 11:00 AM
+                {currentSession.timeslot}
               </div>
-              {props.sessions.length > 1 && (
-                <div className="next-session">
-                  <div className="background"></div>
-                  <div className="left-content">
-                    <div className="eyebrow">Coming up next...</div>
-                    <div className="title">{props.sessions[1]?.name}</div>
-                    <div className="detail">{props.sessions[1]?.speaker} | 11:00 AM - 12:00 PM</div>
-                  </div>
-                  <div className="right-content">
-                    <Image
-                      className="checkin-code"
-                      src={qr}
-                      alt="check-in"
-                      width={160}
-                      height={160}
-                    />
-                  </div>
-                </div>
-              )}
             </>
           )}
 
-          {props.sessions.length === 0 && (
+          {!currentSession && nextSession && (
+            <>
+              <h1 className="eyebrow">No session at the moment</h1>
+              <h1 className="title">Check out the next session</h1>
+            </>
+          )}
+
+          {nextSession && (
+            <div className="next-session">
+              <div className="background"></div>
+              <div className="left-content">
+                <div className="eyebrow">Coming up next...</div>
+                <div className="title">{nextSession.name}</div>
+                <div className="detail">
+                  {nextSession.speaker} | {nextSession.timeslot}
+                </div>
+              </div>
+              <div className="right-content">
+                <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+              </div>
+            </div>
+          )}
+
+          {!currentSession && !nextSession && (
             <>
               <h1 className="eyebrow">Done for the day!</h1>
               <h1 className="title">Thank you for attending PLAY! Summit</h1>
