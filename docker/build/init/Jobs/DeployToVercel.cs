@@ -84,7 +84,8 @@ namespace Sitecore.Demo.Init.Jobs
                 DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
                 cmpEndpointUrl, cmpApiKey, token, scope));
-            Task.WaitAll(tv, website, kiosk);
+            Task billboard = Task.Factory.StartNew(() => DeployBillboard(ns, cmpEndpointUrl, cmpApiKey, token, scope));
+            Task.WaitAll(tv, website, kiosk, billboard);
 
             Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
@@ -210,6 +211,35 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-kiosks.sitecoredemo.com --token {token} --scope {scope}");
+        }
+
+           private static void DeployBillboard(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
+        {
+            var sourceDirectory = "C:\\app\\billboard";
+            var targetDirectory = $"C:\\app\\{ns}-billboard";
+
+            // Needed to ensure that Vercel project has unique name per namespace
+            Directory.Move(sourceDirectory, targetDirectory);
+
+            var cmd = new WindowsCommandLine(targetDirectory);
+
+            // Remove project if already exists
+            cmd.Run($"vercel remove {ns}-billboard --token {token} --scope {scope} --yes");
+
+            // Create new project
+            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
+
+            // Configure env. variables
+            cmd.Run(
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+
+            // Deploy project files
+            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+
+            // Assign custom domain name
+            cmd.Run($"vercel domains add {ns}-billboard.sitecoredemo.com --token {token} --scope {scope}");
         }
     }
 }

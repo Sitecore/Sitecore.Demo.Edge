@@ -60,14 +60,20 @@ export const getBillboards = async (): Promise<{
     billboardQuery
   )) as BillboardResponse;
   const billboards: BillboardResult[] =
-    results.data.allM_Content_Advertisement.results;
+    results?.data?.allM_Content_Advertisement?.results;
+
+  if (!billboards) {
+    return { billboards: [] };
+  }
 
   return {
     billboards: billboards,
   };
 };
 
-export const getBillboardById = async (id: string): Promise<{ billboard: BillboardResult }> => {
+export const getBillboardById = async (
+  id: string
+): Promise<{ billboard: BillboardResult }> => {
   const { billboards } = await getBillboards();
 
   return {
