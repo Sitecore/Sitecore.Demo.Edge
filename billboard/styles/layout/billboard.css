@@ -3,19 +3,34 @@
 
   .billboard-frame {
     position: absolute;
+
     left: 11rem;
     top: 7rem;
     transform: perspective(400px) rotateY(10deg) scale(0.9);
+
+    .billboard-container {
+      top: 1.7rem;
+      left: 2.7rem;
+      bottom: 32rem;
+      right: 2.3rem;
+    }
+
+    &.Ob6bc7hS40SsfCLf7KP9kg {
+      left: 1rem;
+      top: 9rem;
+      transform: perspective(446px) rotateY(7deg) scale(0.9) rotateX(4deg);
+
+      .billboard-container {
+        top: 1.8rem;
+        left: 4.8rem;
+        bottom: 25rem;
+        right: 2.3rem;
+      }
+    }
   }
 
   .billboard-container {
     @apply flex flex-row absolute;
-
-    position: absolute;
-    top: 1.7rem;
-    left: 2.7rem;
-    bottom: 32rem;
-    right: 2.3rem;
 
     .image-left {
       @apply flex-1 h-full w-1/2 absolute bg-cover;

@@ -14,7 +14,7 @@ export function contentHubImageSrcGenerator(src: Image) {
   const contentHubUrl = "https://playsummit.sitecoresandbox.cloud:8443";
 
   if (src?.results[0]?.assetToPublicLink?.results[0]) {
-    return `${contentHubUrl}/api/public/content/${src.results[0].assetToPublicLink.results[0].relativeUrl}?v=${src.results[0].assetToPublicLink.results[0].versionHash}`;
+    return `${contentHubUrl}/api/public/content/${src.results[0].assetToPublicLink.results[0].relativeUrl}?v=${src.results[0].assetToPublicLink.results[0].versionHash}&t=web`;
   } else {
     return "/background.jpg";
   }

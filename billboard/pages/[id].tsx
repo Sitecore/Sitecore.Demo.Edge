@@ -5,8 +5,8 @@ import Image from "next/image";
 import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader";
 import React from "react";
 import Navigation from "../components/Navigation";
-import theBillboard from "../public/billboard-frame.png";
-import Link from "next/link";
+import theBillboard1 from "../public/billboard-frame.png";
+import theBillboard2 from "../public/billbaord2.png";
 
 type BillboardProps = {
   billboard: BillboardResult;
@@ -17,6 +17,28 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
+  //4bwwmhx1jU2duqmDcxD0Qg mountain billboard
+  //Ob6bc7hS40SsfCLf7KP9kg ocean billboard
+  const billboardFrame =
+    props.billboard.id == "Ob6bc7hS40SsfCLf7KP9kg" ||
+    props.billboard.id == "0000" ? (
+      <Image
+        src={theBillboard2}
+        alt="the billboard"
+        width={1000}
+        height={900}
+        layout={"fixed"}
+      ></Image>
+    ) : (
+      <Image
+        src={theBillboard1}
+        alt="the billboard"
+        width={1000}
+        height={900}
+        layout={"fixed"}
+      ></Image>
+    );
+
   return (
     <>
       <Navigation />
@@ -33,14 +55,8 @@ export default function BillboardPage(props: BillboardProps) {
             layout={"fixed"}
           />
         </div>
-        <div className="billboard-frame">
-          <Image
-            src={theBillboard}
-            alt="the billboard"
-            width={1000}
-            height={900}
-            layout={"fixed"}
-          ></Image>
+        <div className={"billboard-frame " + props.billboard.id}>
+          {billboardFrame}
           <div className="billboard-container">
             <div
               className="image-left"
