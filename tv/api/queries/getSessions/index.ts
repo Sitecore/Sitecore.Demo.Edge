@@ -140,11 +140,15 @@ const formattedSession = function (
     session.speaker = sessionResult.speakers.results[0].name;
   }
 
-  session.Day = day.taxonomyName;
-  session.ShortDay = day.sortOrder;
+  if (day != null) {
+    session.Day = day.taxonomyName;
+    session.ShortDay = day.sortOrder;
+  }
 
-  session.timeslot = time.taxonomyLabel['en-US'];
-  session.sortOrder = time.sortOrder;
+  if (time != null) {
+    session.timeslot = time.taxonomyLabel['en-US'];
+    session.sortOrder = time.sortOrder;
+  }
 
   return session;
 };
@@ -159,7 +163,9 @@ const parseAndFilterSession = function (
     let filteredSessions: SessionResult[] = [];
     if (filterBy) {
       if (filterBy == 'room') {
-        filteredSessions = sessionResults.filter((sess) => sess.room.results[0].id === filterValue);
+        filteredSessions = sessionResults.filter(
+          (sess) => sess.room.results.length > 0 && sess.room.results[0].id === filterValue
+        );
       } else if (filterBy == 'speaker') {
         filteredSessions = sessionResults.filter(
           (sess) => sess.speakers.results[0].id === filterValue
@@ -167,7 +173,10 @@ const parseAndFilterSession = function (
       } else if (filterBy == 'day') {
         sessionResults.map((sess) => {
           if (sess.dayToSession.results.length < 2) {
-            if (sess.dayToSession.results[0].sortOrder == filterValue.toString()) {
+            if (
+              sess.dayToSession.results.length > 0 &&
+              sess.dayToSession.results[0].sortOrder == filterValue.toString()
+            ) {
               filteredSessions.push(sess);
             }
           } else {
