@@ -11,6 +11,7 @@ namespace Sitecore.Demo.Init.Jobs
     {
         private const string SitecoreApiKey = "{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}";
         private const string ErrorText = "Error! Check your logs";
+        private const string DefaultVercelRegion = "cle1";
 
         public DeployToVercel(InitContext initContext)
             : base(initContext)
@@ -39,6 +40,12 @@ namespace Sitecore.Demo.Init.Jobs
             {
                 Log.LogWarning($"{this.GetType().Name} will not execute this time, VERCEL_SCOPE is not configured");
                 return;
+            }
+
+            var region = Environment.GetEnvironmentVariable("VERCEL_REGION");
+            if (string.IsNullOrEmpty(token))
+            {
+                region = DefaultVercelRegion;
             }
 
             var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
@@ -81,7 +88,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope));
             Task website = Task.Factory.StartNew(() =>
-                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope));
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
                 cmpEndpointUrl, cmpApiKey, token, scope));
             Task.WaitAll(tv, website, kiosk);
@@ -124,7 +131,7 @@ namespace Sitecore.Demo.Init.Jobs
         }
 
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
-            string cdpProxyUrl, string token, string scope)
+            string cdpProxyUrl, string token, string scope, string region)
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
@@ -160,7 +167,7 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
 
             // Deploy project files
-            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
             if (output.Contains(ErrorText))
             {
                 throw new Exception($"An error has occurred when running DeployToVercel job: DeployWebsite");
