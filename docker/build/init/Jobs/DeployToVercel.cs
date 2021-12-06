@@ -86,18 +86,18 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope));
+            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
                 DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
-                cmpEndpointUrl, cmpApiKey, token, scope));
+                cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task.WaitAll(tv, website, kiosk);
 
             Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
         }
 
-        private static void DeployTv(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
+        private static void DeployTv(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope, string region)
         {
             var sourceDirectory = "C:\\app\\tv";
             var targetDirectory = $"C:\\app\\{ns}-tv";
@@ -120,7 +120,7 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
-            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
             if (output.Contains(ErrorText))
             {
                 throw new Exception($"An error has occurred when running DeployToVercel job: DeployTv");
@@ -178,7 +178,7 @@ namespace Sitecore.Demo.Init.Jobs
         }
 
         private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl,
-            string cmpEndpointUrl, string cmpApiKey, string token, string scope)
+            string cmpEndpointUrl, string cmpApiKey, string token, string scope, string region)
         {
             var sourceDirectory = "C:\\app\\kiosk";
             var targetDirectory = $"C:\\app\\{ns}-kiosk";
@@ -209,7 +209,7 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
-            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
             if (output.Contains(ErrorText))
             {
                 throw new Exception($"An error has occurred when running DeployToVercel job: DeployKiosk");
