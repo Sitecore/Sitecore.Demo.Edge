@@ -43,7 +43,7 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var region = Environment.GetEnvironmentVariable("VERCEL_REGION");
-            if (string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(region))
             {
                 region = DefaultVercelRegion;
             }
