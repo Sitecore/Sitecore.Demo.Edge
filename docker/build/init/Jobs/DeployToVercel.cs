@@ -19,12 +19,6 @@ namespace Sitecore.Demo.Init.Jobs
 
         public async Task Run()
         {
-            if (this.IsCompleted())
-            {
-                Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-                return;
-            }
-
             var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
             if (string.IsNullOrEmpty(ns))
             {
@@ -93,11 +87,14 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            DeployTv(ns, damUrl, cmpEndpointUrl, cmpApiKey, token, scope);
-            DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
-            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, cmpEndpointUrl, cmpApiKey, token,
-                scope);
+            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope));
+            Task website = Task.Factory.StartNew(() =>
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope));
+            Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
+                cmpEndpointUrl, cmpApiKey, token, scope));
+            Task.WaitAll(tv, website, kiosk);
 
+            Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
         }
 
