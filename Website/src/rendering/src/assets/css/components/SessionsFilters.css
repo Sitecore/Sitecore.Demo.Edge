@@ -2,7 +2,7 @@
   @apply space-y-5;
 
   .filters-row {
-    @apply w-full px-10 flex flex-wrap overflow-hidden text-sm space-y-5;
+    @apply w-full px-10 flex-wrap overflow-hidden text-sm space-y-5 hidden;
     @apply md:space-y-0;
 
     .filters-col {

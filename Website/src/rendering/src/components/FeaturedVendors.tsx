@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { Vendor } from 'src/types/vendor';
 
@@ -43,4 +43,4 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
   );
 };
 
-export default FeaturedVendors;
+export default withDatasourceCheck()<FeaturedVendorsProps>(FeaturedVendors);

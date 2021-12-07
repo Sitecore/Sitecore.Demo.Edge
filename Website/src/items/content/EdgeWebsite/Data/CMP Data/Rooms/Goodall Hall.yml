@@ -9,9 +9,16 @@ SharedFields:
   Value: PFHp1YnqIUuoB8sZB1jhMg
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Goodall Hall
   Versions:
   - Version: 1
     Fields:
+    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
+      Hint: Sessions
+      Value: "{A39F9FBC-DA18-473D-BD74-47429B695614}"
     - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
       Hint: Capacity
       Value: 100
@@ -33,7 +40,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8f76349f-8010-4ee5-b09f-e5e8776f3478"
+      Value: "6e301542-1f22-42e7-8f12-ac7f9c03cb16"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Goodall Hall
@@ -43,7 +50,7 @@ Languages:
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211006T112729Z
+      Value: 20211124T140943Z
     - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
       Hint: Venue
       Value: "{B6D5789C-3F8E-4CAC-97E5-B0334FD67DE8}"

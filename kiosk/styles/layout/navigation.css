@@ -1,0 +1,15 @@
+.menu {
+  @apply absolute inline-block top-0 left-0 z-50;
+
+  .menu-button {
+    @apply absolute w-10 h-10 bg-black z-40 text-white text-3xl rounded-full mx-auto text-center;
+  }
+
+  .refresh-button {
+    @apply top-3 left-3 cursor-pointer;
+
+    .icon {
+      @apply w-6 mx-auto pt-2;
+    }
+  }
+}

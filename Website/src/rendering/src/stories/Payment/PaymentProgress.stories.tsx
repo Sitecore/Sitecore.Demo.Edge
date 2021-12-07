@@ -17,6 +17,10 @@ Page1.args = {
       value: 1,
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };
 
 export const Page2 = Template.bind({});

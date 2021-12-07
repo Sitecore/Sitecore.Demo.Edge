@@ -9,6 +9,10 @@ SharedFields:
   Value: "6xGGrJo1yEOmyd--AfS6-A"
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ed Jones
   Versions:
   - Version: 1
     Fields:
@@ -28,7 +32,7 @@ Languages:
         default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "46f88197-8c69-485c-9ba5-0dffc5468b0f"
+      Value: "31060e3d-86ac-40c4-9d6f-79f10865bfd3"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Alba
@@ -51,7 +55,7 @@ Languages:
       Value: Director of Sales
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123645Z
+      Value: 20211124T150758Z
     - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
       Hint: Role
       Value: Sales Guru
@@ -64,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="32033" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/32033/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/3e7d827a8ae4436d81fbe70d2fb909ff?v=7aa3a947" mediaid="" stylelabs-content-type="Image" alt="ed-jones.jpeg" height="200" width="200" />
+        <image stylelabs-content-id="49408" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49408/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/2cde21c7ab3a4f26bc6e1afb891b1ecf?v=3f1b098b" mediaid="" stylelabs-content-type="Image" alt="Ed Jones - No background" height="4586" width="4586" />

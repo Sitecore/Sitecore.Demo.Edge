@@ -23,7 +23,7 @@ const speaker1 = {
     },
     Picture: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/3fcb3ce4bc0d4d778da7a3dc66fa1cb2?v=e3d5a7cb',
       },
     },
     JobTitle: {
@@ -50,6 +50,9 @@ const speaker1 = {
     },
     LinkedinProfileLink: {
       value: 'https://linkedin.com/asada',
+    },
+    Featured: {
+      value: false,
     },
   },
 } as Speaker;
@@ -64,7 +67,7 @@ const speaker2 = {
     },
     Picture: {
       value: {
-        src: 'https://mint.stylelabs.io/api/public/content/71277d3734f9479fae9b22e58d36e217?v=8f834e76',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/0fd271e931024667b36c3e21dd3256b1?v=82e3ff67',
       },
     },
     JobTitle: {
@@ -91,6 +94,9 @@ const speaker2 = {
     },
     LinkedinProfileLink: {
       value: 'https://linkedin.com/asada',
+    },
+    Featured: {
+      value: true,
     },
   },
 } as Speaker;
@@ -134,6 +140,17 @@ const days = [
     fields: {
       Name: {
         value: 'Day 1',
+      },
+    },
+  },
+  {
+    name: {
+      value: 'Day 2',
+    },
+
+    fields: {
+      Name: {
+        value: 'Day 2',
       },
     },
   },

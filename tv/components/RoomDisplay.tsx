@@ -1,44 +1,16 @@
-import { useContext } from 'react';
 import Image from 'next/image';
 import { Session } from '../interfaces/session';
-import { Room } from '../interfaces/room';
 import qr from '../public/play_qr.png';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
-import { DayTimeContext } from '../contexts/DayTimeContext';
 
 type RoomProps = {
-  sessions: Session[];
-  room: Room;
+  currentSession: Session | null;
+  nextSession: Session | null;
 };
 
-const RoomDisplay = (props: RoomProps): JSX.Element => {
-  const dayTimeContext = useContext(DayTimeContext);
-
-  const selectedDay = `Day ${parseInt(dayTimeContext.dayTime.day) + 1}`;
-  const selectedTime = parseInt(dayTimeContext.dayTime.time);
-
-  const currentAndNextSessions = props.sessions.filter(
-    (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
-  );
-  let currentSession: Session | null = null;
-  let nextSession: Session | null = null;
-
-  if (currentAndNextSessions.length > 0) {
-    const firstSession = currentAndNextSessions[0];
-
-    if (firstSession.sortOrder === selectedTime) {
-      currentSession = firstSession;
-
-      if (currentAndNextSessions.length > 1) {
-        nextSession = currentAndNextSessions[1];
-      }
-    } else {
-      nextSession = firstSession;
-    }
-  }
-
+const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element => {
   return (
     <div className="roomDisplay">
       <div className="image-left">
@@ -68,51 +40,43 @@ const RoomDisplay = (props: RoomProps): JSX.Element => {
           <div className="w-full">
             <Image className="logo" src={logo} alt="logo" width={60} height={80} />
             <div className="room-name text-right text-white text-6xl font-extrabold inline right-0 absolute pt-10">
-              {props.room.name}
+              {currentSession && currentSession.room}
             </div>
           </div>
 
-          {(currentSession || nextSession) && (
+          {currentSession && (
             <>
-              {currentSession && (
-                <>
-                  <h1 className="eyebrow">Happening now</h1>
-                  <h1 className="title">{currentSession.name}</h1>
-                  <div className="detail">
-                    {currentSession.speaker}
-                    <br />
-                    {currentSession.timeslot}
-                  </div>
-                </>
-              )}
-              {!currentSession && (
-                <>
-                  <h1 className="eyebrow">No session at the moment</h1>
-                  <h1 className="title">Check out the next session</h1>
-                </>
-              )}
-              {nextSession && (
-                <div className="next-session">
-                  <div className="background"></div>
-                  <div className="left-content">
-                    <div className="eyebrow">Coming up next...</div>
-                    <div className="title">{nextSession.name}</div>
-                    <div className="detail">
-                      {nextSession.speaker} | {nextSession.timeslot}
-                    </div>
-                  </div>
-                  <div className="right-content">
-                    <Image
-                      className="checkin-code"
-                      src={qr}
-                      alt="check-in"
-                      width={160}
-                      height={160}
-                    />
-                  </div>
-                </div>
-              )}
+              <h1 className="eyebrow">Happening now</h1>
+              <h1 className="title">{currentSession.name}</h1>
+              <div className="detail">
+                {currentSession.speaker}
+                <br />
+                {currentSession.timeslot}
+              </div>
             </>
+          )}
+
+          {!currentSession && nextSession && (
+            <>
+              <h1 className="eyebrow">No session at the moment</h1>
+              <h1 className="title">Check out the next session</h1>
+            </>
+          )}
+
+          {nextSession && (
+            <div className="next-session">
+              <div className="background"></div>
+              <div className="left-content">
+                <div className="eyebrow">Coming up next...</div>
+                <div className="title">{nextSession.name}</div>
+                <div className="detail">
+                  {nextSession.speaker} | {nextSession.timeslot}
+                </div>
+              </div>
+              <div className="right-content">
+                <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+              </div>
+            </div>
           )}
 
           {!currentSession && !nextSession && (

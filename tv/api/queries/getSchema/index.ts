@@ -47,13 +47,13 @@ export const getSchema = async (): Promise<{
 
   const results: SchemaResponse = (await fetchGraphQL(schemaQuery)) as SchemaResponse;
 
-  const days: DayResult[] = results.data.allDemo_Day.results;
-  const timeslots: TimeslotResult[] = results.data.allDemo_Timeslot.results;
-  const venues: VenueResult[] = results.data.allDemo_Venue.results;
+  const days: DayResult[] = results?.data?.allDemo_Day.results;
+  const timeslots: TimeslotResult[] = results?.data?.allDemo_Timeslot.results;
+  const venues: VenueResult[] = results?.data?.allDemo_Venue.results;
 
   return {
-    days: days.sort((a, b) => parseInt(a.sortOrder) - parseInt(b.sortOrder)),
-    timeslots: timeslots.sort((a, b) => a.sortOrder - b.sortOrder),
-    venues: venues.sort((c, d) => c.name.localeCompare(d.name)),
+    days: days?.sort((a, b) => parseInt(a.sortOrder) - parseInt(b.sortOrder)),
+    timeslots: timeslots?.sort((a, b) => a.sortOrder - b.sortOrder),
+    venues: venues?.sort((c, d) => c.name.localeCompare(d.name)),
   };
 };

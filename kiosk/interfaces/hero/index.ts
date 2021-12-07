@@ -1,4 +1,4 @@
-import { Image } from '../';
+import { Image } from '../asset';
 
 export interface HeroResult {
   advertisement_Title: string;

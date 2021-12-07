@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import React from 'react';
 import { Session } from '../interfaces/session';
 import { contentHubImageSrcGenerator } from '../utilities/contentHubImageLoader';
 
@@ -10,31 +12,49 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
   return (
     <>
       <div className="schedule-time">{props.timeslot}</div>
-      {props.sessions.map((session, index) => {
-        const premiumClass = session.isPremium ? ' premium-session ' : '';
-        const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
-        const noSpeakerClass = session.speaker ? '' : ' no-speaker';
+      <div className="w-full flex-row flex gap-4 p-4">
+        {props.sessions.map((session, index) => {
+          const premiumClass = session.isPremium ? ' premium-session ' : '';
+          const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
+          const noSpeakerClass = session.speaker ? '' : ' no-speaker';
 
-        return (
-          <div
-            className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}
-            key={index}
-          >
-            <div
-              className={'session-image' + premiumClass + keynoteClass}
-              style={{
-                backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
-              }}
+          return (
+            <Link
+              key={index}
+              href={
+                '/rooms/' + session.roomId + '?d=' + session.ShortDay + '&t=' + session.sortOrder
+              }
+              passHref
             >
-              {session.type && <div className="session-type">{session.type}</div>}
-            </div>
-            <div className="session-content">
-              <div className="session-name">{session.name}</div>
-              <div>{session.room}</div>
-            </div>
-          </div>
-        );
-      })}
+              <div
+                className={
+                  'schedule-sessions show-image ' + premiumClass + keynoteClass + noSpeakerClass
+                }
+              >
+                <div
+                  className={'session-image' + premiumClass + keynoteClass}
+                  style={{
+                    backgroundImage: `url("${contentHubImageSrcGenerator(session.image)}")`,
+                  }}
+                >
+                  {(session.type === 'Keynote' ||
+                    session.type === 'Workshop' ||
+                    session.isPremium) && (
+                    <div className="session-type">
+                      {(session.type === 'Keynote' || session.type === 'Workshop') && session.type}
+                      {session.isPremium && <div>Premium</div>}
+                    </div>
+                  )}
+                </div>
+                <div className="session-content">
+                  <div className="session-name">{session.name}</div>
+                  <div>{session.room}</div>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </>
   );
 };

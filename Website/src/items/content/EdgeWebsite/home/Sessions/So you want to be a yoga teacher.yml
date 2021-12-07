@@ -9,6 +9,10 @@ SharedFields:
   Value: GMm4x3T7VEKfDjh86jo55g
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "So you want to be a yoga teacher?"
   Versions:
   - Version: 1
     Fields:
@@ -32,7 +36,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="37976" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/37976/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/9838d947f6484f49a4effb3d81f99101?v=ed84edbe" mediaid="" stylelabs-content-type="Image" alt="yoga-outdoor.jpg" height="2309" width="3464" />
+        <image stylelabs-content-id="37976" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/37976/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/9838d947f6484f49a4effb3d81f99101?v=ed84edbe" mediaid="" stylelabs-content-type="Image" alt="Yoga outdoor" height="2309" width="3464" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -58,14 +62,14 @@ Languages:
       Value: "{4D920373-9BC1-44A5-A586-0AF23C5711A1}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fd346d3b-ff25-48ca-b974-80164eefd255"
+      Value: "5480dc33-9159-47c4-b7b0-f80b7058b630"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T123236Z
+      Value: 20211124T145414Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "So you want to be a yoga teacher?"

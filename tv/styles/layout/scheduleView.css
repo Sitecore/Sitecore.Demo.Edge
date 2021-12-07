@@ -61,45 +61,42 @@
 
             .schedule-time {
               @apply bg-gray text-black font-bold p-4;
+
+              width: 21%;
             }
 
             .schedule-sessions {
-              @apply m-4 flex-1 text-white relative;
+              @apply flex-1 text-white relative cursor-pointer overflow-hidden;
 
               &.premium-session {
-                @apply bg-orange flex flex-col;
+                @apply bg-orange flex flex-row;
               }
 
               &.keynote-session {
                 @apply bg-blue-light text-white flex flex-row;
               }
 
-              &.no-speaker {
-                @apply bg-gray-dark text-black flex flex-row;
+              .session-image {
+                @apply hidden;
               }
 
-              .session-image {
-                @apply hidden bg-cover bg-center;
-
-                &.premium-session {
-                  @apply w-full h-1/2 block;
+              &.show-image {
+                .session-image {
+                  @apply md:hidden;
+                  @apply xl:flex-1 xl:block bg-cover bg-center;
 
                   .session-type {
-                    @apply hidden;
+                    @apply xl:absolute xl:bottom-0 xl:justify-start xl:bg-blue-light xl:px-2;
                   }
                 }
 
-                &.keynote-session {
-                  @apply w-1/2 block;
-
-                  .session-type {
-                    @apply absolute bottom-3 bg-blue-light px-2;
-                  }
+                .session-content {
+                  @apply flex-1;
                 }
               }
 
               .session-content {
-                @apply p-2;
+                @apply p-2 w-full;
 
                 .session-name {
                   @apply font-bold;

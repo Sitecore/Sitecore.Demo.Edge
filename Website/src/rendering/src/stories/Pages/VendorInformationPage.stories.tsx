@@ -30,6 +30,10 @@ const mainNavigationArgs = {
       },
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as MainNavigationProps;
 
 const vendorInformationPageHeroProps = {
@@ -60,6 +64,10 @@ const vendorInformationPageHeroProps = {
       value: 'https://linkedin.com/asada',
     },
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as unknown as VendorInformationPageHeroProps;
 
 const vendorInformationProps = {
@@ -68,6 +76,10 @@ const vendorInformationProps = {
       value:
         '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&nbsp;</p><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p><ul><li>Lorem ipsum dolor sit amet</li><li>consetetur sadipscing elitr</li><li>sed diam nonumy eirmod tempor</li><li>invidunt ut labore et dolore</li><li>magna aliquyam erat</li><li>sed diam voluptua</li></ul><p>Ad fas dasd asasdf asd fasd fasd fas dfasd f sdfasdfda sd as sdgf sdfg sdfg sdfbghtyurty urty urtyu rtyur tasdasqwqwrt wert wert wert wert sdfg sgd. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo.</p>',
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as VendorInformationProps;
 
@@ -85,6 +97,10 @@ const footerProps = {
         },
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as FooterProps;
 

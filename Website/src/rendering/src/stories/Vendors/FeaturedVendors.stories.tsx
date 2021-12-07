@@ -41,4 +41,8 @@ Default.args = {
     },
     Vendors: [vendor],
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

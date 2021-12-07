@@ -10,6 +10,7 @@ namespace Sitecore.Demo.Init.Jobs
     class DeployToVercel : TaskBase
     {
         private const string SitecoreApiKey = "{1047AEE5-9BCD-4DBF-9744-A26E12B79AB6}";
+        private const string ErrorText = "Error! Check your logs";
 
         public DeployToVercel(InitContext initContext)
             : base(initContext)
@@ -18,16 +19,11 @@ namespace Sitecore.Demo.Init.Jobs
 
         public async Task Run()
         {
-            if (this.IsCompleted())
-            {
-                Log.LogWarning($"{this.GetType().Name} is already complete, it will not execute this time");
-                return;
-            }
-
             var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
             if (string.IsNullOrEmpty(ns))
             {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+                Log.LogWarning(
+                    $"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
                 return;
             }
 
@@ -48,14 +44,16 @@ namespace Sitecore.Demo.Init.Jobs
             var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrl))
             {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
+                Log.LogWarning(
+                    $"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
                 return;
             }
 
             var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKey))
             {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CMP_PREVIEW_API_KEY is not configured");
+                Log.LogWarning(
+                    $"{this.GetType().Name} will not execute this time, CMP_PREVIEW_API_KEY is not configured");
                 return;
             }
 
@@ -69,7 +67,8 @@ namespace Sitecore.Demo.Init.Jobs
             var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
             if (string.IsNullOrEmpty(cdpApiTargetEndpoint))
             {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_API_TARGET_ENDPOINT is not configured");
+                Log.LogWarning(
+                    $"{this.GetType().Name} will not execute this time, CDP_API_TARGET_ENDPOINT is not configured");
                 return;
             }
 
@@ -80,10 +79,14 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope);
-            DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope);
-            DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, cmpEndpointUrl, cmpApiKey, token, scope);
+            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope));
+            Task website = Task.Factory.StartNew(() =>
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope));
+            Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
+                cmpEndpointUrl, cmpApiKey, token, scope));
+            Task.WaitAll(tv, website, kiosk);
 
+            Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
         }
 
@@ -110,13 +113,18 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            if (output.Contains(ErrorText))
+            {
+                throw new Exception($"An error has occurred when running DeployToVercel job: DeployTv");
+            }
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
         }
 
-        private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string token, string scope)
+        private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
+            string cdpProxyUrl, string token, string scope)
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
@@ -138,24 +146,32 @@ namespace Sitecore.Demo.Init.Jobs
             // Configure env. variables
             cmd.Run(
                 $"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"{cm}\" | vercel env add SITECORE_API_HOST production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cm}\" | vercel env add SITECORE_API_HOST production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
 
             // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            if (output.Contains(ErrorText))
+            {
+                throw new Exception($"An error has occurred when running DeployToVercel job: DeployWebsite");
+            }
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
         }
 
-        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl, string cmpEndpointUrl, string cmpApiKey, string token, string scope)
+        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl,
+            string cmpEndpointUrl, string cmpApiKey, string token, string scope)
         {
             var sourceDirectory = "C:\\app\\kiosk";
             var targetDirectory = $"C:\\app\\{ns}-kiosk";
@@ -172,19 +188,25 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
 
             // Configure env. variables
-            cmd.Run($"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
-            cmd.Run($"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
-            cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope}");
+            if (output.Contains(ErrorText))
+            {
+                throw new Exception($"An error has occurred when running DeployToVercel job: DeployKiosk");
+            }
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-kiosks.sitecoredemo.com --token {token} --scope {scope}");

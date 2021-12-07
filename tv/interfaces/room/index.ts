@@ -1,6 +1,9 @@
 export interface Room {
   id: string;
   name: string;
+  venue: {
+    name: string;
+  };
 }
 
 export interface RoomResults {

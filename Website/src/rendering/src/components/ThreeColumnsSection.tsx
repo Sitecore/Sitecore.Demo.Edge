@@ -1,5 +1,13 @@
 import { ComponentProps } from 'lib/component-props';
-import { Text, Field, LinkField, Link, ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  Field,
+  LinkField,
+  Link,
+  ImageField,
+  Image,
+  withDatasourceCheck,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type ThreeColumnsSectionProps = ComponentProps & {
   fields: {
@@ -55,4 +63,4 @@ const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element 
   );
 };
 
-export default ThreeColumnsSection;
+export default withDatasourceCheck()<ThreeColumnsSectionProps>(ThreeColumnsSection);
