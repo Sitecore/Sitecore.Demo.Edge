@@ -1,7 +1,37 @@
 import { fetchGraphQL } from '../..';
 import { HeroResponse, HeroResult } from '../../../interfaces/hero';
+import { Image } from '../../../interfaces/asset';
 
 export const getHero = async (heroId: string): Promise<{ hero: HeroResult }> => {
+  const dummyImage: Image = {
+    results: [
+      {
+        id: 'dummy',
+        fileName: 'dummy.jpg',
+        assetToPublicLink: {
+          results: [
+            {
+              id: 'dummy',
+              relativeUrl: '',
+              versionHash: '',
+            },
+          ],
+        },
+      },
+    ],
+  };
+  const dummyResult = {
+    hero: {
+      advertisement_Slogan: '',
+      advertisement_Eyebrow: 'Something went wrong',
+      advertisement_Title: '',
+      advertisement_Body: 'Please refresh or check back in 10 minutes.',
+      advertisement_Logo: dummyImage,
+      advertisement_Image: dummyImage,
+      advertisement_Background: dummyImage,
+    },
+  };
+
   const heroQuery = `
     query {
       allM_Content_Advertisement(where: {id_eq:"${heroId}"}) {

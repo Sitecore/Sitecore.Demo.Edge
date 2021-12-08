@@ -34,7 +34,7 @@ export const getRoomById = async (id: string): Promise<{ room: Room }> => {
       }
     }
     `;
-    
+
   const results: AllRoomsResponse = (await fetchGraphQL(roomByIdQuery)) as AllRoomsResponse;
   return {
     room: { ...results.data.allDemo_Room.results[0] },
