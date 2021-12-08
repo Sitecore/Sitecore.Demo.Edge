@@ -19,10 +19,6 @@ export const getVenues = async (): Promise<{ venues: VenueResult[] }> => {
     }
     `;
 
-  if (process.env.CI === 'true') {
-    return { venues: [] as VenueResult[] };
-  }
-
   const results: VenueResponse = (await fetchGraphQL(venuesQuery)) as VenueResponse;
 
   const venues: VenueResult[] = results.data.allDemo_Venue.results;
