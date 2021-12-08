@@ -30,8 +30,23 @@ export interface AllSessionsResponse {
   };
 }
 
+export interface SessionsByDayResponse {
+  data: {
+    allDemo_Day: {
+      results: [
+        {
+          sortOrder: string;
+          taxonomyName: string;
+          dayToSession: {
+            results: SessionResult[];
+          };
+        }
+      ];
+    };
+  };
+}
+
 export interface Session {
-  id: string;
   name: string;
   speakers: {
     id: string;

@@ -1,5 +1,10 @@
 import { fetchGraphQL } from '../../../api';
-import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
+import {
+  Session,
+  AllSessionsResponse,
+  SessionResult,
+  SessionsByDayResponse,
+} from '../../../interfaces/session';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 import { DayResult } from '../../../interfaces/day';
 import { SpeakerResult } from '../../../interfaces/speaker';
@@ -76,7 +81,6 @@ const parseSessionWithTimeSlot = function (
   timeslotResult: TimeslotResult
 ) {
   const session = {} as Session;
-  session.id = sessionResult.id;
   session.name = sessionResult.name;
 
   const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
@@ -117,7 +121,6 @@ const formattedSession = function (
   time: TimeslotResult
 ) {
   const session = {} as Session;
-  session.id = sessionResult.id;
   session.name = sessionResult.name;
 
   const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
@@ -131,13 +134,7 @@ const formattedSession = function (
 
   //Not taking session with multiple rooms into consideration
   if (sessionResult.room.results.length > 0) {
-    session.room = sessionResult.room.results[0].name;
     session.roomId = sessionResult.room.results[0].id;
-  }
-
-  //Not taking session with multiple speakers into consideration
-  if (sessionResult.speakers.results.length > 0) {
-    session.speaker = sessionResult.speakers.results[0].name;
   }
 
   session.Day = day.taxonomyName;
@@ -271,6 +268,71 @@ export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Sess
     'day',
     day
   );
+
+  return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
+};
+
+export const getSessionsByDay = async (day: number): Promise<{ sessions: Session[] }> => {
+  if (process.env.CI === 'true') {
+    return { sessions: [] as Session[] };
+  }
+
+  const sessionsByDayQuery = `
+  query {
+    allDemo_Day(where: { sortOrder_eq: ${day} }) {
+      results {
+        sortOrder
+        taxonomyName
+        dayToSession {
+          results {
+            name
+            isPremium
+            sessionToMasterAsset {
+              results {
+                assetToPublicLink(first: 1) {
+                  results {
+                    relativeUrl
+                    versionHash
+                  }
+                }
+              }
+            }
+            room {
+              results {
+                id
+              }
+            }
+            timeslotToSession {
+              results {
+                taxonomyLabel
+                sortOrder
+              }
+            }
+            sessionsTypeToSessions {
+              taxonomyName
+            }
+          }
+        }
+      }
+    }
+  }
+  `;
+
+  const results: SessionsByDayResponse = (await fetchGraphQL(
+    sessionsByDayQuery
+  )) as SessionsByDayResponse;
+
+  const currentDay: DayResult = {
+    sortOrder: results?.data?.allDemo_Day.results[0].sortOrder,
+    taxonomyName: results?.data?.allDemo_Day.results[0].taxonomyName,
+  };
+
+  const sessions: Session[] = [];
+  results?.data?.allDemo_Day.results[0].dayToSession.results.map((sessionData) => {
+    sessionData.timeslotToSession.results.map((ts) => {
+      sessions.push(formattedSession(sessionData, currentDay, ts));
+    });
+  });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
