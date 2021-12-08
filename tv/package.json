@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "npm-run-all --serial eslint stylelint",
     "eslint": "eslint ./**/*.tsx ./**/*.ts",
-    "stylelint": "stylelint ./**/*.css ./**/*.tsx"
+    "stylelint": "stylelint ./**/*.css ./**/*.tsx",
+    "tsc":"tsc -b --verbose"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

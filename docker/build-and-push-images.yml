@@ -48,8 +48,8 @@ stages:
           workingDirectory: tv
 
         - script: |
-            npm run build
-          displayName: 'npm run build'
+            npm run tsc
+          displayName: 'npm run tsc'
           workingDirectory: tv
 
 - stage: Build_Kiosk
@@ -81,8 +81,8 @@ stages:
           workingDirectory: kiosk
 
         - script: |
-            npm run build
-          displayName: 'npm run build'
+            npm run tsc
+          displayName: 'npm run tsc'
           workingDirectory: kiosk
 
 - stage: Build
