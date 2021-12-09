@@ -132,10 +132,10 @@ const Navigation = (): JSX.Element => {
           </div>
           <div className="menu-toggle-api">
             <label
-              htmlFor="toggle-example"
+              htmlFor="toggle-button"
               className="flex items-center cursor-pointer relative mb-4"
             >
-              <input type="checkbox" id="toggle-example" className="peer sr-only" />
+              <input type="checkbox" id="toggle-button" className="peer sr-only" />
               <div className="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
               <span className="toggle-text ml-3 text-blue-light text-sm font-medium peer-checked:toggle-text"></span>
             </label>
