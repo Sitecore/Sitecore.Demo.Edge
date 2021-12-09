@@ -78,7 +78,7 @@
     "axios": "^0.21.1",
     "chalk": "~2.4.2",
     "chokidar": "~3.1.1",
-    "chromatic": "^5.10.0-canary.0",
+    "chromatic": "^6.2.0",
     "constant-case": "^3.0.4",
     "cross-env": "~6.0.3",
     "eslint": "^7.32.0",
