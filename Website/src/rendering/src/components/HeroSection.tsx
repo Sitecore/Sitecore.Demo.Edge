@@ -27,18 +27,10 @@ const HeroSection = (props: HeroProps): JSX.Element => {
       <div className="section__hero__container container">
         <div className="section__hero__container__content">
           <div className="section__hero__container__content__text">
-            <p className="slogan">
-              <Text field={props.fields.Slogan} />
-            </p>
-            <h1 className="expo">
-              <Text field={props.fields.Eyebrow} />
-            </h1>
-            <h3 className="title">
-              <Text field={props.fields.Title} />
-            </h3>
-            <p className="subtitle">
-              <RichText field={props.fields.Body} />
-            </p>
+            <Text field={props.fields.Slogan} tag="p" className="slogan" />
+            <Text field={props.fields.Eyebrow} tag="h1" className="expo" />
+            <Text field={props.fields.Title} tag="h3" className="title" />
+            <RichText field={props.fields.Body} tag="div" className="subtitle" />
           </div>
           <Placeholder name="jss-hero-section-content" rendering={props.rendering} />
         </div>
