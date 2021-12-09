@@ -9,63 +9,6 @@ import { TimeslotResult } from '../../../interfaces/timeslot';
 import { DayResult } from '../../../interfaces/day';
 import { Room } from '../../../interfaces/room';
 
-const sessionsQuery = `
-query {
-  allDemo_Session (first: 30) {
-    results {
-      id
-      name
-      isPremium
-
-      sessionToMasterAsset {
-        results {
-          assetToPublicLink(first: 1) {
-            results {
-              id
-              relativeUrl
-              versionHash
-            }
-          }
-        }
-      }
-
-      room {
-        results {
-          id
-          name
-        }
-      }
-
-      timeslotToSession {
-        results {
-          id
-          taxonomyLabel
-          sortOrder
-        }
-      }
-
-      speakers {
-        results {
-          id
-          name
-        }
-      }
-
-      dayToSession {
-        results {
-          taxonomyName
-          sortOrder
-        }
-      }
-
-      sessionsTypeToSessions {
-        taxonomyName
-      }
-    }
-  }
-}
-`;
-
 const formattedSession = function (
   sessionResult: SessionResult,
   day: DayResult | null,
@@ -188,7 +131,7 @@ export const getSessionsByRoom = async (
   };
 
   const currentDay: DayResult = {
-    taxonomyName: '',
+    taxonomyName: 'Day ' + (day + 1).toString(),
     sortOrder: day.toString(),
   };
 

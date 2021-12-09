@@ -9,6 +9,7 @@ import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 import router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
+import { setLoadingState } from '../utilities/LoadingState';
 
 type NavigationState = {
   days: DayResult[];
@@ -106,6 +107,8 @@ const Navigation = (): JSX.Element => {
   }
 
   function handleQuickRefreshClick() {
+    setLoadingState(true);
+
     // Reset the context with its actual values
     dayTimeContext.setDayTime(dayTimeContext.dayTime.day, dayTimeContext.dayTime.time);
   }
@@ -194,7 +197,7 @@ const Navigation = (): JSX.Element => {
           )}
         </div>
       </div>
-      <div className="menu-button refresh-button" onClick={handleQuickRefreshClick}>
+      <div className="menu-button refresh-button active" onClick={handleQuickRefreshClick}>
         <FontAwesomeIcon className="icon" icon={faSyncAlt} />
       </div>
     </div>

@@ -4,6 +4,7 @@ import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
 import { dayDefaultValue, DayTimeContext } from '../contexts/DayTimeContext';
+import { setLoadingState } from '../utilities/LoadingState';
 
 type ScheduleProps = {
   sessions: Session[];
@@ -70,6 +71,8 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
     });
   }, [dayTimeContext.dayTime]);
+
+  setLoadingState(false);
 
   return <ScheduleForDay schedule={schedule} />;
 };
