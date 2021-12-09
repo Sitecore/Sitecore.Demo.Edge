@@ -31,6 +31,10 @@
         }
       }
 
+      .image-container {
+        @apply h-40 overflow-hidden;
+      }
+
       .button-container {
         @apply px-6 pt-4 pb-10;
       }
