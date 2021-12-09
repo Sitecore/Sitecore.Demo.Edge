@@ -31,6 +31,9 @@ export const getRoomById = async (id: string): Promise<{ room: Room }> => {
         results {
           id
           name
+          venue:rooms{
+            name
+          }
         }
       }
     }

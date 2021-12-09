@@ -1,6 +1,6 @@
 import { fetchGraphQL } from '../..';
 import { HeroResponse, HeroResult } from '../../../interfaces/hero';
-import { Image } from '../../../interfaces';
+import { Image } from '../../../interfaces/asset';
 
 export const getHero = async (heroId: string): Promise<{ hero: HeroResult }> => {
   const dummyImage: Image = {
@@ -23,9 +23,9 @@ export const getHero = async (heroId: string): Promise<{ hero: HeroResult }> => 
   const dummyResult = {
     hero: {
       advertisement_Slogan: '',
-      advertisement_Eyebrow: '',
+      advertisement_Eyebrow: 'Something went wrong',
       advertisement_Title: '',
-      advertisement_Body: '',
+      advertisement_Body: 'Please refresh or check back in 10 minutes.',
       advertisement_Logo: dummyImage,
       advertisement_Image: dummyImage,
       advertisement_Background: dummyImage,
@@ -72,7 +72,7 @@ export const getHero = async (heroId: string): Promise<{ hero: HeroResult }> => 
     `;
 
   const results: HeroResponse = (await fetchGraphQL(heroQuery)) as HeroResponse;
-  const heroes: HeroResult[] = results?.data.allM_Content_Advertisement.results;
+  const heroes: HeroResult[] = results?.data?.allM_Content_Advertisement.results;
 
   if (heroes?.length > 0) {
     return {

@@ -64,4 +64,8 @@ Default.args = {
     },
     Sponsors: [sponsor1, sponsor2, sponsor3],
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

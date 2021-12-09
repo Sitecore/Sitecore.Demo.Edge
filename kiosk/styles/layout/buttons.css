@@ -1,38 +1,55 @@
 .btn__area {
-  @apply px-10 py-8;
+  @apply flex px-10 py-8 flex-row justify-items-start items-center bg-cover bg-bottom gap-6 text-center;
+  @apply md:flex-col md:justify-items-stretch md:items-stretch;
 
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   background-image: url(../../public/img/btn-background.png);
-  background-size: cover;
-  background-position: bottom;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 
   .btn-right {
-    margin-left: auto;
+    @apply ml-auto md:ml-0;
+  }
+
+  &--minimal {
+    @apply bg-none;
+
+    .btn--main--big {
+      padding: 0.4em 1em;
+    }
+
+    .inactive {
+      @apply border-none text-white cursor-pointer;
+      @apply hover:text-black hover:border-yellow;
+    }
   }
 }
 
 .btn--main {
-  @apply font-bold;
+  @apply font-bold cursor-pointer;
   @apply hover:shadow-md;
 
   padding: 0.5em 1.55em;
   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
   transition: all 0.2s ease-in-out;
-}
 
-.btn--main--big {
-  font-size: 1.25em;
-  padding: 0.7em 1em;
-  margin: 0;
-}
+  &--big {
+    font-size: 1.25em;
+    padding: 0.7em 1em;
+    margin: 0;
+  }
 
-.btn--main--round {
-  @apply bg-yellow text-black rounded-md;
-  @apply hover:bg-yellow-dark hover:text-black;
+  &--round {
+    @apply rounded-md;
+  }
+
+  &--primary {
+    @apply bg-yellow text-black;
+    @apply hover:bg-yellow-dark hover:text-black;
+  }
+
+  &--secondary {
+    @apply bg-black text-yellow border-yellow border-2;
+    @apply hover:bg-yellow-dark hover:text-black;
+  }
 }
 
 .btn--disabled {

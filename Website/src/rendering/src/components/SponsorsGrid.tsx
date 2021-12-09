@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
@@ -33,4 +33,4 @@ const SponsorsGrid = (props: SponsorsProps): JSX.Element => {
   return <div className="section__sponsors__grid">{sponsors}</div>;
 };
 
-export default SponsorsGrid;
+export default withDatasourceCheck()<SponsorsProps>(SponsorsGrid);

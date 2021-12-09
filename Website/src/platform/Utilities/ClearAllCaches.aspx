@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClearAllCaches.aspx.cs" Inherits="Sitecore.Demo.Edge.Website.Utilities.ClearAllCaches" %>

@@ -58,6 +58,7 @@ const heroProps = {
         },
       ],
     },
+    dataSource: '/sitecore',
   },
 } as unknown as HeroProps;
 
@@ -113,6 +114,10 @@ const sponsorProps = {
     },
     Sponsors: [sponsor1, sponsor2, sponsor3],
   },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 } as SponsorsProps;
 
 const threeColProps = {
@@ -166,6 +171,10 @@ const threeColProps = {
         text: 'View Vendors',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as ThreeColumnsSectionProps;
 

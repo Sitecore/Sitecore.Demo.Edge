@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
@@ -42,4 +42,4 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   );
 };
 
-export default SpeakersGrid;
+export default withDatasourceCheck()<SpeakersGridProps>(SpeakersGrid);

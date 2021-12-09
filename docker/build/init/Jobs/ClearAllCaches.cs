@@ -6,9 +6,9 @@ namespace Sitecore.Demo.Init.Jobs
 {
     using Microsoft.Extensions.Logging;
 
-    class RestartCM : TaskBase
+    class ClearAllCaches : TaskBase
     {
-        public RestartCM(InitContext initContext)
+        public ClearAllCaches(InitContext initContext)
             : base(initContext)
         {
         }
@@ -30,14 +30,14 @@ namespace Sitecore.Demo.Init.Jobs
 
             var host = Environment.GetEnvironmentVariable("HOST_CM");
             using var client = new HttpClient { BaseAddress = new Uri(host) };
-            using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/Utilities/Restart.aspx"))
+            using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, $"/Utilities/ClearAllCaches.aspx"))
             {
                 using (var response = await client.SendAsync(request))
                 {
-                    Log.LogInformation($"RestartSitecore() {host} started");
+                    Log.LogInformation($"ClearAllCaches() {host} started");
                     var contents = await response.Content.ReadAsStringAsync();
                     Log.LogInformation($"{response.StatusCode} {contents}");
-                    Log.LogInformation($"RestartSitecore() {host} complete");
+                    Log.LogInformation($"ClearAllCaches() {host} complete");
                 }
             }
 

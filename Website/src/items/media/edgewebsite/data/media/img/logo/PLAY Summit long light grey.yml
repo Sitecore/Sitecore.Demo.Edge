@@ -2,7 +2,7 @@
 ID: "cf10d16e-e903-4303-a580-63d615b14001"
 Parent: "19c7737a-2700-4d4b-bc35-6f5eb776de7e"
 Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
-Path: "/sitecore/media library/edgewebsite/data/media/img/logo/play-logo-wide-light"
+Path: /sitecore/media library/edgewebsite/data/media/img/logo/PLAY Summit long light grey
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
