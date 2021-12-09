@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../../components/Header';
-import HeaderCdpMessageBar from 'components/HeaderCdpMessageBar';
+import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
 import Footer from '../../components/Footer';
 import SessionInformation, { SessionInformationProps } from '../../components/SessionInformation';
