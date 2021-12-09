@@ -1,5 +1,3 @@
-import { Timeslot } from '../timeslot';
-
 export interface DayResult {
   sortOrder: string;
   taxonomyName: string;
@@ -12,7 +10,6 @@ export interface Days {
 export interface Day {
   name: string;
   sortOrder: string;
-  timeslots: Timeslot[];
 }
 
 export interface AllDaysResponse {

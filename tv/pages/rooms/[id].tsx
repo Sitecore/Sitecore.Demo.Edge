@@ -1,11 +1,11 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import Router, { NextRouter, useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
-import { getRoomById, getRooms } from '../../api/queries/getRooms';
+import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
-import { DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
+import { dayDefaultValue, DayTimeContext } from '../../contexts/DayTimeContext';
 import { Room } from '../../interfaces/room';
 
 type RoomProps = {
@@ -23,38 +23,9 @@ type SessionsState = {
   nextSession: Session | null;
 };
 
-function getSessionsToDisplay(
-  allSessions: Session[],
-  dayTime: DayTimeState,
-  router: NextRouter
-): SessionsState {
-  let selectedDay = `Day ${parseInt(dayTime.day) + 1}`;
-  let selectedTime = parseInt(dayTime.time);
-
-  if (router.query['d'] && router.query['t']) {
-    selectedDay = `Day ${parseInt(router.query['d'] as string) + 1}`;
-    selectedTime = parseInt(router.query['t'] as string);
-  }
-
-  const currentAndNextSessions = allSessions.filter(
-    (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
-  );
-  let currentSession: Session | null = null;
-  let nextSession: Session | null = null;
-
-  if (currentAndNextSessions.length > 0) {
-    const firstSession = currentAndNextSessions[0];
-
-    if (firstSession.sortOrder === selectedTime) {
-      currentSession = firstSession;
-
-      if (currentAndNextSessions.length > 1) {
-        nextSession = currentAndNextSessions[1];
-      }
-    } else {
-      nextSession = firstSession;
-    }
-  }
+function getSessionsToDisplay(allSessions: Session[]): SessionsState {
+  const currentSession: Session = allSessions[0];
+  const nextSession: Session = allSessions[1];
 
   return {
     currentSession,
@@ -66,15 +37,12 @@ export default function RoomPage(props: RoomProps) {
   const router = useRouter();
   const initialPageLoad = useRef(true);
   const dayTimeContext = useContext(DayTimeContext);
-  const [sessions, setSessions] = useState(
-    getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router)
-  );
-
+  const [sessions, setSessions] = useState(getSessionsToDisplay(props.sessions));
   useEffect(() => {
     // Do not get the sessions on first page load as they come from the props.
     if (!initialPageLoad.current) {
-      getSessionsByRoom(props.roomId).then((data) => {
-        setSessions(getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router));
+      getSessionsByRoom(props.roomId, parseInt(dayTimeContext.dayTime.day)).then((data) => {
+        setSessions(getSessionsToDisplay(data.sessions));
       });
     }
 
@@ -120,8 +88,7 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessionsByRoom(params.id);
-  const { room } = await getRoomById(params.id);
+  const { sessions, room } = await getSessionsByRoom(params.id, parseInt(dayDefaultValue));
 
   return {
     props: {

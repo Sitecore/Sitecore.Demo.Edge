@@ -178,7 +178,10 @@ const Navigation = (): JSX.Element => {
                   </select>
                 </div>
               </div>
-              <button onClick={handleRefreshClick}>Refresh</button>
+              <button onClick={handleRefreshClick}>
+                <FontAwesomeIcon className="icon" icon={faSyncAlt} />
+                Refresh
+              </button>
             </div>
           )}
 

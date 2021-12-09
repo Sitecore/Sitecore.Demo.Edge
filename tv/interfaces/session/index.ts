@@ -46,6 +46,25 @@ export interface SessionsByDayResponse {
   };
 }
 
+export interface SessionsByRoomResponse {
+  data: {
+    allDemo_Room: {
+      results: [
+        {
+          id: string;
+          name: string;
+          venue: {
+            name: string;
+          };
+          session: {
+            results: SessionResult[];
+          };
+        }
+      ];
+    };
+  };
+}
+
 export interface Session {
   name: string;
   speakers: {

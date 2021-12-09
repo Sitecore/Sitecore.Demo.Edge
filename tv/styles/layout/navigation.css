@@ -84,6 +84,10 @@
 
         button {
           @apply bg-yellow text-black font-bold uppercase;
+
+          .icon {
+            @apply h-4 mx-auto pr-2 font-extrabold inline-block;
+          }
         }
       }
     }
