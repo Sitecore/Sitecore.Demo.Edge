@@ -1,40 +1,19 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Header from '../../components/Header';
+import HeaderCdpMessageBar from 'components/HeaderCdpMessageBar';
 import VendorInformationPageHero, {
   VendorInformationPageHeroProps,
 } from '../../components/VendorInformationPageHero';
 import VendorInformation, { VendorInformationProps } from '../../components/VendorInformation';
-import Footer, { FooterProps } from '../../components/Footer';
+import Footer from '../../components/Footer';
+import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export default {
   title: 'Pages/Vendor Information Page',
 } as ComponentMeta<typeof VendorInformationPageHero>;
-
-const headerProps = {} as HeaderProps;
-
-const mainNavigationArgs = {
-  fields: {
-    data: {
-      item: {
-        headerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
-} as MainNavigationProps;
 
 const vendorInformationPageHeroProps = {
   fields: {
@@ -83,42 +62,21 @@ const vendorInformationProps = {
   },
 } as VendorInformationProps;
 
-const footerProps = {
-  fields: {
-    data: {
-      item: {
-        footerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
-} as FooterProps;
-
 const Template: ComponentStory<typeof VendorInformationPageHero> = () => {
   return (
-    <>
+    <SitecoreContext componentFactory={mockComponentFactory}>
       <header>
-        <Header {...headerProps} />
-        <MainNavigation {...mainNavigationArgs} />
+        <Header {...mockHeaderProps} />
       </header>
       <main>
+        <HeaderCdpMessageBar />
         <VendorInformationPageHero {...vendorInformationPageHeroProps} />
         <VendorInformation {...vendorInformationProps} />
       </main>
       <footer>
-        <Footer {...footerProps} />
+        <Footer {...mockFooterProps} />
       </footer>
-    </>
+    </SitecoreContext>
   );
 };
 

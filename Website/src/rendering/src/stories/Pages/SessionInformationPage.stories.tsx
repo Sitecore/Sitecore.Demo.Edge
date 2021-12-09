@@ -1,35 +1,18 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Header from '../../components/Header';
+import HeaderCdpMessageBar from 'components/HeaderCdpMessageBar';
 import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
-import Footer, { FooterProps } from '../../components/Footer';
+import Footer from '../../components/Footer';
 import SessionInformation, { SessionInformationProps } from '../../components/SessionInformation';
 import { Speaker } from 'src/types/speaker';
+import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export default {
   title: 'Pages/Session Information Page',
 } as ComponentMeta<typeof SessionInformation>;
-
-const headerProps = {} as HeaderProps;
-
-const mainNavigationArgs = {
-  fields: {
-    data: {
-      item: {
-        headerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-} as MainNavigationProps;
 
 const speaker1 = {
   fields: {
@@ -202,37 +185,20 @@ const sessionInformationProps = {
   },
 } as unknown as SessionInformationProps;
 
-const footerProps = {
-  fields: {
-    data: {
-      item: {
-        footerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-} as FooterProps;
-
 const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
-    <>
+    <SitecoreContext componentFactory={mockComponentFactory}>
       <header>
-        <Header {...headerProps} />
-        <MainNavigation {...mainNavigationArgs} />
+        <Header {...mockHeaderProps} />
       </header>
       <main>
+        <HeaderCdpMessageBar />
         <SessionInformation {...sessionInformationProps} />
       </main>
       <footer>
-        <Footer {...footerProps} />
+        <Footer {...mockFooterProps} />
       </footer>
-    </>
+    </SitecoreContext>
   );
 };
 

@@ -2,23 +2,21 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../../components/Header';
-import { HeaderProps } from '../../components/Header';
+import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import HeroSection, { HeroProps } from '../../components/HeroSection';
-import HeroSectionCta from '../../components/HeroSectionCta';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
 } from '../../components/ThreeColumnsSection';
 import SponsorsGrid, { SponsorsProps } from '../../components/SponsorsGrid';
-import Footer, { FooterProps } from '../../components/Footer';
+import Footer from '../../components/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 
 export default {
   title: 'Pages/Home Page',
 } as ComponentMeta<typeof HeroSection>;
 
-const headerProps = {} as HeaderProps;
 const heroProps = {
   fields: {
     Hero: {
@@ -178,69 +176,20 @@ const threeColProps = {
   },
 } as ThreeColumnsSectionProps;
 
-const mainNavigationArgs = {
-  fields: {
-    data: {
-      item: {
-        headerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-} as MainNavigationProps;
-
-const footerProps = {
-  fields: {
-    data: {
-      item: {
-        footerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-} as FooterProps;
-
-const componentFactory = function (componentName: string) {
-  const components = new Map();
-  components.set('HeroSectionCta', HeroSectionCta);
-
-  const component = components.get(componentName);
-
-  // check that component should be dynamically imported
-  if (component?.element) {
-    // return next.js dynamic import
-    return component.element();
-  }
-
-  return component?.default || component;
-};
-
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
-    <SitecoreContext componentFactory={componentFactory}>
+    <SitecoreContext componentFactory={mockComponentFactory}>
       <header>
-        <Header {...headerProps} />
-        <MainNavigation {...mainNavigationArgs} />
+        <Header {...mockHeaderProps} />
       </header>
       <main>
+        <HeaderCdpMessageBar />
         <HeroSection {...heroProps} />
         <ThreeColumnsSection {...threeColProps} />
         <SponsorsGrid {...sponsorProps} />
       </main>
       <footer>
-        <Footer {...footerProps} />
+        <Footer {...mockFooterProps} />
       </footer>
     </SitecoreContext>
   );
