@@ -1,4 +1,4 @@
-import profile from '../../public/assets/img/news/profile-pic.jpg';
+import profile from '../../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
 import { Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';

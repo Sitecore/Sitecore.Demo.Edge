@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Text, Image, RichText, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { News } from 'src/types/news';
-import { newsDateFormatter } from '../helpers/DateHelper';
+import { newsDateFormatter } from '../../helpers/DateHelper';
 
 type NewsListProps = ComponentProps & {
   fields: {

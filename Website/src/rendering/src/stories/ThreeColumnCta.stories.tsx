@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ThreeColumnCta from '../components/ThreeColumnCta';
+import ThreeColumnCta from '../components/Page Content/ThreeColumnCta';
 
 export default {
   title: 'Components/ThreeColumnCta',

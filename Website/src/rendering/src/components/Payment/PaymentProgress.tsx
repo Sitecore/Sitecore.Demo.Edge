@@ -1,6 +1,6 @@
 import { Field } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import RequireDatasource from './RequireDatasource';
+import RequireDatasource from '../Page Structure/RequireDatasource';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 

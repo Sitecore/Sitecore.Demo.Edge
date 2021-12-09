@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import InformationPageHero from '../components/InformationPageHero';
+import InformationPageHero from '../components/Page Content/InformationPageHero';
 
 export default {
   title: 'Components/InformationPageHero',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TicketUpsell from '../components/TicketUpsell';
+import TicketUpsell from '../components/Page Content/TicketUpsell';
 
 export default {
   title: 'Components/TicketUpsell',

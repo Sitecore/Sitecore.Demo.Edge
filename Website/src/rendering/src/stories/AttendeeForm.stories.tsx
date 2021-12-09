@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import AttendeeForm from '../components/AttendeeForm';
+import AttendeeForm from '../components/Forms/AttendeeForm';
 
 export default {
   title: 'Components/AttendeeForm',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import GalleryGrid from '../components/GalleryGrid';
+import GalleryGrid from '../components/Page Content/GalleryGrid';
 
 export default {
   title: 'Components/GalleryGrid',

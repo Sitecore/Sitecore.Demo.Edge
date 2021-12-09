@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import AgendaGrid from '../components/AgendaGrid';
+import AgendaGrid from '../components/Page Content/AgendaGrid';
 
 export default {
   title: 'Components/AgendaGrid',

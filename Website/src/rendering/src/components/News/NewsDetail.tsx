@@ -7,7 +7,7 @@ import {
   DateField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { newsDateFormatter } from '../helpers/DateHelper';
+import { newsDateFormatter } from '../../helpers/DateHelper';
 
 type NewsDetailProps = ComponentProps & {
   fields: {

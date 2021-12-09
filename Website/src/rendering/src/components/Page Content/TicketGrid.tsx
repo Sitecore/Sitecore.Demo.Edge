@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { TICKETS } from '../models/mock-tickets';
+import { TICKETS } from '../../models/mock-tickets';
 
 const TicketGrid = (): JSX.Element => {
   const ticketsToDisplay = TICKETS.filter((ticket) => !ticket.isUpgrade);

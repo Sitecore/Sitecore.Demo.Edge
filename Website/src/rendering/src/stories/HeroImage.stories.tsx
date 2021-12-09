@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import HeroImage, { HeroImageProps } from '../components/HeroImage';
+import HeroImage, { HeroImageProps } from '../components/Page Content/HeroImage';
 
 export default {
   title: 'Components/HeroImage',

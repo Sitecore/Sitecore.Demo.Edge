@@ -1,4 +1,4 @@
-import { TICKETS } from '../models/mock-tickets';
+import { TICKETS } from '../../models/mock-tickets';
 
 export type OrderSummaryProps = {
   ticket?: string;

@@ -1,7 +1,7 @@
 import { ComponentProps } from 'lib/component-props';
 import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
-import SessionList from './SessionList';
-import { SESSIONS } from '../models/mock-sessions';
+import SessionList from '../Sessions/SessionList';
+import { SESSIONS } from '../../models/mock-sessions';
 
 export type VendorInformationProps = ComponentProps & {
   fields: {

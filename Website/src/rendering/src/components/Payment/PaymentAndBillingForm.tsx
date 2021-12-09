@@ -1,6 +1,6 @@
 import { FormEvent } from 'react';
 import Router from 'next/router';
-import { logTicketPurchase } from '../services/CdpService';
+import { logTicketPurchase } from '../../services/CdpService';
 
 const PaymentAndBillingForm = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProductCategoriesGrid from '../../components/ProductCategoriesGrid';
+import ProductCategoriesGrid from '../../components/Products/ProductCategoriesGrid';
 import { ProductCategory } from 'src/types/productCategory';
 
 export default {

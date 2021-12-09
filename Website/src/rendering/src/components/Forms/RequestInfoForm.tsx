@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import Link from 'next/link';
-import { identifyVisitor } from '../services/CdpService';
+import { identifyVisitor } from '../../services/CdpService';
 
 const RequestInfoForm = (): JSX.Element => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);

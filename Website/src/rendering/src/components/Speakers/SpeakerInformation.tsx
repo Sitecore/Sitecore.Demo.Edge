@@ -1,6 +1,6 @@
 import { ComponentProps } from 'lib/component-props';
 import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
-import SessionList from './SessionList';
+import SessionList from '../Sessions/SessionList';
 import { GraphQLSession } from 'src/types/session';
 
 export type SpeakerInformationProps = ComponentProps & {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import RequestInfoForm from '../components/RequestInfoForm';
+import RequestInfoForm from '../components/Forms/RequestInfoForm';
 
 export default {
   title: 'Components/RequestInfoForm',

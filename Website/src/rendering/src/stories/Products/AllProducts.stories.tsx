@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import AllProducts from '../../components/AllProducts';
+import AllProducts from '../../components/Products/AllProducts';
 
 export default {
   title: 'Components/Products/AllProducts',

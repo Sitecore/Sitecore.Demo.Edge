@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SummitFeature, { SummitFeatureProps } from '../components/SummitFeature';
+import SummitFeature, { SummitFeatureProps } from '../components/Page Content/SummitFeature';
 
 export default {
   title: 'Components/SummitFeature',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedEvent from '../components/FeaturedEvent';
+import FeaturedEvent from '../components/Page Content/FeaturedEvent';
 
 export default {
   title: 'Components/FeaturedEvent',

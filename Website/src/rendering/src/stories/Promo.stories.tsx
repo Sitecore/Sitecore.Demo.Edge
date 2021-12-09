@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Promo, { PromoProps } from '../components/Promo';
+import Promo, { PromoProps } from '../components/Page Content/Promo';
 
 export default {
   title: 'Components/Promo',

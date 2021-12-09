@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import RegistrationGrid from '../components/RegistrationGrid';
+import RegistrationGrid from '../components/Page Content/RegistrationGrid';
 
 export default {
   title: 'Components/RegistrationGrid',

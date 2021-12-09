@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { faCalendar, faClock, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
-import { getSessionTime } from '../helpers/DateHelper';
+import { getSessionTime } from '../../helpers/DateHelper';
 import { GraphQLSession } from 'src/types/session';
 
 type SessionItemProps = {

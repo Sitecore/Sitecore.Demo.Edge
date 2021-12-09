@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Speaker } from 'src/types/speaker';
-import InfoText from './InfoText';
+import InfoText from '../Page Content/InfoText';
 import { faBuilding, faMapMarkerAlt, faUserTie } from '@fortawesome/free-solid-svg-icons';
 
 const SpeakerListItem = (speaker: Speaker): JSX.Element => {

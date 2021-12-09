@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { ComponentProps } from 'lib/component-props';
 import { Field, ImageField, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
-import { Timeslot } from '../interfaces/Timeslot';
+import { Timeslot } from '../../interfaces/Timeslot';
 import { Speaker } from 'src/types/speaker';
 import { Day } from 'src/types/day';
 import { Room } from 'src/types/room';
-import SpeakerList from './SpeakerList';
+import SpeakerList from '../Speakers/SpeakerList';
 import SessionInformationPageHero from './SessionInformationPageHero';
 
 export type SessionInformationProps = ComponentProps & {
