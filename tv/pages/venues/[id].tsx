@@ -3,7 +3,6 @@ import { VenueResult } from '../../interfaces/schema';
 import React from 'react';
 import Venue from '../../components/Venue';
 import { getVenueById, getVenues } from '../../api/queries/getVenues';
-import { setLoadingState } from '../../utilities/LoadingState';
 
 type VenueProps = {
   venue: VenueResult;
@@ -14,8 +13,6 @@ export declare type VenueParams = {
 };
 
 export default function VenuePage(props: VenueProps) {
-  setLoadingState(false);
-
   return <Venue venue={props.venue} />;
 }
 

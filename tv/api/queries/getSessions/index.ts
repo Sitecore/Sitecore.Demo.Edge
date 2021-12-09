@@ -35,6 +35,7 @@ const formattedSession = function (
         .map((speaker) => {
           return speaker.name;
         })
+        .slice(0, 2)
         .join(', ');
     }
   }

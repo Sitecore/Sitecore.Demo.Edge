@@ -7,7 +7,6 @@ import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 import { dayDefaultValue, DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
 import { Room } from '../../interfaces/room';
-import { setLoadingState } from '../../utilities/LoadingState';
 
 type RoomProps = {
   roomId: string;
@@ -80,8 +79,6 @@ export default function RoomPage(props: RoomProps) {
 
     initialPageLoad.current = false;
   }, [props.roomId, dayTimeContext.dayTime, router]);
-
-  setLoadingState(false);
 
   return (
     <>

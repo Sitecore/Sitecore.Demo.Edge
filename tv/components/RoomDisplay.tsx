@@ -70,7 +70,8 @@ const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element =>
                 <div className="eyebrow">Coming up next...</div>
                 <div className="title">{nextSession.name}</div>
                 <div className="detail">
-                  {nextSession.speaker} | {nextSession.timeslot}
+                  {nextSession.speaker} {nextSession.speaker && <span> | </span>}
+                  {nextSession.timeslot}
                 </div>
               </div>
               <div className="right-content">
