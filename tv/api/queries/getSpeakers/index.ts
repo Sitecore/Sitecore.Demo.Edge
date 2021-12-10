@@ -38,10 +38,6 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     }
     `;
 
-  if (process.env.CI === 'true') {
-    return { speakers: [] as Speaker[] };
-  }
-
   const results: AllSpeakersResponse = (await fetchGraphQL(speakersQuery)) as AllSpeakersResponse;
   const speakers: Speaker[] = [];
   if (results && results.data) {
@@ -79,10 +75,6 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
       }
     }
     `;
-
-  if (process.env.CI === 'true') {
-    return { speaker: {} as Speaker };
-  }
 
   const results: AllSpeakersResponse = (await fetchGraphQL(
     speakerByIdQuery
