@@ -11,4 +11,20 @@
 - .NET Framework 4.8 SDK
 - Visual Studio 2019
 
+## Visual Studio Code
+
+If you are using the VSCode editor, here is the recommended list of extensions to install to work on this project:
+
+- Docker
+- ESLint
+- Markdown All in One
+- markdownlint
+- Prettier - Code formatter
+- Prettier ESLint
+- Stylelint
+- Tailwind CSS IntelliSense
+- Trailing Spaces
+- TypeScript Hero
+- YAML
+
 See [Sitecore Containers documentation](https://doc.sitecore.com/en/developers/101/developer-tools/set-up-the-environment.html) for more information on system requirements.
