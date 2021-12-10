@@ -11,7 +11,7 @@ Languages:
     - ID: "0f531c03-8501-5776-be06-03ac387d1076"
       Hint: callToActionLink
       Value: |
-        <link text="Get Discount Code" url="/shop/discount" linktype="external" />
+        <link text="Get Discount Code" linktype="external" url="/shop/product" anchor="" target="" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210708T213917Z
@@ -28,7 +28,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "84f99628-58cb-4838-aac8-109634c12daf"
+      Value: "93826cab-e645-43c2-8d80-f94550ff182b"
     - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
       Hint: content
       Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
@@ -38,10 +38,10 @@ Languages:
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210708T213917Z
+      Value: 20211210T150004Z
     - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
       Hint: title
       Value: "PLAY! Summit Exclusive Offer"
