@@ -1,8 +1,8 @@
 ﻿---
 ID: "272032ba-8698-5212-ba98-eff484a4cb31"
-Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
+Parent: "16e8396f-3071-4def-84c4-2e412ceaa039"
 Template: "52672eed-7aa7-4df1-93e1-c488bc2e0803"
-Path: /sitecore/content/EdgeWebsite/home/shop/motorsports
+Path: /sitecore/content/EdgeWebsite/Data/Product Categories/motorsports
 Languages:
 - Language: en
   Fields:
@@ -29,7 +29,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "504f1ffd-ef09-4db6-9432-0cc1b71baf24"
+      Value: "6b7ee8f1-6109-48a5-8b02-e7073ea078b4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -39,7 +39,4 @@ Languages:
       Value: Motor Sports
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210908T162256Z
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
-      Value: Motor Sports
+      Value: 20211210T142713Z

@@ -18,7 +18,7 @@ Left.args = {
     },
     callToActionLink: {
       value: {
-        href: '/shop/discount',
+        href: '/shop/product',
         text: 'Get Discount Code',
       },
     },

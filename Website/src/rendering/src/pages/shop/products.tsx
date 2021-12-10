@@ -135,7 +135,7 @@ const Products = (): JSX.Element => {
       </header>
       <main>
         <div className="shop-container">
-          <FeaturedProductHero />
+          <FeaturedProductHero subPageName="Products" />
           <section className="section">
             <div className="section__content container">
               <div id="shop-content-container">

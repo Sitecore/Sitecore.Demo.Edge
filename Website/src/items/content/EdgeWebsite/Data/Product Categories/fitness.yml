@@ -1,8 +1,8 @@
 ﻿---
 ID: "5610bf76-a85d-5a4c-85d5-1adbebd4c2ab"
-Parent: "9da25044-7955-5bb0-ba92-e03d17e6d4c1"
+Parent: "16e8396f-3071-4def-84c4-2e412ceaa039"
 Template: "52672eed-7aa7-4df1-93e1-c488bc2e0803"
-Path: /sitecore/content/EdgeWebsite/home/shop/fitness
+Path: /sitecore/content/EdgeWebsite/Data/Product Categories/fitness
 Languages:
 - Language: en
   Fields:
@@ -29,7 +29,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7b5f4184-50d7-4b44-9fa9-290f047dfc8b"
+      Value: "34408424-f50c-40b3-ba4f-5f7771311e06"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -39,7 +39,4 @@ Languages:
       Value: Fitness
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210908T161652Z
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
-      Value: Fitness
+      Value: 20211210T142713Z

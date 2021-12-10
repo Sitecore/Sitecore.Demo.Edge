@@ -6,27 +6,39 @@ import { ReactElement, useState } from 'react';
 
 import Section from './Section';
 
-export const FeaturedProductHero = (): JSX.Element => (
-  <section className="section section-featured-products">
-    <div className="section__content container">
-      <div id="featured-products-container">
-        <div id="products-left-container">
-          <h4>Home &#62; Shop</h4>
-          <h2>CenterCycle Ratchet Kit</h2>
-          <p>Small ratchet kit with a bag for your everyday bike travels and repairs.</p>
-          <div className="add-to-cart">
-            <Link href="/shop/product">
-              <a className="btn--main btn--main--round">Add to cart</a>
-            </Link>
+type FeaturedProductHeroProps = {
+  subPageName?: string;
+};
+
+export const FeaturedProductHero = (props: FeaturedProductHeroProps): JSX.Element => {
+  const shopBreadcrumb = props.subPageName ? <Link href="/shop">Shop</Link> : <>Shop</>;
+  const subPageBreadcrumb = props.subPageName && <> &#62; {props.subPageName}</>;
+
+  return (
+    <section className="section section-featured-products">
+      <div className="section__content container">
+        <div id="featured-products-container">
+          <div id="products-left-container">
+            <h4>
+              <Link href="/">Home</Link> &#62; {shopBreadcrumb}
+              {subPageBreadcrumb}
+            </h4>
+            <h2>CenterCycle Ratchet Kit</h2>
+            <p>Small ratchet kit with a bag for your everyday bike travels and repairs.</p>
+            <div className="add-to-cart">
+              <Link href="/shop/product">
+                <a className="btn--main btn--main--round">Add to cart</a>
+              </Link>
+            </div>
+          </div>
+          <div id="products-right-container">
+            <img src="/assets/img/shop/demo/ratchet.png" alt="CenterCycle Ratchet Kit" />
           </div>
         </div>
-        <div id="products-right-container">
-          <img src="/assets/img/shop/demo/ratchet.png" alt="CenterCycle Ratchet Kit" />
-        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
   const [popupVisible, setpopupVisible] = useState(false);
