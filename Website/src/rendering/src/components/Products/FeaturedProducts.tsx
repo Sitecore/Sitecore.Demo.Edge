@@ -3,7 +3,7 @@ import Link from 'next/link';
 const FeaturedProducts = (): JSX.Element => (
   <section className="section section--bg-white">
     <div className="section__content container">
-      <h1 className="section__content__title section__content__title--light">Featured products</h1>
+      <h1 className="section__content__title">Featured products</h1>
       <p className="section__content__subtitle--center">
         Road-test the world’s most trusted sports and fitness equipment–we’ll be welcoming 2,000
         brands at this year’s PLAY! Summit.

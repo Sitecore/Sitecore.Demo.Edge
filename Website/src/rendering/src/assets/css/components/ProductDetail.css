@@ -1,8 +1,8 @@
-.product {
-  @apply max-w-screen-2xl my-0 mx-auto box-border overflow-hidden;
+.product-detail {
+  @apply my-0 box-border;
 
-  .product-detail {
-    @apply grid gap-10;
+  .product-detail-hero {
+    @apply grid gap-10 mb-8;
     @apply sm:grid-cols-2;
     @apply md:grid-cols-3;
 
@@ -11,41 +11,49 @@
       @apply md:col-span-2;
 
       &-main {
-        @apply w-full;
-      }
-
-      &-thumbnails {
-        @apply m-auto p-2 h-24;
+        @apply mx-auto;
       }
     }
 
     .product-description {
-      @apply w-full space-y-3 text-sm pr-10 p-5;
+      @apply w-full space-y-4 text-sm p-5 pt-0;
 
-      .product-variant-selector {
-        @apply inline-flex justify-between border border-white-dark shadow-sm px-4 py-1 bg-white-light text-sm font-medium text-black-lightest w-full;
-        @apply hover:bg-gray-lighter;
-        @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-lighter focus:ring-blue-lightest;
+      h2 {
+        @apply font-bold text-4xl;
+      }
 
-        .product-variant-name {
-          @apply w-5 text-left;
+      .product-brand {
+        @apply font-bold text-xl;
+      }
+
+      .product-price {
+        @apply text-blue font-bold;
+      }
+
+      .product-quantity {
+        @apply inline-block w-20 border border-black px-3;
+
+        &::before {
+          content: '-';
         }
 
-        .product-variant-warning {
-          @apply w-1 text-yellow-dark;
+        &::after {
+          @apply text-right;
+
+          content: '+';
         }
 
-        img {
-          @apply h-5 w-5 text-right;
+        .quantity-number {
+          @apply inline-block w-10 text-center;
         }
       }
 
-      hr {
-        @apply border-gray;
+      .product-add-to-cart {
+        @apply py-3;
       }
 
       .product-similar-items .product-warning {
-        @apply text-yellow-dark;
+        @apply text-blue;
       }
     }
   }
@@ -53,19 +61,45 @@
   .product-info {
     @apply w-full;
 
-    &-header {
-      @apply mx-auto gap-5 w-2/3 grid grid-flow-col grid-cols-5 text-center p-10 uppercase;
+    .product-list {
+      @apply p-5 text-sm;
+      @apply md:px-10;
 
-      svg {
-        @apply text-blue;
+      h2 {
+        @apply text-center font-bold text-xl;
+      }
 
-        margin: 10px;
+      .shop-by-container {
+        @apply mt-3;
+
+        color: #3c3c3c;
+
+        .product {
+          @apply bg-white-light p-1 m-0;
+
+          img {
+            width: 231px;
+            height: 231px;
+          }
+        }
+      }
+
+      &.product-list-also-viewed {
+        @apply bg-gray-light;
+      }
+
+      &.product-list-similar {
+        @apply bg-black;
+
+        h2 {
+          @apply text-white;
+        }
       }
     }
 
     .product-specs {
-      @apply bg-gray-light p-5 text-sm space-y-2;
-      @apply md:p-20;
+      @apply bg-gray-light p-5 text-sm space-y-5;
+      @apply md:px-10;
 
       &-section-title {
         @apply text-lg uppercase;
@@ -78,7 +112,7 @@
 
     .product-highlights {
       @apply bg-black-light text-white p-5 text-sm space-y-2;
-      @apply md:p-20;
+      @apply md:px-10;
 
       &-row {
         @apply grid grid-cols-6 w-full border-white	border-b-2 p-1;
@@ -93,71 +127,13 @@
       }
 
       &-notice {
-        @apply p-10 mx-auto w-full text-center;
+        @apply pt-10 mx-auto w-full text-center;
       }
     }
 
     .product-geometry {
       @apply p-5 text-sm space-y-5;
-      @apply md:p-20;
-    }
-
-    .product-other {
-      @apply p-5 text-sm text-left space-y-5;
-      @apply md:p-20;
-
-      &-grid {
-        @apply grid grid-cols-1 gap-2;
-        @apply sm:grid-cols-2;
-        @apply md:grid-cols-3;
-        @apply lg:grid-cols-4;
-        @apply xl:grid-cols-5;
-
-        &-product {
-          @apply rounded overflow-hidden;
-
-          img {
-            @apply w-full border border-gray-dark h-40;
-          }
-
-          &-details {
-            @apply px-6 py-4;
-
-            &-text {
-              @apply text-black-lightest text-base text-center;
-            }
-          }
-        }
-      }
-    }
-
-    .product-events {
-      @apply p-5 text-sm text-left space-y-5;
-      @apply md:p-20;
-
-      &-grid {
-        @apply grid grid-cols-1 gap-2 text-sm;
-        @apply sm:grid-cols-2;
-        @apply md:grid-cols-3;
-        @apply lg:grid-cols-4;
-        @apply xl:grid-cols-5;
-
-        &-event {
-          @apply overflow-hidden;
-
-          &-image {
-            @apply w-full h-40;
-          }
-
-          &-details {
-            @apply px-6 py-4;
-
-            &-text {
-              @apply text-black-lightest text-center;
-            }
-          }
-        }
-      }
+      @apply md:px-10;
     }
   }
 }

@@ -48,14 +48,86 @@ const Template: ComponentStory<typeof Section> = (args) => (
   </Section>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const LightSpeakers = Template.bind({});
+LightSpeakers.args = {
   fields: {
     cssClass: {
       value: 'section__speakers',
     },
     brightness: {
       value: 'light',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const Light = Template.bind({});
+Light.args = {
+  fields: {
+    cssClass: {
+      value: '',
+    },
+    brightness: {
+      value: 'light',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const Dark = Template.bind({});
+Dark.args = {
+  fields: {
+    cssClass: {
+      value: '',
+    },
+    brightness: {
+      value: 'dark',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const DarkNews = Template.bind({});
+DarkNews.args = {
+  fields: {
+    cssClass: {
+      value: 'section__news',
+    },
+    brightness: {
+      value: 'dark',
     },
     title: {
       value: 'Section',
