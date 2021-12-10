@@ -1,7 +1,6 @@
 import { Text, Field, RichText, Image, LinkField, Link } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
-import React from 'react';
 
 export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
@@ -36,21 +35,23 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
       )
     )
     .map((speaker, index) => (
-      <a key={index} href={`/speakers/${speaker.itemName}`} className="grid-item">
-        <div className="item-image">
-          <Image
-            field={speaker.picture.jsonValue}
-            alt={speaker.name}
-            width={265}
-            height={265}
-            loading="lazy"
-          />
+      <link key={index} href={`/speakers/${speaker.itemName}`}>
+        <div className="grid-item">
+          <div className="item-image">
+            <Image
+              field={speaker.picture.jsonValue}
+              alt={speaker.name}
+              width={265}
+              height={265}
+              loading="lazy"
+            />
+          </div>
+          <div className="item-details">
+            <Text tag="p" className="speaker_name" field={speaker.name} />
+            <Text tag="p" field={speaker.jobTitle} />
+          </div>
         </div>
-        <div className="item-details">
-          <Text tag="strong" field={speaker.name} />
-          <Text tag="p" field={speaker.role} />
-        </div>
-      </a>
+      </link>
     ));
 
   const titleAndContent = props.fields && (

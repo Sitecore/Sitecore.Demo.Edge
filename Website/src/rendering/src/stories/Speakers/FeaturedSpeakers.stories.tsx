@@ -27,7 +27,7 @@ const speaker = {
   featured: {
     value: true,
   },
-  role: {
+  jobTitle: {
     value: '',
   },
 } as GraphQLSpeaker;
@@ -48,7 +48,7 @@ const speaker1 = {
   featured: {
     value: true,
   },
-  role: {
+  jobTitle: {
     value: '',
   },
 } as GraphQLSpeaker;
@@ -69,7 +69,7 @@ const speaker2 = {
   featured: {
     value: true,
   },
-  role: {
+  jobTitle: {
     value: '',
   },
 } as GraphQLSpeaker;
@@ -90,7 +90,7 @@ const speaker3 = {
   featured: {
     value: true,
   },
-  role: {
+  jobTitle: {
     value: '',
   },
 } as GraphQLSpeaker;
@@ -111,7 +111,7 @@ const speaker4 = {
   featured: {
     value: true,
   },
-  role: {
+  jobTitle: {
     value: '',
   },
 } as GraphQLSpeaker;
@@ -121,9 +121,15 @@ Default.args = {
   fields: {
     data: {
       source: {
-        title: { value: 'Featured speakers' },
-        content: { value: 'lorem ipsum' },
-        numberOfSpeakers: { value: '6' },
+        title: {
+          value: 'Featured speakers',
+        },
+        content: {
+          value: 'lorem ipsum',
+        },
+        numberOfSpeakers: {
+          value: '6',
+        },
         callToActionLink: {
           jsonValue: {
             value: {

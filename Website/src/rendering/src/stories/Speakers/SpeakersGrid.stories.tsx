@@ -27,7 +27,7 @@ const speaker1 = {
   featured: {
     value: false,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker',
   },
 } as GraphQLSpeaker;
@@ -48,7 +48,7 @@ const speaker2 = {
   featured: {
     value: false,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker',
   },
 } as GraphQLSpeaker;
@@ -69,7 +69,7 @@ const speaker3 = {
   featured: {
     value: false,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker',
   },
 } as GraphQLSpeaker;

@@ -35,11 +35,11 @@ SharedFields:
         }
       }
       item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
-        children(hasLayout: true, first: 20) {
+        children(hasLayout: true, first: 50) {
           results {
             ... on Speaker {
               itemName: name
-              role: jobTitle {
+              jobTitle {
                 value
               }
               name: field(name: "name") {

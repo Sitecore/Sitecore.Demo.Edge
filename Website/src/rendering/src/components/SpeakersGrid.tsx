@@ -29,7 +29,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
               alt={speaker.name}
             />
             <Text className="speaker__name" tag="p" field={speaker.name} />
-            <Text className="speaker__role" tag="p" field={speaker.role} />
+            <Text className="speaker__role" tag="p" field={speaker.jobTitle} />
           </a>
         </Link>
       ));
