@@ -9,7 +9,7 @@ SharedFields:
   Value: FeaturedVendors
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Core3/32x32/home_purple_h.png
+  Value: Applications/16x16/star_yellow.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Project/edgewebsite/FeaturedVendors
@@ -34,11 +34,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fc0d3b46-78ac-4b16-b409-a491f5692a00"
+      Value: "8d4593dc-2a2d-4ed8-ab51-4c0fe1c64aa6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210727T151304Z
+      Value: 20211213T172912Z
