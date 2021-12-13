@@ -8,4 +8,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  .section__content__p {
+    @apply hidden;
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeakerList, { SpeakerListProps } from '../../components/SpeakerList';
+import SpeakerList, { SpeakerListProps } from '../../components/Speakers/SpeakerList';
 import { Speaker } from 'src/types/speaker';
 
 export default {

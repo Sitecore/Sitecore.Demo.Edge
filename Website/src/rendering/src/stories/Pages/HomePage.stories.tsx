@@ -1,16 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header from '../../components/Header';
-import { HeaderProps } from '../../components/Header';
-import HeroSection, { HeroProps } from '../../components/HeroSection';
-import HeroSectionCta from '../../components/HeroSectionCta';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Header from '../../components/Navigation/Header';
+import { HeaderProps } from '../../components/Navigation/Header';
+import HeroSection, { HeroProps } from '../../components/Page Content/HeroSection';
+import HeroSectionCta from '../../components/Page Content/HeroSectionCta';
+import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/ThreeColumnsSection';
-import SponsorsGrid, { SponsorsProps } from '../../components/SponsorsGrid';
-import Footer, { FooterProps } from '../../components/Footer';
+} from '../../components/Page Content/ThreeColumnsSection';
+import SponsorsGrid, { SponsorsProps } from '../../components/Sponsors/SponsorsGrid';
+import Footer, { FooterProps } from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 

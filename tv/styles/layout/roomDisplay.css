@@ -2,8 +2,18 @@
   @apply h-screen w-screen bg-no-repeat;
 
   background-color: #afa09b;
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
+  filter: blur(2px);
+
+  .hall-title {
+    @apply text-4xl font-bold text-orange-dark absolute;
+
+    top: 450px;
+    left: 1520px;
+    text-shadow: 2px 2px gray;
+    mix-blend-mode: color-burn;
+    transform: skewY(-2deg);
+    width: 400px;
+  }
 }
 
 .roomDisplay {

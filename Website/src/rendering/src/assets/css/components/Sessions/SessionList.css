@@ -1,0 +1,55 @@
+.session-list {
+  @apply space-y-5 min-w-full;
+
+  .information-block {
+    @apply grid grid-cols-1 gap-5 bg-blue items-stretch p-6 bg-no-repeat bg-left-bottom;
+    @apply xs:grid-cols-3;
+    @apply xl:grid-cols-10;
+
+    background-image: url('../../../img/background-element.svg');
+
+    .info-col-left {
+      @apply col-span-1 align-top text-center self-center uppercase text-black;
+      @apply xl:col-span-3;
+
+      .session-info-ticket {
+        @apply inline px-3 w-full border border-white text-white;
+      }
+
+      .session-info-month {
+        @apply font-bold text-2xl mt-1;
+      }
+
+      .session-info-date {
+        @apply text-4xl font-bold leading-6 inline-block;
+      }
+    }
+
+    .info-col-content {
+      @apply col-span-1 text-white;
+      @apply xs:col-span-2;
+      @apply xl:col-span-7;
+
+      .info-col-title {
+        @apply font-bold uppercase mb-0;
+      }
+
+      .speaker-name {
+        @apply m-0 p-0 underline;
+        @apply md:hover:underline md:no-underline;
+      }
+
+      .info-text .icon {
+        @apply w-6 mr-2;
+      }
+
+      .info-col-cta {
+        @apply text-right flex pt-2;
+      }
+    }
+
+    &.premium {
+      @apply bg-orange;
+    }
+  }
+}

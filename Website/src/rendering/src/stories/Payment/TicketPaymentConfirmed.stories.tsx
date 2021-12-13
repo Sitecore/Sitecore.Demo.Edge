@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TicketPaymentConfirmed from '../../components/TicketPaymentConfirmed';
+import TicketPaymentConfirmed from '../../components/Payment/TicketPaymentConfirmed';
 
 export default {
   title: 'Components/Payment/TicketPaymentConfirmed',
