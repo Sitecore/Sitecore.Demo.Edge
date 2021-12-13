@@ -1,7 +1,7 @@
-import { HeaderProps } from '../../components/Header';
-import { FooterProps } from '../../components/Footer';
-import HeroSectionCta from '../../components/HeroSectionCta';
-import MainNavigation from '../../components/MainNavigation';
+import { HeaderProps } from '../../components/Navigation/Header';
+import { FooterProps } from '../../components/Navigation/Footer';
+import HeroSectionCta from '../../components/Page Content/HeroSectionCta';
+import MainNavigation from '../../components/Navigation/MainNavigation';
 
 export const mockHeaderProps = {
   rendering: {
