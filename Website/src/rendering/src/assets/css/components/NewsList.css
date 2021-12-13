@@ -33,6 +33,10 @@
 
       .image-container {
         @apply h-40 overflow-hidden;
+
+        img {
+          @apply w-full h-full object-cover;
+        }
       }
 
       .button-container {
