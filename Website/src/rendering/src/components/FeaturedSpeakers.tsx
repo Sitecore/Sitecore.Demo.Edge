@@ -35,7 +35,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
       )
     )
     .map((speaker, index) => (
-      <link key={index} href={`/speakers/${speaker.itemName}`}>
+      <a key={index} href={`/speakers/${speaker.itemName}`}>
         <div className="grid-item">
           <div className="item-image">
             <Image
@@ -51,7 +51,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
             <Text tag="p" field={speaker.jobTitle} />
           </div>
         </div>
-      </link>
+      </a>
     ));
 
   const titleAndContent = props.fields && (

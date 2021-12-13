@@ -25,7 +25,7 @@ const speaker = {
   featured: {
     value: true,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker Role',
   },
 } as GraphQLSpeaker;
