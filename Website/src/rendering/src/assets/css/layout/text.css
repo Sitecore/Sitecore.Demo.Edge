@@ -1,0 +1,5 @@
+.rich-text {
+  p + p {
+    @apply mt-4;
+  }
+}
