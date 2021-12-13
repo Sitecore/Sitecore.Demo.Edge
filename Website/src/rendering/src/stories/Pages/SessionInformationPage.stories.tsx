@@ -1,11 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
-import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
-import Footer, { FooterProps } from '../../components/Footer';
-import SessionInformation, { SessionInformationProps } from '../../components/SessionInformation';
+import Header, { HeaderProps } from '../../components/Navigation/Header';
+import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
+import SpeakerInformationPageHero from '../../components/Speakers/SpeakerInformationPageHero';
+import Footer, { FooterProps } from '../../components/Navigation/Footer';
+import SessionInformation, {
+  SessionInformationProps,
+} from '../../components/Sessions/SessionInformation';
 import { Speaker } from 'src/types/speaker';
 
 export default {

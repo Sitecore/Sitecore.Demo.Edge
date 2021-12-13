@@ -1,8 +1,12 @@
 import Head from 'next/head';
-import Footer, { FooterProps } from '../../components/Footer';
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
-import { FeaturedProductHero, ProductSearchBar, ExpandableDropDown } from '../../components/Shop';
+import Footer, { FooterProps } from '../../components/Navigation/Footer';
+import Header, { HeaderProps } from '../../components/Navigation/Header';
+import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
+import {
+  FeaturedProductHero,
+  ProductSearchBar,
+  ExpandableDropDown,
+} from '../../components/Products/Shop';
 
 const Products = (): JSX.Element => {
   const searchBarProps = {

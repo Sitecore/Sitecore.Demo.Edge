@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import Footer, { FooterProps } from '../../components/Footer';
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Footer, { FooterProps } from '../../components/Navigation/Footer';
+import Header, { HeaderProps } from '../../components/Navigation/Header';
+import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
 import {
   FeaturedProductHero,
   ProductSearchBar,
   ShopByCategory,
   ShopByVendor,
-} from '../../components/Shop';
+} from '../../components/Products/Shop';
 
 const Shop = (): JSX.Element => {
   const categoryProps = {

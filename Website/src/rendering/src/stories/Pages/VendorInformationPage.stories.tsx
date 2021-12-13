@@ -1,13 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Header, { HeaderProps } from '../../components/Navigation/Header';
+import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
 import VendorInformationPageHero, {
   VendorInformationPageHeroProps,
-} from '../../components/VendorInformationPageHero';
-import VendorInformation, { VendorInformationProps } from '../../components/VendorInformation';
-import Footer, { FooterProps } from '../../components/Footer';
+} from '../../components/Vendors/VendorInformationPageHero';
+import VendorInformation, {
+  VendorInformationProps,
+} from '../../components/Vendors/VendorInformation';
+import Footer, { FooterProps } from '../../components/Navigation/Footer';
 
 export default {
   title: 'Pages/Vendor Information Page',
