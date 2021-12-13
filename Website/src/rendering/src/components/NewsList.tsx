@@ -15,7 +15,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
     props.fields.items &&
     props.fields.items.map((news, index) => (
       <div key={index} className="news">
-        <Image field={news.fields.Image} alt={news.fields.Title} width={340} height={227} />
+        <Image field={news.fields.Image} alt={news.fields.Title.value} width={340} height={227} />
         <div className="text-container">
           <Text tag="div" className="news-title" field={news.fields.Title} />
           <DateField

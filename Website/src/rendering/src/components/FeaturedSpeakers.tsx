@@ -1,6 +1,14 @@
-import { Text, Field, RichText, Image, LinkField, Link } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  Field,
+  RichText,
+  Image,
+  LinkField,
+  Link as JssLink,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
+import Link from 'next/link';
 
 export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
@@ -35,23 +43,25 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
       )
     )
     .map((speaker, index) => (
-      <a key={index} href={`/speakers/${speaker.itemName}`}>
-        <div className="grid-item">
-          <div className="item-image">
-            <Image
-              field={speaker.picture.jsonValue}
-              alt={speaker.name}
-              width={265}
-              height={265}
-              loading="lazy"
-            />
+      <Link key={index} href={`/speakers/${speaker.itemName}`}>
+        <a>
+          <div className="grid-item">
+            <div className="item-image">
+              <Image
+                field={speaker.picture.jsonValue}
+                alt={speaker.name.value}
+                width={265}
+                height={265}
+                loading="lazy"
+              />
+            </div>
+            <div className="item-details">
+              <Text tag="p" className="speaker_name" field={speaker.name} />
+              <Text tag="p" field={speaker.jobTitle} />
+            </div>
           </div>
-          <div className="item-details">
-            <Text tag="p" className="speaker_name" field={speaker.name} />
-            <Text tag="p" field={speaker.jobTitle} />
-          </div>
-        </div>
-      </a>
+        </a>
+      </Link>
     ));
 
   const titleAndContent = props.fields && (
@@ -70,7 +80,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
   );
 
   const callToAction = !!props.fields?.data.source.callToActionLink.jsonValue?.value?.href && (
-    <Link
+    <JssLink
       field={props.fields.data.source.callToActionLink.jsonValue}
       className="btn--main btn--main--round btn--main--big"
     />

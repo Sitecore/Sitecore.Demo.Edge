@@ -24,7 +24,7 @@ const NewsDetail = (props: NewsDetailProps): JSX.Element => (
     <div className="section__content left__content">
       <div className="container">
         <div className="left-column">
-          <Image field={props.fields?.Image} alt={props.fields?.Title} />
+          <Image field={props.fields?.Image} alt={props.fields?.Title.value} />
         </div>
         <div className="right-column">
           <DateField

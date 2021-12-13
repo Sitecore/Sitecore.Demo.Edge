@@ -26,7 +26,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
             <Image
               className="speaker__image"
               field={speaker.picture.jsonValue}
-              alt={speaker.name}
+              alt={speaker.name.value}
             />
             <Text className="speaker__name" tag="p" field={speaker.name} />
             <Text className="speaker__role" tag="p" field={speaker.jobTitle} />
