@@ -6,6 +6,7 @@ import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 import { DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
+import { FeatureFlagContext } from '../../contexts/FeatureFlagContext';
 
 type RoomProps = {
   roomId: string;
@@ -64,6 +65,7 @@ export default function RoomPage(props: RoomProps) {
   const router = useRouter();
   const initialPageLoad = useRef(true);
   const dayTimeContext = useContext(DayTimeContext);
+  const featureFlagContext = useContext(FeatureFlagContext);
   const [sessions, setSessions] = useState(
     getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router)
   );
@@ -71,9 +73,11 @@ export default function RoomPage(props: RoomProps) {
   useEffect(() => {
     // Do not get the sessions on first page load as they come from the props.
     if (!initialPageLoad.current) {
-      getSessionsByRoom(props.roomId).then((data) => {
-        setSessions(getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router));
-      });
+      getSessionsByRoom(props.roomId, featureFlagContext.featureFlags.isPreviewApiEnabled).then(
+        (data) => {
+          setSessions(getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router));
+        }
+      );
     }
 
     initialPageLoad.current = false;
@@ -115,7 +119,7 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessionsByRoom(params.id);
+  const { sessions } = await getSessionsByRoom(params.id, false);
 
   return {
     props: {

@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Navigation from '../components/Navigation';
 import { DayTimeContextProvider } from '../contexts/DayTimeContext';
+import { FeatureFlagContextProvider } from '../contexts/FeatureFlagContext';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <div className="screen">
@@ -13,10 +14,12 @@ const App = ({ Component, pageProps }: AppProps) => (
     </Head>
 
     <main>
-      <DayTimeContextProvider>
-        <Navigation />
-        <Component {...pageProps} />
-      </DayTimeContextProvider>
+      <FeatureFlagContextProvider>
+        <DayTimeContextProvider>
+          <Navigation />
+          <Component {...pageProps} />
+        </DayTimeContextProvider>
+      </FeatureFlagContextProvider>
     </main>
   </div>
 );

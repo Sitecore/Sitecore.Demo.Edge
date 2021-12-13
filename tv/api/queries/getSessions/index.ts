@@ -222,12 +222,18 @@ const parseAndFilterSession = function (
   return sessions;
 };
 
-export const getSessionsByRoom = async (room: string): Promise<{ sessions: Session[] }> => {
+export const getSessionsByRoom = async (
+  room: string,
+  previewApiEnabled: boolean
+): Promise<{ sessions: Session[] }> => {
   if (process.env.CI === 'true') {
     return { sessions: [] as Session[] };
   }
 
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
+  const results: AllSessionsResponse = (await fetchGraphQL(
+    sessionsQuery,
+    previewApiEnabled
+  )) as AllSessionsResponse;
 
   const sessions: Session[] = parseAndFilterSession(
     results.data.allDemo_Session.results,
@@ -238,12 +244,18 @@ export const getSessionsByRoom = async (room: string): Promise<{ sessions: Sessi
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
 
-export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions: Session[] }> => {
+export const getSessionsBySpeaker = async (
+  speaker: string,
+  previewApiEnabled: boolean
+): Promise<{ sessions: Session[] }> => {
   if (process.env.CI === 'true') {
     return { sessions: [] as Session[] };
   }
 
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
+  const results: AllSessionsResponse = (await fetchGraphQL(
+    sessionsQuery,
+    previewApiEnabled
+  )) as AllSessionsResponse;
   const sessions: Session[] = [];
 
   results?.data?.allDemo_Session?.results &&
@@ -259,12 +271,18 @@ export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions:
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
 
-export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {
+export const getAllSessionsByDay = async (
+  day: string,
+  previewApiEnabled: boolean
+): Promise<{ sessions: Session[] }> => {
   if (process.env.CI === 'true') {
     return { sessions: [] as Session[] };
   }
 
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
+  const results: AllSessionsResponse = (await fetchGraphQL(
+    sessionsQuery,
+    previewApiEnabled
+  )) as AllSessionsResponse;
 
   const sessions: Session[] = parseAndFilterSession(
     results?.data?.allDemo_Session.results,

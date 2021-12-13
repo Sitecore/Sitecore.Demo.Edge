@@ -4,6 +4,7 @@ import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
 import { dayDefaultValue, DayTimeContext } from '../contexts/DayTimeContext';
+import { FeatureFlagContext } from '../contexts/FeatureFlagContext';
 
 type ScheduleProps = {
   sessions: Session[];
@@ -63,9 +64,13 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   const displayedDaySessions = useRef(props.sessions);
   const [schedule, setSchedule] = useState(defaultSchedule);
   const dayTimeContext = useContext(DayTimeContext);
+  const featureFlagContext = useContext(FeatureFlagContext);
 
   useEffect(() => {
-    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
+    getAllSessionsByDay(
+      dayTimeContext.dayTime.day,
+      featureFlagContext.featureFlags.isPreviewApiEnabled
+    ).then((data) => {
       displayedDaySessions.current = data.sessions;
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
     });
@@ -75,7 +80,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
 };
 
 export const getStaticProps = async () => {
-  const { sessions } = await getAllSessionsByDay(dayDefaultValue);
+  const { sessions } = await getAllSessionsByDay(dayDefaultValue, false);
 
   return {
     props: {

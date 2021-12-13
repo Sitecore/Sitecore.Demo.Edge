@@ -6,6 +6,7 @@ import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
 import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
+import { FeatureFlagContext } from '../contexts/FeatureFlagContext';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 import router from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,6 +28,7 @@ const Navigation = (): JSX.Element => {
   const dayTimeContext = useContext(DayTimeContext);
   const selectedDay = useRef(dayDefaultValue);
   const selectedTime = useRef(timeDefaultValue);
+  const featureFlagContext = useContext(FeatureFlagContext);
   const isSchemaFetched = useRef(false);
   const [schema, setSchema] = useState(defaultNavigationState);
 
@@ -106,6 +108,12 @@ const Navigation = (): JSX.Element => {
     }
   }
 
+  function handleApiContextClick(e: React.MouseEvent<HTMLInputElement>) {
+    // Set the context with new values
+    const button = e.target as HTMLInputElement;
+    featureFlagContext.setFeatureFlag(button.checked);
+  }
+
   function handleQuickRefreshClick() {
     // Reset the context with its actual values
     dayTimeContext.setDayTime(dayTimeContext.dayTime.day, dayTimeContext.dayTime.time);
@@ -135,7 +143,12 @@ const Navigation = (): JSX.Element => {
               htmlFor="toggle-button"
               className="flex items-center cursor-pointer relative mb-4"
             >
-              <input type="checkbox" id="toggle-button" className="peer sr-only" />
+              <input
+                onClick={handleApiContextClick}
+                type="checkbox"
+                id="toggle-button"
+                className="peer sr-only"
+              />
               <div className="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
               <span className="toggle-text ml-3 text-blue-light text-sm font-medium peer-checked:toggle-text"></span>
             </label>
