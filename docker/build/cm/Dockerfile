@@ -68,6 +68,9 @@ COPY ./tools/ /tools/
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
 
+# Copy website images to allow displaying them in Horizon without EnableRelativeLinkProcessing
+COPY --from=solution /artifacts/src/rendering/public ./
+
 # Fix for PowerShell Console failing to open from Sitecore desktop menu - Requires PSE to be installed
 RUN Rename-Item -Path 'C:\inetpub\wwwroot\App_Config\Include\Spe\Spe.IdentityServer.config.disabled' -NewName 'Spe.IdentityServer.config'
 
