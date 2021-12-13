@@ -1,5 +1,3 @@
 .rich-text {
-  p + p {
-    @apply mt-4;
-  }
+  @apply space-y-4;
 }
