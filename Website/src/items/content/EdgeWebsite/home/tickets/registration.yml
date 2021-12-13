@@ -7,108 +7,18 @@ SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
-    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
-        <p
-          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
-          key="jss-header"
-          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
-        <p
-          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
-          key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
-        <p
-          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
-          key="jss-footer"
-          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
-        <p
-          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
-          key="jss-header-content"
-          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
-        <p
-          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
-          key="jss-section-content"
-          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          rname="Header"
-          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
-          par=""
-          ph="/jss-header"
-          uid="{4626EC95-09AB-5F23-9E6C-A4E5CE7E4755}" />
-        <r
-          rname="MainNavigation"
-          id="{09516A66-F92F-5638-B073-8F9A79765778}"
-          par=""
-          ph="/jss-header/jss-header-content-{4626EC95-09AB-5F23-9E6C-A4E5CE7E4755}-0"
-          uid="{F139ACCD-946B-5468-B380-B38A2B0B70FC}" />
-        <r
-          rname="HeaderBanner"
-          ds="{BD786D95-3316-5B3B-8224-BECD301935A5}"
-          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
-          par=""
-          ph="/jss-main"
-          uid="{86C8A5B0-4A7F-55CD-87DD-765DEC81833D}" />
-        <r
-          rname="Section"
-          ds="{FFC44113-0826-506C-B6D8-B7F4BC94E9A4}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          par=""
-          ph="/jss-main"
-          uid="{1FAC5274-9C46-55A0-8E17-9BC1C6A36329}" />
-        <r
-          rname="RegistrationGrid"
-          id="{BA4CA0AB-DA56-57DA-A1DB-DCB73B87C735}"
-          par=""
-          ph="/jss-main/jss-section-content-{1FAC5274-9C46-55A0-8E17-9BC1C6A36329}-0"
-          uid="{8D7D3783-B8C8-507F-A0FB-1CEC326C6ABD}" />
-        <r
-          rname="Section"
-          ds="{3BE19CA9-2E8B-55FB-9DF1-AF71470DFE06}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          par=""
-          ph="/jss-main"
-          uid="{363D55C8-300C-58C3-BBC0-30493863245E}" />
-        <r
-          rname="AgendaGrid"
-          id="{31BC70C9-09B7-5D3A-ABF8-15988FA85FD8}"
-          par=""
-          ph="/jss-main/jss-section-content-{363D55C8-300C-58C3-BBC0-30493863245E}-0"
-          uid="{438A2141-39EA-52B9-9B65-9AC140D5F18A}" />
-        <r
-          rname="Section"
-          ds="{BADA60EE-7043-5750-ACAE-D4E620754F1F}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          par=""
-          ph="/jss-main"
-          uid="{8AEDF579-7851-5D37-A145-B5834A076A2B}" />
-        <r
-          rname="GalleryGrid"
-          id="{8C958A09-DE7B-50BE-A0BD-12B6A2F2FCA3}"
-          par=""
-          ph="/jss-main/jss-section-content-{8AEDF579-7851-5D37-A145-B5834A076A2B}-0"
-          uid="{98BF3805-3ABA-5D14-8C21-EFFF814CFF01}" />
-        <r
-          rname="Section"
-          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
-          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          par=""
-          ph="/jss-main"
-          uid="{642E28DB-8AAD-5002-8503-A6704CFDF7D8}" />
-        <r
-          rname="SponsorsGrid"
-          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
-          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
-          par=""
-          ph="/jss-main/jss-section-content-{642E28DB-8AAD-5002-8503-A6704CFDF7D8}-0"
-          uid="{16F1C83B-341A-5B59-BEDE-D76A3D66C6F6}" />
-        <r
-          rname="Footer"
-          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
-          par=""
-          ph="/jss-footer"
-          uid="{7027777A-2615-59BE-B05F-3CFA3753D011}" />
+          uid="{86C8A5B0-4A7F-55CD-87DD-765DEC81833D}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:rname="HeaderBanner"
+          s:ds="{BD786D95-3316-5B3B-8224-BECD301935A5}"
+          s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          s:par=""
+          s:ph="/jss-main" />
       </d>
     </r>
 Languages:
@@ -133,14 +43,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ea148a04-e33e-4632-9813-0143967b55bf"
+      Value: "5091bc78-ceb4-44cc-b566-ed26f9f92fb8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T161357Z
+      Value: 20211213T164918Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Registration

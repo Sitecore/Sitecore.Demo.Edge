@@ -1,13 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header from '../../components/Header';
+import Header from '../../components/Navigation/Header';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import VendorInformationPageHero, {
   VendorInformationPageHeroProps,
-} from '../../components/VendorInformationPageHero';
-import VendorInformation, { VendorInformationProps } from '../../components/VendorInformation';
-import Footer from '../../components/Footer';
+} from '../../components/Vendors/VendorInformationPageHero';
+import VendorInformation, {
+  VendorInformationProps,
+} from '../../components/Vendors/VendorInformation';
+import Footer from '../../components/Navigation/Footer';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 

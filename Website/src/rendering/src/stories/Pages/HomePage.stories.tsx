@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header from '../../components/Header';
+import Header from '../../components/Navigation/Header';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
-import HeroSection, { HeroProps } from '../../components/HeroSection';
+import HeroSection, { HeroProps } from '../../components/Page Content/HeroSection';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/ThreeColumnsSection';
-import SponsorsGrid, { SponsorsProps } from '../../components/SponsorsGrid';
-import Footer from '../../components/Footer';
+} from '../../components/Page Content/ThreeColumnsSection';
+import SponsorsGrid, { SponsorsProps } from '../../components/Sponsors/SponsorsGrid';
+import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';

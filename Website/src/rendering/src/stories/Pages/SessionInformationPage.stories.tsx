@@ -1,11 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header from '../../components/Header';
+import Header from '../../components/Navigation/Header';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
-import SpeakerInformationPageHero from '../../components/SpeakerInformationPageHero';
-import Footer from '../../components/Footer';
-import SessionInformation, { SessionInformationProps } from '../../components/SessionInformation';
+import SpeakerInformationPageHero from '../../components/Speakers/SpeakerInformationPageHero';
+import Footer from '../../components/Navigation/Footer';
+import SessionInformation, {
+  SessionInformationProps,
+} from '../../components/Sessions/SessionInformation';
 import { Speaker } from 'src/types/speaker';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';

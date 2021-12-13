@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionInformationPageHero from '../../components/SessionInformationPageHero';
+import SessionInformationPageHero from '../../components/Sessions/SessionInformationPageHero';
 
 export default {
   title: 'Components/Sessions/SessionInformationPageHero',
