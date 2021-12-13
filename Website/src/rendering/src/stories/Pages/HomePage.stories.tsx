@@ -3,13 +3,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../../components/Navigation/Header';
 import { HeaderProps } from '../../components/Navigation/Header';
-import HeroSection, { HeroProps } from '../../components/Page Structure/HeroSection';
-import HeroSectionCta from '../../components/Page Structure/HeroSectionCta';
+import HeroSection, { HeroProps } from '../../components/Page Content/HeroSection';
+import HeroSectionCta from '../../components/Page Content/HeroSectionCta';
 import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/Page Structure/ThreeColumnsSection';
-import SponsorsGrid, { SponsorsProps } from '../../components/Page Content/SponsorsGrid';
+} from '../../components/Page Content/ThreeColumnsSection';
+import SponsorsGrid, { SponsorsProps } from '../../components/Sponsors/SponsorsGrid';
 import Footer, { FooterProps } from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';

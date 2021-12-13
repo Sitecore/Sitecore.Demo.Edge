@@ -1,6 +1,6 @@
 import { Field, ImageField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import InformationPageHero from '../Page Content/InformationPageHero';
+import InformationPageHero from '../NonSitecore/InformationPageHero';
 
 export type VendorInformationPageHeroProps = ComponentProps & {
   fields: {

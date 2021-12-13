@@ -6,7 +6,7 @@ import {
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
-import InformationPageHero from '../Page Content/InformationPageHero';
+import InformationPageHero from '../NonSitecore/InformationPageHero';
 
 export type SpeakerInformationPageHeroProps = ComponentProps & {
   fields: {

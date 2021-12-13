@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Product } from '../Shop';
+import { Product } from './Shop';
 
 const ProductDetail = (): JSX.Element => {
   const alsoViewedProducts = [

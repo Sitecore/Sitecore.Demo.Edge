@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -25,11 +25,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7d717fa0-2f77-4984-88a9-b6cee667bd7b"
+      Value: "c62f42d7-f427-410c-ba11-c071efd558b4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211209T151827Z
+      Value: 20211213T164530Z

@@ -7,7 +7,7 @@ import {
   ProductSearchBar,
   ShopByCategory,
   ShopByVendor,
-} from '../../components/Shop';
+} from '../../components/Products/Shop';
 
 const Shop = (): JSX.Element => {
   const categoryProps = {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { getSessionTime } from '../../helpers/DateHelper';
 import { GraphQLSession } from 'src/types/session';
-import InfoText from '../Page Content/InfoText';
+import InfoText from '../NonSitecore/InfoText';
 import { faClock, faDoorOpen, faUser } from '@fortawesome/free-solid-svg-icons';
 
 type SessionListItemProps = GraphQLSession & {

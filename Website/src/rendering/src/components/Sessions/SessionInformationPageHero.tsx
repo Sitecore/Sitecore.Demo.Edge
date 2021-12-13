@@ -1,6 +1,6 @@
 import { Field, ImageField, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import InfoText from '../Page Content/InfoText';
+import InfoText from '../NonSitecore/InfoText';
 import { faCalendar, faClock, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { getSessionDays, getSessionTime } from '../../helpers/DateHelper';
 import { Room } from 'src/types/room';

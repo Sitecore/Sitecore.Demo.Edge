@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Speakers
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 475
+  Value: 100
 Languages:
 - Language: en
   Versions:
@@ -25,11 +25,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "89fd948e-42fc-434d-97ae-bd64c586804b"
+      Value: "ee2665f8-f9ff-44ca-906a-04ab7405d414"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211209T151832Z
+      Value: 20211213T164530Z
