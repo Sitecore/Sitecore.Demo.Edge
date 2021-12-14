@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionsGrid from '../../components/SessionsGrid';
+import SessionsGrid from '../../components/Sessions/SessionsGrid';
 import { SESSIONS } from '../../models/mock-sessions';
 
 export default {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SessionInformation from '../../components/SessionInformation';
+import SessionInformation from '../../components/Sessions/SessionInformation';
 import { Speaker } from 'src/types/speaker';
 
 export default {

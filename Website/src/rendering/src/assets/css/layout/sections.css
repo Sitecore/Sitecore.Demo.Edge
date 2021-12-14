@@ -32,6 +32,20 @@
       @apply block;
     }
   }
+
+  &--dark {
+    @apply bg-black;
+
+    .section__content {
+      .section__content__p {
+        @apply text-white;
+      }
+
+      .section__content__title {
+        @apply text-orange;
+      }
+    }
+  }
 }
 
 .section__content {
@@ -43,10 +57,6 @@
 
     p {
       @apply pb-3;
-    }
-
-    &--dark {
-      @apply text-white;
     }
   }
 
@@ -87,16 +97,8 @@
 }
 
 .section__content__title {
-  @apply text-2xl font-bold pb-5 uppercase m-0;
+  @apply text-2xl font-bold pb-5 m-0 text-blue-light;
   @apply md:text-5xl;
-
-  &--light {
-    @apply text-blue-light;
-  }
-
-  &--dark {
-    @apply text-yellow;
-  }
 }
 
 .scEmptyPlaceholder {
