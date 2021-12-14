@@ -6,11 +6,12 @@ import logo from '../public/p_logo_transparent.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type RoomProps = {
+  room: string;
   currentSession: Session | null;
   nextSession: Session | null;
 };
 
-const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element => {
+const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Element => {
   return (
     <div className="roomDisplay">
       <div className="image-left">
@@ -40,7 +41,7 @@ const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element =>
           <div className="w-full">
             <Image className="logo" src={logo} alt="logo" width={60} height={80} />
             <div className="room-name text-right text-white text-6xl font-extrabold inline right-0 absolute pt-10">
-              {currentSession && currentSession.room}
+              {room}
             </div>
           </div>
 
