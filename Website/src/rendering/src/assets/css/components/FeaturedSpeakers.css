@@ -1,7 +1,7 @@
 .featured-speakers {
   @apply bg-cover bg-center bg-no-repeat;
 
-  background: url(../../img/background-pattern-dark.svg);
+  /* background: url(../../img/background-pattern-dark.svg); */
 
   .section__content__title {
     @apply pt-10 text-orange normal-case;

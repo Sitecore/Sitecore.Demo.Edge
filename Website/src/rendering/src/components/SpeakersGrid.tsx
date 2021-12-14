@@ -36,7 +36,6 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
 
   return (
     <div className="section__speakers container">
-      <h2 className="section__content__title">Other event speakers</h2>
       <div className="section__speakers__grid">{speakers}</div>
     </div>
   );

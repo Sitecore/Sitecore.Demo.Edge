@@ -24,23 +24,30 @@ SharedFields:
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
-          uid="{AB124E7A-EF78-4801-92BC-92DB133ECA28}"
+          uid="{52A298F9-9A10-4DEE-9052-F3A39747B25A}"
           p:after="r[@uid='{DC97D398-D7B5-5407-B2B2-B28516EB743F}']"
-          s:rname="FeaturedSpeakers"
+          s:ds="{BDC4D967-405D-4035-86D5-E136095BBE96}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:ph="jss-main" />
+        <r
+          uid="{90A85FE8-3DBC-4FD1-95BC-CD2E776F9685}"
+          p:after="p[@uid='{DC97D398-D7B5-5407-B2B2-B28516EB743F}']"
           s:ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
           s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
           s:par=""
-          s:ph="/jss-main"
+          s:ph="/jss-main/jss-section-content-{52A298F9-9A10-4DEE-9052-F3A39747B25A}-0"
           s:ccb="Clear on publish" />
         <r
-          uid="{FEA6367D-427C-44E9-B789-5876A6093332}"
-          p:after="r[@uid='{AB124E7A-EF78-4801-92BC-92DB133ECA28}']"
-          s:rname="SpeakersGrid"
-          s:ds=""
+          uid="{29786341-D265-43F5-9022-C763D84CB968}"
+          p:after="p[@uid='{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}']"
           s:id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
-          s:par=""
-          s:ph="/jss-main"
-          s:ccb="Clear on publish" />
+          s:ph="/jss-main/jss-section-content-{B0711419-B8EC-4463-866A-DFCDCAC04EFF}-0" />
+        <r
+          uid="{B0711419-B8EC-4463-866A-DFCDCAC04EFF}"
+          p:after="r[@uid='{52A298F9-9A10-4DEE-9052-F3A39747B25A}']"
+          s:ds="{54128E66-C795-4816-9A7A-59CEB06DEA90}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:ph="jss-main" />
       </d>
     </r>
 Languages:
