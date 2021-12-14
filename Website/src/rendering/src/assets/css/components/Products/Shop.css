@@ -161,6 +161,7 @@ div#shop-content-container {
   justify-content: space-between;
   padding-right: 20px;
   align-items: center;
+  cursor: pointer;
 }
 
 ul.dropdown-items {
@@ -178,11 +179,12 @@ li.dropdown-item:hover {
   background-color: #e5e5e5;
 }
 
-li.dropdown-item a {
+li.dropdown-item span {
   width: 100%;
   height: 100%;
   display: block;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 ul.dropdown-items.expanded {

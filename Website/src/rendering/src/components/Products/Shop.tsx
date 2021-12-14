@@ -70,7 +70,7 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
           <li>Did you mean?</li>
           {props.didYouMean.map((text) => (
             <li key={text}>
-              <a href="javascript:void(0)">{text}</a>
+              <a href="#">{text}</a>
             </li>
           ))}
         </ul>
@@ -78,7 +78,7 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
           <li>Top categories</li>
           {props.topCategories.map((text) => (
             <li key={text}>
-              <a href="javascript:void(0)">{text}</a>
+              <a href="#">{text}</a>
             </li>
           ))}
         </ul>
@@ -116,6 +116,9 @@ export const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
     }}
     rendering={{
       componentName: '',
+      placeholders: {
+        'jss-section-content': [],
+      },
     }}
     params={{}}
   >
@@ -151,6 +154,9 @@ export const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
     }}
     rendering={{
       componentName: '',
+      placeholders: {
+        'jss-section-content': [],
+      },
     }}
     params={{}}
   >
@@ -203,23 +209,17 @@ export const ExpandableDropDown = (props: ExpandableDropDownProps): JSX.Element 
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="dropdown-container">
-      <a
-        className="dropdown-header"
-        href="javascript:void(0)"
-        onClick={() => setExpanded(!expanded)}
-      >
+      <span className="dropdown-header" onClick={() => setExpanded(!expanded)}>
         <Text tag="p" field={{ value: props.title }} />
         <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} />
-      </a>
+      </span>
       <ul
         className={expanded ? 'dropdown-items expanded' : 'dropdown-items'}
         style={{ height: expanded ? props.items.length * 40 : 0 }}
       >
         {props.items.map((item) => (
           <li key={item.text} className="dropdown-item">
-            <a href="javascript:void(0)" onClick={() => props.onClick(item.value)}>
-              {item.text}
-            </a>
+            <span onClick={() => props.onClick(item.value)}>{item.text}</span>
           </li>
         ))}
       </ul>
