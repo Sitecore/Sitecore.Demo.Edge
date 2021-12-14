@@ -90,6 +90,7 @@
 @import "./components/Speakers/SpeakerInformationPageHero.css";
 @import "./components/Speakers/SpeakerList.css";
 @import "./components/Speakers/SpeakersGrid.css";
+@import "./components/Speakers/FeaturedSpeakers.css";
 
 /* Sponsors */
 @import "./components/Sponsors/SponsorsGrid.css";
