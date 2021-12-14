@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 1. Configuration and helpers */
+/* 1. Our configuration and helpers */
 
 @import "./abstracts/mixins.css";
 
@@ -37,47 +37,63 @@
 
 /* 6. Our components */
 
-@import "./components/AttendeeForm.css";
-@import "./components/Breadcrumb.css";
-@import "./components/CountdownSection.css";
-@import "./components/FeaturedEvent.css";
-@import "./components/Footer.css";
-@import "./components/FullImageSection.css";
-@import "./components/InformationPageHero.css";
-@import "./components/Header.css";
-@import "./components/HeaderBanner.css";
-@import "./components/HeroImage.css";
-@import "./components/HeroSection.css";
-@import "./components/MainNavigation.css";
-@import "./components/NewsDetail.css";
-@import "./components/NewsGrid.css";
-@import "./components/NewsList.css";
-@import "./components/OrderSummary.css";
-@import "./components/PaymentAndBillingForm.css";
-@import "./components/PaymentConfirmed.css";
-@import "./components/PaymentForm.css";
-@import "./components/PaymentProgress.css";
-@import "./components/ProductDetail.css";
-@import "./components/Promo.css";
-@import "./components/RegistrationGrid.css";
-@import "./components/RequestInfoForm.css";
-@import "./components/SessionsGrid.css";
-@import "./components/SessionList.css";
-@import "./components/SessionsFilters.css";
-@import "./components/SessionInformationPageHero.css";
-@import "./components/SpeakerInformationPageHero.css";
-@import "./components/SpeakerList.css";
-@import "./components/SpeakersGrid.css";
-@import "./components/SponsorsGrid.css";
-@import "./components/SummitFeatures.css";
-@import "./components/TestimonyList.css";
-@import "./components/TextCta.css";
-@import "./components/ThreeColumnsCta.css";
-@import "./components/ThreeColumnsSection.css";
-@import "./components/TicketGrid.css";
-@import "./components/TicketPaymentConfirmed.css";
-@import "./components/TicketUpsell.css";
-@import "./components/Shop.css";
+/* Forms */
+@import "./components/Forms/AttendeeForm.css";
+@import "./components/Forms/RequestInfoForm.css";
+
+/* Navigation */
+@import "./components/Navigation/Breadcrumb.css";
+@import "./components/Navigation/Footer.css";
+@import "./components/Navigation/Header.css";
+@import "./components/Navigation/MainNavigation.css";
+
+/* News */
+@import "./components/News/NewsDetail.css";
+@import "./components/News/NewsGrid.css";
+@import "./components/News/NewsList.css";
+
+/* NonSitecore */
+@import "./components/NonSitecore/InformationPageHero.css";
+
+/* Page Content */
+@import "./components/Page Content/FeaturedEvent.css";
+@import "./components/Page Content/FullImageSection.css";
+@import "./components/Page Content/HeaderBanner.css";
+@import "./components/Page Content/HeroImage.css";
+@import "./components/Page Content/HeroSection.css";
+@import "./components/Page Content/Promo.css";
+@import "./components/Page Content/SummitFeatures.css";
+@import "./components/Page Content/TestimonyList.css";
+@import "./components/Page Content/TextCta.css";
+@import "./components/Page Content/ThreeColumnsCta.css";
+@import "./components/Page Content/ThreeColumnsSection.css";
+@import "./components/Page Content/TicketGrid.css";
+
+/* Payment */
+@import "./components/Payment/OrderSummary.css";
+@import "./components/Payment/PaymentAndBillingForm.css";
+@import "./components/Payment/PaymentConfirmed.css";
+@import "./components/Payment/PaymentForm.css";
+@import "./components/Payment/PaymentProgress.css";
+@import "./components/Payment/TicketPaymentConfirmed.css";
+
+/* Products */
+@import "./components/Products/ProductDetail.css";
+@import "./components/Products/Shop.css";
+
+/* Sessions */
+@import "./components/Sessions/SessionsGrid.css";
+@import "./components/Sessions/SessionList.css";
+@import "./components/Sessions/SessionsFilters.css";
+@import "./components/Sessions/SessionInformationPageHero.css";
+
+/* Speakers */
+@import "./components/Speakers/SpeakerInformationPageHero.css";
+@import "./components/Speakers/SpeakerList.css";
+@import "./components/Speakers/SpeakersGrid.css";
+
+/* Sponsors */
+@import "./components/Sponsors/SponsorsGrid.css";
 
 /* 7. Our page-specific styles */
 
