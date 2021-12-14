@@ -1,7 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import VendorInformation, { VendorInformationProps } from '../../components/VendorInformation';
+import VendorInformation, {
+  VendorInformationProps,
+} from '../../components/Vendors/VendorInformation';
 
 export default {
   title: 'Components/Vendors/VendorInformation',

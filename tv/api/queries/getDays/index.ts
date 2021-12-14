@@ -24,10 +24,6 @@ const parseDay = function (dayResult: DayResult) {
 };
 
 export const getAllDays = async (): Promise<{ days: Day[] }> => {
-  if (process.env.CI === 'true') {
-    return { days: [] as Day[] };
-  }
-
   const results: AllDaysResponse = (await fetchGraphQL(daysQuery)) as AllDaysResponse;
   const days: Day[] = [];
 

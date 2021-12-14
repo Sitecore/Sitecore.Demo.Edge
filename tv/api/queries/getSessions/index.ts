@@ -155,10 +155,6 @@ export const getSessionsByRoom = async (
 };
 
 export const getSessionsByDay = async (day: number): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
   const sessionsByDayQuery = `
   query {
     allDemo_Day(where: { sortOrder_eq: ${day} }) {

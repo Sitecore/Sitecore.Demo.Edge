@@ -1,29 +1,11 @@
 header {
-  @apply fixed top-0 w-full;
+  @apply sticky top-0 w-full;
 
   z-index: 9999;
 
+  /* Required for the Experience Editor floating toolbar to display above the header when the first component below the header is selected. */
   &.experience-editor-active {
     position: unset;
-  }
-}
-
-main {
-  /* Header.css h-7 + MainNavigation.css 78px */
-  padding-top: 106px;
-
-  @screen lg {
-    /* Header.css h-7 + MainNavigation.css 93px */
-    padding-top: 121px;
-  }
-
-  @screen xl {
-    /* Header.css h-6 + MainNavigation.css 93px */
-    padding-top: 119px;
-  }
-
-  &.experience-editor-active {
-    padding-top: unset;
   }
 }
 

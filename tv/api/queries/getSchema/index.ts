@@ -36,14 +36,6 @@ export const getSchema = async (): Promise<{
     }
   `;
 
-  if (process.env.CI === 'true') {
-    return {
-      days: [] as DayResult[],
-      timeslots: [] as TimeslotResult[],
-      venues: [] as VenueResult[],
-    };
-  }
-
   const results: SchemaResponse = (await fetchGraphQL(schemaQuery)) as SchemaResponse;
 
   const days: DayResult[] = results?.data?.allDemo_Day.results;

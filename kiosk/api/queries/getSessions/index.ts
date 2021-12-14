@@ -117,10 +117,6 @@ const parseSessionWithTimeSlot = function (
 };
 
 export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
 
