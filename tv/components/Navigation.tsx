@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Router from 'next/router';
 import Image from 'next/image';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
@@ -79,7 +78,7 @@ const Navigation = (): JSX.Element => {
   function handleRoomChange(e: ChangeEvent<HTMLSelectElement>) {
     const selectedRoomId = e.target.value;
     if (selectedRoomId !== '0') {
-      Router.push(`/rooms/${selectedRoomId}`);
+      router.push(`/rooms/${selectedRoomId}`);
     }
   }
 
@@ -179,7 +178,10 @@ const Navigation = (): JSX.Element => {
                   </select>
                 </div>
               </div>
-              <button onClick={handleRefreshClick}>Refresh</button>
+              <button onClick={handleRefreshClick}>
+                <FontAwesomeIcon className="icon" icon={faSyncAlt} />
+                Refresh
+              </button>
             </div>
           )}
 

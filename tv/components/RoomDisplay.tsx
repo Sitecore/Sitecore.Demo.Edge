@@ -6,11 +6,12 @@ import logo from '../public/p_logo_transparent.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 
 type RoomProps = {
+  room: string;
   currentSession: Session | null;
   nextSession: Session | null;
 };
 
-const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element => {
+const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Element => {
   return (
     <div className="roomDisplay">
       <div className="image-left">
@@ -40,7 +41,7 @@ const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element =>
           <div className="w-full">
             <Image className="logo" src={logo} alt="logo" width={60} height={80} />
             <div className="room-name text-right text-white text-6xl font-extrabold inline right-0 absolute pt-10">
-              {currentSession && currentSession.room}
+              {room}
             </div>
           </div>
 
@@ -57,10 +58,10 @@ const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element =>
           )}
 
           {!currentSession && nextSession && (
-            <>
+            <div className="no-session">
               <h1 className="eyebrow">No session at the moment</h1>
               <h1 className="title">Check out the next session</h1>
-            </>
+            </div>
           )}
 
           {nextSession && (
@@ -70,7 +71,8 @@ const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element =>
                 <div className="eyebrow">Coming up next...</div>
                 <div className="title">{nextSession.name}</div>
                 <div className="detail">
-                  {nextSession.speaker} | {nextSession.timeslot}
+                  {nextSession.speaker} {nextSession.speaker && <span> | </span>}
+                  {nextSession.timeslot}
                 </div>
               </div>
               <div className="right-content">
@@ -80,10 +82,10 @@ const RoomDisplay = ({ currentSession, nextSession }: RoomProps): JSX.Element =>
           )}
 
           {!currentSession && !nextSession && (
-            <>
+            <div className="no-session">
               <h1 className="eyebrow">Done for the day!</h1>
               <h1 className="title">Thank you for attending PLAY! Summit</h1>
-            </>
+            </div>
           )}
         </div>
       </div>

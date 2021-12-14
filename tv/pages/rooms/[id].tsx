@@ -1,11 +1,11 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import Router, { NextRouter, useRouter } from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
-import { getRoomById, getRooms } from '../../api/queries/getRooms';
+import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
-import { DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
+import { dayDefaultValue, DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
 import { Room } from '../../interfaces/room';
 
 type RoomProps = {
@@ -19,6 +19,7 @@ export declare type RoomParams = {
 };
 
 type SessionsState = {
+  room: string;
   currentSession: Session | null;
   nextSession: Session | null;
 };
@@ -26,7 +27,8 @@ type SessionsState = {
 function getSessionsToDisplay(
   allSessions: Session[],
   dayTime: DayTimeState,
-  router: NextRouter
+  router: NextRouter,
+  room: string
 ): SessionsState {
   let selectedDay = `Day ${parseInt(dayTime.day) + 1}`;
   let selectedTime = parseInt(dayTime.time);
@@ -57,6 +59,7 @@ function getSessionsToDisplay(
   }
 
   return {
+    room,
     currentSession,
     nextSession,
   };
@@ -67,19 +70,20 @@ export default function RoomPage(props: RoomProps) {
   const initialPageLoad = useRef(true);
   const dayTimeContext = useContext(DayTimeContext);
   const [sessions, setSessions] = useState(
-    getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router)
+    getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router, props.room.name)
   );
-
   useEffect(() => {
     // Do not get the sessions on first page load as they come from the props.
     if (!initialPageLoad.current) {
-      getSessionsByRoom(props.roomId).then((data) => {
-        setSessions(getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router));
+      getSessionsByRoom(props.roomId, parseInt(dayTimeContext.dayTime.day)).then((data) => {
+        setSessions(
+          getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router, props.room.name)
+        );
       });
     }
 
     initialPageLoad.current = false;
-  }, [props.roomId, dayTimeContext.dayTime, router]);
+  }, [props.roomId, dayTimeContext.dayTime, router, props.room.name]);
 
   return (
     <>
@@ -120,8 +124,11 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessionsByRoom(params.id);
-  const { room } = await getRoomById(params.id);
+  const { sessions, room } = await getSessionsByRoom(params.id, parseInt(dayDefaultValue));
+
+  // if (typeof window !== 'undefined') {
+  //   document.querySelectorAll('.menu-button,.refresh-button')[0].classList.remove('active');
+  // }
 
   return {
     props: {
