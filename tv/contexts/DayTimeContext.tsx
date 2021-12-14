@@ -7,10 +7,14 @@ export type DayTimeState = {
 
 // eslint-disable-next-line no-unused-vars
 export type SetDayTimeFunction = (day: string, time: string) => void;
+export type LoadingFunction = () => void;
 
 export type DayTimeContextValue = {
   dayTime: DayTimeState;
   setDayTime: SetDayTimeFunction;
+  isLoading: boolean;
+  showLoading: LoadingFunction;
+  hideLoading: LoadingFunction;
 };
 
 export const dayDefaultValue = '0';
@@ -25,12 +29,16 @@ const defaultValue: DayTimeContextValue = {
   setDayTime: () => {
     // Do nothing for the default context value
   },
+  isLoading: false,
+  showLoading: () => {},
+  hideLoading: () => {},
 };
 
 export const DayTimeContext = React.createContext(defaultValue);
 
 export const DayTimeContextProvider = (props: PropsWithChildren<unknown>): JSX.Element => {
   const [dayTimeState, setDayTimeState] = useState(dayTimeDefaultValue);
+  const [isLoadingState, setILoadingState] = useState(false);
 
   const dayTimeContextValue: DayTimeContextValue = {
     dayTime: dayTimeState,
@@ -39,6 +47,15 @@ export const DayTimeContextProvider = (props: PropsWithChildren<unknown>): JSX.E
         day,
         time,
       });
+    },
+    isLoading: isLoadingState,
+    showLoading: () => {
+      console.log("Show loading");
+      setILoadingState(true);
+    },
+    hideLoading: () => {
+      console.log("Hide loading");
+      setILoadingState(false);
     },
   };
 

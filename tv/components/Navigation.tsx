@@ -29,6 +29,7 @@ const Navigation = (): JSX.Element => {
   const selectedTime = useRef(timeDefaultValue);
   const isSchemaFetched = useRef(false);
   const [schema, setSchema] = useState(defaultNavigationState);
+  const refreshButtonState = dayTimeContext.isLoading ? 'loading' : '';
 
   useEffect(() => {
     if (!isSchemaFetched.current) {
@@ -192,7 +193,10 @@ const Navigation = (): JSX.Element => {
           )}
         </div>
       </div>
-      <div className="menu-button refresh-button" onClick={handleQuickRefreshClick}>
+      <div
+        className={'menu-button refresh-button ' + refreshButtonState}
+        onClick={handleQuickRefreshClick}
+      >
         <FontAwesomeIcon className="icon" icon={faSyncAlt} />
       </div>
     </div>

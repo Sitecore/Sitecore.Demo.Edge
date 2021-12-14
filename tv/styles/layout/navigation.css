@@ -103,6 +103,10 @@
   .refresh-button {
     @apply top-16 left-3 cursor-pointer;
 
+    &.loading {
+      @apply animate-spin;
+    }
+
     .icon {
       @apply w-6 mx-auto pt-2;
     }
