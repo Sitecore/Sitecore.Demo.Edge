@@ -1,0 +1,139 @@
+.product-detail {
+  @apply my-0 box-border;
+
+  .product-detail-hero {
+    @apply grid gap-10 mb-8;
+    @apply sm:grid-cols-2;
+    @apply md:grid-cols-3;
+
+    .product-image {
+      @apply sm:col-span-1;
+      @apply md:col-span-2;
+
+      &-main {
+        @apply mx-auto;
+      }
+    }
+
+    .product-description {
+      @apply w-full space-y-4 text-sm p-5 pt-0;
+
+      h2 {
+        @apply font-bold text-4xl;
+      }
+
+      .product-brand {
+        @apply font-bold text-xl;
+      }
+
+      .product-price {
+        @apply text-blue font-bold;
+      }
+
+      .product-quantity {
+        @apply inline-block w-20 border border-black px-3;
+
+        &::before {
+          content: '-';
+        }
+
+        &::after {
+          @apply text-right;
+
+          content: '+';
+        }
+
+        .quantity-number {
+          @apply inline-block w-10 text-center;
+        }
+      }
+
+      .product-add-to-cart {
+        @apply py-3;
+      }
+
+      .product-similar-items .product-warning {
+        @apply text-blue;
+      }
+    }
+  }
+
+  .product-info {
+    @apply w-full;
+
+    .product-list {
+      @apply p-5 text-sm;
+      @apply md:px-10;
+
+      h2 {
+        @apply text-center font-bold text-xl;
+      }
+
+      .shop-by-container {
+        @apply mt-3;
+
+        color: #3c3c3c;
+
+        .product {
+          @apply bg-white-light p-1 m-0;
+
+          img {
+            width: 231px;
+            height: 231px;
+          }
+        }
+      }
+
+      &.product-list-also-viewed {
+        @apply bg-gray-light;
+      }
+
+      &.product-list-similar {
+        @apply bg-black;
+
+        h2 {
+          @apply text-white;
+        }
+      }
+    }
+
+    .product-specs {
+      @apply bg-gray-light p-5 text-sm space-y-5;
+      @apply md:px-10;
+
+      &-section-title {
+        @apply text-lg uppercase;
+      }
+
+      &-section-subtitle {
+        @apply font-bold;
+      }
+    }
+
+    .product-highlights {
+      @apply bg-black-light text-white p-5 text-sm space-y-2;
+      @apply md:px-10;
+
+      &-row {
+        @apply grid grid-cols-6 w-full border-white	border-b-2 p-1;
+
+        :nth-child(odd) {
+          @apply font-bold;
+        }
+
+        :nth-child(even) {
+          @apply col-span-2;
+        }
+      }
+
+      &-notice {
+        @apply pt-10 mx-auto w-full text-center;
+      }
+    }
+
+    .product-geometry {
+      @apply p-5 text-sm space-y-5;
+      @apply md:px-10;
+    }
+  }
+}

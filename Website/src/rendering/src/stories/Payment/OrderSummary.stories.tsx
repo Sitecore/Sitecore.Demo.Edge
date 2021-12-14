@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import OrderSummary, { OrderSummaryProps } from '../../components/OrderSummary';
+import OrderSummary, { OrderSummaryProps } from '../../components/Payment/OrderSummary';
 
 export default {
   title: 'Components/Payment/OrderSummary',
