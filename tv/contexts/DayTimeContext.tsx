@@ -50,11 +50,11 @@ export const DayTimeContextProvider = (props: PropsWithChildren<unknown>): JSX.E
     },
     isLoading: isLoadingState,
     showLoading: () => {
-      console.log("Show loading");
+      console.log('Show loading');
       setILoadingState(true);
     },
     hideLoading: () => {
-      console.log("Hide loading");
+      console.log('Hide loading');
       setILoadingState(false);
     },
   };
