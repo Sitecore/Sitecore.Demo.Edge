@@ -49,7 +49,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
           <div className="information-grid">
             <div className="main-col">
               <div className="column-title">Description:</div>
-              <RichText field={props.fields?.Description} />
+              <RichText className="rich-text" field={props.fields?.Description} />
             </div>
             <div className="sidebar-col">{speakers}</div>
           </div>

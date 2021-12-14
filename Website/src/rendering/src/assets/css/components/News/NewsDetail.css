@@ -24,10 +24,6 @@
       .news-excerpt {
         @apply font-bold;
       }
-
-      p {
-        @apply pt-5;
-      }
     }
   }
 }
