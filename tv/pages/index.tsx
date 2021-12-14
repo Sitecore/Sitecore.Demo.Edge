@@ -62,17 +62,17 @@ const defaultSchedule: ScheduleSlot[][] = [];
 const Schedule = (props: ScheduleProps): JSX.Element => {
   const displayedDaySessions = useRef(props.sessions);
   const [schedule, setSchedule] = useState(defaultSchedule);
-  const dayTimeContext = useContext(DayTimeContext);
+  const { dayTime } = useContext(DayTimeContext);
+  const dayTimeContext = useRef(useContext(DayTimeContext));
 
   useEffect(() => {
-    dayTimeContext.showLoading();
-    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
+    dayTimeContext.current.showLoading();
+    getAllSessionsByDay(dayTime.day).then((data) => {
       displayedDaySessions.current = data.sessions;
-      setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
-      dayTimeContext.hideLoading();
+      setSchedule(generateSchedule(displayedDaySessions.current, dayTime.time));
+      dayTimeContext.current.hideLoading();
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dayTimeContext.dayTime]);
+  }, [dayTime, dayTimeContext]);
 
   return <ScheduleForDay schedule={schedule} />;
 };

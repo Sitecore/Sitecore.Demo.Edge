@@ -65,21 +65,23 @@ function getSessionsToDisplay(
 export default function RoomPage(props: RoomProps) {
   const router = useRouter();
   const initialPageLoad = useRef(true);
-  const dayTimeContext = useContext(DayTimeContext);
-  const [sessions, setSessions] = useState(
-    getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router)
-  );
+  const { dayTime } = useContext(DayTimeContext);
+  const dayTimeContext = useRef(useContext(DayTimeContext));
+
+  const [sessions, setSessions] = useState(getSessionsToDisplay(props.sessions, dayTime, router));
 
   useEffect(() => {
     // Do not get the sessions on first page load as they come from the props.
     if (!initialPageLoad.current) {
+      dayTimeContext.current.showLoading();
       getSessionsByRoom(props.roomId).then((data) => {
-        setSessions(getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router));
+        setSessions(getSessionsToDisplay(data.sessions, dayTime, router));
+        dayTimeContext.current.hideLoading();
       });
     }
 
     initialPageLoad.current = false;
-  }, [props.roomId, dayTimeContext.dayTime, router]);
+  }, [props.roomId, dayTime, dayTimeContext, router]);
 
   return (
     <>
