@@ -34,7 +34,7 @@ const SpeakerInformation = (props: SpeakerInformationProps): JSX.Element => {
         <div className="information-grid">
           <div className="main-col">
             <div className="column-title">Biography:</div>
-            <RichText field={props.fields?.data?.contextItem?.description} />
+            <RichText className="rich-text" field={props.fields?.data?.contextItem?.description} />
           </div>
           <div className="sidebar-col">
             <div className="column-title">Sessions:</div>

@@ -34,9 +34,9 @@ const NewsDetail = (props: NewsDetailProps): JSX.Element => (
             render={newsDateFormatter}
           />
           <Text tag="h2" className="news-title" field={props.fields.Title} />
-          <RichText tag="div" className="news-excerpt" field={props.fields.Excerpt} />
+          <RichText tag="div" className="news-excerpt rich-text" field={props.fields.Excerpt} />
           <div>
-            <RichText field={props.fields.Content} />
+            <RichText className="rich-text" field={props.fields.Content} />
           </div>
         </div>
       </div>
