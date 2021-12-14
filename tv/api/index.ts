@@ -3,15 +3,12 @@ type GraphQLResponseWithErrors = {
 };
 
 export async function fetchGraphQL(query: string, previewApiEnabled: boolean): Promise<unknown> {
-  let apiKey = '';
-  let endpointUrl = '';
+  let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
+  let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
 
   if (previewApiEnabled) {
-    apiKey = process.env.CMP_PREVIEW_API_KEY || '';
-    endpointUrl = process.env.CMP_PREVIEW_ENDPOINT_URL || '';
-  } else {
-    apiKey = process.env.CMP_DELIVERY_API_KEY || '';
-    endpointUrl = process.env.CMP_DELIVERY_ENDPOINT_URL || '';
+    apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
+    endpointUrl = process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || '';
   }
 
   try {

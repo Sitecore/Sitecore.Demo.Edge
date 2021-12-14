@@ -34,7 +34,7 @@ const Navigation = (): JSX.Element => {
 
   useEffect(() => {
     if (!isSchemaFetched.current) {
-      getSchema(false).then((schema) => {
+      getSchema(featureFlagContext.featureFlags.isPreviewApiEnabled).then((schema) => {
         isSchemaFetched.current = true;
 
         setSchema({

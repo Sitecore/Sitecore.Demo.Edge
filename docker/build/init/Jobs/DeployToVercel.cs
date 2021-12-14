@@ -56,35 +56,35 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
+            var cmpEndpointUrl = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrl))
             {
                 Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CMP_PREVIEW_ENDPOINT_URL is not configured");
+                    $"{this.GetType().Name} will not execute this time, NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL is not configured");
                 return;
             }
 
-            var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
+            var cmpApiKey = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_PREVIEW_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKey))
             {
                 Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CMP_PREVIEW_API_KEY is not configured");
+                    $"{this.GetType().Name} will not execute this time, NEXT_PUBLIC_CMP_PREVIEW_API_KEY is not configured");
                 return;
             }
 
-            var cmpEndpointUrlDelivery = Environment.GetEnvironmentVariable("CMP_DELIVERY_ENDPOINT_URL");
+            var cmpEndpointUrlDelivery = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrlDelivery))
             {
                 Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CMP_DELIVERY_ENDPOINT_URL is not configured");
+                    $"{this.GetType().Name} will not execute this time, NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL is not configured");
                 return;
             }
 
-            var cmpApiKeyDelivery = Environment.GetEnvironmentVariable("CMP_DELIVERY_API_KEY");
+            var cmpApiKeyDelivery = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_DELIVERY_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKeyDelivery))
             {
                 Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CMP_DELIVERY_API_KEY is not configured");
+                    $"{this.GetType().Name} will not execute this time, NEXT_PUBLIC_CMP_DELIVERY_API_KEY is not configured");
                 return;
             }
 
@@ -141,13 +141,13 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{damUrl}\" | vercel env add DAM_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpApiKey}\" | vercel env add CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrlDelivery}\" | vercel env add CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrlDelivery}\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpApiKeyDelivery}\" | vercel env add CMP_DELIVERY_API_KEY production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpApiKeyDelivery}\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
@@ -234,13 +234,13 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpApiKey}\" | vercel env add CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrlDelivery}\" | vercel env add CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpEndpointUrlDelivery}\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{cmpApiKeyDelivery}\" | vercel env add CMP_DELIVERY_API_KEY production --token {token} --scope {scope}");
+                $"echo | set /p=\"{cmpApiKeyDelivery}\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
