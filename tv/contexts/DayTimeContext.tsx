@@ -30,8 +30,12 @@ const defaultValue: DayTimeContextValue = {
     // Do nothing for the default context value
   },
   isLoading: false,
-  showLoading: () => {},
-  hideLoading: () => {},
+  showLoading: () => {
+    // Do nothing for the default context value
+  },
+  hideLoading: () => {
+    // Do nothing for the default context value
+  },
 };
 
 export const DayTimeContext = React.createContext(defaultValue);
