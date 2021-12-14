@@ -25,8 +25,11 @@ The TV project uses Sitecore Content Hub Edge.
 
 1. Edit the `.\tv\.env` file.
 2. Fill the following values:
-   1. **NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/api/graphql/preview/v1/`
+   1. **DAM_URL**: `https://[Content Hub URI]`
    2. **NEXT_PUBLIC_CMP_PREVIEW_API_KEY**: Your Content Hub Edge preview API key.
+   3. **NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL**: `https://[Content Hub URI]/api/graphql/preview/v1`
+   4. **NEXT_PUBLIC_CMP_DELIVERY_API_KEY**: Your Content Hub Edge delivery API key.
+   5. **NEXT_PUBLIC_CMP_DELIVERY_API_KEY**: `https://edge-beta.sitecorecloud.io/api/graphql/v1`
 3. Save the file.
 
 ## Running the TV
