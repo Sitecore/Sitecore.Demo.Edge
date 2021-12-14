@@ -18,6 +18,14 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
+          uid="{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}"
+          p:after="p[@uid='{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}']"
+          s:rname="FeaturedSpeakers"
+          s:ds="{4EC83342-656D-4CF7-A404-0F36DF25128E}"
+          s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
+          s:ph="/jss-main/jss-section-content-{004EEEA1-32B0-4582-BD0C-FA7EFFB14182}-0"
+          s:ccb="Clear on publish" />
+        <r
           uid="{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}"
           p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
           s:rname="HeroSection"
@@ -51,16 +59,14 @@ SharedFields:
           s:par=""
           s:ph="/jss-main" />
         <r
-          uid="{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}"
+          uid="{004EEEA1-32B0-4582-BD0C-FA7EFFB14182}"
           p:after="r[@uid='{45FCA8EC-2A99-531D-B270-0389AB473563}']"
-          s:rname="FeaturedSpeakers"
-          s:ds="{4EC83342-656D-4CF7-A404-0F36DF25128E}"
-          s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
-          s:ph="/jss-main"
-          s:ccb="Clear on publish" />
+          s:ds="{105AB476-3EDF-5A27-A49A-A5604BB6ACA2}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:ph="jss-main" />
         <r
           uid="{9FEB8407-087F-50FC-BCDD-4741F69796CC}"
-          p:after="r[@uid='{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}']"
+          p:after="r[@uid='{004EEEA1-32B0-4582-BD0C-FA7EFFB14182}']"
           s:rname="FullImageSection"
           s:ds="{3FDC9247-F940-5DE3-BB56-9242835DD87B}"
           s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
