@@ -71,7 +71,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
       dayTimeContext.hideLoading();
     });
-  }, [dayTimeContext.dayTime]);
+  }, [dayTimeContext]);
 
   return <ScheduleForDay schedule={schedule} />;
 };
