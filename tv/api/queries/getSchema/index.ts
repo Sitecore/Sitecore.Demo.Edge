@@ -2,7 +2,9 @@ import { fetchGraphQL } from '../..';
 import { DayResult, SchemaResponse, VenueResult } from '../../../interfaces/schema';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 
-export const getSchema = async (): Promise<{
+export const getSchema = async (
+  previewApiEnabled: boolean
+): Promise<{
   days: DayResult[];
   venues: VenueResult[];
   timeslots: TimeslotResult[];
@@ -37,7 +39,10 @@ export const getSchema = async (): Promise<{
     }
   `;
 
-  const results: SchemaResponse = (await fetchGraphQL(schemaQuery)) as SchemaResponse;
+  const results: SchemaResponse = (await fetchGraphQL(
+    schemaQuery,
+    previewApiEnabled
+  )) as SchemaResponse;
 
   const days: DayResult[] = results?.data?.allDemo_Day.results;
   const timeslots: TimeslotResult[] = results?.data?.allDemo_Timeslot.results;

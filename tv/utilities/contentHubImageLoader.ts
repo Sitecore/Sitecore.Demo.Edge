@@ -3,8 +3,7 @@ interface ContentHubImageLoaderProps {
 }
 
 export function contentHubImageSrcGenerator(src: string) {
-  const contentHubUrl: string =
-    process.env.DAM_URL || 'https://playsummit.sitecoresandbox.cloud';
+  const contentHubUrl: string = process.env.DAM_URL || 'https://playsummit.sitecoresandbox.cloud';
 
   return `${contentHubUrl}/api/public/content/${src}`;
 }

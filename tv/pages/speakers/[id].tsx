@@ -29,7 +29,7 @@ export default function SpeakerPage(props: SpeakerProps) {
 // This function gets called at build time
 export async function getStaticPaths() {
   // Call an external API endpoint to get speakers
-  const { speakers } = await getSpeakers();
+  const { speakers } = await getSpeakers(false);
 
   // Get the paths we want to pre-render based on speakers
   const paths = speakers.map((speaker) => ({
@@ -43,8 +43,8 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: SpeakerParams) => {
-  const { speaker } = await getSpeakerById(params.id);
-  const { sessions } = await getSessionsBySpeaker(speaker.id);
+  const { speaker } = await getSpeakerById(params.id, false);
+  const { sessions } = await getSessionsBySpeaker(speaker.id, false);
 
   return {
     props: {

@@ -12,7 +12,7 @@ const Speakers = (props: SpeakersProps): JSX.Element => {
 
 // This also gets called at build time
 export const getStaticProps = async () => {
-  const { speakers } = await getSpeakers();
+  const { speakers } = await getSpeakers(false);
 
   return {
     props: {

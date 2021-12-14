@@ -17,7 +17,7 @@ export default function VenuePage(props: VenueProps) {
 }
 
 export async function getStaticPaths() {
-  const { venues } = await getVenues();
+  const { venues } = await getVenues(false);
 
   const paths = venues.map((venue) => ({
     params: { id: venue.id },
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: VenueParams) => {
-  const { venue } = await getVenueById(params.id);
+  const { venue } = await getVenueById(params.id, false);
 
   return {
     props: {

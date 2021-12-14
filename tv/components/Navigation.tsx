@@ -34,7 +34,7 @@ const Navigation = (): JSX.Element => {
 
   useEffect(() => {
     if (!isSchemaFetched.current) {
-      getSchema().then((schema) => {
+      getSchema(false).then((schema) => {
         isSchemaFetched.current = true;
 
         setSchema({

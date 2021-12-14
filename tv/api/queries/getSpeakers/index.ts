@@ -12,7 +12,7 @@ const parseSpeaker = function (speakerResult: SpeakerResult): Speaker {
   return speaker;
 };
 
-export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
+export const getSpeakers = async (previewApiEnabled: boolean): Promise<{ speakers: Speaker[] }> => {
   const speakersQuery = `
     query {
       allDemo_Speaker(first: 8) {
@@ -38,7 +38,10 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
     }
     `;
 
-  const results: AllSpeakersResponse = (await fetchGraphQL(speakersQuery)) as AllSpeakersResponse;
+  const results: AllSpeakersResponse = (await fetchGraphQL(
+    speakersQuery,
+    previewApiEnabled
+  )) as AllSpeakersResponse;
   const speakers: Speaker[] = [];
   if (results && results.data) {
     for (const speakerResult of results.data.allDemo_Speaker.results) {
@@ -50,7 +53,10 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
   return { speakers: [] };
 };
 
-export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> => {
+export const getSpeakerById = async (
+  id: string,
+  previewApiEnabled: boolean
+): Promise<{ speaker: Speaker }> => {
   const speakerByIdQuery = `
     query {
       allDemo_Speaker (where:{id_eq:"${id}"}) {
@@ -77,7 +83,8 @@ export const getSpeakerById = async (id: string): Promise<{ speaker: Speaker }> 
     `;
 
   const results: AllSpeakersResponse = (await fetchGraphQL(
-    speakerByIdQuery
+    speakerByIdQuery,
+    previewApiEnabled
   )) as AllSpeakersResponse;
   return {
     speaker: parseSpeaker({ ...results.data.allDemo_Speaker.results[0] }),
