@@ -58,10 +58,10 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
           )}
 
           {!currentSession && nextSession && (
-            <>
+            <div className="no-session">
               <h1 className="eyebrow">No session at the moment</h1>
               <h1 className="title">Check out the next session</h1>
-            </>
+            </div>
           )}
 
           {nextSession && (
@@ -82,10 +82,10 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
           )}
 
           {!currentSession && !nextSession && (
-            <>
+            <div className="no-session">
               <h1 className="eyebrow">Done for the day!</h1>
               <h1 className="title">Thank you for attending PLAY! Summit</h1>
-            </>
+            </div>
           )}
         </div>
       </div>
