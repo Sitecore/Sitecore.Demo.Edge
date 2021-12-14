@@ -1,15 +1,17 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { NextRouter, useRouter } from 'next/router';
+import Router, { NextRouter, useRouter } from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
-import { getRooms } from '../../api/queries/getRooms';
+import { getRoomById, getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
 import { DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
 import { FeatureFlagContext } from '../../contexts/FeatureFlagContext';
+import { Room } from '../../interfaces/room';
 
 type RoomProps = {
   roomId: string;
+  room: Room;
   sessions: Session[];
 };
 
@@ -90,7 +92,10 @@ export default function RoomPage(props: RoomProps) {
         style={{
           backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
         }}
-      ></div>
+        onClick={() => Router.back()}
+      >
+        <div className="hall-title">{props.room.venue.name}</div>
+      </div>
       <div id="container" className="absolute">
         <div id="monitor">
           <div id="monitorscreen">
@@ -120,10 +125,12 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
   const { sessions } = await getSessionsByRoom(params.id, false);
+  const { room } = await getRoomById(params.id);
 
   return {
     props: {
       roomId: params.id,
+      room: room,
       sessions: sessions,
     },
     revalidate: 10,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import PaymentProgress from '../../components/PaymentProgress';
+import PaymentProgress from '../../components/Payment/PaymentProgress';
 
 export default {
   title: 'Components/Payment/PaymentProgress',

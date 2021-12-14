@@ -226,10 +226,6 @@ export const getSessionsByRoom = async (
   room: string,
   previewApiEnabled: boolean
 ): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
   const results: AllSessionsResponse = (await fetchGraphQL(
     sessionsQuery,
     previewApiEnabled
@@ -248,10 +244,6 @@ export const getSessionsBySpeaker = async (
   speaker: string,
   previewApiEnabled: boolean
 ): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
   const results: AllSessionsResponse = (await fetchGraphQL(
     sessionsQuery,
     previewApiEnabled
@@ -275,10 +267,6 @@ export const getAllSessionsByDay = async (
   day: string,
   previewApiEnabled: boolean
 ): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
   const results: AllSessionsResponse = (await fetchGraphQL(
     sessionsQuery,
     previewApiEnabled
