@@ -2,6 +2,8 @@ import '../styles/globals.css';
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Navigation from '../components/Navigation';
+import { FeatureFlagContextProvider } from '../contexts/FeatureFlagContext';
 import { CdpScripts, logViewEvent } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 
 function App({ Component, pageProps, router }: AppProps) {
@@ -29,7 +31,10 @@ function App({ Component, pageProps, router }: AppProps) {
 
       <main>
         <div className={'kiosk-background ' + backgroundClassName}></div>
-        <Component {...pageProps} />
+        <FeatureFlagContextProvider>
+          <Navigation />
+          <Component {...pageProps} />
+        </FeatureFlagContextProvider>
       </main>
 
       {/* DEMO TEAM CUSTOMIZATION - CDP integration */}
