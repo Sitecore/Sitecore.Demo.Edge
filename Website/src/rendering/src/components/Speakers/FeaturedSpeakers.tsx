@@ -1,11 +1,4 @@
-import {
-  Text,
-  Field,
-  RichText,
-  Image,
-  LinkField,
-  Link as JssLink,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 import Link from 'next/link';
@@ -34,14 +27,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
   const speakers = props.fields.data.item.children.results
     .filter((item) => item.featured.value)
     .sort()
-    .slice(
-      0,
-      parseInt(
-        props.fields.data.source.numberOfSpeakers
-          ? props.fields.data.source.numberOfSpeakers.value
-          : '6'
-      )
-    )
+    .slice(0, parseInt(props.fields.data.source?.numberOfSpeakers?.value))
     .map((speaker, index) => (
       <Link key={index} href={`/speakers/${speaker.itemName}`}>
         <a>
