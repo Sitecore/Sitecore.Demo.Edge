@@ -23,7 +23,7 @@
       .speaker__image {
         @apply w-full bg-no-repeat bg-cover bg-blue;
 
-        background-image: url(../../img/background-element.svg);
+        background-image: url(../../../img/background-element.svg);
       }
 
       .speaker__name {
