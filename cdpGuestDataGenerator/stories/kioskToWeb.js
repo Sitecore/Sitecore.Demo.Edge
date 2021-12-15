@@ -1,25 +1,23 @@
 require('dotenv').config();
 var chainsaw = require('../');
+var uuid = require('uuid');
 
 var env = {
   apiEndpoint: process.env.API_TARGET_ENDPOINT,
   clientKey: process.env.CDP_CLIENT_KEY,
   channel: 'MOBILE_APP',
   language: 'EN',
-  currencyCode: 'CAD',
+  currencyCode: 'USD',
   pointOfSale: 'PLAY! Summit',
   guestFirstName: process.env.GUEST_FIRST_NAME,
   guestLastName: process.env.GUEST_LAST_NAME,
   guestEmail: process.env.GUEST_EMAIL,
 };
 
-const baseEvent = {
-  browser_id: '{{browserId}}',
-  channel: '{{channel}}',
-  language: '{{language}}',
-  currency: '{{currencyCode}}',
-  pos: '{{pointOfSale}}',
-};
+var vipTicketUpgradePurchaseDate = new Date(new Date().toUTCString());
+var regularTicketPurchaseDate = new Date(new Date().toUTCString());
+regularTicketPurchaseDate.setMinutes(regularTicketPurchaseDate.getMinutes() - 30);
+var emailUotr = uuid.v4();
 
 function getEventAction(event) {
   return {
@@ -28,7 +26,11 @@ function getEventAction(event) {
       context.sessionVariables.message = JSON.stringify(
         chainsaw.replaceAllVariables(
           {
-            ...baseEvent,
+            browser_id: '{{browserId}}',
+            channel: '{{channel}}',
+            language: '{{language}}',
+            currency: '{{currencyCode}}',
+            pos: '{{pointOfSale}}',
             ...event,
           },
           context
@@ -44,7 +46,8 @@ chainsaw
   .sleep(500)
   .env(env)
 
-  // setup
+  // Setup
+
   .get('Create Browser', {
     url: 'https://{{apiEndpoint}}/v1.2/browser/create.json?client_key={{clientKey}}&message={}',
     callback: function (context) {
@@ -53,6 +56,8 @@ chainsaw
       context.sessionVariables.browserId = data.ref;
     },
   })
+
+  // Kiosk session
 
   .get(
     'Add Kiosk Home Page View Event',
@@ -130,7 +135,55 @@ chainsaw
     })
   )
 
-  // TODO: Add data extension to Ticket #1
+  .get(
+    'Add Regular Ticket Order Checkout Event',
+    getEventAction({
+      type: 'ORDER_CHECKOUT',
+      page: '/payment/1',
+      order: {
+        referenceId: '{{$guid}}',
+        orderedAt: regularTicketPurchaseDate.toISOString(),
+        status: 'PURCHASED',
+        currencyCode: '{{currencyCode}}',
+        price: 199,
+        paymentType: 'Card',
+        cardType: 'Visa',
+        orderItems: [
+          {
+            type: 'TICKET',
+            referenceId: '{{$guid}}',
+            orderedAt: regularTicketPurchaseDate.toISOString(),
+            status: 'PURCHASED',
+            currencyCode: '{{currencyCode}}',
+            price: 199,
+            name: 'Regular Ticket',
+            productId: 'TICKET_1',
+            quantity: 1,
+          },
+        ],
+      },
+    })
+  )
+
+  .get(
+    'Add Email Sent Event',
+    getEventAction({
+      serviceIdentifier: 'SITECORE_SEND',
+      type: 'SENT',
+      occurredAt: regularTicketPurchaseDate.toISOString(),
+      uotr: emailUotr,
+    })
+  )
+
+  .get(
+    'Add Email Delivered Event',
+    getEventAction({
+      serviceIdentifier: 'SITECORE_SEND',
+      type: 'DELIVERED',
+      occurredAt: regularTicketPurchaseDate.toISOString(),
+      uotr: emailUotr,
+    })
+  )
 
   .get(
     'Add Kiosk Regular Ticket Payment Confirmed Page View Event',
@@ -140,7 +193,6 @@ chainsaw
     })
   )
 
-  // forceClose
   .get(
     'Add Force Close Event',
     getEventAction({
@@ -149,7 +201,39 @@ chainsaw
     })
   )
 
-  // Switch to website
+  // Email session
+
+  .get(
+    'Add Email Viewed Event',
+    getEventAction({
+      serviceIdentifier: 'SITECORE_SEND',
+      channel: 'EMAIL',
+      type: 'VIEWED',
+      occurredAt: vipTicketUpgradePurchaseDate.toISOString(),
+      uotr: emailUotr,
+    })
+  )
+
+  .get(
+    'Add Email Clicked Event',
+    getEventAction({
+      serviceIdentifier: 'SITECORE_SEND',
+      channel: 'EMAIL',
+      type: 'CLICKED',
+      occurredAt: vipTicketUpgradePurchaseDate.toISOString(),
+      uotr: emailUotr,
+    })
+  )
+
+  .get(
+    'Add Force Close Event',
+    getEventAction({
+      channel: 'EMAIL',
+      type: 'FORCE_CLOSE',
+    })
+  )
+
+  // Website session
 
   .get(
     'Add Website Home Page View Event',
@@ -222,6 +306,8 @@ chainsaw
     })
   )
 
+  // Imagine the guest is presented with the "Premium Session Page - VIP Ticket Upgrade" web experience on that premium session page because he owns a regular ticket. He clicks on the web experience button.
+
   .get(
     'Add Website Checkout Payment Information Page View Event',
     getEventAction({
@@ -244,7 +330,35 @@ chainsaw
     })
   )
 
-  // TODO: Add data extension to Ticket #2 (VIP)
+  .get(
+    'Add Regular to VIP Ticket Upgrade Order Checkout Event',
+    getEventAction({
+      type: 'ORDER_CHECKOUT',
+      page: '/tickets/payment?ticket=3',
+      order: {
+        referenceId: '{{$guid}}',
+        orderedAt: vipTicketUpgradePurchaseDate.toISOString(),
+        status: 'PURCHASED',
+        currencyCode: '{{currencyCode}}',
+        price: 200,
+        paymentType: 'Card',
+        cardType: 'Visa',
+        orderItems: [
+          {
+            type: 'TICKET',
+            referenceId: '{{$guid}}',
+            orderedAt: vipTicketUpgradePurchaseDate.toISOString(),
+            status: 'PURCHASED',
+            currencyCode: '{{currencyCode}}',
+            price: 200,
+            name: 'Regular to VIP Ticket Upgrade',
+            productId: 'TICKET_3',
+            quantity: 1,
+          },
+        ],
+      },
+    })
+  )
 
   .get(
     'Add Website Checkout Payment Confirmation Page View Event',
@@ -256,7 +370,6 @@ chainsaw
     })
   )
 
-  // forceClose
   .get(
     'Add Force Close Event',
     getEventAction({
