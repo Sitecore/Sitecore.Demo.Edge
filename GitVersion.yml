@@ -11,7 +11,7 @@ branches:
     tag: beta
     increment: Patch
     prevent-increment-of-merged-branch-version: false
-    is-mainline: true
+    is-mainline: false
   integration:
     regex: ^integration
     tag: alpha
