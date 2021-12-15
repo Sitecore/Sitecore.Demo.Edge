@@ -1,4 +1,9 @@
 $syncFilesMappings = @(
+    # TODO: Activate this mapping when PR #172 is merged into develop
+    # @(
+    #     ".\tv\api\index.ts",
+    #     ".\kiosk\api\index.ts"
+    # ),
     @(
         ".\kiosk\services\BoxeverService.tsx",
         ".\Website\src\rendering\src\services\BoxeverService.tsx"

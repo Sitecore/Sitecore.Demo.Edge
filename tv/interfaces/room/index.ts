@@ -1,40 +1,17 @@
-export interface RoomResult {
-  id: string;
-  name: string;
-}
-
-export interface RoomResults {
-  results: RoomResult[];
-}
-
-export interface Data {
-  allDemo_Room: RoomResults;
-}
-
-export interface AllRoomsResponse {
-  data: Data;
-}
-
 export interface Room {
   id: string;
   name: string;
-}
-
-export interface Session {
-  id: string;
-  name: string;
-  speakers: Speaker[];
-  timeslotToSession: Timeslot[];
-  sessionImage: {
-    urls: string;
+  venue: {
+    name: string;
   };
 }
 
-export interface Speaker {
-  id: string;
-  name: string;
+export interface RoomResults {
+  results: Room[];
 }
 
-export interface Timeslot {
-  taxonomyLabel: string;
+export interface AllRoomsResponse {
+  data: {
+    allDemo_Room: RoomResults;
+  };
 }

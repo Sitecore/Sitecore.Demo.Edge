@@ -10,10 +10,11 @@ resources:
 
 variables:
   GitVersion.SemVer: ''
-  SITECORE_VERSION: '10.1.0'
+  SITECORE_VERSION: '10.2.0'
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
   additionalImageTags: ''
+  preRelease: 'false'
 
 stages:
 - stage: Build_TV
@@ -22,17 +23,24 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/tv/package-lock.json'
+            path: '$(Build.SourcesDirectory)/tv/node_modules'
+            cacheHitVar: 'CacheRestored'
 
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: tv
+          condition: ne(variables['CacheRestored'],'true')
 
         - script: |
             npm run lint
@@ -50,18 +58,23 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/kiosk/package-lock.json'
+            path: '$(Build.SourcesDirectory)/kiosk/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: kiosk
-
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -84,12 +97,17 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/Website/src/rendering/package-lock.json'
+            path: '$(Build.SourcesDirectory)/Website/src/rendering/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
-
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -106,17 +124,23 @@ stages:
   jobs:
     - job: Build
       pool:
-        vmImage: 'windows-latest'
+        name: 'docker-ltsc2019-agents'
       steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/Website/src/rendering/package-lock.json'
+            path: '$(Build.SourcesDirectory)/Website/src/rendering/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
+          condition: ne(variables['CacheRestored'],'true')
 
         - script: |
             npm run build-storybook
@@ -144,14 +168,9 @@ stages:
   jobs:
   - job: Build_Headless
     timeoutInMinutes: 120
-    strategy:
-      matrix:
-        ltsc2019:
-          poolName: 'docker-ltsc2019-agents'
-          osVersion: 'ltsc2019'
     displayName: 'Build Windows Docker Images'
     pool:
-      name: $(poolName)
+      name: 'docker-ltsc2019-agents'
     steps:
     - task: UseDotNet@2
       inputs:
@@ -167,8 +186,9 @@ stages:
         script: |
           $sitecoreRegistry = "$(sitecore.container.registry)"
 
+          az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+
           if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
-            az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
             az acr login -n "$(sitecore.container.registry.short)"
           }
 
@@ -180,19 +200,49 @@ stages:
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
 
+
+          if ("true" -eq "$(preRelease)"){
+            $params.Add("PreRelease", $true)
+            $params.Add("SitecoreNugetSource","$(INTERNAL_SITECORE_NUGET_SOURCE)")
+            $params.Add("Sitecore2NugetSource","$(INTERNAL_SITECORE2_NUGETSOURCE)")
+            $params.Add("SitecoreGalleryNugetSource","$(INTERNAL_SITECOREGALLERY_NUGET_SOURCE)")
+            $params.Add("NugetUser","$(INTERNAL_NUGET_SOURCE_USERNAME)")
+            $params.Add("NugetPassword","$(INTERNAL_NUGET_SOURCE_PASSWORD)")
+          }
           ./init-ci.ps1 @params
+
+          ### Build Solution
 
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker-compose build $(no.cache)
-          docker-compose push
+          docker-compose build $(no.cache) --parallel solution nodejs
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build
-            docker-compose push
+            docker-compose build --parallel solution nodejs
+          }
+
+          ### Build Demo images
+
+          # Reset demo version to correct tag without build id
+
+          $env:DEMO_VERSION = "$(tag)"
+          $services = ([System.Collections.ArrayList] $(docker-compose config --services))
+
+          # Remove services already built in previous step
+          $services.Remove("solution")
+          $services.Remove("nodejs")
+
+          docker-compose build $(no.cache) --parallel $services
+          docker-compose push $services
+
+          $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
+          if ($primaryBuild) {
+            $env:DEMO_VERSION = "$(additionalImageTags)"
+            docker-compose build --parallel $services
+            docker-compose push $services
           }
 
 - stage: Release_Notes
@@ -239,6 +289,8 @@ stages:
   condition: and(succeeded('Update_Portal_Databases_Nightly'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Redeploy
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Redeploy"
       steps:
         - task: UseDotNet@2
@@ -260,6 +312,8 @@ stages:
   condition: and(succeeded('Update_DEV_Portal_Databases_Stable'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Redeploy
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Redeploy"
       steps:
         - task: UseDotNet@2
@@ -281,6 +335,8 @@ stages:
   condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
     - job: Update_Tags
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Update Tags"
       steps:
         - task: UseDotNet@2
@@ -304,6 +360,8 @@ stages:
   condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Dev_Database
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Update Dev Database"
       steps:
         - task: UseDotNet@2
@@ -326,6 +384,8 @@ stages:
   condition: and(succeeded('Docker_Windows'),eq(variables['Build.SourceBranch'], 'refs/heads/main'))
   jobs:
     - job: Update_Production_Database
+      pool:
+        vmImage: 'ubuntu-latest'
       displayName: "Update Production Database"
       steps:
         - task: UseDotNet@2

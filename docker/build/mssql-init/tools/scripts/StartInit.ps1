@@ -66,8 +66,6 @@ if ($deployDatabases) {
     Write-Host "Installing JSS assets"
     .\DeployDatabases.ps1 -ResourcesDirectory C:\jss_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy
 
-    Write-Host "Installing Horizon assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\sh_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy
 }
 
 $ready = Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "select name from sys.databases where name = 'platform_init_ready'"

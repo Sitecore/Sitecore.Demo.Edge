@@ -1,3 +1,4 @@
+import { Day } from 'src/types/day';
 import { Timeslot } from '../interfaces/Timeslot';
 
 const getTimeString = (time: number, isEndTime: boolean): string => {
@@ -35,4 +36,16 @@ export const getSessionTime = (timeslots: Timeslot[]): string => {
     }
   }
   return sessionTime;
+};
+
+export const newsDateFormatter = (date: Date | null): string | undefined =>
+  date?.toLocaleDateString('en-US', {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
+export const getSessionDays = (days: Day[]): string => {
+  return days.map((day) => day.fields.Name.value.toString()).join(', ');
 };

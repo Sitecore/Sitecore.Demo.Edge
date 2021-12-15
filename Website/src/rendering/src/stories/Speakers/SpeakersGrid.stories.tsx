@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeakersGrid, { Speaker } from '../../components/SpeakersGrid';
+import SpeakersGrid from '../../components/Speakers/SpeakersGrid';
+import { GraphQLSpeaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Speakers/SpeakersGrid',
@@ -29,7 +30,7 @@ const speaker1 = {
   role: {
     value: 'Speaker',
   },
-} as Speaker;
+} as GraphQLSpeaker;
 
 const speaker2 = {
   itemName: 'Sophia Taylor',
@@ -50,7 +51,7 @@ const speaker2 = {
   role: {
     value: 'Speaker',
   },
-} as Speaker;
+} as GraphQLSpeaker;
 
 const speaker3 = {
   itemName: 'Jalen Taylor',
@@ -71,7 +72,7 @@ const speaker3 = {
   role: {
     value: 'Speaker',
   },
-} as Speaker;
+} as GraphQLSpeaker;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -83,5 +84,9 @@ Default.args = {
         },
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

@@ -9,7 +9,7 @@ SharedFields:
   Value: 400
 - ID: "c3101af2-0121-4011-a9e9-fb727bb40999"
   Hint: CMP Relation
-  Value: VendorLogo
+  Value: DemoVendorToMasterAsset
 - ID: "db99415a-fe86-4a2d-9583-db92894cb80a"
   Hint: Sitecore Field Name
   Value: "{5F02C96D-6606-4508-8B81-4D4758E06291}"
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bbf0d270-dd51-4859-91d5-66a0183b0809"
+      Value: "8daf7c36-f76f-4d28-b8f9-8e285e792a43"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T121830Z
+      Value: 20211124T145436Z

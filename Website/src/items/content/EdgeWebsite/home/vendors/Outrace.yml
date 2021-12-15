@@ -9,6 +9,10 @@ SharedFields:
   Value: BMSAvK6iX0WxY3kQ9H8wCQ
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Outrace
   Versions:
   - Version: 1
     Fields:
@@ -38,10 +42,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33980" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/33980/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/f4f6057bfdf345d389723e0d0d8fd095?v=dc95288b" mediaid="" stylelabs-content-type="Image" alt="Outrace.png" height="1001" width="1001" />
+        <image stylelabs-content-id="33980" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33980/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f4f6057bfdf345d389723e0d0d8fd095?v=dc95288b" mediaid="" stylelabs-content-type="Image" alt="Outrace Logo" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "95e1cebf-0f15-401e-876a-f0b0f4c5c8c0"
+      Value: "b308a71f-de7f-407c-88b3-3d780a8a74ca"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -56,7 +60,7 @@ Languages:
       Value: Outrace
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211005T124434Z
+      Value: 20211124T145806Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"

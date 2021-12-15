@@ -7,7 +7,8 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-essentials",
+    "storybook-addon-breakpoints"
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({

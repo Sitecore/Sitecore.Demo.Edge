@@ -1,0 +1,29 @@
+.section__news--detail {
+  .container {
+    @apply grid grid-cols-1 gap-10;
+    @apply md:grid-cols-4;
+
+    .left-column {
+      @apply col-span-1;
+      @apply md:col-span-1;
+    }
+
+    .right-column {
+      @apply col-span-1 space-y-5;
+      @apply md:col-span-3;
+
+      .news-date {
+        @apply uppercase;
+      }
+
+      .news-title {
+        @apply text-2xl font-extrabold text-blue;
+        @apply md:text-3xl;
+      }
+
+      .news-excerpt {
+        @apply font-bold;
+      }
+    }
+  }
+}

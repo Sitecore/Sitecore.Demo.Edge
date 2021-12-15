@@ -1,0 +1,54 @@
+﻿---
+ID: "3bc52cbd-3ee1-496f-918e-c0d55a96b7c9"
+Parent: "3c67104d-4ed0-4ecc-b449-fae1c7d9ce5d"
+Template: "f7e573b9-48d8-421e-b81a-e472e5b7f072"
+Path: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms/Meeting Room 2
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: 7CMzA9NEDU6fifr8QJkmcQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Meeting Room 2
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0172f895-f21c-445c-be61-38a535bef35b"
+      Hint: Sessions
+      Value: "{7C9530B9-E948-4A84-9A6F-9A3D27B5CB42}"
+    - ID: "20c425f9-4bf1-4940-830c-4b66d703086f"
+      Hint: Capacity
+      Value: 15
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T164600Z
+    - ID: "4b07d1b4-69b3-42b7-8377-fd2cbfb57730"
+      Hint: Description
+      Value:  
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "be89a1ae-d65d-47a8-8485-b754a152a519"
+    - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
+      Hint: Name
+      Value: Meeting Room 2
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T142958Z
+    - ID: "df1b77a7-fc50-4fa1-b584-eaf50bdaa651"
+      Hint: Venue
+      Value: "{B6D5789C-3F8E-4CAC-97E5-B0334FD67DE8}"

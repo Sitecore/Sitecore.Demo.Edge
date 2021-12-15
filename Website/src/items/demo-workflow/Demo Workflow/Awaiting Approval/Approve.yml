@@ -1,0 +1,38 @@
+﻿---
+ID: "6b030ef4-8abc-4c85-a516-03c27fb243c9"
+Parent: "1a6f7d0e-f404-45bc-836f-8a16143daa16"
+Template: "cb01f9fc-c187-46b3-ab0b-97a8468d8303"
+Path: /sitecore/system/Workflows/Demo Workflow/Awaiting Approval/Approve
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: office/16x16/check.png
+- ID: "dcbebc58-6124-4100-a248-fc717d6c78d5"
+  Hint: Next state
+  Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Sitecore Client Authoring|pd|+workflowCommand:execute|pe|+workflowCommand:execute|
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211123T183848Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "134296fc-1a80-488b-b8de-3df6039a8dec"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211123T183952Z

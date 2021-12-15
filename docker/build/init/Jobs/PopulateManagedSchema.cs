@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Sitecore.Demo.Init.Services;
+using Sitecore.Demo.Init.Container;
 
 namespace Sitecore.Demo.Init.Jobs
 {
@@ -24,36 +23,31 @@ namespace Sitecore.Demo.Init.Jobs
             var ns = Environment.GetEnvironmentVariable("RELEASE_NAMESPACE");
             if (string.IsNullOrEmpty(ns))
             {
-                Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
+                Log.LogWarning($"{this.GetType().Name} will not execute this time, RELEASE_NAMESPACE is not configured - this job is only required on AKS");
                 return;
             }
 
-            var cm = Environment.GetEnvironmentVariable("HOST_CM");
-            var user = Environment.GetEnvironmentVariable("ADMIN_USER_NAME");
-            var password = Environment.GetEnvironmentVariable("ADMIN_PASSWORD");
-            var id = Environment.GetEnvironmentVariable("HOST_ID");
-            var authenticatedClient = new SitecoreLoginService(Log).GetSitecoreClient(cm, id, user, password);
-
-            Log.LogInformation($"PopulateManagedSchema() starting {cm}");
-            var status =
-                await authenticatedClient.DownloadStringTaskAsync(
-                    $"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
-            Log.LogInformation($"PopulateManagedSchema() status: {status}");
-
-            // Run PopulateManagedSchema second time as sometimes it does not update Solr properly from the first time
-            status = await authenticatedClient.DownloadStringTaskAsync(
-                $"{cm}/sitecore/admin/PopulateManagedSchema.aspx?indexes=all");
-            Log.LogInformation($"PopulateManagedSchema() status: {status}");
-
-            // Wait for PopulateManagedSchema to complete before restarting the sites
-            var jobs = await JobStatus.Run();
-            while (jobs.Any(x => x.Title.Contains("Index")))
+            var token = Environment.GetEnvironmentVariable("ID_SERVER_DEMO_CLIENT_SECRET");
+            if (string.IsNullOrEmpty(token))
             {
-                Log.LogInformation($"PopulateManagedSchema still running: {DateTime.UtcNow}");
-                await Task.Delay(TimeSpan.FromMinutes(1));
-                jobs = await JobStatus.Run();
+                Log.LogWarning($"{this.GetType().Name} will not execute ID_SERVER_DEMO_CLIENT_SECRET is not configured");
+                return;
             }
+
+            var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
+            var id = Environment.GetEnvironmentVariable("PUBLIC_HOST_ID");
+            if (string.IsNullOrEmpty(cm) || string.IsNullOrEmpty(id))
+            {
+                Log.LogWarning($"{this.GetType().Name} will not execute, PUBLIC_HOST_CM and PUBLIC_HOST_ID are not configured");
+                return;
+            }
+
+            var cmd = new WindowsCommandLine("C:\\app");
+            Console.WriteLine(cmd.Run(
+                $"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t"));
+            Console.WriteLine(cmd.Run($"dotnet sitecore index schema-populate"));
+            Console.WriteLine(cmd.Run($"dotnet sitecore index schema-populate"));
+            Console.WriteLine(cmd.Run($"dotnet sitecore index rebuild"));
 
             await Complete();
         }

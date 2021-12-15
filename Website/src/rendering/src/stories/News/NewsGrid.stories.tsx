@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import NewsGrid, { News } from '../../components/NewsGrid';
+import NewsGrid from '../../components/News/NewsGrid';
+import { News } from 'src/types/news';
 
 export default {
   title: 'Components/News/NewsGrid',
@@ -53,6 +54,10 @@ const news2 = {
         src: '/assets/img/tickets/Banner2.jpg',
       },
     },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 } as News;
 
@@ -106,5 +111,9 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     items: [news1, news2, news3, news4],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

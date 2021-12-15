@@ -3,7 +3,6 @@ import Router from 'next/router';
 import { Ticket } from '../models/ticket';
 import TicketView from './Ticket';
 import { identifyVisitor, logTicketPurchase } from '../services/CdpService';
-import Link from 'next/link';
 
 type PaymentFormProps = {
   ticket: Ticket;
@@ -27,7 +26,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
       .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`))
       .catch((e) => {
         console.log(e);
-        alert('An error occured while processing the purchase.');
+        alert('An error occurred while processing the purchase.');
       });
   };
 
@@ -82,7 +81,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
 
             <div className="complete">
               <button
-                className="btn--main btn--main--round btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3"
+                className="btn--main btn--main--round btn--main--primary btn--main--big block w-full max-w-xs mx-auto rounded-lg px-3 py-3"
                 type="submit"
               >
                 <i className="mdi mdi-lock-outline mr-1"></i> PAY NOW
@@ -92,9 +91,12 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
         </div>
       </div>
       <div className="paymentForm__buttons">
-        <Link href="/tickets">
-          <a className="btn--main btn--main--round btn--main--big">Previous</a>
-        </Link>
+        <span
+          className="btn--main btn--main--round btn--main--secondary btn--main--big"
+          onClick={() => Router.back()}
+        >
+          Previous
+        </span>
       </div>
     </div>
   );

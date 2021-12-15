@@ -5,7 +5,10 @@ Param (
     [switch]$SkipBuild,
 
     [Parameter(HelpMessage = "Whether to skip running init container.")]
-    [switch]$SkipInit
+    [switch]$SkipInit,
+
+    [Parameter(HelpMessage = "Whether to set up the environment with pre-release version of Sitecore products (internal only) .")]
+    [switch]$PreRelease
 )
 
 $ErrorActionPreference = "Stop";
@@ -14,10 +17,15 @@ $ErrorActionPreference = "Stop";
 $envCheckVariable = "HOST_LICENSE_FOLDER"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
-    if (Test-Path "C:\License"){
+    if (Test-Path "C:\License") {
         Write-Host "Initializing environment using default values" -ForegroundColor Yellow
         & .\init.ps1 -InitEnv -AdminPassword b -LicenseXmlPath C:\License\license.xml
-        & .\init-ci.ps1
+        if ($PreRelease) {
+            & .\init-ci.ps1 -PreRelease
+        }
+        else {
+            & .\init-ci.ps1
+        }
     }
     else {
         throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
@@ -51,7 +59,8 @@ do {
     Start-Sleep -Milliseconds 100
     try {
         $status = Invoke-RestMethod "http://localhost:8079/api/http/routers/cm-secure@docker"
-    } catch {
+    }
+    catch {
         if ($_.Exception.Response.StatusCode.value__ -ne "404") {
             throw
         }
@@ -111,19 +120,21 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Rebuild indexes failed, see errors above."
     }
-} catch {
+}
+catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
-} finally {
+}
+finally {
     Pop-Location
 }
 
 # DEMO TEAM CUSTOMIZATION - Enable/Run/Disable init container
 if (-not $SkipInit) {
-    $dockerToolsVersion = "10.1.4"
+    $dockerToolsVersion = "10.2.7"
     Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
     if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
-      Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
-      Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
+        Write-Host "Installing SitecoreDockerTools..." -ForegroundColor Green
+        Install-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion -Scope CurrentUser -Repository $SitecoreGallery.Name
     }
     Write-Host "Importing SitecoreDockerTools..." -ForegroundColor Green
     Import-Module SitecoreDockerTools -RequiredVersion $dockerToolsVersion

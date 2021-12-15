@@ -10,7 +10,7 @@ COPY --from=tools /tools/ /tools/
 
 COPY ./ /Identity/
 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # perform transform
 RUN (Get-Item -Path 'C:\\Identity\\transforms\\identityserver.xml.xdt' ) | `

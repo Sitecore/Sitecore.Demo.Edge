@@ -53,12 +53,6 @@ SharedFields:
           ph="/jss-main"
           uid="{AE055A74-8964-551F-9C40-58D3FE99A358}" />
         <r
-          rname="Breadcrumb"
-          id="{780D897C-7065-585F-8585-28118565FA00}"
-          par=""
-          ph="/jss-main"
-          uid="{5979DB99-F1A0-58A1-B9FD-49DF9539F8FD}" />
-        <r
           rname="SessionsFilters"
           id="{AFA8D2EB-B612-5293-8BB8-F73F99004331}"
           par=""

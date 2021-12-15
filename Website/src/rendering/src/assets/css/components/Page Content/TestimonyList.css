@@ -1,0 +1,45 @@
+.testimonies-list {
+  @apply p-10 space-y-10;
+
+  .list-item {
+    @apply flex gap-10;
+
+    &:nth-child(even) {
+      @apply flex-row;
+    }
+
+    &:nth-child(odd) {
+      @apply flex-row-reverse;
+    }
+
+    .provider-image {
+      @apply hidden;
+      @apply md:block w-32 h-32;
+    }
+
+    .testimony {
+      @apply space-y-3;
+
+      blockquote p::before,
+      blockquote p::after {
+        @apply text-6xl absolute opacity-25;
+      }
+
+      blockquote p::before {
+        @apply -ml-7 -mt-2;
+
+        content: "“";
+      }
+
+      blockquote p::after {
+        @apply ml-1 -mt-1;
+
+        content: "”";
+      }
+
+      .provider {
+        @apply font-bold;
+      }
+    }
+  }
+}
