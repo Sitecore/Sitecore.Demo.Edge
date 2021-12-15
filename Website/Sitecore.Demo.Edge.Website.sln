@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		sitecore.json = sitecore.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{14B81ED3-33E2-4D34-9DB7-29E795918FFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.BranchPresets", "src\Foundation\BranchPresets\Sitecore.Foundation.BranchPresets.csproj", "{40613875-C8E6-4784-93F0-298305CE8804}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,13 +26,16 @@ Global
 		{816F099C-E14B-4468-9E34-87F993C6484D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{816F099C-E14B-4468-9E34-87F993C6484D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{816F099C-E14B-4468-9E34-87F993C6484D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F4279AB-4049-42F0-AFD0-06062586BCF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F4279AB-4049-42F0-AFD0-06062586BCF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F4279AB-4049-42F0-AFD0-06062586BCF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F4279AB-4049-42F0-AFD0-06062586BCF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40613875-C8E6-4784-93F0-298305CE8804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40613875-C8E6-4784-93F0-298305CE8804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40613875-C8E6-4784-93F0-298305CE8804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40613875-C8E6-4784-93F0-298305CE8804}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40613875-C8E6-4784-93F0-298305CE8804} = {14B81ED3-33E2-4D34-9DB7-29E795918FFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A7C4987-3A11-41A9-8915-5457EF7B5A6F}
