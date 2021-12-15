@@ -153,10 +153,10 @@ stages:
             artifact: "Storybook"
             publishLocation: "pipeline"
 
-        # - script: |
-        #     npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
-        #   displayName: 'Push to Chromatic'
-        #   workingDirectory: Website/src/rendering
+        - script: |
+            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
+          displayName: 'Push to Chromatic'
+          workingDirectory: Website/src/rendering
 
 - stage: Docker_Windows
   displayName: "Build Windows Images"
