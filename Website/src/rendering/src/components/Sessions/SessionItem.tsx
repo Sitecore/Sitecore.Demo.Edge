@@ -14,11 +14,7 @@ const SessionItem = (props: SessionItemProps): JSX.Element => {
   const getImageStyles = (session: GraphQLSession): CSSProperties =>
     session?.image?.jsonValue?.value?.src
       ? {
-          backgroundImage: `url(${session.image.jsonValue.value.src}&t=${
-            session.imageTransformation && session.imageTransformation.value != ''
-              ? session.imageTransformation.value
-              : 'web'
-          })`,
+          backgroundImage: `url(${session.image.jsonValue.value.src})`,
         }
       : {};
 

@@ -27,7 +27,6 @@ export type GraphQLSpeaker = MinimalGraphQLSpeaker & {
   picture: {
     jsonValue: ImageField;
   };
-  pictureTransformation: Field<string>;
   featured: {
     value: boolean;
   };

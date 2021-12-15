@@ -21,16 +21,6 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   const speakers =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results.map((speaker, index) => {
-      const transformationName =
-        speaker?.pictureTransformation?.value != ''
-          ? speaker?.pictureTransformation?.value
-          : 'profile';
-
-      if (speaker.picture.jsonValue.value) {
-        speaker.picture.jsonValue.value.src =
-          speaker.picture.jsonValue.value.src + '&t=' + transformationName;
-      }
-
       return (
         <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
           <a className="section__speakers__grid__speaker">

@@ -24,9 +24,6 @@ const speaker = {
       },
     },
   },
-  pictureTransformation: {
-    value: 'profile',
-  },
   featured: {
     value: true,
   },
@@ -47,9 +44,6 @@ const speaker1 = {
         alt: '',
       },
     },
-  },
-  pictureTransformation: {
-    value: 'profile',
   },
   featured: {
     value: true,
@@ -72,9 +66,6 @@ const speaker2 = {
       },
     },
   },
-  pictureTransformation: {
-    value: 'profile',
-  },
   featured: {
     value: true,
   },
@@ -96,9 +87,6 @@ const speaker3 = {
       },
     },
   },
-  pictureTransformation: {
-    value: 'profile',
-  },
   featured: {
     value: true,
   },
@@ -119,9 +107,6 @@ const speaker4 = {
         alt: '',
       },
     },
-  },
-  pictureTransformation: {
-    value: 'profile',
   },
   featured: {
     value: true,
