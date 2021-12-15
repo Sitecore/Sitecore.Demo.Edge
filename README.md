@@ -51,4 +51,3 @@ Please read the [LICENSE](https://github.com/Sitecore/Sitecore.Demo.Edge/blob/ma
 ### Warranty
 
 The code, samples and/or solutions provided in this repository are for example purposes only and **without warranty (expressed or implied)**. The code has not been extensively tested and is not guaranteed to be bug free.
-
