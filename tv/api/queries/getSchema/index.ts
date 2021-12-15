@@ -11,7 +11,7 @@ export const getSchema = async (
 }> => {
   const schemaQuery = `
     query {
-      allDemo_Day(first: 30) {
+      allDemo_Day {
         results {
           taxonomyName
           sortOrder
@@ -19,12 +19,11 @@ export const getSchema = async (
       }
       allDemo_Timeslot {
         results {
-          id
           sortOrder
           taxonomyLabel
         }
       }
-      allDemo_Venue(first: 30) {
+      allDemo_Venue {
         results {
           id
           name

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { getAllSessionsByDay } from '../api/queries/getSessions';
+import { getSessionsByDay } from '../api/queries/getSessions';
 import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
@@ -67,20 +67,20 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   const featureFlagContext = useContext(FeatureFlagContext);
 
   useEffect(() => {
-    getAllSessionsByDay(
-      dayTimeContext.dayTime.day,
+    getSessionsByDay(
+      parseInt(dayTimeContext.dayTime.day),
       featureFlagContext.featureFlags.isPreviewApiEnabled
     ).then((data) => {
       displayedDaySessions.current = data.sessions;
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
     });
-  }, [dayTimeContext.dayTime]);
+  }, [dayTimeContext.dayTime, featureFlagContext.featureFlags.isPreviewApiEnabled]);
 
   return <ScheduleForDay schedule={schedule} />;
 };
 
 export const getStaticProps = async () => {
-  const { sessions } = await getAllSessionsByDay(dayDefaultValue, false);
+  const { sessions } = await getSessionsByDay(parseInt(dayDefaultValue), false);
 
   return {
     props: {
