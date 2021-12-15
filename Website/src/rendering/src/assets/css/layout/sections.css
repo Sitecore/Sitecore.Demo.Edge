@@ -9,40 +9,34 @@
     @apply bg-white;
   }
 
-  &.dark {
-    background: url(../../img/background-pattern-dark.svg);
-
-    .section__content__title {
-      @apply text-orange normal-case;
-    }
-
-    .section__content__p {
-      @apply block;
-    }
-  }
-
-  &.light {
-    background: url(../../img/background-pattern-light.svg);
-
-    .section__content__title {
-      @apply text-blue normal-case;
-    }
-
-    .section__content__p {
-      @apply block;
-    }
-  }
-
   &--dark {
-    @apply bg-black;
+    background: url(../../img/background-pattern-dark.svg);
 
     .section__content {
       .section__content__p {
-        @apply text-white;
+        @apply block text-white;
       }
 
       .section__content__title {
-        @apply text-orange;
+        @apply text-orange normal-case;
+      }
+
+      .item-grid .grid-content .grid-item .item-details {
+        @apply text-white;
+      }
+    }
+  }
+
+  &--light {
+    background: url(../../img/background-pattern-light.svg);
+
+    .section__content {
+      .section__content__p {
+        @apply block text-black;
+      }
+
+      .section__content__title {
+        @apply text-blue normal-case;
       }
     }
   }

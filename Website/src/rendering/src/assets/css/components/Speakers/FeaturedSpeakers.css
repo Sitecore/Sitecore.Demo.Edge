@@ -5,10 +5,6 @@
     @apply pt-10 text-orange normal-case;
   }
 
-  .section__content__p {
-    @apply text-white;
-  }
-
   .btn--main {
     @apply mb-10;
   }
@@ -32,7 +28,7 @@
         }
 
         .item-details {
-          @apply text-left text-white p-0;
+          @apply text-left p-0;
 
           .speaker_name {
             @apply font-bold;
