@@ -379,4 +379,40 @@ chainsaw
     })
   )
 
+  // Add data extension
+
+  .get('Get Guest Ref', {
+    url: 'https://{{apiEndpoint}}/v2/callFlows?message={{message}}',
+    prepare: function (context) {
+      context.sessionVariables.message = JSON.stringify(
+        chainsaw.replaceAllVariables(
+          {
+            clientKey: '{{clientKey}}',
+            browserId: '{{browserId}}',
+            channel: 'WEB',
+            language: '{{language}}',
+            currency: '{{currencyCode}}',
+            pos: '{{pointOfSale}}',
+            friendlyId: 'getguestref',
+          },
+          context
+        )
+      );
+    },
+    callback: function (context) {
+      var data = JSON.parse(context.response);
+      context.sessionVariables.guestRef = data.guestRef;
+    },
+  })
+
+  .basicAuth(process.env.CDP_CLIENT_KEY, process.env.CDP_API_TOKEN)
+  .post('Add Ticket Data Extension', {
+    url: 'https://{{apiEndpoint}}/v2/guests/{{guestRef}}/extTicket',
+    body: JSON.stringify({
+      key: 'Ticket',
+      ticketId: 2,
+      ticketName: 'VIP Ticket',
+    }),
+  })
+
   .execute();
