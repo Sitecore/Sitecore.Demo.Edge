@@ -42,10 +42,7 @@ const Section = (props: SectionProps): JSX.Element => {
   );
 
   const callToAction = !!props.fields?.callToActionLink?.value?.href && (
-    <Link
-      field={props.fields.callToActionLink}
-      className="btn--main btn--main--round btn--main--big"
-    />
+    <Link field={props.fields.callToActionLink} className="btn--main btn--main--round" />
   );
 
   return (
