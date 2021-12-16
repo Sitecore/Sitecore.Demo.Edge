@@ -15,7 +15,7 @@
   "homepage": "https://github.com/Sitecore/Sitecore.Demo.Edge#readme",
   "scripts": {
     "lint": "eslint ./**/*.js",
-    "generate": "node ./stories/kioskToWeb.js"
+    "generate": "node ./scenarios/kioskToWeb.js"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
