@@ -406,7 +406,7 @@ if (
             {
               clientKey: '{{clientKey}}',
               browserId: '{{browserId}}',
-              channel: 'WEB',
+              channel: 'INVALID_CHANNEL_TO_HIDE_FROM_TIMELINE',
               language: '{{language}}',
               currency: '{{currencyCode}}',
               pos: '{{pointOfSale}}',
