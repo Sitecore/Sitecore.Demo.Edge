@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { logViewEvent } from 'src/services/CdpService';
+import { logViewEvent } from '../../services/CdpService';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import Footer, { FooterProps } from '../../components/Navigation/Footer';
 import Header, { HeaderProps } from '../../components/Navigation/Header';
