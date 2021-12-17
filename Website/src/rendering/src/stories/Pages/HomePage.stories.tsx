@@ -7,7 +7,9 @@ import HeroSection, { HeroProps } from '../../components/Page Content/HeroSectio
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
 } from '../../components/Page Content/ThreeColumnsSection';
-import SponsorsGrid, { SponsorsProps } from '../../components/Sponsors/SponsorsGrid';
+import SelectedSponsorsGrid, {
+  SponsorsProps,
+} from '../../components/Sponsors/SelectedSponsorsGrid';
 import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -186,7 +188,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
         <HeaderCdpMessageBar />
         <HeroSection {...heroProps} />
         <ThreeColumnsSection {...threeColProps} />
-        <SponsorsGrid {...sponsorProps} />
+        <SelectedSponsorsGrid {...sponsorProps} />
       </main>
       <footer>
         <Footer {...mockFooterProps} />
