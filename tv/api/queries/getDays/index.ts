@@ -20,9 +20,6 @@ const parseDay = function (dayResult: DayResult) {
   return {
     name: dayResult.taxonomyName,
     sortOrder: dayResult.sortOrder,
-    timeslots: dayResult.timeslotToDay.results.map((timeslot) => ({
-      taxonomyLabel: timeslot.taxonomyLabel['en-US'],
-    })),
   } as Day;
 };
 

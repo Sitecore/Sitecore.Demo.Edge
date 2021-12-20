@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { getAllSessionsByDay } from '../api/queries/getSessions';
+import { getSessionsByDay } from '../api/queries/getSessions';
 import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
@@ -69,7 +69,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
 
   useEffect(() => {
     dayTimeContextRef.current.showLoading();
-    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
+    getSessionsByDay(parseInt(dayTimeContext.dayTime.day)).then((data) => {
       displayedDaySessions.current = data.sessions;
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
       dayTimeContextRef.current.hideLoading();
@@ -80,7 +80,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
 };
 
 export const getStaticProps = async () => {
-  const { sessions } = await getAllSessionsByDay(dayDefaultValue);
+  const { sessions } = await getSessionsByDay(parseInt(dayDefaultValue));
 
   return {
     props: {
