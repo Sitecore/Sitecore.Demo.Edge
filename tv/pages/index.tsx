@@ -64,12 +64,17 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   const [schedule, setSchedule] = useState(defaultSchedule);
   const dayTimeContext = useContext(DayTimeContext);
 
+  // Added useRef to allow use of dayTimeContextRef as a dependency in useEffect (required by linting rules)
+  const dayTimeContextRef = useRef(dayTimeContext);
+
   useEffect(() => {
+    dayTimeContextRef.current.showLoading();
     getSessionsByDay(parseInt(dayTimeContext.dayTime.day)).then((data) => {
       displayedDaySessions.current = data.sessions;
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
+      dayTimeContextRef.current.hideLoading();
     });
-  }, [dayTimeContext.dayTime]);
+  }, [dayTimeContext.dayTime, dayTimeContextRef]);
 
   return <ScheduleForDay schedule={schedule} />;
 };
