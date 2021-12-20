@@ -62,17 +62,19 @@ const defaultSchedule: ScheduleSlot[][] = [];
 const Schedule = (props: ScheduleProps): JSX.Element => {
   const displayedDaySessions = useRef(props.sessions);
   const [schedule, setSchedule] = useState(defaultSchedule);
-  const { dayTime } = useContext(DayTimeContext);
-  const dayTimeContext = useRef(useContext(DayTimeContext));
+  const dayTimeContext = useContext(DayTimeContext);
+
+  // Added useRef to allow use of dayTimeContextRef as a dependency in useEffect (required by linting rules)
+  const dayTimeContextRef = useRef(dayTimeContext);
 
   useEffect(() => {
-    dayTimeContext.current.showLoading();
-    getAllSessionsByDay(dayTime.day).then((data) => {
+    dayTimeContextRef.current.showLoading();
+    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
       displayedDaySessions.current = data.sessions;
-      setSchedule(generateSchedule(displayedDaySessions.current, dayTime.time));
-      dayTimeContext.current.hideLoading();
+      setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
+      dayTimeContextRef.current.hideLoading();
     });
-  }, [dayTime, dayTimeContext]);
+  }, [dayTimeContext.dayTime, dayTimeContextRef]);
 
   return <ScheduleForDay schedule={schedule} />;
 };
