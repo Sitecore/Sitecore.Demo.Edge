@@ -1,6 +1,6 @@
 ﻿using Sitecore.Common;
 
-namespace Sitecore.Foundation.BranchPresets
+namespace Sitecore.Demo.Edge.Foundation.BranchPresets
 {
     public abstract class Disabler<TSwitchType> : Switcher<DisablerState, TSwitchType>
     {

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BranchPresets")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Sitecore.Demo.Edge.Foundation.BranchPresets")]
+[assembly: AssemblyDescription("Module idea: https://github.com/kamsar/BranchPresets")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BranchPresets")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("Sitecore.Demo.Edge.Foundation.BranchPresets")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

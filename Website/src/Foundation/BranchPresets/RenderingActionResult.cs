@@ -1,8 +1,8 @@
-﻿namespace Sitecore.Foundation.BranchPresets
+﻿namespace Sitecore.Demo.Edge.Foundation.BranchPresets
 {
-	public enum RenderingActionResult
-	{
-		None,
-		Delete
-	}
+    public enum RenderingActionResult
+    {
+        None,
+        Delete
+    }
 }

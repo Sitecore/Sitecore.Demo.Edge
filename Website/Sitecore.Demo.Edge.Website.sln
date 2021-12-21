@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{14B81ED3-33E2-4D34-9DB7-29E795918FFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Foundation.BranchPresets", "src\Foundation\BranchPresets\Sitecore.Foundation.BranchPresets.csproj", "{40613875-C8E6-4784-93F0-298305CE8804}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Demo.Edge.Foundation.BranchPresets", "src\Foundation\BranchPresets\Sitecore.Demo.Edge.Foundation.BranchPresets.csproj", "{40613875-C8E6-4784-93F0-298305CE8804}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
