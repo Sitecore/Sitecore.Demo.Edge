@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Sitecore.Demo.Edge.Foundation.BranchPresets")]
-[assembly: AssemblyDescription("Module idea: https://github.com/kamsar/BranchPresets")]
+[assembly: AssemblyDescription("Forked from: https://github.com/kamsar/BranchPresets")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Sitecore.Demo.Edge.Foundation.BranchPresets")]
