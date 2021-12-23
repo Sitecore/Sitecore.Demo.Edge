@@ -13,10 +13,6 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
     }
     `;
 
-  if (process.env.CI === 'true') {
-    return { rooms: [] as Room[] };
-  }
-
   const results: AllRoomsResponse = (await fetchGraphQL(roomsQuery)) as AllRoomsResponse;
 
   const rooms: Room[] = results.data.allDemo_Room.results;
@@ -31,14 +27,13 @@ export const getRoomById = async (id: string): Promise<{ room: Room }> => {
         results {
           id
           name
+          venue:rooms{
+            name
+          }
         }
       }
     }
     `;
-
-  if (process.env.CI === 'true') {
-    return { room: {} as Room };
-  }
 
   const results: AllRoomsResponse = (await fetchGraphQL(roomByIdQuery)) as AllRoomsResponse;
   return {

@@ -1,0 +1,60 @@
+.footer__content {
+  @include content;
+
+  a {
+    @apply text-gray-lighter;
+    @apply hover:text-yellow;
+  }
+
+  &__banner {
+    @include flex--sb;
+
+    @apply py-6 px-0;
+  }
+
+  &__footer {
+    @include flex--fs-sb-w;
+
+    @apply h-full py-10 px-4 border-t border-b border-solid border-yellow bg-none;
+    @apply md:px-8;
+
+    &__col {
+      @apply list-none px-2;
+
+      min-width: 140px;
+
+      li {
+        @apply text-sm my-2;
+
+        &:first-child {
+          @apply font-bold text-yellow;
+        }
+
+        svg {
+          @apply text-gray-lighter mr-1;
+        }
+      }
+    }
+  }
+
+  &__legal {
+    @include flex--sb;
+
+    @apply text-sm text-gray-lighter;
+
+    &__links {
+      @include flex--fs-w;
+
+      @apply w-full text-gray-lighter;
+
+      > div {
+        @apply w-full pr-8 pt-4;
+        @apply md:w-auto md:pb-4;
+
+        &:last-child {
+          @apply pb-4;
+        }
+      }
+    }
+  }
+}

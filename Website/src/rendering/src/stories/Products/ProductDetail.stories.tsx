@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProductDetail from '../../components/ProductDetail';
+import ProductDetail from '../../components/Products/ProductDetail';
 
 export default {
   title: 'Components/Products/ProductDetail',

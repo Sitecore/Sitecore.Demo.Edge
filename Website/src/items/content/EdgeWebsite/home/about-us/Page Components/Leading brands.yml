@@ -2,7 +2,7 @@
 ID: "f12ca29e-0bfd-4d1b-8532-bb25984a64fe"
 Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
 Template: "ccf76f8e-4780-450a-b330-69f8502b140f"
-Path: /sitecore/content/EdgeWebsite/home/about-us/Page Components/Leading brands
+Path: "/sitecore/content/EdgeWebsite/home/about-us/Page Components/Leading brands"
 Languages:
 - Language: en
   Versions:
@@ -31,7 +31,7 @@ Languages:
         <image mediaid="{7B39EDAF-30C1-4655-B02A-CB8F1660056A}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7a413fa3-d746-4cc0-b3af-4e0393386a55"
+      Value: "d89527a0-e668-42b0-af54-f71f7f4cbc26"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -39,10 +39,10 @@ Languages:
     - ID: "c63db4c4-d678-45cd-9d0d-4994b571eb7d"
       Hint: Link
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{9DA25044-7955-5BB0-BA92-E03D17E6D4C1}" />
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{774E44E8-0F30-5879-B847-AD233FFB41AA}" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210827T183558Z
+      Value: 20211210T143059Z
     - ID: "f395eb06-1e1d-4705-baba-b1f92a9aa780"
       Hint: Title
       Value: Leading brands

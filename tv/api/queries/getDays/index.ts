@@ -20,17 +20,10 @@ const parseDay = function (dayResult: DayResult) {
   return {
     name: dayResult.taxonomyName,
     sortOrder: dayResult.sortOrder,
-    timeslots: dayResult.timeslotToDay.results.map((timeslot) => ({
-      taxonomyLabel: timeslot.taxonomyLabel['en-US'],
-    })),
   } as Day;
 };
 
 export const getAllDays = async (): Promise<{ days: Day[] }> => {
-  if (process.env.CI === 'true') {
-    return { days: [] as Day[] };
-  }
-
   const results: AllDaysResponse = (await fetchGraphQL(daysQuery)) as AllDaysResponse;
   const days: Day[] = [];
 

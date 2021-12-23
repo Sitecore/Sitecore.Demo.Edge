@@ -358,7 +358,7 @@ stages:
           inputs:
             targetType: "inline"
             script: |
-              Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/RedeployInstance" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', instanceId: $(STABLE_TEST_INSTANCE_ID) }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/RedeployInstance" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', instanceId: $(STABLE_TEST_INSTANCE_ID) }" -ContentType "application/json"
 
 - stage: Update_Portal_Databases_Nightly
   displayName: "Update 'nightly' version in portal databases"

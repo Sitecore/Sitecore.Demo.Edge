@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { getAllSessionsByDay } from '../api/queries/getSessions';
+import { getSessionsByDay } from '../api/queries/getSessions';
 import ScheduleForDay from '../components/ScheduleForDay';
 import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
@@ -64,18 +64,23 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   const [schedule, setSchedule] = useState(defaultSchedule);
   const dayTimeContext = useContext(DayTimeContext);
 
+  // Added useRef to allow use of dayTimeContextRef as a dependency in useEffect (required by linting rules)
+  const dayTimeContextRef = useRef(dayTimeContext);
+
   useEffect(() => {
-    getAllSessionsByDay(dayTimeContext.dayTime.day).then((data) => {
+    dayTimeContextRef.current.showLoading();
+    getSessionsByDay(parseInt(dayTimeContext.dayTime.day)).then((data) => {
       displayedDaySessions.current = data.sessions;
       setSchedule(generateSchedule(displayedDaySessions.current, dayTimeContext.dayTime.time));
+      dayTimeContextRef.current.hideLoading();
     });
-  }, [dayTimeContext.dayTime]);
+  }, [dayTimeContext.dayTime, dayTimeContextRef]);
 
   return <ScheduleForDay schedule={schedule} />;
 };
 
 export const getStaticProps = async () => {
-  const { sessions } = await getAllSessionsByDay(dayDefaultValue);
+  const { sessions } = await getSessionsByDay(parseInt(dayDefaultValue));
 
   return {
     props: {

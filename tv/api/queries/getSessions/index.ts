@@ -1,123 +1,22 @@
 import { fetchGraphQL } from '../../../api';
-import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
+import {
+  Session,
+  SessionResult,
+  SessionsByDayResponse,
+  SessionsByRoomResponse,
+} from '../../../interfaces/session';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 import { DayResult } from '../../../interfaces/day';
-import { SpeakerResult } from '../../../interfaces/speaker';
-
-const sessionsQuery = `
-query {
-  allDemo_Session (first: 30) {
-    results {
-      id
-      name
-      isPremium
-
-      sessionToMasterAsset {
-        results {
-          assetToPublicLink(first: 1) {
-            results {
-              id
-              relativeUrl
-              versionHash
-            }
-          }
-        }
-      }
-
-      room {
-        results {
-          id
-          name
-        }
-      }
-
-      timeslotToSession {
-        results {
-          id
-          taxonomyLabel
-          sortOrder
-        }
-      }
-
-      speakers {
-        results {
-          id
-          name
-        }
-      }
-
-      dayToSession {
-        results {
-          taxonomyName
-          sortOrder
-        }
-      }
-
-      sessionsTypeToSessions {
-        taxonomyName
-      }
-    }
-  }
-}
-`;
-
-const parseSession = function (sessionResult: SessionResult) {
-  return parseSessionWithTimeSlot(sessionResult, {
-    id: '',
-    sortOrder: 0,
-    taxonomyLabel: {
-      'en-US': '',
-    },
-  });
-};
-
-const parseSessionWithTimeSlot = function (
-  sessionResult: SessionResult,
-  timeslotResult: TimeslotResult
-) {
-  const session = {} as Session;
-  session.id = sessionResult.id;
-  session.name = sessionResult.name;
-
-  const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
-  const relativeUrl = asset?.relativeUrl;
-  const versionHash = asset?.versionHash;
-
-  session.type =
-    sessionResult.sessionsTypeToSessions && sessionResult.sessionsTypeToSessions.taxonomyName;
-  session.isPremium = sessionResult.isPremium;
-  session.image = `${relativeUrl}?v=${versionHash}`;
-
-  if (sessionResult.room.results.length > 0) {
-    session.room = sessionResult.room.results[0].name;
-    session.roomId = sessionResult.room.results[0].id;
-  }
-
-  if (sessionResult.speakers.results.length > 0) {
-    session.speaker = sessionResult.speakers.results[0].name;
-  }
-
-  session.Day = sessionResult.dayToSession.results[0].taxonomyName;
-  session.ShortDay = sessionResult.dayToSession.results[0].sortOrder;
-
-  if (timeslotResult.id === '' && sessionResult.timeslotToSession.results.length > 0) {
-    session.timeslot = sessionResult.timeslotToSession.results[0].taxonomyLabel['en-US'];
-    session.sortOrder = sessionResult.timeslotToSession.results[0].sortOrder;
-  } else {
-    session.timeslot = timeslotResult.taxonomyLabel['en-US'];
-    session.sortOrder = timeslotResult.sortOrder;
-  }
-
-  return session;
-};
+import { Room } from '../../../interfaces/room';
 
 const formattedSession = function (
   sessionResult: SessionResult,
-  day: DayResult,
-  time: TimeslotResult
+  day: DayResult | null,
+  time: TimeslotResult | null,
+  room: Room | null,
+  includeSpeakers: boolean
 ) {
   const session = {} as Session;
-  session.id = sessionResult.id;
   session.name = sessionResult.name;
 
   const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
@@ -129,148 +28,195 @@ const formattedSession = function (
   session.isPremium = sessionResult.isPremium;
   session.image = `${relativeUrl}?v=${versionHash}`;
 
-  //Not taking session with multiple rooms into consideration
-  if (sessionResult.room.results.length > 0) {
-    session.room = sessionResult.room.results[0].name;
-    session.roomId = sessionResult.room.results[0].id;
-  }
-
-  //Not taking session with multiple speakers into consideration
-  if (sessionResult.speakers.results.length > 0) {
+  if (includeSpeakers && sessionResult.speakers.results.length > 0) {
     session.speaker = sessionResult.speakers.results[0].name;
+    if (sessionResult.speakers.results.length > 1) {
+      session.speaker = sessionResult.speakers.results
+        .map((speaker) => {
+          return speaker.name;
+        })
+        .slice(0, 2)
+        .join(', ');
+    }
+  }
+  //Not taking session with multiple rooms into consideration
+  if (room != null) {
+    session.roomId = room.id;
+    session.room = room.name;
+  } else if (sessionResult?.room?.results?.length > 0) {
+    session.roomId = sessionResult.room.results[0].id;
+    session.room = sessionResult.room.results[0]?.name;
   }
 
-  session.Day = day.taxonomyName;
-  session.ShortDay = day.sortOrder;
+  if (day != null) {
+    session.Day = day.taxonomyName;
+    session.ShortDay = day.sortOrder;
+  } else if (sessionResult?.dayToSession?.results?.length > 0) {
+    session.ShortDay = sessionResult.dayToSession.results[0].sortOrder;
+    session.Day = sessionResult.dayToSession.results[0]?.taxonomyName;
+  }
 
-  session.timeslot = time.taxonomyLabel['en-US'];
-  session.sortOrder = time.sortOrder;
+  if (time != null) {
+    session.timeslot = time.taxonomyLabel['en-US'];
+    session.sortOrder = time.sortOrder;
+  } else if (sessionResult?.timeslotToSession?.results?.length > 0) {
+    session.timeslot = sessionResult.timeslotToSession.results[0].taxonomyLabel['en-US'];
+    session.sortOrder = sessionResult.timeslotToSession.results[0]?.sortOrder;
+  }
 
   return session;
 };
 
-const parseAndFilterSession = function (
-  sessionResults: SessionResult[],
-  filterBy: string,
-  filterValue: string
-) {
-  const sessions: Session[] = [];
-  if (sessionResults) {
-    let filteredSessions: SessionResult[] = [];
-    if (filterBy) {
-      if (filterBy == 'room') {
-        filteredSessions = sessionResults.filter((sess) => sess.room.results[0].id === filterValue);
-      } else if (filterBy == 'speaker') {
-        filteredSessions = sessionResults.filter(
-          (sess) => sess.speakers.results[0].id === filterValue
-        );
-      } else if (filterBy == 'day') {
-        sessionResults.map((sess) => {
-          if (sess.dayToSession.results.length < 2) {
-            if (sess.dayToSession.results[0].sortOrder == filterValue.toString()) {
-              filteredSessions.push(sess);
-            }
-          } else {
-            sess.dayToSession.results.forEach((daySession) => {
-              if (daySession.sortOrder == filterValue) {
-                const newSession = sess;
-                newSession.dayToSession.results = [daySession];
-                filteredSessions.push(sess);
+export const getSessionsByRoom = async (
+  room: string,
+  day: number
+): Promise<{ sessions: Session[]; room: Room }> => {
+  const SessionByRoomQuery = `
+  query {
+    allDemo_Room(where: { id_eq: "${room}" }) {
+      results {
+        id
+        name
+        venue:rooms{
+          name
+        }
+        session: room {
+          results {
+            name
+            isPremium
+            sessionToMasterAsset {
+              results {
+                assetToPublicLink(first: 1) {
+                  results {
+                    relativeUrl
+                    versionHash
+                  }
+                }
               }
-            });
+            }
+            dayToSession {
+              results {
+                taxonomyName
+                sortOrder
+              }
+            }
+            timeslotToSession {
+              results {
+                taxonomyLabel
+                sortOrder
+              }
+            }
+            sessionsTypeToSessions {
+              taxonomyName
+            }
+            speakers{
+              results{
+                name
+              }
+            }
           }
-        });
-      }
-    }
-    filteredSessions.forEach((sessionResult: SessionResult) => {
-      if (sessionResult.dayToSession.results.length > 1) {
-        sessionResult.dayToSession.results.map((dayToSession) => {
-          if (sessionResult.timeslotToSession.results.length > 1) {
-            sessionResult.timeslotToSession.results.map((tsToSession) => {
-              sessions.push(formattedSession(sessionResult, dayToSession, tsToSession));
-            });
-          } else {
-            sessions.push(
-              formattedSession(
-                sessionResult,
-                dayToSession,
-                sessionResult.timeslotToSession.results[0]
-              )
-            );
-          }
-        });
-      } else {
-        if (sessionResult.timeslotToSession.results.length > 1) {
-          sessionResult.timeslotToSession.results.map((tsToSession) => {
-            sessions.push(
-              formattedSession(sessionResult, sessionResult.dayToSession.results[0], tsToSession)
-            );
-          });
-        } else {
-          sessions.push(
-            formattedSession(
-              sessionResult,
-              sessionResult.dayToSession.results[0],
-              sessionResult.timeslotToSession.results[0]
-            )
-          );
         }
       }
-    });
+    }
   }
+  `;
 
-  return sessions;
-};
+  const results: SessionsByRoomResponse = (await fetchGraphQL(
+    SessionByRoomQuery
+  )) as SessionsByRoomResponse;
 
-export const getSessionsByRoom = async (room: string): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
+  const currentRoom: Room = {
+    id: results?.data?.allDemo_Room.results[0].id,
+    name: results?.data?.allDemo_Room.results[0].name,
+    venue: results?.data?.allDemo_Room.results[0].venue,
+  };
 
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
+  const currentDay: DayResult = {
+    taxonomyName: 'Day ' + (day + 1).toString(),
+    sortOrder: day.toString(),
+  };
 
-  const sessions: Session[] = parseAndFilterSession(
-    results.data.allDemo_Session.results,
-    'room',
-    room
-  );
-
-  return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
-};
-
-export const getSessionsBySpeaker = async (speaker: string): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
-  }
-
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
-
-  results?.data?.allDemo_Session?.results &&
-    results.data.allDemo_Session.results.forEach((session: SessionResult) => {
+  results?.data?.allDemo_Room.results[0].session.results.map((sessionData) => {
+    sessionData.timeslotToSession.results.map((ts) => {
       if (
-        session.speakers?.results &&
-        session.speakers.results.find((speakerResult: SpeakerResult) => speakerResult.id == speaker)
+        sessionData.dayToSession.results &&
+        sessionData.dayToSession.results[0].sortOrder == day.toString()
       ) {
-        sessions.push(parseSession(session));
+        sessions.push(formattedSession(sessionData, currentDay, ts, currentRoom, true));
       }
     });
+  });
 
-  return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
+  return {
+    sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder),
+    room: currentRoom,
+  };
 };
 
-export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {
-  if (process.env.CI === 'true') {
-    return { sessions: [] as Session[] };
+export const getSessionsByDay = async (day: number): Promise<{ sessions: Session[] }> => {
+  const sessionsByDayQuery = `
+  query {
+    allDemo_Day(where: { sortOrder_eq: ${day} }) {
+      results {
+        sortOrder
+        taxonomyName
+        dayToSession {
+          results {
+            name
+            isPremium
+            sessionToMasterAsset {
+              results {
+                assetToPublicLink(first: 1) {
+                  results {
+                    relativeUrl
+                    versionHash
+                  }
+                }
+              }
+            }
+            room {
+              results {
+                id
+                name
+              }
+            }
+            timeslotToSession {
+              results {
+                taxonomyLabel
+                sortOrder
+              }
+            }
+            sessionsTypeToSessions {
+              taxonomyName
+            }
+            speakers{
+              results{
+                name
+              }
+            }
+          }
+        }
+      }
+    }
   }
+  `;
 
-  const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
+  const results: SessionsByDayResponse = (await fetchGraphQL(
+    sessionsByDayQuery
+  )) as SessionsByDayResponse;
 
-  const sessions: Session[] = parseAndFilterSession(
-    results?.data?.allDemo_Session.results,
-    'day',
-    day
-  );
+  const currentDay: DayResult = {
+    sortOrder: results?.data?.allDemo_Day.results[0].sortOrder,
+    taxonomyName: results?.data?.allDemo_Day.results[0].taxonomyName,
+  };
+
+  const sessions: Session[] = [];
+  results?.data?.allDemo_Day.results[0].dayToSession.results.map((sessionData) => {
+    sessionData.timeslotToSession.results.map((ts) => {
+      sessions.push(formattedSession(sessionData, currentDay, ts, null, false));
+    });
+  });
 
   return { sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder) };
 };
