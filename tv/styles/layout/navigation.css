@@ -154,6 +154,10 @@
       animation: rotation 2s infinite linear;
     }
 
+    &.loading {
+      @apply animate-spin;
+    }
+
     .icon {
       @apply w-4 mx-auto pt-3 font-extrabold;
     }

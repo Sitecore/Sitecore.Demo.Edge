@@ -160,7 +160,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
       browserId: window.Boxever.getID(), // For callFlows calls
       channel: BoxeverServiceConfig.channel,
       language: 'EN',
-      currency: 'CAD',
+      currency: 'USD',
       pos: 'PLAY! Summit',
     },
     eventConfig

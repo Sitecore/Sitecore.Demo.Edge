@@ -70,7 +70,7 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
         {time}
         {room}
         <div className="info-col-cta">
-          <Link href={`/sessions/${props.name}`}>
+          <Link href={`/sessions/${props.name.value}`}>
             <a className="btn--main btn--main--round">More Information</a>
           </Link>
         </div>
