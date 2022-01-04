@@ -22,7 +22,7 @@ Languages:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="36881" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36881/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a48e4a4e2dff4038b0b0956b3e15beed?v=5ca8c513" mediaid="" stylelabs-content-type="Image" alt="mapd logo" height="1200" width="1200" ></image>
+        <image stylelabs-content-id="36881" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36881/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a48e4a4e2dff4038b0b0956b3e15beed?v=5ca8c513" mediaid="" stylelabs-content-type="Image" alt="mapd logo" height="1200" width="1200" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162504Z

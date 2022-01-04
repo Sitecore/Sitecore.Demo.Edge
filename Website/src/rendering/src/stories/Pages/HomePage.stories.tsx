@@ -8,7 +8,7 @@ import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
 } from '../../components/Page Content/ThreeColumnsSection';
 import SelectedSponsorsGrid, {
-  SponsorsProps,
+  SelectedSponsorsGridProps,
 } from '../../components/Sponsors/SelectedSponsorsGrid';
 import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
@@ -118,7 +118,7 @@ const sponsorProps = {
     componentName: 'Rendering',
     dataSource: '/sitecore',
   },
-} as SponsorsProps;
+} as unknown as SelectedSponsorsGridProps;
 
 const threeColProps = {
   fields: {

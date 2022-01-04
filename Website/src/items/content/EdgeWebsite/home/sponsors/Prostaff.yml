@@ -22,7 +22,7 @@ Languages:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="34188" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff Logo" height="1001" width="1001" ></image>
+        <image stylelabs-content-id="34188" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff Logo" height="1001" width="1001" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162437Z

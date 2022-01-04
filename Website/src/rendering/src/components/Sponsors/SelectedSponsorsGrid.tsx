@@ -3,13 +3,13 @@ import { Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
-export type SponsorsProps = ComponentProps & {
+export type SelectedSponsorsGridProps = ComponentProps & {
   fields: {
     Sponsors: Sponsor[];
   };
 };
 
-const SelectedSponsorsGrid = (props: SponsorsProps): JSX.Element => {
+const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => {
   const sponsors =
     props?.fields?.Sponsors &&
     props.fields.Sponsors.map((sponsor, index) => (
@@ -31,4 +31,4 @@ const SelectedSponsorsGrid = (props: SponsorsProps): JSX.Element => {
   return <div className="section__sponsors__grid">{sponsors}</div>;
 };
 
-export default withDatasourceCheck()<SponsorsProps>(SelectedSponsorsGrid);
+export default withDatasourceCheck()<SelectedSponsorsGridProps>(SelectedSponsorsGrid);
