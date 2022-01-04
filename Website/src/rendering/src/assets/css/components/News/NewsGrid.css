@@ -51,7 +51,7 @@
     }
 
     &__image {
-      @apply h-52 object-cover overflow-hidden;
+      @apply h-52 bg-cover;
     }
 
     &__item {

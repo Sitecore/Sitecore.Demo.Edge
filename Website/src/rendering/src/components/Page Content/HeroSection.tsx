@@ -19,36 +19,23 @@ export type HeroProps = ComponentProps & {
 };
 
 const HeroSection = (props: HeroProps): JSX.Element => {
-  const css =
-    `@media (min-width: 768px) {
-      #hero_` +
-    props.rendering.uid +
-    ` {
-        background-image: url(` +
-    props.fields.Hero?.value?.src +
-    ` );
-    }
-  }`;
-
   return (
-    <>
-      <style scoped suppressHydrationWarning>
-        {css}
-      </style>
-      <section id={'hero_' + props.rendering.uid} className="section__hero banner">
-        <div className="section__hero__container container">
-          <div className="section__hero__container__content">
-            <div className="section__hero__container__content__text">
-              <Text field={props.fields.Slogan} tag="p" className="slogan" />
-              <Text field={props.fields.Eyebrow} tag="h1" className="expo" />
-              <Text field={props.fields.Title} tag="h3" className="title" />
-              <RichText field={props.fields.Body} tag="div" className="subtitle" />
-            </div>
-            <Placeholder name="jss-hero-section-content" rendering={props.rendering} />
+    <section
+      className="section__hero banner"
+      style={{ backgroundImage: `url("${props.fields.Hero?.value?.src}")` }}
+    >
+      <div className="section__hero__container container">
+        <div className="section__hero__container__content">
+          <div className="section__hero__container__content__text">
+            <Text field={props.fields.Slogan} tag="p" className="slogan" />
+            <Text field={props.fields.Eyebrow} tag="h1" className="expo" />
+            <Text field={props.fields.Title} tag="h3" className="title" />
+            <RichText field={props.fields.Body} tag="div" className="subtitle" />
           </div>
+          <Placeholder name="jss-hero-section-content" rendering={props.rendering} />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

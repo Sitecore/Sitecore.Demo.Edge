@@ -21,13 +21,10 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         <div key={index} className="section__news__grid__news__item">
           <Link href={'/news/' + news.name} passHref>
             <a>
-              <img
+              <div
                 className="section__news__grid__news__image"
-                src={news.fields.Image.value?.src}
-                alt="News"
-                width="100%"
-                loading="lazy"
-              />
+                style={{ backgroundImage: 'url(' + news.fields.Image.value?.src + ')' }}
+              ></div>
               {news.fields.Title.value}
             </a>
           </Link>
