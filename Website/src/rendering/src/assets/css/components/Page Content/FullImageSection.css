@@ -43,10 +43,6 @@
         line-height: 1.4;
         max-width: 500px;
       }
-
-      .call-to-action-button {
-        @apply font-bold;
-      }
     }
   }
 }
