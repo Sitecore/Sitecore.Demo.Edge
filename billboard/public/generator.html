@@ -68,16 +68,8 @@
             width: 800px;
             height: 500px;
             border: 1px solid black;
-            color: #fff;
+            color: black;
             background: rgba(255, 254, 254, 0.6);
-        }
-
-        .imageShow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: #f7f7f7;
-
         }
 
         body {
@@ -106,6 +98,8 @@
         var $, applyTransform, getTransform, makeTransformable;
 
         $ = jQuery;
+
+        console.log(location.search);
 
         getTransform = function (from, to) {
             var A, H, b, h, i, k_i, lhs, rhs, _i, _j, _k, _ref;
@@ -278,84 +272,9 @@
             height: 0
         }
 
-        /*$("#uploadFile").on("change", function () {
-            var files = !!this.files ? this.files : [];
-            var img, source;
-            if (!files.length || !window.FileReader) return;
-
-            if ((source = this.files[0])) {
-                img = new Image();
-                img.onload = function () {
-                    sourceConfig.width = this.width;
-                    sourceConfig.height = this.height;
-                    // alert(this.width + " " + this.height);
-                    $(".imageShow").css({
-                        "width": sourceConfig.width + "px",
-                        "height": sourceConfig.height + "px"
-                    });
-
-                    $(".box, .content").css({
-                        "width": sourceConfig.width + "px",
-                        "height": sourceConfig.height + "px"
-                    });
-
-                    $(".ui-draggable").eq(0).css({
-                        "top": "3px",
-                        "left": "3px"
-                    });
-                    $(".ui-draggable").eq(1).css({
-                        "top": (sourceConfig.height + 3) + "px",
-                        "left": "3px"
-                    });
-                    $(".ui-draggable").eq(2).css({
-                        "top": "3px",
-                        "left": (sourceConfig.width + 3) + "px"
-                    });
-                    $(".ui-draggable").eq(3).css({
-                        "top": (sourceConfig.height + 3) + "px",
-                        "left": (sourceConfig.width + 3) + "px"
-                    });
-                    makeTransformable('.box', function (element, H) {
-                        var i, j;
-                        console.log($(element).css('transform'));
-                        return $(element).html($('<table>').append($('<tr>').html($('<td>').text('matrix3d('))).append((function () {
-                            var _i, _results;
-                            _results = [];
-                            for (i = _i = 0; _i < 4; i = ++_i) {
-                                _results.push($('<tr>').append((function () {
-                                    var _j, _results1;
-                                    _results1 = [];
-                                    for (j = _j = 0; _j < 4; j = ++_j) {
-                                        _results1.push($('<td>').text(H[j][i] + ((i === j && j === 3) ? '' : ',')));
-                                    }
-                                    return _results1;
-                                })()));
-                            }
-                            return _results;
-                        })()).append($('<tr>').html($('<td>').text(')'))));
-                    });
-                };
-                img.onerror = function () {
-                    alert("not a valid file: " + source.type);
-                };
-                img.src = _URL.createObjectURL(source);
-            }
-
-            // if (/^image/.test(files[0].type)) {
-            //     var reader = new FileReader();
-            //     reader.readAsDataURL(files[0]);
-
-            //     reader.onloadend = function () {
-            //         $(".imageShow").css({
-            //             "background-image": "url(" + this.result + ")",
-            //         });
-            //     }
-            // }
-        });*/
-
-        // $('#uploadFile').click(function () {
-        //     $(this).trigger('click');
-        // });
+        var qs = window.location.search;
+        var imageSrc = qs.replace("?image=", "");
+        $(".billboard-background").attr("src", imageSrc);
 
     }).call(this);
 </script>

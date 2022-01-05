@@ -5,8 +5,7 @@ import Image from "next/image";
 import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader";
 import React from "react";
 import Navigation from "../components/Navigation";
-import theBillboard1 from "../public/billboard-frame.png";
-import theBillboard2 from "../public/billbaord2.png";
+import Link from "next/link";
 
 type BillboardProps = {
   billboard: BillboardResult;
@@ -20,33 +19,25 @@ export default function BillboardPage(props: BillboardProps) {
   //4bwwmhx1jU2duqmDcxD0Qg mountain billboard
   //Ob6bc7hS40SsfCLf7KP9kg ocean billboard
 
-  console.log(props);
+  const hostname =
+    typeof window !== "undefined" && window.location.hostname
+      ? window.location.hostname
+      : "";
 
-  const billboardFrame =
-    props.billboard.id == "Ob6bc7hS40SsfCLf7KP9kg" ||
-    props.billboard.id == "0000" ? (
-      <Image
-        src={theBillboard2}
-        alt="the billboard"
-        width={1000}
-        height={900}
-        layout={"fixed"}
-        className="hidden"
-      ></Image>
+  const GeneratorLink =
+    hostname == "localhost" ? (
+      <Link
+        href={
+          "/generator.html?image=" +
+          contentHubImageSrcGenerator(props.billboard.advertisement_Background)
+        }
+        passHref
+      >
+        <span className="text-black">Generator</span>
+      </Link>
     ) : (
-      <Image
-        src={theBillboard1}
-        alt="the billboard"
-        width={1000}
-        height={900}
-        layout={"fixed"}
-        className="hidden"
-      ></Image>
+      <></>
     );
-
-  console.log(
-    contentHubImageSrcGenerator(props.billboard.advertisement_Background)
-  );
 
   return (
     <>
@@ -65,7 +56,6 @@ export default function BillboardPage(props: BillboardProps) {
           />
         </div>
         <div className={"billboard-frame " + props.billboard.id}>
-          {/* {billboardFrame} */}
           <div className="billboard-container">
             <div
               className="image-left"
@@ -109,6 +99,7 @@ export default function BillboardPage(props: BillboardProps) {
           </div>
         </div>
       </div>
+      {GeneratorLink}
     </>
   );
 }
