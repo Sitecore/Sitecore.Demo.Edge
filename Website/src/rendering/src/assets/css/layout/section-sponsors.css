@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url(../../img/background-pattern-light.svg);
+  background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1200'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bopacity:0.1;%7D.cls-2%7Bfill:%230092ff;%7D.cls-3%7Bfill:%2369c9ff;%7D.cls-4%7Bfill:%23ff8d00;%7D.cls-5%7Bfill:%23ffc280;%7D%3C/style%3E%3C/defs%3E%3Cg class='cls-1'%3E%3Cpolygon class='cls-2' points='462.45 210.51 386.45 390.14 2.85 0 251.95 0.01 462.45 210.51'/%3E%3Cpolygon class='cls-3' points='0 553.45 0 356.53 250.57 251.95 386.45 390.14 0 553.45'/%3E%3C/g%3E%3Cg class='cls-1'%3E%3Cpolygon class='cls-4' points='1457.55 989.49 1533.55 809.86 1917.15 1200 1668.05 1199.99 1457.55 989.49'/%3E%3Cpolygon class='cls-5' points='1920 646.55 1920 843.47 1669.43 948.05 1533.55 809.86 1920 646.55'/%3E%3C/g%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
