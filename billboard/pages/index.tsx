@@ -28,7 +28,7 @@ const Home = (props: BillboardProps): JSX.Element => {
                 ")",
             }}
           >
-            <Link href={"/" + billboard.id} passHref>
+            <Link href={"/" + billboard.content_Name} passHref>
               {billboard.content_Name}
             </Link>
           </div>

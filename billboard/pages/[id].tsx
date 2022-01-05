@@ -19,6 +19,9 @@ export declare type BillboardParams = {
 export default function BillboardPage(props: BillboardProps) {
   //4bwwmhx1jU2duqmDcxD0Qg mountain billboard
   //Ob6bc7hS40SsfCLf7KP9kg ocean billboard
+
+  console.log(props);
+
   const billboardFrame =
     props.billboard.id == "Ob6bc7hS40SsfCLf7KP9kg" ||
     props.billboard.id == "0000" ? (
@@ -28,6 +31,7 @@ export default function BillboardPage(props: BillboardProps) {
         width={1000}
         height={900}
         layout={"fixed"}
+        className="hidden"
       ></Image>
     ) : (
       <Image
@@ -36,8 +40,13 @@ export default function BillboardPage(props: BillboardProps) {
         width={1000}
         height={900}
         layout={"fixed"}
+        className="hidden"
       ></Image>
     );
+
+  console.log(
+    contentHubImageSrcGenerator(props.billboard.advertisement_Background)
+  );
 
   return (
     <>
@@ -56,7 +65,7 @@ export default function BillboardPage(props: BillboardProps) {
           />
         </div>
         <div className={"billboard-frame " + props.billboard.id}>
-          {billboardFrame}
+          {/* {billboardFrame} */}
           <div className="billboard-container">
             <div
               className="image-left"
@@ -108,7 +117,7 @@ export async function getStaticPaths() {
   const { billboards } = await getBillboards();
 
   const paths = billboards.map((billboard) => ({
-    params: { id: billboard.id },
+    params: { id: billboard.content_Name },
   }));
 
   return { paths, fallback: false };

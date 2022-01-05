@@ -77,6 +77,6 @@ export const getBillboardById = async (
   const { billboards } = await getBillboards();
 
   return {
-    billboard: billboards.filter((v: BillboardResult) => v.id == id)[0],
+    billboard: billboards.filter((v: BillboardResult) => v.content_Name == id)[0],
   };
 };
