@@ -3,7 +3,7 @@
 
   .section__content {
     @apply text-white font-extrabold place-items-start;
-    
+
     .wrapper {
       @apply lg:w-8/12;
     }
