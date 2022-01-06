@@ -14,6 +14,7 @@ export const getBillboards = async (): Promise<{
           advertisement_Slogan
           advertisement_Eyebrow
           content_Name
+          advertisement_Channel
           advertisement_Logo{
             results{
                assetToPublicLink(first: 1) {
@@ -67,7 +68,10 @@ export const getBillboards = async (): Promise<{
   }
 
   return {
-    billboards: billboards,
+    billboards: billboards.filter(
+      (result: BillboardResult) =>
+        result.advertisement_Channel == "Demo.Channel.Billboard"
+    ),
   };
 };
 
@@ -77,6 +81,10 @@ export const getBillboardById = async (
   const { billboards } = await getBillboards();
 
   return {
-    billboard: billboards.filter((v: BillboardResult) => v.content_Name == id)[0],
+    billboard: billboards.filter(
+      (result: BillboardResult) =>
+        result.content_Name == id &&
+        result.advertisement_Channel == "Demo.Channel.Billboard"
+    )[0],
   };
 };

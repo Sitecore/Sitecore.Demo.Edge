@@ -55,7 +55,7 @@ export default function BillboardPage(props: BillboardProps) {
             layout={"fixed"}
           />
         </div>
-        <div className={"billboard-frame " + props.billboard.id}>
+        <div className={"billboard-frame id-" + props.billboard.id}>
           <div className="billboard-container">
             <div
               className="image-left"

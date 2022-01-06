@@ -23,7 +23,7 @@ const Home = (props: BillboardProps): JSX.Element => {
               backgroundImage:
                 "url(" +
                 contentHubImageSrcGenerator(
-                  billboard.advertisement_Background
+                  billboard.advertisement_Image
                 ) +
                 ")",
             }}
