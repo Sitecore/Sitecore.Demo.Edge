@@ -32,7 +32,7 @@ const fieldsWithImage = {
   ...{
     backgroundImage: {
       value: {
-        src: '/assets/img/tickets/come-play.jpg',
+        src: '/assets/img/tickets/header-banner-2.png',
       },
     },
   },
@@ -50,4 +50,8 @@ WithImage.args = {
 export const WithoutImage = Template.bind({});
 WithoutImage.args = {
   fields: fieldsWithoutImage,
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
 };

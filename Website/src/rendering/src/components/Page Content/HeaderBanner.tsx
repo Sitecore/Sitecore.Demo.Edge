@@ -20,7 +20,7 @@ const HeaderBanner = (props: HeaderBannerProps): JSX.Element => {
   return (
     <section className="section header-banner" style={sectionStyles}>
       <div className="section__content container">
-        <div>
+        <div className='wrapper'>
           <Text className="eyebrow" tag="p" field={props.fields.eyebrow} />
           <Text className="title" tag="h1" field={props.fields.title} />
           <Text className="subtitle" tag="p" field={props.fields.subtitle} />
