@@ -12,6 +12,8 @@ type BillboardProps = {
 };
 
 const Home = (props: BillboardProps): JSX.Element => {
+  console.log(props);
+
   const billboardList =
     props.billboards.length > 0 ? (
       <div className="billboard-list">
@@ -22,15 +24,32 @@ const Home = (props: BillboardProps): JSX.Element => {
             style={{
               backgroundImage:
                 "url(" +
-                contentHubImageSrcGenerator(
-                  billboard.advertisement_Image
-                ) +
+                contentHubImageSrcGenerator(billboard.advertisement_Image) +
                 ")",
             }}
           >
-            <Link href={"/" + billboard.content_Name} passHref>
-              {billboard.content_Name}
-            </Link>
+            {billboard.advertisement_Background.results.length > 1 ? (
+              <>
+                <div className="billboard-title">{billboard.content_Name}</div>
+                <div className="billboard-variants">
+                  {billboard.advertisement_Background.results.map(
+                    (background, ind) => (
+                      <Link
+                        key={ind}
+                        href={"/" + billboard.content_Name + "?bg=" + ind}
+                        passHref
+                      >
+                        <a>Variant {ind + 1}</a>
+                      </Link>
+                    )
+                  )}
+                </div>
+              </>
+            ) : (
+              <Link href={"/" + billboard.content_Name + "?bg=0"} passHref>
+                <a className="billboard-title">{billboard.content_Name}</a>
+              </Link>
+            )}
           </div>
         ))}
       </div>

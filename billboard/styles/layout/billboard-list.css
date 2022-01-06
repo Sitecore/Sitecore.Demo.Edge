@@ -2,7 +2,7 @@
   @apply flex flex-col justify-items-stretch h-screen w-full;
 
   .billboard-item {
-    @apply flex-1 text-5xl text-white font-bold h-full text-center flex bg-cover;
+    @apply flex-1 text-5xl text-white font-bold h-full text-center flex bg-cover flex-col;
 
     background-position: center;
     text-shadow: 2px 2px black;
@@ -14,7 +14,17 @@
     }
 
     a {
-      @apply m-auto;
+      @apply m-auto cursor-pointer;
     }
+
+    .billboard-title,
+    .billboard-variants {
+      @apply m-auto inline-block;
+    }
+
+    .billboard-variants {
+      @apply text-xl space-x-12;
+    }
+
   }
 }

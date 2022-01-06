@@ -9,6 +9,7 @@ export interface AssetToPublicLink {
 }
 
 export interface AssetResult {
+  title: string;
   assetToPublicLink: AssetToPublicLink;
 }
 

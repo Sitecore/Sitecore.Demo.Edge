@@ -39,7 +39,8 @@ export const getBillboards = async (): Promise<{
           }
           advertisement_Background{
             results{
-               assetToPublicLink(first: 1) {
+              title
+              assetToPublicLink(first: 1) {
                 results {
                   id
                   relativeUrl

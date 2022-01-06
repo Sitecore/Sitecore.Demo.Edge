@@ -6,6 +6,7 @@ import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader"
 import React from "react";
 import Navigation from "../components/Navigation";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type BillboardProps = {
   billboard: BillboardResult;
@@ -19,25 +20,48 @@ export default function BillboardPage(props: BillboardProps) {
   //4bwwmhx1jU2duqmDcxD0Qg mountain billboard
   //Ob6bc7hS40SsfCLf7KP9kg ocean billboard
 
+  const router = useRouter();
+  console.log(router.query["bg"]);
+  console.log(props);
+
+  const bgIndex = parseInt(router.query.bg as string, 10);
+
+  if (bgIndex < props.billboard.advertisement_Background.results.length) {
+    props.billboard.advertisement_Background.results =
+      props.billboard.advertisement_Background.results.filter(
+        (value, index, array) => {
+          return array.indexOf(value) === bgIndex;
+        }
+      );
+  }
+
   const hostname =
     typeof window !== "undefined" && window.location.hostname
       ? window.location.hostname
       : "";
+  const showGeneratorLink = hostname == "localhost";
 
-  const GeneratorLink =
-    hostname == "localhost" ? (
-      <Link
-        href={
-          "/generator.html?image=" +
-          contentHubImageSrcGenerator(props.billboard.advertisement_Background)
-        }
-        passHref
-      >
-        <span className="text-black">Generator</span>
-      </Link>
-    ) : (
-      <></>
-    );
+  const GeneratorLink = showGeneratorLink ? (
+    <Link
+      href={
+        "/generator.html?image=" +
+        contentHubImageSrcGenerator(props.billboard.advertisement_Background)
+      }
+      passHref
+    >
+      <span className="text-black">Transform Generator</span>
+    </Link>
+  ) : (
+    <></>
+  );
+
+  console.log(props.billboard.advertisement_Background.results[0].title);
+  const title = props.billboard.advertisement_Background.results[0].title.toLowerCase()
+    .split(".")
+    .join("-")
+    .split(" ")
+    .join("-");
+  console.log(title);
 
   return (
     <>
@@ -55,47 +79,43 @@ export default function BillboardPage(props: BillboardProps) {
             layout={"fixed"}
           />
         </div>
-        <div className={"billboard-frame id-" + props.billboard.id}>
-          <div className="billboard-container">
-            <div
-              className="image-left"
-              style={{
-                backgroundImage:
-                  "url(" +
-                  contentHubImageSrcGenerator(
-                    props.billboard.advertisement_Image
-                  ) +
-                  ")",
-              }}
-            ></div>
-            <div className="content-right">
-              <div className="logo">
-                <Image
-                  src={contentHubImageSrcGenerator(
-                    props.billboard.advertisement_Logo
-                  )}
-                  alt={props.billboard.content_Name}
-                  height={150}
-                  width={400}
-                />
-              </div>
-              <div className="slogan">
-                {props.billboard.advertisement_Slogan}
-              </div>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: props.billboard.advertisement_Eyebrow,
-                }}
-                className="eyebrow"
-              ></div>
-              <div className="title">{props.billboard.advertisement_Title}</div>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: props.billboard.advertisement_Body,
-                }}
-                className="body"
-              ></div>
+        <div className={"billboard-container " + title}>
+          <div
+            className="image-left"
+            style={{
+              backgroundImage:
+                "url(" +
+                contentHubImageSrcGenerator(
+                  props.billboard.advertisement_Image
+                ) +
+                ")",
+            }}
+          ></div>
+          <div className="content-right">
+            <div className="logo">
+              <Image
+                src={contentHubImageSrcGenerator(
+                  props.billboard.advertisement_Logo
+                )}
+                alt={props.billboard.content_Name}
+                height={150}
+                width={400}
+              />
             </div>
+            <div className="slogan">{props.billboard.advertisement_Slogan}</div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.billboard.advertisement_Eyebrow,
+              }}
+              className="eyebrow"
+            ></div>
+            <div className="title">{props.billboard.advertisement_Title}</div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: props.billboard.advertisement_Body,
+              }}
+              className="body"
+            ></div>
           </div>
         </div>
       </div>
