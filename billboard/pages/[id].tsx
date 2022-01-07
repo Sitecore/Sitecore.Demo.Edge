@@ -17,12 +17,8 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
-  //4bwwmhx1jU2duqmDcxD0Qg mountain billboard
-  //Ob6bc7hS40SsfCLf7KP9kg ocean billboard
 
   const router = useRouter();
-  console.log(router.query["bg"]);
-  console.log(props);
 
   const bgIndex = parseInt(router.query.bg as string, 10);
 
@@ -55,13 +51,11 @@ export default function BillboardPage(props: BillboardProps) {
     <></>
   );
 
-  console.log(props.billboard.advertisement_Background.results[0].title);
   const title = props.billboard.advertisement_Background.results[0].title.toLowerCase()
     .split(".")
     .join("-")
     .split(" ")
     .join("-");
-  console.log(title);
 
   return (
     <>
@@ -91,7 +85,7 @@ export default function BillboardPage(props: BillboardProps) {
                 ")",
             }}
           ></div>
-          <div className="content-right">
+          <div className="content-right content-right--half">
             <div className="logo">
               <Image
                 src={contentHubImageSrcGenerator(

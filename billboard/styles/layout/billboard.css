@@ -125,7 +125,15 @@
     }
 
     .content-right {
-      @apply flex-1 h-full w-1/2 absolute right-0 bg-black-dark text-white p-10 pt-4 space-y-4 overflow-hidden;
+      @apply flex-1 h-full absolute right-0 bg-black-dark text-white p-10 pt-4 space-y-4 overflow-hidden;
+
+      &--full {
+        @apply w-full;
+      }
+
+      &--half {
+        @apply w-1/2;
+      }
 
       .logo {
         @apply w-1/2 h-10;
