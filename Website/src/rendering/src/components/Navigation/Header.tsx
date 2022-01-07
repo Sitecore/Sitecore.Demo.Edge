@@ -1,25 +1,37 @@
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { useUser } from '@auth0/nextjs-auth0';
 
 import Link from 'next/link';
 
 export type HeaderProps = ComponentProps;
 
-const Header = (props: HeaderProps): JSX.Element => (
-  <>
-    <div className="header-eyebrow">
-      <div className="content">
-        <a href="#">EN</a>
-        <Link href="/account/login">
-          <a>Login</a>
-        </Link>
-        <Link href="/cart">
-          <a>Cart</a>
-        </Link>
+const Header = (props: HeaderProps): JSX.Element => {
+  const { user, error, isLoading } = useUser();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+
+  return (
+    <>
+      <div className="header-eyebrow">
+        <div className="content">
+          <a href="#">EN</a>
+          {!user && <a href="/api/auth/login">Login</a>}
+          <Link href="/cart">
+            <a>Cart</a>
+          </Link>
+          {user && (
+            <>
+              <a href="#">{user?.name}</a>
+              <a href="/api/auth/logout">Logout</a>
+            </>
+          )}
+        </div>
       </div>
-    </div>
-    <Placeholder name="jss-header-content" rendering={props.rendering} />
-  </>
-);
+      <Placeholder name="jss-header-content" rendering={props.rendering} />
+    </>
+  );
+};
 
 export default Header;

@@ -7,6 +7,8 @@ import Head from 'next/head';
 import { CdpScripts, identifyVisitor } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { UserProvider } from '@auth0/nextjs-auth0';
+
 config.autoAddCss = false;
 
 // Using nprogress is completely optional.
@@ -61,7 +63,9 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         If your app is not multilingual, next-localization and references to it can be removed.
       */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
-        <Component {...rest} />
+        <UserProvider>
+          <Component {...rest} />
+        </UserProvider>
       </I18nProvider>
     </>
   );
