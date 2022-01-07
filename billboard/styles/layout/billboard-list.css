@@ -25,6 +25,5 @@
     .billboard-variants {
       @apply text-xl space-x-12;
     }
-
   }
 }
