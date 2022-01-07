@@ -10,7 +10,6 @@ type SponsorsGridProps = ComponentProps & {
 };
 
 const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
-  console.log(props.fields.items);
   const sponsors =
     props.fields.items &&
     props.fields.items.map((sponsor, index) => (

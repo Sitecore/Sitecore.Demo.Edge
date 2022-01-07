@@ -10,100 +10,91 @@ SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
         <p
-          uid="{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}">
-          <p:d />
-        </p>
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          key="jss-header-content"
+          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          key="jss-section-content"
+          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        <p
+          uid="{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}"
+          key="jss-summit-features-content"
+          md="{C8C6EFD2-E574-4FD9-8833-4C5D6A23042F}" />
         <r
-          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}">
-          <p:d />
-        </r>
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}" />
         <r
-          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}">
-          <p:d />
-        </r>
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{1CB49545-D7F4-538D-9748-FAAD4753D3CB}-0"
+          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}" />
         <r
-          uid="{0761E527-92C1-596B-914B-DD9C282DA709}">
-          <p:d />
-        </r>
+          rname="HeroImage"
+          ds="{E521A6F1-9C1B-50FD-AB79-333F31AF229A}"
+          id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
+          par=""
+          ph="/jss-main"
+          uid="{98F39024-766B-5184-B064-9E36B39D25DC}" />
         <r
-          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}">
-          <p:d />
-        </r>
+          id="{98F79B86-92EF-4699-A2F0-D9ECF79A70EF}"
+          ph="jss-main"
+          uid="{18DD5D0E-19AA-48C7-881C-C33ED88DE3B2}" />
         <r
-          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}">
-          <p:d />
-        </r>
+          rname="Section"
+          ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{0761E527-92C1-596B-914B-DD9C282DA709}" />
         <r
-          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}">
-          <p:d />
-        </r>
+          rname="NewsGrid"
+          ds="{0E4A63DA-7496-557E-BF80-5BD52255E431}"
+          id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+          par=""
+          ph="/jss-main/jss-section-content-{0761E527-92C1-596B-914B-DD9C282DA709}-0"
+          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}" />
         <r
-          uid="{49649979-09D8-545A-AF70-2E50E065D19F}">
-          <p:d />
-        </r>
+          rname="Section"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}" />
         <r
-          uid="{8BE1D88D-4DF5-560F-A6E2-929F4E1E1BE3}"
-          p:after="p[@uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"]"
-          s:rname="SelectedSponsorsGrid"
-          s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
-          s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
-          s:par=""
-          s:ph="/jss-main/jss-section-content-{40EA4B6E-70BB-5182-A2B5-8CD1A5A235B5}-0"
-          s:ccb="Clear on publish" />
+          rname="SelectedSponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          par=""
+          ph="/jss-main/jss-section-content-{63AC6E75-5365-5E24-9E53-508B20613F45}-0"
+          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}" />
         <r
-          uid="{4A58D29E-2DC0-5289-BCB6-F0839D5EB73F}"
-          p:after="r[@uid="{8BE1D88D-4DF5-560F-A6E2-929F4E1E1BE3}"]"
-          s:rname="Header"
-          s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
-          s:par=""
-          s:ph="/jss-header" />
-        <r
-          uid="{EE997745-1E5A-5195-AE13-0748F8E72E4C}"
-          p:after="r[@uid="{4A58D29E-2DC0-5289-BCB6-F0839D5EB73F}"]"
-          s:rname="MainNavigation"
-          s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
-          s:par=""
-          s:ph="/jss-header/jss-header-content-{4A58D29E-2DC0-5289-BCB6-F0839D5EB73F}-0" />
-        <r
-          uid="{98F39024-766B-5184-B064-9E36B39D25DC}"
-          p:after="r[@uid="{EE997745-1E5A-5195-AE13-0748F8E72E4C}"]"
-          s:rname="HeroImage"
-          s:ds="{E521A6F1-9C1B-50FD-AB79-333F31AF229A}"
-          s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{F8C599B7-FA3B-5FCF-925D-C7CA8DA8778B}"
-          p:after="r[@uid="{98F39024-766B-5184-B064-9E36B39D25DC}"]"
-          s:rname="FeaturedVendors"
-          s:id="{18D56CF9-81D3-50C2-A8C3-19349D36074D}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{2FAE4906-7839-4F5E-BA08-48AAE5878766}"
-          p:after="r[@uid="{F8C599B7-FA3B-5FCF-925D-C7CA8DA8778B}"]"
-          s:id="{98F79B86-92EF-4699-A2F0-D9ECF79A70EF}"
-          s:ph="jss-main" />
-        <r
-          uid="{40EA4B6E-70BB-5182-A2B5-8CD1A5A235B5}"
-          p:after="r[@uid="{2FAE4906-7839-4F5E-BA08-48AAE5878766}"]"
-          s:rname="Section"
-          s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
-          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
-          s:par=""
-          s:ph="/jss-main" />
-        <r
-          uid="{6C4ED3B6-89D6-5621-83CA-BE3061347838}"
-          p:after="*[1=2]"
-          s:rname="Footer"
-          s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
-          s:par=""
-          s:ph="/jss-footer" />
+          rname="Footer"
+          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          par=""
+          ph="/jss-footer"
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}" />
       </d>
     </r>
 Languages:
@@ -131,14 +122,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "050b4c0a-52bd-45c8-97b4-e98dacb26581"
+      Value: "dfae85ae-aa40-4ff9-a3f5-cdd9d1438ad5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211217T110343Z
+      Value: 20220107T165652Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Sponsors
