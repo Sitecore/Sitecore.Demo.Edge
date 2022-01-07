@@ -12,6 +12,7 @@ import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
+import { UserProvider } from '@auth0/nextjs-auth0';
 
 export default {
   title: 'Pages/Home Page',
@@ -178,20 +179,22 @@ const threeColProps = {
 
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
-    <SitecoreContext componentFactory={mockComponentFactory}>
-      <header>
-        <Header {...mockHeaderProps} />
-      </header>
-      <main>
-        <HeaderCdpMessageBar />
-        <HeroSection {...heroProps} />
-        <ThreeColumnsSection {...threeColProps} />
-        <SponsorsGrid {...sponsorProps} />
-      </main>
-      <footer>
-        <Footer {...mockFooterProps} />
-      </footer>
-    </SitecoreContext>
+    <UserProvider>
+      <SitecoreContext componentFactory={mockComponentFactory}>
+        <header>
+          <Header {...mockHeaderProps} />
+        </header>
+        <main>
+          <HeaderCdpMessageBar />
+          <HeroSection {...heroProps} />
+          <ThreeColumnsSection {...threeColProps} />
+          <SponsorsGrid {...sponsorProps} />
+        </main>
+        <footer>
+          <Footer {...mockFooterProps} />
+        </footer>
+      </SitecoreContext>
+    </UserProvider>
   );
 };
 
