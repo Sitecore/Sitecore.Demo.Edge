@@ -11,7 +11,7 @@ const Header = (props: HeaderProps): JSX.Element => {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
-
+  /* eslint-disable */
   return (
     <>
       <div className="header-eyebrow">
@@ -32,6 +32,7 @@ const Header = (props: HeaderProps): JSX.Element => {
       <Placeholder name="jss-header-content" rendering={props.rendering} />
     </>
   );
+  /* eslint-enable */
 };
 
 export default Header;
