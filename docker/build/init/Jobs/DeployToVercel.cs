@@ -86,9 +86,14 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
+            var auth0Secret = Environment.GetEnvironmentVariable("AUTH0_SECRET");
+            var auth0IssuerBaseUrl = Environment.GetEnvironmentVariable("AUTH0_ISSUER_BASE_URL");
+            var auth0ClientId = Environment.GetEnvironmentVariable("AUTH0_CLIENT_ID");
+            var auth0ClientSecret = Environment.GetEnvironmentVariable("AUTH0_CLIENT_SECRET");
+
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
-                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region));
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region, auth0Secret, auth0IssuerBaseUrl, auth0ClientId, auth0ClientSecret));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
                 cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task.WaitAll(tv, website, kiosk);
@@ -131,7 +136,8 @@ namespace Sitecore.Demo.Init.Jobs
         }
 
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
-            string cdpProxyUrl, string token, string scope, string region)
+            string cdpProxyUrl, string token, string scope, string region, string auth0Secret,
+            string auth0IssuerBaseUrl, string auth0ClientId, string auth0ClientSecret)
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
@@ -165,9 +171,21 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{productionUrl}\" | vercel env add AUTH0_BASE_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0Secret}\" | vercel env add AUTH0_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0IssuerBaseUrl}\" | vercel env add AUTH0_ISSUER_BASE_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0ClientId}\" | vercel env add AUTH0_CLIENT_ID production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
 
             // Deploy project files
-            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
+            var output =
+                cmd.Run(
+                    $"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
             if (output.Contains(ErrorText))
             {
                 throw new Exception($"An error has occurred when running DeployToVercel job: DeployWebsite");
