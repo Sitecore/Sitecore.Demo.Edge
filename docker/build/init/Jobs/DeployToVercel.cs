@@ -172,7 +172,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{productionUrl}\" | vercel env add AUTH0_BASE_URL production --token {token} --scope {scope}");
+                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add AUTH0_BASE_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{auth0Secret}\" | vercel env add AUTH0_SECRET production --token {token} --scope {scope}");
             cmd.Run(
