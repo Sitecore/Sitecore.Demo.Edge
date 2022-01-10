@@ -8,7 +8,7 @@ export type HeaderProps = ComponentProps;
 
 const Header = (props: HeaderProps): JSX.Element => {
   const { user, error, isLoading } = useUser();
-
+  console.log(user);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
   /* eslint-disable */

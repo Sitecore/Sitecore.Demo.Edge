@@ -181,6 +181,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{auth0ClientId}\" | vercel env add AUTH0_CLIENT_ID production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata\" | vercel env add AUTH0_SCOPE production --token {token} --scope {scope}");
 
             // Deploy project files
             var output =

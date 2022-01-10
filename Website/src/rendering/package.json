@@ -41,6 +41,7 @@
     "@next/bundle-analyzer": "^11.1.1",
     "@sitecore-jss/sitecore-jss-nextjs": "^19.0.0-canary.63",
     "@sitecore-jss/sitecore-jss-tracking": "^19.0.0-canary.63",
+    "auth0": "^2.37.0",
     "deep-equal": "^2.0.5",
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
