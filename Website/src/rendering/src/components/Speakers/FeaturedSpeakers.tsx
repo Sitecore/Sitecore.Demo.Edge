@@ -1,4 +1,4 @@
-import { Text, Field, Image, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 import Link from 'next/link';
@@ -7,11 +7,6 @@ export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
     data: {
       source: {
-        title: Field<string>;
-        content: Field<string>;
-        callToActionLink: {
-          jsonValue: LinkField;
-        };
         numberOfSpeakers: Field<string>;
       };
       item: {

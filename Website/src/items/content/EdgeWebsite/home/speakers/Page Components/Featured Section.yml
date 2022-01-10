@@ -37,7 +37,7 @@ Languages:
         sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: "section--dark"
+      Value: "section--dark-pattern"
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
       Value: dark

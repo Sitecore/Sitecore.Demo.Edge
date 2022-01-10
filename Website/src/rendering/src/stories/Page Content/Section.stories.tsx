@@ -10,23 +10,26 @@ export default {
   component: Section,
 } as ComponentMeta<typeof Section>;
 
-const speaker = {
-  itemName: 'Item Name',
-  name: {
-    value: 'Item Name',
-  },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-      },
+const speakerImage = {
+  jsonValue: {
+    value: {
+      src: '/assets/img/Alex-Mena.png',
+      alt: '',
     },
   },
+};
+
+const speaker = {
+  itemName: 'Speaker Name',
+  name: {
+    value: 'Speaker Name',
+  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
   jobTitle: {
-    value: 'Speaker Role',
+    value: 'Speaker',
   },
 } as GraphQLSpeaker;
 

@@ -7,10 +7,10 @@
     @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
     @apply sm:grid-cols-2;
     @apply md:grid-cols-3;
-    @apply xl:grid-cols-4 gap-10;
+    @apply xl:grid-cols-4 xl:gap-10;
 
     &__speaker {
-      @apply box-border col-span-1 relative;
+      @apply box-border col-span-1 relative text-left text-black;
 
       &:hover img {
         box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
@@ -27,11 +27,11 @@
       }
 
       .speaker__name {
-        @apply mx-auto text-left font-bold text-black my-1;
+        @apply mx-auto font-bold my-1;
       }
 
-      .speaker__role {
-        @apply mx-auto text-left font-medium uppercase text-black my-1 text-xs tracking-wider;
+      .speaker__jobtitle {
+        @apply font-medium uppercase my-1 text-xs tracking-wider;
       }
     }
   }

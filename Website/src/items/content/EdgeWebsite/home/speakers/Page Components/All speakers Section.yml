@@ -13,7 +13,7 @@ Languages:
       Value: <r />
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: Other event Speakers
+      Value: Other event speakers
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20211213T233050Z
@@ -34,7 +34,7 @@ Languages:
         sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: light
+      Value: speaker--light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20211214T045521Z

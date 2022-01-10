@@ -1,14 +1,4 @@
 .featured-speakers {
-  @apply bg-cover bg-center bg-no-repeat;
-
-  .section__content__title {
-    @apply pt-10 text-orange normal-case;
-  }
-
-  .btn--main {
-    @apply mb-10;
-  }
-
   .item-grid {
     .grid-content {
       @apply grid grid-cols-1;
@@ -16,10 +6,10 @@
       @apply lg:grid-cols-3;
 
       .grid-item {
-        @apply sm:mx-2 mb-2;
-        @apply md:mx-6 mb-4;
-        @apply lg:mx-8 mb-6;
-        @apply xl:mx-12 mb-8;
+        @apply sm:mx-2 sm:mb-2;
+        @apply md:mx-6 md:mb-4;
+        @apply lg:mx-8 lg:mb-6;
+        @apply xl:mx-12 xl:mb-8;
 
         .item-image {
           @apply bg-no-repeat bg-orange;

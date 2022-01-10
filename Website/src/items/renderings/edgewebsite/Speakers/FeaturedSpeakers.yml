@@ -21,15 +21,6 @@ SharedFields:
         path: $datasource
         language: "en"
       ) {
-        title: field(name: "title") {
-          value
-        }
-        content: field(name: "content") {
-          value
-        }
-        callToActionLink: field(name: "CallToActionLink") {
-          jsonValue
-        }
         numberOfSpeakers: field(name: "NumberOfSpeakers") {
           value
         }

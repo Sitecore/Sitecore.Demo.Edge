@@ -9,12 +9,44 @@
     @apply bg-white;
   }
 
-  &--dark {
+  &--dark-pattern {
     background: url(../../img/background-pattern-dark.svg);
 
     .section__content {
       .section__content__p {
-        @apply block text-white;
+        @apply text-white;
+      }
+
+      .section__content__title {
+        @apply text-orange normal-case;
+      }
+
+      .item-grid .grid-content .grid-item .item-details {
+        @apply text-white;
+      }
+    }
+  }
+
+  &--light-pattern {
+    background: url(../../img/background-pattern-light.svg);
+
+    .section__content {
+      .section__content__p {
+        @apply text-black;
+      }
+
+      .section__content__title {
+        @apply text-blue normal-case;
+      }
+    }
+  }
+
+  &--dark {
+    @apply bg-black;
+
+    .section__content {
+      .section__content__p {
+        @apply text-white;
       }
 
       .section__content__title {
@@ -28,11 +60,11 @@
   }
 
   &--light {
-    background: url(../../img/background-pattern-light.svg);
+    @apply bg-white;
 
     .section__content {
       .section__content__p {
-        @apply block text-black;
+        @apply text-black;
       }
 
       .section__content__title {
