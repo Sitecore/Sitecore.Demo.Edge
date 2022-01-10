@@ -2,20 +2,21 @@
 import { withApiAuthRequired, getSession } from '@auth0/nextjs-auth0';
 import { ManagementClient } from 'auth0';
 
-const userHandler = async (req, res) => {
+const userHandler = async (req: any, res: any) => {
   // const { body } = req;
   const body = { sample: new Date().toLocaleString() };
 
   const session = await getSession(req, res);
-  const id = session.user.sub;
-  const accessToken = session.accessToken;
+  const id = session?.user.sub;
+  const accessToken = session?.accessToken;
 
   try {
     const params = body;
+    const baseUrl = process.env.AUTH0_ISSUER_BASE_URL || '';
 
     const currentUserManagementClient = new ManagementClient({
       token: accessToken,
-      domain: process.env.AUTH0_ISSUER_BASE_URL.replace('https://', ''),
+      domain: baseUrl.replace('https://', ''),
       scope: process.env.AUTH0_SCOPE,
     });
 
