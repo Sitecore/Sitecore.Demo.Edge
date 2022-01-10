@@ -28,6 +28,10 @@
                 "path": "/sitecore/templates/Project/edgewebsite"
             },
             {
+                "name": "branches",
+                "path": "/sitecore/templates/Branches/Project/edgewebsite"
+            },
+            {
                 "name": "cmp-config",
                 "path": "/sitecore/system/Modules/CMP/Config"
             },
