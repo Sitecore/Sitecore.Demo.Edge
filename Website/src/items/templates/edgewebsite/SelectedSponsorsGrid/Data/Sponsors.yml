@@ -2,7 +2,7 @@
 ID: "5ab24ab7-c4bb-5f03-8ce5-16c14e3e04bd"
 Parent: "c9b3f585-fe76-5310-819f-c8ea308401db"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Project/edgewebsite/SponsorsGrid/Data/Sponsors
+Path: /sitecore/templates/Project/edgewebsite/SelectedSponsorsGrid/Data/Sponsors
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source

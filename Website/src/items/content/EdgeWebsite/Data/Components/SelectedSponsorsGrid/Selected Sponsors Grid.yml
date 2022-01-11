@@ -2,7 +2,7 @@
 ID: "f8952b14-1095-45fb-b7d9-6ae55ab2934d"
 Parent: "8cf5c79c-f60c-50ab-9dab-7b3da1bf4982"
 Template: "32607765-7441-5a23-a7f6-b8f0b9994c44"
-Path: /sitecore/content/EdgeWebsite/Data/Components/SponsorsGrid/Sponsors Grid
+Path: /sitecore/content/EdgeWebsite/Data/Components/SelectedSponsorsGrid/Selected Sponsors Grid
 Languages:
 - Language: en
   Versions:
