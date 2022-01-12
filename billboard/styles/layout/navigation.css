@@ -1,27 +1,27 @@
 .menu {
-  @apply shadow-lg;
-
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  left: 0;
-  z-index: 50;
-
-  &.zoom-menu {
-    top: 50px;
-
-    .menu-button::after {
-      content: "+";
-    }
-
-    .menu-button.active::after {
-      content: "-";
-    }
-  }
+  @apply shadow-lg absolute inline-block w-11 h-11 bottom-3 right-3 z-50;
 
   .menu-button {
-    @apply absolute w-10 h-10 top-3 left-3 bg-black z-50 text-white text-3xl rounded-full mx-auto text-center font-bold leading-8 cursor-pointer;
+    @apply absolute w-11 h-11 bottom-3 right-3 bg-black z-50 text-white rounded-full mx-auto text-center font-bold leading-8 cursor-pointer duration-100;
 
     box-shadow: 0 0 2px white, 0 0 4px white, 0 0 6px white, 0 0 8px white;
+
+    .inactive {
+      @apply visible h-11 text-2xl pt-1;
+    }
+    .active {
+      @apply invisible text-sm;
+    }
+
+    &:hover {
+      @apply w-96 h-16 transform duration-100 text-center font-normal;
+
+      .inactive {
+        @apply invisible h-0;
+      }
+      .active {
+        @apply visible;
+      }
+    }
   }
 }

@@ -4,14 +4,16 @@ import Link from "next/link";
 import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader";
 import defaultBillboard from "../public/billboard-frame.png";
 import defaultBackground from "../public/background.jpg";
-import defaultLogo from "../public/favicon.ico";
+import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
 import Image from "next/image";
+import { showDebugMessage } from "../utilities/debugger";
 
 type BillboardProps = {
   billboards: BillboardResult[];
 };
 
 const Home = (props: BillboardProps): JSX.Element => {
+  showDebugMessage(props.billboards);
   const billboardList =
     props.billboards.length > 0 ? (
       <div className="billboard-list">

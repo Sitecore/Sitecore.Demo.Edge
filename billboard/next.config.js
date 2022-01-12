@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['playsummit-demo.sitecoresandbox.cloud'],
+    domains: ['playsummit.sitecoresandbox.cloud'],
   },
 }

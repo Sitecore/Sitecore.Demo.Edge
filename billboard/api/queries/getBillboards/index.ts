@@ -14,10 +14,9 @@ export const getBillboards = async (): Promise<{
           advertisement_Slogan
           advertisement_Eyebrow
           content_Name
-          advertisement_Channel
-          advertisement_Logo{
+          advertisement_Image: cmpContentToLinkedAsset {
             results{
-               assetToPublicLink(first: 1) {
+               assetToPublicLink {
                 results {
                   id
                   relativeUrl
@@ -26,21 +25,10 @@ export const getBillboards = async (): Promise<{
               }
             }
           }
-          advertisement_Image: cmpContentToMasterLinkedAsset{
-            results{
-               assetToPublicLink(first: 1) {
-                results {
-                  id
-                  relativeUrl
-                  versionHash
-                }
-              }
-            }
-          }
-          advertisement_Background{
+          advertisement_Background {
             results{
               title
-              assetToPublicLink(first: 1) {
+              assetToPublicLink {
                 results {
                   id
                   relativeUrl
@@ -71,7 +59,7 @@ export const getBillboards = async (): Promise<{
   return {
     billboards: billboards.filter(
       (result: BillboardResult) =>
-        result.advertisement_Channel == "Demo.Channel.Billboard"
+        result.advertisement_Background.results.length > 0
     ),
   };
 };
@@ -83,9 +71,7 @@ export const getBillboardById = async (
 
   return {
     billboard: billboards.filter(
-      (result: BillboardResult) =>
-        result.content_Name == id &&
-        result.advertisement_Channel == "Demo.Channel.Billboard"
+      (result: BillboardResult) => result.content_Name == id
     )[0],
   };
 };

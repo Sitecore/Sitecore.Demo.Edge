@@ -8,7 +8,6 @@ export interface BillboardResult {
   advertisement_Eyebrow: string;
   advertisement_Channel: string;
   content_Name: string;
-  advertisement_Logo: Image;
   advertisement_Image: Image;
   advertisement_Background: Image;
 }

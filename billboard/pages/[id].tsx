@@ -6,7 +6,8 @@ import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader"
 import React from "react";
 import Navigation from "../components/Navigation";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
+import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
 
 type BillboardProps = {
   billboard: BillboardResult;
@@ -17,7 +18,6 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
-
   const router = useRouter();
 
   const bgIndex = parseInt(router.query.bg as string, 10);
@@ -51,7 +51,8 @@ export default function BillboardPage(props: BillboardProps) {
     <></>
   );
 
-  const title = props.billboard.advertisement_Background.results[0].title.toLowerCase()
+  const title = props.billboard.advertisement_Background.results[0].title
+    .toLowerCase()
     .split(".")
     .join("-")
     .split(" ")
@@ -61,7 +62,7 @@ export default function BillboardPage(props: BillboardProps) {
     <>
       <Navigation />
       <div className="billboard">
-        <div className="image-container">
+        <div className="image-container" onClick={() => Router.back()}>
           <Image
             src={contentHubImageSrcGenerator(
               props.billboard.advertisement_Background
@@ -88,9 +89,7 @@ export default function BillboardPage(props: BillboardProps) {
           <div className="content-right content-right--half">
             <div className="logo">
               <Image
-                src={contentHubImageSrcGenerator(
-                  props.billboard.advertisement_Logo
-                )}
+                src={defaultLogo}
                 alt={props.billboard.content_Name}
                 height={150}
                 width={400}
