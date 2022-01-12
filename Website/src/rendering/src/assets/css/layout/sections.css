@@ -52,10 +52,6 @@
       .section__content__title {
         @apply text-orange normal-case;
       }
-
-      .item-grid .grid-content .grid-item .item-details {
-        @apply text-white;
-      }
     }
   }
 
