@@ -6,7 +6,6 @@ export interface BillboardResult {
   advertisement_Body: string;
   advertisement_Slogan: string;
   advertisement_Eyebrow: string;
-  advertisement_Channel: string;
   content_Name: string;
   advertisement_Image: Image;
   advertisement_Background: Image;

@@ -1,16 +1,18 @@
 import { Params } from "../interfaces";
 import {
-  getBillboardById,
-  getBillboardBySlug,
+  getBillboardByName,
   getBillboards,
 } from "../api/queries/getBillboards";
 import { BillboardResult } from "../interfaces/schema";
 import Image from "next/image";
-import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader";
-import React from "react";
+import {
+  contentHubImageSrcGenerator,
+  contentHubPublicLinkSrcGenerator,
+} from "../utilities/contentHubImageLoader";
+import React, { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 import Link from "next/link";
-import Router, { useRouter } from "next/router";
+import Router from "next/router";
 import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
 import { normalizeString } from "../utilities/stringConverter";
 import { showDebugMessage } from "../utilities/debugger";
@@ -24,13 +26,15 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
+  const styles = ["full-width", "image-left", "image-right"];
+
   const hostname =
     typeof window !== "undefined" && window.location.hostname
       ? window.location.hostname
       : "";
-  const showGeneratorLink = hostname == "localhost";
+  const showGeneratorLink = hostname == "localhost" ? "block" : "hidden";
 
-  const GeneratorLink = showGeneratorLink ? (
+  const GeneratorLink = (
     <Link
       href={
         "/generator.html?image=" +
@@ -38,40 +42,42 @@ export default function BillboardPage(props: BillboardProps) {
       }
       passHref
     >
-      <span className="text-black">Generate transform</span>
+      <a className={"text-black " + showGeneratorLink}>Generate transform</a>
     </Link>
-  ) : (
-    <></>
   );
 
-  const title = normalizeString(
-    props.billboard.advertisement_Background.results[0].title
-  );
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  return (
-    <>
-      <Navigation />
-      <div className="billboard">
-        <div className="image-container" onClick={() => Router.back()}>
-          <Image
-            src={contentHubImageSrcGenerator(
-              props.billboard.advertisement_Background
-            )}
-            alt={props.billboard.content_Name}
-            className="billboard-background"
-            width={2000}
-            height={1200}
-            layout={"fixed"}
-          />
-        </div>
-        <div className={"billboard-container " + title}>
+  useEffect(() => {
+    function handleCarousel() {
+      const slideContainers = document.querySelectorAll(".slider");
+      if (slideContainers.length > 0) {
+        showDebugMessage("activeSlide = " + activeSlide);
+        const newSlide =
+          activeSlide + 1 >= slideContainers.length ? 0 : activeSlide + 1;
+
+        setActiveSlide(newSlide);
+        for (let i = 0; i < slideContainers.length; i++) {
+          slideContainers[i].classList.remove("active");
+        }
+        slideContainers.item(activeSlide).classList.add("active");
+      }
+    }
+
+    setInterval(handleCarousel, 10000);
+  }, [activeSlide]);
+
+  const contentVariants = props.billboard.advertisement_Image.results.map(
+    (image, index) => {
+      return (
+        <div className="slider" key={index}>
           <div
             className="image-left"
             style={{
               backgroundImage:
                 "url(" +
-                contentHubImageSrcGenerator(
-                  props.billboard.advertisement_Image
+                contentHubPublicLinkSrcGenerator(
+                  image.assetToPublicLink.results[0]
                 ) +
                 ")",
             }}
@@ -101,6 +107,32 @@ export default function BillboardPage(props: BillboardProps) {
             ></div>
           </div>
         </div>
+      );
+    }
+  );
+
+  const title = normalizeString(
+    props.billboard.advertisement_Background.results[0].title
+  );
+
+  return (
+    <>
+      <Navigation />
+      <div className="billboard">
+        <div className="image-container" onClick={() => Router.back()}>
+          <Image
+            src={contentHubImageSrcGenerator(
+              props.billboard.advertisement_Background
+            )}
+            alt={props.billboard.content_Name}
+            className="billboard-background"
+            width={2000}
+            height={1200}
+            layout={"fixed"}
+          />
+        </div>
+
+        <div className={"billboard-container " + title}>{contentVariants}</div>
       </div>
       {GeneratorLink}
     </>
@@ -110,29 +142,15 @@ export default function BillboardPage(props: BillboardProps) {
 export async function getStaticPaths() {
   const { billboards } = await getBillboards();
 
-  let slugArray: any[] = [];
-
-  billboards.map((billboard) => {
-    billboard?.advertisement_Background?.results?.map((background, index) => {
-      slugArray.push([
-        normalizeString(billboard.content_Name),
-        index.toString(),
-      ]);
-    });
-  });
-
-  const paths = slugArray.map((pageSlug) => ({
-    params: { slug: pageSlug },
+  const paths = billboards.map((billboard) => ({
+    params: { name: normalizeString(billboard.content_Name) },
   }));
 
   return { paths, fallback: false };
 }
 
 export const getStaticProps = async ({ params }: BillboardParams) => {
-  const { billboard } = await getBillboardBySlug(
-    params.slug[0],
-    params.slug.length == 2 ? params.slug[1] : "0"
-  );
+  const { billboard } = await getBillboardByName(params.name);
 
   return {
     props: {

@@ -32,33 +32,12 @@ const Home = (props: BillboardProps): JSX.Element => {
                 ")",
             }}
           >
-            {billboard.advertisement_Background.results.length > 1 ? (
-              <>
-                <div className="billboard-title">{billboard.content_Name}</div>
-                <div className="billboard-variants">
-                  {billboard.advertisement_Background.results.map(
-                    (background, ind) => (
-                      <Link
-                        key={ind}
-                        href={`${asPath}${normalizeString(
-                          billboard.content_Name
-                        )}/${ind}`}
-                        passHref
-                      >
-                        <a>Variant {ind + 1}</a>
-                      </Link>
-                    )
-                  )}
-                </div>
-              </>
-            ) : (
-              <Link
-                href={`${asPath}${normalizeString(billboard.content_Name)}/0`}
-                passHref
-              >
-                <a className="billboard-title">{billboard.content_Name}</a>
-              </Link>
-            )}
+            <Link
+              href={`${asPath}${normalizeString(billboard.content_Name)}`}
+              passHref
+            >
+              <a className="billboard-title">{billboard.content_Name}</a>
+            </Link>
           </div>
         ))}
       </div>

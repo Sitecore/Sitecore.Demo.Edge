@@ -17,7 +17,7 @@ export const getBillboards = async (): Promise<{
           content_Name
           advertisement_Image: cmpContentToLinkedAsset {
             results{
-               assetToPublicLink {
+               assetToPublicLink (first: 1) {
                 results {
                   id
                   relativeUrl
@@ -65,14 +65,14 @@ export const getBillboards = async (): Promise<{
   };
 };
 
-export const getBillboardById = async (
-  id: string
+export const getBillboardByName = async (
+  name: string
 ): Promise<{ billboard: BillboardResult }> => {
   const { billboards } = await getBillboards();
 
   return {
     billboard: billboards.filter(
-      (result: BillboardResult) => normalizeString(result.content_Name) == id
+      (result: BillboardResult) => normalizeString(result.content_Name) == name
     )[0],
   };
 };

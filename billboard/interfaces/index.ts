@@ -1,3 +1,3 @@
 export interface Params {
-  slug: string[];
+  name: string;
 }
