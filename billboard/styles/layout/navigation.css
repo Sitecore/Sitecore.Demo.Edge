@@ -9,8 +9,9 @@
     .inactive {
       @apply visible h-11 text-2xl pt-1;
     }
+
     .active {
-      @apply invisible text-sm;
+      @apply invisible text-sm h-16 overflow-hidden;
     }
 
     &:hover {
@@ -19,8 +20,9 @@
       .inactive {
         @apply invisible h-0;
       }
+
       .active {
-        @apply visible;
+        @apply visible h-16;
       }
     }
   }

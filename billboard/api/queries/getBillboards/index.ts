@@ -1,5 +1,6 @@
 import { fetchGraphQL } from "../..";
 import { BillboardResponse, BillboardResult } from "../../../interfaces/schema";
+import { normalizeString } from "../../../utilities/stringConverter";
 
 export const getBillboards = async (): Promise<{
   billboards: BillboardResult[];
@@ -71,7 +72,31 @@ export const getBillboardById = async (
 
   return {
     billboard: billboards.filter(
-      (result: BillboardResult) => result.content_Name == id
+      (result: BillboardResult) => normalizeString(result.content_Name) == id
     )[0],
+  };
+};
+
+export const getBillboardBySlug = async (
+  name: string,
+  backgroundId: string
+): Promise<{ billboard: BillboardResult }> => {
+  const { billboards } = await getBillboards();
+
+  let theBillboard: BillboardResult = billboards.filter(
+    (result: BillboardResult) => normalizeString(result.content_Name) == name
+  )[0];
+
+  const bgIndex = parseInt(backgroundId as string, 10);
+
+  theBillboard.advertisement_Background.results =
+    theBillboard.advertisement_Background.results.filter(
+      (value, index, array) => {
+        return array.indexOf(value) === bgIndex;
+      }
+    );
+
+  return {
+    billboard: theBillboard,
   };
 };

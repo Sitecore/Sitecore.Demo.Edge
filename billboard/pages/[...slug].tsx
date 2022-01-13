@@ -1,5 +1,9 @@
 import { Params } from "../interfaces";
-import { getBillboardById, getBillboards } from "../api/queries/getBillboards";
+import {
+  getBillboardById,
+  getBillboardBySlug,
+  getBillboards,
+} from "../api/queries/getBillboards";
 import { BillboardResult } from "../interfaces/schema";
 import Image from "next/image";
 import { contentHubImageSrcGenerator } from "../utilities/contentHubImageLoader";
@@ -8,6 +12,8 @@ import Navigation from "../components/Navigation";
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
+import { normalizeString } from "../utilities/stringConverter";
+import { showDebugMessage } from "../utilities/debugger";
 
 type BillboardProps = {
   billboard: BillboardResult;
@@ -18,19 +24,6 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
-  const router = useRouter();
-
-  const bgIndex = parseInt(router.query.bg as string, 10);
-
-  if (bgIndex < props.billboard.advertisement_Background.results.length) {
-    props.billboard.advertisement_Background.results =
-      props.billboard.advertisement_Background.results.filter(
-        (value, index, array) => {
-          return array.indexOf(value) === bgIndex;
-        }
-      );
-  }
-
   const hostname =
     typeof window !== "undefined" && window.location.hostname
       ? window.location.hostname
@@ -45,18 +38,15 @@ export default function BillboardPage(props: BillboardProps) {
       }
       passHref
     >
-      <span className="text-black">Transform Generator</span>
+      <span className="text-black">Generate transform</span>
     </Link>
   ) : (
     <></>
   );
 
-  const title = props.billboard.advertisement_Background.results[0].title
-    .toLowerCase()
-    .split(".")
-    .join("-")
-    .split(" ")
-    .join("-");
+  const title = normalizeString(
+    props.billboard.advertisement_Background.results[0].title
+  );
 
   return (
     <>
@@ -120,15 +110,29 @@ export default function BillboardPage(props: BillboardProps) {
 export async function getStaticPaths() {
   const { billboards } = await getBillboards();
 
-  const paths = billboards.map((billboard) => ({
-    params: { id: billboard.content_Name },
+  let slugArray: any[] = [];
+
+  billboards.map((billboard) => {
+    billboard?.advertisement_Background?.results?.map((background, index) => {
+      slugArray.push([
+        normalizeString(billboard.content_Name),
+        index.toString(),
+      ]);
+    });
+  });
+
+  const paths = slugArray.map((pageSlug) => ({
+    params: { slug: pageSlug },
   }));
 
   return { paths, fallback: false };
 }
 
 export const getStaticProps = async ({ params }: BillboardParams) => {
-  const { billboard } = await getBillboardById(params.id);
+  const { billboard } = await getBillboardBySlug(
+    params.slug[0],
+    params.slug.length == 2 ? params.slug[1] : "0"
+  );
 
   return {
     props: {

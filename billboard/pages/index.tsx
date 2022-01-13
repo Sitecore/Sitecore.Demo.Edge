@@ -7,6 +7,8 @@ import defaultBackground from "../public/background.jpg";
 import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
 import Image from "next/image";
 import { showDebugMessage } from "../utilities/debugger";
+import { useRouter } from "next/router";
+import { normalizeString } from "../utilities/stringConverter";
 
 type BillboardProps = {
   billboards: BillboardResult[];
@@ -14,6 +16,8 @@ type BillboardProps = {
 
 const Home = (props: BillboardProps): JSX.Element => {
   showDebugMessage(props.billboards);
+  const { asPath } = useRouter();
+
   const billboardList =
     props.billboards.length > 0 ? (
       <div className="billboard-list">
@@ -36,7 +40,9 @@ const Home = (props: BillboardProps): JSX.Element => {
                     (background, ind) => (
                       <Link
                         key={ind}
-                        href={"/" + billboard.content_Name + "?bg=" + ind}
+                        href={`${asPath}${normalizeString(
+                          billboard.content_Name
+                        )}/${ind}`}
                         passHref
                       >
                         <a>Variant {ind + 1}</a>
@@ -46,7 +52,10 @@ const Home = (props: BillboardProps): JSX.Element => {
                 </div>
               </>
             ) : (
-              <Link href={"/" + billboard.content_Name + "?bg=0"} passHref>
+              <Link
+                href={`${asPath}${normalizeString(billboard.content_Name)}/0`}
+                passHref
+              >
                 <a className="billboard-title">{billboard.content_Name}</a>
               </Link>
             )}
