@@ -68,6 +68,9 @@ const Footer = (props: FooterProps): JSX.Element => (
           <Link href="/vendors">Vendors</Link>
         </li>
         <li>
+          <Link href="/sponsors">Sponsors</Link>
+        </li>
+        <li>
           <Link href="/about-us">About Us</Link>
         </li>
         <li>
