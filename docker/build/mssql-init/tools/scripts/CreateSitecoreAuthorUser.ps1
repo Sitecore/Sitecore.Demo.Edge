@@ -9,18 +9,30 @@ Param(
   [string]$SqlAdminPassword,
 
   [Parameter(Mandatory)]
-  [string] $SitecoreAdminUsername,
+  [string] $SitecoreAuthorUsername,
 
   [Parameter(Mandatory)]
-  [string] $SitecoreAdminPassword
+  [string] $SitecoreAuthorPassword,
+
+  [Parameter(Mandatory)]
+  [string] $SitecoreAuthorRolename,
+
+  [Parameter(Mandatory)]
+  [string] $SitecoreAuthorProfilePropertyNames,
+
+  [Parameter(Mandatory)]
+  [string] $SitecoreAuthorProfilePropertyValueString
 )
 
-$userinfoAdmin = .\HashPassword.ps1 $SitecoreAdminPassword
+$userinfoAdmin = .\HashPassword.ps1 $SitecoreAuthorPassword
 $passwordParamAdmin = ("EncodedPassword='" + $userinfoAdmin.Password + "'")
 $saltParamAdmin = ("EncodedSalt='" + $userinfoAdmin.Salt + "'")
-$UserNameParamAdmin = ("UserName='" + $SitecoreAdminUsername + "'")
+$UserNameParamAdmin = ("UserName='" + $SitecoreAuthorUsername + "'")
 $EMailParamAdmin = ("EMail='minnie@sitecoredemo.com'")
-$paramsAdmin = $passwordParamAdmin, $saltParamAdmin, $UserNameParamAdmin, $EMailParamAdmin
+$RoleNameParamAdmin = ("RoleName='" + $SitecoreAuthorRolename + "'")
+$ProfilePropertyNames = ("ProfilePropertyNames='" + $SitecoreAuthorProfilePropertyNames + "'")
+$ProfilePropertyValueString = ("ProfilePropertyValueString='" + $SitecoreAuthorProfilePropertyValueString + "'")
+$paramsAdmin = $passwordParamAdmin, $saltParamAdmin, $UserNameParamAdmin, $EMailParamAdmin, $RoleNameParamAdmin, $ProfilePropertyNames, $ProfilePropertyValueString
 
 Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -InputFile "C:\sql\CreateSitecoreAuthorUser.sql" -Variable $paramsAdmin
-Write-Host "$(Get-Date -Format $timeFormat): Invoke CreateSitecoreAuthorUser.sql for $SitecoreAdminUsername"
+Write-Host "$(Get-Date -Format $timeFormat): Invoke CreateSitecoreAuthorUser.sql for $SitecoreAuthorUsername"
