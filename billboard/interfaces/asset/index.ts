@@ -10,6 +10,7 @@ export interface AssetToPublicLink {
 
 export interface AssetResult {
   title: string;
+  style: string;
   assetToPublicLink: AssetToPublicLink;
 }
 

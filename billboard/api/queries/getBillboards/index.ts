@@ -1,6 +1,6 @@
 import { fetchGraphQL } from "../..";
 import { BillboardResponse, BillboardResult } from "../../../interfaces/schema";
-import { normalizeString } from "../../../utilities/stringConverter";
+import { getRandomInt, normalizeString } from "../../../utilities/helper";
 
 export const getBillboards = async (): Promise<{
   billboards: BillboardResult[];
@@ -15,6 +15,17 @@ export const getBillboards = async (): Promise<{
           advertisement_Slogan
           advertisement_Eyebrow
           content_Name
+          advertisement_Code: advertisement_Logo {
+            results {
+              assetToPublicLink {
+                results {
+                  id
+                  relativeUrl
+                  versionHash
+                }
+              }
+            }
+          }
           advertisement_Image: cmpContentToLinkedAsset {
             results{
                assetToPublicLink (first: 1) {
@@ -70,33 +81,25 @@ export const getBillboardByName = async (
 ): Promise<{ billboard: BillboardResult }> => {
   const { billboards } = await getBillboards();
 
-  return {
-    billboard: billboards.filter(
-      (result: BillboardResult) => normalizeString(result.content_Name) == name
-    )[0],
-  };
-};
-
-export const getBillboardBySlug = async (
-  name: string,
-  backgroundId: string
-): Promise<{ billboard: BillboardResult }> => {
-  const { billboards } = await getBillboards();
-
-  let theBillboard: BillboardResult = billboards.filter(
+  const billboard = billboards.filter(
     (result: BillboardResult) => normalizeString(result.content_Name) == name
   )[0];
 
-  const bgIndex = parseInt(backgroundId as string, 10);
-
-  theBillboard.advertisement_Background.results =
-    theBillboard.advertisement_Background.results.filter(
-      (value, index, array) => {
-        return array.indexOf(value) === bgIndex;
-      }
-    );
-
   return {
-    billboard: theBillboard,
+    billboard: RandomizeBillboardStyle(billboard),
   };
+};
+
+const RandomizeBillboardStyle = (billboard: BillboardResult) => {
+  const styles = [
+    "full-width",
+    "image-left",
+    "image-right",
+    "full-width-minimal",
+    "image-left-sixty-forty",
+  ];
+  billboard.advertisement_Image.results.map(
+    (style) => (style.style = styles[getRandomInt(styles.length)])
+  );
+  return billboard;
 };

@@ -14,7 +14,7 @@ import Navigation from "../components/Navigation";
 import Link from "next/link";
 import Router from "next/router";
 import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
-import { normalizeString } from "../utilities/stringConverter";
+import { getRandomInt, normalizeString } from "../utilities/helper";
 import { showDebugMessage } from "../utilities/debugger";
 
 type BillboardProps = {
@@ -26,15 +26,12 @@ export declare type BillboardParams = {
 };
 
 export default function BillboardPage(props: BillboardProps) {
-  const styles = ["full-width", "image-left", "image-right"];
-
   const hostname =
     typeof window !== "undefined" && window.location.hostname
       ? window.location.hostname
       : "";
-  const showGeneratorLink = hostname == "localhost" ? "block" : "hidden";
-
-  const GeneratorLink = (
+  const showGeneratorLink = hostname == "localhost";
+  const GeneratorLink = showGeneratorLink ? (
     <Link
       href={
         "/generator.html?image=" +
@@ -42,11 +39,13 @@ export default function BillboardPage(props: BillboardProps) {
       }
       passHref
     >
-      <a className={"text-black " + showGeneratorLink}>Generate transform</a>
+      <a className="transformer">🕊</a>
     </Link>
+  ) : (
+    <></>
   );
 
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(1);
 
   useEffect(() => {
     function handleCarousel() {
@@ -60,19 +59,35 @@ export default function BillboardPage(props: BillboardProps) {
         for (let i = 0; i < slideContainers.length; i++) {
           slideContainers[i].classList.remove("active");
         }
-        slideContainers.item(activeSlide).classList.add("active");
+        if (slideContainers.item) {
+          slideContainers.item(activeSlide).classList.add("active");
+        }
       }
     }
 
-    setInterval(handleCarousel, 10000);
+    const interval = setInterval(handleCarousel, 10000);
+    return () => clearInterval(interval);
   }, [activeSlide]);
 
   const contentVariants = props.billboard.advertisement_Image.results.map(
     (image, index) => {
       return (
-        <div className="slider" key={index}>
+        <div
+          className={"slider " + (index == 0 ? " active " : " ") + image.style}
+          key={index}
+        >
+          <div className="qrcode">
+            <Image
+              src={contentHubImageSrcGenerator(
+                props.billboard.advertisement_Code
+              )}
+              alt={props.billboard.content_Name}
+              height={150}
+              width={150}
+            />
+          </div>
           <div
-            className="image-left"
+            className="image"
             style={{
               backgroundImage:
                 "url(" +
@@ -82,12 +97,12 @@ export default function BillboardPage(props: BillboardProps) {
                 ")",
             }}
           ></div>
-          <div className="content-right content-right--half">
+          <div className="content">
             <div className="logo">
               <Image
                 src={defaultLogo}
                 alt={props.billboard.content_Name}
-                height={150}
+                height={200}
                 width={400}
               />
             </div>
@@ -131,7 +146,6 @@ export default function BillboardPage(props: BillboardProps) {
             layout={"fixed"}
           />
         </div>
-
         <div className={"billboard-container " + title}>{contentVariants}</div>
       </div>
       {GeneratorLink}

@@ -8,7 +8,7 @@ import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
 import Image from "next/image";
 import { showDebugMessage } from "../utilities/debugger";
 import { useRouter } from "next/router";
-import { normalizeString } from "../utilities/stringConverter";
+import { normalizeString } from "../utilities/helper";
 
 type BillboardProps = {
   billboards: BillboardResult[];
