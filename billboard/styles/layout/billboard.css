@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-colon-newline-after */
 .billboard {
   @apply w-screen h-screen overflow-hidden relative;
 
@@ -57,12 +58,9 @@
           @apply w-full bg-opacity-40;
 
           &::before {
+            @apply absolute top-0 bottom-0 left-0 right-0;
+
             content: "";
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            left: 0px;
             background-color: rgba(0, 0, 0, 0.6);
           }
         }
@@ -107,12 +105,9 @@
           @apply w-full;
 
           &::before {
+            @apply absolute top-0 bottom-0 left-0 right-0;
+
             content: "";
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            bottom: 0px;
-            left: 0px;
             background-color: rgba(0, 0, 0, 0.6);
           }
         }

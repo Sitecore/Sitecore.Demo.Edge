@@ -14,7 +14,7 @@ import Navigation from "../components/Navigation";
 import Link from "next/link";
 import Router from "next/router";
 import defaultLogo from "../public/PLAY-Summit-long-light-grey.svg";
-import { getRandomInt, normalizeString } from "../utilities/helper";
+import { normalizeString } from "../utilities/helper";
 import { showDebugMessage } from "../utilities/debugger";
 
 type BillboardProps = {
