@@ -138,7 +138,7 @@ SharedFields:
           ph="/jss-main"
           uid="{3F68C696-7E3E-54D0-831B-9AB97806B471}" />
         <r
-          rname="SponsorsGrid"
+          rname="SelectedSponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
@@ -175,14 +175,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "39065808-dee7-402d-ab77-1de9924b767c"
+      Value: "154cb42c-2209-4378-b387-e2e037aca7a4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220114T133507Z
+      Value: 20211215T162322Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Home

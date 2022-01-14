@@ -6,7 +6,9 @@ Path: /sitecore/templates/Project/edgewebsite/Webpage/__Standard Values
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
-  Value: "{6DB09CEF-64A8-52A3-A980-38408109C4D7}"
+  Value: |
+    {6DB09CEF-64A8-52A3-A980-38408109C4D7}
+    {4AFA104F-090A-438E-AF07-8134D5D27DD9}
 - ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
   Hint: __Default workflow
   Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
@@ -75,7 +77,7 @@ SharedFields:
           ph="/jss-main"
           uid="{63AC6E75-5365-5E24-9E53-508B20613F45}" />
         <r
-          rname="SponsorsGrid"
+          rname="SelectedSponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
@@ -107,14 +109,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e2b7d373-f319-4fcf-940d-a62c2c0cccd1"
+      Value: "ae716920-e154-431b-9fac-bf560c141613"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211123T184418Z
+      Value: 20211215T162302Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: $name

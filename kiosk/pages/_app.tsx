@@ -22,7 +22,7 @@ function App({ Component, pageProps, router }: AppProps) {
   return (
     <div className="screen">
       <Head>
-        <title>PLAY! Summit TV</title>
+        <title>PLAY! Summit Kiosk</title>
         <meta name="description" content="PLAY! Summit Kiosk" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
