@@ -36,7 +36,7 @@
       }
 
       .section__content__title {
-        @apply text-blue normal-case;
+        @apply normal-case;
       }
     }
   }
@@ -64,7 +64,7 @@
       }
 
       .section__content__title {
-        @apply text-blue normal-case;
+        @apply normal-case;
       }
     }
   }

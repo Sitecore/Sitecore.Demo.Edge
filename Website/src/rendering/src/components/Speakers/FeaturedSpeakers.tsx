@@ -46,10 +46,8 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
     ));
 
   return (
-    <div className="featured-speakers">
-      <div className="item-grid">
-        <div className="grid-content">{speakers}</div>
-      </div>
+    <div className="featured-speakers item-grid">
+      <div className="grid-content">{speakers}</div>
     </div>
   );
 };

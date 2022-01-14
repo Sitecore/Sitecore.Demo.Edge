@@ -27,7 +27,7 @@
       }
 
       .speaker__name {
-        @apply mx-auto font-bold my-1;
+        @apply font-bold my-1;
       }
 
       .speaker__jobtitle {

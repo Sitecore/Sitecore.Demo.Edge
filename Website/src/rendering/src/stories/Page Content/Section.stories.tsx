@@ -13,7 +13,7 @@ export default {
 const speakerImage = {
   jsonValue: {
     value: {
-      src: '/assets/img/Alex-Mena.png',
+      src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
       alt: '',
     },
   },
@@ -107,6 +107,54 @@ Dark.args = {
     },
     brightness: {
       value: 'dark',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const DarkPatternBackground = Template.bind({});
+DarkPatternBackground.args = {
+  fields: {
+    cssClass: {
+      value: 'section--dark-pattern',
+    },
+    brightness: {
+      value: 'dark',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const LightPatternBackground = Template.bind({});
+LightPatternBackground.args = {
+  fields: {
+    cssClass: {
+      value: 'section--light-pattern',
+    },
+    brightness: {
+      value: 'light',
     },
     title: {
       value: 'Section',
