@@ -1,5 +1,5 @@
 {
-    "namespace": "UsersRoles",
+    "namespace": "Roles",
     "roles": [
       {
         "domain": "sitecore",
@@ -10,5 +10,4 @@
         "pattern": "Demo Content Creator"
       }
     ]
-
 }
