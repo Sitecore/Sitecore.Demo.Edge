@@ -19,6 +19,9 @@ Languages:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
       Value: "{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{4A95D3FB-A669-47E7-8454-119476231CB7}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -37,7 +40,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="53269" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/53269/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/3db5cea1caaf4cc6b4e6596ef5e1fb52?v=c16aa6d2" mediaid="" stylelabs-content-type="Image" alt="Get Outdoors - Kids" height="2240" width="3360" />
+        <image stylelabs-content-id="53269" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/53269/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/3db5cea1caaf4cc6b4e6596ef5e1fb52?v=c16aa6d2" mediaid="" stylelabs-content-type="Image" alt="get-outdoors-kids.jpg " height="2240" width="3360" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
@@ -63,14 +66,14 @@ Languages:
       Value: "{F14EF887-2C62-474E-A61E-F8EBEF6173CC}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0b4c71a6-8c82-4fdb-a8a5-2a58355b9585"
+      Value: "0c149e6b-dcab-459e-9f03-087d0d0cd0b3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T140950Z
+      Value: 20220114T230109Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Navigating the outdoors with kids

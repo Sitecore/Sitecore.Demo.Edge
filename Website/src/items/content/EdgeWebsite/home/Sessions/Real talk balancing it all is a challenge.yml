@@ -35,7 +35,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38304" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38304/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/98aae63e186c44a1984c8793057b98a2?v=3b92b398" mediaid="" stylelabs-content-type="Image" alt="Crossfit resting" height="3639" width="5458" />
+        <image stylelabs-content-id="38304" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38304/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/98aae63e186c44a1984c8793057b98a2?v=3b92b398" mediaid="" stylelabs-content-type="Image" alt="crossfit-resting.jpg " height="3639" width="5458" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -61,14 +61,17 @@ Languages:
       Value: "{10BCB0AB-E716-4B05-8576-0732151460D9}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "afac926b-0ead-44fb-9147-8b423109ee23"
+      Value: "2cbcc1f0-d5ec-4765-bc1d-138475d0fd21"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{DCFB9DD8-7307-475E-8BD9-FEF7852DFEF8}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T145334Z
+      Value: 20220114T230142Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Real talk: balancing it all is a challenge"

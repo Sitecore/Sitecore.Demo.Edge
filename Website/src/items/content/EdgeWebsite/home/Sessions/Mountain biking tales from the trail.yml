@@ -19,6 +19,9 @@ Languages:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
       Value: "{D7E74E60-9708-48B2-9D37-C34D165BEC43}|{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}|{6AB3A378-547F-4B38-8BE4-7538313020B2}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{3983AC76-7325-4AF4-9183-B68DE402F872}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -33,7 +36,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38142" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="Mountain biking 3" height="2832" width="4256" />
+        <image stylelabs-content-id="38142" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="mountain-biking-3.jpg " height="2832" width="4256" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}|{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -59,14 +62,14 @@ Languages:
       Value: "{D3A3A6DF-FBF9-48B5-947C-A9A1257006F7}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "85c70580-a91d-4809-9b6a-26d63d9a946c"
+      Value: "9c68c064-2d8b-493a-875e-5bb5b3a7f696"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T145125Z
+      Value: 20220114T230134Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Mountain biking: tales from the trail"

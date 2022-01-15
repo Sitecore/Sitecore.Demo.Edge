@@ -36,7 +36,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38095" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38095/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/6bb85a638c1a427db1015c03d6f5364f?v=17b911f3" mediaid="" stylelabs-content-type="Image" alt="Bicycle wheel closeup" height="3064" width="5456" />
+        <image stylelabs-content-id="38095" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38095/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/6bb85a638c1a427db1015c03d6f5364f?v=17b911f3" mediaid="" stylelabs-content-type="Image" alt="bicycle-wheel-closeup.jpg " height="3064" width="5456" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -62,14 +62,17 @@ Languages:
       Value: "{374B55AB-B656-4588-A347-A0D28CB2AC99}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "bc4f57b9-9a3e-4d25-b3b7-a7e1e4f0c540"
+      Value: "1b8e86da-2195-4518-a04f-029a750e8ee1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{8C5F5B0A-B6A6-46CE-A34A-6A76E7B4FD2E}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T145215Z
+      Value: 20220114T230215Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Organizing the impossible: How to host a cycling race"

@@ -16,6 +16,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{561F1D47-78FF-4176-925E-EBB9AF6FE58D}|{01E09652-ABD7-4BB0-AD96-E609966330BD}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -30,7 +33,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="37887" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/37887/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/144aeb7cdb2a442b98df54c146df75e1?v=04664da0" mediaid="" stylelabs-content-type="Image" alt="Dining hall" height="4016" width="6016" />
+        <image stylelabs-content-id="37887" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/37887/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/144aeb7cdb2a442b98df54c146df75e1?v=04664da0" mediaid="" stylelabs-content-type="Image" alt="dining-hall.jpg " height="4016" width="6016" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}|{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}|{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -56,14 +59,17 @@ Languages:
       Value: "{D1518172-C562-4572-A6F8-0ACFDC811F29}|{CE3A0E1D-2DCA-4D50-8D42-5E8BA22B73C2}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5263f90f-9e5a-4a73-8ef9-8ae33a2cd038"
+      Value: "ee190baa-d850-428f-93cf-7c69150267f1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{C5CEF7C2-8DC6-4B8A-9AD4-D04DEB7B5DAB}|{B7037186-1A7E-4F74-AC52-7C99510FA529}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144526Z
+      Value: 20220114T225914Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Breakfast

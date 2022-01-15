@@ -19,6 +19,9 @@ Languages:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
       Value: "{A69C357B-F4F9-4D4B-8262-44B0E60F051F}|{6AB3A378-547F-4B38-8BE4-7538313020B2}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{01E09652-ABD7-4BB0-AD96-E609966330BD}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -33,7 +36,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38290" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38290/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/fbeff54120594339ac9c8ce2b32d82f5?v=b2aad55c" mediaid="" stylelabs-content-type="Image" alt="Cycling group" height="3000" width="4000" />
+        <image stylelabs-content-id="38290" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38290/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/fbeff54120594339ac9c8ce2b32d82f5?v=b2aad55c" mediaid="" stylelabs-content-type="Image" alt="cycling-group.jpg " height="3000" width="4000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -59,14 +62,17 @@ Languages:
       Value: "{6FE42A91-749B-4B13-BBA6-826DABE94B00}|{2ACD0217-A6FE-401C-9E0C-FF625CAD8CC3}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4ea0fdf1-7f45-43d1-aeee-f8d822bd04fc"
+      Value: "eb5d8bfc-74c6-444f-a50c-f33b8ac93c9a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{C5CEF7C2-8DC6-4B8A-9AD4-D04DEB7B5DAB}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144913Z
+      Value: 20220114T230053Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Intro to Cycling - Sponsored by Striva"

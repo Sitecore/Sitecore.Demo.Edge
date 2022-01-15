@@ -33,7 +33,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="53321" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/53321/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/897f3b23ed894cb8b97f3bc0028a10ee?v=c907b0e8" mediaid="" stylelabs-content-type="Image" alt="Equity, diversity, and inclusion" height="4000" width="6000" />
+        <image stylelabs-content-id="53321" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/53321/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/897f3b23ed894cb8b97f3bc0028a10ee?v=c907b0e8" mediaid="" stylelabs-content-type="Image" alt="inclusion.jpg " height="4000" width="6000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -59,14 +59,17 @@ Languages:
       Value: "{C53A4814-4956-427E-A3C0-1DAEE197459C}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "631060e9-b08b-4867-96f7-ca6fbeb058ce"
+      Value: "e0241cfd-e287-4bc1-932d-63ae7f14f2e4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{C5CEF7C2-8DC6-4B8A-9AD4-D04DEB7B5DAB}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144719Z
+      Value: 20220114T225946Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Diversity and inclusion: Real world examples"

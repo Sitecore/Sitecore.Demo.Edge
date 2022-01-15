@@ -33,7 +33,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="54356" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/54356/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/8fb7fe8350b44cf781bba42d1ce34a27?v=46859a0a" mediaid="" stylelabs-content-type="Image" alt="Chris Williams Inspire" height="1390" width="2200" />
+        <image stylelabs-content-id="54356" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/54356/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/8fb7fe8350b44cf781bba42d1ce34a27?v=46859a0a" mediaid="" stylelabs-content-type="Image" alt="chris-williams-inspire.jpg " height="1390" width="2200" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -59,14 +59,17 @@ Languages:
       Value: "{C53A4814-4956-427E-A3C0-1DAEE197459C}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "caec46a1-2608-4e92-95e1-5e8c36e0ad33"
+      Value: "51385282-fd6f-415c-b536-dacb180ada31"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{C5CEF7C2-8DC6-4B8A-9AD4-D04DEB7B5DAB}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144826Z
+      Value: 20220114T225956Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Guest Keynote with Chris Williams

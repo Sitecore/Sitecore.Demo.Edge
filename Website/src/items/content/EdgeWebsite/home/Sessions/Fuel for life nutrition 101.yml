@@ -33,7 +33,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="37985" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/37985/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/bd09edfed5bf44779b336c5e4ec168bf?v=28ca1e99" mediaid="" stylelabs-content-type="Image" alt="Healthy eating" height="2343" width="3500" />
+        <image stylelabs-content-id="37985" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/37985/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/bd09edfed5bf44779b336c5e4ec168bf?v=28ca1e99" mediaid="" stylelabs-content-type="Image" alt="healthy-eating.jpg " height="2343" width="3500" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -59,14 +59,17 @@ Languages:
       Value: "{05508583-1AE2-40C8-A87E-1A54351B0117}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1087a90a-15d2-43fb-bd4e-dab6521c34f1"
+      Value: "3502efda-9376-44d0-855d-72d624ea95c0"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{A512C4FC-301E-4191-ADE1-E618F4F6895B}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144651Z
+      Value: 20220114T230012Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Fuel for life: nutrition 101"

@@ -38,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38487" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38487/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/757164bf8040434e81e619db7482af52?v=36715615" mediaid="" stylelabs-content-type="Image" alt="Fishing session" height="2256" width="4011" />
+        <image stylelabs-content-id="38487" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38487/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/757164bf8040434e81e619db7482af52?v=36715615" mediaid="" stylelabs-content-type="Image" alt="fishing-session.jpg " height="2256" width="4011" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
@@ -64,14 +64,14 @@ Languages:
       Value: "{72DD2F9A-9EA1-4BD3-A8F5-927795E58AF9}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4e95a0fa-36f1-4b52-97cb-7948ba3da28f"
+      Value: "c5994053-0fc6-4cc2-bbdd-b7c6a127f35f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T143602Z
+      Value: 20220114T230019Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Meet a pro: Q&A with Zoran Borovic"

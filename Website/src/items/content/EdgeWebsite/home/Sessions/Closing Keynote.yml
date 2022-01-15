@@ -19,6 +19,9 @@ Languages:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
       Value: "{D7E74E60-9708-48B2-9D37-C34D165BEC43}|{4D758CED-1AD4-46C7-8E72-B42BE54A08E8}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}|{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}|{6AB3A378-547F-4B38-8BE4-7538313020B2}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{4A95D3FB-A669-47E7-8454-119476231CB7}|{E67E1029-D58F-45E7-B85F-0E7E0086099E}|{5EE51C40-8986-44C0-B44A-D030D4482A43}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -35,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="36356" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36356/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/746b9fa62b6e408e993371ccb2e0d58a?v=68fa852f" mediaid="" stylelabs-content-type="Image" alt="Satellite conference center 1" height="2164" width="4000" />
+        <image stylelabs-content-id="36356" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/36356/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/746b9fa62b6e408e993371ccb2e0d58a?v=68fa852f" mediaid="" stylelabs-content-type="Image" alt="satellite-conference-center-1.jpg " height="2164" width="4000" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
@@ -61,14 +64,17 @@ Languages:
       Value: "{C53A4814-4956-427E-A3C0-1DAEE197459C}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8b7a6c59-8a3d-460c-b3b9-d70752a96f90"
+      Value: "5c1d4ee3-fa01-43ab-833b-ac8248c4ec31"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{5319CA3C-CD21-4D68-A68A-1EAF4D34F63D}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144706Z
+      Value: 20220114T225926Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Closing Keynote
