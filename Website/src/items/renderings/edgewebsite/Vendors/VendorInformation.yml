@@ -10,6 +10,77 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/16x16/document_tag.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query VendorInformationQuery($contextItem: String!) {
+      contextItem: item(path: $contextItem, language: "en") {
+        ... on Vendor {
+          description {
+            value
+          }
+          sessions {
+            ... on MultilistField {
+              targetItems {
+                itemName: name
+                ... on Session {
+                  name: field(name: "name") {
+                    value
+                  }
+                  premium {
+                    value
+                  }
+                  speakers {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Speaker {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  rooms {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Room {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  day {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Day {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  timeslots {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Timeslot {
+                          name: field(name: "Name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
