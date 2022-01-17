@@ -74,4 +74,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49210" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/49210/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/8829dbe0f70b4ecc89279b65591d6634?v=cdb1e298" mediaid="" stylelabs-content-type="Image" alt="Li-Xiu-Ying-no-background.png " height="3687" width="3688" />
+        <image stylelabs-content-id="49210" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49210/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/8829dbe0f70b4ecc89279b65591d6634?v=cdb1e298" mediaid="" stylelabs-content-type="Image" alt="Li Xiu Ying - No background" height="3687" width="3688" />

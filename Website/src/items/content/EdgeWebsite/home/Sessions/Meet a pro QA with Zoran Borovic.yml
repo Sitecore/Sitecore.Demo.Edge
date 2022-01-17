@@ -38,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38487" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38487/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/757164bf8040434e81e619db7482af52?v=36715615" mediaid="" stylelabs-content-type="Image" alt="fishing-session.jpg " height="2256" width="4011" />
+        <image stylelabs-content-id="38487" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38487/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/757164bf8040434e81e619db7482af52?v=36715615" mediaid="" stylelabs-content-type="Image" alt="Fishing session" height="2256" width="4011" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
