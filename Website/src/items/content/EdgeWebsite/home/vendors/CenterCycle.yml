@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Silver
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{AFB23041-6733-44B0-843C-193713F55C7D}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -42,7 +45,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33988" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33988/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a" mediaid="" stylelabs-content-type="Image" alt="CenterCycle Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33988" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/33988/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a" mediaid="" stylelabs-content-type="Image" alt="CenterCycle.png " height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{71B49CE4-5034-436E-BE7F-DB838C8FDFEF}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{7C9530B9-E948-4A84-9A6F-9A3D27B5CB42}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "36fbc847-6b10-424f-871c-44e272e6edea"

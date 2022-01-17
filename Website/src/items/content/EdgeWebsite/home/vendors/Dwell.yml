@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Gold
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{87223FA1-B672-4201-BE61-0011EE4A7A09}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -42,7 +45,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33940" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670" mediaid="" stylelabs-content-type="Image" alt="Dwell Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33940" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670" mediaid="" stylelabs-content-type="Image" alt="Dwell.png " height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{349CE17E-AB72-4C9B-BF43-8DE819D2E8B2}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "4c296240-d0a2-4333-b18a-e32085459a1a"

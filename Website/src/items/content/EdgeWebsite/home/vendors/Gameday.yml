@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Gold
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{ABC74708-2A5A-4AD9-94E6-15A6029252EC}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -42,7 +45,10 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33954" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33954/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f11314c7d09e43e0a645185a255c99cf?v=537a6046" mediaid="" stylelabs-content-type="Image" alt="Gameday Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33954" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/33954/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/f11314c7d09e43e0a645185a255c99cf?v=537a6046" mediaid="" stylelabs-content-type="Image" alt="Gameday.png " height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "0c49e012-ac19-4f98-b400-5cb9598c7269"
