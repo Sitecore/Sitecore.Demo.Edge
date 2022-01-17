@@ -26,6 +26,9 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{0CBFFC48-9946-4EBE-95CD-381BCE73E8B6}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -65,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49460" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49460/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d67c678ada2c4ac7a1d7c86931531cf3?v=eeeb327a" mediaid="" stylelabs-content-type="Image" alt="NathanRogers - no background" height="5653" width="5653" />
+        <image stylelabs-content-id="49460" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/49460/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/d67c678ada2c4ac7a1d7c86931531cf3?v=eeeb327a" mediaid="" stylelabs-content-type="Image" alt="Nathan-Rogers-no-background.png " height="5653" width="5653" />
