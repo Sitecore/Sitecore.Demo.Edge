@@ -1,15 +1,11 @@
 .featured-speakers.item-grid {
   .grid-content {
-    @apply grid grid-cols-1;
-    @apply sm:grid-cols-2;
-    @apply lg:grid-cols-3;
+    @apply sm:gap-x-2 sm:gap-y-2;
+    @apply md:gap-x-6 md:gap-y-4;
+    @apply lg:gap-x-8 lg:gap-y-6;
+    @apply xl:gap-x-12 xl:gap-y-8;
 
     .grid-item {
-      @apply sm:mx-2 sm:mb-2;
-      @apply md:mx-6 md:mb-4;
-      @apply lg:mx-8 lg:mb-6;
-      @apply xl:mx-12 xl:mb-8;
-
       .item-image {
         @apply bg-no-repeat bg-orange;
 
@@ -18,9 +14,18 @@
 
       .item-details {
         @apply text-left p-0;
+      }
+    }
+  }
+}
 
-        .speaker_name {
-          @apply font-bold;
+.section--dark,
+.section--dark-pattern {
+  .item-grid {
+    .grid-content {
+      .grid-item {
+        .item-details {
+          @apply text-white;
         }
       }
     }

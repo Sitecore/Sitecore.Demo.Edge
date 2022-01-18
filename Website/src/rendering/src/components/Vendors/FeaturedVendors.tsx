@@ -26,7 +26,7 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
     ));
 
   return (
-    <section className="section section--bg-white">
+    <section className="section section--light">
       <div className="section__content container">
         <Text className="section__content__title" tag="h1" field={props.fields?.Title} />
         <Text

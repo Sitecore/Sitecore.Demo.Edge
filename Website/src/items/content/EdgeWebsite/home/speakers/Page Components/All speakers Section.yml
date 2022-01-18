@@ -34,7 +34,7 @@ Languages:
         sitecore\superuser
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
-      Value: speaker--light
+      Value: section--light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20211214T045521Z

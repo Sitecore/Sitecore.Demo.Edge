@@ -19,31 +19,33 @@ export type FeaturedSpeakersProps = ComponentProps & {
 };
 
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
-  const speakers = props.fields.data.item.children.results
-    .filter((item) => item.featured.value)
-    .sort()
-    .slice(0, parseInt(props.fields.data.source?.numberOfSpeakers?.value))
-    .map((speaker, index) => (
-      <Link key={index} href={`/speakers/${speaker.itemName}`}>
-        <a>
-          <div className="grid-item">
-            <div className="item-image">
-              <Image
-                field={speaker.picture.jsonValue}
-                alt={speaker.name.value}
-                width={265}
-                height={265}
-                loading="lazy"
-              />
+  const speakers =
+    props.fields.data?.item?.children?.results &&
+    props.fields.data.item.children.results
+      .filter((item) => item.featured.value)
+      .sort()
+      .slice(0, parseInt(props.fields.data.source?.numberOfSpeakers?.value))
+      .map((speaker, index) => (
+        <Link key={index} href={`/speakers/${speaker.itemName}`}>
+          <a>
+            <div className="grid-item">
+              <div className="item-image">
+                <Image
+                  field={speaker.picture.jsonValue}
+                  alt={speaker.name.value}
+                  width={265}
+                  height={265}
+                  loading="lazy"
+                />
+              </div>
+              <div className="item-details">
+                <Text tag="p" className="item-title" field={speaker.name} />
+                <Text tag="p" field={speaker.jobTitle} />
+              </div>
             </div>
-            <div className="item-details">
-              <Text tag="p" className="speaker_name" field={speaker.name} />
-              <Text tag="p" field={speaker.jobTitle} />
-            </div>
-          </div>
-        </a>
-      </Link>
-    ));
+          </a>
+        </Link>
+      ));
 
   return (
     <div className="featured-speakers item-grid">

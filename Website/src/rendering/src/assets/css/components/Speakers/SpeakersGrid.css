@@ -1,4 +1,6 @@
 .section__speakers {
+  @apply bg-cover bg-center bg-no-repeat;
+
   .section__content__title {
     @apply text-center text-blue normal-case;
   }
