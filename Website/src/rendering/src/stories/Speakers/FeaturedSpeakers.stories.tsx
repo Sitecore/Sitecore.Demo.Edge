@@ -96,7 +96,7 @@ Default.args = {
     data: {
       source: {
         numberOfSpeakers: {
-          value: '6',
+          value: 6,
         },
       },
       item: {
