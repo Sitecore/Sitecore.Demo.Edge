@@ -7,7 +7,7 @@ export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
     data: {
       source: {
-        numberOfSpeakers: Field<string>;
+        numberOfSpeakers: Field<number>;
       };
       item: {
         children: {
@@ -18,13 +18,26 @@ export type FeaturedSpeakersProps = ComponentProps & {
   };
 };
 
+const getSpeakerNumberToShow = function (props: FeaturedSpeakersProps) {
+  let numberOfSpeakers = props.fields.data.item.children.results.length - 1;
+  if (!!props.fields.data.source?.numberOfSpeakers?.value) {
+    const parsedNumberOfSpeakers = parseInt(
+      props.fields.data.source?.numberOfSpeakers?.value.toString()
+    );
+    if (!isNaN(parsedNumberOfSpeakers) && parsedNumberOfSpeakers > 1) {
+      numberOfSpeakers = parsedNumberOfSpeakers;
+    }
+  }
+  return numberOfSpeakers;
+};
+
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
   const speakers =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results
       .filter((item) => item.featured.value)
       .sort()
-      .slice(0, parseInt(props.fields.data.source?.numberOfSpeakers?.value))
+      .slice(0, getSpeakerNumberToShow(props))
       .map((speaker, index) => (
         <Link key={index} href={`/speakers/${speaker.itemName}`}>
           <a>
