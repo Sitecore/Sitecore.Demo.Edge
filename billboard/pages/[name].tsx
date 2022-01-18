@@ -141,8 +141,8 @@ export default function BillboardPage(props: BillboardProps) {
             )}
             alt={props.billboard.content_Name}
             className="billboard-background"
-            width={2000}
-            height={1200}
+            width={1920}
+            height={1080}
             layout={"fixed"}
           />
         </div>

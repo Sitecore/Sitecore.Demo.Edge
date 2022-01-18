@@ -52,7 +52,7 @@ const Home = (props: BillboardProps): JSX.Element => {
             height={1200}
             layout={"fixed"}
           />
-          <div className="billboard-frame absolute bottom-0">
+          <div className="billboard-frame absolute bottom-0 z-40">
             <Image
               src={defaultBillboard}
               alt="the billboard"
@@ -60,13 +60,10 @@ const Home = (props: BillboardProps): JSX.Element => {
               height={900}
               layout={"fixed"}
             ></Image>
-            <div
-              className="billboard-container absolute top-8 left-12 -ml-2"
-              style={{ width: "922px", height: "430px" }}
-            >
-              <div className="content-right content-right--full">
-                <div className="logo my-10">
-                  <Image src={defaultLogo} alt="logo" height={50} width={50} />
+            <div className="billboard-container error">
+              <div className="content">
+                <div className="logo">
+                  <Image src={defaultLogo} alt="logo" height={100} width={250} />
                 </div>
                 <div className="slogan">Something went wrong</div>
                 <div className="body">
