@@ -39,7 +39,7 @@
   overflow: hidden;
 
   .error {
-    @apply bg-black p-4 text-orange-light absolute -top-28 text-xl flex align-middle justify-center w-full;
+    @apply bg-black p-10 text-orange-light absolute -top-28 text-xl align-middle justify-center w-full flex flex-row;
 
     animation: 3s ease-out 1s 1 fadeIn;
     animation-iteration-count: 1;
@@ -47,8 +47,6 @@
 
     .error-icon {
       @apply text-5xl pr-2;
-
-      color: red;
     }
   }
 }

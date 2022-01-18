@@ -132,9 +132,12 @@ export async function getStaticPaths() {
   const { rooms } = await getRooms(false);
 
   // Get the paths we want to pre-render based on rooms
-  const paths = rooms.map((room) => ({
-    params: { id: room.id },
-  }));
+  const paths =
+    rooms && rooms.length > 0
+      ? rooms.map((room) => ({
+          params: { id: room.id },
+        }))
+      : [{ params: { id: 'error' } }];
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.

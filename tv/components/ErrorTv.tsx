@@ -29,7 +29,13 @@ const ErrorTv = (): JSX.Element => {
             <div className="error">
               <span className="error-icon">☹</span>
               Let&apos;s just say somehow, somewhere, something went very very wrong... <br />
-              Somebody is looking into it.
+              <br />
+              <br />
+              In the meantime, please make sure : <br />
+              - Content Hub is up and running. <br />
+              - The Edge endpoints are accessible. <br />
+              - There are PLAY! Summit content available. <br />
+              - Your computer is on and connected to the internet. <br />
             </div>
           </div>
         </div>

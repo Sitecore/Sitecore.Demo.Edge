@@ -19,9 +19,12 @@ export default function VenuePage(props: VenueProps) {
 export async function getStaticPaths() {
   const { venues } = await getVenues(false);
 
-  const paths = venues.map((venue) => ({
-    params: { id: venue.id },
-  }));
+  const paths =
+    venues && venues.length > 0
+      ? venues.map((venue) => ({
+          params: { id: venue.id },
+        }))
+      : [{ params: { id: 'error' } }];
 
   return { paths, fallback: false };
 }

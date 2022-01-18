@@ -5,6 +5,7 @@ import { ScheduleSlot } from '../interfaces/schedule';
 import { Session } from '../interfaces/session';
 import { dayDefaultValue, DayTimeContext } from '../contexts/DayTimeContext';
 import { FeatureFlagContext } from '../contexts/FeatureFlagContext';
+import router from 'next/router';
 
 type ScheduleProps = {
   sessions: Session[];
@@ -70,6 +71,10 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
   const dayTimeContextRef = useRef(dayTimeContext);
 
   useEffect(() => {
+    if (props.sessions.length < 1) {
+      router.push('/400');
+    }
+
     dayTimeContextRef.current.showLoading();
     getSessionsByDay(
       parseInt(dayTimeContext.dayTime.day),
@@ -83,6 +88,7 @@ const Schedule = (props: ScheduleProps): JSX.Element => {
     dayTimeContext.dayTime,
     dayTimeContextRef,
     featureFlagContext.featureFlags.isPreviewApiEnabled,
+    props.sessions.length,
   ]);
 
   return <ScheduleForDay schedule={schedule} />;
