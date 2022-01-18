@@ -3,7 +3,7 @@
 
   height: 78px;
 
-  @screen lg {
+  @screen xl {
     height: 93px;
   }
 

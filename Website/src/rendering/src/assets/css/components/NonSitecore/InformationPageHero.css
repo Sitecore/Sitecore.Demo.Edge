@@ -109,7 +109,8 @@
   }
 
   &.premium,
-  &.featured {
+  &.featured,
+  &.gold {
     .content .content-container .container-content-text {
       @screen md {
         &::after {
@@ -123,6 +124,42 @@
 
       .title .information-type {
         @apply text-orange;
+      }
+    }
+  }
+
+  &.silver {
+    .content .content-container .container-content-text {
+      @screen md {
+        &::after {
+          border-color: transparent #3e93ff transparent transparent;
+        }
+      }
+
+      .name {
+        @apply text-blue-light;
+      }
+
+      .title .information-type {
+        @apply text-blue-light;
+      }
+    }
+  }
+
+  &.platinum {
+    .content .content-container .container-content-text {
+      @screen md {
+        &::after {
+          border-color: transparent #ff1886 transparent transparent;
+        }
+      }
+
+      .name {
+        @apply text-pink;
+      }
+
+      .title .information-type {
+        @apply text-pink;
       }
     }
   }

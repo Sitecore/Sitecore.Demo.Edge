@@ -26,7 +26,7 @@ WithLargerImage.args = {
       },
     },
     Level: {
-      value: 'Featured',
+      value: 'Platinum',
     },
     FacebookProfileLink: {
       value: 'https://facebook.com/asada',
@@ -58,7 +58,7 @@ WithSmallerImage.args = {
       },
     },
     Level: {
-      value: 'Featured',
+      value: 'Silver',
     },
     FacebookProfileLink: {
       value: 'https://facebook.com/asada',
