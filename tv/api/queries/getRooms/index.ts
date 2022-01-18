@@ -18,7 +18,7 @@ export const getRooms = async (previewApiEnabled: boolean): Promise<{ rooms: Roo
     previewApiEnabled
   )) as AllRoomsResponse;
 
-  const rooms: Room[] = results.data.allDemo_Room.results;
+  const rooms: Room[] = results?.data?.allDemo_Room?.results;
 
   return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
 };
@@ -46,6 +46,6 @@ export const getRoomById = async (
     previewApiEnabled
   )) as AllRoomsResponse;
   return {
-    room: { ...results.data.allDemo_Room.results[0] },
+    room: { ...results?.data?.allDemo_Room?.results[0] },
   };
 };
