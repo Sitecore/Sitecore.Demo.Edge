@@ -235,10 +235,6 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrlDelivery}\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cmpApiKeyDelivery}\" | vercel env add NEXT_PUBLIC_CMP_DELIVERY_API_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
