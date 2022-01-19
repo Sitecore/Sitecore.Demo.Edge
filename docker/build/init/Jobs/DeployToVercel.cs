@@ -110,7 +110,7 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
+            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, cmpEndpointUrlDelivery, cmpApiKeyDelivery, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
                 DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
@@ -121,7 +121,7 @@ namespace Sitecore.Demo.Init.Jobs
             await Complete();
         }
 
-        private static void DeployTv(string ns, string damUrl, string cmpEndpointUrl, string cmpApiKey, string token, string scope, string region)
+        private static void DeployTv(string ns, string cmpEndpointUrl, string cmpApiKey, string cmpEndpointUrlDelivery, string cmpApiKeyDelivery, string token, string scope, string region)
         {
             var sourceDirectory = "C:\\app\\tv";
             var targetDirectory = $"C:\\app\\{ns}-tv";
@@ -138,8 +138,6 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
 
             // Configure env. variables
-            cmd.Run(
-                $"echo | set /p=\"{damUrl}\" | vercel env add DAM_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
