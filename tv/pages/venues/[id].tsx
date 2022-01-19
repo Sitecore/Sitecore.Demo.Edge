@@ -24,7 +24,7 @@ export async function getStaticPaths() {
       ? venues.map((venue) => ({
           params: { id: venue.id },
         }))
-      : [{ params: { id: 'error' } }];
+      : [{ params: { id: '0' } }];
 
   return { paths, fallback: false };
 }
@@ -32,7 +32,6 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export const getStaticProps = async ({ params }: VenueParams) => {
   const { venue } = await getVenueById(params.id, false);
-
   return {
     props: {
       venue: venue,

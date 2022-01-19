@@ -72,6 +72,13 @@ export const getSessionsByRoom = async (
   day: number,
   previewApiEnabled: boolean
 ): Promise<{ sessions: Session[]; room: Room }> => {
+  if (room == '0') {
+    return {
+      sessions: [],
+      room: { id: '0', name: '', venue: { name: '' } },
+    };
+  }
+
   const SessionByRoomQuery = `
   query {
     allDemo_Room(where: { id_eq: "${room}" }) {

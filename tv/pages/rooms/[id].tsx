@@ -137,7 +137,7 @@ export async function getStaticPaths() {
       ? rooms.map((room) => ({
           params: { id: room.id },
         }))
-      : [{ params: { id: 'error' } }];
+      : [{ params: { id: '0' } }];
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.

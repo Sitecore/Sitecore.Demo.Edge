@@ -8,7 +8,8 @@ export async function fetchGraphQL(query: string, previewApiEnabled: boolean): P
 
   if (previewApiEnabled) {
     apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
-    endpointUrl = process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL || '';
+    endpointUrl =
+      process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
   }
 
   try {

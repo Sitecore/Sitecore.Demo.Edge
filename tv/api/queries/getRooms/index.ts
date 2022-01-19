@@ -27,6 +27,8 @@ export const getRoomById = async (
   id: string,
   previewApiEnabled: boolean
 ): Promise<{ room: Room }> => {
+  if (id == '0') return { room: { id: '0', name: '', venue: { name: '' } } };
+
   const roomByIdQuery = `
     query {
       allDemo_Room (where:{id_eq:"${id}"}){
