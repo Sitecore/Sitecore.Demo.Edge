@@ -138,6 +138,161 @@ WithoutQualificative.args = {
   qualificative: '',
 };
 
+export const WithPremiumQualificative = Template.bind({});
+WithPremiumQualificative.args = {
+  params: {
+    name: 'InformationPageHero',
+  },
+  fields: {
+    Name: {
+      value: 'Fitbit',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/aboutus/fitbit-logo.png',
+      },
+    },
+    FacebookProfileLink: {
+      value: 'https://facebook.com/asada',
+    },
+    TwitterProfileLink: {
+      value: 'https://twitter.com/asada',
+    },
+    InstagramProfileLink: {
+      value: 'https://instagram.com/asada',
+    },
+    LinkedinProfileLink: {
+      value: 'https://linkedin.com/asada',
+    },
+  },
+  type: 'vendor',
+  qualificative: 'premium',
+};
+
+export const WithFeaturedQualificative = Template.bind({});
+WithFeaturedQualificative.args = {
+  params: {
+    name: 'InformationPageHero',
+  },
+  fields: {
+    Name: {
+      value: 'Fitbit',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/aboutus/fitbit-logo.png',
+      },
+    },
+    FacebookProfileLink: {
+      value: 'https://facebook.com/asada',
+    },
+    TwitterProfileLink: {
+      value: 'https://twitter.com/asada',
+    },
+    InstagramProfileLink: {
+      value: 'https://instagram.com/asada',
+    },
+    LinkedinProfileLink: {
+      value: 'https://linkedin.com/asada',
+    },
+  },
+  type: 'vendor',
+  qualificative: 'featured',
+};
+
+export const WithPlatinumQualificative = Template.bind({});
+WithPlatinumQualificative.args = {
+  params: {
+    name: 'InformationPageHero',
+  },
+  fields: {
+    Name: {
+      value: 'Fitbit',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/aboutus/fitbit-logo.png',
+      },
+    },
+    FacebookProfileLink: {
+      value: 'https://facebook.com/asada',
+    },
+    TwitterProfileLink: {
+      value: 'https://twitter.com/asada',
+    },
+    InstagramProfileLink: {
+      value: 'https://instagram.com/asada',
+    },
+    LinkedinProfileLink: {
+      value: 'https://linkedin.com/asada',
+    },
+  },
+  type: 'vendor',
+  qualificative: 'platinum',
+};
+
+export const WithGoldQualificative = Template.bind({});
+WithGoldQualificative.args = {
+  params: {
+    name: 'InformationPageHero',
+  },
+  fields: {
+    Name: {
+      value: 'Fitbit',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/aboutus/fitbit-logo.png',
+      },
+    },
+    FacebookProfileLink: {
+      value: 'https://facebook.com/asada',
+    },
+    TwitterProfileLink: {
+      value: 'https://twitter.com/asada',
+    },
+    InstagramProfileLink: {
+      value: 'https://instagram.com/asada',
+    },
+    LinkedinProfileLink: {
+      value: 'https://linkedin.com/asada',
+    },
+  },
+  type: 'vendor',
+  qualificative: 'gold',
+};
+
+export const WithSilverQualificative = Template.bind({});
+WithSilverQualificative.args = {
+  params: {
+    name: 'InformationPageHero',
+  },
+  fields: {
+    Name: {
+      value: 'Fitbit',
+    },
+    Image: {
+      value: {
+        src: '/assets/img/aboutus/fitbit-logo.png',
+      },
+    },
+    FacebookProfileLink: {
+      value: 'https://facebook.com/asada',
+    },
+    TwitterProfileLink: {
+      value: 'https://twitter.com/asada',
+    },
+    InstagramProfileLink: {
+      value: 'https://instagram.com/asada',
+    },
+    LinkedinProfileLink: {
+      value: 'https://linkedin.com/asada',
+    },
+  },
+  type: 'vendor',
+  qualificative: 'silver',
+};
+
 export const WithoutInformations = Template.bind({});
 WithoutInformations.args = {
   params: {

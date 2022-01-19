@@ -3,7 +3,7 @@
 
   height: 78px;
 
-  @screen lg {
+  @screen xl {
     height: 93px;
   }
 
@@ -11,11 +11,11 @@
     @include flex--sb-w;
 
     @apply w-full;
-    @apply lg:container lg:mx-auto;
+    @apply xl:container xl:mx-auto;
 
     .controls-container {
       @apply w-full flex justify-between px-6;
-      @apply lg:w-auto lg:static lg:block;
+      @apply xl:w-auto xl:static xl:block;
 
       .logo-link {
         @apply text-xl font-bold leading-relaxed inline-block py-4 whitespace-nowrap uppercase text-white;
@@ -28,13 +28,13 @@
       .items-toggle {
         @apply text-white cursor-pointer text-xl leading-none border border-solid border-transparent rounded bg-transparent block outline-none w-8;
         @apply focus:outline-none;
-        @apply lg:hidden;
+        @apply xl:hidden;
       }
     }
 
     .items-container {
       @apply flex-grow bg-black-light px-4 pb-5;
-      @apply lg:bg-transparent lg:pb-0;
+      @apply xl:bg-transparent xl:pb-0;
 
       &.opened {
         @apply flex;
@@ -42,12 +42,12 @@
 
       &.closed {
         @apply hidden;
-        @apply lg:flex;
+        @apply xl:flex;
       }
 
       ul {
         @apply flex flex-col list-none;
-        @apply lg:flex-row lg:items-center lg:ml-auto;
+        @apply xl:flex-row xl:items-center xl:ml-auto;
 
         .text-menu-item a {
           @apply px-3 py-2 text-base leading-loose text-white;
@@ -57,13 +57,13 @@
         .button-menu-item {
           a {
             @apply ml-3 mt-3 inline-block text-black;
-            @apply lg:mt-0;
+            @apply xl:mt-0;
           }
         }
 
         .button-menu-item + .button-menu-item {
           a {
-            @apply lg:ml-6;
+            @apply xl:ml-6;
           }
         }
       }
