@@ -56,7 +56,7 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            var cmpEndpointUrl = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL");
+            var cmpEndpointUrl = Environment.GetEnvironmentVariable("CMP_PREVIEW_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrl))
             {
                 Log.LogWarning(
@@ -64,7 +64,7 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            var cmpApiKey = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_PREVIEW_API_KEY");
+            var cmpApiKey = Environment.GetEnvironmentVariable("CMP_PREVIEW_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKey))
             {
                 Log.LogWarning(
@@ -72,7 +72,7 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            var cmpEndpointUrlDelivery = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL");
+            var cmpEndpointUrlDelivery = Environment.GetEnvironmentVariable("CMP_DELIVERY_ENDPOINT_URL");
             if (string.IsNullOrEmpty(cmpEndpointUrlDelivery))
             {
                 Log.LogWarning(
@@ -80,7 +80,7 @@ namespace Sitecore.Demo.Init.Jobs
                 return;
             }
 
-            var cmpApiKeyDelivery = Environment.GetEnvironmentVariable("NEXT_PUBLIC_CMP_DELIVERY_API_KEY");
+            var cmpApiKeyDelivery = Environment.GetEnvironmentVariable("CMP_DELIVERY_API_KEY");
             if (string.IsNullOrEmpty(cmpApiKeyDelivery))
             {
                 Log.LogWarning(
