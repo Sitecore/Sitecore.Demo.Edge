@@ -80,7 +80,7 @@ SharedFields:
           uid="{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}"
           ccb="Clear on publish" />
         <r
-          rname="SponsorsGrid"
+          rname="SelectedSponsorsGrid"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
           ph="/jss-main/jss-section-content-{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}-0"

@@ -44,6 +44,7 @@ COPY Website/src/ ./src/
 
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
+RUN msbuild .\src\Foundation\BranchPresets\Sitecore.Demo.Edge.Foundation.BranchPresets.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM ${BUILD_IMAGE}

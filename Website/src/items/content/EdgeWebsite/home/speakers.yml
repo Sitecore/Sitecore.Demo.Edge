@@ -69,7 +69,7 @@ SharedFields:
           ph="/jss-main"
           uid="{5667C874-385E-5AD2-9D21-57F15F768989}" />
         <r
-          rname="SponsorsGrid"
+          rname="SelectedSponsorsGrid"
           ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""

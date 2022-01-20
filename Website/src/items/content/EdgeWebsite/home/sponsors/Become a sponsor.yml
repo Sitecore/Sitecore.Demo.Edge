@@ -108,7 +108,7 @@ SharedFields:
         <r
           uid="{7A298658-BE07-5772-B4EA-8CDA7CCA55DD}"
           p:after="r[@uid='{5DFFE6B6-9B7E-5CD0-BE2F-F09C6CEBE6E3}']"
-          s:rname="SponsorsGrid"
+          s:rname="SelectedSponsorsGrid"
           s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           s:par=""
