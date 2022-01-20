@@ -33,6 +33,10 @@
     }
   }
 
+  .no-session {
+    @apply mt-10 space-y-10;
+  }
+
   .scheduled {
     @apply flex-1 h-full w-1/2 absolute right-0;
 

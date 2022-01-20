@@ -1,8 +1,8 @@
 ﻿---
-ID: "5caf57aa-70f2-56af-a023-2ed118bafa20"
+ID: "c9b3f585-fe76-5310-819f-c8ea308401db"
 Parent: "32607765-7441-5a23-a7f6-b8f0b9994c44"
-Template: "32607765-7441-5a23-a7f6-b8f0b9994c44"
-Path: /sitecore/templates/Project/edgewebsite/SponsorsGrid/__Standard Values
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Project/edgewebsite/SelectedSponsorsGrid/Data
 Languages:
 - Language: en
   Versions:
@@ -21,7 +21,7 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2fb06f09-5c67-4cc1-8ee0-e30084998b6f"
+      Value: "f7d609cb-cc5b-4ebb-be21-3997b740bc81"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

@@ -65,6 +65,11 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
               </Link>
             </li>
             <li className="text-menu-item">
+              <Link href="/sponsors">
+                <a>Sponsors</a>
+              </Link>
+            </li>
+            <li className="text-menu-item">
               <Link href="/about-us">
                 <a>About Us</a>
               </Link>

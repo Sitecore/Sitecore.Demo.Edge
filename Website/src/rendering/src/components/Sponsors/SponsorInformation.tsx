@@ -1,0 +1,29 @@
+import { Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps } from 'lib/component-props';
+import SessionList from '../Sessions/SessionList';
+import { SESSIONS } from '../../models/mock-sessions';
+
+export type SponsorInformationProps = ComponentProps & {
+  fields: {
+    Description: Field<string>;
+  };
+};
+
+const SponsorInformation = (props: SponsorInformationProps): JSX.Element => (
+  <section className="section information-section">
+    <div className="section__content container">
+      <div className="information-grid">
+        <div className="main-col">
+          <div className="column-title">Sponsor history:</div>
+          <RichText className="rich-text" field={props.fields.Description} />
+        </div>
+        <div className="sidebar-col">
+          <div className="column-title">Sessions:</div>
+          <SessionList sessions={SESSIONS} showSpeakers={true} />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+export default SponsorInformation;

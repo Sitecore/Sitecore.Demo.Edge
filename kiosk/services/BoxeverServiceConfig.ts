@@ -1,5 +1,5 @@
 const BoxeverServiceConfig = {
-  channel: 'KIOSK',
+  channel: 'MOBILE_APP',
 };
 
 export default BoxeverServiceConfig;

@@ -1,4 +1,7 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { logViewEvent } from '../../services/CdpService';
+import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import Footer, { FooterProps } from '../../components/Navigation/Footer';
 import Header, { HeaderProps } from '../../components/Navigation/Header';
 import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
@@ -153,7 +156,13 @@ const Shop = (): JSX.Element => {
     },
   };
 
-  const headerProps = {} as HeaderProps;
+  const headerProps = {
+    rendering: {
+      placeholders: {
+        'jss-header-content': [],
+      },
+    },
+  } as unknown as HeaderProps;
 
   const mainNavigationArgs = {
     fields: {
@@ -162,7 +171,7 @@ const Shop = (): JSX.Element => {
           headerLogo: {
             jsonValue: {
               value: {
-                src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
+                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
               },
             },
             alt: '',
@@ -179,7 +188,9 @@ const Shop = (): JSX.Element => {
           footerLogo: {
             jsonValue: {
               value: {
-                src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
+                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
+                width: 413,
+                height: 113,
               },
             },
             alt: '',
@@ -187,7 +198,11 @@ const Shop = (): JSX.Element => {
         },
       },
     },
-  } as FooterProps;
+  } as unknown as FooterProps;
+
+  useEffect(() => {
+    logViewEvent();
+  });
 
   return (
     <>
@@ -201,6 +216,7 @@ const Shop = (): JSX.Element => {
         <MainNavigation {...mainNavigationArgs} />
       </header>
       <main>
+        <HeaderCdpMessageBar />
         <div className="shop-container">
           <FeaturedProductHero />
           <section className="section">

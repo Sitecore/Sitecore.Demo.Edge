@@ -18,14 +18,16 @@ type viewEventAdditionalData = {
 /**
  * Logs a page view event.
  */
-export function logViewEvent(route: RouteData): Promise<unknown> {
+export function logViewEvent(route?: RouteData): Promise<unknown> {
   const additionalData: viewEventAdditionalData = {};
 
-  if (route.templateName) {
-    additionalData.sitecoreTemplateName = route.templateName;
-  }
-  if (route.templateName === 'Session') {
-    additionalData.premiumContent = (route.fields?.Premium.value as boolean) || false;
+  if (route) {
+    if (route.templateName) {
+      additionalData.sitecoreTemplateName = route.templateName;
+    }
+    if (route.templateName === 'Session') {
+      additionalData.premiumContent = (route.fields?.Premium.value as boolean) || false;
+    }
   }
 
   return boxeverLogViewEvent(additionalData);
