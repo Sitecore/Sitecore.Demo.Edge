@@ -2,7 +2,7 @@
   @apply absolute inline-block top-0 left-0 z-50;
 
   .menu-button {
-    @apply absolute w-10 h-10 bg-black z-40 text-white text-3xl rounded-full mx-auto text-center;
+    @apply absolute w-10 h-10 bg-black z-40 text-white text-3xl rounded-full mx-auto text-center leading-8;
   }
 
   .main-menu {
@@ -24,11 +24,11 @@
       }
 
       select {
-        @apply text-black-lightest appearance-none bg-no-repeat;
+        @apply text-black-lightest appearance-none;
 
-        background:
-          white
-          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='24' height='24' fill='rgb(102, 102, 102)' aria-hidden='true'><path fillRule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clipRule='evenodd' /></svg>");
+        background: white
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='24' height='24' fill='rgb(102, 102, 102)' aria-hidden='true'><path fillRule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clipRule='evenodd' /></svg>")
+          no-repeat;
         background-position: right 8px top 50%;
 
         &::-ms-expand {
@@ -91,18 +91,6 @@
       }
 
       .menu-toggle-api {
-        .toggle-label {
-          @apply flex items-center cursor-pointer relative mb-4;
-
-          .toggle-bg {
-            @apply border-2 h-6 w-11 rounded-full;
-          }
-
-          .toggle-text {
-            @apply ml-3 text-blue-light text-sm font-medium;
-          }
-        }
-
         .toggle-bg::after {
           content: '';
 
@@ -141,6 +129,18 @@
           &::after {
             content: 'Edge Preview API';
           }
+        }
+
+        .toggle-label {
+          @apply flex items-center cursor-pointer relative mb-4;
+        }
+
+        .toggle-bg {
+          @apply bg-gray-light border-2 border-gray-light h-6 w-11 rounded-full;
+        }
+
+        .toggle-text {
+          @apply ml-3 text-blue-light text-sm font-medium peer-checked:toggle-text;
         }
       }
     }
