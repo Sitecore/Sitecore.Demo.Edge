@@ -45,6 +45,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
@@ -113,7 +114,6 @@
     <Content Include="Utilities\Restart.aspx" />
     <Content Include="App_Config\Include\Sitecore.Demo.CustomFields.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.SerializeDepth.config" />
-    <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.contenthub.config" />
     <None Include="Platform.wpp.targets" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="web.config" />

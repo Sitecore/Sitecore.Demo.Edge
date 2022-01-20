@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.UI;
 using Stylelabs.M.Sdk.Contracts.Querying;
 using Stylelabs.M.Sdk.WebClient;
 using Stylelabs.M.Sdk.WebClient.Authentication;
@@ -14,46 +14,63 @@ namespace Sitecore.Demo.Edge.Website.Utilities
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterAsyncTask(new PageAsyncTask(PageLoadContent));
+
         }
 
-
-        public async Task PageLoadContent()
+        protected async void GeneratePublicationDates(object sender, EventArgs e)
         {
-            connectionStatus.InnerHtml += "Hello";
+            string clientid = ClientIdField.Text;
+            string clientsecret = ClientSecretField.Text;
+            if (string.IsNullOrEmpty(clientid) || string.IsNullOrEmpty(clientsecret))
+            {
+                connectionStatus.InnerHtml = "Authentication values are missing. Please fill in the Id and Secret field above.";
+            }
+
+            string damUrl = ConfigurationManager.ConnectionStrings["DAM.ContentHub"].ToString();
+            if (string.IsNullOrEmpty(damUrl))
+            {
+                connectionStatus.InnerHtml = "No content hub instance found.";
+            }
+
+            var task = GetResponseAsync(damUrl, clientid, clientsecret);
+            var items = await task;
+            ResultGrid.DataSource = items;
+            ResultGrid.DataBind();
         }
 
-        public async Task<List<string>> LoadContent()
+        public async Task<List<string>> GetResponseAsync(string damUrl, string clientid, string clientsecret)
         {
             try
             {
+                Uri endpoint = new Uri(damUrl);
                 List<string> names = new List<string>();
+                IWebMClient client = null;
 
-                //connectionStatus.InnerText = Sitecore.Configuration.Settings.GetSetting("cmp_url");
-                //Sitecore.Diagnostics.Log.Info("Topaz was here : " + Sitecore.Configuration.Settings.GetSetting("cmp_url"), this);
-                Uri endpoint = new Uri("https://playsummit.sitecoresandbox.cloud/");
-                //Uri endpoint = new Uri("https://playsummit-demotemplate-v2.sitecoresandbox.cloud/");
-
-                // Enter your credentials here
-                OAuthPasswordGrant oauth = new OAuthPasswordGrant
+                try
                 {
-                    ClientId = "5hE3CInyFsuPnbaCwtAnNiMcfX0LPSm7",
-                    ClientSecret = "0z2WOq5UrcbhLb6ybCH2R4g19nKPWGlzTJTF3DGpohk7IDXH0d8fJOC7iAJgErPj",
-                    //ClientId = "8jmM1fSp65gshJmWrNIZZm6bU7E2QJEh", ClientSecret = "6W1VwtYh77JmDkpwW2hCqZQDmzynvk2Twkkeb3qplNRdDgQ9l3D7h1O79ccMjOUq",
-                    UserName = "demo_api_user",
-                    Password = "Sitecore12!@"
-                };
-
-                IWebMClient client = MClientFactory.CreateMClient(endpoint, oauth);
-
-                await client.TestConnectionAsync();
-                await Task.Delay(5000);
+                    OAuthPasswordGrant oauth = new OAuthPasswordGrant
+                    {
+                        ClientId = clientid,
+                        ClientSecret = clientsecret,
+                        UserName = "demo-api-user",
+                        Password = "Sitecore12!@"
+                    };
+                    client = MClientFactory.CreateMClient(endpoint, oauth);
+                    await client.TestConnectionAsync();
+                    await Task.Delay(500);
+                    names.Add("Connected");
+                }
+                catch (Exception ex)
+                {
+                    connectionStatus.InnerHtml = ex.Message;
+                }
 
                 IIdQueryResult entities =
                     await client.Entities.GetIdsByDefinitionAsync("M.Content", 0, 100);
 
-                names.Add(Sitecore.Configuration.Settings.GetSetting("Sitecore_ConnectionStrings_DAM.ContentHub"));
-                names.Add(Sitecore.Configuration.Settings.GetSetting("cmp_url"));
+                names.Add(entities.Items.Count.ToString());
+
+                names.Add(ConfigurationManager.ConnectionStrings["DAM.ContentHub"].ToString());
 
                 foreach (var item in entities.Items)
                 {
@@ -62,10 +79,10 @@ namespace Sitecore.Demo.Edge.Website.Utilities
                     var dateDiff = GetRandomDate();
                     DateTime pDate = DateTime.Now.AddDays(dateDiff);
                     DateTimeOffset pDateDiff = DateTimeOffset.Now.AddDays(dateDiff);
-                    //entity.SetPropertyValue("Content.PublishedOn", pDate);
+                    entity.SetPropertyValue("Content.PublishedOn", pDate);
                     entity.SetPropertyValue("Content.PublicationDate", pDateDiff);
 
-                    //long id = await client.Entities.SaveAsync(entity);
+                    long id = await client.Entities.SaveAsync(entity);
                     Thread.Sleep(500);
 
                     names.Add(" Id: " + entity.Id);
