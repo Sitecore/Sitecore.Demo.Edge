@@ -19,5 +19,6 @@
     <PackageReference Update="Sitecore.Connector.CMP" Version="3.1.0" />
     <PackageReference Update="Sitecore.Services.GraphQL" Version="6.0.0" />
     <PackageReference Update="Sitecore.Services.GraphQL.EdgeSchema" Version="6.0.0" />
+    <PackageReference Update="Stylelabs.M.SDK.WebClient" Version="4.1.3" />
   </ItemGroup>
 </Project>
