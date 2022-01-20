@@ -112,7 +112,10 @@ const Navigation = (): JSX.Element => {
     // Set the context with new values
     const button = e.target as HTMLInputElement;
     featureFlagContext.setFeatureFlag(button.checked);
-    handleRefreshClick();
+
+    if (!!window.location.search) {
+      router.push(window.location);
+    }
   }
 
   function handleQuickRefreshClick() {
