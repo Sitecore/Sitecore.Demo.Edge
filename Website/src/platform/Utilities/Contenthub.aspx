@@ -8,8 +8,9 @@
 </head>
 <body>
     <div>
-        <div id="connectionStatus" runat="server"></div>
         <form runat="server">
+            <div id="connectionStatus" runat="server">
+            </div>
             <asp:GridView runat="server" SelectMethod="LoadContent"></asp:GridView>
         </form>
     </div>
