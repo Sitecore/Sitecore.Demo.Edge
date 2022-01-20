@@ -24,8 +24,11 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
 
         protected override void WriteRenderedValue(Field field, JsonTextWriter writer)
         {
-            string renderedValue = this.GetRenderedValue(field);
-            writer.WriteValue(renderedValue);
+            if (field.Type == "Image")
+            {
+                string renderedValue = this.GetRenderedValue(field);
+                writer.WriteValue(renderedValue);
+            }
         }
 
         protected virtual string GetRenderedValue(Field field, SerializationOptions options = null)
@@ -78,7 +81,6 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
 
                 }
             }
-
 
             return this._renderedValue;
         }
