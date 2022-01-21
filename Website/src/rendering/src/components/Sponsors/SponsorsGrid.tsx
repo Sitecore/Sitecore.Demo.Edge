@@ -26,7 +26,7 @@ const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
   return (
     <section className="section">
       <div className="section__content container">
-        <h1 className="section__content__title">All Event Sponsors</h1>
+        <h1 className="section__content__title">Explore Sponsors</h1>
         <div className="item-grid">
           <div className="grid-filters">
             <span>Filter by</span>
