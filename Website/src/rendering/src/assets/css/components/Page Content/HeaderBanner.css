@@ -1,5 +1,5 @@
 .header-banner {
-  @apply pb-10 bg-gradient-to-r from-blue-darkest to-transparent bg-cover bg-center;
+  @apply pb-10 bg-gradient-to-r from-black-lightest to-transparent bg-cover bg-center;
 
   .section__content {
     @apply text-white font-extrabold place-items-start;
