@@ -26,7 +26,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
             field={news.fields.PublishDate}
             render={newsDateFormatter}
           />
-          <RichText tag="p" className="news-excerpt" field={news.fields.Excerpt} />
+          <RichText className="news-excerpt" field={news.fields.Excerpt} />
         </div>
         <div className="button-container">
           <Link href={'/news/' + news.name}>

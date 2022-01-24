@@ -27,13 +27,15 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
     <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
   );
 
+  console.log(fields.content);
+
   return (
     <section className={sectionCssClasses}>
       <div className={positionCssClasses}>
         <div className="section__full-image__content__card">
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
-          <RichText tag="p" field={fields.content} />
+          <RichText tag="blockquote" field={fields.content} />
           {callToAction}
         </div>
       </div>
