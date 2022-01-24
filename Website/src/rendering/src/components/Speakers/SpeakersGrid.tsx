@@ -29,11 +29,10 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
               alt={speaker.name.value}
             />
             <Text className="speaker__name" tag="p" field={speaker.name} />
-            <Text className="speaker__jobtitle" tag="p" field={speaker.jobTitle} />
+            <Text tag="p" field={speaker.jobTitle} />
           </a>
         </Link>
       ));
-
 
   return (
     <div className="section__speakers container">
