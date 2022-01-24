@@ -10,6 +10,10 @@ SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 0
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Demo Content Approver|pd|+item:rename|+item:write|+item:read|+item:delete|+item:create|ar|sitecore\Demo Content Creator|pd|+item:rename|+item:write|+item:read|+item:delete|+item:create|
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |

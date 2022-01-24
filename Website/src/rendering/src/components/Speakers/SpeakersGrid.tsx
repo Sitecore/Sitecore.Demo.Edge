@@ -34,6 +34,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
         </Link>
       ));
 
+
   return (
     <div className="section__speakers container">
       <div className="section__speakers__grid">{speakers}</div>
