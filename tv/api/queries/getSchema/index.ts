@@ -1,6 +1,11 @@
 import { useGraphQL } from '../..';
 import { useEffect, useState } from 'react';
-import { DayResult, SchemaResponse, VenueResult } from '../../../interfaces/schema';
+import {
+  DayResult,
+  SchemaResponse,
+  VenueResult,
+  SchemaQueryResponse,
+} from '../../../interfaces/schema';
 import { TimeslotResult } from '../../../interfaces/timeslot';
 
 export function useSchema() {
@@ -34,7 +39,7 @@ export function useSchema() {
 `;
 
   const { status, data } = useGraphQL(schemaQuery);
-  const [graphQLSchema, setSchema] = useState({});
+  const [graphQLSchema, setSchema] = useState({} as SchemaQueryResponse);
   const [graphQLSchemaStatus, setStatus] = useState('idle');
 
   useEffect(() => {

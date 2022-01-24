@@ -6,6 +6,12 @@ export interface SchemaResponse {
   data: SchemaData;
 }
 
+export interface SchemaQueryResponse {
+  days: DayResult[];
+  venues: VenueResult[];
+  timeslots: TimeslotResult[];
+}
+
 export interface VenueResponse {
   data: VenueData;
 }
