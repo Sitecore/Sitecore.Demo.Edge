@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getSchema } from '../api/queries/getSchema';
+import { getSchema, useSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
 import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
@@ -31,15 +31,19 @@ const Navigation = (): JSX.Element => {
   const isSchemaFetched = useRef(false);
   const [schema, setSchema] = useState(defaultNavigationState);
   const refreshButtonState = dayTimeContext.isLoading ? 'loading' : '';
+  const { graphQLSchemaStatus, graphQLSchema } = useSchema();
 
   useEffect(() => {
-    if (!isSchemaFetched.current) {
+        if (!isSchemaFetched.current) {
       getSchema(featureFlagContext.featureFlags.isPreviewApiEnabled).then((schema) => {
         isSchemaFetched.current = true;
 
+        console.log('graphQLSchema: ', graphQLSchema);
+        console.log('schema: ', schema);
+
         setSchema({
-          days: schema?.days,
-          times: schema?.timeslots?.map((timeslot) => {
+          days: graphQLSchema?.days,
+          times: graphQLSchema?.timeslots?.map((timeslot) => {
             return {
               ...timeslot,
               taxonomyLabel: {
@@ -50,11 +54,11 @@ const Navigation = (): JSX.Element => {
               },
             };
           }),
-          venues: schema.venues,
+          venues: graphQLSchema.venues,
         });
       });
     }
-  });
+  }, [graphQLSchemaStatus]);
 
   function getCurrentDisplayDay() {
     const filteredDays = schema.days.filter((day) => day.sortOrder == dayTimeContext.dayTime.day);

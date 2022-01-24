@@ -1,6 +1,48 @@
+import { useContext, useEffect, useState } from 'react';
+import { FeatureFlagContext } from '../contexts/FeatureFlagContext';
+
 type GraphQLResponseWithErrors = {
   errors: unknown[];
 };
+
+export function useGraphQL(query: string) {
+  const featureFlagContext = useContext(FeatureFlagContext);
+  let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
+  let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
+
+  if (featureFlagContext.featureFlags.isPreviewApiEnabled) {
+    apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
+    endpointUrl =
+      process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
+  }
+
+  const [status, setStatus] = useState('idle');
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    if (!query) return;
+
+    const fetchData = async () => {
+      setStatus('fetching');
+      const response = await fetch(endpointUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-GQL-Token': apiKey,
+        },
+        body: JSON.stringify({ query }),
+      });
+
+      const data = await response.json();
+      setData(data);
+      setStatus('fetched');
+    };
+
+    fetchData();
+  }, [query]);
+
+  return { status, data };
+}
 
 export async function fetchGraphQL(query: string, previewApiEnabled: boolean): Promise<unknown> {
   let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
