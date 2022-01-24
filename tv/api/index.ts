@@ -5,55 +5,7 @@ type GraphQLResponseWithErrors = {
   errors: unknown[];
 };
 
-export function useGraphQL(query: string) {
-  const featureFlagContext = useContext(FeatureFlagContext);
-  const [status, setStatus] = useState('idle');
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
-    let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
-
-    if (featureFlagContext.featureFlags.isPreviewApiEnabled) {
-      apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
-      endpointUrl =
-        process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
-    }
-
-    if (!query) return;
-
-    const fetchData = async () => {
-      setStatus('fetching');
-      const response = await fetch(endpointUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-GQL-Token': apiKey,
-        },
-        body: JSON.stringify({ query }),
-      });
-
-      const data = await response.json();
-      setData(data);
-      setStatus('fetched');
-    };
-
-    fetchData();
-  }, [query, featureFlagContext.featureFlags.isPreviewApiEnabled]);
-
-  return { status, data };
-}
-
-export async function fetchGraphQL(query: string, previewApiEnabled: boolean): Promise<unknown> {
-  let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
-  let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
-
-  if (previewApiEnabled) {
-    apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
-    endpointUrl =
-      process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
-  }
-
+async function getData(query: string, endpointUrl: string, apiKey: string) {
   try {
     return await fetch(endpointUrl, {
       method: 'POST',
@@ -86,4 +38,45 @@ export async function fetchGraphQL(query: string, previewApiEnabled: boolean): P
   } catch (error) {
     return console.log(error);
   }
+}
+
+export function useGraphQL(query: string) {
+  const featureFlagContext = useContext(FeatureFlagContext);
+  const [status, setStatus] = useState('idle');
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
+    let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
+
+    if (featureFlagContext.featureFlags.isPreviewApiEnabled) {
+      apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
+      endpointUrl =
+        process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
+    }
+
+    if (!query) return;
+    const fetchData = async () => {
+      setStatus('fetching');
+      setData(await getData(query, endpointUrl, apiKey));
+      setStatus('fetched');
+    };
+
+    fetchData();
+  }, [query, featureFlagContext.featureFlags.isPreviewApiEnabled]);
+
+  return { status, data };
+}
+
+export async function fetchGraphQL(query: string, previewApiEnabled: boolean): Promise<unknown> {
+  let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
+  let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
+
+  if (previewApiEnabled) {
+    apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
+    endpointUrl =
+      process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
+  }
+
+  return getData(query, endpointUrl, apiKey);
 }
