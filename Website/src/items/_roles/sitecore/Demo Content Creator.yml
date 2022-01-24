@@ -1,0 +1,10 @@
+﻿---
+Role: |
+  sitecore\Demo Content Creator
+MemberOf:
+  Role: |
+    sitecore\Designer
+  Role: |
+    sitecore\Sitecore Client Translating
+  Role: |
+    sitecore\Author
