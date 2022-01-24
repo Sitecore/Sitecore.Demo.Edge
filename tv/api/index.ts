@@ -7,19 +7,19 @@ type GraphQLResponseWithErrors = {
 
 export function useGraphQL(query: string) {
   const featureFlagContext = useContext(FeatureFlagContext);
-  let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
-  let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
-
-  if (featureFlagContext.featureFlags.isPreviewApiEnabled) {
-    apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
-    endpointUrl =
-      process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
-  }
-
   const [status, setStatus] = useState('idle');
   const [data, setData] = useState({});
 
   useEffect(() => {
+    let apiKey = process.env.NEXT_PUBLIC_CMP_DELIVERY_API_KEY || '';
+    let endpointUrl = process.env.NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL || '';
+
+    if (featureFlagContext.featureFlags.isPreviewApiEnabled) {
+      apiKey = process.env.NEXT_PUBLIC_CMP_PREVIEW_API_KEY || '';
+      endpointUrl =
+        process.env.NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL + '/api/graphql/preview/v1' || '';
+    }
+
     if (!query) return;
 
     const fetchData = async () => {
@@ -39,7 +39,7 @@ export function useGraphQL(query: string) {
     };
 
     fetchData();
-  }, [query]);
+  }, [query, featureFlagContext.featureFlags.isPreviewApiEnabled]);
 
   return { status, data };
 }

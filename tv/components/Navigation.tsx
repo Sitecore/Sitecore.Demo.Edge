@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getSchema, useSchema } from '../api/queries/getSchema';
+import { useSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
 import { dayDefaultValue, DayTimeContext, timeDefaultValue } from '../contexts/DayTimeContext';
@@ -33,9 +33,6 @@ const Navigation = (): JSX.Element => {
   const { graphQLSchemaStatus, graphQLSchema } = useSchema();
 
   useEffect(() => {
-    console.log('graphQLSchemaStatus: ', graphQLSchemaStatus);
-    console.log('graphQLSchema: ', graphQLSchema);
-
     setSchema({
       days: graphQLSchema?.days,
       times: graphQLSchema?.timeslots?.map((timeslot) => {
@@ -51,7 +48,7 @@ const Navigation = (): JSX.Element => {
       }),
       venues: graphQLSchema.venues,
     });
-  }, [graphQLSchemaStatus]);
+  }, [graphQLSchemaStatus, graphQLSchema]);
 
   function getCurrentDisplayDay() {
     const filteredDays = schema.days.filter((day) => day.sortOrder == dayTimeContext.dayTime.day);
