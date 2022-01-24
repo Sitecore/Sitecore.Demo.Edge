@@ -38,10 +38,13 @@ export function useSchema() {
   const [graphQLSchemaStatus, setStatus] = useState('idle');
 
   useEffect(() => {
-    if (status !== 'fetched') return;
-    const results = data as SchemaResponse;
 
     const parseData = async () => {
+      console.log('status: ', status);
+
+      if (status !== 'fetched') return;
+      const results = data as SchemaResponse;
+
       const days: DayResult[] = results?.data?.allDemo_Day.results;
       const timeslots: TimeslotResult[] = results?.data?.allDemo_Timeslot.results;
       const venues: VenueResult[] = results?.data?.allDemo_Venue.results;
@@ -51,9 +54,9 @@ export function useSchema() {
         timeslots: timeslots?.sort((a, b) => a.sortOrder - b.sortOrder),
         venues: venues?.sort((c, d) => c.name.localeCompare(d.name)),
       })
+      setStatus('fetched');
 
       console.log('Set: ', graphQLSchema);
-      setStatus('fetched');
     };
 
     parseData();

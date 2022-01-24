@@ -28,36 +28,29 @@ const Navigation = (): JSX.Element => {
   const selectedDay = useRef(dayDefaultValue);
   const selectedTime = useRef(timeDefaultValue);
   const featureFlagContext = useContext(FeatureFlagContext);
-  const isSchemaFetched = useRef(false);
   const [schema, setSchema] = useState(defaultNavigationState);
   const refreshButtonState = dayTimeContext.isLoading ? 'loading' : '';
   const { graphQLSchemaStatus, graphQLSchema } = useSchema();
 
   useEffect(() => {
-        if (!isSchemaFetched.current) {
-      getSchema(featureFlagContext.featureFlags.isPreviewApiEnabled).then((schema) => {
-        isSchemaFetched.current = true;
+    console.log('graphQLSchemaStatus: ', graphQLSchemaStatus);
+    console.log('graphQLSchema: ', graphQLSchema);
 
-        console.log('graphQLSchema: ', graphQLSchema);
-        console.log('schema: ', schema);
-
-        setSchema({
-          days: graphQLSchema?.days,
-          times: graphQLSchema?.timeslots?.map((timeslot) => {
-            return {
-              ...timeslot,
-              taxonomyLabel: {
-                'en-US': timeslot.taxonomyLabel['en-US']
-                  .slice(0, 7)
-                  .replace('am', ' AM')
-                  .replace('pm', ' PM'),
-              },
-            };
-          }),
-          venues: graphQLSchema.venues,
-        });
-      });
-    }
+    setSchema({
+      days: graphQLSchema?.days,
+      times: graphQLSchema?.timeslots?.map((timeslot) => {
+        return {
+          ...timeslot,
+          taxonomyLabel: {
+            'en-US': timeslot.taxonomyLabel['en-US']
+              .slice(0, 7)
+              .replace('am', ' AM')
+              .replace('pm', ' PM'),
+          },
+        };
+      }),
+      venues: graphQLSchema.venues,
+    });
   }, [graphQLSchemaStatus]);
 
   function getCurrentDisplayDay() {
