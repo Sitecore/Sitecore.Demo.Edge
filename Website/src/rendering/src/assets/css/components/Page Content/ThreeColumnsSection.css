@@ -1,7 +1,5 @@
 .section--3-col {
-  @apply bg-cover bg-center bg-no-repeat;
-
-  background-image: url(../../../img/background-pattern-light.svg);
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
 
   &__content {
     @include flex--center--column;
