@@ -21,10 +21,14 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         <div key={index} className="section__news__grid__news__item">
           <Link href={'/news/' + news.name} passHref>
             <a>
-              <div
+              <img
                 className="section__news__grid__news__image"
-                style={{ backgroundImage: 'url(' + news.fields.Image.value?.src + ')' }}
-              ></div>
+                src={news.fields.Image.value?.src}
+                alt="News"
+                width="465px"
+                height="260px"
+                loading="lazy"
+              />
               {news.fields.Title.value}
             </a>
           </Link>
@@ -37,7 +41,8 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         <img
           src="/assets/img/news/conference-image.jpg"
           alt="News"
-          width="100%"
+          width="465px"
+          height="388px"
           className="section__news__grid__tweet__img"
           loading="lazy"
         />
