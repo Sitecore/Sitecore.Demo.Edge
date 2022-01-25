@@ -1,15 +1,12 @@
 .section__speakers {
   @apply bg-cover bg-center bg-no-repeat;
 
-  .section__content__title {
-    @apply text-center text-blue normal-case;
-  }
-
   .section__speakers__grid {
     @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
     @apply sm:grid-cols-2;
     @apply md:grid-cols-3;
-    @apply xl:grid-cols-4 xl:gap-10;
+    @apply lg:grid-cols-4;
+    @apply xl:grid-cols-5 xl:gap-10;
 
     &__speaker {
       @apply box-border col-span-1 relative text-left text-black;
@@ -30,10 +27,6 @@
 
       .speaker__name {
         @apply font-bold my-1;
-      }
-
-      .speaker__jobtitle {
-        @apply font-medium uppercase my-1 text-xs tracking-wider;
       }
     }
   }

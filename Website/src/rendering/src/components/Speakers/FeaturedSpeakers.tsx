@@ -19,11 +19,9 @@ export type FeaturedSpeakersProps = ComponentProps & {
 };
 
 const getSpeakerNumberToShow = function (props: FeaturedSpeakersProps) {
-  let numberOfSpeakers = props.fields.data.item.children.results.length - 1;
+  let numberOfSpeakers = props.fields.data.item.children.results.length;
   if (!!props.fields.data.source?.numberOfSpeakers?.value) {
-    const parsedNumberOfSpeakers = parseInt(
-      props.fields.data.source?.numberOfSpeakers?.value.toString()
-    );
+    const parsedNumberOfSpeakers = props.fields.data.source?.numberOfSpeakers?.value;
     if (!isNaN(parsedNumberOfSpeakers) && parsedNumberOfSpeakers > 1) {
       numberOfSpeakers = parsedNumberOfSpeakers;
     }
