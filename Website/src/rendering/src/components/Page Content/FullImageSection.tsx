@@ -33,7 +33,7 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
         <div className="section__full-image__content__card">
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
-          <RichText tag="blockquote" field={fields.content} />
+          <RichText field={fields.content} />
           {callToAction}
         </div>
       </div>
