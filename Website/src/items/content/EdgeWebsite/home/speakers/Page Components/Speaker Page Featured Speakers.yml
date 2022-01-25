@@ -21,7 +21,7 @@ Languages:
         sitecore\superuser
     - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
       Hint: NumberOfSpeakers
-      Value: 16
+      Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "b704fc60-9872-47e9-b451-0febaff166d9"
