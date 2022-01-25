@@ -20,8 +20,6 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="34000" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34000/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/949c003d42af49be962cd99f31eb3efd?v=f6979300" mediaid="" stylelabs-content-type="Image" alt="Alba Logo" height="1001" width="1001" />
-      Hint: Sessions
-      Value: "{F7584D58-C1C2-4D57-B9E6-B2A1A5E1F14F}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162444Z
@@ -40,9 +38,6 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
-    - ID: "752f4b39-259c-42b8-a100-fb6123faed7f"
-      Hint: Speakers
-      Value: "{4C23E8E4-BA94-4840-8888-D769F0F57835}|{87223FA1-B672-4201-BE61-0011EE4A7A09}"
     - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
       Hint: Name
       Value: Alba
