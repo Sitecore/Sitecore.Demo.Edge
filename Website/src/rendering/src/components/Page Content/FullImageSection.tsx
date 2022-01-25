@@ -27,8 +27,6 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
     <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
   );
 
-  console.log(fields.content);
-
   return (
     <section className={sectionCssClasses}>
       <div className={positionCssClasses}>

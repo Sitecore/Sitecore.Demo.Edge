@@ -136,7 +136,7 @@ The content of the project is mapped to the Rendering container using a Docker v
 
 #### Debugging the Rendering Next.js Project
 
-Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured _Attach to Process_ VS Code launch configuration.
+Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
 
 ### Items Serialization
 
