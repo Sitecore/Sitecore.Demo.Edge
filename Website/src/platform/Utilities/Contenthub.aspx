@@ -4,7 +4,26 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Content Hub Tools</title>
+    <style>
+        div {
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        input {
+            width: 50%;
+            padding: 5px;
+        }
+
+        #GenerateDateButton {
+            width: 20%;
+        }
+
+        #connectionStatus {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <%
