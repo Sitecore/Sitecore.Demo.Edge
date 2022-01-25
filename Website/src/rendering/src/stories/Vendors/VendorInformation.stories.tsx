@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SESSIONS } from '../../models/mock-sessions';
+import { SESSIONS } from '../mock-sessions';
 
 import VendorInformation, {
   VendorInformationProps,

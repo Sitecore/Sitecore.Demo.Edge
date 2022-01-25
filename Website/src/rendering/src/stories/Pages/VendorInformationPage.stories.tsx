@@ -12,7 +12,7 @@ import VendorInformation, {
 import Footer from '../../components/Navigation/Footer';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SESSIONS } from '../../models/mock-sessions';
+import { SESSIONS } from '../mock-sessions';
 
 export default {
   title: 'Pages/Vendor Information Page',

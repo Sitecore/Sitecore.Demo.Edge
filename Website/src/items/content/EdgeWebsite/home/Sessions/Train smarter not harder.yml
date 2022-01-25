@@ -2,7 +2,7 @@
 ID: "9e25e09b-971e-409e-aa42-8d54ba7cc570"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: "/sitecore/content/EdgeWebsite/home/sessions/Train smarter - not harder"
+Path: "/sitecore/content/EdgeWebsite/home/sessions/Train smarter not harder"
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -12,7 +12,7 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: "Train smarter - not harder"
+    Value: "Train smarter not harder"
   Versions:
   - Version: 1
     Fields:
@@ -33,7 +33,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38039" thumbnailsrc="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/gateway/38039/thumbnail" src="https://playsummit-demotemplate-v2.sitecoresandbox.cloud/api/public/content/a218d495616043568a73c79f05143a93?v=cf7bb555" mediaid="" stylelabs-content-type="Image" alt="fitness-tracker-2.jpg " height="4912" width="7360" />
+        <image stylelabs-content-id="38039" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38039/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a218d495616043568a73c79f05143a93?v=cf7bb555" mediaid="" stylelabs-content-type="Image" alt="Fitness tracker 2" height="4912" width="7360" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
@@ -53,7 +53,7 @@ Languages:
       Value: Session
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
-      Value: "Train smarter - not harder"
+      Value: "Train smarter not harder"
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{80268225-1D8E-477C-A866-0EA047A7876A}"
@@ -72,4 +72,4 @@ Languages:
       Value: 20220114T230222Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
-      Value: "Train smarter - not harder"
+      Value: "Train smarter not harder"
