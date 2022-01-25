@@ -69,10 +69,10 @@ namespace Sitecore.Demo.Edge.Website.Utilities
 
                     OAuthPasswordGrant oauth = new OAuthPasswordGrant
                     {
-                        ClientId = clientid.ToString(),
-                        ClientSecret = clientsecret.ToString(),
-                        //ClientId = "8jmM1fSp65gshJmWrNIZZm6bU7E2QJEh",
-                        //ClientSecret = "6W1VwtYh77JmDkpwW2hCqZQDmzynvk2Twkkeb3qplNRdDgQ9l3D7h1O79ccMjOUq",
+                        //ClientId = clientid.ToString(), //HALP: This passed in values are not working for some reason.
+                        //ClientSecret = clientsecret.ToString(),
+                        ClientId = "8jmM1fSp65gshJmWrNIZZm6bU7E2QJEh", //BUT when i type it in like this it works...
+                        ClientSecret = "6W1VwtYh77JmDkpwW2hCqZQDmzynvk2Twkkeb3qplNRdDgQ9l3D7h1O79ccMjOUq",
                         UserName = "demo-api-user",
                         Password = "Sitecore12!@"
                     };
