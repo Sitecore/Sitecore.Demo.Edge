@@ -1,5 +1,3 @@
 .section__speakers {
-  @apply bg-cover bg-center bg-no-repeat;
-
-  background: url(../../img/background-pattern-light.svg);
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
 }

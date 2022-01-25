@@ -9,6 +9,7 @@ export type GraphQLSession = {
   itemName: string;
   name: Field<string>;
   premium: Field<boolean>;
+  imageTransformation: Field<string>;
   image?: {
     jsonValue: ImageField;
   };
