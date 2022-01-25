@@ -1,0 +1,3 @@
+.section__speakers {
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
+}

@@ -1,6 +1,4 @@
 .section__speakers {
-  @apply bg-cover bg-center bg-no-repeat;
-
   .section__speakers__grid {
     @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
     @apply sm:grid-cols-2;
