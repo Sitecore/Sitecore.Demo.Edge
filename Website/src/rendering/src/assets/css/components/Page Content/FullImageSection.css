@@ -48,6 +48,7 @@
 
   &--map {
     @apply h-96;
+
     .section__content {
       .section__full-image__content__card {
         @apply text-center bg-transparent;
