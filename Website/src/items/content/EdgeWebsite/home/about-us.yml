@@ -62,10 +62,10 @@ SharedFields:
           uid="{816710CB-9F03-5860-8E7C-5938120B08F3}" />
         <r
           rname="FullImageCTASection"
-          id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
-          par=""
+          ds="{3C268389-0313-41A0-8C8F-ABFD70CC50E9}"
+          id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
           ph="/jss-main"
-          uid="{DE75C067-CF50-599C-97E7-A02BB1E3712A}" />
+          ccb="Clear on publish" />
         <r
           rname="ThreeColumnCta"
           ds="{23CB91FD-DAF7-5715-B5A4-1B806B3031C5}"

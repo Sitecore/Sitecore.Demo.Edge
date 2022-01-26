@@ -1,5 +1,6 @@
 import {
   Field,
+  ImageField,
   Link,
   LinkField,
   RichText,
@@ -16,6 +17,7 @@ type FullImageSectionProps = ComponentProps & {
     subtitle: Field<string>;
     content: Field<string>;
     callToActionLink: LinkField;
+    backgroundImage: ImageField;
   };
 };
 
@@ -28,7 +30,10 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
   );
 
   return (
-    <section className={sectionCssClasses}>
+    <section
+      className={sectionCssClasses}
+      style={{ backgroundImage: 'url(' + fields.backgroundImage?.value?.src + ')' }}
+    >
       <div className={positionCssClasses}>
         <div className="section__full-image__content__card">
           <Text tag="h5" field={fields.subtitle} />

@@ -45,20 +45,20 @@
       }
     }
   }
-}
 
-@screen md {
-  .section__full-image--offer {
-    background-image: url(../../../img/offer-background.jpg);
+  &--map {
+    @apply h-96;
+    .section__content {
+      .section__full-image__content__card {
+        @apply text-center bg-transparent;
+
+        box-shadow: none;
+
+        a {
+          @apply bg-white-light text-blue px-24 text-xl rounded-none;
+          @apply hover:bg-white;
+        }
+      }
+    }
   }
-
-  .section__full-image--speaker {
-    background-image: url(../../../img/speaker-chris-williams-hero.png);
-  }
-}
-
-.section__full-image--map {
-  @apply h-96;
-
-  background-image: url(../../../img/play-venue-map.jpg);
 }

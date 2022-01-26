@@ -42,6 +42,10 @@ Languages:
       Hint: __Updated by
       Value: |
         sitecore\JssImport
+    - ID: "bb3c2800-f861-4470-ac33-0132a86554b2"
+      Hint: backgroundImage
+      Value: |
+        <image stylelabs-content-id="66216" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/66216/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/0447b929afd64c82bbc33471ec94d8d9?v=34736a27" mediaid="" stylelabs-content-type="Image" alt="Main conference center 2" height="733" width="1100" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210625T201829Z
