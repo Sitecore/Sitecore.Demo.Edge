@@ -27,7 +27,9 @@ const SponsorInformation = (props: SponsorInformationProps): JSX.Element => {
         />
       </>
     ) : (
-      <div className="column-title">There are no sessions available yet.</div>
+      <div className="information-section">
+        <div className="column-title">There are no sessions available yet.</div>
+      </div>
     );
 
   return (
