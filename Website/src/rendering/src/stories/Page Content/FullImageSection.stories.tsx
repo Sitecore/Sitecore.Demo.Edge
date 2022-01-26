@@ -24,7 +24,7 @@ Left.args = {
     },
     content: {
       value:
-        'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <b>20% discount</b> on all online and in-person purchases made during this year’s event.',
+        'We`re partnering with over 2000 brands to offer PLAY! Summit attendees a <b>20% discount</b> on all online and in-person purchases made during this year`s event.',
     },
     position: {
       value: 'left',
@@ -34,6 +34,11 @@ Left.args = {
     },
     title: {
       value: 'PLAY! Summit Exclusive Offer',
+    },
+    backgroundImage: {
+      value: {
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/77a6a0c2acb5478fa543665a134fa053?v=495de02a',
+      },
     },
   },
   rendering: {
@@ -66,6 +71,47 @@ Right.args = {
     },
     title: {
       value: 'Chris Williams',
+    },
+    backgroundImage: {
+      value: {
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/0447b929afd64c82bbc33471ec94d8d9?v=34736a27',
+      },
+    },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
+};
+
+export const Map = Template.bind({});
+Map.args = {
+  fields: {
+    cssClass: {
+      value: 'section__full-image--map',
+    },
+    callToActionLink: {
+      value: {
+        href: '/maps',
+        text: 'Venue Map',
+      },
+    },
+    content: {
+      value: '',
+    },
+    position: {
+      value: '',
+    },
+    subtitle: {
+      value: '',
+    },
+    title: {
+      value: '',
+    },
+    backgroundImage: {
+      value: {
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/2c5d86057936470599815a5251d68c02?v=c9709dc1',
+      },
     },
   },
   rendering: {
