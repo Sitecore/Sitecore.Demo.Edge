@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { CdpScripts, identifyVisitor } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { MerchandisingScripts } from 'src/services/MerchandisingService'; // DEMO TEAM CUSTOMIZATION - Discover integration
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
@@ -51,8 +52,9 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         <meta name="description" content="Play! Summit" />
       </Head>
 
-      {/* DEMO TEAM CUSTOMIZATION - CDP integration. It is important this script is rendered before the <Component> so the CDP calls made on the first page load are successful. */}
+      {/* DEMO TEAM CUSTOMIZATION - CDP/Discover integration. It is important this script is rendered before the <Component> so the CDP calls made on the first page load are successful. */}
       {CdpScripts}
+      {MerchandisingScripts}
       {/* END CUSTOMIZATION*/}
 
       {/*
