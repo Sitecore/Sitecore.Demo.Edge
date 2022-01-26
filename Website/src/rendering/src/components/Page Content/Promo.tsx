@@ -29,7 +29,7 @@ const Promo = ({ fields }: PromoProps): JSX.Element => {
         <div className="section__promo__content__card">
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
-          <RichText tag="p" field={fields.content} />
+          <RichText field={fields.content} />
           <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
         </div>
         <div></div>
