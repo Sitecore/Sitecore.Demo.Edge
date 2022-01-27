@@ -34,7 +34,7 @@ const Promo = ({ fields }: PromoProps): JSX.Element => {
         >
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
-          <RichText tag="p" field={fields.content} />
+          <RichText field={fields.content} />
           {fields.callToActionLink.value.text && (
             <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
           )}
