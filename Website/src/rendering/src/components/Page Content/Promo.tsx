@@ -5,6 +5,7 @@ import {
   RichText,
   Link,
   withDatasourceCheck,
+  ImageField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
@@ -16,6 +17,7 @@ export type PromoProps = ComponentProps & {
     subtitle: Field<string>;
     content: Field<string>;
     callToActionLink: LinkField;
+    backgroundImage: ImageField;
   };
 };
 
@@ -26,11 +28,16 @@ const Promo = ({ fields }: PromoProps): JSX.Element => {
   return (
     <section className={sectionCssClasses}>
       <div className={positionCssClasses}>
-        <div className="section__promo__content__card">
+        <div
+          className="section__promo__content__card"
+          style={{ backgroundImage: 'url(' + fields.backgroundImage?.value?.src + ')' }}
+        >
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
           <RichText tag="p" field={fields.content} />
-          <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
+          {fields.callToActionLink.value.text && (
+            <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
+          )}
         </div>
         <div></div>
       </div>
