@@ -36,7 +36,7 @@
         margin: 0 0 20px;
       }
 
-      p {
+      > div {
         margin: 20px 0 30px;
         line-height: 1.4;
         max-width: 500px;

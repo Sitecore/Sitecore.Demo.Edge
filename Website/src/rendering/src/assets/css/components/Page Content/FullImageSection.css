@@ -40,7 +40,7 @@
         margin: 0 0 20px;
       }
 
-      p {
+      > div {
         @apply text-sm;
 
         margin: 20px 0 30px;
