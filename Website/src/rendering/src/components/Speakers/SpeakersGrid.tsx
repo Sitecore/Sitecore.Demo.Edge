@@ -22,7 +22,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results.map((speaker, index) => {
       return (
-        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
+        <Link key={index} href={`/speakers/${speaker.name.value}`} passHref>
           <a className="section__speakers__grid__speaker">
             <Image
               className="speaker__image"

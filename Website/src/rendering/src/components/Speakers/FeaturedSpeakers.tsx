@@ -26,7 +26,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
       .sort()
       .slice(0, parseInt(props.params.NumberOfSpeakers))
       .map((speaker, index) => (
-        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
+        <Link key={index} href={`/speakers/${speaker.name.value}`} passHref>
           <a className="grid-item">
             <Image
               field={speaker.picture.jsonValue}

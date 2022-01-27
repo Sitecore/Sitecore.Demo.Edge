@@ -19,6 +19,9 @@ Languages:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
       Value: "{D7E74E60-9708-48B2-9D37-C34D165BEC43}|{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{3983AC76-7325-4AF4-9183-B68DE402F872}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -63,14 +66,14 @@ Languages:
       Value: "{3BC52CBD-3EE1-496F-918E-C0D55A96B7C9}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d7b7bbea-f736-4f39-8352-cc3b77fe0974"
+      Value: "a354832d-edd8-4a5c-8cec-77d97da04bd7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T173112Z
+      Value: 20220114T225935Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: outdoor survival"

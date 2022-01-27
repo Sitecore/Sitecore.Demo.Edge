@@ -29,6 +29,9 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{5EE51C40-8986-44C0-B44A-D030D4482A43}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

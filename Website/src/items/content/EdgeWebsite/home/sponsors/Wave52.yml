@@ -23,6 +23,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="36863" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36863/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a1b876c38473498482a72109ef4c16e1?v=d5675a2a" mediaid="" stylelabs-content-type="Image" alt="Wave52 logo" height="1200" width="1200" ></image>
+    - ID: "12c0fdc3-9c18-41c4-aeda-8dcca687eb59"
+      Hint: Sessions
+      Value: "{526CFF16-0B77-46FB-BF75-18922A5A510B}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162528Z
@@ -39,6 +42,9 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "752f4b39-259c-42b8-a100-fb6123faed7f"
+      Hint: Speakers
+      Value: "{13F1FD3B-8133-4833-B4D4-6D8CD2D7BEF5}|{5F107763-694B-4E24-B7C7-308180ABABAD}"
     - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
       Hint: Name
       Value: Wave52
