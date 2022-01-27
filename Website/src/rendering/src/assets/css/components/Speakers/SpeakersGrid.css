@@ -1,31 +1,29 @@
-.section__speakers {
-  .section__speakers__grid {
-    @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
-    @apply sm:grid-cols-2;
-    @apply md:grid-cols-3;
-    @apply lg:grid-cols-4;
-    @apply xl:grid-cols-5 xl:gap-10;
+.speakers-grid {
+  @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
+  @apply sm:grid-cols-2;
+  @apply md:grid-cols-3;
+  @apply lg:grid-cols-4;
+  @apply xl:grid-cols-5 xl:gap-10;
 
-    &__speaker {
-      @apply box-border col-span-1 relative text-left text-black;
+  &-speaker {
+    @apply box-border col-span-1 relative text-left text-black;
 
-      &:hover img {
-        box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
-      }
+    &:hover img {
+      box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
+    }
 
-      img {
-        @apply w-full;
-      }
+    img {
+      @apply w-full;
+    }
 
-      .speaker__image {
-        @apply w-full bg-no-repeat bg-cover bg-blue;
+    .speaker-image {
+      @apply w-full bg-no-repeat bg-cover bg-blue;
 
-        background-image: url(../../../img/background-element.svg);
-      }
+      background-image: url(../../../img/background-element.svg);
+    }
 
-      .speaker__name {
-        @apply font-bold my-1;
-      }
+    .speaker-name {
+      @apply font-bold my-1;
     }
   }
 }

@@ -22,23 +22,19 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
       .filter((item) => !item.featured.value)
       .map((speaker, index) => (
         <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
-          <a className="section__speakers__grid__speaker">
+          <a className="speakers-grid-speaker">
             <Image
-              className="speaker__image"
+              className="speaker-image"
               field={speaker.picture.jsonValue}
               alt={speaker.name.value}
             />
-            <Text className="speaker__name" tag="p" field={speaker.name} />
+            <Text className="speaker-name" tag="p" field={speaker.name} />
             <Text tag="p" field={speaker.jobTitle} />
           </a>
         </Link>
       ));
 
-  return (
-    <div className="section__speakers container">
-      <div className="section__speakers__grid">{speakers}</div>
-    </div>
-  );
+  return <div className="speakers-grid container">{speakers}</div>;
 };
 
 export default withDatasourceCheck()<SpeakersGridProps>(SpeakersGrid);
