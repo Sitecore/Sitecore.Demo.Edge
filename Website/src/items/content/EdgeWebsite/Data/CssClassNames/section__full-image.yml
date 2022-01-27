@@ -1,8 +1,8 @@
 ﻿---
-ID: "f4c3472b-dea0-4010-bed9-86ed58f19b0d"
-Parent: "6613a4e7-1a9f-4104-b761-897032368f0e"
+ID: "2731da09-17d7-49ca-9135-ca4a0c8fa2ff"
+Parent: "225eac13-d01e-4d05-9c41-031e5e1c234e"
 Template: "9d131d4b-98ed-4e44-a81d-144356aef00a"
-Path: /sitecore/content/EdgeWebsite/Data/Brightness/dark
+Path: "/sitecore/content/EdgeWebsite/Data/CssClassNames/section__full-image"
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220127T221821Z
+      Value: 20220127T222122Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,14 +21,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "49fb4960-0c69-4500-ad03-a1b726b7225b"
+      Value: "5b4eff25-e03b-4599-a3d2-52dd588149ab"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220127T221821Z
+      Value: 20220127T222122Z
     - ID: "e67b06e8-b4c7-47d1-a9f5-3186f4db40d5"
       Hint: Value
-      Value: dark
+      Value: "section__full-image"

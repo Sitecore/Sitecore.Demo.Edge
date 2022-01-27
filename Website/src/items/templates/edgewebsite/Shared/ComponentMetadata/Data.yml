@@ -1,8 +1,8 @@
 ﻿---
-ID: "cdd67662-c266-41e0-9dfa-5b14bca07012"
-Parent: "225eac13-d01e-4d05-9c41-031e5e1c234e"
-Template: "9d131d4b-98ed-4e44-a81d-144356aef00a"
-Path: "/sitecore/content/EdgeWebsite/Data/CssClassNames/section__full-image--offer"
+ID: "086f2534-2b5f-4a0b-a8ae-9ad30b59fc58"
+Parent: "9d131d4b-98ed-4e44-a81d-144356aef00a"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Project/edgewebsite/Shared/ComponentMetadata/Data
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211130T184611Z
+      Value: 20220127T215546Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,11 +21,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3da549b5-a6ed-45b9-a0ed-f9ae23169c3c"
+      Value: "1637df3a-65a5-47ae-99ac-a95c0323ea36"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211130T184611Z
+      Value: 20220127T215546Z
