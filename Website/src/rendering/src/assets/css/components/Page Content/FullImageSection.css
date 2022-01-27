@@ -24,6 +24,10 @@
       max-width: 700px;
       box-shadow: 0 0 20px rgba(23, 23, 23, 0.3);
 
+      p {
+        @apply min-w-full;
+      }
+
       h2 {
         @apply text-2xl font-bold text-black m-0;
       }
@@ -54,6 +58,12 @@
         @apply text-center bg-transparent;
 
         box-shadow: none;
+
+        h5,
+        h2,
+        p {
+          @apply hidden;
+        }
 
         a {
           @apply bg-white-light text-blue px-24 text-xl rounded-none;
