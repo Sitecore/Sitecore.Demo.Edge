@@ -50,12 +50,6 @@ SharedFields:
           par=""
           ph="/jss-main" />
         <r
-          uid="{D7CDBBDF-4B71-5FF6-A320-C313888678F9}"
-          rname="FullImageCTASection"
-          id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
-          par=""
-          ph="/jss-main" />
-        <r
           uid="{794BC956-E900-5DCF-B609-170F413C058C}"
           rname="Section"
           ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"

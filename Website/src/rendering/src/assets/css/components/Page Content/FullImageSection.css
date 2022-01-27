@@ -46,7 +46,7 @@
     }
   }
 
-  &--map {
+  &--cta-only {
     @apply h-96;
 
     .section__content {

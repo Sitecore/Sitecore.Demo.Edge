@@ -34,7 +34,7 @@ Languages:
       Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
     - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
       Hint: cssClass
-      Value: "section__full-image--offer"
+      Value: "section__full-image"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

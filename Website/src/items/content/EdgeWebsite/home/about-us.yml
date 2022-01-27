@@ -61,7 +61,7 @@ SharedFields:
           ph="/jss-main"
           uid="{816710CB-9F03-5860-8E7C-5938120B08F3}" />
         <r
-          rname="FullImageCTASection"
+          rname="FullImageSection"
           ds="{3C268389-0313-41A0-8C8F-ABFD70CC50E9}"
           id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
           ph="/jss-main"

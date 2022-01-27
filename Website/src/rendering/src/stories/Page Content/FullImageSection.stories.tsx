@@ -14,7 +14,7 @@ export const Left = Template.bind({});
 Left.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--offer',
+      value: 'section__full-image',
     },
     callToActionLink: {
       value: {
@@ -51,7 +51,7 @@ export const Right = Template.bind({});
 Right.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--speaker',
+      value: 'section__full-image',
     },
     callToActionLink: {
       value: {
@@ -84,11 +84,11 @@ Right.args = {
   },
 };
 
-export const Map = Template.bind({});
-Map.args = {
+export const CTA = Template.bind({});
+CTA.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--map',
+      value: 'section__full-image--cta-only',
     },
     callToActionLink: {
       value: {

@@ -37,7 +37,7 @@ Languages:
       Value: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
     - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
       Hint: cssClass
-      Value: "section__full-image--speaker"
+      Value: "section__full-image"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
