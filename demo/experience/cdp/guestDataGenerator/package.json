@@ -1,0 +1,30 @@
+{
+  "name": "play-summit-cdp-guest-data-generator",
+  "version": "1.0.0",
+  "description": "Scripts to generate demo data in a Sitecore CDP guest",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sitecore/Sitecore.Demo.Edge.git"
+  },
+  "author": "Sitecore Demo Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge/issues"
+  },
+  "homepage": "https://github.com/Sitecore/Sitecore.Demo.Edge#readme",
+  "scripts": {
+    "lint": "eslint ./**/*.js",
+    "generate": "node ./scenarios/kioskToWeb.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "uuid": "8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
+  }
+}

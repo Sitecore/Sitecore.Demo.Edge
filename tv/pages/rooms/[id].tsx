@@ -1,14 +1,16 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { NextRouter, useRouter } from 'next/router';
+import Router, { NextRouter, useRouter } from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
 import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';
-import { DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
+import { dayDefaultValue, DayTimeContext, DayTimeState } from '../../contexts/DayTimeContext';
+import { Room } from '../../interfaces/room';
 
 type RoomProps = {
   roomId: string;
+  room: Room;
   sessions: Session[];
 };
 
@@ -17,6 +19,7 @@ export declare type RoomParams = {
 };
 
 type SessionsState = {
+  room: string;
   currentSession: Session | null;
   nextSession: Session | null;
 };
@@ -24,7 +27,8 @@ type SessionsState = {
 function getSessionsToDisplay(
   allSessions: Session[],
   dayTime: DayTimeState,
-  router: NextRouter
+  router: NextRouter,
+  room: string
 ): SessionsState {
   let selectedDay = `Day ${parseInt(dayTime.day) + 1}`;
   let selectedTime = parseInt(dayTime.time);
@@ -55,6 +59,7 @@ function getSessionsToDisplay(
   }
 
   return {
+    room,
     currentSession,
     nextSession,
   };
@@ -64,20 +69,27 @@ export default function RoomPage(props: RoomProps) {
   const router = useRouter();
   const initialPageLoad = useRef(true);
   const dayTimeContext = useContext(DayTimeContext);
-  const [sessions, setSessions] = useState(
-    getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router)
-  );
 
+  // Added useRef to allow use of dayTimeContextRef as a dependency in useEffect (required by linting rules)
+  const dayTimeContextRef = useRef(dayTimeContext);
+
+  const [sessions, setSessions] = useState(
+    getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router, props.room.name)
+  );
   useEffect(() => {
     // Do not get the sessions on first page load as they come from the props.
     if (!initialPageLoad.current) {
-      getSessionsByRoom(props.roomId).then((data) => {
-        setSessions(getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router));
+      dayTimeContextRef.current.showLoading();
+      getSessionsByRoom(props.roomId, parseInt(dayTimeContext.dayTime.day)).then((data) => {
+        setSessions(
+          getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router, props.room.name)
+        );
+        dayTimeContextRef.current.hideLoading();
       });
     }
 
     initialPageLoad.current = false;
-  }, [props.roomId, dayTimeContext.dayTime, router]);
+  }, [props.roomId, dayTimeContext.dayTime, dayTimeContextRef, router, props.room.name]);
 
   return (
     <>
@@ -86,7 +98,10 @@ export default function RoomPage(props: RoomProps) {
         style={{
           backgroundImage: 'url(' + '/conference-hallway.jpg' + ')',
         }}
-      ></div>
+        onClick={() => Router.back()}
+      >
+        <div className="hall-title">{props.room.venue.name}</div>
+      </div>
       <div id="container" className="absolute">
         <div id="monitor">
           <div id="monitorscreen">
@@ -115,11 +130,16 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
-  const { sessions } = await getSessionsByRoom(params.id);
+  const { sessions, room } = await getSessionsByRoom(params.id, parseInt(dayDefaultValue));
+
+  // if (typeof window !== 'undefined') {
+  //   document.querySelectorAll('.menu-button,.refresh-button')[0].classList.remove('active');
+  // }
 
   return {
     props: {
       roomId: params.id,
+      room: room,
       sessions: sessions,
     },
     revalidate: 10,

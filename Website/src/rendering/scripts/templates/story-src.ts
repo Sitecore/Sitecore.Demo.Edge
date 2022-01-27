@@ -24,6 +24,10 @@ Default.args = {
   params: {
     name: '${componentName}',
   },
+  rendering: {
+    componentName: '${componentName}',
+    dataSource: '/sitecore',
+  },
 };
 `;
 }

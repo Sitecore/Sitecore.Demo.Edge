@@ -1,0 +1,47 @@
+.section__news--list .container {
+  @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
+
+  .content {
+    @apply p-10 grid grid-cols-1 gap-5;
+    @apply sm:grid-cols-1;
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-3;
+    @apply xl:grid-cols-4;
+
+    .news {
+      @apply rounded overflow-hidden bg-white;
+
+      .text-container {
+        @apply px-6 py-4;
+
+        .news-title {
+          @apply font-bold text-base mb-2 h-20 uppercase;
+        }
+
+        .news-date {
+          @apply text-gray-dark text-xs pb-3;
+        }
+
+        .news-excerpt {
+          @apply h-36 overflow-hidden pt-5;
+        }
+
+        p {
+          @apply pt-5;
+        }
+      }
+
+      .image-container {
+        @apply h-40 overflow-hidden;
+
+        img {
+          @apply w-full h-full object-cover;
+        }
+      }
+
+      .button-container {
+        @apply px-6 pt-4 pb-10;
+      }
+    }
+  }
+}

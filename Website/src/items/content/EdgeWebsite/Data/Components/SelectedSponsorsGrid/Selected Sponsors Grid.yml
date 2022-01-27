@@ -1,0 +1,36 @@
+﻿---
+ID: "f8952b14-1095-45fb-b7d9-6ae55ab2934d"
+Parent: "8cf5c79c-f60c-50ab-9dab-7b3da1bf4982"
+Template: "32607765-7441-5a23-a7f6-b8f0b9994c44"
+Path: /sitecore/content/EdgeWebsite/Data/Components/SelectedSponsorsGrid/Selected Sponsors Grid
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210729T181606Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5ab24ab7-c4bb-5f03-8ce5-16c14e3e04bd"
+      Hint: Sponsors
+      Value: |
+        {C5CEF7C2-8DC6-4B8A-9AD4-D04DEB7B5DAB}
+        {5319CA3C-CD21-4D68-A68A-1EAF4D34F63D}
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e92f6250-4620-4d10-b6e2-ee891df964fd"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211006T162939Z

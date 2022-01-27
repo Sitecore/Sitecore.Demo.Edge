@@ -1,0 +1,33 @@
+.speaker-list {
+  @apply space-y-5 min-w-full;
+
+  .information-block {
+    @apply flex flex-row gap-5 bg-blue text-white items-stretch;
+
+    .info-col-left {
+      @apply align-top text-center self-center uppercase flex h-60 w-56 pt-5 bg-no-repeat bg-left-bottom;
+
+      background-image: url('../../../img/background-element.svg');
+    }
+
+    .info-col-content {
+      @apply flex-grow space-y-1 p-5 pl-0 text-white;
+
+      .info-col-title {
+        @apply font-bold uppercase mt-2 mb-0;
+      }
+
+      .info-text .icon {
+        @apply w-6 mr-2;
+      }
+
+      .info-col-cta {
+        @apply text-right flex pt-2;
+      }
+    }
+
+    &.featured {
+      @apply bg-orange;
+    }
+  }
+}

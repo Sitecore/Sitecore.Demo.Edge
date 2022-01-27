@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(../../img/btn-background.png);
+  background-image: url(../../img/btn-background.webp);
   background-size: cover;
   background-position: bottom;
   padding: 6%;
@@ -18,18 +18,12 @@
   transition: all 0.2s ease-in-out;
 }
 
-.btn--main--big {
-  font-size: 1.25em;
-  padding: 0.7em 1em;
-  margin: 0;
-}
-
 .btn--main--round {
   @apply bg-yellow text-black rounded-md;
   @apply hover:bg-yellow-dark hover:text-black;
 }
 
 .btn--main--square {
-  @apply bg-white-light text-blue px-24;
+  @apply bg-white-light text-blue px-24 text-xl;
   @apply hover:bg-white;
 }

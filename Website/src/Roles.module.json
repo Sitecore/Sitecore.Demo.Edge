@@ -1,0 +1,13 @@
+{
+    "namespace": "Roles",
+    "roles": [
+      {
+        "domain": "sitecore",
+        "pattern": "Demo Content Approver"
+      },
+      {
+        "domain": "sitecore",
+        "pattern": "Demo Content Creator"
+      }
+    ]
+}

@@ -44,9 +44,10 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var cmd = new WindowsCommandLine("C:\\app");
-            cmd.Run($"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t");
-            cmd.Run($"dotnet sitecore ser push");
-            cmd.Run($"dotnet sitecore publish");
+            Console.WriteLine(cmd.Run(
+                $"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t"));
+            Console.WriteLine(cmd.Run($"dotnet sitecore ser push"));
+            Console.WriteLine(cmd.Run($"dotnet sitecore publish"));
 
             await Complete();
 		}

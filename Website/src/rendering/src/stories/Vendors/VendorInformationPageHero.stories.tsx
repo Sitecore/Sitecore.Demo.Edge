@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import VendorInformationPageHero from '../../components/VendorInformationPageHero';
+import VendorInformationPageHero from '../../components/Vendors/VendorInformationPageHero';
 
 export default {
   title: 'Components/Vendors/VendorInformationPageHero',
@@ -20,7 +20,7 @@ WithLargerImage.args = {
     },
     Logo: {
       value: {
-        src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a&t=profile',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/d3017c080d6a4c84b7da67d2fb849bc8?v=489bba8a&t=profile',
         height: 133,
         width: 600,
       },
@@ -54,7 +54,7 @@ WithSmallerImage.args = {
     },
     Logo: {
       value: {
-        src: '/assets/img/aboutus/fitbit-logo.png',
+        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/cd9887afd5f249c2a77bc62a506ed667?v=6aea2ec4',
       },
     },
     Level: {

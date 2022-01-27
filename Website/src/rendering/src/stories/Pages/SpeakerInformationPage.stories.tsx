@@ -1,41 +1,22 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header, { HeaderProps } from '../../components/Header';
-import MainNavigation, { MainNavigationProps } from '../../components/MainNavigation';
+import Header from '../../components/Navigation/Header';
+import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import SpeakerInformationPageHero, {
   SpeakerInformationPageHeroProps,
-} from '../../components/SpeakerInformationPageHero';
-import SpeakerInformation, { SpeakerInformationProps } from '../../components/SpeakerInformation';
-import Footer, { FooterProps } from '../../components/Footer';
-import { SESSIONS } from '../../models/mock-sessions';
+} from '../../components/Speakers/SpeakerInformationPageHero';
+import SpeakerInformation, {
+  SpeakerInformationProps,
+} from '../../components/Speakers/SpeakerInformation';
+import Footer from '../../components/Navigation/Footer';
+import { SESSIONS } from '../mock-sessions';
+import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export default {
   title: 'Pages/Speaker Information Page',
 } as ComponentMeta<typeof SpeakerInformationPageHero>;
-
-const headerProps = {} as HeaderProps;
-
-const mainNavigationArgs = {
-  fields: {
-    data: {
-      item: {
-        headerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
-} as MainNavigationProps;
 
 const speakerInformationPageHeroProps = {
   fields: {
@@ -96,42 +77,21 @@ const speakerInformationProps = {
   },
 } as unknown as SpeakerInformationProps;
 
-const footerProps = {
-  fields: {
-    data: {
-      item: {
-        footerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/d86cdc4b1d1d478b8d1adc22f22cf8d5?v=b5a82bdd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
-} as FooterProps;
-
 const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
-    <>
+    <SitecoreContext componentFactory={mockComponentFactory}>
       <header>
-        <Header {...headerProps} />
-        <MainNavigation {...mainNavigationArgs} />
+        <Header {...mockHeaderProps} />
       </header>
       <main>
+        <HeaderCdpMessageBar />
         <SpeakerInformationPageHero {...speakerInformationPageHeroProps} />
         <SpeakerInformation {...speakerInformationProps} />
       </main>
       <footer>
-        <Footer {...footerProps} />
+        <Footer {...mockFooterProps} />
       </footer>
-    </>
+    </SitecoreContext>
   );
 };
 

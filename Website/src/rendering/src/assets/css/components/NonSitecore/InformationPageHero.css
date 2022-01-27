@@ -1,0 +1,166 @@
+.information-page-hero {
+  @apply m-0 bg-white-light relative;
+  @apply md:h-60;
+
+  @screen md {
+    /*
+    Not using Tailwind to be able to specify a 50% single gradient stop.
+    rgba(255, 255, 255, 1) = bg-white-light
+    rgba(35, 35, 35, 1) = bg-black
+    */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(35, 35, 35, 1) 50%);
+  }
+
+  .content {
+    @apply flex flex-col items-center justify-between box-border overflow-hidden h-full w-full px-0;
+    @apply md:flex-row md:px-6;
+    @apply lg:container lg:mx-auto lg:pr-4;
+
+    .image-container {
+      @apply flex items-center max-h-60 bg-white-light;
+      @apply md:h-full;
+
+      img {
+        @apply px-5;
+        @apply md:pr-6 md:pl-0;
+
+        max-height: inherit;
+      }
+    }
+
+    .gradient-container {
+      @apply hidden h-full flex-grow bg-gradient-to-l from-black-lightest to-white-light;
+      @apply md:block;
+    }
+
+    .content-container {
+      @apply w-full bg-black-light self-stretch;
+      @apply sm:w-full;
+      @apply md:w-45;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(80, 80, 80, 1) 0%,
+          rgba(60, 60, 60, 1) 50%,
+          rgba(50, 50, 50, 1) 100%
+        );
+      box-shadow: 0 0 20px #232323;
+
+      .container-content-text {
+        @apply h-full relative flex flex-col justify-center space-y-2;
+
+        padding: 20px;
+
+        @apply md:p-8;
+        @apply lg:p-8;
+
+        @screen md {
+          &::after {
+            @apply w-0 h-0 border-solid right-0 top-0 absolute;
+
+            content: '';
+            border-width: 0 70px 70px 0;
+            border-color: transparent #006ef9 transparent transparent;
+
+            @screen lg {
+              border-width: 0 90px 90px 0;
+            }
+
+            @screen xl {
+              border-width: 0 110px 110px 0;
+            }
+          }
+        }
+
+        .title {
+          @apply text-xl font-bold leading-7 text-white;
+          @apply md:text-lg md:leading-6;
+          @apply 2xl:text-2xl 2xl:leading-8;
+
+          .information-type {
+            @apply text-blue;
+          }
+        }
+
+        .name {
+          @apply text-2xl uppercase font-bold leading-7 text-blue;
+          @apply md:text-xl md:leading-6;
+          @apply 2xl:text-3xl 2xl:leading-8;
+        }
+
+        .informations {
+          @apply text-xs text-white;
+
+          .label {
+            @apply font-bold;
+          }
+        }
+
+        .external-website-icons {
+          @apply text-white space-x-4;
+
+          svg {
+            @apply h-4;
+          }
+        }
+      }
+    }
+  }
+
+  &.premium,
+  &.featured,
+  &.gold {
+    .content .content-container .container-content-text {
+      @screen md {
+        &::after {
+          border-color: transparent #ff8d00 transparent transparent;
+        }
+      }
+
+      .name {
+        @apply text-orange;
+      }
+
+      .title .information-type {
+        @apply text-orange;
+      }
+    }
+  }
+
+  &.silver {
+    .content .content-container .container-content-text {
+      @screen md {
+        &::after {
+          border-color: transparent #3e93ff transparent transparent;
+        }
+      }
+
+      .name {
+        @apply text-blue-light;
+      }
+
+      .title .information-type {
+        @apply text-blue-light;
+      }
+    }
+  }
+
+  &.platinum {
+    .content .content-container .container-content-text {
+      @screen md {
+        &::after {
+          border-color: transparent #ff1886 transparent transparent;
+        }
+      }
+
+      .name {
+        @apply text-pink;
+      }
+
+      .title .information-type {
+        @apply text-pink;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SponsorsGrid from '../../components/SponsorsGrid';
+import SponsorsGrid from '../../components/Sponsors/SponsorsGrid';
 import { Sponsor } from 'src/types/sponsor';
 
 export default {
@@ -11,7 +11,8 @@ export default {
 
 const Template: ComponentStory<typeof SponsorsGrid> = (args) => <SponsorsGrid {...args} />;
 
-const sponsor1 = {
+const fitbit = {
+  Name: 'Fitbit',
   fields: {
     Name: {
       value: 'Fitbit',
@@ -19,13 +20,14 @@ const sponsor1 = {
     Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-fitbit.svg',
+        alt: '',
       },
     },
   },
 } as Sponsor;
 
-const sponsor2 = {
-  Name: 'Item Name',
+const sports = {
+  Name: 'Sports',
   fields: {
     Name: {
       value: 'Sports',
@@ -33,20 +35,7 @@ const sponsor2 = {
     Logo: {
       value: {
         src: '/assets/img/sponsors/sponsors-sports.svg',
-      },
-    },
-  },
-} as Sponsor;
-
-const sponsor3 = {
-  Name: 'Item Name',
-  fields: {
-    Name: {
-      value: 'Fitbit',
-    },
-    Logo: {
-      value: {
-        src: '/assets/img/sponsors/sponsors-fitbit.svg',
+        alt: '',
       },
     },
   },
@@ -55,17 +44,10 @@ const sponsor3 = {
 export const Default = Template.bind({});
 Default.args = {
   fields: {
-    Title: {
-      value: 'FEATURED SPEAKERS',
-    },
-    Subtitle: {
-      value:
-        'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
-    },
-    Sponsors: [sponsor1, sponsor2, sponsor3],
+    items: [fitbit, sports],
   },
   rendering: {
-    componentName: 'Rendering',
+    componentName: 'SponsorsGrid',
     dataSource: '/sitecore',
   },
 };

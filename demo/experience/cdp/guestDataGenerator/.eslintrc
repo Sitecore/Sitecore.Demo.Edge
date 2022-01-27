@@ -1,0 +1,31 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "settings": {
+  },
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+  },
+  "ignorePatterns": [],
+  "rules": {
+    // enable prettier
+    "prettier/prettier": "error",
+    "no-unused-vars": "error"
+  }
+}

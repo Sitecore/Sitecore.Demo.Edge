@@ -9,7 +9,7 @@ export const getSchema = async (): Promise<{
 }> => {
   const schemaQuery = `
     query {
-      allDemo_Day(first: 30) {
+      allDemo_Day {
         results {
           taxonomyName
           sortOrder
@@ -17,12 +17,11 @@ export const getSchema = async (): Promise<{
       }
       allDemo_Timeslot {
         results {
-          id
           sortOrder
           taxonomyLabel
         }
       }
-      allDemo_Venue(first: 30) {
+      allDemo_Venue {
         results {
           id
           name
@@ -36,14 +35,6 @@ export const getSchema = async (): Promise<{
       }
     }
   `;
-
-  if (process.env.CI === 'true') {
-    return {
-      days: [] as DayResult[],
-      timeslots: [] as TimeslotResult[],
-      venues: [] as VenueResult[],
-    };
-  }
 
   const results: SchemaResponse = (await fetchGraphQL(schemaQuery)) as SchemaResponse;
 

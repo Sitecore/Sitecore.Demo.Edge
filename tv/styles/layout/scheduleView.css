@@ -85,6 +85,8 @@
                   @apply md:hidden;
                   @apply xl:flex-1 xl:block bg-cover bg-center;
 
+                  animation: fadein 2s;
+
                   .session-type {
                     @apply xl:absolute xl:bottom-0 xl:justify-start xl:bg-blue-light xl:px-2;
                   }
