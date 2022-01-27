@@ -23,7 +23,7 @@
         }
 
         .news-excerpt {
-          @apply h-36 overflow-hidden;
+          @apply h-36 overflow-hidden pt-5;
         }
 
         p {
