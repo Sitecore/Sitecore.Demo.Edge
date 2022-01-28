@@ -14,7 +14,11 @@ export const Left = Template.bind({});
 Left.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--offer',
+      fields: {
+        Value: {
+          value: 'section__full-image--offer',
+        },
+      },
     },
     callToActionLink: {
       value: {
@@ -27,7 +31,11 @@ Left.args = {
         'We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <b>20% discount</b> on all online and in-person purchases made during this year’s event.',
     },
     position: {
-      value: 'left',
+      fields: {
+        Value: {
+          value: 'left',
+        },
+      },
     },
     subtitle: {
       value: 'Do not miss',
@@ -46,7 +54,11 @@ export const Right = Template.bind({});
 Right.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--speaker',
+      fields: {
+        Value: {
+          value: 'section__full-image--speaker',
+        },
+      },
     },
     callToActionLink: {
       value: {
@@ -59,7 +71,11 @@ Right.args = {
         'Join <b>Tour de France</b> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.',
     },
     position: {
-      value: 'right',
+      fields: {
+        Value: {
+          value: 'right',
+        },
+      },
     },
     subtitle: {
       value: 'Guest speaker',

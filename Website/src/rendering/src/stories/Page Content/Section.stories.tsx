@@ -52,10 +52,18 @@ export const LightSpeakers = Template.bind({});
 LightSpeakers.args = {
   fields: {
     cssClass: {
-      value: 'section__speakers',
+      fields: {
+        Value: {
+          value: 'section__speakers',
+        },
+      },
     },
     brightness: {
-      value: 'light',
+      fields: {
+        Value: {
+          value: 'light',
+        },
+      },
     },
     title: {
       value: 'Section',
