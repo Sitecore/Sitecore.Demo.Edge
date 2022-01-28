@@ -16,7 +16,7 @@
         @apply text-left p-0;
 
         .item-title {
-          @apply font-bold my-1;
+          @apply my-1;
         }
       }
     }
