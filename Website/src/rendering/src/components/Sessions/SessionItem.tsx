@@ -54,10 +54,10 @@ const SessionItem = (props: SessionItemProps): JSX.Element => {
           <FontAwesomeIcon className="icon" icon={faUser} />
         </span>
         <Text tag="span" className="speaker-name" field={speaker.name} />
-        {speaker.role?.value && (
+        {speaker.jobTitle?.value && (
           <span>
             {' | '}
-            <Text tag="span" field={speaker.role} />
+            <Text tag="span" field={speaker.jobTitle} />
           </span>
         )}
       </p>

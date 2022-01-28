@@ -1,0 +1,24 @@
+.featured-speakers.item-grid {
+  .grid-content {
+    @apply sm:gap-x-2 sm:gap-y-2;
+    @apply md:gap-x-6 md:gap-y-4;
+    @apply lg:gap-x-8 lg:gap-y-6;
+    @apply xl:gap-x-12 xl:gap-y-8 xl:grid-cols-3;
+
+    .grid-item {
+      .item-image {
+        @apply bg-no-repeat bg-orange;
+
+        background-image: url(../../../img/background-element.svg);
+      }
+
+      .item-details {
+        @apply text-left p-0;
+      }
+    }
+  }
+}
+
+.section--dark .featured-speakers.item-grid .grid-content .grid-item .item-details {
+  @apply text-white;
+}

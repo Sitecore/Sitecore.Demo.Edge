@@ -1,8 +1,8 @@
 ﻿---
 ID: "be567aca-7ee4-5063-b7f1-29ead100ba3a"
-Parent: "50e74ac2-cc2c-51c1-883f-fc6e8ed07cb3"
+Parent: "81347f0c-a6f8-4a09-8d0a-0600485d5894"
 Template: "fdf43aad-c5d1-54e4-9909-59bfddc86689"
-Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers/Featured Speakers
+Path: /sitecore/content/EdgeWebsite/home/speakers/Page Components/Speaker Page Featured Speakers
 Languages:
 - Language: en
   Versions:
@@ -21,14 +21,14 @@ Languages:
         sitecore\superuser
     - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
       Hint: NumberOfSpeakers
-      Value: 4
+      Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cdc52f0f-cd11-4213-b551-5f63d8aeb29e"
+      Value: "b704fc60-9872-47e9-b451-0febaff166d9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T060059Z
+      Value: 20211111T225453Z
