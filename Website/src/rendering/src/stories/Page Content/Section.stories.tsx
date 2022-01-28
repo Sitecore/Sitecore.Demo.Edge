@@ -84,10 +84,18 @@ export const Light = Template.bind({});
 Light.args = {
   fields: {
     cssClass: {
-      value: '',
+      fields: {
+        Value: {
+          value: '',
+        },
+      },
     },
     brightness: {
-      value: 'light',
+      fields: {
+        Value: {
+          value: 'light',
+        },
+      },
     },
     title: {
       value: 'Section',
@@ -108,10 +116,18 @@ export const Dark = Template.bind({});
 Dark.args = {
   fields: {
     cssClass: {
-      value: '',
+      fields: {
+        Value: {
+          value: '',
+        },
+      },
     },
     brightness: {
-      value: 'dark',
+      fields: {
+        Value: {
+          value: 'dark',
+        },
+      },
     },
     title: {
       value: 'Section',
@@ -132,10 +148,18 @@ export const DarkNews = Template.bind({});
 DarkNews.args = {
   fields: {
     cssClass: {
-      value: 'section__news',
+      fields: {
+        Value: {
+          value: 'section__news',
+        },
+      },
     },
     brightness: {
-      value: 'dark',
+      fields: {
+        Value: {
+          value: 'dark',
+        },
+      },
     },
     title: {
       value: 'Section',

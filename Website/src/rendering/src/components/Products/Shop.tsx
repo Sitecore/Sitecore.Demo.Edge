@@ -96,10 +96,18 @@ export const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
   <Section
     fields={{
       cssClass: {
-        value: '',
+        fields: {
+          Value: {
+            value: '',
+          },
+        },
       },
       brightness: {
-        value: 'dark',
+        fields: {
+          Value: {
+            value: 'dark',
+          },
+        },
       },
       title: {
         value: 'Shop by category',
@@ -134,10 +142,18 @@ export const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
   <Section
     fields={{
       cssClass: {
-        value: ' ',
+        fields: {
+          Value: {
+            value: ' ',
+          },
+        },
       },
       brightness: {
-        value: 'light',
+        fields: {
+          Value: {
+            value: 'light',
+          },
+        },
       },
       title: {
         value: 'Shop by vendor',
