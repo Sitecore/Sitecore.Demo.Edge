@@ -1,8 +1,8 @@
 ﻿---
-ID: "bb3d0e35-7f3e-4a8a-bb38-e6398065b6f9"
+ID: "d71df1d4-caf4-48f9-9f93-433bb8edc795"
 Parent: "225eac13-d01e-4d05-9c41-031e5e1c234e"
 Template: "9d131d4b-98ed-4e44-a81d-144356aef00a"
-Path: /sitecore/content/EdgeWebsite/Data/CssClassNames/section__speakers
+Path: /sitecore/content/EdgeWebsite/Data/CssClassNames/Sponsors Section
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220127T222150Z
+      Value: 20220127T222158Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,14 +21,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9e5f5c01-627f-4aa6-9055-9efbb2154603"
+      Value: "365ccc9b-1b73-4af7-8d08-1834e937b9e3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220127T222150Z
+      Value: 20220127T222158Z
     - ID: "e67b06e8-b4c7-47d1-a9f5-3186f4db40d5"
       Hint: Value
-      Value: section__speakers
+      Value: section__sponsors

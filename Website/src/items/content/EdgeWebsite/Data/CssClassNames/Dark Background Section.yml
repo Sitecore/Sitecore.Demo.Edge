@@ -1,8 +1,8 @@
 ﻿---
-ID: "a3d4fe73-f285-480f-8a97-a1d0c1c97e09"
+ID: "27714141-d2e5-43a1-9748-a962f4ebb93e"
 Parent: "225eac13-d01e-4d05-9c41-031e5e1c234e"
 Template: "9d131d4b-98ed-4e44-a81d-144356aef00a"
-Path: "/sitecore/content/EdgeWebsite/Data/CssClassNames/left-full"
+Path: /sitecore/content/EdgeWebsite/Data/CssClassNames/Dark Background Section
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220127T222027Z
+      Value: 20220127T222105Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,14 +21,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "28b5e144-81e2-45fd-9f60-2a53dc247f29"
+      Value: "2efde08c-2555-4152-a26c-3eae57ba9336"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220127T222027Z
+      Value: 20220128T003733Z
     - ID: "e67b06e8-b4c7-47d1-a9f5-3186f4db40d5"
       Hint: Value
-      Value: "left-full"
+      Value: "section--dark"

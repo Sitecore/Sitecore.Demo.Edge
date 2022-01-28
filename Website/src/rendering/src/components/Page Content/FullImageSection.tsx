@@ -7,11 +7,12 @@ import {
   withDatasourceCheck,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { DropLink } from 'src/interfaces/DropLink';
 
 type FullImageSectionProps = ComponentProps & {
   fields: {
-    cssClass: Field<string>;
-    position: Field<string>;
+    cssClass: DropLink;
+    position: DropLink;
     title: Field<string>;
     subtitle: Field<string>;
     content: Field<string>;
@@ -20,8 +21,8 @@ type FullImageSectionProps = ComponentProps & {
 };
 
 const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
-  const sectionCssClasses = `section section__full-image ${fields.cssClass.value}`;
-  const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.value} container`;
+  const sectionCssClasses = `section section__full-image ${fields.cssClass.fields.Value.value}`;
+  const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.fields.Value.value} container`;
 
   const callToAction = fields.callToActionLink && (
     <Link field={fields.callToActionLink} className="btn--main btn--main--round" />

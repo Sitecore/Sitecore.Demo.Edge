@@ -7,11 +7,12 @@ import {
   LinkField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentWithChildrenProps } from 'lib/component-props';
+import { DropLink } from 'src/interfaces/DropLink';
 
 type SectionProps = ComponentWithChildrenProps & {
   fields: {
-    cssClass: Field<string>;
-    brightness: Field<string>;
+    cssClass: DropLink;
+    brightness: DropLink;
     title: Field<string>;
     content: Field<string>;
     callToActionLink: LinkField;
@@ -19,13 +20,15 @@ type SectionProps = ComponentWithChildrenProps & {
 };
 
 const Section = (props: SectionProps): JSX.Element => {
-  const brighnessCssClass = props.fields?.brightness?.value
-    ? `section--${props.fields.brightness.value}`
+  const brightnessCssClass = props.fields?.brightness?.fields.Value.value
+    ? `section--${props.fields.brightness.fields.Value.value}`
     : '';
-  const customCssClass = props.fields?.cssClass?.value ? props.fields.cssClass.value : '';
+  const customCssClass = props.fields?.cssClass?.fields.Value.value
+    ? props.fields.cssClass.fields.Value.value
+    : '';
   const customContentCssClass = customCssClass ? `${customCssClass}__content` : '';
 
-  const sectionCssClasses = `section ${brighnessCssClass} ${customCssClass}`;
+  const sectionCssClasses = `section ${brightnessCssClass} ${customCssClass}`;
   const sectionContentCssClasses = `section__content ${customContentCssClass} container`;
 
   const titleAndContent = props.fields && (

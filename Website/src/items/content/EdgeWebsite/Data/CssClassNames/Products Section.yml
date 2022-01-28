@@ -1,8 +1,8 @@
 ﻿---
-ID: "e0fe3240-f3cb-4235-b76c-fcdf1d1b0b29"
+ID: "2cca1b95-95f3-434b-ae82-f1b8368c6924"
 Parent: "225eac13-d01e-4d05-9c41-031e5e1c234e"
 Template: "9d131d4b-98ed-4e44-a81d-144356aef00a"
-Path: /sitecore/content/EdgeWebsite/Data/CssClassNames/section__news
+Path: /sitecore/content/EdgeWebsite/Data/CssClassNames/Products Section
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220127T222131Z
+      Value: 20220127T222141Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,14 +21,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0c6f22be-256f-4e84-99bc-2e9bb8f4b8b0"
+      Value: "5b3f4c91-4d3b-48f6-b06a-a8a2697b446a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220127T222131Z
+      Value: 20220127T222141Z
     - ID: "e67b06e8-b4c7-47d1-a9f5-3186f4db40d5"
       Hint: Value
-      Value: section__news
+      Value: section__products
