@@ -27,7 +27,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
 
             <div className="checkin-qrcode">
               <div className="checkin-text">CHECK IN</div>
-              <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+              <Image
+                className="checkin-code"
+                src={qr}
+                alt="check-in"
+                width={160}
+                height={160}
+                title="Click to copy QR code link"
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession.id}`
+                  );
+                }}
+              />
             </div>
           </>
         )}
@@ -76,7 +88,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 </div>
               </div>
               <div className="right-content">
-                <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+                <Image
+                  className="checkin-code"
+                  src={qr}
+                  alt="check-in"
+                  width={160}
+                  height={160}
+                  title="Click to copy QR code link"
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession.id}`
+                    );
+                  }}
+                />
               </div>
             </div>
           )}
