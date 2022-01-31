@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web.UI;
+using Stylelabs.M.Framework.Essentials.LoadOptions;
 using Stylelabs.M.Sdk.Contracts.Querying;
 using Stylelabs.M.Sdk.WebClient;
 using Stylelabs.M.Sdk.WebClient.Authentication;
@@ -12,44 +14,73 @@ namespace Sitecore.Demo.Edge.Website.Utilities
 {
     public partial class Contenthub : System.Web.UI.Page
     {
+        protected string damurl = "";
+        protected string username = "";
+        protected string password = "";
+        protected string clientid = "";
+        protected string clientsecret = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            connectionStatus.InnerHtml = "";
+            messageDiv.InnerHtml = "";
             ResultGrid.DataSource = null;
             ResultGrid.DataBind();
         }
 
-        protected async void GeneratePublicationDates(object sender, EventArgs e)
+        protected void getAuthenticationValues()
         {
-            connectionStatus.InnerHtml = "";
+            messageDiv.InnerHtml = "";
             ResultGrid.DataSource = null;
             ResultGrid.DataBind();
 
-            string clientid = ClientIdField.Text;
-            string clientsecret = ClientSecretField.Text;
+            clientid = ClientIdField.Text;
+            clientsecret = ClientSecretField.Text;
             if (string.IsNullOrEmpty(clientid) || string.IsNullOrEmpty(clientsecret))
             {
-                connectionStatus.InnerHtml += "client id and secret missing.";
-                connectionStatus.InnerHtml += "Authentication values are missing. Please fill in the Id and Secret field above.";
+                messageDiv.InnerHtml += "client id and secret missing.";
+                messageDiv.InnerHtml += "Authentication values are missing. Please fill in the Id and Secret field above.";
             }
 
-            string damUrl = ConfigurationManager.ConnectionStrings["DAM.ContentHub"].ToString();
-            if (string.IsNullOrEmpty(damUrl))
+            damurl = ConfigurationManager.ConnectionStrings["DAM.ContentHub"].ToString();
+            if (string.IsNullOrEmpty(damurl))
             {
-                connectionStatus.InnerHtml = "No content hub instance found.";
+                messageDiv.InnerHtml = "No content hub instance found.";
             }
+        }
 
+        protected async void CheckConnection(object sender, EventArgs e)
+        {
+            getAuthenticationValues();
             try
             {
-                var task = GetResponseAsync(damUrl, clientid, clientsecret);
+                var task = GetConnectionAsync(damurl, clientid, clientsecret);
                 var items = await task;
                 ResultGrid.DataSource = items;
                 ResultGrid.DataBind();
             }
             catch (Exception es)
             {
-                connectionStatus.InnerHtml = "overall error";
-                connectionStatus.InnerHtml += es.Message;
+                messageDiv.InnerHtml = "overall error";
+                messageDiv.InnerHtml += es.Message;
+            }
+        }
+
+
+        protected async void GeneratePublicationDates(object sender, EventArgs e)
+        {
+            getAuthenticationValues();
+
+            try
+            {
+                var task = GetResponseAsync(damurl, clientid, clientsecret);
+                var items = await task;
+                ResultGrid.DataSource = items;
+                ResultGrid.DataBind();
+            }
+            catch (Exception es)
+            {
+                messageDiv.InnerHtml = "overall error";
+                messageDiv.InnerHtml += es.Message;
             }
         }
 
@@ -69,10 +100,10 @@ namespace Sitecore.Demo.Edge.Website.Utilities
 
                     OAuthPasswordGrant oauth = new OAuthPasswordGrant
                     {
-                        //ClientId = clientid.ToString(), //HALP: This passed in values are not working for some reason.
-                        //ClientSecret = clientsecret.ToString(),
-                        ClientId = "8jmM1fSp65gshJmWrNIZZm6bU7E2QJEh", //BUT when i type it in like this it works...
-                        ClientSecret = "6W1VwtYh77JmDkpwW2hCqZQDmzynvk2Twkkeb3qplNRdDgQ9l3D7h1O79ccMjOUq",
+                        ClientId = clientid.ToString(), //HALP: This passed in values are not working for some reason.
+                        ClientSecret = clientsecret.ToString(),
+                        //ClientId = "8jmM1fSp65gshJmWrNIZZm6bU7E2QJEh", //BUT when i type it in like this it works...
+                        //ClientSecret = "6W1VwtYh77JmDkpwW2hCqZQDmzynvk2Twkkeb3qplNRdDgQ9l3D7h1O79ccMjOUq",
                         UserName = "demo-api-user",
                         Password = "Sitecore12!@"
                     };
@@ -83,9 +114,9 @@ namespace Sitecore.Demo.Edge.Website.Utilities
                 }
                 catch (Exception ex)
                 {
-                    connectionStatus.InnerHtml = "connecting";
-                    connectionStatus.InnerHtml += ex.Message;
-                    connectionStatus.InnerHtml += ex.InnerException;
+                    messageDiv.InnerHtml = "connecting";
+                    messageDiv.InnerHtml += ex.Message;
+                    messageDiv.InnerHtml += ex.InnerException;
                 }
 
                 IIdQueryResult entities =
@@ -123,12 +154,56 @@ namespace Sitecore.Demo.Edge.Website.Utilities
             }
             catch (Exception ex)
             {
-                connectionStatus.InnerHtml = ex.Message;
-                connectionStatus.InnerHtml += ex.InnerException;
+                messageDiv.InnerHtml = ex.Message;
+                messageDiv.InnerHtml += ex.InnerException;
             }
 
             return null;
         }
+
+        public async Task<List<string>> GetConnectionAsync(string damUrl, string clientid, string clientsecret)
+        {
+            try
+            {
+                Uri endpoint = new Uri(damUrl);
+                List<string> names = new List<string>();
+                IWebMClient client = null;
+
+                try
+                {
+                    Diagnostics.Log.Info("damurl = " + damUrl, this);
+                    Diagnostics.Log.Info("clientid = " + clientid, this);
+                    Diagnostics.Log.Info("clientsecret = " + clientsecret, this);
+
+                    OAuthPasswordGrant oauth = new OAuthPasswordGrant
+                    {
+                        ClientId = clientid.ToString(), //HALP: This passed in values are not working for some reason.
+                        ClientSecret = clientsecret.ToString(),
+                        UserName = "demo-api-user",
+                        Password = "Sitecore12!@"
+                    };
+                    client = MClientFactory.CreateMClient(endpoint, oauth);
+                    await client.TestConnectionAsync();
+                    await Task.Delay(500);
+                    names.Add("Connected Successfully.");
+                }
+                catch (Exception ex)
+                {
+                    messageDiv.InnerHtml = "connecting";
+                    messageDiv.InnerHtml += ex.Message;
+                    messageDiv.InnerHtml += ex.InnerException;
+                }
+                return names;
+            }
+            catch (Exception ex)
+            {
+                messageDiv.InnerHtml = ex.Message;
+                messageDiv.InnerHtml += ex.InnerException;
+            }
+
+            return null;
+        }
+
 
         public int GetRandomDate()
         {

@@ -6,9 +6,10 @@
 <head runat="server">
     <title>Content Hub Tools</title>
     <style>
-        div {
+        div, table {
             font-size: 18px;
             padding: 5px;
+            width: 100%;
         }
 
         input {
@@ -16,13 +17,17 @@
             padding: 5px;
         }
 
-        #GenerateDateButton {
-            width: 20%;
-        }
-
-        #connectionStatus {
+        #messageDiv {
             color: red;
         }
+
+        table tbody {
+            vertical-align: top;
+        }
+
+            table tbody td {
+                width: 50%;
+            }
     </style>
 </head>
 <body>
@@ -34,26 +39,38 @@
         Connected to: <% = url%>
     </div>
     <div>
-        <a target="_blank" href='<% = authUrl%>'>Click here to go get the authentication parameters.</a>
+        <a target="_blank" href='<% = authUrl%>'>Click here and copy the Client id and secret from Content Hub and input it below.</a>
     </div>
     <form runat="server">
-        <div id="connectionStatus" runat="server"></div>
-        <div>
-            <asp:Label runat="server" Text="Client id:"></asp:Label>
-            <br />
-            <asp:TextBox runat="server" ID="ClientSecretField"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label runat="server" Text="Client secret:"></asp:Label>
-            <br />
-            <asp:TextBox runat="server" ID="ClientIdField"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Button runat="server" OnClick="GeneratePublicationDates" ID="GenerateDateButton" Text="Generate Dates" />
-        </div>
-        <div>
-            <asp:GridView runat="server" ID="ResultGrid"></asp:GridView>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <div id="connectionStatus" runat="server"></div>
+                    <div id="messageDiv" runat="server"></div>
+                    <div>
+                        <asp:Label runat="server" Text="Client id:"></asp:Label>
+                        <br />
+                        <asp:TextBox runat="server" ID="ClientSecretField"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:Label runat="server" Text="Client secret:"></asp:Label>
+                        <br />
+                        <asp:TextBox runat="server" ID="ClientIdField"></asp:TextBox>
+                    </div>
+                    <div>
+                        <asp:Button runat="server" OnClick="CheckConnection" ID="CheckConnectionButton" Text="Test Connection" />
+                    </div>
+                    <div>
+                        <asp:Button runat="server" OnClick="GeneratePublicationDates" ID="GenerateDateButton" Text="Generate Dates" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <asp:GridView runat="server" ID="ResultGrid" ShowHeader="false"></asp:GridView>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>

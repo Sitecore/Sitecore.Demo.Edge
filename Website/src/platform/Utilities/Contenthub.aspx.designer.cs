@@ -24,6 +24,15 @@ namespace Sitecore.Demo.Edge.Website.Utilities
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl connectionStatus;
 
         /// <summary>
+        /// messageDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl messageDiv;
+
+        /// <summary>
         /// ClientSecretField control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Sitecore.Demo.Edge.Website.Utilities
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ClientIdField;
+
+        /// <summary>
+        /// CheckConnectionButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CheckConnectionButton;
 
         /// <summary>
         /// GenerateDateButton control.
