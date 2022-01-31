@@ -23,6 +23,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="36849" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36849/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d341a690eae94de5a57546bd4a1c9c94?v=a85fc07c" mediaid="" stylelabs-content-type="Image" alt="Pacifique logo" height="1200" width="1200" ></image>
+    - ID: "12c0fdc3-9c18-41c4-aeda-8dcca687eb59"
+      Hint: Sessions
+      Value: "{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162510Z
@@ -39,6 +42,9 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "752f4b39-259c-42b8-a100-fb6123faed7f"
+      Hint: Speakers
+      Value: "{465AEE87-D244-403F-B913-A979FE00F7A4}"
     - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
       Hint: Name
       Value: Pacifique

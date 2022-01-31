@@ -42,7 +42,7 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => {
     <section className="section section__testimonies">
       <div className="section__content container">
         <Text tag="h2" className="section__content__title" field={props.fields.Title} />
-        <Text tag="div" className="section__content__p" field={props.fields.Subtitle} />
+        <Text tag="p" className="section__content__p" field={props.fields.Subtitle} />
         <div className="testimonies-list">{testimonies}</div>
       </div>
     </section>

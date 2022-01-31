@@ -10,23 +10,26 @@ export default {
   component: Section,
 } as ComponentMeta<typeof Section>;
 
-const speaker = {
-  itemName: 'Item Name',
-  name: {
-    value: 'Item Name',
-  },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-      },
+const speakerImage = {
+  jsonValue: {
+    value: {
+      src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
+      alt: '',
     },
   },
+};
+
+const speaker = {
+  itemName: 'Speaker Name',
+  name: {
+    value: 'Speaker Name',
+  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: 'Speaker Role',
+  jobTitle: {
+    value: 'Speaker',
   },
 } as GraphQLSpeaker;
 
@@ -104,6 +107,54 @@ Dark.args = {
     },
     brightness: {
       value: 'dark',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const DarkPatternBackground = Template.bind({});
+DarkPatternBackground.args = {
+  fields: {
+    cssClass: {
+      value: 'section--dark-pattern',
+    },
+    brightness: {
+      value: 'dark',
+    },
+    title: {
+      value: 'Section',
+    },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
+      },
+    },
+  },
+};
+
+export const LightPatternBackground = Template.bind({});
+LightPatternBackground.args = {
+  fields: {
+    cssClass: {
+      value: 'section--light-pattern',
+    },
+    brightness: {
+      value: 'light',
     },
     title: {
       value: 'Section',
