@@ -100,10 +100,8 @@ namespace Sitecore.Demo.Edge.Website.Utilities
 
                     OAuthPasswordGrant oauth = new OAuthPasswordGrant
                     {
-                        ClientId = clientid.ToString(), //HALP: This passed in values are not working for some reason.
+                        ClientId = clientid.ToString(),
                         ClientSecret = clientsecret.ToString(),
-                        //ClientId = "8jmM1fSp65gshJmWrNIZZm6bU7E2QJEh", //BUT when i type it in like this it works...
-                        //ClientSecret = "6W1VwtYh77JmDkpwW2hCqZQDmzynvk2Twkkeb3qplNRdDgQ9l3D7h1O79ccMjOUq",
                         UserName = "demo-api-user",
                         Password = "Sitecore12!@"
                     };
@@ -144,11 +142,6 @@ namespace Sitecore.Demo.Edge.Website.Utilities
 
                     names.Add(">> Content.PublicationDate: " + entity.GetPropertyValue("Content.PublicationDate"));
                     names.Add(" ");
-
-                    //foreach (var entityProperty in entity.Properties)
-                    //{
-                    //    names.Add("// " + entityProperty.Name + entityProperty.DataType + " >> " + entity.GetPropertyValue(entityProperty.Name));
-                    //}
                 }
                 return names;
             }
