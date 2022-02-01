@@ -30,6 +30,10 @@
       .checkin-text {
         @apply text-white-lighter font-extrabold text-lg py-2;
       }
+
+      .checkin-code:hover {
+        @apply opacity-80;
+      }
     }
   }
 
@@ -103,6 +107,10 @@
 
         .right-content {
           @apply flex py-6 pr-4 z-20;
+
+          .next-session-qr-code:hover {
+            @apply opacity-80;
+          }
         }
       }
     }

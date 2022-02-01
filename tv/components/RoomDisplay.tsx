@@ -28,7 +28,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
             <div className="checkin-qrcode">
               <div className="checkin-text">CHECK IN</div>
               <Image
-                className="checkin-code hover:opacity-80"
+                className="checkin-code"
                 src={qr}
                 alt="check-in"
                 width={160}
@@ -89,9 +89,9 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
               </div>
               <div className="right-content">
                 <Image
-                  className="checkin-code hover:opacity-80"
+                  className="next-session-qr-code"
                   src={qr}
-                  alt="check-in"
+                  alt="next-session-qr-code"
                   width={160}
                   height={160}
                   title="Click to copy QR code link"
