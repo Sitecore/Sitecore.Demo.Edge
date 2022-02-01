@@ -61,14 +61,17 @@ Languages:
       Value: "{FD2E5B87-2430-4051-ADF9-8B76481774C2}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "05932898-9d36-4dce-bc00-3df0742a9f53"
+      Value: "7f25902e-a422-423b-bebd-2af3f5271c3e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{8C5F5B0A-B6A6-46CE-A34A-6A76E7B4FD2E}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144445Z
+      Value: 20220114T230004Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: ski and snowboard gear"

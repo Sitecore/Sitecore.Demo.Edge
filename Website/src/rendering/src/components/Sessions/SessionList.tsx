@@ -48,7 +48,7 @@ const SessionListItem = (props: SessionListItemProps): JSX.Element => {
         {props.speakers.targetItems.map((speaker, index) => (
           <div className="speaker-name" key={index}>
             <InfoText Icon={faUser}>
-              <Link href={`/speakers/${speaker.itemName}`} passHref>
+              <Link href={`/speakers/${speaker.name.value}`} passHref>
                 <Text field={speaker.name} tag="a" />
               </Link>
             </InfoText>

@@ -10,7 +10,7 @@ import SpeakerInformation, {
   SpeakerInformationProps,
 } from '../../components/Speakers/SpeakerInformation';
 import Footer from '../../components/Navigation/Footer';
-import { SESSIONS } from '../../models/mock-sessions';
+import { SESSIONS } from '../mock-sessions';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 

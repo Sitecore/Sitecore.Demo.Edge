@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Platinum
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{04013CFE-C1DD-4D16-BBC1-AD0B548FCD7F}|{209A438A-C1E2-4E02-BC8E-568235F16D1D}|{5F107763-694B-4E24-B7C7-308180ABABAD}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -43,6 +46,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="57878" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/57878/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/0568eb4ee9a241579b786d1a21e41554?v=fdec6fcb" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{76B1D64B-C80D-4FE8-8FF2-7FF22360E341}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "0c6949c2-b5c2-4865-9fd1-e1ea9adc083e"

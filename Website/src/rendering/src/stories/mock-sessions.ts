@@ -23,7 +23,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'Elle Smith',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -82,7 +82,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -91,7 +91,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -100,7 +100,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -109,7 +109,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -168,7 +168,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -177,7 +177,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -186,7 +186,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -195,7 +195,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },
@@ -254,7 +254,7 @@ export const SESSIONS: GraphQLSession[] = [
           name: {
             value: 'Tom Hudson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
           },
         },

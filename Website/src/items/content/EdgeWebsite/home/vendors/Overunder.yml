@@ -43,6 +43,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="34184" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34184/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/95621f62b3c441ffa829e51f26317386?v=38081763" mediaid="" stylelabs-content-type="Image" alt="OverUnder Logo" height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "3fba4260-a045-49d5-95eb-d6e3cfb5cfc8"

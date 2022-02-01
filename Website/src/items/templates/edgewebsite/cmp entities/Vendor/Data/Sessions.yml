@@ -1,8 +1,18 @@
 ﻿---
-ID: "be567aca-7ee4-5063-b7f1-29ead100ba3a"
-Parent: "50e74ac2-cc2c-51c1-883f-fc6e8ed07cb3"
-Template: "fdf43aad-c5d1-54e4-9909-59bfddc86689"
-Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers/Featured Speakers
+ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+Parent: "3715f124-6d1e-4ad0-9b80-0e905fabd66e"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Vendor/Data/Sessions
+SharedFields:
+- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
+  Hint: Source
+  Value: /sitecore/content/EdgeWebsite/home/sessions
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: CmpMultiList
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 800
 Languages:
 - Language: en
   Versions:
@@ -10,7 +20,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210714T203228Z
+      Value: 20220111T190826Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -19,16 +29,13 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\superuser
-    - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
-      Hint: NumberOfSpeakers
-      Value: 4
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cdc52f0f-cd11-4213-b551-5f63d8aeb29e"
+      Value: "5b4e0602-f3e3-4a51-a467-777b32eae00e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T060059Z
+      Value: 20220111T190826Z
