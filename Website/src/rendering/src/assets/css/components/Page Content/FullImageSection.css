@@ -4,7 +4,7 @@
   padding: 7em 0;
   box-shadow: 0 0 10px rgba(23, 23, 23, 0.3);
 
-  &__content {
+  & &__content {
     @apply h-full;
 
     &--left {
