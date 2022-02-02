@@ -37,7 +37,7 @@ Ensure you have installed and followed the [global prerequisites](prerequisites.
       }
       ```
 
-   6. In the left tab group, navigate to the "Experimental Features" tab.
+   6. In the left tab group, navigate to the "General" tab.
    7. Ensure that the "Use Docker Compose V2" option is not checked.
    8. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
@@ -106,3 +106,9 @@ A script here can be used to "reset" the state of your containers. It clears all
     ```ps1
     .\clean.ps1
     ```
+
+## Troubleshooting
+
+If you have trouble with Docker, it is recommended to run the [Sitecore containers prerequisite checker script](https://github.com/strezag/sitecore-containers-prerequisites/blob/main/sitecore-containers-prerequisites.ps1) by Gabriel Streza.
+
+If you have issues building Docker images or if that prerequisite checker identifies a conflicting driver, it might be caused by the "Box.com" software. If it is installed on your system and you are not using it, try uninstalling it.
