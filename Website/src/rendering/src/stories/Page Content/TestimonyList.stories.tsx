@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TestimonyList from '../../components/Page Content/TestimonyList';
+import TestimonyList from '../../components/PageContent/TestimonyList';
 import { Testimony } from 'src/types/testimony';
 
 export default {

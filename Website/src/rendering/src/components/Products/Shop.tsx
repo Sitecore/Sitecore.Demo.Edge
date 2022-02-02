@@ -4,7 +4,7 @@ import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import Link from 'next/link';
 import { ReactElement, useState } from 'react';
 
-import Section from '../Page Content/Section';
+import Section from '../PageContent/Section';
 
 type FeaturedProductHeroProps = {
   subPageName?: string;

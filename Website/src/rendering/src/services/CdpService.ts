@@ -4,6 +4,7 @@ import {
   identifyVisitor as boxeverIdentifyVisitor,
   logEvent,
   saveDataExtension,
+  WelcomeMessage,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
@@ -72,4 +73,8 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   return logEvent('TICKET_PURCHASED', eventPayload).then(() =>
     saveDataExtension(dataExtensionName, dataExtensionPayload)
   );
+}
+
+export function getDynamicWelcomeMessage(ipAddress: string): Promise<WelcomeMessage> {
+  return getDynamicWelcomeMessage(ipAddress);
 }

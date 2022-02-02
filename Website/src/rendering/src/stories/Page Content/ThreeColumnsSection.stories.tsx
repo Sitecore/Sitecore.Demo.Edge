@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/Page Content/ThreeColumnsSection';
+} from '../../components/PageContent/ThreeColumnsSection';
 
 export default {
   title: 'Components/Page Content/ThreeColumnsSection',

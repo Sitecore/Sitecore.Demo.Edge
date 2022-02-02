@@ -536,3 +536,17 @@ export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefine
       return defaultValue;
     });
 }
+
+// ********************************
+// Get Dynamic welcome message
+// ********************************
+export interface WelcomeMessage {
+  message: string;
+}
+
+export function getDynamicWelcomeMessage(ipAddress: string): Promise<WelcomeMessage> {
+  return callFlows({
+    friendlyId: 'dynamic_welcome_message',
+    ipAddress,
+  }) as Promise<WelcomeMessage>;
+}
