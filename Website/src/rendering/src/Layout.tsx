@@ -10,7 +10,6 @@ import {
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 import { logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
-import DynamicWelcomeMessage from 'components/PageContent/DynamicWelcomeMessage';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -63,7 +62,6 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
       </header>
       <main className={isExperienceEditorActiveCssClass}>
         <HeaderCdpMessageBar />
-        <DynamicWelcomeMessage />
         <Placeholder name="jss-main" rendering={route} />
       </main>
       <footer>

@@ -8,7 +8,7 @@ export default {
   component: DynamicWelcomeMessage,
 } as ComponentMeta<typeof DynamicWelcomeMessage>;
 
-const Template: ComponentStory<typeof DynamicWelcomeMessage> = (args) => <DynamicWelcomeMessage {...args} />;
+const Template: ComponentStory<typeof DynamicWelcomeMessage> = () => <DynamicWelcomeMessage />;
 
 export const Default = Template.bind({});
 Default.args = {
