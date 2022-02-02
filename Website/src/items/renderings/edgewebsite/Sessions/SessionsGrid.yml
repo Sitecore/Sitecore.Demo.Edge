@@ -54,6 +54,9 @@ SharedFields:
                       name: field(name: "name") {
                         value
                       }
+                      url {
+                        path
+                      }
                       role{
                         value
                       }

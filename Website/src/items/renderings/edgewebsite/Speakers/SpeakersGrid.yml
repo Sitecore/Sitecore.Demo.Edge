@@ -29,6 +29,9 @@ SharedFields:
               jobTitle {
                 value
               }
+              url {
+                path
+              }
               picture {
                 jsonValue
               }

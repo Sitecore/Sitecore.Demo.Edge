@@ -20,10 +20,12 @@ export type Speaker = {
 };
 
 export type MinimalGraphQLSpeaker = {
-  // Purposefully using the Sitecore item name instead of the url.path to build the link URLs as the url.path is invalid when the item name contains an hyphen
   itemName: string;
   name: Field<string>;
   jobTitle: Field<string>;
+  url:  {
+    path: string;
+  }
 };
 
 export type GraphQLSpeaker = MinimalGraphQLSpeaker & {
