@@ -11,24 +11,26 @@ export default {
 
 const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
 
+const speakerImage = {
+  jsonValue: {
+    value: {
+      src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
+      alt: '',
+    },
+  },
+};
+
 const speaker = {
   itemName: 'First Speaker Name',
   name: {
     value: 'First Speaker Name',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Creative Director',
   },
 } as GraphQLSpeaker;
 
@@ -37,19 +39,12 @@ const speaker1 = {
   name: {
     value: 'Second Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Pro Basketball Player',
   },
 } as GraphQLSpeaker;
 
@@ -58,19 +53,12 @@ const speaker2 = {
   name: {
     value: 'Third Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Chief Product Officer',
   },
 } as GraphQLSpeaker;
 
@@ -79,19 +67,12 @@ const speaker3 = {
   name: {
     value: 'Another Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Social Influencer',
   },
 } as GraphQLSpeaker;
 
@@ -100,19 +81,12 @@ const speaker4 = {
   name: {
     value: 'Last Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Professional Cyclist',
   },
 } as GraphQLSpeaker;
 
@@ -120,14 +94,16 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     data: {
+      source: {
+        numberOfSpeakers: {
+          value: 6,
+        },
+      },
       item: {
         children: {
-          results: [speaker, speaker1, speaker2, speaker3, speaker4],
+          results: [speaker, speaker1, speaker2, speaker3, speaker4, speaker2, speaker1],
         },
       },
     },
-  },
-  params: {
-    NumberOfSpeakers: '4',
   },
 };

@@ -18,7 +18,7 @@ const speaker1 = {
     Name: {
       value: 'Mary Asada',
     },
-    Role: {
+    jobTitle: {
       value: 'Athlete',
     },
     Picture: {
@@ -62,7 +62,7 @@ const speaker2 = {
     Name: {
       value: 'John Jones',
     },
-    Role: {
+    jobTitle: {
       value: 'Speaker',
     },
     Picture: {

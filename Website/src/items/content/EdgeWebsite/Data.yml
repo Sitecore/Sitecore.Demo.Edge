@@ -3,6 +3,11 @@ ID: "854bd01a-0c22-48fc-a761-86a1eb694943"
 Parent: "6f510288-14c5-5dc8-a8e9-e4205fd03dd3"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
 Path: /sitecore/content/EdgeWebsite/Data
+SharedFields:
+- ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
+  Hint: __Security
+  Value: |
+    ar|sitecore\Demo Content Approver|pd|!*|ar|sitecore\Demo Content Creator|pd|!*|
 Languages:
 - Language: en
   Versions:
@@ -21,11 +26,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a1e3206e-138c-43e7-88bf-545faa94b695"
+      Value: "d65d330d-7525-4f6c-a6ce-26a4d4751568"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T114101Z
+      Value: 20220114T125814Z

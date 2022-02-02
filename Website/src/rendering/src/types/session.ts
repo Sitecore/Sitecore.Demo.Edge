@@ -9,6 +9,7 @@ export type GraphQLSession = {
   itemName: string;
   name: Field<string>;
   premium: Field<boolean>;
+  imageTransformation: Field<string>;
   image?: {
     jsonValue: ImageField;
   };
@@ -24,4 +25,15 @@ export type GraphQLSession = {
   timeslots: {
     targetItems: Timeslot[];
   };
+};
+
+type Audience = {
+  displayName: string;
+};
+
+export type SessionPageFields = {
+  Premium: {
+    value: boolean;
+  };
+  Audience: Audience[];
 };

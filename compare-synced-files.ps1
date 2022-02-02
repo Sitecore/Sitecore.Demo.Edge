@@ -1,9 +1,8 @@
 $syncFilesMappings = @(
-    # TODO: Activate this mapping when PR #172 is merged into develop
-    # @(
-    #     ".\tv\api\index.ts",
-    #     ".\kiosk\api\index.ts"
-    # ),
+    @(
+        ".\tv\api\index.ts",
+        ".\kiosk\api\index.ts"
+    ),
     @(
         ".\kiosk\services\BoxeverService.tsx",
         ".\Website\src\rendering\src\services\BoxeverService.tsx"
@@ -19,19 +18,16 @@ $syncFilesMappings = @(
         ".\Website\src\rendering\postcss.config.js"
     ),
     @(
-        ".\kiosk\next-env.d.ts",
-        ".\tv\next-env.d.ts",
-        ".\Website\src\rendering\next-env.d.ts"
-    ),
-    @(
         ".\kiosk\.prettierrc",
         ".\tv\.prettierrc",
         ".\Website\src\rendering\.prettierrc"
+        ".\demo\experience\cdp\guestDataGenerator\.prettierrc"
     ),
     @(
         ".\kiosk\.vscode\settings.json",
         ".\tv\.vscode\settings.json",
         ".\Website\src\rendering\.vscode\settings.json"
+        ".\demo\experience\cdp\guestDataGenerator\.vscode\settings.json"
     )
 )
 

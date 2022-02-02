@@ -19,6 +19,9 @@ Languages:
     - ID: "025df6a5-2001-449f-8f76-02be5353905c"
       Hint: Audience
       Value: "{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{E67E1029-D58F-45E7-B85F-0E7E0086099E}"
     - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
       Hint: Description
       Value: |
@@ -61,14 +64,14 @@ Languages:
       Value: "{421831DC-EE86-4E05-B974-8C0AE7A21D0E}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "09c72812-4c6d-4a57-8cd0-2720fa9813b5"
+      Value: "5ad2ab3d-17a6-48bd-a48d-6c5ddd36bc41"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T144403Z
+      Value: 20220114T224927Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: nutrition"

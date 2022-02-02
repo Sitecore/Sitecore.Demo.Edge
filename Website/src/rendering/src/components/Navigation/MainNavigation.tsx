@@ -28,7 +28,6 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
               <Image
                 field={props.fields.data.item.headerLogo.jsonValue}
                 alt={props.fields.data.item.headerLogo.alt}
-                loading="lazy"
               />
             </a>
           </Link>
@@ -62,6 +61,11 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
             <li className="text-menu-item">
               <Link href="/vendors">
                 <a>Vendors</a>
+              </Link>
+            </li>
+            <li className="text-menu-item">
+              <Link href="/sponsors">
+                <a>Sponsors</a>
               </Link>
             </li>
             <li className="text-menu-item">

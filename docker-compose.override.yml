@@ -146,7 +146,7 @@ services:
       SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
       SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
       SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
-      SITECORE_USER_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
+      SITECORE_USER_PASSWORD: ${SITECORE_USER_PASSWORD}
       POST_DEPLOYMENT_WAIT_PERIOD: 300
     healthcheck:
       test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]

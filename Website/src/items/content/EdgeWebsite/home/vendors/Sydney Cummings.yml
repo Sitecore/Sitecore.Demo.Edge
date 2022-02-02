@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Silver
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{214DE422-5240-44D6-8279-1454742A55FE}|{92BBBDC4-23AE-480D-964A-19E005E9EDAA}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -43,6 +46,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="33922" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33922/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/b73b74e73acf4c609f1c6cd669a7b2f3?v=9cb725e4" mediaid="" stylelabs-content-type="Image" alt="SyndeyCummings Logo" height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{57011604-34AF-40B5-8892-5A194F76EEBE}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "49cd8e45-70bc-4d22-98e4-6c0946971344"
