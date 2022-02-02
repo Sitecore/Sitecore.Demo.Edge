@@ -54,10 +54,8 @@ const speaker1 = {
     Featured: {
       value: false,
     },
-    url: {
-      path: '/speaker/Speaker-Name',
-    },
   },
+  url: '/speaker/Speaker-Name',
 } as Speaker;
 
 const speaker2 = {
@@ -101,10 +99,8 @@ const speaker2 = {
     Featured: {
       value: true,
     },
-    url: {
-      path: '/speaker/Speaker-Name',
-    },
   },
+  url: '/speaker/Speaker-Name',
 } as Speaker;
 
 const rooms = [

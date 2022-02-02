@@ -30,12 +30,18 @@ SharedFields:
                   premium {
                     value
                   }
+                  url {
+                    path
+                  }
                   speakers {
                     ... on MultilistField {
                       targetItems {
                         ... on Speaker {
                           name: field(name: "name") {
                             value
+                          }
+                          url {
+                            path
                           }
                         }
                       }
