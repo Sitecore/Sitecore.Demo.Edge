@@ -6,7 +6,7 @@ import SpeakersGrid, { SpeakersGridProps } from '../../components/Speakers/Speak
 import { GraphQLSpeaker } from 'src/types/speaker';
 
 export default {
-  title: 'Components/Page Content/Section',
+  title: 'Components/PageContent/Section',
   component: Section,
 } as ComponentMeta<typeof Section>;
 

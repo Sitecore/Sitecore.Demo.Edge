@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Promo, { PromoProps } from '../../components/PageContent/Promo';
 
 export default {
-  title: 'Components/Page Content/Promo',
+  title: 'Components/PageContent/Promo',
   component: Promo,
 } as ComponentMeta<typeof Promo>;
 

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import HeaderBanner, { HeaderBannerProps } from '../../components/PageContent/HeaderBanner';
 
 export default {
-  title: 'Components/Page Content/HeaderBanner',
+  title: 'Components/PageContent/HeaderBanner',
   component: HeaderBanner,
 } as ComponentMeta<typeof HeaderBanner>;
 

@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import HeroImage, { HeroImageProps } from '../../components/PageContent/HeroImage';
 
 export default {
-  title: 'Components/Page Content/HeroImage',
+  title: 'Components/PageContent/HeroImage',
   component: HeroImage,
 } as ComponentMeta<typeof HeroImage>;
 

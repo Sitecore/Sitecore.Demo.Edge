@@ -1,19 +1,16 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import SummitFeatures from '../../components/PageContent/SummitFeatures';
 import SummitFeature, { SummitFeatureProps } from '../../components/PageContent/SummitFeature';
+import { ComponentWithChildrenProps } from 'lib/component-props';
 
 export default {
-  title: 'Components/Page Content/SummitFeature',
-  component: SummitFeature,
-} as ComponentMeta<typeof SummitFeature>;
+  title: 'Components/PageContent/SummitFeatures',
+  component: SummitFeatures,
+} as ComponentMeta<typeof SummitFeatures>;
 
-const Template: ComponentStory<typeof SummitFeature> = (args: SummitFeatureProps) => (
-  <SummitFeature {...args} />
-);
-
-export const Default = Template.bind({});
-Default.args = {
+const featureArgs = {
   fields: {
     Title: {
       value: 'Sports and Recreation Expo',
@@ -34,8 +31,15 @@ Default.args = {
       },
     },
   },
-  rendering: {
-    componentName: 'Rendering',
-    dataSource: '/sitecore',
-  },
 } as SummitFeatureProps;
+
+const Template: ComponentStory<typeof SummitFeatures> = (args: ComponentWithChildrenProps) => (
+  <SummitFeatures {...args}>
+    <SummitFeature {...featureArgs} />
+  </SummitFeatures>
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  params: {},
+};

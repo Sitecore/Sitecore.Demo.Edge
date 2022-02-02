@@ -6,7 +6,7 @@ import ThreeColumnsSection, {
 } from '../../components/PageContent/ThreeColumnsSection';
 
 export default {
-  title: 'Components/Page Content/ThreeColumnsSection',
+  title: 'Components/PageContent/ThreeColumnsSection',
   component: ThreeColumnsSection,
 } as ComponentMeta<typeof ThreeColumnsSection>;
 

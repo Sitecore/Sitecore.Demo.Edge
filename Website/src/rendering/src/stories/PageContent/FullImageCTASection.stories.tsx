@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import FullImageCTASection from '../../components/PageContent/FullImageCTASection';
 
 export default {
-  title: 'Components/Page Content/FullImageCTASection',
+  title: 'Components/PageContent/FullImageCTASection',
   component: FullImageCTASection,
 } as ComponentMeta<typeof FullImageCTASection>;
 

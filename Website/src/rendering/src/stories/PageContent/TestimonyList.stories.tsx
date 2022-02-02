@@ -5,7 +5,7 @@ import TestimonyList from '../../components/PageContent/TestimonyList';
 import { Testimony } from 'src/types/testimony';
 
 export default {
-  title: 'Components/Page Content/TestimonyList',
+  title: 'Components/PageContent/TestimonyList',
   component: TestimonyList,
 } as ComponentMeta<typeof TestimonyList>;
 
