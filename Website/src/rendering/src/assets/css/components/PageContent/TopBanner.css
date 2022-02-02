@@ -1,0 +1,11 @@
+.bx_TopBanner {
+  @apply py-0 bg-blue-lightest;
+
+  .bx_TopBanner__banner {
+    @apply py-4 text-base leading-normal text-black;
+
+    span {
+      @apply text-left w-full;
+    }
+  }
+}
