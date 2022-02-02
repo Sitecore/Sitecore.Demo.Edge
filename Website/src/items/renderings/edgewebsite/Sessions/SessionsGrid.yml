@@ -26,6 +26,9 @@ SharedFields:
               premium {
                 value
               }
+              url {
+                path
+              }
               image {
                 jsonValue
               }
