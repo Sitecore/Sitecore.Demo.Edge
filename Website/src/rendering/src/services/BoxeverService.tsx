@@ -545,8 +545,16 @@ export interface WelcomeMessage {
 }
 
 export function getDynamicWelcomeMessage(ipAddress: string): Promise<WelcomeMessage> {
-  return callFlows({
-    friendlyId: 'dynamic_welcome_message',
+  const dataExtensionName = 'PersonalInformation';
+
+  const dataExtensionPayload = {
+    key: dataExtensionName,
     ipAddress,
-  }) as Promise<WelcomeMessage>;
+  };
+  return saveDataExtension(dataExtensionName, dataExtensionPayload).then(
+    () =>
+      callFlows({
+        friendlyId: 'dynamic_welcome_message',
+      }) as Promise<WelcomeMessage>
+  );
 }
