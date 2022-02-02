@@ -18,40 +18,49 @@ const Products = (): JSX.Element => {
       topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
       products: [
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
           price: 255.99,
+          sku: '234902',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
           price: 255.99,
+          sku: '3842',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
           price: 255.99,
+          sku: '29384',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
           price: 255.99,
+          sku: '203948',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
           price: 255.99,
+          sku: '23423',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
           price: 255.99,
+          sku: '7864',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
           price: 255.99,
+          sku: '743',
         },
         {
-          imageUrl: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
+          image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
           price: 255.99,
+          sku: '674',
         },
       ],
     },

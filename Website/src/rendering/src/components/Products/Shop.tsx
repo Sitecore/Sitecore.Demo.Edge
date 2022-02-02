@@ -85,7 +85,12 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
       </div>
       <div id="reflektion-right-container">
         {props.products.map((product) => (
-          <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
+          <Product
+            key={product.image_url}
+            image_url={product.image_url}
+            price={product.price}
+            sku={product.sku}
+          />
         ))}
       </div>
     </div>
@@ -170,9 +175,9 @@ export const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
 
 export const Product = (props: ProductProps): JSX.Element => (
   <div className="product">
-    <Link href="/shop/product">
+    <Link href={`/shop/products/${props.sku}`}>
       <a>
-        <img className="product-image" src={props.imageUrl} alt="Product image" />
+        <img className="product-image" src={props.image_url} alt="Product image" />
         <div className="product-details">
           <b>{props.name || 'Product Name'}</b>
           <p>{props.vendor || 'Vendor Name'}</p>
@@ -187,7 +192,7 @@ export const Category = (props: CategoryProps): JSX.Element => (
   <Link href="/shop/products">
     <a>
       <div className="category">
-        <img className="category-image" src={props.imageUrl} alt={props.categoryName} />
+        <img className="category-image" src={props.image_url} alt={props.categoryName} />
         <p className="item-name">{props.categoryName}</p>
       </div>
     </a>
@@ -198,7 +203,7 @@ export const Vendor = (props: VendorProps): JSX.Element => (
   <Link href="/shop/products">
     <a>
       <div>
-        <img src={props.imageUrl} alt={props.vendorName} />
+        <img src={props.image_url} alt={props.vendorName} />
         <p className="item-name">{props.vendorName}</p>
       </div>
     </a>
@@ -230,14 +235,15 @@ export const ExpandableDropDown = (props: ExpandableDropDownProps): JSX.Element 
 // Interfaces
 
 export interface ProductProps {
-  imageUrl: string;
+  image_url: string;
   price: number;
   name?: string;
   vendor?: string;
+  sku: string;
 }
 
 export interface CategoryProps {
-  imageUrl: string;
+  image_url: string;
   categoryName: string;
 }
 
@@ -246,7 +252,7 @@ export interface ShopByCategoryProps {
 }
 
 export interface VendorProps {
-  imageUrl: string;
+  image_url: string;
   vendorName: string;
 }
 

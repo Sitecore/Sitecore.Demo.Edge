@@ -5,67 +5,77 @@ import { Product } from './Shop';
 const ProductDetail = (): JSX.Element => {
   const alsoViewedProducts = [
     {
-      imageUrl: '/assets/img/shop/demo/bike-lights.jpg',
+      image_url: '/assets/img/shop/demo/bike-lights.jpg',
       price: 25.99,
       name: 'Outrace bike light set',
       vendor: 'Outrace',
+      sku: '0923',
     },
     {
-      imageUrl: '/assets/img/shop/demo/pump-1.png',
+      image_url: '/assets/img/shop/demo/pump-1.png',
       price: 40,
       name: 'CenterCycle Travel pump',
       vendor: 'CenterCycle',
+      sku: '129489',
     },
     {
-      imageUrl: '/assets/img/shop/demo/ratchet-kit-3.jpg',
+      image_url: '/assets/img/shop/demo/ratchet-kit-3.jpg',
       price: 52.95,
       name: 'CenterCycle Ratchet kit',
       vendor: 'CenterCycle',
+      sku: '193405',
     },
     {
-      imageUrl: '/assets/img/shop/demo/bike-seat-1.jpg',
+      image_url: '/assets/img/shop/demo/bike-seat-1.jpg',
       price: 119.99,
       name: 'Striva Ergonomic bike seat',
       vendor: 'Striva',
+      sku: '239805',
     },
     {
-      imageUrl: '/assets/img/shop/demo/bike-helmet-1.jpg',
+      image_url: '/assets/img/shop/demo/bike-helmet-1.jpg',
       price: 50,
       name: 'Outrace lightweight bicycle helmet',
       vendor: 'Outrace',
+      sku: '62382',
     },
   ];
 
   const similarProducts = [
     {
-      imageUrl: '/assets/img/shop/demo/tough-and-durable-012x.jpg',
+      image_url: '/assets/img/shop/demo/tough-and-durable-012x.jpg',
       price: 500,
       name: 'OverUnder smartwatch',
       vendor: 'OverUnder',
+      sku: '1234',
     },
     {
-      imageUrl: '/assets/img/shop/demo/smart-band-1.png',
+      image_url: '/assets/img/shop/demo/smart-band-1.png',
       price: 45,
       name: 'Striva Smart band',
       vendor: 'Striva',
+      sku: '2367',
     },
     {
-      imageUrl: '/assets/img/shop/demo/prod-habitat-striva5.jpeg',
+      image_url: '/assets/img/shop/demo/prod-habitat-striva5.jpeg',
       price: 19.95,
       name: 'Striva Smart fitness tracker',
       vendor: 'Striva',
+      sku: '6543',
     },
     {
-      imageUrl: '/assets/img/shop/demo/Smart-audio-band-1.jpg',
+      image_url: '/assets/img/shop/demo/Smart-audio-band-1.jpg',
       price: 150,
       name: 'Striva Smart audio band',
       vendor: 'Striva',
+      sku: '3456',
     },
     {
-      imageUrl: '/assets/img/shop/demo/phone-holder.jpg',
+      image_url: '/assets/img/shop/demo/phone-holder.jpg',
       price: 24.95,
       name: 'Striva Bike phone holder',
       vendor: 'Striva',
+      sku: '2345',
     },
   ];
 

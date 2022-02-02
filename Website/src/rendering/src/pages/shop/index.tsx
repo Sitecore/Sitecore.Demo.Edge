@@ -17,19 +17,19 @@ const Shop = (): JSX.Element => {
     categories: [
       {
         categoryName: 'Workout',
-        imageUrl: '/assets/img/shop/demo/shutterstock_276857315.png',
+        image_url: '/assets/img/shop/demo/shutterstock_276857315.png',
       },
       {
         categoryName: 'Golf',
-        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-1.png',
+        image_url: '/assets/img/shop/demo/shutterstock_276857315-1.png',
       },
       {
         categoryName: 'Mountain bike',
-        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-2.png',
+        image_url: '/assets/img/shop/demo/shutterstock_276857315-2.png',
       },
       {
         categoryName: 'Yoga',
-        imageUrl: '/assets/img/shop/demo/shutterstock_276857315-3.png',
+        image_url: '/assets/img/shop/demo/shutterstock_276857315-3.png',
       },
     ],
   };
@@ -37,27 +37,27 @@ const Shop = (): JSX.Element => {
   const vendorProps = {
     vendors: [
       {
-        imageUrl: '/assets/img/shop/demo/RunRightThrough.png',
+        image_url: '/assets/img/shop/demo/RunRightThrough.png',
         vendorName: 'Alba',
       },
       {
-        imageUrl: '/assets/img/shop/demo/Striva.png',
+        image_url: '/assets/img/shop/demo/Striva.png',
         vendorName: 'Striva',
       },
       {
-        imageUrl: '/assets/img/shop/demo/SyndeyCummings.png',
+        image_url: '/assets/img/shop/demo/SyndeyCummings.png',
         vendorName: 'CenterCycle',
       },
       {
-        imageUrl: '/assets/img/shop/demo/RunRightThrough-1.png',
+        image_url: '/assets/img/shop/demo/RunRightThrough-1.png',
         vendorName: 'Run Right Through',
       },
       {
-        imageUrl: '/assets/img/shop/demo/Striva-1.png',
+        image_url: '/assets/img/shop/demo/Striva-1.png',
         vendorName: 'Overunder',
       },
       {
-        imageUrl: '/assets/img/shop/demo/SyndeyCummings-1.png',
+        image_url: '/assets/img/shop/demo/SyndeyCummings-1.png',
         vendorName: 'Sydney Cummings',
       },
     ],
@@ -69,88 +69,109 @@ const Shop = (): JSX.Element => {
       topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
       products: [
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
         {
-          imageUrl: '/assets/img/shop/demo/bike-helmet-2.png',
+          image_url: '/assets/img/shop/demo/bike-helmet-2.png',
           price: 255.99,
+          sku: '28395',
         },
       ],
     },
@@ -221,9 +242,19 @@ const Shop = (): JSX.Element => {
           <FeaturedProductHero />
           <section className="section">
             <div className="section__content container">
+              <input
+                data-rfkid="hs_ps"
+                data-cssid="hosted-sb"
+                className="rfk_sb flex__1 border__input padding__input search"
+                type="text"
+                autoComplete="off"
+                placeholder="What can we help you find today?"
+              />
               <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
             </div>
           </section>
+          <div data-rfkid="hs_sr" data-keyphrase="SAMPLE KEYPHRASE"></div>
+          <div data-rfkid="hs_sr" data-keyphrase=""></div>
           <ShopByCategory categories={categoryProps.categories} />
           <ShopByVendor vendors={vendorProps.vendors} />
         </div>
