@@ -13,6 +13,9 @@ export type Speaker = {
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
     Featured: Field<boolean>;
+    url:  {
+      path: string;
+    }
   };
 };
 

@@ -41,7 +41,7 @@ const SpeakerListItem = (speaker: Speaker): JSX.Element => {
         {company}
         {location}
         <div className="info-col-cta">
-          <Link href={`/speakers/${speaker.fields.Name.value}`}>
+          <Link href={`${speaker.fields.url.path}`}>
             <a className="btn--main btn--main--round">Learn more</a>
           </Link>
         </div>
