@@ -13,9 +13,9 @@ export type Speaker = {
     InstagramProfileLink?: Field<string>;
     LinkedinProfileLink?: Field<string>;
     Featured: Field<boolean>;
-    url:  {
+    url: {
       path: string;
-    }
+    };
   };
 };
 
@@ -23,9 +23,9 @@ export type MinimalGraphQLSpeaker = {
   itemName: string;
   name: Field<string>;
   jobTitle: Field<string>;
-  url:  {
+  url: {
     path: string;
-  }
+  };
 };
 
 export type GraphQLSpeaker = MinimalGraphQLSpeaker & {
