@@ -32,6 +32,9 @@ const speaker = {
   jobTitle: {
     value: 'Creative Director',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker1 = {
@@ -45,6 +48,9 @@ const speaker1 = {
   },
   jobTitle: {
     value: 'Pro Basketball Player',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
@@ -60,6 +66,9 @@ const speaker2 = {
   jobTitle: {
     value: 'Chief Product Officer',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker3 = {
@@ -74,6 +83,9 @@ const speaker3 = {
   jobTitle: {
     value: 'Social Influencer',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker4 = {
@@ -87,6 +99,9 @@ const speaker4 = {
   },
   jobTitle: {
     value: 'Professional Cyclist',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 

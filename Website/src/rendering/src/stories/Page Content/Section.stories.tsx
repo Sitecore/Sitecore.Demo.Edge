@@ -31,6 +31,9 @@ const speaker = {
   jobTitle: {
     value: 'Speaker',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speakerProps = {
