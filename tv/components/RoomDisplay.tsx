@@ -33,10 +33,10 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
               alt="Sample"
             />
 
-            <div className="checkin-qrcode">
+            <div className="checkin-container">
               <div className="checkin-text">CHECK IN</div>
               <Image
-                className="checkin-code"
+                className="qr-code"
                 src={qr}
                 alt="check-in"
                 width={160}
@@ -93,7 +93,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
               </div>
               <div className="right-content">
                 <Image
-                  className="next-session-qr-code"
+                  className="qr-code"
                   src={qr}
                   alt="next-session-qr-code"
                   width={160}
