@@ -544,12 +544,16 @@ export interface WelcomeMessage {
   message: string;
 }
 
-export function getDynamicWelcomeMessage(ipAddress: string): Promise<WelcomeMessage> {
+export function getDynamicWelcomeMessage(
+  ipAddress: string,
+  language: string
+): Promise<WelcomeMessage> {
   const dataExtensionName = 'PersonalInformation';
 
   const dataExtensionPayload = {
     key: dataExtensionName,
     ipAddress,
+    language,
   };
   return saveDataExtension(dataExtensionName, dataExtensionPayload).then(
     () =>
