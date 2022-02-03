@@ -76,6 +76,9 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   );
 }
 
-export function getDynamicWelcomeMessage(ipAddress: string): Promise<WelcomeMessage> {
-  return boxeverGetDynamicWelcomeMessage(ipAddress);
+export function getDynamicWelcomeMessage(
+  ipAddress: string,
+  language: string
+): Promise<WelcomeMessage> {
+  return boxeverGetDynamicWelcomeMessage(ipAddress, language);
 }
