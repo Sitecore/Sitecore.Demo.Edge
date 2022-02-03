@@ -19,7 +19,6 @@ export type Speaker = {
 };
 
 export type MinimalGraphQLSpeaker = {
-  itemName: string;
   name: Field<string>;
   jobTitle: Field<string>;
   url: {

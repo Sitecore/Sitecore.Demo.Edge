@@ -2,7 +2,6 @@ import { GraphQLSession } from 'src/types/session';
 
 export const SESSIONS: GraphQLSession[] = [
   {
-    itemName: 'Fuel For Life Nutrition 101',
     name: {
       value: 'Fuel For Life: Nutrition 101',
     },
@@ -22,7 +21,6 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'Elle Smith',
           name: {
             value: 'Elle Smith',
           },
@@ -67,7 +65,6 @@ export const SESSIONS: GraphQLSession[] = [
     },
   },
   {
-    itemName: 'Mountain Biking Tales From The Trail',
     name: {
       value: 'Mountain Biking: Tales From The Trail',
     },
@@ -87,7 +84,6 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
@@ -99,7 +95,6 @@ export const SESSIONS: GraphQLSession[] = [
           },
         },
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
@@ -111,7 +106,6 @@ export const SESSIONS: GraphQLSession[] = [
           },
         },
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
@@ -123,7 +117,6 @@ export const SESSIONS: GraphQLSession[] = [
           },
         },
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
@@ -168,7 +161,6 @@ export const SESSIONS: GraphQLSession[] = [
     },
   },
   {
-    itemName: 'Train Smarter not harder',
     name: {
       value: 'Train Smarter - not harder',
     },
@@ -188,7 +180,6 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
@@ -200,7 +191,6 @@ export const SESSIONS: GraphQLSession[] = [
           },
         },
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
@@ -212,7 +202,6 @@ export const SESSIONS: GraphQLSession[] = [
           },
         },
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
@@ -224,7 +213,6 @@ export const SESSIONS: GraphQLSession[] = [
           },
         },
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
@@ -269,7 +257,6 @@ export const SESSIONS: GraphQLSession[] = [
     },
   },
   {
-    itemName: '7 Mindset Strategies To Raise Your Game',
     name: {
       value: '7 Mindset Strategies To Raise Your Game',
     },
@@ -289,7 +276,6 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'Tom Hudson',
           name: {
             value: 'Tom Hudson',
           },

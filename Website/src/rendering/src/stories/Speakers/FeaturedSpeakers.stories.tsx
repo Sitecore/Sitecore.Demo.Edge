@@ -21,7 +21,6 @@ const speakerImage = {
 };
 
 const speaker = {
-  itemName: 'First Speaker Name',
   name: {
     value: 'First Speaker Name',
   },
@@ -38,7 +37,6 @@ const speaker = {
 } as GraphQLSpeaker;
 
 const speaker1 = {
-  itemName: 'Second Speaker',
   name: {
     value: 'Second Speaker',
   },
@@ -55,7 +53,6 @@ const speaker1 = {
 } as GraphQLSpeaker;
 
 const speaker2 = {
-  itemName: 'Third Speaker',
   name: {
     value: 'Third Speaker',
   },
@@ -72,7 +69,6 @@ const speaker2 = {
 } as GraphQLSpeaker;
 
 const speaker3 = {
-  itemName: 'Another Speaker',
   name: {
     value: 'Another Speaker',
   },
@@ -89,7 +85,6 @@ const speaker3 = {
 } as GraphQLSpeaker;
 
 const speaker4 = {
-  itemName: 'Last Speaker',
   name: {
     value: 'Last Speaker',
   },

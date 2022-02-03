@@ -20,7 +20,6 @@ const speakerImage = {
 };
 
 const speaker = {
-  itemName: 'Speaker Name',
   name: {
     value: 'Speaker Name',
   },
