@@ -27,6 +27,7 @@ const vendor = {
       },
     },
   },
+  url: '/vendors/test',
 } as Vendor;
 
 export const Default = Template.bind({});
