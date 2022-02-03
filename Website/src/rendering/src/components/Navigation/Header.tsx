@@ -13,7 +13,7 @@ const Header = (props: HeaderProps): JSX.Element => (
         <Link href="/account/login">
           <a>Login</a>
         </Link>
-        <Link href="/cart">
+        <Link href="/checkout/cart">
           <a>Cart</a>
         </Link>
       </div>
