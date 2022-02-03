@@ -11,15 +11,17 @@ type RoomProps = {
   nextSession: Session | null;
 };
 
-const handleCurrentSessionQrCodeClick = (currentSession: Session) => {
-  navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession.id}`);
-};
-
-const handleNextSessionQrCodeClick = (nextSession: Session) => {
-  navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession.id}`);
-};
-
 const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Element => {
+  const handleCurrentSessionQrCodeClick = () => {
+    navigator.clipboard.writeText(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`
+    );
+  };
+
+  const handleNextSessionQrCodeClick = () => {
+    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`);
+  };
+
   return (
     <div className="roomDisplay">
       <div className="image-left">
@@ -42,7 +44,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 width={160}
                 height={160}
                 title="Click to copy QR code link"
-                onClick={() => handleCurrentSessionQrCodeClick(currentSession)}
+                onClick={() => handleCurrentSessionQrCodeClick()}
               />
             </div>
           </>
@@ -99,7 +101,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                   width={160}
                   height={160}
                   title="Click to copy QR code link"
-                  onClick={() => handleNextSessionQrCodeClick(nextSession)}
+                  onClick={() => handleNextSessionQrCodeClick()}
                 />
               </div>
             </div>
