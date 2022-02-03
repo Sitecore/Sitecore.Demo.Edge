@@ -24,6 +24,7 @@ const sponsor1 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor2 = {
