@@ -50,6 +50,8 @@ services:
       NEXT_PUBLIC_CDP_CLIENT_KEY: ${CDP_CLIENT_KEY}
       NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT: ${CDP_API_TARGET_ENDPOINT}/v1.2
       NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY: ${DISCOVER_CUSTOMER_KEY}
+      NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID: ${ORDERCLOUD_BUYER_CLIENT_ID}
+      NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL: ${ORDERCLOUD_BASE_API_URL}
       #DEBUG: ${DEBUG} # Uncomment this line and set the DEBUG environment variable value in the .env file to enable debug logging
     depends_on:
       - cm
