@@ -5,4 +5,5 @@ export type Sponsor = {
     Name: Field<string>;
     Logo: ImageField;
   };
+  url: string;
 };

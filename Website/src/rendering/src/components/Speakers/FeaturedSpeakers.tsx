@@ -37,7 +37,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
       .sort()
       .slice(0, getSpeakerNumberToShow(props))
       .map((speaker, index) => (
-        <Link key={index} href={`/speakers/${speaker.name.value}`} passHref>
+        <Link key={index} href={speaker.url.path} passHref>
           <a>
             <div className="grid-item">
               <div className="item-image">
