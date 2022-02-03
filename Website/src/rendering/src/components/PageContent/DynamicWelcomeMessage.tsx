@@ -12,13 +12,13 @@ const DynamicWelcomeMessage = (): JSX.Element => {
   }, []);
 
   const messageContent = message && (
-    <section className="section bx_TopBanner">
-      <div className="section__content container bx_TopBanner__banner">
+    <section className="section dynamic-welcome-message">
+      <div className="section__content container message-banner">
         <span>{message}</span>
       </div>
     </section>
   );
-  return <div>{messageContent}</div>;
+  return <>{messageContent}</>;
 };
 
 export default DynamicWelcomeMessage;

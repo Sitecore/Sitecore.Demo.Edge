@@ -1,21 +1,25 @@
+import { forgetCurrentGuest } from './BoxeverService';
+
 export function KeyDownHandler(): void {
-  const map1 = new Map<string, boolean>();
-  map1.set('Control', false);
+  const keyMap = new Map<string, boolean>();
+  keyMap.set('Control', false);
   //map1.set('Shift', false);
-  map1.set('b', false);
+  keyMap.set('b', false);
 
   document.addEventListener('keydown', (event: KeyboardEvent) => {
-    if (map1.has(event.key)) {
-      map1.set(event.key, true);
-      if (map1.get('Control') && map1.get('b')) {
-        console.log('tada!!');
+    if (keyMap.has(event.key)) {
+      keyMap.set(event.key, true);
+      if (keyMap.get('Control') && keyMap.get('b')) {
+        window.setTimeout(forgetCurrentGuest, 1000);
+        event.stopPropagation();
+        console.log('Killing boxever session!!');
       }
     }
   });
 
   document.addEventListener('keyup', (event) => {
-    if (map1.has(event.key)) {
-      map1.set(event.key, false);
+    if (keyMap.has(event.key)) {
+      keyMap.set(event.key, false);
     }
   });
 }

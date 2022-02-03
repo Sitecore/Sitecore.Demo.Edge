@@ -56,6 +56,7 @@
 @import "./components/NonSitecore/InformationPageHero.css";
 
 /* PageContent */
+@import "./components/PageContent/DynamicWelcomeMessage.css";
 @import "./components/PageContent/FeaturedEvent.css";
 @import "./components/PageContent/FullImageSection.css";
 @import "./components/PageContent/HeaderBanner.css";
@@ -68,7 +69,6 @@
 @import "./components/PageContent/ThreeColumnsCta.css";
 @import "./components/PageContent/ThreeColumnsSection.css";
 @import "./components/PageContent/TicketGrid.css";
-@import "./components/PageContent/TopBanner.css";
 
 /* Payment */
 @import "./components/Payment/OrderSummary.css";
