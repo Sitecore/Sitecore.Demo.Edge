@@ -24,6 +24,7 @@ const fitbit = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sports = {
@@ -39,6 +40,7 @@ const sports = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 export const Default = Template.bind({});
