@@ -14,6 +14,7 @@ config.autoAddCss = false;
 // Remove it in package.json as well if removed here.
 import 'nprogress/nprogress.css';
 import 'assets/css/main.css';
+import { KeyDownHandler } from 'src/services/KeypressHandlerService';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
@@ -36,6 +37,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 
       identifyVisitor(email);
     }
+    KeyDownHandler();
   });
   // END CUSTOMIZATION
 
