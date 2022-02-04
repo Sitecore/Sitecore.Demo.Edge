@@ -159,7 +159,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
       channel: BoxeverServiceConfig.channel,
-      language: window.navigator.language ? window.navigator.language : 'EN',
+      language: window.navigator.language ? window.navigator.language : 'en',
       currency: 'USD',
       pos: 'PLAY! Summit',
     },
