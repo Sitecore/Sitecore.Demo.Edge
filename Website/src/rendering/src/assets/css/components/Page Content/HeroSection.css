@@ -13,8 +13,6 @@
       @apply px-0 mx-0 max-w-none;
     }
 
-    max-width: 1440px;
-
     .container-content {
       @apply w-full bg-black-light;
       @apply md:w-45;
