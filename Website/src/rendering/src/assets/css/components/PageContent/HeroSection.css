@@ -1,12 +1,19 @@
-.section__hero {
+.hero-section {
   @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative;
 
-  &__container {
+  .hero-background {
+    @apply h-64 bg-black bg-left bg-no-repeat bg-cover;
+    @apply md:hidden;
+  }
+
+  .hero-container {
     @apply flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden;
 
-    max-width: 1440px;
+    @media (max-width: 767px) {
+      @apply px-0 mx-0 max-w-none;
+    }
 
-    &__content {
+    .container-content {
       @apply w-full bg-black-light;
       @apply md:w-45;
 
@@ -17,13 +24,17 @@
           rgba(60, 60, 60, 1) 50%,
           rgba(50, 50, 50, 1) 100%
         );
-      box-shadow: 0 0 20px #232323;
 
-      .btn__area {
-        @apply px-12;
+      @screen md {
+        box-shadow: 0 0 20px #232323;
       }
 
-      &__text {
+      .btn__area {
+        @apply p-6;
+        @apply md:px-12;
+      }
+
+      .content-text {
         @apply p-6 relative;
         @apply md:p-12;
 
@@ -36,40 +47,33 @@
             border-color: transparent #1c80ff transparent transparent;
           }
         }
-      }
 
-      .logo {
-        @apply hidden;
-        @apply md:block;
+        .slogan {
+          @apply text-white uppercase pb-5 font-extrabold;
+          @apply md:pt-4;
 
-        img {
-          width: 240px;
+          font-size: 1.5em;
         }
-      }
 
-      .slogan {
-        @apply text-white uppercase pt-4 pb-5 font-extrabold;
+        .expo {
+          @apply text-orange;
 
-        font-size: 1.5em;
-      }
+          font-weight: 600;
+          font-size: 1.5em;
+        }
 
-      .expo {
-        @apply text-orange;
+        .title {
+          @apply text-4xl text-white uppercase py-3 m-0 font-bold;
+          @apply md:text-5xl;
+        }
 
-        font-weight: 600;
-        font-size: 1.5em;
-      }
+        .subtitle {
+          @apply text-orange pt-2;
+          @apply md:py-2;
 
-      .title {
-        @apply text-4xl text-white uppercase py-3 m-0 font-bold;
-        @apply md:text-5xl;
-      }
-
-      .subtitle {
-        @apply text-orange py-2;
-
-        font-size: 1em;
-        line-height: 1.2;
+          font-size: 1em;
+          line-height: 1.2;
+        }
       }
     }
   }

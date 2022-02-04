@@ -26,3 +26,14 @@ export type GraphQLSession = {
     targetItems: Timeslot[];
   };
 };
+
+type Audience = {
+  displayName: string;
+};
+
+export type SessionPageFields = {
+  Premium: {
+    value: boolean;
+  };
+  Audience: Audience[];
+};

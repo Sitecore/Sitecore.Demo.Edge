@@ -9,12 +9,14 @@ import {
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
+import { SessionPageFields } from '../types/session';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
 type viewEventAdditionalData = {
   sitecoreTemplateName?: string;
   premiumContent?: boolean;
+  audiences?: string[];
 };
 
 /**
@@ -27,8 +29,13 @@ export function logViewEvent(route?: RouteData): Promise<unknown> {
     if (route.templateName) {
       additionalData.sitecoreTemplateName = route.templateName;
     }
-    if (route.templateName === 'Session') {
-      additionalData.premiumContent = (route.fields?.Premium.value as boolean) || false;
+    if (route.templateName === 'Session' && route.fields) {
+      const sessionFields = route.fields as unknown as SessionPageFields;
+
+      additionalData.premiumContent = sessionFields.Premium?.value || false;
+      additionalData.audiences = sessionFields.Audience
+        ? sessionFields.Audience.map((audience) => audience.displayName)
+        : [];
     }
   }
 
