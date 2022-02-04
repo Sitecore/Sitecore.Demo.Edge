@@ -162,6 +162,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
       language: window.navigator.language ? window.navigator.language : 'en',
       currency: 'USD',
       pos: 'PLAY! Summit',
+      websiteBaseUrl: BoxeverServiceConfig.websiteBaseUrl,
     },
     eventConfig
   );
