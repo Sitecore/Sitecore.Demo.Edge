@@ -12,6 +12,16 @@ type RoomProps = {
 };
 
 const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Element => {
+  const handleCurrentSessionQrCodeClick = () => {
+    navigator.clipboard.writeText(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`
+    );
+  };
+
+  const handleNextSessionQrCodeClick = () => {
+    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`);
+  };
+
   return (
     <div className="roomDisplay">
       <div className="image-left">
@@ -25,9 +35,17 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
               alt="Sample"
             />
 
-            <div className="checkin-qrcode">
+            <div className="checkin-container">
               <div className="checkin-text">CHECK IN</div>
-              <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+              <Image
+                className="qr-code"
+                src={qr}
+                alt="check-in"
+                width={160}
+                height={160}
+                title="Click to copy QR code link"
+                onClick={() => handleCurrentSessionQrCodeClick()}
+              />
             </div>
           </>
         )}
@@ -76,7 +94,15 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 </div>
               </div>
               <div className="right-content">
-                <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+                <Image
+                  className="qr-code"
+                  src={qr}
+                  alt="next-session-qr-code"
+                  width={160}
+                  height={160}
+                  title="Click to copy QR code link"
+                  onClick={() => handleNextSessionQrCodeClick()}
+                />
               </div>
             </div>
           )}
