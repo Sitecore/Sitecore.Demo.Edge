@@ -309,6 +309,15 @@ export function identifyVisitor(
 }
 
 // ****************************************************************************
+// Closes current Boxever browsing session.
+// ****************************************************************************
+export function closeSession(): Promise<unknown> {
+  return logEvent('FORCE_CLOSE', {
+    _bx_extended_message: '1',
+  });
+}
+
+// ****************************************************************************
 // Flush Boxever local storage for current guest and starts a new anonymous
 // visitor session.
 // Code from that function is coming mostly from the Boxever library and

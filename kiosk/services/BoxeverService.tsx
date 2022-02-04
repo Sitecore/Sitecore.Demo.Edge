@@ -159,7 +159,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
       browser_id: window.Boxever.getID(), // For eventCreate calls
       browserId: window.Boxever.getID(), // For callFlows calls
       channel: BoxeverServiceConfig.channel,
-      language: 'EN',
+      language: window.navigator.language ? window.navigator.language : 'en',
       currency: 'USD',
       pos: 'PLAY! Summit',
     },
@@ -306,6 +306,15 @@ export function identifyVisitor(
   }
 
   return sendEventCreate(eventConfig);
+}
+
+// ****************************************************************************
+// Closes current Boxever browsing session.
+// ****************************************************************************
+export function closeSession(): Promise<unknown> {
+  return logEvent('FORCE_CLOSE', {
+    _bx_extended_message: '1',
+  });
 }
 
 // ****************************************************************************
@@ -535,4 +544,30 @@ export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefine
       console.log(e);
       return defaultValue;
     });
+}
+
+// ********************************
+// Get Dynamic welcome message
+// ********************************
+export interface WelcomeMessage {
+  message: string;
+}
+
+export function getDynamicWelcomeMessage(
+  ipAddress: string,
+  language: string
+): Promise<WelcomeMessage> {
+  const dataExtensionName = 'PersonalInformation';
+
+  const dataExtensionPayload = {
+    key: dataExtensionName,
+    ipAddress,
+    language,
+  };
+  return saveDataExtension(dataExtensionName, dataExtensionPayload).then(
+    () =>
+      callFlows({
+        friendlyId: 'dynamic_welcome_message',
+      }) as Promise<WelcomeMessage>
+  );
 }
