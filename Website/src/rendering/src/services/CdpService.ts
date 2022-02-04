@@ -6,10 +6,13 @@ import {
   saveDataExtension,
   WelcomeMessage,
   getDynamicWelcomeMessage as boxeverGetDynamicWelcomeMessage,
+  isCdpConfigured as boxeverIsCdpConfigured,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
 import { SessionPageFields } from '../types/session';
+
+export const isCdpConfigured = boxeverIsCdpConfigured;
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
