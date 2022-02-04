@@ -103,10 +103,6 @@
 
         .right-content {
           @apply flex py-6 pr-4 z-20;
-
-          .next-session-qr-code:hover {
-            @apply opacity-80;
-          }
         }
       }
     }
