@@ -1,6 +1,6 @@
 const BoxeverServiceConfig = {
   channel: 'WEB',
-  websiteBaseUrl: process.env.PUBLIC_URL,
+  websiteBaseUrl: window.location.origin,
 };
 
 export default BoxeverServiceConfig;
