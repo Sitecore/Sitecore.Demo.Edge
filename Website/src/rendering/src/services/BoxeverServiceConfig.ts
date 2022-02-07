@@ -1,6 +1,6 @@
 const BoxeverServiceConfig = {
   channel: 'WEB',
-  websiteBaseUrl: window.location.origin,
+  websiteBaseUrl: typeof window !== 'undefined' ? window.location.origin : '',
 };
 
 export default BoxeverServiceConfig;
