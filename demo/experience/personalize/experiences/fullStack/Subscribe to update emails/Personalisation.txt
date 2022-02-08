@@ -1,0 +1,17 @@
+<#assign baseUrl = getDecisionModelResultNode("Get Website Base URL").outputs[0].websiteBaseUrl>
+<#assign aDateTime = .now>
+{
+<#if (guest.firstName)??>
+  "Name": "${guest.firstName} ${guest.lastName}",
+</#if>
+<#if (guest.email)??>
+  "Email": "${guest.email}",
+</#if>
+  "HasExternalDoubleOptIn": "true",
+  "CustomFields": [
+    "SubscriptionTimestamp=${aDateTime?iso_local}",
+<#if (baseUrl)??>
+    "WebsiteBaseUrl=${baseUrl}"
+</#if>
+  ]
+}
