@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { Session } from '../interfaces/session';
-import qr from '../public/play_qr.png';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
+import { AwesomeQRCode } from '@awesomeqr/react';
 
 type RoomProps = {
   room: string;
@@ -37,15 +37,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
 
             <div className="checkin-container">
               <div className="checkin-text">CHECK IN</div>
-              <Image
+              <div
                 className="qr-code"
-                src={qr}
-                alt="check-in"
-                width={160}
-                height={160}
                 title="Click to copy QR code link"
                 onClick={() => handleCurrentSessionQrCodeClick()}
-              />
+              >
+                <AwesomeQRCode
+                  options={{
+                    text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
+                    size: 255,
+                    logoImage: logo.src,
+                  }}
+                />
+              </div>
             </div>
           </>
         )}
@@ -94,15 +98,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 </div>
               </div>
               <div className="right-content">
-                <Image
+                <div
                   className="qr-code"
-                  src={qr}
-                  alt="next-session-qr-code"
-                  width={160}
-                  height={160}
                   title="Click to copy QR code link"
                   onClick={() => handleNextSessionQrCodeClick()}
-                />
+                >
+                  <AwesomeQRCode
+                    options={{
+                      text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
+                      size: 255,
+                      logoImage: logo.src,
+                    }}
+                  />
+                </div>
               </div>
             </div>
           )}
