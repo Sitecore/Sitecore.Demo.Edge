@@ -14,7 +14,7 @@
   "request": {
     "requestType": "POST",
     "connectionUrl": "https://api.moosend.com/v3/subscribers/ceda7fd4-df53-4e10-b6dc-8a637266d141/subscribe.json?apikey=Redacted",
-    "requestBody": "{\n  \"Name\": \"SitecoreDemo\",\n  \"Email\": \"sitecoredemo@sitecore.com\",\n  \"HasExternalDoubleOptIn\": true,\n  \"CustomFields\": []\n}"
+    "requestBody": "{\n  \"Name\": \"SitecoreDemo\",\n  \"Email\": \"test@test.com\",\n  \"HasExternalDoubleOptIn\": true,\n  \"CustomFields\": []\n}"
   },
   "inputMappings": [],
   "outputMappings": [
