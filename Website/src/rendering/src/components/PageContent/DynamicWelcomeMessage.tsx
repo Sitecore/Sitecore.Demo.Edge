@@ -4,15 +4,24 @@ import { getIpAddress } from 'src/services/IpAddressService';
 import { useRouter } from 'next/router';
 
 const DynamicWelcomeMessage = (): JSX.Element => {
+  const DEFAULT_MESSAGE = 'Welcome to PLAY! Summit.';
+
   const [message, SetMessage] = useState('');
   const router = useRouter();
 
   useEffect(() => {
-    const language: string | undefined = navigator.language ? navigator.language : router.locale;
+    const language: string = navigator.language
+      ? navigator.language
+      : router.locale
+      ? router.locale
+      : 'en';
 
     getIpAddress()
-      .then((ipAddress) => getDynamicWelcomeMessage(ipAddress, language ? language : 'en'))
-      .then((content: WelcomeMessage) => SetMessage(content.message));
+      .then((ipAddress) => getDynamicWelcomeMessage(ipAddress, language))
+      .then((content: WelcomeMessage) =>
+        SetMessage(content.message ? content.message : DEFAULT_MESSAGE)
+      )
+      .catch(() => SetMessage(DEFAULT_MESSAGE));
   }, [router.locale]);
 
   const messageContent = message && (
