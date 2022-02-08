@@ -1,0 +1,65 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v2/connections/a857d8f1-6f36-47e7-8687-8e57e2614999",
+  "ref": "a857d8f1-6f36-47e7-8687-8e57e2614999",
+  "name": "Get City from MaxMind",
+  "description": "Get the city of an IP address using MaxMind geolocation api",
+  "modifiedByRef": "171e2c01-9026-4573-bed2-f556d8b37bf5",
+  "modifiedAt": "2022-02-02T21:59:54.143Z",
+  "revision": 1,
+  "archived": false,
+  "auth": {
+    "authType": "BASIC",
+    "username": "Redacted"
+  },
+  "request": {
+    "requestType": "GET",
+    "connectionUrl": "https://geolite.info/geoip/v2.1/city/${ipAddress}"
+  },
+  "inputMappings": [],
+  "outputMappings": [
+    {
+      "label": "City",
+      "outputReference": "city",
+      "type": "Object"
+    },
+    {
+      "label": "Country",
+      "outputReference": "country",
+      "type": "Object"
+    },
+    {
+      "label": "Location",
+      "outputReference": "location",
+      "type": "Object"
+    },
+    {
+      "label": "Subdivisions",
+      "outputReference": "subdivisions",
+      "type": "Array"
+    }
+  ],
+  "customHeaders": [
+    {
+      "name": "Accept",
+      "value": "application/json"
+    },
+    {
+      "name": "Accept-Encoding",
+      "value": "gzip"
+    }
+  ],
+  "urlParameters": [
+    {
+      "label": "IP Address",
+      "key": "ipAddress",
+      "type": "String",
+      "exampleValue": "174.0.167.183",
+      "mapping": ""
+    }
+  ],
+  "systemType": "DATA_SYSTEM",
+  "connectionTimeout": 1000,
+  "socketTimeout": 1000,
+  "icon": "fad fa-chart-network"
+}
