@@ -22,16 +22,13 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
         <r
-          uid="{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}"
-          p:after="p[@uid='{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}']"
-          s:rname="FeaturedSpeakers"
-          s:ds="{4EC83342-656D-4CF7-A404-0F36DF25128E}"
-          s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
-          s:ph="/jss-main/jss-section-content-{004EEEA1-32B0-4582-BD0C-FA7EFFB14182}-0"
-          s:ccb="Clear on publish" />
+          uid="{EB2C8403-F00A-4976-8C26-75224DD8EBD1}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:id="{D356E8D0-3AF5-483B-AE0D-2693BA87FFD1}"
+          s:ph="/jss-main" />
         <r
           uid="{74A3507D-B718-58C6-8C54-5DFA30D2A4E8}"
-          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          p:after="r[@uid='{EB2C8403-F00A-4976-8C26-75224DD8EBD1}']"
           s:rname="HeroSection"
           s:ds="{F2A3B54C-4474-4F5C-8B4E-3E049975000E}"
           s:id="{C8BE3A17-798F-5054-B012-4772CB23AC88}"
@@ -85,8 +82,16 @@ SharedFields:
           s:par=""
           s:ph="/jss-main" />
         <r
-          uid="{9C37536D-E2AA-5BF2-8103-FA15D43F5121}"
+          uid="{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}"
           p:after="r[@uid='{47F9A467-6F47-5D35-9F6F-70D4FA338EC6}']"
+          s:rname="FeaturedSpeakers"
+          s:ds="{4EC83342-656D-4CF7-A404-0F36DF25128E}"
+          s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
+          s:ph="/jss-main/jss-section-content-{004EEEA1-32B0-4582-BD0C-FA7EFFB14182}-0"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{9C37536D-E2AA-5BF2-8103-FA15D43F5121}"
+          p:after="r[@uid='{F9156FD3-6D12-4E0B-9B1F-0D4AC1A772C7}']"
           s:rname="ProductCategoriesGrid"
           s:ds="{B480E5FA-E4D0-4C4A-B42D-033E697680ED}"
           s:id="{9B5E1E18-FD8D-5E80-8028-861D007DCA15}"
