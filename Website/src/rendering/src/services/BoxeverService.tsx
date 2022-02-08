@@ -117,7 +117,7 @@ type GuestProfileResponse = GuestProfile | undefined;
 const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
 const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
 const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
-const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
+export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
 
 export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
   <>
@@ -162,6 +162,7 @@ function createEventPayload(eventConfig: Record<string, unknown>) {
       language: window.navigator.language ? window.navigator.language : 'en',
       currency: 'USD',
       pos: 'PLAY! Summit',
+      websiteBaseUrl: BoxeverServiceConfig.websiteBaseUrl,
     },
     eventConfig
   );
@@ -306,6 +307,15 @@ export function identifyVisitor(
   }
 
   return sendEventCreate(eventConfig);
+}
+
+// ****************************************************************************
+// Closes current Boxever browsing session.
+// ****************************************************************************
+export function closeSession(): Promise<unknown> {
+  return logEvent('FORCE_CLOSE', {
+    _bx_extended_message: '1',
+  });
 }
 
 // ****************************************************************************

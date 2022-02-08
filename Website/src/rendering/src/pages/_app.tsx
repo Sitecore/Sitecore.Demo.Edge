@@ -4,7 +4,10 @@ import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
 import { useEffect } from 'react';
 import Head from 'next/head';
-import { CdpScripts, identifyVisitor } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+// DEMO TEAM CUSTOMIZATION - CDP integration
+import { CdpScripts, identifyVisitor } from '../services/CdpService';
+import { KeypressHandler } from 'src/services/KeypressHandlerService';
+// END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
@@ -14,7 +17,6 @@ config.autoAddCss = false;
 // Remove it in package.json as well if removed here.
 import 'nprogress/nprogress.css';
 import 'assets/css/main.css';
-import { KeyDownHandler as KeypressHandler } from 'src/services/KeypressHandlerService';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
@@ -23,7 +25,7 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function App({ Component, pageProps, router }: AppProps): JSX.Element {
-  // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links
+  // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links. Also register a key press handler to close CDP sessions and forget CDP guests.
   useEffect(() => {
     const emailQueryStringValue = router.query['email'];
     if (emailQueryStringValue) {
