@@ -103,12 +103,17 @@
 
         .right-content {
           @apply flex py-6 pr-4 z-20;
+
+          .qr-code {
+            @apply max-h-28 w-28;
+          }
         }
       }
     }
   }
 
   .qr-code {
+    @apply h-40 w-40 cursor-pointer;
     @apply hover:opacity-80;
   }
 }
