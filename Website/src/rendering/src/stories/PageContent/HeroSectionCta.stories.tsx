@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import HeroSectionCta, { HeroSectionCtaProps } from '../../components/Page Content/HeroSectionCta';
+import HeroSectionCta, { HeroSectionCtaProps } from '../../components/PageContent/HeroSectionCta';
 
 export default {
-  title: 'Components/Page Content/HeroSectionCta',
+  title: 'Components/PageContent/HeroSectionCta',
   component: HeroSectionCta,
 } as ComponentMeta<typeof HeroSectionCta>;
 

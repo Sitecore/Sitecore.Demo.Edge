@@ -55,19 +55,20 @@
 /* NonSitecore */
 @import "./components/NonSitecore/InformationPageHero.css";
 
-/* Page Content */
-@import "./components/Page Content/FeaturedEvent.css";
-@import "./components/Page Content/FullImageSection.css";
-@import "./components/Page Content/HeaderBanner.css";
-@import "./components/Page Content/HeroImage.css";
-@import "./components/Page Content/HeroSection.css";
-@import "./components/Page Content/Promo.css";
-@import "./components/Page Content/SummitFeatures.css";
-@import "./components/Page Content/TestimonyList.css";
-@import "./components/Page Content/TextCta.css";
-@import "./components/Page Content/ThreeColumnsCta.css";
-@import "./components/Page Content/ThreeColumnsSection.css";
-@import "./components/Page Content/TicketGrid.css";
+/* PageContent */
+@import "./components/PageContent/DynamicWelcomeMessage.css";
+@import "./components/PageContent/FeaturedEvent.css";
+@import "./components/PageContent/FullImageSection.css";
+@import "./components/PageContent/HeaderBanner.css";
+@import "./components/PageContent/HeroImage.css";
+@import "./components/PageContent/HeroSection.css";
+@import "./components/PageContent/Promo.css";
+@import "./components/PageContent/SummitFeatures.css";
+@import "./components/PageContent/TestimonyList.css";
+@import "./components/PageContent/TextCta.css";
+@import "./components/PageContent/ThreeColumnsCta.css";
+@import "./components/PageContent/ThreeColumnsSection.css";
+@import "./components/PageContent/TicketGrid.css";
 
 /* Payment */
 @import "./components/Payment/OrderSummary.css";

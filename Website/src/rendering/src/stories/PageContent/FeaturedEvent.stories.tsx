@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import FeaturedEvent from '../../components/Page Content/FeaturedEvent';
+import FeaturedEvent from '../../components/PageContent/FeaturedEvent';
 
 export default {
-  title: 'Components/Page Content/FeaturedEvent',
+  title: 'Components/PageContent/FeaturedEvent',
   component: FeaturedEvent,
 } as ComponentMeta<typeof FeaturedEvent>;
 

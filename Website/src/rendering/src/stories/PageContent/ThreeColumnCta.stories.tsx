@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ThreeColumnCta from '../../components/Page Content/ThreeColumnCta';
+import ThreeColumnCta from '../../components/PageContent/ThreeColumnCta';
 
 export default {
-  title: 'Components/Page Content/ThreeColumnCta',
+  title: 'Components/PageContent/ThreeColumnCta',
   component: ThreeColumnCta,
 } as ComponentMeta<typeof ThreeColumnCta>;
 
