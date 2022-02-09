@@ -18,6 +18,7 @@
    1. [Website](projects/website.md#Developing-the-Website)
    2. [Kiosk](projects/kiosk.md#Developing-the-Kiosk)
    3. [TV](projects/tv.md#Developing-the-TV)
+   4. [Sitecore Personalize](personalize.md)
 7. [Deploying](deploying.md)
 8. [Upgrading](upgrading.md)
 9. [Contributing](contributing.md)
