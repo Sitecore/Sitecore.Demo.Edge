@@ -62,14 +62,17 @@ Languages:
       Value: "{4D920373-9BC1-44A5-A586-0AF23C5711A1}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5480dc33-9159-47c4-b7b0-f80b7058b630"
+      Value: "f768b691-3277-4b6e-bba0-72e9d8758568"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{8237D1F3-65FC-44C1-82A1-EA4A77E5BAFA}"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211124T145414Z
+      Value: 20220114T230206Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "So you want to be a yoga teacher?"

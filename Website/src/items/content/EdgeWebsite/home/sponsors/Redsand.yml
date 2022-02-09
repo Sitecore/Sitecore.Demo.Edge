@@ -39,6 +39,9 @@ Languages:
       Hint: __Created by
       Value: |
         default\Anonymous
+    - ID: "752f4b39-259c-42b8-a100-fb6123faed7f"
+      Hint: Speakers
+      Value: "{32C9CADA-A708-49DB-A42C-220443BD3C59}"
     - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
       Hint: Name
       Value: Redsand
