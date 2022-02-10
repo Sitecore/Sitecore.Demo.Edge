@@ -4,10 +4,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { logViewEvent } from '../../../services/CdpService';
 import HeaderCdpMessageBar from '../../../components/HeaderCdpMessageBar';
-import Footer, { FooterProps } from '../../../components/Navigation/Footer';
-import Header, { HeaderProps } from '../../../components/Navigation/Header';
-import MainNavigation, { MainNavigationProps } from '../../../components/Navigation/MainNavigation';
-import { Product } from '../../../components/Products/Shop';
+import Footer from '../../../components/Navigation/Footer';
+import Header from '../../../components/Navigation/Header';
+import MainNavigation from '../../../components/Navigation/MainNavigation';
+import {
+  footerProps,
+  headerProps,
+  mainNavigationProps,
+  Product,
+} from '../../../components/Products/Shop';
 
 type ProductProps = {
   name: string;
@@ -34,50 +39,6 @@ type rfkResponse = {
 
 // Example URL: /shop/products/64114
 const ProductPage = (): JSX.Element => {
-  const headerProps = {
-    rendering: {
-      placeholders: {
-        'jss-header-content': [],
-      },
-    },
-  } as unknown as HeaderProps;
-
-  const mainNavigationArgs = {
-    fields: {
-      data: {
-        item: {
-          headerLogo: {
-            jsonValue: {
-              value: {
-                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
-              },
-            },
-            alt: '',
-          },
-        },
-      },
-    },
-  } as MainNavigationProps;
-
-  const footerProps = {
-    fields: {
-      data: {
-        item: {
-          footerLogo: {
-            jsonValue: {
-              value: {
-                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
-                width: 413,
-                height: 113,
-              },
-            },
-            alt: '',
-          },
-        },
-      },
-    },
-  } as unknown as FooterProps;
-
   const [productDetails, setProductDetails] = useState<ProductProps | undefined>(undefined);
   const [similarProducts, setSimilarProducts] = useState<ProductProps[] | undefined>(undefined);
   const [moreProducts, setMoreProducts] = useState<ProductProps[] | undefined>(undefined);
@@ -136,7 +97,7 @@ const ProductPage = (): JSX.Element => {
       logViewEvent();
       fetchData();
     }
-  }, [sku]);
+  }, [sku, fetchData]);
 
   return (
     <>
@@ -147,7 +108,7 @@ const ProductPage = (): JSX.Element => {
 
       <header>
         <Header {...headerProps} />
-        <MainNavigation {...mainNavigationArgs} />
+        <MainNavigation {...mainNavigationProps} />
       </header>
       <main>
         <HeaderCdpMessageBar />

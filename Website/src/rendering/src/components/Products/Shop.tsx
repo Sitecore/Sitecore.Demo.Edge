@@ -1,10 +1,56 @@
+import { ReactElement, useState } from 'react';
+import Link from 'next/link';
 import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import Link from 'next/link';
-import { ReactElement, useState } from 'react';
-
 import Section from '../Page Content/Section';
+import { HeaderProps } from 'components/Navigation/Header';
+import { MainNavigationProps } from 'components/Navigation/MainNavigation';
+import { FooterProps } from 'components/Navigation/Footer';
+
+export const headerProps = {
+  rendering: {
+    placeholders: {
+      'jss-header-content': [],
+    },
+  },
+} as unknown as HeaderProps;
+
+export const mainNavigationProps = {
+  fields: {
+    data: {
+      item: {
+        headerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as MainNavigationProps;
+
+export const footerProps = {
+  fields: {
+    data: {
+      item: {
+        footerLogo: {
+          jsonValue: {
+            value: {
+              src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
+              width: 413,
+              height: 113,
+            },
+          },
+          alt: '',
+        },
+      },
+    },
+  },
+} as unknown as FooterProps;
 
 type FeaturedProductHeroProps = {
   subPageName?: string;
