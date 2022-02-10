@@ -3,16 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { logViewEvent } from '../../../services/CdpService';
-import HeaderCdpMessageBar from '../../../components/HeaderCdpMessageBar';
-import Footer from '../../../components/Navigation/Footer';
-import Header from '../../../components/Navigation/Header';
-import MainNavigation from '../../../components/Navigation/MainNavigation';
-import {
-  footerProps,
-  headerProps,
-  mainNavigationProps,
-  Product,
-} from '../../../components/Products/Shop';
+import { Product, ShopLayout } from '../../../components/Products/Shop';
 
 type ProductProps = {
   name: string;
@@ -100,81 +91,64 @@ const ProductPage = (): JSX.Element => {
   }, [sku, fetchData]);
 
   return (
-    <>
+    <ShopLayout>
       <Head>
-        <title>Play! Summit - Product</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>PLAY! SHOP - Product</title>
       </Head>
 
-      <header>
-        <Header {...headerProps} />
-        <MainNavigation {...mainNavigationProps} />
-      </header>
-      <main>
-        <HeaderCdpMessageBar />
-        <div className="shop-container">
-          <section className="section">
-            <div className="section__content container">
-              <div className="product-detail">
-                <div className="product-detail-hero">
-                  <div className="product-image">
-                    <img
-                      className="product-image-main"
-                      src={productDetails?.image_url}
-                      alt="product"
-                    />
-                  </div>
-                  <div className="product-description">
-                    <h2>{productDetails?.name}</h2>
-                    <div className="product-brand">{productDetails?.brand}</div>
-                    <p>SKU: {sku}</p>
-                    <div>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vitae alias
-                      nostrum cum dolore eaque, ex accusantium officiis nam cumque.
-                    </div>
-                    <div>
-                      Price: <span className="product-price">{productDetails?.price}</span>
-                    </div>
-                    <div>
-                      Quantity:{' '}
-                      <div className="product-quantity">
-                        <div className="quantity-number">1</div>
-                      </div>
-                    </div>
-                    <div className="product-add-to-cart">
-                      <Link href="#">
-                        <a className="btn--main btn--main--round">Add to cart</a>
-                      </Link>
-                    </div>
+      <section className="section">
+        <div className="section__content container">
+          <div className="product-detail">
+            <div className="product-detail-hero">
+              <div className="product-image">
+                <img className="product-image-main" src={productDetails?.image_url} alt="product" />
+              </div>
+              <div className="product-description">
+                <h2>{productDetails?.name}</h2>
+                <div className="product-brand">{productDetails?.brand}</div>
+                <p>SKU: {sku}</p>
+                <div>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo vitae alias
+                  nostrum cum dolore eaque, ex accusantium officiis nam cumque.
+                </div>
+                <div>
+                  Price: <span className="product-price">{productDetails?.price}</span>
+                </div>
+                <div>
+                  Quantity:{' '}
+                  <div className="product-quantity">
+                    <div className="quantity-number">1</div>
                   </div>
                 </div>
-                <div className="product-info">
-                  <div className="product-list product-list-also-viewed">
-                    <h2>Customers who viewed this item also viewed</h2>
-                    <div className="shop-by-container">
-                      {moreProducts?.map((product, index) => (
-                        <Product key={index} {...product} />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="product-list product-list-similar">
-                    <h2>Similar items to explore</h2>
-                    <div className="shop-by-container">
-                      {similarProducts?.map((product, index) =>
-                        index < 5 ? <Product key={index} {...product} /> : ''
-                      )}
-                    </div>
-                  </div>
+                <div className="product-add-to-cart">
+                  <Link href="#">
+                    <a className="btn--main btn--main--round">Add to cart</a>
+                  </Link>
                 </div>
               </div>
             </div>
-          </section>
+            <div className="product-info">
+              <div className="product-list product-list-also-viewed">
+                <h2>Customers who viewed this item also viewed</h2>
+                <div className="shop-by-container">
+                  {moreProducts?.map((product, index) => (
+                    <Product key={index} {...product} />
+                  ))}
+                </div>
+              </div>
+              <div className="product-list product-list-similar">
+                <h2>Similar items to explore</h2>
+                <div className="shop-by-container">
+                  {similarProducts?.map((product, index) =>
+                    index < 5 ? <Product key={index} {...product} /> : ''
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer>
-        <Footer {...footerProps} />
-      </footer>
-    </>
+      </section>
+    </ShopLayout>
   );
 };
 

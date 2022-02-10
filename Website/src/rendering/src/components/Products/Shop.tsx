@@ -1,56 +1,134 @@
-import { ReactElement, useState } from 'react';
+import { PropsWithChildren, ReactElement, useState } from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import Section from '../Page Content/Section';
-import { HeaderProps } from 'components/Navigation/Header';
-import { MainNavigationProps } from 'components/Navigation/MainNavigation';
-import { FooterProps } from 'components/Navigation/Footer';
+import Header, { HeaderProps } from '../Navigation/Header';
+import MainNavigation, { MainNavigationProps } from '../Navigation/MainNavigation';
+import Footer, { FooterProps } from '../Navigation/Footer';
+import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
 
-export const headerProps = {
-  rendering: {
-    placeholders: {
-      'jss-header-content': [],
+export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  const headerProps = {
+    rendering: {
+      placeholders: {
+        'jss-header-content': [],
+      },
     },
-  },
-} as unknown as HeaderProps;
+  } as unknown as HeaderProps;
 
-export const mainNavigationProps = {
-  fields: {
-    data: {
-      item: {
-        headerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
+  const mainNavigationProps = {
+    fields: {
+      data: {
+        item: {
+          headerLogo: {
+            jsonValue: {
+              value: {
+                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
+              },
             },
+            alt: '',
           },
-          alt: '',
         },
       },
     },
-  },
-} as MainNavigationProps;
+  } as MainNavigationProps;
 
-export const footerProps = {
-  fields: {
-    data: {
-      item: {
-        footerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
-              width: 413,
-              height: 113,
+  const footerProps = {
+    fields: {
+      data: {
+        item: {
+          footerLogo: {
+            jsonValue: {
+              value: {
+                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
+                width: 413,
+                height: 113,
+              },
             },
+            alt: '',
           },
-          alt: '',
         },
       },
     },
+  } as unknown as FooterProps;
+
+  return (
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <header>
+        <Header {...headerProps} />
+        <MainNavigation {...mainNavigationProps} />
+      </header>
+      <main>
+        <HeaderCdpMessageBar />
+        <div className="shop-container">{props.children}</div>
+      </main>
+      <footer>
+        <Footer {...footerProps} />
+      </footer>
+    </>
+  );
+};
+
+export const searchBarProps = {
+  reflektionProps: {
+    didYouMean: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
+    topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
+    products: [
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
+        price: 255.99,
+        sku: '28395',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
+        price: 255.99,
+        sku: '234902',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
+        price: 255.99,
+        sku: '3842',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
+        price: 255.99,
+        sku: '29384',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
+        price: 255.99,
+        sku: '203948',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
+        price: 255.99,
+        sku: '23423',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
+        price: 255.99,
+        sku: '7864',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
+        price: 255.99,
+        sku: '743',
+      },
+      {
+        image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
+        price: 255.99,
+        sku: '674',
+      },
+    ],
   },
-} as unknown as FooterProps;
+};
 
 type FeaturedProductHeroProps = {
   subPageName?: string;
