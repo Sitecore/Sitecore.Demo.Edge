@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Session } from '../interfaces/session';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
+import qrLogo from '../public/p_logo_transparent_square.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 import { AwesomeQRCode } from '@awesomeqr/react';
 
@@ -46,7 +47,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                   options={{
                     text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
                     size: 255,
-                    logoImage: logo.src,
+                    logoImage: qrLogo.src,
                   }}
                 />
               </div>
@@ -107,7 +108,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                     options={{
                       text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
                       size: 255,
-                      logoImage: logo.src,
+                      logoImage: qrLogo.src,
                     }}
                   />
                 </div>
