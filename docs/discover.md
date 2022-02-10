@@ -21,7 +21,7 @@ When adding new products, please:
 
 Sitecore Discover feed processing will fail with a `Threshold product_family_orphans reached: 50%` error if more than 50% of the product URLs have changed since the last run.
 
-When changing the products URL structure, it is required to let Sitecore Discover know the new URL structure in advance to avoid this feed processing error.
+When changing the products URL structure, it is required to let the Sitecore Discover support know the new URL structure in advance to avoid this feed processing error.
 
 ## Uploading Categories and Products
 
@@ -43,9 +43,10 @@ When changing the products URL structure, it is required to let Sitecore Discove
 
 1. From Box, open the `product-feed_working.xslx` file in Excel Online.
 2. In the "Working sheet"
-   1. Clear all column filters.
+   1. Clear all the column filters.
    2. Filter the "ready" column on "READY" value to only get ready to upload products.
    3. Copy the column headers and all the displayed products from the column "product_group" to the last column.
+   4. Clear all the column filters again for the next person that will use the file.
 3. Create a new sheet named "[Current date] - Ready".
 4. In the new sheet:
    1. Right click the A1 cell.
