@@ -2,4 +2,4 @@
 
 ## Web Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/web/Website - Message Bar Below Header)
+[Serialized assets](/demo/experience/personalize/experiences/web/Website%20-%20Message%20Bar%20Below%20Header)
