@@ -3,5 +3,7 @@
 	"less.validate": false,
 	"scss.validate": false,
 	"editor.tabSize": 2,
-	"editor.insertSpaces": true
+	"editor.insertSpaces": true,
+	"markdown.extension.toc.orderedList": true,
+	"markdown.extension.toc.updateOnSave": false
 }

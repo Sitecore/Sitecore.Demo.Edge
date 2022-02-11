@@ -1,6 +1,4 @@
-# Sitecore Personalize
-
-The website project is using Sitecore Personalize for multiple web and full stack experiences.
+# Sitecore Personalize Serialization
 
 Whenever something is modified in Sitecore Personalize, it should be serialized (or backuped) in this repository as well. This helps to understand the history of the Sitecore Personalize assets, provides a backup in case something goes wrong, and should help to replicate the Sitecore Personalize organisation assets in other organisations.
 
