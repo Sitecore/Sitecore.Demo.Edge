@@ -4,10 +4,15 @@ import {
   identifyVisitor as boxeverIdentifyVisitor,
   logEvent,
   saveDataExtension,
+  WelcomeMessage,
+  getDynamicWelcomeMessage as boxeverGetDynamicWelcomeMessage,
+  isCdpConfigured as boxeverIsCdpConfigured,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
 import { SessionPageFields } from '../types/session';
+
+export const isCdpConfigured = boxeverIsCdpConfigured;
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
@@ -79,4 +84,11 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   return logEvent('TICKET_PURCHASED', eventPayload).then(() =>
     saveDataExtension(dataExtensionName, dataExtensionPayload)
   );
+}
+
+export function getDynamicWelcomeMessage(
+  ipAddress: string,
+  language: string
+): Promise<WelcomeMessage> {
+  return boxeverGetDynamicWelcomeMessage(ipAddress, language);
 }

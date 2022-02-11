@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SummitFeature, { SummitFeatureProps } from '../../components/Page Content/SummitFeature';
+import SummitFeature, { SummitFeatureProps } from '../../components/PageContent/SummitFeature';
 
 export default {
-  title: 'Components/Page Content/SummitFeature',
+  title: 'Components/PageContent/SummitFeature',
   component: SummitFeature,
 } as ComponentMeta<typeof SummitFeature>;
 
