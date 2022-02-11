@@ -2,13 +2,24 @@
 
 The website project is optionally using Sitecore CDP and Personalize for multiple web and full stack experiences.
 
-If you want to use these features, you must:
+The demo is built to be functionnal even if Sitecore CDP and Personalize are not enabled.
 
-1. Have a Sitecore CDP and Personalize organisation.
-2. [Enable Sitecore CDP and Personlize in the demo](#enable-sitecore-cdp-and-personalize).
-3. Implement all the Sitecore Personalize stories in your organisation:
-   1. [General Sitecore Personalize assets](stories/general.md)
-   2. [Website - Message Bar Below Header](stories/website-essage-bar-below-header.md)
+If you want to use this integration, you must:
+
+1. Have a Sitecore CDP and Personalize organisation
+2. [Enable Sitecore CDP and Personlize in the demo](#enable-sitecore-cdp-and-personalize)
+3. [Implement the general Sitecore Personalize assets in your organisation](stories/general.md)
+4. Implement the desired Sitecore Personalize stories in your organisation:
+   1. [Ticket Checkout - VIP Upsell](stories/ticket-checkout-vip-upsell.md)
+   2. [Premium Session Page - VIP Ticket Upgrade](stories/premium-session-page-vip-ticket-upgrade.md)
+   3. [Session Browse Abandonment](stories/session-browse-abandonment.md)
+   4. [Subscribe to update emails campaign](stories/subscribe-to-update-emails-campaign.md)
+   5. [Dynamic Welcome Message](stories/dynamic-welcome-message.md)
+
+There are also a few stories that cannot be replicated in your Sitecore Personalize organisation due to various limitations:
+
+1. [Website - Audience-based website home page hero](stories/website-audience-based-website-home-page-hero.md)
+2. [Website - Message Bar Below Header](stories/website-message-bar-below-header.md)
 
 ## Enable Sitecore CDP and Personalize
 
