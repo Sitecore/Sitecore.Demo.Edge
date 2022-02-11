@@ -17,6 +17,7 @@ const formattedSession = function (
   includeSpeakers: boolean
 ) {
   const session = {} as Session;
+  session.id = sessionResult.id;
   session.name = sessionResult.name;
 
   const asset = sessionResult.sessionToMasterAsset.results[0]?.assetToPublicLink.results[0];
@@ -82,6 +83,7 @@ export const getSessionsByRoom = async (
         }
         session: room {
           results {
+            id
             name
             isPremium
             sessionToMasterAsset {
@@ -163,6 +165,7 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
         taxonomyName
         dayToSession {
           results {
+            id
             name
             isPremium
             sessionToMasterAsset {

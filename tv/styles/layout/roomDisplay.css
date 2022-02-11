@@ -24,7 +24,7 @@
   .image-left {
     @apply flex-1 h-full w-1/2 absolute;
 
-    .checkin-qrcode {
+    .checkin-container {
       @apply absolute bg-blue-light bottom-0 left-4 h-56 w-44 p-2 pt-0;
 
       .checkin-text {
@@ -103,8 +103,17 @@
 
         .right-content {
           @apply flex py-6 pr-4 z-20;
+
+          .qr-code {
+            @apply max-h-28 w-28;
+          }
         }
       }
     }
+  }
+
+  .qr-code {
+    @apply h-40 w-40 cursor-pointer;
+    @apply hover:opacity-80;
   }
 }

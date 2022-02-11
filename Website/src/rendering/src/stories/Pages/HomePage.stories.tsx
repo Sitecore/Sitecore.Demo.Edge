@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../../components/Navigation/Header';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
-import HeroSection, { HeroProps } from '../../components/Page Content/HeroSection';
+import HeroSection, { HeroProps } from '../../components/PageContent/HeroSection';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/Page Content/ThreeColumnsSection';
+} from '../../components/PageContent/ThreeColumnsSection';
 import SelectedSponsorsGrid, {
   SelectedSponsorsGridProps,
 } from '../../components/Sponsors/SelectedSponsorsGrid';
