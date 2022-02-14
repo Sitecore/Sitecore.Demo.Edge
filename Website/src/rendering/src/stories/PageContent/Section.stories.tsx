@@ -20,7 +20,6 @@ const speakerImage = {
 };
 
 const speaker = {
-  itemName: 'Speaker Name',
   name: {
     value: 'Speaker Name',
   },
@@ -30,6 +29,9 @@ const speaker = {
   },
   jobTitle: {
     value: 'Speaker',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 

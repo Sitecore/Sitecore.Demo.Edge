@@ -2,7 +2,7 @@
 ID: "b4a33a3e-d11a-48ac-bc63-1cfd547239e8"
 Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
 Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
-Path: "/sitecore/content/EdgeWebsite/home/speakers/Alfred Smith-Ronan"
+Path: "/sitecore/content/EdgeWebsite/home/speakers/Alfred Smith Ronan"
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
