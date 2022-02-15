@@ -11,7 +11,7 @@ const Cart = (): JSX.Element => {
 
       <p>Cart Page</p>
       <div>
-        <Link href="/checkout/quick-checkout">
+        <Link href="/shop/checkout/quick-checkout">
           <a>Go to Checkout</a>
         </Link>
       </div>

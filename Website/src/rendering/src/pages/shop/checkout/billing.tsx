@@ -11,12 +11,12 @@ const Billing = (): JSX.Element => {
 
       <p>Billing Page</p>
       <div>
-        <Link href="/checkout/shipping">
+        <Link href="/shop/checkout/shipping">
           <a>Back to Shipping Details</a>
         </Link>
       </div>
       <div>
-        <Link href="/checkout/final-confirmation">
+        <Link href="/shop/checkout/final-confirmation">
           <a>Go to Final Confirmation</a>
         </Link>
       </div>

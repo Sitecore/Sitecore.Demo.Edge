@@ -12,8 +12,8 @@ const OrderSummary = (): JSX.Element => {
       <p>Order Summary Page</p>
       <p>Thank you for your purchase!</p>
       <div>
-        <Link href="/create-account">
-          <a>Create Account to save your order summary</a>
+        <Link href="/account/login">
+          <a>Login/ Create Account to save your order summary</a>
         </Link>
       </div>
     </ShopLayout>

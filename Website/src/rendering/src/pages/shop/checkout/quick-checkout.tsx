@@ -11,12 +11,12 @@ const QuickCheckout = (): JSX.Element => {
 
       <p>Quick Checkout Page</p>
       <div>
-        <Link href="/checkout/cart">
+        <Link href="/shop/checkout/cart">
           <a>Back to Cart</a>
         </Link>
       </div>
       <div>
-        <Link href="/checkout/shipping">
+        <Link href="/shop/checkout/shipping">
           <a>Continue as Guest and Go to Shipping Details</a>
         </Link>
       </div>

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { ShopLayout } from 'components/Products/Shop';
 
-const Cart = (): JSX.Element => {
+const Login = (): JSX.Element => {
   return (
     <ShopLayout>
       <Head>
@@ -13,4 +13,4 @@ const Cart = (): JSX.Element => {
   );
 };
 
-export default Cart;
+export default Login;
