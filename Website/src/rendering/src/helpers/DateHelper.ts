@@ -19,7 +19,9 @@ export const getSessionTime = (timeslots: Timeslot[]): string => {
   if (timeslots) {
     const times: number[] = [];
     timeslots.forEach((timeslot) => {
-      let startTime = parseInt(timeslot.name?.value ?? timeslot.name ?? '');
+      let startTime = parseInt(
+        (typeof timeslot.name === 'string' ? timeslot.name : timeslot.name.value) ?? ''
+      );
       if (startTime !== NaN) {
         if (startTime < 7) {
           startTime = startTime + 12;
