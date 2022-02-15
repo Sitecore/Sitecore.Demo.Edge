@@ -13,12 +13,13 @@ type Product = {
 };
 
 const FrequentlyPurchasedTogether = (props: FrequentlyPurchasedTogetherProps): JSX.Element => {
-  return RFK.ui.html`
+  console.log({ props });
+
+  return window.RFK.ui.html`
     <section>
-      ${console.log({ props })}
       Cart Recommendation Widget
       ${props.products?.map((product: Product) => {
-        return RFK.ui.html`
+        return window.RFK.ui.html`
         <img width=200 src="${product.image_url}" />
         <div>${product.name}</div>
         <div>${product.price}</div>

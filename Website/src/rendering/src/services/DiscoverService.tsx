@@ -1,5 +1,33 @@
-import FrequentlyPurchasedTogether from 'components/Widgets/FrequentlyPurchasedTogether';
+import { ReactElement } from 'react';
 import Script from 'next/script';
+import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+
+// ***** TYPES *****
+
+interface RFK {
+  setCredentials(
+    // eslint-disable-next-line no-unused-vars
+    credentials: Record<string, unknown>
+  ): void;
+  setWidget(
+    // eslint-disable-next-line no-unused-vars
+    id: string,
+    // eslint-disable-next-line no-unused-vars
+    options: Record<string, unknown>
+  ): void;
+  init(): void;
+  ui: {
+    html(...args: unknown[]): ReactElement<unknown, string>;
+  };
+}
+
+declare global {
+  interface Window {
+    RFK: RFK;
+  }
+}
+
+// ***** API *****
 
 const DISCOVER_API_KEY = process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
 const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
@@ -21,18 +49,17 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
     <Script
       src="/rfk-sdk.js"
       onLoad={() => {
-        RFK.setCredentials({
+        window.RFK.setCredentials({
           env: 'prod',
           customerKey: `${DISCOVER_CUSTOMER_KEY}`,
           apiKey: `${DISCOVER_API_KEY}`,
           useToken: true,
         });
-        RFK.setWidget('rfkid_11', {
+        window.RFK.setWidget('rfkid_11', {
           type: 'recommendation',
           component: FrequentlyPurchasedTogether,
-          // global: true,
         });
-        RFK.init();
+        window.RFK.init();
       }}
     />
   </>
