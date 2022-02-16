@@ -64,7 +64,7 @@ const SessionItem = (props: SessionItemProps): JSX.Element => {
     ));
 
   return (
-    <Link href={`/sessions/${props.session.itemName}`} passHref>
+    <Link href={props.session.url.path} passHref>
       <a className="grid-item">
         <div className="image-hover-zoom" style={getImageStyles(props.session)}></div>
         {featuredIcon}

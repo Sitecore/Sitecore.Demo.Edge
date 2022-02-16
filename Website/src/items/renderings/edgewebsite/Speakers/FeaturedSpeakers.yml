@@ -39,6 +39,9 @@ SharedFields:
               picture {
                 jsonValue
               }
+              url {
+                path
+              }
               featured {
                 value: boolValue
               }

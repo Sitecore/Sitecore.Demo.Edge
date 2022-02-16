@@ -24,6 +24,7 @@ const sponsor1 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor2 = {
@@ -38,6 +39,7 @@ const sponsor2 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor3 = {
@@ -52,6 +54,7 @@ const sponsor3 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 export const Default = Template.bind({});

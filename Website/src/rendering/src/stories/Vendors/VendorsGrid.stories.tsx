@@ -27,6 +27,7 @@ const fitbit = {
       },
     },
   },
+  url: '/vendors/test',
 } as Vendor;
 
 const sports = {
@@ -45,6 +46,7 @@ const sports = {
       },
     },
   },
+  url: '/vendors/test',
 } as Vendor;
 
 export const Default = Template.bind({});

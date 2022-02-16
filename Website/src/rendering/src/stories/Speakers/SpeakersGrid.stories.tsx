@@ -32,6 +32,9 @@ const speaker1 = {
   jobTitle: {
     value: 'Speaker',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker2 = {
@@ -46,6 +49,9 @@ const speaker2 = {
   jobTitle: {
     value: 'Speaker',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker3 = {
@@ -59,6 +65,9 @@ const speaker3 = {
   },
   jobTitle: {
     value: 'Speaker',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 

@@ -8,4 +8,5 @@ export type News = {
     PublishDate: Field<string>;
     Image: ImageField;
   };
+  url: string;
 };

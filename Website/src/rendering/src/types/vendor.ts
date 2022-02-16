@@ -6,4 +6,5 @@ export type Vendor = {
     Level: Field<string>;
     Logo: ImageField;
   };
+  url: string;
 };

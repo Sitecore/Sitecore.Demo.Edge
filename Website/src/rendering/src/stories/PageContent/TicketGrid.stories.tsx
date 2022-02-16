@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import TicketGrid from '../../components/Page Content/TicketGrid';
+import TicketGrid from '../../components/PageContent/TicketGrid';
 
 export default {
-  title: 'Components/Page Content/TicketGrid',
+  title: 'Components/PageContent/TicketGrid',
   component: TicketGrid,
 } as ComponentMeta<typeof TicketGrid>;
 
