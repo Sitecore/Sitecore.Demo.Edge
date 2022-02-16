@@ -6,6 +6,11 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { CdpScripts, identifyVisitor } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import { MerchandisingScripts } from 'src/services/MerchandisingService'; // DEMO TEAM CUSTOMIZATION - Discover integration
+// DEMO TEAM CUSTOMIZATION - OrderCloud integration
+import { Provider } from 'react-redux';
+import reduxStore from '../redux/store';
+import OcProvider from '../redux/ocProvider';
+// END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
@@ -63,7 +68,13 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         If your app is not multilingual, next-localization and references to it can be removed.
       */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
-        <Component {...rest} />
+        {/* DEMO TEAM CUSTOMIZATION - OrderCloud integration */}
+        <Provider store={reduxStore}>
+          <OcProvider>
+            <Component {...rest} />
+          </OcProvider>
+        </Provider>
+        {/* END CUSTOMIZATION */}
       </I18nProvider>
     </>
   );
