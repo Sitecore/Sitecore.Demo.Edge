@@ -73,4 +73,4 @@ Using an SFTP client:
 
 1. Connect to the Play Summit Sitecore Discover FTP server.
    1. URL and credentials available in Sitecore Discover > Developer Resources > API Hosts > Legacy SFTP DNS.
-2. Upload the CSV files to the `/upload` folder. Override the existing files.
+2. Upload the CSV files to the `/upload` folder. Both category and product feed files need to be present on every upload. Override the existing files.
