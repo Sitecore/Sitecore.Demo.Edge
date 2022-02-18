@@ -5,21 +5,12 @@ import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import Section from '../Page Content/Section';
-import Header, { HeaderProps } from '../Navigation/Header';
-import MainNavigation, { MainNavigationProps } from '../Navigation/MainNavigation';
+import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
-  const headerProps = {
-    rendering: {
-      placeholders: {
-        'jss-header-content': [],
-      },
-    },
-  } as unknown as HeaderProps;
-
-  const mainNavigationProps = {
+  const shopNavigationProps = {
     fields: {
       data: {
         item: {
@@ -34,7 +25,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
         },
       },
     },
-  } as MainNavigationProps;
+  } as ShopNavigationProps;
 
   const footerProps = {
     fields: {
@@ -62,8 +53,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       </Head>
 
       <header>
-        <Header {...headerProps} />
-        <MainNavigation {...mainNavigationProps} />
+        <ShopNavigation {...shopNavigationProps} />
       </header>
       <main>
         <HeaderCdpMessageBar />
