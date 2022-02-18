@@ -53,6 +53,10 @@
 
       #search-icon {
         @apply absolute left-8 top-1;
+        @apply sm:left-10;
+        @apply md:left-12;
+        @apply lg:left-8;
+        @apply 2xl:left-12;
       }
 
       input {
