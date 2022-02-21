@@ -4,9 +4,10 @@ import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
 import { useEffect } from 'react';
 import Head from 'next/head';
-import { CdpScripts, identifyVisitor } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
-import { MerchandisingScripts } from 'src/services/MerchandisingService'; // DEMO TEAM CUSTOMIZATION - Discover integration
-// DEMO TEAM CUSTOMIZATION - OrderCloud integration
+// DEMO TEAM CUSTOMIZATION - CDP, Discover, and OrcerCloud integrations
+import { CdpScripts, identifyVisitor } from '../services/CdpService';
+import { KeypressHandler } from 'src/services/KeypressHandlerService';
+import { MerchandisingScripts } from 'src/services/MerchandisingService';
 import { Provider } from 'react-redux';
 import reduxStore from '../redux/store';
 import OcProvider from '../redux/ocProvider';
@@ -28,7 +29,7 @@ Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function App({ Component, pageProps, router }: AppProps): JSX.Element {
-  // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links
+  // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links. Also register a key press handler to close CDP sessions and forget CDP guests.
   useEffect(() => {
     const emailQueryStringValue = router.query['email'];
     if (emailQueryStringValue) {
@@ -42,6 +43,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 
       identifyVisitor(email);
     }
+    KeypressHandler();
   });
   // END CUSTOMIZATION
 

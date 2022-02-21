@@ -9,11 +9,13 @@ const Header = (props: HeaderProps): JSX.Element => (
   <>
     <div className="header-eyebrow">
       <div className="content">
-        <a href="#">EN</a>
-        <Link href="/account/login">
+        <Link href="#" prefetch={false}>
+          <a>EN</a>
+        </Link>
+        <Link href="/account/login" prefetch={false}>
           <a>Login</a>
         </Link>
-        <Link href="/shop/checkout/cart">
+        <Link href="/shop/checkout/cart" prefetch={false}>
           <a>Cart</a>
         </Link>
       </div>

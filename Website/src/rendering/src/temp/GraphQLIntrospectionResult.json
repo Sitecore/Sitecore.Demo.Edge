@@ -11441,6 +11441,18 @@
             "deprecationReason": null
           },
           {
+            "name": "sponsors",
+            "description": "Sponsors (ID: {2256955C-26AB-41B5-8E7A-FC504EA1A307}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "template",
             "description": null,
             "args": [],
@@ -11480,6 +11492,18 @@
                 "name": "ItemUrl",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "vendors",
+            "description": "Vendors (ID: {5D58F635-D21C-4635-8EFD-93448B2799C2}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "MultilistField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -22075,6 +22099,18 @@
                   "ofType": null
                 }
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "backgroundImage",
+            "description": "backgroundImage (ID: {BB3C2800-F861-4470-AC33-0132A86554B2}).",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ImageField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

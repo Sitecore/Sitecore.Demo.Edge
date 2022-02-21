@@ -19,6 +19,9 @@ Languages:
     - ID: "087528fd-b211-4715-aca0-cbe90275951b"
       Hint: Featured
       Value: 1
+    - ID: "2256955c-26ab-41b5-8e7a-fc504ea1a307"
+      Hint: Sponsors
+      Value: "{5319CA3C-CD21-4D68-A68A-1EAF4D34F63D}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T175344Z
@@ -29,6 +32,9 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{0960F9C7-9CB8-49CA-9607-5099767C7128}|{FC360AAE-8685-4782-8929-9D583834812D}|{5EE51C40-8986-44C0-B44A-D030D4482A43}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |

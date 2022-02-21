@@ -1,0 +1,39 @@
+.section--3-col {
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
+
+  &__content {
+    @include flex--center--column;
+
+    @apply text-center;
+
+    &__items {
+      @include flex--sa-w;
+
+      @apply text-sm max-w-full;
+
+      .item {
+        @include flex--center--column;
+
+        margin: 2em 3em;
+
+        img {
+          max-height: 150px;
+        }
+
+        p {
+          @apply text-black;
+
+          font-weight: 600;
+          margin: 1.5em 0 0.5em;
+        }
+
+        a {
+          @apply text-blue no-underline;
+          @apply hover:text-black;
+
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Silver
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{AE8205EA-CF24-4806-88E4-20864164AE25}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |

@@ -11,108 +11,92 @@ export default {
 
 const Template: ComponentStory<typeof FeaturedSpeakers> = (args) => <FeaturedSpeakers {...args} />;
 
+const speakerImage = {
+  jsonValue: {
+    value: {
+      src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
+      alt: '',
+    },
+  },
+};
+
 const speaker = {
-  itemName: 'First Speaker Name',
   name: {
     value: 'First Speaker Name',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Creative Director',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
 const speaker1 = {
-  itemName: 'Second Speaker',
   name: {
     value: 'Second Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Pro Basketball Player',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
 const speaker2 = {
-  itemName: 'Third Speaker',
   name: {
     value: 'Third Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Chief Product Officer',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
 const speaker3 = {
-  itemName: 'Another Speaker',
   name: {
     value: 'Another Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Social Influencer',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
 const speaker4 = {
-  itemName: 'Last Speaker',
   name: {
     value: 'Last Speaker',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
     value: true,
   },
-  role: {
-    value: '',
+  jobTitle: {
+    value: 'Professional Cyclist',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
@@ -120,14 +104,16 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     data: {
+      source: {
+        numberOfSpeakers: {
+          value: 6,
+        },
+      },
       item: {
         children: {
-          results: [speaker, speaker1, speaker2, speaker3, speaker4],
+          results: [speaker, speaker1, speaker2, speaker3, speaker4, speaker2, speaker1],
         },
       },
     },
-  },
-  params: {
-    NumberOfSpeakers: '4',
   },
 };

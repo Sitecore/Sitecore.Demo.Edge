@@ -26,6 +26,9 @@ SharedFields:
               premium {
                 value
               }
+              url {
+                path
+              }
               image {
                 jsonValue
               }
@@ -53,6 +56,9 @@ SharedFields:
                     ... on Speaker {
                       name: field(name: "name") {
                         value
+                      }
+                      url {
+                        path
                       }
                       role{
                         value

@@ -26,8 +26,11 @@ SharedFields:
               name: field(name: "name") {
                 value
               }
-              role {
+              jobTitle {
                 value
+              }
+              url {
+                path
               }
               picture {
                 jsonValue
