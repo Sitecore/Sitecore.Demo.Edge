@@ -9,7 +9,7 @@ SharedFields:
   Value: SpeakerInformationPageHero
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/speaker-hero.png"
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "70609470-9d6c-430c-b975-a3a1a48b916e"
+      Value: "4e76f335-9d0f-4b31-bd55-449fd9970441"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211213T172832Z
+      Value: 20220221T090852Z

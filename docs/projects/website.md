@@ -118,6 +118,12 @@ Changes to the front-end project must be reverted from your Git client.
 
 Using a RichText JSS element with a `tag="p"` prop causes issues when editing the element in Horizon. To be specific, Horizon will wrap your plain text inside a paragraph which results in nested `p` tags and an invalid HTML. For this reason it is suggested to use a block element that has no children restrictions like `div`, `section`, `blockquote`, etc.
 
+#### Custom Renderings Icons
+
+When creating a new rendering you should select an appropriate icon for it. The custom Edge icons are located in `\sitecore\shell\Themes\Standard\EdgeIcons`. To select an icon, click on the icon of the rendering item and write the relative path to the selected icon (e.g. `edgeicons/32x32/breadcrumb.png`).
+
+All icons used are by [icons8](https://icons8.com/icons/color).
+
 ### Developing the Platform Visual Studio Solution
 
 #### Deploying the Platform Visual Studio Solution to the Running Containers
