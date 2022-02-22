@@ -64,13 +64,17 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
             </li>
             <li className="shop-navigation-menu-item">
-              <Link href="/shop/checkout/cart" passHref>
-                <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
+              <Link href="/shop/checkout/cart">
+                <a>
+                  <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
+                </a>
               </Link>
             </li>
             <li className="shop-navigation-menu-item">
-              <Link href="/account/login" passHref>
-                <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+              <Link href="/account/login">
+                <a>
+                  <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+                </a>
               </Link>
             </li>
           </ul>
