@@ -48,7 +48,7 @@
     "next": "^11.1.2",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
-    "ordercloud-javascript-sdk": "^4.3.2",
+    "ordercloud-javascript-sdk": "^4.3.3",
     "postcss-import": "^14.0.2",
     "postcss-nested": "^5.0.5",
     "postcss-sassy-mixins": "^2.1.0",

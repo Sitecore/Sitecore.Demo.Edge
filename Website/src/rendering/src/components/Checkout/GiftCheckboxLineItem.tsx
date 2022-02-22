@@ -1,0 +1,47 @@
+import { useCallback, useState } from 'react';
+import { DLineItem } from 'src/models/ordercloud/DLineItem';
+import { patchLineItem } from 'src/redux/ocCurrentCart';
+import { useAppDispatch } from 'src/redux/store';
+
+type GiftCheckboxLineItemProps = {
+  lineItem: DLineItem;
+};
+
+const GiftCheckboxLineItem = (props: GiftCheckboxLineItemProps): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const [checked, setChecked] = useState(Boolean(props.lineItem.xp?.IsGift));
+  const [loading, setLoading] = useState(false);
+  const updateLineItem = useCallback(
+    async (newChecked: boolean) => {
+      setLoading(true);
+      await dispatch(
+        patchLineItem({
+          lineItemID: props.lineItem.ID,
+          partialLineItem: { xp: { IsGift: newChecked } },
+        })
+      );
+      setLoading(false);
+    },
+    [dispatch, props.lineItem.ID]
+  );
+
+  const handleToggle = () => {
+    const newChecked = !checked;
+    setChecked(newChecked);
+    updateLineItem(newChecked);
+  };
+  return (
+    <label htmlFor={`gift-checkbox-lineitem-${props.lineItem.ID}`}>
+      <input
+        id={`gift-checkbox-${props.lineItem.ID}`}
+        type="checkbox"
+        checked={checked}
+        disabled={loading}
+        onChange={handleToggle}
+      />
+      {`${props.lineItem.Quantity > 1 ? 'These items are a gift' : 'This item is a gift'}`}
+    </label>
+  );
+};
+
+export default GiftCheckboxLineItem;
