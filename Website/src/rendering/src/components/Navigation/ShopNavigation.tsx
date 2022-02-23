@@ -37,7 +37,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
 
   return (
     <nav className="shop-navigation">
-      <div className="shop-navigation-content">
+      <div className="shop-navigation-content container">
         <div className="logo-container">
           <Link href="/shop">
             <a className="logo-link">
@@ -80,7 +80,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
           </ul>
         </div>
         <Link href="/shop/products" passHref>
-          <div className="shop-search-input-container">
+          <div className="shop-search-input-container container">
             <FontAwesomeIcon id="search-icon" icon={faSearch} />
             <input className="shop-search-input" placeholder="I am shopping for..." />
           </div>
