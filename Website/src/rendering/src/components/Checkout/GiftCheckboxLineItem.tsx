@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { DLineItem } from 'src/models/ordercloud/DLineItem';
-import { patchLineItem } from 'src/redux/ocCurrentCart';
-import { useAppDispatch } from 'src/redux/store';
+import { DLineItem } from '../../models/ordercloud/DLineItem';
+import { patchLineItem } from '../../redux/ocCurrentCart';
+import { useAppDispatch } from '../../redux/store';
 
 type GiftCheckboxLineItemProps = {
   lineItem: DLineItem;

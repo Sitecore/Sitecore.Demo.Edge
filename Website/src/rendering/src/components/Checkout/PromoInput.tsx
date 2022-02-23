@@ -1,8 +1,7 @@
-import { ChangeEvent, KeyboardEvent } from 'react';
-import { useState } from 'react';
-import useOcCurrentOrder from 'src/hooks/useOcCurrentOrder';
-import { addPromotion, removePromotion } from 'src/redux/ocCurrentCart';
-import { useAppDispatch } from 'src/redux/store';
+import { ChangeEvent, KeyboardEvent, useState } from 'react';
+import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import { addPromotion, removePromotion } from '../../redux/ocCurrentCart';
+import { useAppDispatch } from '../../redux/store';
 
 const PromoInput = (): JSX.Element => {
   const [loading, setLoading] = useState(false);

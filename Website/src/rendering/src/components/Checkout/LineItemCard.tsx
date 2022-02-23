@@ -4,7 +4,7 @@ import useOcProduct from '../../hooks/useOcProduct';
 import { patchLineItem, removeLineItem } from '../../redux/ocCurrentCart';
 import QuantityInput from './QuantityInput';
 import GiftCheckboxLineItem from './GiftCheckboxLineItem';
-import { useAppDispatch } from 'src/redux/store';
+import { useAppDispatch } from '../../redux/store';
 
 type LineItemCardProps = {
   lineItem: DLineItem;

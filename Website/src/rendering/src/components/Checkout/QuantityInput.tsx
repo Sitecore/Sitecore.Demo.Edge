@@ -1,5 +1,5 @@
 import { RequiredDeep } from 'ordercloud-javascript-sdk';
-import { DPriceSchedule } from 'src/models/ordercloud/DPriceSchedule';
+import { DPriceSchedule } from '../../models/ordercloud/DPriceSchedule';
 import { ChangeEvent, useState } from 'react';
 
 type QuantityInputProps = {

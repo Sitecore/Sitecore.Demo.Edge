@@ -1,4 +1,4 @@
-import useOcCurrentOrder from 'src/hooks/useOcCurrentOrder';
+import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
 const CartSummary = (): JSX.Element => {
   const { order } = useOcCurrentOrder();

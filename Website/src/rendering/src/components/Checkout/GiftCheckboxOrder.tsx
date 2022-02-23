@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
-import { DOrder } from 'src/models/ordercloud/DOrder';
-import { patchOrder } from 'src/redux/ocCurrentCart';
-import { useAppDispatch } from 'src/redux/store';
+import { DOrder } from '../../models/ordercloud/DOrder';
+import { patchOrder } from '../../redux/ocCurrentCart';
+import { useAppDispatch } from '../../redux/store';
 
 type GiftCheckboxOrderProps = {
   order: DOrder;
