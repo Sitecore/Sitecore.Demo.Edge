@@ -41,7 +41,7 @@ const GiftCheckboxLineItem = (props: GiftCheckboxLineItemProps): JSX.Element => 
         disabled={loading}
         onChange={handleToggle}
       />
-      {`${props.lineItem.Quantity > 1 ? 'These items are a gift' : 'This item is a gift'}`}
+      {props.lineItem.Quantity > 1 ? 'These items are a gift' : 'This item is a gift'}
     </label>
   );
 };
