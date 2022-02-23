@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { ShopLayout } from 'components/Products/Shop';
-import Breadcrumb from 'components/Navigation/Breadcrumb';
+import Breadcrumb from 'components/Navigation/ShopBreadcrumb';
 import LineItemList from 'components/Checkout/LineItemList';
 import GiftCheckboxOrder from 'components/Checkout/GiftCheckboxOrder';
 import PromoInput from 'components/Checkout/PromoInput';
@@ -17,7 +17,10 @@ interface CartProps {
 
 const Cart = (props: CartProps): JSX.Element => {
   const { order } = useOcCurrentOrder();
-  const breadCrumbDefinitions: Breadcrumb[] = [];
+  const breadCrumbDefinitions: Breadcrumb[] = [
+    { urlPath: '/shop', displayName: 'Shop' },
+    { urlPath: '/search', displayName: 'Search' },
+  ];
   return (
     <ShopLayout>
       {console.log({ props })}
