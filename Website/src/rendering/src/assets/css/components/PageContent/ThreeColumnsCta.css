@@ -1,0 +1,27 @@
+.three-columns-cta {
+  @apply text-center bg-black p-10;
+
+  .cta-content {
+    @apply grid grid-rows-3;
+    @apply lg:grid-rows-1 lg:grid-cols-3;
+
+    .cta {
+      @apply space-y-2 py-5;
+      @apply lg:py-0 md:px-8;
+
+      .cta-heading {
+        @apply text-blue-lighter text-5xl font-bold;
+      }
+
+      .cta-description {
+        @apply uppercase text-white text-xl font-bold;
+      }
+    }
+
+    .cta + .cta {
+      @apply border-gray;
+      @apply border-t;
+      @apply lg:border-t-0 lg:border-l;
+    }
+  }
+}

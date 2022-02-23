@@ -23,6 +23,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="34188" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff Logo" height="1001" width="1001" ></image>
+    - ID: "12c0fdc3-9c18-41c4-aeda-8dcca687eb59"
+      Hint: Sessions
+      Value: "{76B1D64B-C80D-4FE8-8FF2-7FF22360E341}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T162437Z

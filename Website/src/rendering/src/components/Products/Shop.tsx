@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import Section from '../Page Content/Section';
+import Section from '../PageContent/Section';
 import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
@@ -17,6 +17,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
           headerLogo: {
             jsonValue: {
               value: {
+                // TODO update with play shop logo when available
                 src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
               },
             },

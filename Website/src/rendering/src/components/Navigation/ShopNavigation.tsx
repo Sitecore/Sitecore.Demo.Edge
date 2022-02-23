@@ -26,8 +26,8 @@ export type ShopNavigationProps = ComponentProps & {
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
-  const [locale, setLocale] = useState('EN / CAD');
-  const [flagUrl, setFlagUrl] = useState(
+  const [locale /*, setLocale */] = useState('EN / CAD');
+  const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
 
