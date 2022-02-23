@@ -40,53 +40,58 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
     props.onChange(newQuantity);
   };
 
+  const restrictedQuantityInput = props.priceSchedule.RestrictedQuantity && (
+    <select
+      id={props.controlId}
+      disabled={props.disabled}
+      value={quantity}
+      onChange={handleSelectChange}
+    >
+      {props.priceSchedule.PriceBreaks.map((priceBreak) => (
+        <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
+          {priceBreak.Quantity}
+        </option>
+      ))}
+    </select>
+  );
+
+  const unrestrictedQuantityInput = !props.priceSchedule.RestrictedQuantity && (
+    <div className="quantity-input-wrapper">
+      <button
+        className="quantity-input-button"
+        aria-label="Subtract quantity"
+        type="button"
+        disabled={subtractDisabled}
+        onClick={handleSubtract}
+      >
+        -
+      </button>
+      <input
+        id={props.controlId}
+        disabled={props.disabled}
+        type="number"
+        min={props.priceSchedule.MinQuantity}
+        max={props.priceSchedule.MaxQuantity}
+        step={1}
+        value={props.quantity}
+        onChange={handleInputChange}
+      />
+      <button
+        className="quantity-input-button"
+        aria-label="Add quantity"
+        type="button"
+        disabled={addDisabled}
+        onClick={handleAdd}
+      >
+        +
+      </button>
+    </div>
+  );
+
   return (
     <>
-      {props.priceSchedule.RestrictedQuantity ? (
-        <select
-          id={props.controlId}
-          disabled={props.disabled}
-          value={quantity}
-          onChange={handleSelectChange}
-        >
-          {props.priceSchedule.PriceBreaks.map((priceBreak) => (
-            <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
-              {priceBreak.Quantity}
-            </option>
-          ))}
-        </select>
-      ) : (
-        <div className="quantity-input-wrapper">
-          <button
-            className="quantity-input-button"
-            aria-label="Subtract quantity"
-            type="button"
-            disabled={subtractDisabled}
-            onClick={handleSubtract}
-          >
-            -
-          </button>
-          <input
-            id={props.controlId}
-            disabled={props.disabled}
-            type="number"
-            min={props.priceSchedule.MinQuantity}
-            max={props.priceSchedule.MaxQuantity}
-            step={1}
-            value={props.quantity}
-            onChange={handleInputChange}
-          />
-          <button
-            className="quantity-input-button"
-            aria-label="Add quantity"
-            type="button"
-            disabled={addDisabled}
-            onClick={handleAdd}
-          >
-            +
-          </button>
-        </div>
-      )}
+      {restrictedQuantityInput}
+      {unrestrictedQuantityInput}
     </>
   );
 };
