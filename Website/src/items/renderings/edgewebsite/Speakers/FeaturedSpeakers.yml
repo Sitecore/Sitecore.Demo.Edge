@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Speakers/FeaturedSpeakers
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/EdgeWebsite/home/speakers
+  Value: 
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: FeaturedSpeakers
@@ -16,17 +16,31 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query {
+    query($datasource:String!) {
+      source: item(
+        path: $datasource
+        language: "en"
+      ) {
+        numberOfSpeakers: field(name: "NumberOfSpeakers") {
+          value
+        }
+      }
       item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
-        children(hasLayout: true) {
+        children(hasLayout: true, first: 50) {
           results {
             ... on Speaker {
               itemName: name
+              jobTitle {
+                value
+              }
               name: field(name: "name") {
                 value
               }
               picture {
                 jsonValue
+              }
+              url {
+                path
               }
               featured {
                 value: boolValue
@@ -39,19 +53,22 @@ SharedFields:
     
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: 
+  Value: /sitecore/templates/Project/edgewebsite/FeaturedSpeakers
 - ID: "308e88f5-cd6e-4f8f-bafe-95a47dedefdc"
   Hint: Editable
-  Value: 
+  Value: 1
+- ID: "7d8ae35f-9ed1-43b5-96a2-0a5f040d4e4e"
+  Hint: Open Properties after Add
+  Value: 1
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
-  Value: "{FDF43AAD-C5D1-54E4-9909-59BFDDC86689}"
+  Value: 
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: 
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers
 Languages:
 - Language: en
   Versions:

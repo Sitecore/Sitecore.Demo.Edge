@@ -6,6 +6,7 @@ using Sitecore.LayoutService.Serialization;
 using Sitecore.LayoutService.Serialization.FieldSerializers;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
+using Sitecore.Web;
 
 namespace Sitecore.Demo.Edge.Website.FieldSerializer
 {
@@ -23,14 +24,64 @@ namespace Sitecore.Demo.Edge.Website.FieldSerializer
 
         protected override void WriteRenderedValue(Field field, JsonTextWriter writer)
         {
-            string renderedValue = this.GetRenderedValue(field);
-            writer.WriteValue(renderedValue);
+            if (field.Type == "Image")
+            {
+                string renderedValue = this.GetRenderedValue(field);
+                writer.WriteValue(renderedValue);
+            }
         }
 
         protected virtual string GetRenderedValue(Field field, SerializationOptions options = null)
         {
             if (string.IsNullOrWhiteSpace(this._renderedValue))
+            {
                 this._renderedValue = this.RenderField(field, options != null && options.DisableEditing).ToString();
+            }
+
+            string transformation = "web";
+            Item item = field.Item;
+            string transformationFieldName = field.Name + "Transformation";
+            if (item?.Fields[transformationFieldName] != null)
+            {
+                transformation = item.Fields[transformationFieldName].Value;
+            }
+
+            var fieldValue = this._renderedValue;
+
+            if (fieldValue.Contains("stylelabs-content-id"))
+            {
+                bool addTransformation = false;
+                string source = "";
+                try
+                {
+                    HtmlDocument htmlDocument = new HtmlDocument();
+                    htmlDocument.LoadHtml(fieldValue);
+
+                    HtmlNode htmlNode = htmlDocument.DocumentNode.SelectSingleNode("//input");
+                    foreach (HtmlAttribute attribute in htmlNode.Attributes)
+                    {
+                        if (attribute.Name.Equals("value"))
+                        {
+                            HtmlDocument htmlDocumentValue = new HtmlDocument();
+                            htmlDocumentValue.LoadHtml(HttpUtility.HtmlDecode(attribute.Value));
+                            HtmlNode htmlNodeValue = htmlDocument.DocumentNode.SelectSingleNode("//image");
+
+                            source = htmlNodeValue.Attributes["src"].Value;
+                            addTransformation = true;
+                        }
+                    }
+
+                    if (addTransformation && !source.Contains("&t="))
+                    {
+                        this._renderedValue = this._renderedValue.Replace(source, source + "&t=" + transformation);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+
             return this._renderedValue;
         }
 

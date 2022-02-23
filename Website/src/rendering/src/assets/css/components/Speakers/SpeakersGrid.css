@@ -1,59 +1,29 @@
-.section__speakers__grid {
-  @apply mx-auto grid grid-cols-1 gap-5;
+.speakers-grid {
+  @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
   @apply sm:grid-cols-2;
   @apply md:grid-cols-3;
   @apply lg:grid-cols-4;
-  @apply xl:grid-cols-5;
+  @apply xl:grid-cols-5 xl:gap-10;
 
-  margin-top: 20px;
-  margin-bottom: 40px;
-
-  &__speaker {
-    @apply box-border col-span-1 relative;
-
-    width: 100px;
-    min-width: 260px;
-    padding: 10px;
-    margin: 10px;
+  &-speaker {
+    @apply box-border col-span-1 relative text-left text-black mx-auto;
 
     &:hover img {
       box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
     }
 
     img {
-      @apply w-full;
+      max-width: 265px;
     }
 
-    .speaker__image {
-      @apply w-full bg-none;
+    .speaker-image {
+      @apply w-full bg-no-repeat bg-cover bg-blue;
+
+      background-image: url(../../../img/background-element.svg);
     }
 
-    .speaker__featured {
-      @apply absolute top-2 right-1 text-yellow;
-
-      .icon {
-        @apply h-4 mr-2 inline text-yellow;
-      }
-
-      svg {
-        filter: drop-shadow(1px 1px 2px black);
-      }
-    }
-
-    .speaker__name {
-      @apply mx-auto text-center font-semibold text-black;
-
-      margin-top: 5px;
-      margin-bottom: 5px;
-    }
-
-    .speaker__role {
-      @apply mx-auto text-center font-medium uppercase text-blue;
-
-      margin-top: 5px;
-      margin-bottom: 5px;
-      font-size: 0.8em;
-      letter-spacing: 1px;
+    .speaker-name {
+      @apply font-bold my-1;
     }
   }
 }

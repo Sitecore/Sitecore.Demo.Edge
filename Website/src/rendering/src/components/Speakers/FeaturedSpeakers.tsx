@@ -1,11 +1,14 @@
-import Link from 'next/link';
-import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
+import Link from 'next/link';
 
 export type FeaturedSpeakersProps = ComponentProps & {
   fields: {
     data: {
+      source: {
+        numberOfSpeakers: Field<number>;
+      };
       item: {
         children: {
           results: GraphQLSpeaker[];
@@ -13,9 +16,17 @@ export type FeaturedSpeakersProps = ComponentProps & {
       };
     };
   };
-  params: {
-    NumberOfSpeakers: string;
-  };
+};
+
+const getSpeakerNumberToShow = function (props: FeaturedSpeakersProps) {
+  let numberOfSpeakers = props.fields.data.item.children.results.length;
+  if (!!props.fields.data.source?.numberOfSpeakers?.value) {
+    const providedNumberOfSpeakers = props.fields.data.source?.numberOfSpeakers?.value;
+    if (!isNaN(providedNumberOfSpeakers) && providedNumberOfSpeakers > 0) {
+      numberOfSpeakers = providedNumberOfSpeakers;
+    }
+  }
+  return numberOfSpeakers;
 };
 
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
@@ -24,26 +35,31 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
     props.fields.data.item.children.results
       .filter((item) => item.featured.value)
       .sort()
-      .slice(0, parseInt(props.params.NumberOfSpeakers))
+      .slice(0, getSpeakerNumberToShow(props))
       .map((speaker, index) => (
-        <Link key={index} href={`/speakers/${speaker.itemName}`} passHref>
-          <a className="grid-item">
-            <Image
-              field={speaker.picture.jsonValue}
-              alt={speaker.name}
-              width={265}
-              height={265}
-              loading="lazy"
-            />
-            <div className="item-details">
-              <Text tag="p" field={speaker.name} />
+        <Link key={index} href={speaker.url.path} passHref>
+          <a>
+            <div className="grid-item">
+              <div className="item-image">
+                <Image
+                  field={speaker.picture.jsonValue}
+                  alt={speaker.name.value}
+                  width={265}
+                  height={265}
+                  loading="lazy"
+                />
+              </div>
+              <div className="item-details">
+                <Text tag="p" className="item-title" field={speaker.name} />
+                <Text tag="p" field={speaker.jobTitle} />
+              </div>
             </div>
           </a>
         </Link>
       ));
 
   return (
-    <div className="item-grid">
+    <div className="featured-speakers item-grid">
       <div className="grid-content">{speakers}</div>
     </div>
   );

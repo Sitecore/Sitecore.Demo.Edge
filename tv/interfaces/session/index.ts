@@ -66,6 +66,7 @@ export interface SessionsByRoomResponse {
 }
 
 export interface Session {
+  id: string;
   name: string;
   speakers: {
     id: string;

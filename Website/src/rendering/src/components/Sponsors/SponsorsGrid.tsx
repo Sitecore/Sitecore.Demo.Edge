@@ -13,9 +13,14 @@ const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
   const sponsors =
     props.fields.items &&
     props.fields.items.map((sponsor, index) => (
-      <Link key={index} href={'/sponsors/' + sponsor.fields.Name.value} passHref>
+      <Link key={index} href={sponsor.url} passHref>
         <a className="grid-item">
-          <Image field={sponsor.fields.Logo} alt={sponsor.fields.Name} width={265} height={265} />
+          <Image
+            field={sponsor.fields.Logo}
+            alt={sponsor.fields.Name.value}
+            width={265}
+            height={265}
+          />
           <div className="item-details">
             <Text tag="p" field={sponsor.fields.Name} />
           </div>
@@ -26,7 +31,7 @@ const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
   return (
     <section className="section">
       <div className="section__content container">
-        <h1 className="section__content__title">All Event Sponsors</h1>
+        <h1 className="section__content__title">Explore Sponsors</h1>
         <div className="item-grid">
           <div className="grid-filters">
             <span>Filter by</span>

@@ -10,12 +10,89 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/16x16/document_tag.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query SponsorInformationQuery($contextItem: String!) {
+      contextItem: item(path: $contextItem, language: "en") {
+        ... on Sponsor {
+          description {
+            value
+          }
+          sessions {
+            ... on MultilistField {
+              targetItems {
+                itemName: name
+                ... on Session {
+                  name: field(name: "name") {
+                    value
+                  }
+                  premium {
+                    value
+                  }
+                  url {
+                    path
+                  }
+                  speakers {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Speaker {
+                          name: field(name: "name") {
+                            value
+                          }
+                          url {
+                            path
+                          }
+                        }
+                      }
+                    }
+                  }
+                  rooms {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Room {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  day {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Day {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  timeslots {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Timeslot {
+                          name: field(name: "Name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
+  Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: 
