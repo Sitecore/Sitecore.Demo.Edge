@@ -10,9 +10,9 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
 
   return lineItems && lineItems.length ? (
     <ol>
-      {lineItems.map((li) => (
-        <li key={li.ID}>
-          <LineItemCard lineItem={li} editable={props.editable} />
+      {lineItems.map((lineItem) => (
+        <li key={lineItem.ID}>
+          <LineItemCard lineItem={lineItem} editable={props.editable} />
         </li>
       ))}
     </ol>

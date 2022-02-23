@@ -18,11 +18,11 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const product = useOcProduct(props.lineItem.ProductID);
 
   const getProductName = () => {
-    const li = props.lineItem;
-    if (!li.Specs?.length) {
-      return li.Product.Name;
+    const lineItem = props.lineItem;
+    if (!lineItem.Specs?.length) {
+      return lineItem.Product.Name;
     }
-    return `${li.Product.Name} (${li.Specs.join(',')})`;
+    return `${lineItem.Product.Name} (${lineItem.Specs.join(',')})`;
   };
 
   const handleRemoveLineItem = useCallback(async () => {
@@ -48,10 +48,10 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     <div>
       <p>
         <strong>{getProductName()}</strong>
-        {props.lineItem.Specs.map((s) => (
-          <span key={s.SpecID}>
+        {props.lineItem.Specs.map((spec) => (
+          <span key={spec.SpecID}>
             <br />
-            {`${s.Name}: ${s.Value}`}
+            {`${spec.Name}: ${spec.Value}`}
           </span>
         ))}
       </p>

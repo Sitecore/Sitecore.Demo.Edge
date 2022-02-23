@@ -49,9 +49,9 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
           value={quantity}
           onChange={handleSelectChange}
         >
-          {props.priceSchedule.PriceBreaks.map((pb) => (
-            <option key={pb.Quantity} value={pb.Quantity}>
-              {pb.Quantity}
+          {props.priceSchedule.PriceBreaks.map((priceBreak) => (
+            <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
+              {priceBreak.Quantity}
             </option>
           ))}
         </select>
