@@ -44,6 +44,46 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
+  const quantityInput = props.editable && product && (
+    <>
+      <button
+        aria-label="Remove Line Item"
+        type="button"
+        disabled={loading}
+        onClick={handleRemoveLineItem}
+      >
+        Remove
+      </button>
+      {product && (
+        <QuantityInput
+          controlId={`${props.lineItem.ID}_quantity`}
+          quantity={props.lineItem.Quantity}
+          disabled={loading}
+          onChange={handleUpdateQuantity}
+          priceSchedule={product.PriceSchedule}
+        />
+      )}
+    </>
+  );
+
+  const quantity = props.editable ? (
+    <>
+      {' '}
+      <button
+        aria-label="Remove Line Item"
+        type="button"
+        disabled={loading}
+        onClick={handleRemoveLineItem}
+      >
+        {' '}
+        Remove{' '}
+      </button>{' '}
+      {quantityInput}{' '}
+    </>
+  ) : (
+    <p>Quantity: {props.lineItem.Quantity}</p>
+  );
+
   return (
     <div>
       <p>
@@ -57,30 +97,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       </p>
 
       <GiftCheckboxLineItem lineItem={props.lineItem}></GiftCheckboxLineItem>
-
-      {props.editable ? (
-        <>
-          <button
-            aria-label="Remove Line Item"
-            type="button"
-            disabled={loading}
-            onClick={handleRemoveLineItem}
-          >
-            Remove
-          </button>
-          {product && (
-            <QuantityInput
-              controlId={`${props.lineItem.ID}_quantity`}
-              quantity={props.lineItem.Quantity}
-              disabled={loading}
-              onChange={handleUpdateQuantity}
-              priceSchedule={product.PriceSchedule}
-            />
-          )}
-        </>
-      ) : (
-        <p>{`Quantity: ${props.lineItem.Quantity}`}</p>
-      )}
+      {quantity}
     </div>
   );
 };
