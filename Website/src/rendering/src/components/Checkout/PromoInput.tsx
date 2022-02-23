@@ -28,6 +28,25 @@ const PromoInput = (): JSX.Element => {
     setLoading(false);
   };
 
+  const addedPromotions = promotions?.length ? (
+    <ul>
+      {promotions.map((promotion) => {
+        return (
+          <li key={promotion.ID}>
+            <button disabled={loading} onClick={() => handleRemovePromotion(promotion.Code)}>
+              Remove Promotion
+            </button>
+            <span>{promotion.Code}</span>
+            <span>{promotion.Description}</span>
+            <span>{promotion.Amount}</span>
+          </li>
+        );
+      })}
+    </ul>
+  ) : (
+    <div></div>
+  );
+
   return (
     <div>
       <input
@@ -37,24 +56,7 @@ const PromoInput = (): JSX.Element => {
         onKeyDown={handlePromoCodeKeyDown}
         onChange={handlePromoCodeChange}
       />
-      {promotions?.length ? (
-        <ul>
-          {promotions.map((promotion) => {
-            return (
-              <li key={promotion.ID}>
-                <button disabled={loading} onClick={() => handleRemovePromotion(promotion.Code)}>
-                  Remove Promotion
-                </button>
-                <span>{promotion.Code}</span>
-                <span>{promotion.Description}</span>
-                <span>{promotion.Amount}</span>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <div></div>
-      )}
+      {addedPromotions}
     </div>
   );
 };
