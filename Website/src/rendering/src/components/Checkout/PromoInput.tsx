@@ -21,11 +21,13 @@ const PromoInput = (): JSX.Element => {
       setPromoCode('');
     }
   };
+
   const handleRemovePromotion = async (promoCode: string) => {
     setLoading(true);
     await dispatch(removePromotion(promoCode));
     setLoading(false);
   };
+
   return (
     <div>
       <input
