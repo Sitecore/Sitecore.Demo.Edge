@@ -24,10 +24,12 @@ const GiftCheckboxOrder = (props: GiftCheckboxOrderProps): JSX.Element => {
     setChecked(newChecked);
     updateOrder(newChecked);
   };
+  const labelId = 'gift-checkbox-order';
+
   return (
-    <label htmlFor="gift-checkbox-order">
+    <label htmlFor={labelId}>
       <input
-        id="gift-checkbox-order"
+        id={labelId}
         type="checkbox"
         checked={checked}
         disabled={loading}

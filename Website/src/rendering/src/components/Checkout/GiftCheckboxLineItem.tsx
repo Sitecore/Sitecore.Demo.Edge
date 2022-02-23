@@ -30,10 +30,12 @@ const GiftCheckboxLineItem = (props: GiftCheckboxLineItemProps): JSX.Element => 
     setChecked(newChecked);
     updateLineItem(newChecked);
   };
+  const labelId = `gift-checkbox-lineitem-${props.lineItem.ID}`;
+
   return (
-    <label htmlFor={`gift-checkbox-lineitem-${props.lineItem.ID}`}>
+    <label htmlFor={labelId}>
       <input
-        id={`gift-checkbox-${props.lineItem.ID}`}
+        id={labelId}
         type="checkbox"
         checked={checked}
         disabled={loading}
