@@ -29,7 +29,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
           <RichText className="news-excerpt" field={news.fields.Excerpt} />
         </div>
         <div className="button-container">
-          <Link href={'/news/' + news.name}>
+          <Link href={news.url}>
             <a className="btn--main btn--main--round">Read&nbsp;More</a>
           </Link>
         </div>
