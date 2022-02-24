@@ -74,4 +74,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49433" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49433/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/c5c75df2222345b890e87bb91872cbc4?v=a2d9223f" mediaid="" stylelabs-content-type="Image" alt="Jacob Gonzalez - No background" height="3077" width="3077" />
+        <image stylelabs-content-id="49433" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/49433/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/c5c75df2222345b890e87bb91872cbc4?v=a2d9223f" mediaid="" stylelabs-content-type="Image" alt="Jacob Gonzalez - No background" height="3077" width="3077" />

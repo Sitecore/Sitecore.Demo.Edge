@@ -71,4 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="50150" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/50150/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/8e3bbc671ca44867b2b9cc74a071a51d?v=626c5fac" mediaid="" stylelabs-content-type="Image" alt="Jessie Maher - No background" height="3973" width="3973" />
+        <image stylelabs-content-id="50150" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/50150/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/8e3bbc671ca44867b2b9cc74a071a51d?v=626c5fac" mediaid="" stylelabs-content-type="Image" alt="Jessie Maher - No background" height="3973" width="3973" />

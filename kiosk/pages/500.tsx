@@ -15,7 +15,7 @@ const Custom500 = (): JSX.Element => {
           <Link href="/start" passHref>
             <a>
               <Image
-                src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+                src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
                 width={200}
                 height={100}
                 alt="Logo"

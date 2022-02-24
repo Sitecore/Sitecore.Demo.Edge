@@ -42,7 +42,7 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="34188" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="34188" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/34188/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/ed3fa90112ad4c298b0429ce545c5401?v=d91651cd" mediaid="" stylelabs-content-type="Image" alt="ProStaff Logo" height="1001" width="1001" />
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{76B1D64B-C80D-4FE8-8FF2-7FF22360E341}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"

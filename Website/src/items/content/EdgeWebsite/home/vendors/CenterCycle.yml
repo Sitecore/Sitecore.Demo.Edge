@@ -45,7 +45,7 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33988" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33988/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a" mediaid="" stylelabs-content-type="Image" alt="CenterCycle Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33988" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/33988/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/fddf681166144085b1aa1bef893fca9b?v=df31289a" mediaid="" stylelabs-content-type="Image" alt="CenterCycle Logo" height="1001" width="1001" />
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{71B49CE4-5034-436E-BE7F-DB838C8FDFEF}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{7C9530B9-E948-4A84-9A6F-9A3D27B5CB42}"

@@ -19,7 +19,7 @@ Languages:
     - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="30916" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30916/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/7086de82b44d4684afb6ddced7fd1b22?v=f2bedad8" mediaid="" stylelabs-content-type="Image" alt="Parking garage banner" height="3024" width="4032" />
+        <image stylelabs-content-id="30916" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/30916/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/7086de82b44d4684afb6ddced7fd1b22?v=f2bedad8" mediaid="" stylelabs-content-type="Image" alt="Parking garage banner" height="3024" width="4032" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T164249Z

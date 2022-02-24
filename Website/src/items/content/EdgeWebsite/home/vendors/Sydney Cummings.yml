@@ -45,7 +45,7 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33922" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33922/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/b73b74e73acf4c609f1c6cd669a7b2f3?v=9cb725e4" mediaid="" stylelabs-content-type="Image" alt="SyndeyCummings Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33922" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/33922/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/b73b74e73acf4c609f1c6cd669a7b2f3?v=9cb725e4" mediaid="" stylelabs-content-type="Image" alt="SyndeyCummings Logo" height="1001" width="1001" />
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}|{57011604-34AF-40B5-8892-5A194F76EEBE}"

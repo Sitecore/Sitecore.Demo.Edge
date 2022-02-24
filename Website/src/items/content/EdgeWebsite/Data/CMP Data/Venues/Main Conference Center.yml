@@ -19,7 +19,7 @@ Languages:
     - ID: "0ff0000c-67bf-4be4-a89a-52e8a1a975b1"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="36203" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36203/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/9be07d19fc8d43a08dd5ab377f12c0b4?v=0a222754" mediaid="" stylelabs-content-type="Image" alt="Main conference center 1" height="3376" width="6000" />
+        <image stylelabs-content-id="36203" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/36203/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/9be07d19fc8d43a08dd5ab377f12c0b4?v=0a222754" mediaid="" stylelabs-content-type="Image" alt="Main conference center 1" height="3376" width="6000" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T164237Z

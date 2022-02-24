@@ -38,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38471" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38471/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a75e871e825c4eaaad2a91e26259e0ba?v=99c76a76" mediaid="" stylelabs-content-type="Image" alt="basketball session" height="3600" width="5400" />
+        <image stylelabs-content-id="38471" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/38471/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/a75e871e825c4eaaad2a91e26259e0ba?v=99c76a76" mediaid="" stylelabs-content-type="Image" alt="basketball session" height="3600" width="5400" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"

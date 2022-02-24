@@ -36,7 +36,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38142" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="Mountain biking 3" height="2832" width="4256" />
+        <image stylelabs-content-id="38142" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="Mountain biking 3" height="2832" width="4256" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}|{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"

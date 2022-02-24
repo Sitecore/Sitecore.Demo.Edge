@@ -28,7 +28,7 @@ const speakerInformationPageHeroProps = {
     },
     Picture: {
       value: {
-        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/8f466142f88c4d5c87e29461eddc222f?v=7a63a542',
+        src: 'https://play-summit-demo.sitecoresandbox.cloud/api/public/content/8f466142f88c4d5c87e29461eddc222f?v=7a63a542',
         height: 1100,
         width: 1100,
       },

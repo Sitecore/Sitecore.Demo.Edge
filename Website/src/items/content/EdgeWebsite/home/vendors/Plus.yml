@@ -45,7 +45,7 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33905" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33905/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/4c2433d5bbef432fa6004c286c3ba91d?v=e09c1419" mediaid="" stylelabs-content-type="Image" alt="Plus Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33905" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/33905/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/4c2433d5bbef432fa6004c286c3ba91d?v=e09c1419" mediaid="" stylelabs-content-type="Image" alt="Plus Logo" height="1001" width="1001" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "5e8b152f-6957-4bc9-bed1-8b2ac534ce8a"

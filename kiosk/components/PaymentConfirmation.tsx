@@ -43,7 +43,7 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
       style={{
         backgroundImage:
           'url(' +
-          'https://playsummit.sitecoresandbox.cloud/api/public/content/69128c1b344947d283b3faf30b6078b1?v=288378d0' +
+          'https://play-summit-demo.sitecoresandbox.cloud/api/public/content/69128c1b344947d283b3faf30b6078b1?v=288378d0' +
           ')',
       }}
     >

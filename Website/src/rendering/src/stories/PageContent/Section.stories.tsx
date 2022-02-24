@@ -13,7 +13,7 @@ export default {
 const speakerImage = {
   jsonValue: {
     value: {
-      src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
+      src: 'https://play-summit-demo.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
       alt: '',
     },
   },

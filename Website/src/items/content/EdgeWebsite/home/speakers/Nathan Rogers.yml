@@ -68,4 +68,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49460" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49460/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d67c678ada2c4ac7a1d7c86931531cf3?v=eeeb327a" mediaid="" stylelabs-content-type="Image" alt="NathanRogers - no background" height="5653" width="5653" />
+        <image stylelabs-content-id="49460" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/49460/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/d67c678ada2c4ac7a1d7c86931531cf3?v=eeeb327a" mediaid="" stylelabs-content-type="Image" alt="NathanRogers - no background" height="5653" width="5653" />

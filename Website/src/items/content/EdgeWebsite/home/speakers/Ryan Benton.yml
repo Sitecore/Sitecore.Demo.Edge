@@ -71,4 +71,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49474" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49474/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ccc946a0a0044535943f1254374dc182?v=922bf504" mediaid="" stylelabs-content-type="Image" alt="Ryan Benton - No background" height="5694" width="5693" />
+        <image stylelabs-content-id="49474" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/49474/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/ccc946a0a0044535943f1254374dc182?v=922bf504" mediaid="" stylelabs-content-type="Image" alt="Ryan Benton - No background" height="5694" width="5693" />

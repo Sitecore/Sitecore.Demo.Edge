@@ -38,7 +38,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38513" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38513/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/c87e9c1c087b485289784fe4c5bc445b?v=4b519f23" mediaid="" stylelabs-content-type="Image" alt="Nutrition expert" height="3456" width="5184" />
+        <image stylelabs-content-id="38513" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/38513/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/c87e9c1c087b485289784fe4c5bc445b?v=4b519f23" mediaid="" stylelabs-content-type="Image" alt="Nutrition expert" height="3456" width="5184" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"

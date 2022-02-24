@@ -55,7 +55,7 @@ Languages:
     - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="30841" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30841/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/fb61d88ba91147109496119795169279?v=7127f275" mediaid="" stylelabs-content-type="Image" alt="Striva Habitat5 Fitness Tracker" height="625" width="770" />
+        <image stylelabs-content-id="30841" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/30841/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/fb61d88ba91147109496119795169279?v=7127f275" mediaid="" stylelabs-content-type="Image" alt="Striva Habitat5 Fitness Tracker" height="625" width="770" />
     - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
       Hint: Content
       Value: |

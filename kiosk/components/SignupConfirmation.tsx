@@ -18,14 +18,14 @@ const SignupConfirmation = (): JSX.Element => {
       style={{
         backgroundImage:
           'url(' +
-          'https://playsummit.sitecoresandbox.cloud/api/public/content/16ff8c68694a48a0bd6311025cb6a5c9?v=5d942ccf' +
+          'https://play-summit-demo.sitecoresandbox.cloud/api/public/content/16ff8c68694a48a0bd6311025cb6a5c9?v=5d942ccf' +
           ')',
       }}
     >
       <div className="signupConfirmation__container container">
         <div className="logo">
           <Image
-            src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+            src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
             width={200}
             height={100}
             className="left float"

@@ -30,7 +30,7 @@ Languages:
     - ID: "69e8418c-5f11-40a8-9c0d-9e5eacc1229e"
       Hint: Hero
       Value: |
-        <image stylelabs-content-id="32027" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/32027/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/7906aad20b9b4c9eb2652417d7731945?v=9c91ce63" mediaid="" stylelabs-content-type="Image" alt="swimmer.jpg" height="1600" width="2400" />
+        <image stylelabs-content-id="32027" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/32027/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/7906aad20b9b4c9eb2652417d7731945?v=9c91ce63" mediaid="" stylelabs-content-type="Image" alt="swimmer.jpg" height="1600" width="2400" />
     - ID: "81af116e-235f-44ad-a8e0-794bc3504c7c"
       Hint: Slogan
       Value: "READY | STEADY | PLAY!"

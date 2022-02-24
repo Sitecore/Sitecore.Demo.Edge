@@ -22,7 +22,7 @@ Languages:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="34184" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/34184/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/95621f62b3c441ffa829e51f26317386?v=38081763" mediaid="" stylelabs-content-type="Image" alt="OverUnder Logo" height="1001" width="1001" ></image>
+        <image stylelabs-content-id="34184" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/34184/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/95621f62b3c441ffa829e51f26317386?v=38081763" mediaid="" stylelabs-content-type="Image" alt="OverUnder Logo" height="1001" width="1001" ></image>
     - ID: "12c0fdc3-9c18-41c4-aeda-8dcca687eb59"
       Hint: Sessions
       Value: "{B1B2C334-1A91-4B57-B68E-43B96133ECAA}"

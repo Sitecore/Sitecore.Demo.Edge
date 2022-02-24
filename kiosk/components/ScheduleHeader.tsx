@@ -17,7 +17,7 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
         <Link href="/start">
           <a>
             <Image
-              src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+              src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
               width={200}
               height={40}
               className="left float"

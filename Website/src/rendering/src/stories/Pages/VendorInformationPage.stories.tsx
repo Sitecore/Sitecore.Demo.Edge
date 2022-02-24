@@ -25,7 +25,7 @@ const vendorInformationPageHeroProps = {
     },
     Logo: {
       value: {
-        src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/cd9887afd5f249c2a77bc62a506ed667?v=6aea2ec4a&t=profile',
+        src: 'https://play-summit-demo.sitecoresandbox.cloud/api/public/content/cd9887afd5f249c2a77bc62a506ed667?v=6aea2ec4a&t=profile',
         height: 133,
         width: 600,
       },

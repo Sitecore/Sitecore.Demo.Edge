@@ -74,4 +74,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49408" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49408/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/2cde21c7ab3a4f26bc6e1afb891b1ecf?v=3f1b098b" mediaid="" stylelabs-content-type="Image" alt="Ed Jones - No background" height="4586" width="4586" />
+        <image stylelabs-content-id="49408" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/49408/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/2cde21c7ab3a4f26bc6e1afb891b1ecf?v=3f1b098b" mediaid="" stylelabs-content-type="Image" alt="Ed Jones - No background" height="4586" width="4586" />

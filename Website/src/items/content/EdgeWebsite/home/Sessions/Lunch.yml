@@ -30,7 +30,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="31944" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/31944/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/4380ef54a3754d908476d1b0d73fe325?v=e175886b" mediaid="" stylelabs-content-type="Image" alt="session food" height="400" width="600" />
+        <image stylelabs-content-id="31944" thumbnailsrc="https://play-summit-demo.sitecoresandbox.cloud/api/gateway/31944/thumbnail" src="https://play-summit-demo.sitecoresandbox.cloud/api/public/content/4380ef54a3754d908476d1b0d73fe325?v=e175886b" mediaid="" stylelabs-content-type="Image" alt="session food" height="400" width="600" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}|{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}|{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
