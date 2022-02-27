@@ -56,8 +56,8 @@
 /* NonSitecore */
 @import "./components/NonSitecore/InformationPageHero.css";
 
-/* PageContent */
-@import "./components/PageContent/DynamicWelcomeMessage.css";
+/* Page Content */
+@import "./components/PageContent/Discover.css";
 @import "./components/PageContent/FeaturedEvent.css";
 @import "./components/PageContent/FullImageSection.css";
 @import "./components/PageContent/HeaderBanner.css";

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+a,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.rfksdk_product {
+  width: 200px;
+  display: inline-block;
+  background-color: transparent;
+  text-align: center;
+  border: 1px solid transparent;
+  vertical-align: top;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.rfksdk_product__info {
+  margin-top: 16px;
+}
+
+.rfksdk_product__name {
+  font-family: DIN;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0;
+  overflow: hidden;
+  height: 42px;
+  margin-bottom: 0;
+  color: #000;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  text-align: center;
+  padding: 0 1px;
+}
+
+.rfksdk_product:hover .rfksdk_product__name {
+  color: #939598;
+}
+
+.rfksdk_product__image {
+  border-radius: 4px;
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.rfksdk_product__wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.rfksdk_product__view-details {
+  margin-top: 12px;
+  border: 1px solid #000;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  height: 48px;
+  width: 91px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 48px;
+}
+
+.rfksdk_product .rfksdk_product_discover {
+  box-shadow: 0 0 6px 2px #cbcbcb;
+  opacity: 0.7;
+  width: 32px;
+}
+
+.rfksdk_product:hover .rfksdk_product_discover {
+  padding: 0 8px 0 3px;
+  width: 148px;
+  box-shadow: 0 0 6px 2px #dcdcdc;
+  opacity: 1;
+}
+
+.rfksdk_product .rfksdk_product_discover::after {
+  content: "";
+  width: 148px;
+  display: none;
+}
+
+.rfksdk_product:hover .rfksdk_product_discover--expandable::after {
+  content: "Discover Your Style";
+  display: block;
+}
+
+.rfksdk-preview-search-container {
+  width: 100%;
+  position: absolute;
+  top: 32px;
+  z-index: 60000;
+  width: 100%;
+  top: 23px;
+  left: 10px;
+}
+
+div[data-rfkid="hs_ps"] input {
+  width: 100%;
+  border: none;
+}
+
+.rfksdk-preview-search-container .search__icon {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+
+.rfksdk-preview-search-container input {
+  width: 90%;
+  border: none;
+  padding: 8px 16px;
+}
+
+.rfksdk-preview-search-container__modal {
+  width: 100%;
+  border: solid 1px #e5e5e5;
+  display: flex;
+  z-index: 5000;
+  position: relative;
+  background: #fff;
+  min-height: 300px;
+}
+
+.rfksdk-preview-search-container__modal .rightSection {
+  width: 70%;
+  border-left: 1px solid #e5e5e5;
+}
+
+.rfksdk-preview-search-container__modal .rightSection__title {
+  padding-left: 10px;
+}
+
+.rfksdk_preview-search_product-list__item {
+  display: inline-flex;
+  width: 33%;
+  text-align: center;
+  margin-bottom: 10px;
+  height: 340px;
+}
+
+.rfksdk-preview-search-container__modal .leftSection {
+  width: 30%;
+}
+
+.rfksdk-preview-search-container__modal .leftSection .list-wrapper {
+  width: 100%;
+}
+
+.rfksdk-preview-search-container__modal .leftSection .list-wrapper__title {
+  padding-left: 10px;
+}
+
+.rfksdk-preview-search-container__modal .leftSection .list-wrapper__item {
+  height: 40px;
+  padding-left: 20px;
+}
+
+.rfksdk-preview-search-container__modal .rightSection .rfksdk_product__wrapper {
+  display: inline-block;
+  height: 60%;
+}
+
+.rfksdk-preview-search-container__modal
+  .rightSection
+  .rfksdk_product__info
+  .rfksdk_product__view-details {
+  height: 30px;
+  width: 70px;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.rfksdk-preview-search-container__modal
+  .rightSection
+  .rfksdk_product__wrapper
+  .rfksdk_discover_button {
+  right: 24px;
+  width: 32px;
+}
