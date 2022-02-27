@@ -156,9 +156,10 @@ export const FeaturedProductHero = (props: FeaturedProductHeroProps): JSX.Elemen
 };
 
 export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
+  console.log('props?', props);
   const [popupVisible, setpopupVisible] = useState(false);
   return (
-    <div id="search-input-container">
+    <div data-rfkid="rfkid_6" id="search-input-container">
       <FontAwesomeIcon id="search-icon" icon={faSearch} />
       <input
         id="search-input"
@@ -178,12 +179,12 @@ export const Popup = (props: PopupProps): JSX.Element => {
 };
 
 export const ReflektionContent = (props: ReflektionContentProps): JSX.Element => {
-  return (
+  return props?.products ? (
     <div id="reflektion-container">
       <div id="reflektion-left-container">
         <ul>
           <li>Did you mean?</li>
-          {props.didYouMean.map((text) => (
+          {props.didYouMean?.map((text) => (
             <li key={text}>
               <a href="#">{text}</a>
             </li>
@@ -191,7 +192,7 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
         </ul>
         <ul>
           <li>Top categories</li>
-          {props.topCategories.map((text) => (
+          {props.topCategories?.map((text) => (
             <li key={text}>
               <a href="#">{text}</a>
             </li>
@@ -199,7 +200,7 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
         </ul>
       </div>
       <div id="reflektion-right-container">
-        {props.products.map((product) => (
+        {props.products?.map((product) => (
           <Product
             key={product.image_url}
             image_url={product.image_url}
@@ -209,7 +210,7 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
         ))}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
@@ -381,9 +382,9 @@ export interface PopupProps {
 }
 
 export interface ReflektionContentProps {
-  products: ProductProps[];
-  didYouMean: string[];
-  topCategories: string[];
+  products?: ProductProps[];
+  didYouMean?: string[];
+  topCategories?: string[];
 }
 
 export interface SearchBarProps {
