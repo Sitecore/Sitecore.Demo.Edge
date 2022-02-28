@@ -1,16 +1,7 @@
-import { withDatasourceCheck, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
 import Products from './Products';
 
-type RightColumnProps = ComponentProps & {
-  fields: {
-    exampleToRemove: Field<string>;
-  };
-};
-
-// const { html } = window.RFK.ui;
-
-const RightColumn = ({ products, loading, selectedKeyword }): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const RightColumn = ({ products = [], loading = false, selectedKeyword = '' }): JSX.Element => {
   return window.RFK.ui.html`
     <div class="rightSection">
       ${
@@ -26,11 +17,3 @@ const RightColumn = ({ products, loading, selectedKeyword }): JSX.Element => {
 };
 
 export default RightColumn;
-
-// const RightColumn = (props: RightColumnProps): JSX.Element => (
-//   <div>
-//     <p>{props.params.name} Component</p>
-//   </div>
-// );
-
-// export default withDatasourceCheck()<RightColumnProps>(RightColumn);

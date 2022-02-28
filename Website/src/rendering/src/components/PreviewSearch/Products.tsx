@@ -1,38 +1,26 @@
-import { withDatasourceCheck, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type ProductsProps = ComponentProps & {
-  fields: {
-    exampleToRemove: Field<string>;
-  };
-};
-
-// const Products = (props: ProductsProps): JSX.Element => (
-//   <div>
-//     <p>{props.params.name} Component</p>
-//   </div>
-// );
-
-// export default withDatasourceCheck()<ProductsProps>(Products);
-
-// const { html } = window.RFK.ui;
-
-const Price = ({ max, min, price, finalPrice }): JSX.Element => {
+/* eslint-disable @typescript-eslint/no-empty-function */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Price = ({ max = 0, min = 0, price = 0, finalPrice = 0 }): JSX.Element => {
   // Price UI component code here.
+  return window.RFK.ui.html`$${finalPrice}`;
 };
 
-const ProductItem = ({ includeSku, className, onClick, onDiscoverStyleOpen, ...product }): JSX.Element => {
-  console.log('props of the url', product);
-  const {
-    product_url,
-    name,
-    sku,
-    final_price_min_formatted,
-    final_price_max_formatted,
-    final_price,
-    price,
-    image_url,
-  } = product;
+const ProductItem = ({
+  includeSku = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  className = '',
+  onClick = (): void => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onDiscoverStyleOpen = (): void => {},
+  product_url = '',
+  name = '',
+  sku = '',
+  final_price_min_formatted = 0,
+  final_price_max_formatted = 0,
+  final_price = 0,
+  price = 0,
+  image_url = '',
+}): JSX.Element => {
   return window.RFK.ui.html`<div class="rfksdk_product">
     <div class="rfksdk_product__wrapper">
       <a href=${product_url} onClick=${onClick}
@@ -56,7 +44,8 @@ const ProductItem = ({ includeSku, className, onClick, onDiscoverStyleOpen, ...p
   </div>`;
 };
 
-export default ({ products = [] }) => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const Products = ({ products = [] }): JSX.Element => {
   return window.RFK.ui.html`<ul class="rfksdk_preview-search_product-list">
     ${products.map(
       (p) => window.RFK.ui.html` <li class="rfksdk_preview-search_product-list__item">
@@ -65,3 +54,5 @@ export default ({ products = [] }) => {
     )}
   </ul>`;
 };
+
+export default Products;
