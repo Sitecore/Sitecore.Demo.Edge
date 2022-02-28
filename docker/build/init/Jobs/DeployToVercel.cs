@@ -65,26 +65,8 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var cdpClientKey = Environment.GetEnvironmentVariable("CDP_CLIENT_KEY");
-            if (string.IsNullOrEmpty(cdpClientKey))
-            {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_CLIENT_KEY is not configured");
-                return;
-            }
-
             var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
-            if (string.IsNullOrEmpty(cdpApiTargetEndpoint))
-            {
-                Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CDP_API_TARGET_ENDPOINT is not configured");
-                return;
-            }
-
             var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
-            if (string.IsNullOrEmpty(cdpProxyUrl))
-            {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_PROXY_URL is not configured");
-                return;
-            }
 
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
