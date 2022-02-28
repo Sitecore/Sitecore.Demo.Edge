@@ -1,7 +1,5 @@
 # Website - Audience-based website home page hero
 
-**Note:** This story cannot be replicated in your own Sitecore Personalize organisation at it depends on a specific variant ID.
-
 ## Web Experience
 
 [Serialized assets](/demo/experience/personalize/experiences/web/Website%20-%20Audience-based%20website%20home%20page%20hero)

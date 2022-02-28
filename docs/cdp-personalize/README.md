@@ -14,12 +14,9 @@ If you want to use this integration, you must:
    2. [Premium Session Page - VIP Ticket Upgrade](stories/premium-session-page-vip-ticket-upgrade.md)
    3. [Session Browse Abandonment](stories/session-browse-abandonment.md)
    4. [Subscribe to update emails campaign](stories/subscribe-to-update-emails-campaign.md)
-   5. [Dynamic Welcome Message](stories/dynamic-welcome-message.md)
-
-There are also a few stories that cannot be replicated in your Sitecore Personalize organisation due to various limitations:
-
-1. [Website - Audience-based website home page hero](stories/website-audience-based-website-home-page-hero.md)
-2. [Website - Message Bar Below Header](stories/website-message-bar-below-header.md)
+   5. [Website - Audience-based website home page hero](stories/website-audience-based-website-home-page-hero.md)
+   6. [Dynamic Welcome Message](stories/dynamic-welcome-message.md)
+   7. [Website - Message Bar Below Header](stories/website-message-bar-below-header.md)
 
 ## Enable Sitecore CDP and Personalize
 
