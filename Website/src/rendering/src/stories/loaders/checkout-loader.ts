@@ -9,15 +9,15 @@ import { DLineItem } from 'src/models/ordercloud/DLineItem';
 import { DUser } from 'src/models/ordercloud/DUser';
 
 if (
-  !process.env['STORYBOOK__ORDERCLOUD_BUYER_CLIENT_ID'] ||
-  !process.env['STORYBOOK__ORDERCLOUD_BASE_API_URL']
+  !process.env['STORYBOOK_ORDERCLOUD_BUYER_CLIENT_ID'] ||
+  !process.env['STORYBOOK_ORDERCLOUD_BASE_API_URL']
 ) {
   throw new Error(
     'Please provide environment variables for storybook in .storybook/.env.storybook'
   );
 }
-const clientID = process.env['STORYBOOK__ORDERCLOUD_BUYER_CLIENT_ID'];
-const baseApiUrl = process.env['STORYBOOK__ORDERCLOUD_BASE_API_URL'];
+const clientID = process.env['STORYBOOK_ORDERCLOUD_BUYER_CLIENT_ID'];
+const baseApiUrl = process.env['STORYBOOK_ORDERCLOUD_BASE_API_URL'];
 Configuration.Set({
   baseApiUrl,
   clientID,
@@ -65,7 +65,7 @@ async function getLineItems(orderID: string): Promise<DLineItem[]> {
   if (lineItems.Items.length) {
     return lineItems.Items;
   } else {
-    const products = await Me.ListProducts({ pageSize: 3 });
+    const products = await Me.ListProducts({ pageSize: 3, filters: { SpecCount: '0' } });
     const lineItemRequests = products.Items.map((product) => {
       return LineItems.Create<DLineItem>('All', orderID, { ProductID: product.ID, Quantity: 1 });
     });
