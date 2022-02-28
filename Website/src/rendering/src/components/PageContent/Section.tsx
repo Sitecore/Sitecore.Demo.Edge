@@ -32,7 +32,7 @@ const Section = (props: SectionProps): JSX.Element => {
     <>
       <Text tag="h2" field={props.fields.title} className="section__content__title" />
       {props.fields.content && (
-        <RichText tag="p" field={props.fields.content} className="section__content__p" />
+        <RichText tag="div" field={props.fields.content} className="section__content__p" />
       )}
     </>
   );
