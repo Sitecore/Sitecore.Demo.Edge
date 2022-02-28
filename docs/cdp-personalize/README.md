@@ -30,7 +30,7 @@ If you want to use this integration, you must:
 
 Example configuration:
 
-```ini
+```text
 # CDP
 CDP_PROXY_HOST=cdp.edge.localhost
 CDP_API_TARGET_ENDPOINT=https://api.boxever.com
@@ -48,7 +48,7 @@ CDP_API_TOKEN=0f081fffc159400c93188df1f5faa52d
 
 Example configuration:
 
-```ini
+```text
 # CDP
 NEXT_PUBLIC_CDP_PROXY_URL=https://cdp.edge.localhost
 NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT=https://api.boxever.com/v1.2
