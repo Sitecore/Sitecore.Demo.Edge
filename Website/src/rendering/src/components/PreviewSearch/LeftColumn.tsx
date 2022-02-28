@@ -1,25 +1,10 @@
-import { withDatasourceCheck, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
-
-type LeftColumnProps = ComponentProps & {
-  fields: {
-    exampleToRemove: Field<string>;
-  };
-};
-
-// const LeftColumn = (props: LeftColumnProps): JSX.Element => (
-//   <div>
-//     <p>{props.params.name} Component</p>
-//   </div>
-// );
-
-// const { html, useState } = window.RFK.ui;
-
+/* eslint-disable @typescript-eslint/no-empty-function */
 const PreviewSearchList = ({
   items = [],
-  title,
-  onMouseEnter,
-  onMouseLeave,
+  title = '',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onMouseEnter = (text: string) => {},
+  onMouseLeave = () => {},
   redirectUrl = '',
 }): JSX.Element => {
   return window.RFK.ui.html` <div class="list-wrapper">
@@ -46,34 +31,38 @@ const PreviewSearchList = ({
   </div>`;
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const LeftColumn = ({
   categories = [],
   trendingCategories = [],
   suggestions = [],
-  loading,
-  loaded,
-  onCategoryChanged = () => {},
-  onTrendingCategoryChanged = () => {},
-  onSuggestionChanged = () => {},
+  loading = false,
+  loaded = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onCategoryChanged = (category: string): void => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onTrendingCategoryChanged = (trendingCategory: string): void => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onSuggestionChanged = (suggestion: string): void => {},
   redirectUrl = '',
 }): JSX.Element => {
   const [lock, setLock] = window.RFK.ui.useState(false);
 
-  const onCategoryEnter = (category) => {
+  const onCategoryEnter = (category: string) => {
     if (!lock) {
       onCategoryChanged(category);
     }
     setLock(true);
   };
 
-  const onTrendingCategoryEnter = (trendingCategory) => {
+  const onTrendingCategoryEnter = (trendingCategory: string) => {
     if (!lock) {
       onTrendingCategoryChanged(trendingCategory);
     }
     setLock(true);
   };
 
-  const onSuggestionEnter = (suggestion) => {
+  const onSuggestionEnter = (suggestion: string) => {
     if (!lock) {
       onSuggestionChanged(suggestion);
     }
@@ -121,5 +110,3 @@ const LeftColumn = ({
   `;
 };
 export default LeftColumn;
-
-// export default withDatasourceCheck()<LeftColumnProps>(LeftColumn);

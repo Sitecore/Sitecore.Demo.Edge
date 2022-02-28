@@ -155,21 +155,11 @@ export const FeaturedProductHero = (props: FeaturedProductHeroProps): JSX.Elemen
   );
 };
 
-export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
-  console.log('props?', props);
-  const [popupVisible, setpopupVisible] = useState(false);
+export const ProductSearchBar = (): JSX.Element => {
   return (
     <div data-rfkid="rfkid_6" id="search-input-container">
       <FontAwesomeIcon id="search-icon" icon={faSearch} />
-      <input
-        id="search-input"
-        onFocus={() => setpopupVisible(true)}
-        onBlur={() => setpopupVisible(false)}
-        placeholder="Search for products"
-      ></input>
-      <Popup visible={popupVisible}>
-        <ReflektionContent {...props.reflektionProps} />
-      </Popup>
+      <input id="search-input" placeholder="Search for products"></input>
     </div>
   );
 };

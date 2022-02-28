@@ -1,9 +1,5 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
-import CookieService from './CookieService';
-import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
-import Search from 'components/Widgets/Search';
-import { ReflektionContent } from 'components/Products/Shop';
 import FrequentlyPurchasedTogether from 'components/Widgets/FrequentlyPurchasedTogether';
 import PreviewSearchWidgetWrapper from 'components/PreviewSearch/PreviewSearch';
 
@@ -22,15 +18,28 @@ interface RFK {
   ): void;
   setWidgetType(id: string, component: unknown): void;
   init(): void;
-  widgets: any;
-  types: any;
+  widgets: Widgets;
+  types: Types;
   ui: {
     html(...args: unknown[]): ReactElement<unknown, string>;
-    useRef(...args: unknown[]): any;
-    useEffect(...args: unknown[]): any;
-    useState(arg1: boolean): any;
-    useCallback(...args: unknown[]): any;
+    useRef(...args: unknown[]): DiscoverReference;
+    useEffect(...args: unknown[]): void;
+    useState(arg1: boolean): [lock: boolean, setLock: (shouldSetLock: boolean) => void];
+    useCallback(...args: unknown[]): (...args: unknown[]) => void;
   };
+}
+
+interface Widgets {
+  PreviewSearchActions: {
+    CATEGORY_CHANGED: string;
+    KEYPHRASE_CHANGED: string;
+    TRENDING_CATEGORY_CHANGED: string;
+    SUGGESTION_CHANGED: string;
+  };
+}
+
+interface Types {
+  PREVIEW_SEARCH: string;
 }
 
 declare global {
@@ -43,16 +52,9 @@ declare global {
 // ***** API *****
 
 const DISCOVER_API_KEY = process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
-interface ProductSortOption {
-  value: string;
-  label: string;
-}
 
-interface DiscoverAccessToken {
-  accessToken: string;
-  accessTokenExpiry: number;
-  refreshToken: string;
-  refreshTokenExpiry: number;
+export interface DiscoverReference {
+  current: { contains: (eventTarget: EventTarget) => boolean };
 }
 
 const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
@@ -60,29 +62,6 @@ const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '
 //   ? DISCOVER_CUSTOMER_KEY.substring(DISCOVER_CUSTOMER_KEY.indexOf('-') + 1)
 //   : '';
 const isDiscoverConfigured = !!DISCOVER_API_KEY && !!DISCOVER_CUSTOMER_KEY;
-const discoverTokenCookieName = `ordercloud.discover-token`;
-const discoverUuidCookieName = `ordercloud.discover-uuid`;
-const discoverSortOptions: ProductSortOption[] = [
-  { label: 'Name: A-Z', value: 'name-asc' },
-  { label: 'Name: Z-A', value: 'name-desc' },
-  { label: 'Price: High to Low', value: 'price-desc' },
-  { label: 'Price: Low to High', value: 'price-asc' },
-  { label: 'Rating: High to Low', value: 'review-desc' },
-  { label: 'Rating: Low to High', value: 'review-asc' },
-  { label: 'Reviews: High to Low', value: 'review-desc' },
-  { label: 'Reviews: Low to High', value: 'review-asc' },
-  { label: 'Featured', value: 'featured-desc' },
-];
-
-declare global {
-  type eventTypes = 'trackEvent' | 'blah';
-  interface Window {
-    _discover_settings: {
-      uid: () => string;
-      push: (eventTypes: eventTypes, any: any) => void;
-    };
-  }
-}
 
 export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
   <>
@@ -131,45 +110,4 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
 
 export const DiscoverSearch: JSX.Element | undefined = <></>;
 
-export class DiscoverService {
-  // async init(): Promise<void> {
-  //   if (!this.getUuid()) {
-  //     const uuid = window._discover_settings.uid();
-  //     this.setUuid(uuid);
-  //   }
-  //   const token = this.getToken();
-  //   if (!token) {
-  //     const discoverToken = await this.getDiscoverAccessToken();
-  //     this.setToken(discoverToken.accessToken);
-  //   }
-  // }
-  // private getUuid(): string {
-  //   return CookieService.read(discoverUuidCookieName);
-  // }
-  // private setUuid(uuid: string): void {
-  //   return CookieService.write(discoverUuidCookieName, uuid);
-  // }
-  // private getToken(): string {
-  //   return CookieService.read(discoverTokenCookieName);
-  // }
-  // private setToken(token: string): void {
-  //   return CookieService.write(discoverTokenCookieName, token);
-  // }
-  // private async getDiscoverAccessToken(): AxiosPromise<DiscoverAccessToken> {
-  //   const url = 'https://api.rfksrv.com/account/1/access-token';
-  //   const response = axios.post(url, {}).then((response) => {
-  //     console.log('response from axios', response);
-  //     return response;
-  //   });
-  // const options: AxiosRequestConfig = {
-  //   method: 'POST',
-  //   headers: {
-  //     'x-api-key': DISCOVER_API_KEY,
-  //   },
-  //   data: {},
-  //   withCredentials: false,
-  //   url,
-  // };
-  // return axios(options);
-  // }
-}
+export class DiscoverService {}

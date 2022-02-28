@@ -1,18 +1,15 @@
-import { withDatasourceCheck, Field } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+/* eslint-disable @typescript-eslint/no-empty-function */
 import ClickOutside from './ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 
-type PreviewSearchProps = ComponentProps & {
-  fields: {
-    exampleToRemove: Field<string>;
-  };
-};
-
-function debounce(func, wait, immediate) {
-  let timeout;
-  return function returnFn(...rest) {
+function debounce(
+  func: (arg: string | { value: string }) => void,
+  wait: number,
+  immediate: boolean
+) {
+  let timeout: NodeJS.Timeout;
+  return function returnFn(this: unknown, ...rest: unknown[]) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
     const args = rest;
@@ -27,28 +24,36 @@ function debounce(func, wait, immediate) {
   };
 }
 
-// const PreviewSearch = (props: PreviewSearchProps): JSX.Element => (
-//   <div>
-//     <p>{props.params.name} Component</p>
-//   </div>
-// );
+interface PreviewSearchResponse {
+  keyphrase?: string;
+  category?: string;
+  trendingCategory?: string;
+  suggestion?: string;
+}
 
-const PreviewSearchWidgetWrapper: JSX.Element = ({
-  loaded,
-  loading,
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const PreviewSearchWidgetWrapper = ({
+  loaded = false,
+  loading = false,
   products = [],
-  keyphrase,
-  trendingCategories,
-  categories,
-  suggestions,
-  selectedKeyword,
+  keyphrase = '',
+  trendingCategories = [],
+  categories = [],
+  suggestions = [],
+  selectedKeyword = '',
   redirectUrl = '',
   inputQuerySelector = '#rfk_input',
-  dispatch,
-}) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  dispatch = (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    keyphraseChanged: string,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    previewSearchResponse: PreviewSearchResponse
+  ): void => {},
+}): JSX.Element => {
   const changeKeyphrase = window.RFK.ui.useCallback(
     debounce(
-      (target) =>
+      (target: { value: string }) =>
         dispatch(window.RFK.widgets.PreviewSearchActions.KEYPHRASE_CHANGED, {
           keyphrase: target.value,
         }),
@@ -58,13 +63,13 @@ const PreviewSearchWidgetWrapper: JSX.Element = ({
     []
   );
 
-  const onFocus = (keyphrase) => {
+  const onFocus = (keyphrase: string) => {
     changeKeyphrase({ value: keyphrase });
   };
 
   const changeCategory = window.RFK.ui.useCallback(
     debounce(
-      (category) => {
+      (category: string) => {
         dispatch(window.RFK.widgets.PreviewSearchActions.CATEGORY_CHANGED, { category });
       },
       200,
@@ -74,7 +79,7 @@ const PreviewSearchWidgetWrapper: JSX.Element = ({
 
   const changeTrendingCategory = window.RFK.ui.useCallback(
     debounce(
-      (trendingCategory) => {
+      (trendingCategory: string) => {
         dispatch(window.RFK.widgets.PreviewSearchActions.TRENDING_CATEGORY_CHANGED, {
           trendingCategory,
         });
@@ -86,7 +91,7 @@ const PreviewSearchWidgetWrapper: JSX.Element = ({
 
   const changeSuggestion = window.RFK.ui.useCallback(
     debounce(
-      (suggestion) => {
+      (suggestion: string) => {
         dispatch(window.RFK.widgets.PreviewSearchActions.SUGGESTION_CHANGED, {
           suggestion,
         });
@@ -105,13 +110,13 @@ const PreviewSearchWidgetWrapper: JSX.Element = ({
 
   window.RFK.ui.useEffect(() => {
     const inputRef = document.querySelector(inputQuerySelector);
-    inputRef.addEventListener('keyup', (e: any) => {
+    inputRef.addEventListener('keyup', (e: KeyboardEvent) => {
       switch (e.key) {
         case 'Escape':
           setOpen(false);
           break;
         case 'Enter':
-          window.location.href = `${redirectUrl}${e.target.value}`;
+          window.location.href = `${redirectUrl}${(e.target as HTMLInputElement).value}`;
           break;
         default:
           setOpen(true);
@@ -161,4 +166,3 @@ const PreviewSearchWidgetWrapper: JSX.Element = ({
 };
 
 export default PreviewSearchWidgetWrapper;
-// export default withDatasourceCheck()<PreviewSearchProps>(PreviewSearch);
