@@ -7,8 +7,8 @@ import { getUser } from './ocUser';
 import { Configuration } from 'ordercloud-javascript-sdk';
 
 Configuration.Set({
-  baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
-  clientID: process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID,
+  baseApiUrl: process.env.STORYBOOK_ORDERCLOUD_BASE_API_URL,
+  clientID: process.env.STORYBOOK_ORDERCLOUD_BUYER_CLIENT_ID,
 });
 
 const OcProvider: FunctionComponent = ({ children }) => {

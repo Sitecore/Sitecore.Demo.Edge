@@ -9,15 +9,15 @@ import { DLineItem } from 'src/models/ordercloud/DLineItem';
 import { DUser } from 'src/models/ordercloud/DUser';
 
 if (
-  !process.env['NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID'] ||
-  !process.env['NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL']
+  !process.env['STORYBOOK__ORDERCLOUD_BUYER_CLIENT_ID'] ||
+  !process.env['STORYBOOK__ORDERCLOUD_BASE_API_URL']
 ) {
   throw new Error(
     'Please provide environment variables for storybook in .storybook/.env.storybook'
   );
 }
-const clientID = process.env['NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID'];
-const baseApiUrl = process.env['NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL'];
+const clientID = process.env['STORYBOOK__ORDERCLOUD_BUYER_CLIENT_ID'];
+const baseApiUrl = process.env['STORYBOOK__ORDERCLOUD_BASE_API_URL'];
 Configuration.Set({
   baseApiUrl,
   clientID,
