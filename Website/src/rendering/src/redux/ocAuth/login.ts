@@ -5,7 +5,7 @@ import { cleanProductCache } from '../ocProductCache';
 import { createOcAsyncThunk } from '../ocReduxHelpers';
 import { clearUser, getUser } from '../ocUser';
 import { Configuration } from 'ordercloud-javascript-sdk';
-import { orderCloudScope } from 'src/constants/ordercloud-scope';
+import { orderCloudScope } from '../../constants/ordercloud-scope';
 
 export interface LoginActionRequest {
   username: string;

@@ -51,6 +51,7 @@ const PromoInput = (): JSX.Element => {
     <div>
       <input
         type="text"
+        disabled={!promotions}
         placeholder="Add promo or coupon code..."
         value={promoCode}
         onKeyDown={handlePromoCodeKeyDown}

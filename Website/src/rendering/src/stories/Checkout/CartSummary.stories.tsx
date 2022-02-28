@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import CartSummary from '../../components/Checkout/CartSummary';
 
 export default {
@@ -12,11 +11,5 @@ const Template: ComponentStory<typeof CartSummary> = (args) => <CartSummary {...
 
 export const Default = Template.bind({});
 Default.args = {
-  params: {
-    name: 'CartSummary',
-  },
-  rendering: {
-    componentName: 'CartSummary',
-    dataSource: '/sitecore',
-  },
+  order: {},
 };

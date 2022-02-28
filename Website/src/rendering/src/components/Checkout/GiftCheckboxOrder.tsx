@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState, useCallback } from 'react';
 import { DOrder } from '../../models/ordercloud/DOrder';
 import { patchOrder } from '../../redux/ocCurrentCart';
@@ -11,6 +12,13 @@ const GiftCheckboxOrder = (props: GiftCheckboxOrderProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [checked, setChecked] = useState(Boolean(props.order.xp?.IsGift));
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (props?.order) {
+      setChecked(Boolean(props?.order?.xp?.IsGift));
+    }
+  }, [props.order]);
+
   const updateOrder = useCallback(
     async (newChecked: boolean) => {
       setLoading(true);
@@ -19,6 +27,7 @@ const GiftCheckboxOrder = (props: GiftCheckboxOrderProps): JSX.Element => {
     },
     [dispatch]
   );
+
   const handleToggle = () => {
     const newChecked = !checked;
     setChecked(newChecked);

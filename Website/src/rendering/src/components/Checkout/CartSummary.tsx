@@ -2,13 +2,12 @@ import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
 const CartSummary = (): JSX.Element => {
   const { order } = useOcCurrentOrder();
-  return (
-    <div className="cart-summary">
-      <p>
-        Subtotal ({order.LineItemCount} items): ${order.Subtotal}
-      </p>
-    </div>
+  const subtotal = order && (
+    <p>
+      Subtotal ({order.LineItemCount} items): ${order.Subtotal}
+    </p>
   );
+  return <div className="cart-summary">{subtotal}</div>;
 };
 
 export default CartSummary;

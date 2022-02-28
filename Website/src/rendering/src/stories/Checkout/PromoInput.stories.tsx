@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import PromoInput from '../../components/Checkout/PromoInput';
 
 export default {
@@ -12,11 +11,5 @@ const Template: ComponentStory<typeof PromoInput> = (args) => <PromoInput {...ar
 
 export const Default = Template.bind({});
 Default.args = {
-  params: {
-    name: 'PromoInput',
-  },
-  rendering: {
-    componentName: 'PromoInput',
-    dataSource: '/sitecore',
-  },
+  order: {},
 };
