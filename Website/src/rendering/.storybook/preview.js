@@ -8,7 +8,7 @@ import * as nextImage from 'next/image';
 import store from '../src/redux/store';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -18,20 +18,20 @@ export const parameters = {
   layout: 'fullscreen',
   breakpoints: {
     breakpointNames: {
-      default: '0',
-      sm: '640',
-      md: '768',
-      lg: '1024',
-      xl: '1280',
+      'default': '0',
+      'sm': '640',
+      'md': '768',
+      'lg': '1024',
+      'xl': '1280',
       '2xl': '1536',
     },
     debounceTimeout: 200,
   },
-};
+}
 
 Object.defineProperty(nextImage, 'default', {
   configurable: true,
-  value: (props) => <img {...props} />,
+  value: props => <img {...props} />
 });
 
 const mockSitecoreContext = {
