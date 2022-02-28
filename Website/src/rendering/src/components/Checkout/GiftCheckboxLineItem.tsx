@@ -9,7 +9,7 @@ type GiftCheckboxLineItemProps = {
 
 const GiftCheckboxLineItem = (props: GiftCheckboxLineItemProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [checked, setChecked] = useState(Boolean(props.lineItem.xp?.IsGift));
+  const [checked, setChecked] = useState(Boolean(props.lineItem?.xp?.IsGift));
   const [loading, setLoading] = useState(false);
   const updateLineItem = useCallback(
     async (newChecked: boolean) => {

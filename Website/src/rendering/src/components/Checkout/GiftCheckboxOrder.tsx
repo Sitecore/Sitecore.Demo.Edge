@@ -10,7 +10,7 @@ type GiftCheckboxOrderProps = {
 
 const GiftCheckboxOrder = (props: GiftCheckboxOrderProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [checked, setChecked] = useState(Boolean(props.order.xp?.IsGift));
+  const [checked, setChecked] = useState(Boolean(props.order?.xp?.IsGift));
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
