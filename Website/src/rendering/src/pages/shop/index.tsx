@@ -4,12 +4,10 @@ import { logViewEvent } from '../../services/CdpService';
 import {
   FeaturedProductHero,
   ProductSearchBar,
-  searchBarProps,
   ShopByCategory,
   ShopByVendor,
   ShopLayout,
 } from '../../components/Products/Shop';
-import FrequentlyPurchasedTogether from 'components/Widgets/FrequentlyPurchasedTogether';
 
 const Shop = (): JSX.Element => {
   const categoryProps = {
@@ -74,22 +72,7 @@ const Shop = (): JSX.Element => {
 
       <FeaturedProductHero />
       <section className="section">
-        {/* <div
-          data-rfkid="rfkid_6"
-          className="section__content container"
-          style={{ position: 'relative', height: 30 }}
-        >
-          <input id="search-input" type="text" />
-        </div> */}
         <div className="section__content container">
-          {/* <input
-            data-rfkid="hs_ps"
-            data-cssid="hosted-sb"
-            className="rfk_sb flex__1 border__input padding__input search"
-            type="text"
-            autoComplete="off"
-            placeholder="What can we help you find today?"
-          /> */}
           <ProductSearchBar />
         </div>
       </section>

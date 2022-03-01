@@ -12,11 +12,26 @@ const Template: ComponentStory<typeof LeftColumn> = (args) => <LeftColumn {...ar
 
 export const Default = Template.bind({});
 Default.args = {
-  params: {
-    name: 'LeftColumn',
+  categories: [],
+  trendingCategories: [
+    {
+      id: 'suggestion_idZXF1aXBtZW50',
+      in_content: 'product',
+      text: 'equipment',
+      url: '/shop/category/activities/hiking/equipment',
+    },
+  ],
+  suggestions: [{ freq: 3, id: 'suggestion_idcHVtcA==', in_content: 'product', text: 'pump' }],
+  loading: false,
+  loaded: false,
+  onCategoryChanged: (pumps): void => {
+    console.log(pumps);
   },
-  rendering: {
-    componentName: 'LeftColumn',
-    dataSource: '/sitecore',
+  onTrendingCategoryChanged: (pumps): void => {
+    console.log(pumps);
   },
+  onSuggestionChanged: (pumps): void => {
+    console.log(pumps);
+  },
+  redirectUrl: '/hs/search?q=',
 };
