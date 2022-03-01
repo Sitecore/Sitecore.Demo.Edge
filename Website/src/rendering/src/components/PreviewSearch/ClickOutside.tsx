@@ -1,4 +1,4 @@
-import { DiscoverReference } from 'src/services/DiscoverService';
+import { DiscoverReference } from '../../services/DiscoverService';
 
 const ClickOutside = (ref: DiscoverReference, handler: () => void): void => {
   window.RFK.ui.useEffect(() => {

@@ -1,17 +1,19 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Price = ({ max = 0, min = 0, price = 0, finalPrice = 0 }): JSX.Element => {
+  console.log(max, min, price);
   // Price UI component code here.
   return window.RFK.ui.html`$${finalPrice}`;
 };
 
 const ProductItem = ({
   includeSku = false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   className = '',
-  onClick = (): void => {},
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onDiscoverStyleOpen = (): void => {},
+  onClick = (): void => {
+    console.log(className);
+  },
+  onDiscoverStyleOpen = (): void => {
+    console.log(onDiscoverStyleOpen);
+  },
   product_url = '',
   name = '',
   sku = '',

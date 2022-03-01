@@ -43,13 +43,9 @@ const PreviewSearchWidgetWrapper = ({
   selectedKeyword = '',
   redirectUrl = '',
   inputQuerySelector = '#rfk_input',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  dispatch = (
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    keyphraseChanged: string,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    previewSearchResponse: PreviewSearchResponse
-  ): void => {},
+  dispatch = (keyphraseChanged: string, previewSearchResponse: PreviewSearchResponse): void => {
+    console.log(keyphraseChanged, previewSearchResponse);
+  },
 }): JSX.Element => {
   const changeKeyphrase = window.RFK.ui.useCallback(
     debounce(

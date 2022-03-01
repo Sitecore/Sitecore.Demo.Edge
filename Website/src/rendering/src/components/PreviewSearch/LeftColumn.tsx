@@ -2,8 +2,9 @@
 const PreviewSearchList = ({
   items = [],
   title = '',
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onMouseEnter = (text: string) => {},
+  onMouseEnter = (text: string) => {
+    console.log(text);
+  },
   onMouseLeave = () => {},
   redirectUrl = '',
 }): JSX.Element => {
@@ -38,12 +39,15 @@ const LeftColumn = ({
   suggestions = [],
   loading = false,
   loaded = false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onCategoryChanged = (category: string): void => {},
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onTrendingCategoryChanged = (trendingCategory: string): void => {},
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onSuggestionChanged = (suggestion: string): void => {},
+  onCategoryChanged = (category: string): void => {
+    console.log(category);
+  },
+  onTrendingCategoryChanged = (trendingCategory: string): void => {
+    console.log(trendingCategory);
+  },
+  onSuggestionChanged = (suggestion: string): void => {
+    console.log(suggestion);
+  },
   redirectUrl = '',
 }): JSX.Element => {
   const [lock, setLock] = window.RFK.ui.useState(false);
