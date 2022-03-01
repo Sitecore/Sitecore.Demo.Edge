@@ -9,15 +9,20 @@ function debounce(
   immediate: boolean
 ) {
   let timeout: NodeJS.Timeout;
+
   return function returnFn(this: unknown, ...rest: unknown[]) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this;
+
     const args = rest;
+
     const later = function executeFn() {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
+
     const callNow = immediate && !timeout;
+
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
@@ -121,6 +126,7 @@ const PreviewSearchWidgetWrapper = ({
       }
     });
     inputRef.addEventListener('focus', inputFocusFn);
+
     return () => {
       inputRef.removeEventListener('change', changeKeyphrase);
       inputRef.removeEventListener('focus', inputFocusFn);
