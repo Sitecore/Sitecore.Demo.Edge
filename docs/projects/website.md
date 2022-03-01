@@ -71,16 +71,9 @@ If adding a component story, the title should be: `'Components/%Component Name H
 1. Ensure you have installed and followed the [global prerequisites](../prerequisites.md).
 2. Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
 
-### Optional: Sitecore CDP Module Configuration
+### Optional: Sitecore CDP and Personalize Module Configuration
 
-If you want the website to use Sitecore CDP, you must:
-
-1. Edit the `.\.env` file.
-2. Fill the following values:
-   1. **CDP_API_TARGET_ENDPOINT**: The Sitecore CDP API target endpoint for your organisation. The URL must end with `.com` without the version. (e.g.: `https://api.boxever.com`)
-   2. **CDP_CLIENT_KEY**: Your Sitecore CDP organisation client key.
-   3. **CDP_API_TOKEN**: Your Sitecore CDP organisation API token.
-3. Save the file.
+If you want the website to use Sitecore CDP and Personalize, you must follow the [Sitecore CDP and Personalize](../cdp-personalize/README.md) instructions.
 
 ### Optional: Sitecore Content Hub Module Configuration
 

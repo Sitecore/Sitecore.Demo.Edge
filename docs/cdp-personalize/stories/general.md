@@ -4,13 +4,13 @@ Many of the Sitecore Personalize stories are sharing some general assets.
 
 ## GetGuestRef
 
-### Full Stack Experience
-
-[Serialized assets](/demo/experience/personalize/experiences/fullStack/GetGuestRef)
-
 ### Decision Model
 
 [Serialized assets](/demo/experience/personalize/decisioning/decisionModels/GetGuestRef)
+
+### Full Stack Experience
+
+[Serialized assets](/demo/experience/personalize/experiences/fullStack/GetGuestRef)
 
 ## Guest Audience
 
