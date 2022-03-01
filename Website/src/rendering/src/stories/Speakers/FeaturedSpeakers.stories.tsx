@@ -21,7 +21,6 @@ const speakerImage = {
 };
 
 const speaker = {
-  itemName: 'First Speaker Name',
   name: {
     value: 'First Speaker Name',
   },
@@ -32,10 +31,12 @@ const speaker = {
   jobTitle: {
     value: 'Creative Director',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker1 = {
-  itemName: 'Second Speaker',
   name: {
     value: 'Second Speaker',
   },
@@ -46,10 +47,12 @@ const speaker1 = {
   jobTitle: {
     value: 'Pro Basketball Player',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker2 = {
-  itemName: 'Third Speaker',
   name: {
     value: 'Third Speaker',
   },
@@ -60,10 +63,12 @@ const speaker2 = {
   jobTitle: {
     value: 'Chief Product Officer',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker3 = {
-  itemName: 'Another Speaker',
   name: {
     value: 'Another Speaker',
   },
@@ -74,10 +79,12 @@ const speaker3 = {
   jobTitle: {
     value: 'Social Influencer',
   },
+  url: {
+    path: '/speaker/Speaker-Name',
+  },
 } as GraphQLSpeaker;
 
 const speaker4 = {
-  itemName: 'Last Speaker',
   name: {
     value: 'Last Speaker',
   },
@@ -87,6 +94,9 @@ const speaker4 = {
   },
   jobTitle: {
     value: 'Professional Cyclist',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 

@@ -58,6 +58,7 @@ const speaker1 = {
       value: false,
     },
   },
+  url: '/speaker/Speaker-Name',
 } as Speaker;
 
 const speaker2 = {
@@ -102,6 +103,7 @@ const speaker2 = {
       value: true,
     },
   },
+  url: '/speaker/Speaker-Name',
 } as Speaker;
 
 const rooms = [
