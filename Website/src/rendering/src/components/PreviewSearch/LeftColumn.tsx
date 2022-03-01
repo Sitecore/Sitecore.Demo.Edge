@@ -76,8 +76,10 @@ const LeftColumn = ({
   const onMouseLeave = () => {
     setLock(false);
   };
+
   const shouldShowTrendingCategories =
     trendingCategories.length > 0 && categories.length === 0 && suggestions.length === 0;
+
   return window.RFK.ui.html`
     <div class="leftSection">
       ${
@@ -113,4 +115,5 @@ const LeftColumn = ({
     </div>
   `;
 };
+
 export default LeftColumn;

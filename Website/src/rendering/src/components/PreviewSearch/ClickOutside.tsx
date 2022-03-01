@@ -16,6 +16,7 @@ const ClickOutside = (ref: DiscoverReference, handler: () => void): void => {
       document.addEventListener('mousedown', listener);
       document.addEventListener('touchstart', listener);
     }
+
     return () => {
       if (window.PointerEvent) {
         document.removeEventListener('pointerdown', listener);
