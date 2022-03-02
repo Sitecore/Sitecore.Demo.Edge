@@ -2,7 +2,7 @@
 
 ## Offer Template
 
-[Serialized assets](/demo/experience/personalize/library/offerTemplates/Website%20Home%20Page%20Hero%20Offer)
+[Serialized assets](../library/offerTemplates/Website-Home-Page-Hero-Offer/README.md)
 
 ## Offers
 

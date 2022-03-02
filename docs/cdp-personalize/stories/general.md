@@ -22,4 +22,4 @@ Many of the Sitecore Personalize stories are sharing some general assets.
 
 ## Full Stack Experience Offer
 
-[Serialized assets](/demo/experience/personalize/library/offerTemplates/Full%20Stack%20Experience%20Offer)
+[Serialized assets](../library/offerTemplates/Full-Stack-Experience-Offer/README.md)
