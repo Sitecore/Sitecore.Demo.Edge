@@ -1,6 +1,6 @@
 import { Address } from 'ordercloud-javascript-sdk';
-export type DSHipFromAddress = Address<DSHipFromAddressXp>;
+export type DShipFromAddress = Address<DShipFromAddressXp>;
 
-export interface DSHipFromAddressXp {
+export interface DShipFromAddressXp {
   // add custom xp properties required for this project here
 }

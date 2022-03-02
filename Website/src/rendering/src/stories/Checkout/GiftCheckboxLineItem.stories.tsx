@@ -1,24 +1,53 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import GiftCheckboxLineItem from '../../components/Checkout/GiftCheckboxLineItem';
-import { checkoutLoader } from '../loaders/checkout-loader';
+import { MockStore } from '../mock-store';
 
 export default {
   title: 'Components/Checkout/GiftCheckbox',
   component: GiftCheckboxLineItem,
 } as ComponentMeta<typeof GiftCheckboxLineItem>;
 
-const Template: ComponentStory<typeof GiftCheckboxLineItem> = (args, { loaded: { checkout } }) => (
-  <GiftCheckboxLineItem {...args} lineItem={checkout.lineItems[0]} />
+const Template: ComponentStory<typeof GiftCheckboxLineItem> = (args) => (
+  <GiftCheckboxLineItem {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {};
-// loaders property not part of typescript definition this is fixed in storybook 6.4+
-// but breaks ability to set environment variables so opting to work around for now
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(Default as any).loaders = [
-  async () => ({
-    checkout: await checkoutLoader(),
-  }),
+const mockState = {};
+
+export const IsGift = Template.bind({});
+IsGift.args = {
+  lineItem: {
+    ProductID: 'product123',
+    Quantity: 1,
+    ID: 'mocklineitem',
+    xp: {
+      IsGift: true,
+    },
+  },
+};
+IsGift.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const IsNotGift = Template.bind({});
+IsNotGift.args = {
+  lineItem: {
+    ProductID: 'product123',
+    Quantity: 1,
+    ID: 'mocklineitem',
+    xp: {
+      IsGift: false,
+    },
+  },
+};
+IsNotGift.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState }}>
+      <Story />
+    </MockStore>
+  ),
 ];

@@ -22,7 +22,22 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     if (!lineItem.Specs?.length) {
       return lineItem.Product.Name;
     }
-    return `${lineItem.Product.Name} (${lineItem.Specs.join(',')})`;
+    const specValues = lineItem.Specs.map((spec) => spec.Value); // ex: Red, Large
+    return `${lineItem.Product.Name} (${specValues.join(',')})`;
+  };
+
+  const getImageUrl = (): string => {
+    const lineItem = props.lineItem;
+    if (!lineItem) {
+      return null;
+    }
+    if (lineItem.Variant?.xp?.Images?.length) {
+      return lineItem.Variant.xp.Images[0].Url;
+    }
+    if (lineItem.Product?.xp?.Images?.length) {
+      return lineItem.Product.xp.Images[0].Url;
+    }
+    return null;
   };
 
   const handleRemoveLineItem = useCallback(async () => {
@@ -44,7 +59,25 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
+  const productImage = (
+    <img
+      style={{ maxHeight: '100px' }}
+      src={getImageUrl() || 'https://via.placeholder.com/100'}
+      alt={props.lineItem.Product.Name}
+    ></img>
+  );
+
   const quantityInput = props.editable && product && (
+    <QuantityInput
+      controlId={`${props.lineItem.ID}_quantity`}
+      quantity={props.lineItem.Quantity}
+      disabled={loading}
+      onChange={handleUpdateQuantity}
+      priceSchedule={product.PriceSchedule}
+    />
+  );
+
+  const quantity = props.editable ? (
     <>
       <button
         aria-label="Remove Line Item"
@@ -54,49 +87,23 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       >
         Remove
       </button>
-      {product && (
-        <QuantityInput
-          controlId={`${props.lineItem.ID}_quantity`}
-          quantity={props.lineItem.Quantity}
-          disabled={loading}
-          onChange={handleUpdateQuantity}
-          priceSchedule={product.PriceSchedule}
-        />
-      )}
-    </>
-  );
-
-  const quantity = props.editable ? (
-    <>
-      {' '}
-      <button
-        aria-label="Remove Line Item"
-        type="button"
-        disabled={loading}
-        onClick={handleRemoveLineItem}
-      >
-        {' '}
-        Remove{' '}
-      </button>{' '}
-      {quantityInput}{' '}
+      {quantityInput}
     </>
   ) : (
     <p>Quantity: {props.lineItem.Quantity}</p>
+  );
+
+  const giftCheckbox = props.editable && (
+    <GiftCheckboxLineItem lineItem={props.lineItem}></GiftCheckboxLineItem>
   );
 
   return (
     <div>
       <p>
         <strong>{getProductName()}</strong>
-        {props.lineItem.Specs.map((spec) => (
-          <span key={spec.SpecID}>
-            <br />
-            {`${spec.Name}: ${spec.Value}`}
-          </span>
-        ))}
       </p>
-
-      <GiftCheckboxLineItem lineItem={props.lineItem}></GiftCheckboxLineItem>
+      {productImage}
+      {giftCheckbox}
       {quantity}
     </div>
   );

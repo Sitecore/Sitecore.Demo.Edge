@@ -2,10 +2,7 @@ import React from 'react';
 import { SitecoreContextReactContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import '../src/assets/css/abstracts/mixins.css';
 import '../src/assets/css/main.css';
-import { Provider } from 'react-redux';
-import OcProvider from '../src/redux/ocProvider';
 import * as nextImage from 'next/image';
-import store from '../src/redux/store';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -46,11 +43,7 @@ const mockSitecoreContext = {
 export const decorators = [
   (Story) => (
     <SitecoreContextReactContext.Provider value={mockSitecoreContext}>
-      <Provider store={store}>
-      <OcProvider>
-        <Story />
-      </OcProvider>
-    </Provider>
+      <Story />
     </SitecoreContextReactContext.Provider>
   ),
 ];
