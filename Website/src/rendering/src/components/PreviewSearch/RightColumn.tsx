@@ -1,7 +1,8 @@
+import { Product } from '../../models/discover/Product';
 import Products from './Products';
 
 type RightColumnProps = {
-  products: [];
+  products: Product[];
   loading: boolean;
   selectedKeyword: string;
 };

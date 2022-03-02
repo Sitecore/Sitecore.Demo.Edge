@@ -1,3 +1,6 @@
+import { Product } from '../../models/discover/Product';
+import { Category } from '../../models/discover/Category';
+import { Suggestion } from '../../models/discover/Suggestion';
 import ClickOutside from './ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
@@ -39,11 +42,11 @@ interface PreviewSearchResponse {
 type PreviewSearchWidgetWrapperProps = {
   loaded: boolean;
   loading: boolean;
-  products: [];
+  products: Product[];
   keyphrase: string;
-  trendingCategories: [];
-  categories: [];
-  suggestions: [];
+  trendingCategories: string[];
+  categories: string[];
+  suggestions: string[];
   selectedKeyword: string;
   redirectUrl: string;
   inputQuerySelector: string;
