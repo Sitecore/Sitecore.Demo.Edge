@@ -12,7 +12,14 @@ const Template: ComponentStory<typeof LeftColumn> = (args) => <LeftColumn {...ar
 
 export const Default = Template.bind({});
 Default.args = {
-  categories: [],
+  categories: [
+    {
+      id: 'suggestion_idZXF1aXBtZW50',
+      in_content: 'product',
+      text: 'equipment',
+      url: '/shop/category/activities/hiking/equipment',
+    },
+  ],
   trendingCategories: [
     {
       id: 'suggestion_idZXF1aXBtZW50',
@@ -24,14 +31,14 @@ Default.args = {
   suggestions: [{ freq: 3, id: 'suggestion_idcHVtcA==', in_content: 'product', text: 'pump' }],
   loading: false,
   loaded: false,
-  onCategoryChanged: (pumps): void => {
-    console.log(pumps);
+  onCategoryChanged: () => {
+    return null;
   },
-  onTrendingCategoryChanged: (pumps): void => {
-    console.log(pumps);
+  onTrendingCategoryChanged: () => {
+    return null;
   },
-  onSuggestionChanged: (pumps): void => {
-    console.log(pumps);
+  onSuggestionChanged: () => {
+    return null;
   },
   redirectUrl: '/hs/search?q=',
 };

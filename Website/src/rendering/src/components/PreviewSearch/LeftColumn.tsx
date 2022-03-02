@@ -1,3 +1,6 @@
+import { Category } from '../../models/discover/Category';
+import { Suggestion } from '../../models/discover/Suggestion';
+
 type PreviewSearchListProps = {
   items: [];
   title: string;
@@ -34,14 +37,14 @@ const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
 };
 
 type LeftColumnProps = {
-  categories: [];
-  trendingCategories: [];
-  suggestions: [];
+  categories: Category[];
+  trendingCategories: Category[];
+  suggestions: Suggestion[];
   loading: boolean;
   loaded: boolean;
   onCategoryChanged: (category: string) => void;
   onTrendingCategoryChanged: (trendingCategory: string) => void;
-  onSuggestionChanged: (suggetsion: string) => void;
+  onSuggestionChanged: (suggestion: string) => void;
   redirectUrl: string;
 };
 

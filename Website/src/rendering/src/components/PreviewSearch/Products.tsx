@@ -1,3 +1,5 @@
+import { Product } from '../../models/discover/Product';
+
 type PriceProps = {
   max: number;
   min: number;
@@ -70,7 +72,7 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
 };
 
 type ProductProps = {
-  products: [];
+  products: Product[];
 };
 
 const Products = (props: ProductProps): JSX.Element => {
