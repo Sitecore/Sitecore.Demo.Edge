@@ -2,24 +2,19 @@
 
 Many of the Sitecore Personalize stories are sharing some general assets.
 
-## GetGuestRef
+## Offer Templates
 
-### Decision Model
+- [Full Stack Experience Offer](../library/offerTemplates/Full-Stack-Experience-Offer/README.md)
 
-[Serialized assets](/demo/experience/personalize/decisioning/decisionModels/GetGuestRef)
+## Decision Templates
 
-### Full Stack Experience
+- [Guest Audience](../library/decisionTemplates/Guest-Audience/README.md)
+- [Website Base URL](../library/decisionTemplates/Website-Base-URL/README.md)
 
-[Serialized assets](/demo/experience/personalize/experiences/fullStack/GetGuestRef)
+## Decision Models
 
-## Guest Audience
+- [GetGuestRef](/demo/experience/personalize/decisioning/decisionModels/GetGuestRef)
 
-[Serialized assets](/demo/experience/personalize/library/decisionTemplates/Guest%20Audience)
+## Full Stack Experiences
 
-## Website Base URL
-
-[Serialized assets](/demo/experience/personalize/library/decisionTemplates/Website%20Base%20URL)
-
-## Full Stack Experience Offer
-
-[Serialized assets](../library/offerTemplates/Full-Stack-Experience-Offer/README.md)
+- [GetGuestRef](/demo/experience/personalize/experiences/fullStack/GetGuestRef)
