@@ -8,7 +8,7 @@ import Section from '../PageContent/Section';
 import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
-import { isCommerceEnabled } from 'src/pages/_app';
+import { isCommerceEnabled } from '../../pages/_app';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const shopNavigationProps = {

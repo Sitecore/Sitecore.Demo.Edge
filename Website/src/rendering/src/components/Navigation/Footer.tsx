@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { isCommerceEnabled } from 'src/pages/_app';
+import { isCommerceEnabled } from '../../pages/_app';
 
 export type FooterProps = ComponentProps & {
   fields: {
