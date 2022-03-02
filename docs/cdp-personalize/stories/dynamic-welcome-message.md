@@ -7,7 +7,7 @@
 
 ## Decision Model
 
-[Serialized assets](/demo/experience/personalize/decisioning/decisionModels/Dynamic%20Welcome%20Message)
+[Dynamic Welcome Message](../decisioning/decisionModels/Dynamic-Welcome-Message/README.md)
 
 ## Full Stack Experience
 

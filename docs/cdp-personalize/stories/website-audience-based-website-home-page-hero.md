@@ -2,7 +2,7 @@
 
 ## Offer Template
 
-[Serialized assets](../library/offerTemplates/Website-Home-Page-Hero-Offer/README.md)
+[Website Home Page Hero Offer](../library/offerTemplates/Website-Home-Page-Hero-Offer/README.md)
 
 ## Offers
 
@@ -13,7 +13,7 @@
 
 ## Decision Model
 
-[Serialized assets](/demo/experience/personalize/decisioning/decisionModels/Audience-based%20website%20home%20page%20hero)
+[Audience-based website home page hero](../decisioning/decisionModels/Audience-based-website-home-page-hero/README.md)
 
 ## Web Experience
 

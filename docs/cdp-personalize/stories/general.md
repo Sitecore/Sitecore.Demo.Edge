@@ -17,7 +17,8 @@ Many of the Sitecore Personalize stories are sharing some general assets.
 
 ## Decision Models
 
-- [GetGuestRef](/demo/experience/personalize/decisioning/decisionModels/GetGuestRef)
+- [GetGuestRef](../decisioning/decisionModels/GetGuestRef/README.md)
+- [Get Website Base Url](../decisioning/decisionModels/Get-Website-Base-URL/README.md)
 
 ## Full Stack Experiences
 
