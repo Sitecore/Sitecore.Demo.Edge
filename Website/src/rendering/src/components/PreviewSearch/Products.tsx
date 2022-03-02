@@ -1,28 +1,51 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-const Price = ({ max = 0, min = 0, price = 0, finalPrice = 0 }): JSX.Element => {
+type PriceProps = {
+  max: number;
+  min: number;
+  price: number;
+  finalPrice: number;
+};
+
+const Price = (props: PriceProps): JSX.Element => {
+  const { max, min, price, finalPrice } = props;
+
   console.log(max, min, price);
   // Price UI component code here.
   return window.RFK.ui.html`$${finalPrice}`;
 };
 
-const ProductItem = ({
-  includeSku = false,
-  className = '',
-  onClick = (): void => {
-    console.log(className);
-  },
-  onDiscoverStyleOpen = (): void => {
-    console.log(onDiscoverStyleOpen);
-  },
-  product_url = '',
-  name = '',
-  sku = '',
-  final_price_min_formatted = 0,
-  final_price_max_formatted = 0,
-  final_price = 0,
-  price = 0,
-  image_url = '',
-}): JSX.Element => {
+type ProductItemProps = {
+  includeSku: boolean;
+  className: string;
+  onClick: () => void;
+  onDiscoverStyleOpen: () => void;
+  product_url: string;
+  name: string;
+  sku: string;
+  final_price_min_formatted: number;
+  final_price_max_formatted: number;
+  final_price: number;
+  price: number;
+  image_url: string;
+};
+
+const ProductItem = (props: ProductItemProps): JSX.Element => {
+  const {
+    includeSku,
+    className,
+    onClick,
+    onDiscoverStyleOpen,
+    product_url,
+    name,
+    sku,
+    final_price_min_formatted,
+    final_price_max_formatted,
+    final_price,
+    price,
+    image_url,
+  } = props;
+
+  console.log(className, onDiscoverStyleOpen);
+
   return window.RFK.ui.html`<div class="rfksdk_product">
     <div class="rfksdk_product__wrapper">
       <a href=${product_url} onClick=${onClick}
@@ -46,10 +69,15 @@ const ProductItem = ({
   </div>`;
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const Products = ({ products = [] }): JSX.Element => {
+type ProductProps = {
+  products: [];
+};
+
+const Products = (props: ProductProps): JSX.Element => {
+  const { products } = props;
+
   return window.RFK.ui.html`<ul class="rfksdk_preview-search_product-list">
-    ${products.map(
+    ${products?.map(
       (p) => window.RFK.ui.html` <li class="rfksdk_preview-search_product-list__item">
         <${ProductItem} ...${p} />
       </li>`

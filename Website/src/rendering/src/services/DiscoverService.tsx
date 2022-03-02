@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
-import FrequentlyPurchasedTogether from 'components/Widgets/FrequentlyPurchasedTogether';
-import PreviewSearchWidgetWrapper from 'components/PreviewSearch/PreviewSearch';
+import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+import PreviewSearchWidgetWrapper from '../components/PreviewSearch/PreviewSearch';
 
 // ***** TYPES *****
 

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import ClickOutside from './ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
@@ -11,21 +10,22 @@ function debounce(
   let timeout: NodeJS.Timeout;
 
   return function returnFn(this: unknown, ...rest: unknown[]) {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const context = this;
-
     const args = rest;
 
-    const later = function executeFn() {
+    const later = () => {
       timeout = null;
-      if (!immediate) func.apply(context, args);
+      if (!immediate) {
+        func.apply(this, args);
+      }
     };
 
     const callNow = immediate && !timeout;
 
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) {
+      func.apply(this, args);
+    }
   };
 }
 
@@ -36,22 +36,35 @@ interface PreviewSearchResponse {
   suggestion?: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const PreviewSearchWidgetWrapper = ({
-  loaded = false,
-  loading = false,
-  products = [],
-  keyphrase = '',
-  trendingCategories = [],
-  categories = [],
-  suggestions = [],
-  selectedKeyword = '',
-  redirectUrl = '',
-  inputQuerySelector = '#rfk_input',
-  dispatch = (keyphraseChanged: string, previewSearchResponse: PreviewSearchResponse): void => {
-    console.log(keyphraseChanged, previewSearchResponse);
-  },
-}): JSX.Element => {
+type PreviewSearchWidgetWrapperProps = {
+  loaded: boolean;
+  loading: boolean;
+  products: [];
+  keyphrase: string;
+  trendingCategories: [];
+  categories: [];
+  suggestions: [];
+  selectedKeyword: string;
+  redirectUrl: string;
+  inputQuerySelector: string;
+  dispatch: (keyphraseChanged: string, previewSearchResponse: PreviewSearchResponse) => void;
+};
+
+const PreviewSearchWidgetWrapper = (props: PreviewSearchWidgetWrapperProps): JSX.Element => {
+  const {
+    loaded,
+    loading,
+    products,
+    keyphrase,
+    trendingCategories,
+    categories,
+    suggestions,
+    selectedKeyword,
+    redirectUrl,
+    inputQuerySelector,
+    dispatch,
+  } = props;
+
   const changeKeyphrase = window.RFK.ui.useCallback(
     debounce(
       (target: { value: string }) =>
