@@ -2,7 +2,7 @@
 
 ## Connection
 
-[Sitecore Send add subscriber to updates](/demo/experience/personalize/connections/Sitecore%20Send%20add%20subscriber%20to%20updates)
+[Sitecore Send add subscriber to updates](../connections/Sitecore-Send-add-subscriber-to-updates/README.md)
 
 ## Decision Model
 

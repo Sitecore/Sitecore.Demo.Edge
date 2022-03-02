@@ -3,7 +3,7 @@
 ## Connections
 
 - [Azure Translation](../connections/Azure-Translation/README.md)
-- [Get City from MaxMind](/demo/experience/personalize/connections/Get%20City%20from%20MaxMind)
+- [Get City from MaxMind](../connections/Get-City-from-MaxMind/README.md)
 
 ## Decision Model
 

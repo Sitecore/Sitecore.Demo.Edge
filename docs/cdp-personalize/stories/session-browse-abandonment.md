@@ -2,7 +2,7 @@
 
 ## Connection
 
-[Sitecore Send Session Browse Abandonment](/demo/experience/personalize/connections/Sitecore%20Send%20Session%20Browse%20Abandonment)
+[Sitecore Send Session Browse Abandonment](../connections/Sitecore-Send-Session-Browse-Abandonment/README.md)
 
 ## Full Stack Experience
 
