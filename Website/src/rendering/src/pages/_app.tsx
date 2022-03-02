@@ -28,6 +28,14 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
+// DEMO TEAM CUSTOMIZATION - Check if commerce is enabled (OrderCloud/ Discover)
+export const isCommerceEnabled =
+  !!process.env.NEXT_PUBLIC_DISCOVER_API_KEY &&
+  !!process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY &&
+  !!process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL &&
+  !!process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID;
+// END CUSTOMIZATION
+
 function App({ Component, pageProps, router }: AppProps): JSX.Element {
   // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links. Also register a key press handler to close CDP sessions and forget CDP guests.
   useEffect(() => {
@@ -61,7 +69,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
 
       {/* DEMO TEAM CUSTOMIZATION - CDP/Discover integration. It is important this script is rendered before the <Component> so the CDP calls made on the first page load are successful. */}
       {CdpScripts}
-      {MerchandisingScripts}
+      {isCommerceEnabled ? MerchandisingScripts : null}
       {/* END CUSTOMIZATION*/}
 
       {/*
@@ -71,11 +79,15 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
       */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
         {/* DEMO TEAM CUSTOMIZATION - OrderCloud integration */}
-        <Provider store={reduxStore}>
-          <OcProvider>
-            <Component {...rest} />
-          </OcProvider>
-        </Provider>
+        {isCommerceEnabled ? (
+          <Provider store={reduxStore}>
+            <OcProvider>
+              <Component {...rest} />
+            </OcProvider>
+          </Provider>
+        ) : (
+          <Component {...rest} />
+        )}
         {/* END CUSTOMIZATION */}
       </I18nProvider>
     </>
