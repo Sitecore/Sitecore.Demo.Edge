@@ -57,7 +57,7 @@ const productCacheState = {
           { Quantity: 100, Price: 5.99 },
           { Quantity: 250, Price: 9.99 },
           { Quantity: 500, Price: 14.99 },
-          { Quantity: 1000, price: 19.99 },
+          { Quantity: 1000, Price: 19.99 },
         ],
       },
     },
