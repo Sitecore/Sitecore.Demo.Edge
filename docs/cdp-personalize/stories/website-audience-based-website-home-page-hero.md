@@ -6,10 +6,10 @@
 
 ## Offers
 
-- [Website Home Page Hero - Default](/demo/experience/personalize/decisioning/offers/Website%20Home%20Page%20Hero%20-%20Default)
-- [Website Home Page Hero - Fitness Fanatic](/demo/experience/personalize/decisioning/offers/Website%20Home%20Page%20Hero%20-%20Fitness%20Fanatic)
-- [Website Home Page Hero - Healthy Living](/demo/experience/personalize/decisioning/offers/Website%20Home%20Page%20Hero%20-%20Healthy%20Living)
-- [Website Home Page Hero - Other](/demo/experience/personalize/decisioning/offers/Website%20Home%20Page%20Hero%20-%20Other)
+- [Website Home Page Hero - Default](../decisioning/offers/Website-Home-Page-Hero-Default/README.md)
+- [Website Home Page Hero - Fitness Fanatic](../decisioning/offers/Website-Home-Page-Hero-Fitness-Fanatic/README.md)
+- [Website Home Page Hero - Healthy Living](../decisioning/offers/Website-Home-Page-Hero-Healthy-Living/README.md)
+- [Website Home Page Hero - Other](../decisioning/offers/Website-Home-Page-Hero-Other/README.md)
 
 ## Decision Model
 
