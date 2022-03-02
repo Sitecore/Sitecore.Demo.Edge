@@ -8,6 +8,7 @@ import Section from '../PageContent/Section';
 import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
+import { isCommerceEnabled } from 'src/pages/_app';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const shopNavigationProps = {
@@ -58,7 +59,13 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       </header>
       <main>
         <HeaderCdpMessageBar />
-        <div className="shop-container">{props.children}</div>
+        {isCommerceEnabled ? (
+          <div className="shop-container">{props.children}</div>
+        ) : (
+          <p className="shop-integration-error">
+            Shop pages are currently disabled because the commerce integration is not configured
+          </p>
+        )}
       </main>
       <footer>
         <Footer {...footerProps} />
