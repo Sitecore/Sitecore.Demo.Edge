@@ -1,7 +1,14 @@
 import Products from './Products';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const RightColumn = ({ products = [], loading = false, selectedKeyword = '' }): JSX.Element => {
+type RightColumnProps = {
+  products: [];
+  loading: boolean;
+  selectedKeyword: string;
+};
+
+const RightColumn = (props: RightColumnProps): JSX.Element => {
+  const { products, loading, selectedKeyword } = props;
+
   return window.RFK.ui.html`
     <div class="rightSection">
       ${

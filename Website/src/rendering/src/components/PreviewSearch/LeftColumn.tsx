@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-const PreviewSearchList = ({
-  items = [],
-  title = '',
-  onMouseEnter = (text: string) => {
-    console.log(text);
-  },
-  onMouseLeave = () => {},
-  redirectUrl = '',
-}): JSX.Element => {
+type PreviewSearchListProps = {
+  items: [];
+  title: string;
+  onMouseEnter: (text: string) => void;
+  onMouseLeave: () => void;
+  redirectUrl: string;
+};
+
+const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
+  const { items, title, onMouseEnter, onMouseLeave, redirectUrl } = props;
+
   return window.RFK.ui.html` <div class="list-wrapper">
     ${
       items.length > 0 &&
@@ -32,24 +33,31 @@ const PreviewSearchList = ({
   </div>`;
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const LeftColumn = ({
-  categories = [],
-  trendingCategories = [],
-  suggestions = [],
-  loading = false,
-  loaded = false,
-  onCategoryChanged = (category: string): void => {
-    console.log(category);
-  },
-  onTrendingCategoryChanged = (trendingCategory: string): void => {
-    console.log(trendingCategory);
-  },
-  onSuggestionChanged = (suggestion: string): void => {
-    console.log(suggestion);
-  },
-  redirectUrl = '',
-}): JSX.Element => {
+type LeftColumnProps = {
+  categories: [];
+  trendingCategories: [];
+  suggestions: [];
+  loading: boolean;
+  loaded: boolean;
+  onCategoryChanged: (category: string) => void;
+  onTrendingCategoryChanged: (trendingCategory: string) => void;
+  onSuggestionChanged: (suggetsion: string) => void;
+  redirectUrl: string;
+};
+
+const LeftColumn = (props: LeftColumnProps): JSX.Element => {
+  const {
+    categories,
+    trendingCategories,
+    suggestions,
+    loading,
+    loaded,
+    onCategoryChanged,
+    onTrendingCategoryChanged,
+    onSuggestionChanged,
+    redirectUrl,
+  } = props;
+
   const [lock, setLock] = window.RFK.ui.useState(false);
 
   const onCategoryEnter = (category: string) => {
@@ -78,12 +86,12 @@ const LeftColumn = ({
   };
 
   const shouldShowTrendingCategories =
-    trendingCategories.length > 0 && categories.length === 0 && suggestions.length === 0;
+    trendingCategories?.length > 0 && categories?.length === 0 && suggestions?.length === 0;
 
   return window.RFK.ui.html`
     <div class="leftSection">
       ${
-        ((loaded && !loading) || categories.length > 0) &&
+        ((loaded && !loading) || categories?.length > 0) &&
         window.RFK.ui.html`<${PreviewSearchList}
         onMouseEnter=${onCategoryEnter}
         onMouseLeave=${onMouseLeave}
@@ -103,7 +111,7 @@ const LeftColumn = ({
       />`
       }
       ${
-        ((loaded && !loading) || suggestions.length > 0) &&
+        ((loaded && !loading) || suggestions?.length > 0) &&
         window.RFK.ui.html`<${PreviewSearchList}
         onMouseEnter=${onSuggestionEnter}
         onMouseLeave=${onMouseLeave}
