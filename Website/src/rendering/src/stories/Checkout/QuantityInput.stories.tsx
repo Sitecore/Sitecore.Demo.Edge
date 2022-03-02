@@ -46,7 +46,7 @@ WithDisabled.args = {
 };
 
 export const WithRestrictedQuantities = Template.bind({});
-WithDisabled.args = {
+WithRestrictedQuantities.args = {
   controlId: 'label1',
   priceSchedule: {
     ID: 'priceschedule1',
@@ -60,7 +60,7 @@ WithDisabled.args = {
       { Quantity: 1000, Price: 19.99 },
     ],
   } as RequiredDeep<DPriceSchedule>,
-  disabled: true,
+  disabled: false,
   quantity: 0,
   onChange: () => {
     return null;
