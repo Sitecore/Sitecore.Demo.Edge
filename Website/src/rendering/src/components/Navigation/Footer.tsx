@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { isCommerceEnabled } from 'src/pages/_app';
 
 export type FooterProps = ComponentProps & {
   fields: {
@@ -76,9 +77,11 @@ const Footer = (props: FooterProps): JSX.Element => (
         <li>
           <Link href="/news">News</Link>
         </li>
-        <li>
-          <Link href="/shop">Shop</Link>
-        </li>
+        {isCommerceEnabled ? (
+          <li>
+            <Link href="/shop">Shop</Link>
+          </li>
+        ) : null}
       </ul>
       <ul className="footer__content__footer__col">
         <li>Join Us</li>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { isCommerceEnabled } from 'src/pages/_app';
 
 export type MainNavigationProps = ComponentProps & {
   fields: {
@@ -73,11 +74,13 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
                 <a>About Us</a>
               </Link>
             </li>
-            <li className="text-menu-item">
-              <Link href="/shop">
-                <a>Shop</a>
-              </Link>
-            </li>
+            {isCommerceEnabled ? (
+              <li className="text-menu-item">
+                <Link href="/shop">
+                  <a>Shop</a>
+                </Link>
+              </li>
+            ) : null}
             <li className="button-menu-item">
               <Link href="/tickets">
                 <a className="btn--main btn--main--round">Book Tickets</a>
