@@ -49,8 +49,10 @@
    |Accept|application/json|
    |Accept-Encoding|gzip|
    |Content-Type|application/json|
-   |Ocp-Apim-Subscription-Key|Ask the demo team|
-   |Ocp-Apim-Subscription-Region|eastus|
+   |Ocp-Apim-Subscription-Key|One of your Azure Translation service key (See screenshot below).|
+   |Ocp-Apim-Subscription-Region|Your Azure Translation service location/region (See screenshot below).|
+
+   ![Azure translation key](Azure-translation-key.png)
 
 9. Click the "Test Request" button.
 

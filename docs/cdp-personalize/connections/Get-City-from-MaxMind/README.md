@@ -33,8 +33,8 @@
 
    |Field|Value|
    |-|-|
-   |Username|Ask the demo team|
-   |Password|Ask the demo team|
+   |Username|Your MaxMind account ID|
+   |Password|Your MaxMind API key|
 
 8. Click the "Next" button.
 

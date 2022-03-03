@@ -56,24 +56,27 @@
 
     |`Redacted` occurrences|Replacement|
     |-|-|
-    |`"authType":"BASIC","username":"Redacted"`|Replace `Redacted` by the MaxMind username. Ask the demo team.|
-    |`"name":"Ocp-Apim-Subscription-Key","value":"Redacted"`|Replace `Redacted` by the Azure translation subscription key. Ask the demo team.|
+    |`"authType":"BASIC","username":"Redacted"`|Replace `Redacted` by your MaxMind account ID.|
+    |`"name":"Ocp-Apim-Subscription-Key","value":"Redacted"`|Replace `Redacted` by one of your Azure Translation service key (See screenshot below).|
 
-13. Save the file.
-14. Back in Sitecore Personalize, in the canvas, click the "Import XML" button.
+    ![Azure Translation service key](/docs/cdp-personalize/connections/Azure-Translation/Azure-translation-key.png)
+
+13. If needed, adjust the `eastus` value of the `Ocp-Apim-Subscription-Region` attribute to match your Azure Translation service location/region.
+14. Save the file.
+15. Back in Sitecore Personalize, in the canvas, click the "Import XML" button.
 
     ![Import XML button](/docs/cdp-personalize/decisioning/decisionModels/Import-XML-button.png)
 
-15. In the native open file window, choose the edited XML file, then click the "Open" button.
-16. Once the canvas has updated, click the blue "Save" or checkmark ✔ button.
-17. Click the "Close" button.
+16. In the native open file window, choose the edited XML file, then click the "Open" button.
+17. Once the canvas has updated, click the blue "Save" or checkmark ✔ button.
+18. Click the "Close" button.
 
     ![Draft variant](/docs/cdp-personalize/decisioning/decisionModels/Draft-variant.png)
 
-18. Drag the v1 variant to the production column.
+19. Drag the v1 variant to the production column.
 
     ![Move to production](/docs/cdp-personalize/decisioning/decisionModels/Move-to-production.png)
 
-19. Click the "Move to Production" button.
+20. Click the "Move to Production" button.
 
     ![Production](/docs/cdp-personalize/decisioning/decisionModels/Production.png)
