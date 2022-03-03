@@ -6,11 +6,11 @@
 
 1. Navigate to the offers page.
 
-   ![Offers page](..\Offers-page.png)
+   ![Offers page](/docs/cdp-personalize/decisioning/offers/Offers-page.png)
 
 2. Click the "Create Offer" button.
 
-   ![Create offer](..\Create.png)
+   ![Create offer](/docs/cdp-personalize/decisioning/offers/Create.png)
 
 3. Choose "Full Stack Experience Offer".
 

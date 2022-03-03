@@ -6,15 +6,15 @@
 
 1. Navigate to the connections listing page.
 
-   ![Connections listing page](..\Connections-listing-page.png)
+   ![Connections listing page](/docs/cdp-personalize/connections/Connections-listing-page.png)
 
 2. Click the "Add Connection" button.
 
-   ![Add Connection](..\Add-connection.png)
+   ![Add Connection](/docs/cdp-personalize/connections/Add-connection.png)
 
 3. Choose "Data System".
 
-   ![Name and Describe](..\Name-describe.png)
+   ![Name and Describe](/docs/cdp-personalize/connections/Name-describe.png)
 
 4. Enter the following information:
 
@@ -27,7 +27,7 @@
 5. Click the "Next" button.
 6. For authentication, select basic.
 
-   ![None Authentication](..\Basic-authentication.png)
+   ![None Authentication](/docs/cdp-personalize/connections/Basic-authentication.png)
 
 7. Enter the following information:
 
@@ -38,7 +38,7 @@
 
 8. Click the "Next" button.
 
-   ![Request](..\Get-request.png)
+   ![Request](/docs/cdp-personalize/connections/Get-request.png)
 
 9. Enter the following information:
 

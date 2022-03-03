@@ -6,11 +6,11 @@
 
 1. Navigate to the decision templates page.
 
-   ![Decision templates page](..\Decision-templates.png)
+   ![Decision templates page](/docs/cdp-personalize/library/decisionTemplates/Decision-templates.png)
 
 2. Click the "Create Template" button.
 
-   ![Create template](..\Create.png)
+   ![Create template](/docs/cdp-personalize/library/decisionTemplates/Create.png)
 
 3. Enter the following information:
 
@@ -47,7 +47,7 @@
 
 6. Click the "Settings" tab.
 
-   ![Settings](..\Settings-tab.png)
+   ![Settings](/docs/cdp-personalize/library/decisionTemplates/Settings-tab.png)
 
 7. Enter the following information:
 
@@ -60,4 +60,4 @@
 8. Click the "Save" button.
 9. Turn on the "Published" toggle.
 
-   ![Published](..\Published.png)
+   ![Published](/docs/cdp-personalize/library/decisionTemplates/Published.png)

@@ -6,15 +6,15 @@
 
 1. Navigate to the offers page.
 
-   ![Offers page](..\Offers-page.png)
+   ![Offers page](/docs/cdp-personalize/decisioning/offers/Offers-page.png)
 
 2. Click the "Create Offer" button.
 
-   ![Create offer](..\Create.png)
+   ![Create offer](/docs/cdp-personalize/decisioning/offers/Create.png)
 
 3. Choose "Website Home Page Hero Offer".
 
-   ![Create offer form](..\Create-Website-Home-Page-Hero.png)
+   ![Create offer form](/docs/cdp-personalize/decisioning/offers/Create-Website-Home-Page-Hero.png)
 
 4. Enter the following information:
 

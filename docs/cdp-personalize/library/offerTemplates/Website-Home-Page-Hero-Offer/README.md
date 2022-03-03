@@ -6,11 +6,11 @@
 
 1. Navigate to the offer templates page.
 
-   ![Offer Templates page](..\Offer-templates.png)
+   ![Offer Templates page](/docs/cdp-personalize/library/offerTemplates/Offer-templates.png)
 
 2. Click the "Create Offer Template" button.
 
-   ![Create Offer Template](..\Create.png)
+   ![Create Offer Template](/docs/cdp-personalize/library/offerTemplates/Create.png)
 
 3. Enter the following information:
 
