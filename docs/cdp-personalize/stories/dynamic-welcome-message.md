@@ -11,4 +11,4 @@
 
 ## Full Stack Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/fullStack/Dynamic%20Welcome%20Message)
+[Dynamic Welcome Message](../experiences/fullStack/Dynamic-Welcome-Message/README.md)

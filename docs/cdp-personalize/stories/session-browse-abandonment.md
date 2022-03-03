@@ -6,4 +6,4 @@
 
 ## Full Stack Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/fullstack/Session%20Browse%20Abandonment)
+[Session Browse Abandonment](../experiences/fullStack/Session-Browse-Abandonment/README.md)

@@ -103,7 +103,7 @@
 
       ![Audience custom](/docs/cdp-personalize/experiments/web/Audience-custom.png)
 
-   7. Close the targeting side panel.
+   7. Close the audience side panel.
 
       ![After audience](After-audience.png)
 

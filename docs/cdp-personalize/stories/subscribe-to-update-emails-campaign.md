@@ -10,4 +10,4 @@
 
 ## Full Stack Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/fullStack/Subscribe%20to%20update%20emails)
+[Subscribe to update emails](../experiences/fullStack/Subscribe-to-update-emails/README.md)

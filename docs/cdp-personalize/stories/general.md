@@ -22,4 +22,4 @@ Many of the Sitecore Personalize stories are sharing some general assets.
 
 ## Full Stack Experiences
 
-- [GetGuestRef](/demo/experience/personalize/experiences/fullStack/GetGuestRef)
+- [GetGuestRef](../experiences/fullStack/GetGuestRef/README.md)
