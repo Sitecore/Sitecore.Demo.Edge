@@ -1,0 +1,219 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/fa8f75e9-e562-4e9f-af5d-0b999eb06775",
+  "ref": "fa8f75e9-e562-4e9f-af5d-0b999eb06775",
+  "name": "Subscribe to update emails campaign",
+  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
+  "modifiedAt": "2022-03-04T19:24:45.661Z",
+  "revision": 209,
+  "archived": false,
+  "friendlyId": "subscribe_to_update_emails_campaign",
+  "type": "INTERACTIVE_WEB_FLOW",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "WEB"
+  ],
+  "triggers": [],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "target": {
+    "script": "(function () {\r\n    targetingPassed();\r\n    var pushState = history.pushState;\r\n    history.pushState = function() {\r\n        pushState.apply(history, arguments);\r\n        targetingPassed();\r\n    };\r\n})();",
+    "targetPages": []
+  },
+  "tags": [],
+  "businessProcess": "interactive_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2022-03-04T19:24:46.010Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "e3078823-7ef9-46e1-a3ff-3849946c71b8",
+        "split": 100
+      }
+    ],
+    "coupled": true
+  },
+  "variants": [
+    {
+      "ref": "e3078823-7ef9-46e1-a3ff-3849946c71b8",
+      "name": "Variant 1 - Email Capture Corner",
+      "isControl": true,
+      "previewUrl": "https://www.edge.localhost/",
+      "assets": {
+        "css": "/* accomodate every size screen by default */\n/* tested on chrome, crome mobile, safari, firefox, edge */\n\n/* Declare Boxever Template Variables */\n/*\n[[Position | enum(Left, Right)| Right|{ values(left, right), group: General, groupOrder: 1, order: 1 }]]\n[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Calibri|{group: General, order: 2}]];\n[[Background Colour | colour |#fff | {group: General, order: 4}]]\n[[Container Border Radius px | number| 5|{ group: General, order: 5}]]\n[[Title Text Colour | colour | #4D4D4D | {group: Title, groupOrder: 2, order: 2 }]]\n[[Title Text Size in px| number | 18 | {group: Title, order: 3 }]]\n[[Description Text Colour | colour | #4D4D4D | { group: Description, groupOrder: 3, order: 3 }]]\n[[Description Text Size in px | number | 16 | { group: Description, order: 4 }]]\n[[Input Ghost Text Color | colour | #F3F4F4 | {group: Email Input, groupOrder: 4, order: 2}]]\n[[Input Text Colour | colour | #4D4D4D | {group: Email Input, order: 3 } ]]\n[[Input border color | colour | #C1C9D0 | {group: Email Input, order: 4 }]]\n[[Button Text Color | colour | #fff | {  group: Submit Button, groupOrder: 5, order: 4 } ]]\n[[Button Color | colour | #000 |{  group: Submit Button, order: 3 } ]]\n[[Button Hover Color | colour |#9e9e9e| {group: Submit Button, order: 5 }]]\n[[Button Text Hover Color | colour | #fff | {  group: Submit Button, order: 6 } ]]\n[[Button Text Sixe in px | number | 16 | { group: Submit Button, order: 2 } ]]\n[[X Color | colour | #8A8F98  | {group: Closing Button, groupOrder: 6}]]\n[[Privacy Text Color | colour | #03A9F4  | {group: Privacy Link, groupOrder: 7, order: 3 }]]\n[[Privacy Text Hover Color | colour | #2196F3 | {group: Privacy Link, order: 4 }]]\n[[Privacy Text Font Size | number | 12  | {group: Privacy Link, order: 5 }]]\n[[Modal Background color | colour | #fff | {group: Modal General, groupOrder: 8, order: 1}]]\n[[Modal Min Width in px | number | 250 | {group: Modal General, order: 2}]]\n[[Modal Min Height in px | number | 200 | {group: Modal General, order: 3}]]\n[[Modal Max Width in px | number | 500 | {group: Modal General, order: 2}]]\n[[Modal Max Height in px | number | 250 | {group: Modal General, order: 3}]]\n[[Modal Title Text Colour | colour | #4D4D4D | {group: Modal Title, groupOrder: 9, order: 2 }]]\n[[Modal Title Text Size in px | number | 18 | {group: Modal Title, order: 3 }]]\n[[Modal Description Text Colour | colour | #4D4D4D | {group: Modal Description, groupOrder: 10, order: 2 }]]\n[[Modal Description Text Size in px | number | 16 | {group: Modal Description, order: 3 }]]\n*/\n\n/* The following Experience is populated with a unique variant identifier: { { ref } }\nwhen deployed to ensure CSS does not impact styling of other elements. */\n\n/* experience container styling */\n#bx-{{ref}} a,\n#bx-{{ref}} p,\n#bx-{{ref}} span,\n#bx-{{ref}} h3 {\n  font-family: [[ Font ]];\n  font-weight: 400;\n  line-height: 1.2;\n}\n\n#bx-{{ref}} #bx-transition-card {\n    position: fixed;\n    width: 435px;\n    /*height: 325px;*/\n    [[ Position ]]: 5px;\n    bottom: -1000px;\n    z-index: 999999;\n    transition: bottom .6s ease-in-out;\n    margin-bottom: 0;\n    border-radius: [[Container Border Radius px]]px;\n    background: [[Background Colour]];\n    overflow: hidden;\n    box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);\n    max-width: 99%;\n    min-width: 300px;\n    bottom: 5px;\n}\n\n/* Title, Text, inputs and link container */\n#bx-{{ref}} .bx-email_capture_container{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    height: 100%;\n    padding: 18px;\n}\n\n/* experience body  */\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body {\n    width: 100%;\n}\n\n/* Title text */\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body h3 {\n    margin-top: 28px;\n    line-height: 1.5;\n    font-size: [[Title Text Size in px]];\n    font-weight: bold;\n    text-align: center;\n    margin: 0;\n    color: [[Title Text Colour]];\n    font-family: [[Font]];\n}\n\n/* input pre-inserted-text */\n#bx-{{ref}} #bx-transition-card .bx-email_input::-ms-input-placeholder,\n#bx-{{ref}} #bx-transition-card .bx-email_input::placeholder {\n    color: [[Input Ghost Text Color]];\n    font-family: [[Font]];\n}\n/* email input */\n#bx-{{ref}} #bx-transition-card .bx-email_input {\n    font-size: 18px;\n    border-radius: 4px;\n    background-color: #fff;\n    font-family: [[Font]];\n    border: 1px solid [[Input border color]];\n    color: [[Input Text Colour]];\n    margin: 5px 10px;\n    width: 100%;\n    max-width: 350px;\n    padding-left: 10px;\n}\n/* description text */\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body p {\n    padding: 12px 0;\n    margin: 0;\n    font-size: [[Description Text Size in px]]px;\n    line-height: 28px;\n    text-align: center;\n    color: [[Description Text Colour]]\n}\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body {\n    padding: 12px 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 28px;\n    text-align: center;\n    color: #000;\n}\n\n/* input and CTA container */\n#bx-{{ref}} #bx-transition-card .options-container {\n    justify-content: center;\n}\n\n/* CTA */\n#bx-{{ref}} #bx-transition-card .options-container__primary {\n    display: inline-block;\n    border-radius: 4px;\n    height: 35px;\n    width: 120px;\n    line-height: 35px;\n    text-align: center;\n    cursor: pointer;\n    border: none;\n    color: [[ Button Text Color ]];\n    background-color: [[ Button Color ]];\n    font-size: [[Button Text Sixe in px ]]px;\n    font-family: [[Font]];\n    text-decoration: none;\n}\n\n#bx-{{ref}} #bx-transition-card .options-container__primary:hover {\n  color: [[ Button Text Hover Color ]];\n  background-color: [[ Button Hover Color ]];\n}\n\n#bx-{{ref}} #bx-transition-card .options-container__privacy-link {\n  border: none;\n  color: [[Privacy Text Color]];\n  padding: 5px 10px;\n  font-size: [[Privacy Text Font Size]]px;\n  border-radius: 10px;\n  margin: auto 10px;\n}\n\n#bx-{{ref}} #bx_TopBanner .bx-modal_button__privacy-link:hover {\n  color: [[ Privacy Text Hover Color ]];\n  background-color: transparent;\n}\n\n/* closing Button on Hover, focus, active */\n#bx-{{ref}} .bx__btn-close:hover,\n#bx-{{ref}} .bx__btn-close:focus,\n#bx-{{ref}} .bx__btn-close:active {\n    background-color: transparent;\n    box-shadow: none;\n    color: #333;\n    text-decoration: none !important;\n    cursor: pointer;\n}\n\n/* close button */\n#bx-{{ref}} .bx__btn-close {\n  background: transparent;\n  right: 20px;\n  width: 24px;\n  height: 24px;\n  margin-top: 10px;\n  margin-right: 10px;\n  position: absolute;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n/* close button right side of X  */\n#bx-{{ref}} .bx__btn-close:after {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid [[ X Color ]];\n  position: absolute;\n  margin: auto;\n  transform: rotate(45deg);\n}\n\n/* close button left side of X  */\n#bx-{{ref}} .bx__btn-close:before {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid [[ X Color ]];\n  margin: auto;\n  position: absolute;\n  transform: rotate(-45deg);\n}\n\n/* Thank You Modal */\n#bx-{{ref}} #bx-thank_you_modal {\n    display: none;\n    justify-content: center;\n    align-items: center;\n    position: fixed;\n    z-index: 999999;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    font-family: [[Font]];\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_backdrop {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_content {\n    display: flex;\n    flex-direction: column;\n    position: absolute;\n    margin: 0 auto;\n    border-radius: 4px;\n    box-shadow: 0 2px 10px 6px rgba(0, 0, 0, 0.3);\n    min-width: [[Modal Min Width in px]]px;\n    min-height: [[Modal Min Height in px]]px;\n    max-width: [[Modal Max Width in px]]px;\n    max-height: [[Modal Max Height in px]]px;\n    border: none;\n    padding: 40px 38px;\n    align-items: center;\n    justify-content: center;\n    background-color: [[Modal Background color]];\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_content h3 {\n    line-height: 1.5;\n    font-size: [[Modal Title Text Size in px]]px;\n    font-weight: bold;\n    margin: 0;\n    color: [[Modal Title Text Colour]];\n    font-family: [[Font]];\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_content p {\n    padding: 12px 0;\n    margin: 0;\n    font-size: [[Modal Description Text Size in px]]px;\n    line-height: 28px;\n    color: [[Modal Description Text Colour]];\n    font-family: [[Font]];\n    overflow: auto;\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx__btn-close {\n  background: transparent;\n  top: 20px;\n  right: 20px;\n  width: 24px;\n  height: 24px;\n  margin-top: 10px;\n  margin-right: 10px;\n  position: absolute;\n  cursor: pointer;\n}\n\n.input-box{\n    width:100%;\n    padding: 5px 0px;\n    margin-top: 10px;\n}\n\n.bx-submit{\n    margin-top: 10px;\n    display: inline-block;\n    cursor: pointer;\n}\n",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<link\n  href=\"https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap\"\n  rel=\"stylesheet\"\n/>\n<div id=\"bx-transition-card\">\n    <div class=\"bx-transition-card__body\">\n        <div class=\"bx__btn-close\"></div>\n        <div class=\"bx-email_capture_container\" id=\"bx-email_capture_container\">\n            <h2 calss=\"\">[[ Title Text | string | Sign Up For Session Updates! | { required: true, group: Title, groupOrder: 2, order: 1 } ]]</h2>\n            <p>[[ Description Top | text | By providing your email address, we can keep you up to date and send you session updates.| { required: true ,group: Description, groupOrder: 3, order: 1 }]]</p>\n\n            <div class=\"options-container\">\n                <div>\n                <input type=\"text\" name=\"bx-firstname_input\" class=\"bx-email_input bx-name_input input-box\" id=\"bx-firstname_input\" placeholder=\"First name\">\n                </div>\n                <div>\n                <input type=\"text\" name=\"bx-lastname_input\" class=\"bx-email_input bx-name_input input-box\" id=\"bx-lastname_input\" placeholder=\"Last name\">\n                </div>\n                <div>\n                <input type=\"email\" name=\"bx-email_input\" class=\"bx-email_input input-box\" id=\"bx-email_input\" placeholder=\"[[ Input Ghost Text | string | Email | { required: true , group: Email Input, groupOrder: 4, order: 3, } ]]\">\n                </div>\n                <a id=\"bx-transition-card--primary\" class=\"bx-submit btn--main btn--main--round\">[[ Button Text | string | Subscribe | {required: true,max: 15, group: Submit Button, order: 4  } ]]</a>\n            </div>\n            <p><a class=\"options-container__privacy-link\" href=\"[[ Privacy Link | string | /privacy | { required: true, group: Privacy Link, groupOrder: 5, order: 2 } ]]\">[[ Privacy Text | string | Privacy Policy | { required: true, group: Privacy Link, order: 1 }]]</a></p>\n        </div>\n    </div>\n</div>\n\n<div class=\"bx-thank_you_container\" id=\"bx-thank_you_modal\">\n    <div class=\"bx-modal_backdrop\" id=\"bx-thank_you_backdrop\"></div>\n    <div class=\"bx-modal_content\">\n        <h3>[[ Modal Title Text | string | Thank You! | { required: true, group: Modal Title, groupOrder: 8, order: 1 } ]]</h3>\n        <p>[[ Modal Description Text | text | You're all signed up. | { required: true, group: Modal Description, groupOrder: 9, order: 1 } ]]</p>\n\n        <div class=\"bx__btn-close\" id=\"bx-thank_you_close\"></div>\n    </div>\n</div>",
+        "js": "//Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\nvar compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\nvar styleTag = document.getElementById('style-' + variant.ref);\nif (styleTag) {\n    styleTag.innerHTML = compiledCSS;\n}\n//End\n\ninsertHTMLAfter(\"body\");\n\n// show popup on bx load\nlet bxContent = document.querySelector(\"#bx-transition-card\");\nbxContent.style.display = \"flex\";\n\nfunction showThankYou() {\n    document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_modal\").style.display = \"flex\";\n}\n\nfunction dismissThankYou() {\n  document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_modal\").style.display = \"none\";\n}\n\n//declarations\nconst bxEmailCaptureContainer = document.getElementById(\"bx-email_capture_container\");\nconst bxThankYouClose = document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_close\");\nconst bxThankYouBackdrop = document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_backdrop\");\nconst bxThankYouContainer = document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_modal\");\nconst bxClose = bxContent.querySelector(\".bx__btn-close\");\nconst bxCTA = document.getElementById('bx-transition-card--primary');\n\ndocument.getElementById(\"bx-email_input\").value = variant && variant.context && variant.context.email ? variant.context.email : '';\ndocument.getElementById(\"bx-firstname_input\").value = variant && variant.context && variant.context.firstname ? variant.context.firstname : '';\ndocument.getElementById(\"bx-lastname_input\").value = variant && variant.context && variant.context.lastname ? variant.context.lastname : '';\n\n// LIsteners\n//on Email submission\nbxCTA.onclick = function(){\n    let bxEmail = document.getElementById(\"bx-email_input\").value;\n    let bxFirstName = document.getElementById(\"bx-firstname_input\").value;\n    let bxLastName = document.getElementById(\"bx-lastname_input\").value;\n    let emailVerified = validateEmail(bxEmail);\n    emailVerified ?\n        onSuccessValidation(bxEmail, bxFirstName, bxLastName)\n    :\n        //friendly error\n        document.getElementById(\"bx-email_input\").style.backgroundColor = 'rgba(200,0,0,0.1)';\n};\n\nbxClose.onclick = function(){\n    bxContent.style.display = \"none\";\n    sendInteractionToBoxever(\"DISMISSED\")\n}\n\nbxThankYouClose.onclick = function() {\n  dismissThankYou();\n}\n\nbxThankYouBackdrop.onclick = function() {\n  dismissThankYou();\n};\n\n//declare functions\nconst sendInteractionToBoxever = function(interactionType){\n    let eventToSend = {\n        \"channel\": \"WEB\",\n        \"type\": interactionType,\n        \"browser_id\": Boxever.getID(),\n        \"language\": window.navigator.language,\n        \"currency\": \"USD\",\n        \"page\": window.location.pathname + window.location.search,\n        \"pos\": \"PLAY! Summit\"\n    };\n    Boxever.eventCreate(eventToSend, (data)=> { }, 'json');\n}\n\nconst onSuccessValidation = function(email, firstname, lastname){\n    let event = {\n        \"channel\": \"WEB\",\n        \"type\": \"IDENTITY\",\n        \"language\": window.navigator.language,\n        \"currency\": \"USD\",\n        \"page\": window.location.pathname + window.location.search,\n        \"pos\": \"PLAY! Summit\",\n        \"browser_id\": Boxever.getID(),\n        \"email\":email,\n        \"firstname\":firstname,\n        \"lastname\":lastname,\n        identifiers: [\n            {\n              provider: 'email',\n              id: email,\n            }\n        ],\n    };\n    Boxever.eventCreate(event, function(data){}, 'json');\n\n    sendInteractionToBoxever(\"SUBSCRIBE_TO_UPDATES_IDENTITY\");\n\n    bxEmailCaptureContainer.style.display = \"none\";\n    let X = document.querySelector(\".bx__btn-close\");\n    X.style.display = \"none\";\n    showThankYou();\n    // flash thank you message\n    setTimeout(function(){ document.querySelector('#bx-transition-card').style.display= 'none'; }, 100);\n}\n\nconst validateEmail = function(bxEmail){\n  let validation = false;\n  let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/.test(bxEmail);\n  mailformat ? validation = true: validation = false;\n  return validation;\n}"
+      },
+      "templateVariables": {
+        "Position": "Right",
+        "Modal Background color": "#fff",
+        "Title Text": "Sign Up For Session Updates!",
+        "Description Top": "By providing your email address, we can keep you up to date and send you session updates.",
+        "Privacy Text": "Privacy Policy",
+        "Modal Title Text": "Thank You!",
+        "Modal Description Text": "You're all signed up.",
+        "Font": "Calibri",
+        "Title Text Colour": "#4D4D4D",
+        "Input Ghost Text Color": "#F3F4F4",
+        "Button Text Sixe in px": "16",
+        "Modal Min Width in px": "250",
+        "Modal Max Width in px": "500",
+        "Modal Title Text Colour": "#4D4D4D",
+        "Modal Description Text Colour": "#4D4D4D",
+        "Privacy Link": "/privacy",
+        "Title Text Size in px": "18",
+        "Description Text Colour": "#4D4D4D",
+        "Input Text Colour": "#4D4D4D",
+        "Button Color": "#000",
+        "Privacy Text Color": "#03A9F4",
+        "Modal Min Height in px": "200",
+        "Modal Max Height in px": "250",
+        "Modal Title Text Size in px": "18",
+        "Modal Description Text Size in px": "16",
+        "Input Ghost Text": "Email",
+        "Background Colour": "#fff",
+        "Description Text Size in px": "16",
+        "Input border color": "#C1C9D0",
+        "Button Text Color": "#fff",
+        "Privacy Text Hover Color": "#2196F3",
+        "Button Text": "Subscribe",
+        "Container Border Radius px": "5",
+        "Button Hover Color": "#9e9e9e",
+        "Privacy Text Font Size": "12",
+        "Button Text Hover Color": "#fff",
+        "X Color": "#8A8F98"
+      },
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "{\n<#if (guest.email)??>\n    \"email\":\"${(guest.email)}\",\n<#else>\n    \"email\":\"\",\n</#if>\n<#if (guest.firstName)??>\n    \"firstname\":\"${(guest.firstName)}\",\n<#else>\n    \"firstname\":\"\",\n</#if>\n<#if (guest.lastName)??>\n    \"lastname\":\"${(guest.lastName)}\"\n<#else>\n    \"lastname\":\"\"\n</#if>\n\n}"
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "segmentCondition",
+                "ruleData": {
+                  "expression": ""
+                }
+              },
+              {
+                "id": "scriptCondition",
+                "name": "Custom Real-Time Audience",
+                "ruleData": {
+                  "expression": "(function () {\n    var totalCount = 0;\n    for(var i = 0; i < guest.sessions.length; i++){\n        if(guest.sessions[i].events && guest.sessions[i].events.length > 0){\n            for(var e = 0; e < guest.sessions[i].events.length; e++){\n                var event = guest.sessions[i].events[e];\n                if(event && event.type === \"VIEW\" && event.arbitraryData && event.arbitraryData.page && event.arbitraryData.page.startsWith(\"/sessions\") ){\n                    totalCount++;\n                }\n                if(event.type === \"SUBSCRIBE_TO_UPDATES_IDENTITY\"){\n                    return false;\n                }\n            }\n        }\n    }\n    if(totalCount === 4 || (totalCount > 4 && totalCount % 10 === 0)) {\n        return true;\n    }\n    return false;\n})();\n"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "render": true
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "e3078823-7ef9-46e1-a3ff-3849946c71b8",
+      "name": "Variant 1 - Email Capture Corner",
+      "isControl": true,
+      "previewUrl": "https://www.edge.localhost/",
+      "assets": {
+        "css": "/* accomodate every size screen by default */\n/* tested on chrome, crome mobile, safari, firefox, edge */\n\n/* Declare Boxever Template Variables */\n/*\nRight\nCalibri;\n#fff\n5\n#4D4D4D\n18\n#4D4D4D\n16\n#F3F4F4\n#4D4D4D\n#C1C9D0\n#fff\n#000\n#9e9e9e\n#fff\n16\n#8A8F98\n#03A9F4\n#2196F3\n12\n#fff\n250\n200\n500\n250\n#4D4D4D\n18\n#4D4D4D\n16\n*/\n\n/* The following Experience is populated with a unique variant identifier: { { ref } }\nwhen deployed to ensure CSS does not impact styling of other elements. */\n\n/* experience container styling */\n#bx-{{ref}} a,\n#bx-{{ref}} p,\n#bx-{{ref}} span,\n#bx-{{ref}} h3 {\n  font-family: Calibri;\n  font-weight: 400;\n  line-height: 1.2;\n}\n\n#bx-{{ref}} #bx-transition-card {\n    position: fixed;\n    width: 435px;\n    /*height: 325px;*/\n    Right: 5px;\n    bottom: -1000px;\n    z-index: 999999;\n    transition: bottom .6s ease-in-out;\n    margin-bottom: 0;\n    border-radius: 5px;\n    background: #fff;\n    overflow: hidden;\n    box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0,0,0,.1);\n    max-width: 99%;\n    min-width: 300px;\n    bottom: 5px;\n}\n\n/* Title, Text, inputs and link container */\n#bx-{{ref}} .bx-email_capture_container{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    height: 100%;\n    padding: 18px;\n}\n\n/* experience body  */\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body {\n    width: 100%;\n}\n\n/* Title text */\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body h3 {\n    margin-top: 28px;\n    line-height: 1.5;\n    font-size: 18;\n    font-weight: bold;\n    text-align: center;\n    margin: 0;\n    color: #4D4D4D;\n    font-family: Calibri;\n}\n\n/* input pre-inserted-text */\n#bx-{{ref}} #bx-transition-card .bx-email_input::-ms-input-placeholder,\n#bx-{{ref}} #bx-transition-card .bx-email_input::placeholder {\n    color: #F3F4F4;\n    font-family: Calibri;\n}\n/* email input */\n#bx-{{ref}} #bx-transition-card .bx-email_input {\n    font-size: 18px;\n    border-radius: 4px;\n    background-color: #fff;\n    font-family: Calibri;\n    border: 1px solid #C1C9D0;\n    color: #4D4D4D;\n    margin: 5px 10px;\n    width: 100%;\n    max-width: 350px;\n    padding-left: 10px;\n}\n/* description text */\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body p {\n    padding: 12px 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 28px;\n    text-align: center;\n    color: #4D4D4D\n}\n#bx-{{ref}} #bx-transition-card .bx-transition-card__body {\n    padding: 12px 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 28px;\n    text-align: center;\n    color: #000;\n}\n\n/* input and CTA container */\n#bx-{{ref}} #bx-transition-card .options-container {\n    justify-content: center;\n}\n\n/* CTA */\n#bx-{{ref}} #bx-transition-card .options-container__primary {\n    display: inline-block;\n    border-radius: 4px;\n    height: 35px;\n    width: 120px;\n    line-height: 35px;\n    text-align: center;\n    cursor: pointer;\n    border: none;\n    color: #fff;\n    background-color: #000;\n    font-size: 16px;\n    font-family: Calibri;\n    text-decoration: none;\n}\n\n#bx-{{ref}} #bx-transition-card .options-container__primary:hover {\n  color: #fff;\n  background-color: #9e9e9e;\n}\n\n#bx-{{ref}} #bx-transition-card .options-container__privacy-link {\n  border: none;\n  color: #03A9F4;\n  padding: 5px 10px;\n  font-size: 12px;\n  border-radius: 10px;\n  margin: auto 10px;\n}\n\n#bx-{{ref}} #bx_TopBanner .bx-modal_button__privacy-link:hover {\n  color: #2196F3;\n  background-color: transparent;\n}\n\n/* closing Button on Hover, focus, active */\n#bx-{{ref}} .bx__btn-close:hover,\n#bx-{{ref}} .bx__btn-close:focus,\n#bx-{{ref}} .bx__btn-close:active {\n    background-color: transparent;\n    box-shadow: none;\n    color: #333;\n    text-decoration: none !important;\n    cursor: pointer;\n}\n\n/* close button */\n#bx-{{ref}} .bx__btn-close {\n  background: transparent;\n  right: 20px;\n  width: 24px;\n  height: 24px;\n  margin-top: 10px;\n  margin-right: 10px;\n  position: absolute;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n/* close button right side of X  */\n#bx-{{ref}} .bx__btn-close:after {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  position: absolute;\n  margin: auto;\n  transform: rotate(45deg);\n}\n\n/* close button left side of X  */\n#bx-{{ref}} .bx__btn-close:before {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  margin: auto;\n  position: absolute;\n  transform: rotate(-45deg);\n}\n\n/* Thank You Modal */\n#bx-{{ref}} #bx-thank_you_modal {\n    display: none;\n    justify-content: center;\n    align-items: center;\n    position: fixed;\n    z-index: 999999;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    overflow: hidden;\n    font-family: Calibri;\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_backdrop {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_content {\n    display: flex;\n    flex-direction: column;\n    position: absolute;\n    margin: 0 auto;\n    border-radius: 4px;\n    box-shadow: 0 2px 10px 6px rgba(0, 0, 0, 0.3);\n    min-width: 250px;\n    min-height: 200px;\n    max-width: 500px;\n    max-height: 250px;\n    border: none;\n    padding: 40px 38px;\n    align-items: center;\n    justify-content: center;\n    background-color: #fff;\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_content h3 {\n    line-height: 1.5;\n    font-size: 18px;\n    font-weight: bold;\n    margin: 0;\n    color: #4D4D4D;\n    font-family: Calibri;\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx-modal_content p {\n    padding: 12px 0;\n    margin: 0;\n    font-size: 16px;\n    line-height: 28px;\n    color: #4D4D4D;\n    font-family: Calibri;\n    overflow: auto;\n}\n\n#bx-{{ref}} #bx-thank_you_modal .bx__btn-close {\n  background: transparent;\n  top: 20px;\n  right: 20px;\n  width: 24px;\n  height: 24px;\n  margin-top: 10px;\n  margin-right: 10px;\n  position: absolute;\n  cursor: pointer;\n}\n\n.input-box{\n    width:100%;\n    padding: 5px 0px;\n    margin-top: 10px;\n}\n\n.bx-submit{\n    margin-top: 10px;\n    display: inline-block;\n    cursor: pointer;\n}\n",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<link\n  href=\"https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap\"\n  rel=\"stylesheet\"\n/>\n<div id=\"bx-transition-card\">\n    <div class=\"bx-transition-card__body\">\n        <div class=\"bx__btn-close\"></div>\n        <div class=\"bx-email_capture_container\" id=\"bx-email_capture_container\">\n            <h2 calss=\"\">Sign Up For Session Updates!</h2>\n            <p>By providing your email address, we can keep you up to date and send you session updates.</p>\n\n            <div class=\"options-container\">\n                <div>\n                <input type=\"text\" name=\"bx-firstname_input\" class=\"bx-email_input bx-name_input input-box\" id=\"bx-firstname_input\" placeholder=\"First name\">\n                </div>\n                <div>\n                <input type=\"text\" name=\"bx-lastname_input\" class=\"bx-email_input bx-name_input input-box\" id=\"bx-lastname_input\" placeholder=\"Last name\">\n                </div>\n                <div>\n                <input type=\"email\" name=\"bx-email_input\" class=\"bx-email_input input-box\" id=\"bx-email_input\" placeholder=\"Email\">\n                </div>\n                <a id=\"bx-transition-card--primary\" class=\"bx-submit btn--main btn--main--round\">Subscribe</a>\n            </div>\n            <p><a class=\"options-container__privacy-link\" href=\"/privacy\">Privacy Policy</a></p>\n        </div>\n    </div>\n</div>\n\n<div class=\"bx-thank_you_container\" id=\"bx-thank_you_modal\">\n    <div class=\"bx-modal_backdrop\" id=\"bx-thank_you_backdrop\"></div>\n    <div class=\"bx-modal_content\">\n        <h3>Thank You!</h3>\n        <p>You're all signed up.</p>\n\n        <div class=\"bx__btn-close\" id=\"bx-thank_you_close\"></div>\n    </div>\n</div>",
+        "js": "//Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\nvar compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\nvar styleTag = document.getElementById('style-' + variant.ref);\nif (styleTag) {\n    styleTag.innerHTML = compiledCSS;\n}\n//End\n\ninsertHTMLAfter(\"body\");\n\n// show popup on bx load\nlet bxContent = document.querySelector(\"#bx-transition-card\");\nbxContent.style.display = \"flex\";\n\nfunction showThankYou() {\n    document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_modal\").style.display = \"flex\";\n}\n\nfunction dismissThankYou() {\n  document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_modal\").style.display = \"none\";\n}\n\n//declarations\nconst bxEmailCaptureContainer = document.getElementById(\"bx-email_capture_container\");\nconst bxThankYouClose = document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_close\");\nconst bxThankYouBackdrop = document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_backdrop\");\nconst bxThankYouContainer = document.querySelector(\"#bx-\"+variant.ref+ \" #bx-thank_you_modal\");\nconst bxClose = bxContent.querySelector(\".bx__btn-close\");\nconst bxCTA = document.getElementById('bx-transition-card--primary');\n\ndocument.getElementById(\"bx-email_input\").value = variant && variant.context && variant.context.email ? variant.context.email : '';\ndocument.getElementById(\"bx-firstname_input\").value = variant && variant.context && variant.context.firstname ? variant.context.firstname : '';\ndocument.getElementById(\"bx-lastname_input\").value = variant && variant.context && variant.context.lastname ? variant.context.lastname : '';\n\n// LIsteners\n//on Email submission\nbxCTA.onclick = function(){\n    let bxEmail = document.getElementById(\"bx-email_input\").value;\n    let bxFirstName = document.getElementById(\"bx-firstname_input\").value;\n    let bxLastName = document.getElementById(\"bx-lastname_input\").value;\n    let emailVerified = validateEmail(bxEmail);\n    emailVerified ?\n        onSuccessValidation(bxEmail, bxFirstName, bxLastName)\n    :\n        //friendly error\n        document.getElementById(\"bx-email_input\").style.backgroundColor = 'rgba(200,0,0,0.1)';\n};\n\nbxClose.onclick = function(){\n    bxContent.style.display = \"none\";\n    sendInteractionToBoxever(\"DISMISSED\")\n}\n\nbxThankYouClose.onclick = function() {\n  dismissThankYou();\n}\n\nbxThankYouBackdrop.onclick = function() {\n  dismissThankYou();\n};\n\n//declare functions\nconst sendInteractionToBoxever = function(interactionType){\n    let eventToSend = {\n        \"channel\": \"WEB\",\n        \"type\": interactionType,\n        \"browser_id\": Boxever.getID(),\n        \"language\": window.navigator.language,\n        \"currency\": \"USD\",\n        \"page\": window.location.pathname + window.location.search,\n        \"pos\": \"PLAY! Summit\"\n    };\n    Boxever.eventCreate(eventToSend, (data)=> { }, 'json');\n}\n\nconst onSuccessValidation = function(email, firstname, lastname){\n    let event = {\n        \"channel\": \"WEB\",\n        \"type\": \"IDENTITY\",\n        \"language\": window.navigator.language,\n        \"currency\": \"USD\",\n        \"page\": window.location.pathname + window.location.search,\n        \"pos\": \"PLAY! Summit\",\n        \"browser_id\": Boxever.getID(),\n        \"email\":email,\n        \"firstname\":firstname,\n        \"lastname\":lastname,\n        identifiers: [\n            {\n              provider: 'email',\n              id: email,\n            }\n        ],\n    };\n    Boxever.eventCreate(event, function(data){}, 'json');\n\n    sendInteractionToBoxever(\"SUBSCRIBE_TO_UPDATES_IDENTITY\");\n\n    bxEmailCaptureContainer.style.display = \"none\";\n    let X = document.querySelector(\".bx__btn-close\");\n    X.style.display = \"none\";\n    showThankYou();\n    // flash thank you message\n    setTimeout(function(){ document.querySelector('#bx-transition-card').style.display= 'none'; }, 100);\n}\n\nconst validateEmail = function(bxEmail){\n  let validation = false;\n  let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/.test(bxEmail);\n  mailformat ? validation = true: validation = false;\n  return validation;\n}"
+      },
+      "templateVariables": {
+        "Position": "Right",
+        "Modal Background color": "#fff",
+        "Title Text": "Sign Up For Session Updates!",
+        "Description Top": "By providing your email address, we can keep you up to date and send you session updates.",
+        "Privacy Text": "Privacy Policy",
+        "Modal Title Text": "Thank You!",
+        "Modal Description Text": "You're all signed up.",
+        "Font": "Calibri",
+        "Title Text Colour": "#4D4D4D",
+        "Input Ghost Text Color": "#F3F4F4",
+        "Button Text Sixe in px": "16",
+        "Modal Min Width in px": "250",
+        "Modal Max Width in px": "500",
+        "Modal Title Text Colour": "#4D4D4D",
+        "Modal Description Text Colour": "#4D4D4D",
+        "Privacy Link": "/privacy",
+        "Title Text Size in px": "18",
+        "Description Text Colour": "#4D4D4D",
+        "Input Text Colour": "#4D4D4D",
+        "Button Color": "#000",
+        "Privacy Text Color": "#03A9F4",
+        "Modal Min Height in px": "200",
+        "Modal Max Height in px": "250",
+        "Modal Title Text Size in px": "18",
+        "Modal Description Text Size in px": "16",
+        "Input Ghost Text": "Email",
+        "Background Colour": "#fff",
+        "Description Text Size in px": "16",
+        "Input border color": "#C1C9D0",
+        "Button Text Color": "#fff",
+        "Privacy Text Hover Color": "#2196F3",
+        "Button Text": "Subscribe",
+        "Container Border Radius px": "5",
+        "Button Hover Color": "#9e9e9e",
+        "Privacy Text Font Size": "12",
+        "Button Text Hover Color": "#fff",
+        "X Color": "#8A8F98"
+      },
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "{\n<#if (guest.email)??>\n    \"email\":\"${(guest.email)}\",\n<#else>\n    \"email\":\"\",\n</#if>\n<#if (guest.firstName)??>\n    \"firstname\":\"${(guest.firstName)}\",\n<#else>\n    \"firstname\":\"\",\n</#if>\n<#if (guest.lastName)??>\n    \"lastname\":\"${(guest.lastName)}\"\n<#else>\n    \"lastname\":\"\"\n</#if>\n\n}"
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "segmentCondition",
+                "ruleData": {
+                  "expression": ""
+                }
+              },
+              {
+                "id": "scriptCondition",
+                "name": "Custom Real-Time Audience",
+                "ruleData": {
+                  "expression": "\n\n(function () {\n    var totalCount = 0;\n    for (var i = 0; i < guest.sessions.length; i++) {\n        if (guest.sessions[i].events && guest.sessions[i].events.length > 0) {\n            for (var e = 0; e < guest.sessions[i].events.length; e++) {\n                var event = guest.sessions[i].events[e];\n                if (event && event.type === \"VIEW\" && event.arbitraryData && event.arbitraryData.page && event.arbitraryData.page.startsWith(\"/sessions\")) {\n                    totalCount++;\n                }\n                if (event.type === \"SUBSCRIBE_TO_UPDATES_IDENTITY\") {\n                    return false;\n                }\n            }\n        }\n    }\n    if (totalCount === 4 || totalCount > 4 && totalCount % 10 === 0) {\n        return true;\n    }\n    return false;\n})();"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2022-03-04T19:24:45.615Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/fa8f75e9-e562-4e9f-af5d-0b999eb06775/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.02,
+    "minimumDetectableDifference": 0.2,
+    "confidenceLevel": 0.95
+  }
+}

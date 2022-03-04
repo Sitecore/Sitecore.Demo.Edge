@@ -1,0 +1,77 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v2/connections/f59fd04e-dc92-41bc-83ac-436efaf8123c",
+  "ref": "f59fd04e-dc92-41bc-83ac-436efaf8123c",
+  "name": "Azure Translation",
+  "description": "Translate text using azure translate api",
+  "modifiedByRef": "171e2c01-9026-4573-bed2-f556d8b37bf5",
+  "modifiedAt": "2022-02-03T20:59:43Z",
+  "revision": 1,
+  "archived": false,
+  "auth": {
+    "authType": "NONE"
+  },
+  "request": {
+    "requestType": "POST",
+    "connectionUrl": "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${inputLanguage}&to=${outputLanguage}",
+    "requestBody": "[\n  {\n    \"text\": \"${text}\"\n  }\n]"
+  },
+  "inputMappings": [
+    {
+      "label": "Text",
+      "key": "text",
+      "type": "String",
+      "exampleValue": "welcome",
+      "mapping": ""
+    }
+  ],
+  "outputMappings": [
+    {
+      "label": "Result",
+      "outputReference": "result",
+      "type": "Array"
+    }
+  ],
+  "customHeaders": [
+    {
+      "name": "Accept",
+      "value": "application/json"
+    },
+    {
+      "name": "Accept-Encoding",
+      "value": "gzip"
+    },
+    {
+      "name": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "name": "Ocp-Apim-Subscription-Key",
+      "value": "Redacted"
+    },
+    {
+      "name": "Ocp-Apim-Subscription-Region",
+      "value": "eastus"
+    }
+  ],
+  "urlParameters": [
+    {
+      "label": "Input Language",
+      "key": "inputLanguage",
+      "type": "String",
+      "exampleValue": "en",
+      "mapping": ""
+    },
+    {
+      "label": "Output Language",
+      "key": "outputLanguage",
+      "type": "String",
+      "exampleValue": "fr",
+      "mapping": ""
+    }
+  ],
+  "systemType": "DATA_SYSTEM",
+  "connectionTimeout": 1000,
+  "socketTimeout": 1000,
+  "icon": "fad fa-chart-network"
+}

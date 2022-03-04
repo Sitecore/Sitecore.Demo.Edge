@@ -1,0 +1,142 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/e505ac81-d5af-4f21-9e5d-be0fa904091b",
+  "ref": "e505ac81-d5af-4f21-9e5d-be0fa904091b",
+  "name": "Website - Audience-based website home page hero V2",
+  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
+  "modifiedAt": "2022-02-17T20:45:26.024Z",
+  "revision": 15,
+  "archived": false,
+  "friendlyId": "website__audiencebased_website_home_page_hero_v2",
+  "type": "INTERACTIVE_WEB_FLOW",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "WEB"
+  ],
+  "triggers": [],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "target": {
+    "script": "(function () {\n    targetingPassed();\n    var pushState = history.pushState;\n    history.pushState = function() {\n        pushState.apply(history, arguments);\n        targetingPassed();\n    };\n})();",
+    "targetPages": []
+  },
+  "goals": {
+    "primary": {
+      "type": "pageViewGoal",
+      "name": "Visited the tickets page",
+      "friendlyId": "visited_the_tickets_page",
+      "ref": "5447418a-fd5e-4e6b-a3e8-13f96af5faba",
+      "description": "Visited the tickets page",
+      "goalCalculation": {
+        "type": "binary",
+        "calculation": "INCREASE",
+        "target": "conversionPerSession",
+        "result": 50
+      },
+      "pageParameters": [
+        {
+          "matchCondition": "Regex",
+          "parameterString": ".+/tickets"
+        }
+      ]
+    }
+  },
+  "tags": [
+    "v1020.0.3+"
+  ],
+  "businessProcess": "interactive_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2022-02-17T20:45:19.338Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "ce626433-b02e-42e2-b25d-8b2dc9693f3d",
+        "split": 100
+      }
+    ],
+    "coupled": true
+  },
+  "variants": [
+    {
+      "ref": "ce626433-b02e-42e2-b25d-8b2dc9693f3d",
+      "name": "Home Page Hero",
+      "isControl": true,
+      "previewUrl": "https://edge-stable-website.sitecoredemo.com/",
+      "assets": {
+        "css": "",
+        "html": "<section class=\"hero-section hero-personalized\">\n    <style>\n        @media (min-width: 768px) {\n            .hero-personalized {\n                background-image: url('{{#decisionOffers}}{{#attributes}}{{imageUrl}}{{/attributes}}{{/decisionOffers}}');\n            }\n        }\n        .hero-personalized .hero-background {\n            background-image: url('{{#decisionOffers}}{{#attributes}}{{imageUrl}}{{/attributes}}{{/decisionOffers}}');\n        }\n    </style>\n    <div class=\"hero-background\"></div>\n    <div class=\"hero-container container\">\n        <div class=\"container-content\">\n          <div class=\"content-text\">\n            <p class=\"slogan\">READY | STEADY | PLAY!</p>\n            <h1 class=\"expo\">Sports and Recreation Expo</h1>\n            <h3 class=\"title\">{{#decisionOffers}}{{#attributes}}{{title}}{{/attributes}}{{/decisionOffers}}</h3>\n            <div class=\"subtitle\">\n              <p>{{#decisionOffers}}{{#attributes}}{{subtitle}}{{/attributes}}{{/decisionOffers}}</p>\n            </div>\n          </div>\n          <div class=\"btn__area\">\n            <a\n              title=\"\"\n              class=\"btn--main btn--main--round\"\n              href=\"/en/tickets\"\n              >Book Tickets</a\n            >\n          </div>\n        </div>\n    </div>\n</section>",
+        "js": "if (variant.context.decisionOffers.length > 0 && document.getElementById('cdp-audience-based-home-page-hero')) {\n    replaceHTMLExact('#cdp-audience-based-home-page-hero');\n}"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "{\n  \"decisionOffers\": ${toJSON(offers)}\n}"
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "1108a684-3be3-4cad-a1c4-f38e485e5b6f"
+            ]
+          }
+        }
+      ],
+      "render": true
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "ce626433-b02e-42e2-b25d-8b2dc9693f3d",
+      "name": "Home Page Hero",
+      "isControl": true,
+      "previewUrl": "https://edge-stable-website.sitecoredemo.com/",
+      "assets": {
+        "css": "",
+        "html": "<section class=\"hero-section hero-personalized\">\n    <style>\n        @media (min-width: 768px) {\n            .hero-personalized {\n                background-image: url('{{#decisionOffers}}{{#attributes}}{{imageUrl}}{{/attributes}}{{/decisionOffers}}');\n            }\n        }\n        .hero-personalized .hero-background {\n            background-image: url('{{#decisionOffers}}{{#attributes}}{{imageUrl}}{{/attributes}}{{/decisionOffers}}');\n        }\n    </style>\n    <div class=\"hero-background\"></div>\n    <div class=\"hero-container container\">\n        <div class=\"container-content\">\n          <div class=\"content-text\">\n            <p class=\"slogan\">READY | STEADY | PLAY!</p>\n            <h1 class=\"expo\">Sports and Recreation Expo</h1>\n            <h3 class=\"title\">{{#decisionOffers}}{{#attributes}}{{title}}{{/attributes}}{{/decisionOffers}}</h3>\n            <div class=\"subtitle\">\n              <p>{{#decisionOffers}}{{#attributes}}{{subtitle}}{{/attributes}}{{/decisionOffers}}</p>\n            </div>\n          </div>\n          <div class=\"btn__area\">\n            <a\n              title=\"\"\n              class=\"btn--main btn--main--round\"\n              href=\"/en/tickets\"\n              >Book Tickets</a\n            >\n          </div>\n        </div>\n    </div>\n</section>",
+        "js": "if (variant.context.decisionOffers.length > 0 && document.getElementById('cdp-audience-based-home-page-hero')) {\n    replaceHTMLExact('#cdp-audience-based-home-page-hero');\n}"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "{\n  \"decisionOffers\": ${toJSON(offers)}\n}"
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "1108a684-3be3-4cad-a1c4-f38e485e5b6f"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2022-02-17T20:45:19.285Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/e505ac81-d5af-4f21-9e5d-be0fa904091b/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.02,
+    "minimumDetectableDifference": 0.2,
+    "confidenceLevel": 0.95
+  }
+}

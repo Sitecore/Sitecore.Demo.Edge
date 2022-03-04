@@ -1,0 +1,51 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v2/connections/f2463c31-9e4c-47da-8725-4e3181acbbb5",
+  "ref": "f2463c31-9e4c-47da-8725-4e3181acbbb5",
+  "name": "Sitecore Send add subscriber to updates ",
+  "description": "Sitecore Send add email to subscription list",
+  "modifiedByRef": "171e2c01-9026-4573-bed2-f556d8b37bf5",
+  "modifiedAt": "2022-02-03T02:19:15.747Z",
+  "revision": 1,
+  "archived": false,
+  "auth": {
+    "authType": "NONE"
+  },
+  "request": {
+    "requestType": "POST",
+    "connectionUrl": "https://api.moosend.com/v3/subscribers/9cc1150c-0733-40a1-8a1c-828d9a44707c/subscribe.json?apikey=Redacted",
+    "requestBody": "{\n  \"Name\": \"test\",\n  \"Email\": \"test@test.com\",\n  \"HasExternalDoubleOptIn\": false,\n  \"CustomFields\": [\n    \"Age=25\",\n    \"Country=USA\"\n  ]\n}"
+  },
+  "inputMappings": [],
+  "outputMappings": [
+    {
+      "label": "Code",
+      "outputReference": "Code",
+      "type": "Number"
+    },
+    {
+      "label": "Context",
+      "outputReference": "Context",
+      "type": "Object"
+    }
+  ],
+  "customHeaders": [
+    {
+      "name": "Accept",
+      "value": "application/json"
+    },
+    {
+      "name": "Accept-Encoding",
+      "value": "gzip"
+    },
+    {
+      "name": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "urlParameters": [],
+  "systemType": "DESTINATION",
+  "connectionTimeout": 1000,
+  "socketTimeout": 10000,
+  "icon": "fad fa-envelope-open"
+}

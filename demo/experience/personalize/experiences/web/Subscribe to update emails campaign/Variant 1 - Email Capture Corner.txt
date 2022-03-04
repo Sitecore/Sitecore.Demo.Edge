@@ -1,0 +1,18 @@
+{
+<#if (guest.email)??>
+    "email":"${(guest.email)}",
+<#else>
+    "email":"",
+</#if>
+<#if (guest.firstName)??>
+    "firstname":"${(guest.firstName)}",
+<#else>
+    "firstname":"",
+</#if>
+<#if (guest.lastName)??>
+    "lastname":"${(guest.lastName)}"
+<#else>
+    "lastname":""
+</#if>
+
+}
