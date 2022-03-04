@@ -17,4 +17,4 @@
 
 ## Web Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/web/Website%20-%20Audience-based%20website%20home%20page%20hero)
+[Website - Audience-based website home page hero V2](../experiences/web/Website-Audience-based-website-home-page-hero-V2/README.md)

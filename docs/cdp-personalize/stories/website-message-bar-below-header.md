@@ -1,5 +1,7 @@
 # Website - Message Bar Below Header
 
+**NOTE:** This experience is conflicting with the dynamic welcome message experience. Both are displaying a blue message bar below the header. The dynamic welcome message experience is recommended over this one.
+
 ## Web Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/web/Website%20-%20Message%20Bar%20Below%20Header)
+[Website - Message Bar Below Header](../experiences/web/Website-Message-Bar-Below-Header/README.md)

@@ -4,7 +4,7 @@
 /* Declare Boxever Template Variables */
 /*
 [[Position | enum(Left, Right)| Right|{ values(left, right), group: General, groupOrder: 1, order: 1 }]]
-[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Arial|{group: General, order: 2}]];
+[[Font | enum(Arial,Arial Narrow,Brush Script MT,Calibri,Cambria,Candara,Copperplate,Courier,Courier New,Didot,Garamond,Geneva,Helvetica,Lucida Bright,Monaco,Optima,Perpetua,Times,Times New Roman,Verdana) | Calibri|{group: General, order: 2}]];
 [[Background Colour | colour |#fff | {group: General, order: 4}]]
 [[Container Border Radius px | number| 5|{ group: General, order: 5}]]
 [[Title Text Colour | colour | #4D4D4D | {group: Title, groupOrder: 2, order: 2 }]]

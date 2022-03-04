@@ -6,7 +6,7 @@
 
 ## Web Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/web/Subscribe%20to%20update%20emails%20campaign)
+[Subscribe to update emails campaign](../experiences/web/Subscribe-to-update-emails-campaign/README.md)
 
 ## Full Stack Experience
 

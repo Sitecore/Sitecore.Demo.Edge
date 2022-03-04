@@ -2,4 +2,4 @@
 
 ## Web Experience
 
-[Serialized assets](/demo/experience/personalize/experiences/web/Ticket%20Checkout%20-%20VIP%20Upsell)
+[Ticket Checkout - VIP Upsell](../experiences/web/Ticket-Checkout-VIP-Upsell/README.md)
