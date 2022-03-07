@@ -48,6 +48,7 @@ if (
               language: '{{language}}',
               currency: '{{currencyCode}}',
               pos: '{{pointOfSale}}',
+              pointOfSale: '{{pointOfSale}}',
               ...event,
             },
             context
@@ -410,6 +411,7 @@ if (
               language: '{{language}}',
               currency: '{{currencyCode}}',
               pos: '{{pointOfSale}}',
+              pointOfSale: '{{pointOfSale}}',
               friendlyId: 'getguestref',
             },
             context

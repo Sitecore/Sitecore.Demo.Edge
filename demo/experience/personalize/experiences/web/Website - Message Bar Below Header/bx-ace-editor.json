@@ -1,0 +1,115 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/9c04bcf2-13fc-4d39-bc0d-3028a920a179",
+  "ref": "9c04bcf2-13fc-4d39-bc0d-3028a920a179",
+  "name": "Website - Message Bar Below Header",
+  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
+  "modifiedAt": "2022-03-04T20:29:32.707Z",
+  "revision": 128,
+  "archived": false,
+  "friendlyId": "hero_replacement_test",
+  "type": "INTERACTIVE_WEB_FLOW",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "WEB"
+  ],
+  "triggers": [],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "target": {
+    "script": "// Use client-side JavaScript to more specifically target users\n// NOTE: When your targeting conditions are met you must call targetingPassed() \n\n(function () {\n    targetingPassed();\n    var pushState = history.pushState;\n    history.pushState = function() {\n        pushState.apply(history, arguments);\n        targetingPassed();\n    };\n})();",
+    "targetPages": []
+  },
+  "tags": [
+    "Production"
+  ],
+  "businessProcess": "interactive_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2022-03-04T20:29:32.724Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "79f78cf0-1a61-48d7-bca6-6e2c507e148f",
+        "split": 100
+      }
+    ],
+    "coupled": true
+  },
+  "variants": [
+    {
+      "ref": "79f78cf0-1a61-48d7-bca6-6e2c507e148f",
+      "name": "Message Bar",
+      "isControl": true,
+      "previewUrl": "https://www.edge.localhost/",
+      "assets": {
+        "css": "/* accomodate every size screen by default */\n/* tested on chrome, crome mobile, safari, firefox, edge */\n\n/*\nDeclare Template Variables\n[[ Bar Background Color | enum(#85BFFF,#FFEDA3,#FFC987,#FFA1CF) | #85BFFF | { group: General, groupOrder: 1, order: 1 } ]]\n*/\n\n/* The following Experience styling is populated with a unique variant identifier: { { ref } }\nwhen deployed to ensure CSS does not impact styling of other elements. */\n\n/* Banner styling (container) */\n#bx-{{ref}} #bx_TopBanner {\n    padding-top: 1rem;\n    padding-bottom: 1rem;\n    color: #232323;\n    font-size: 20px;\n    line-height: 28px;\n    background: [[ Bar Background Color ]];\n}\n\n/* Banner styling */\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n}\n\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button-container {\n    margin-left: 6rem;\n}\n\n/* CTA button */\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button {\n    border: 3px solid #232323;\n    border-radius: 0.375rem;\n    opacity: 1;\n    padding: 0.4em 1em;\n    display: inline-block;\n    text-align: center;\n    text-decoration: none;\n    font-weight: 500;\n    white-space: nowrap;\n}\n\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button:hover {\n    background-color: rgb(0, 0, 0, 0.1);\n}\n\n/* mobile Styling */\n@media only screen and (max-width: 768px) {\n    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {\n        flex-direction: column;\n        align-items: flex-start;\n    }\n\n    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__button-container {\n        text-align: right;\n        width: 100%;\n        margin-top: 1rem;\n        margin-left: 0;\n    }\n}",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<section id=\"bx_TopBanner\" class=\"section\">\n    <div class=\"section__content container bx_TopBanner__banner\">\n        <span class=\"bx_TopBanner__message\" style=\"display: inline;\">[[Message Text | string | Early bird discount is ending today! |  { max: 5000, group: Message, groupOrder: 2, order: 1 }]]</span>\n        <div class=\"bx_TopBanner__button-container\">\n            <a id=\"bx_TopBanner-button\" class=\"bx_TopBanner__button\" href=\"[[Button Link | string | /tickets | { group: Button , required: false, order: 2 }]]\">[[Button Text | string | Compare tickets | { group: Button, order: 1 }]]</a>\n        </div>\n    </div>\n</section>",
+        "js": "// Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\nvar compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\nvar styleTag = document.getElementById('style-' + variant.ref);\nif (styleTag) {\n    styleTag.innerHTML = compiledCSS;\n}\n// End Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n\nreplaceHTML(\"#header-personalized-message-bar\");\n\n\n// Declarations\nconst bxButton = document.querySelector(\"#bx-\"+variant.ref+ ' #bx_TopBanner-button');\n\n// Declare BX function event\nconst sendInteractionToBoxever = function(interactionType){\n    let eventToSend = {\n        \"channel\": \"WEB\",\n        \"type\": \"[[ Experience ID | String | HEADER_MESSAGE_BAR | { required: true }]]_\" + interactionType,\n        \"language\": \"EN\",\n        \"currency\": \"CAD\",\n        \"pos\": \"PLAY! Summit\",\n        \"browser_id\": Boxever.getID(),\n        \"page\": window.location.pathname + window.location.search,\n    };\n    Boxever.eventCreate(eventToSend, function(data){ }, 'json');\n}\n\n// Listen on CTA button\nbxButton.onclick = function(){\n    sendInteractionToBoxever(\"CLICKED\")\n    location.href = \"[[Button Link]]\";\n};"
+      },
+      "templateVariables": {
+        "Bar Background Color": "#85BFFF",
+        "Message Text": "Early bird discount is ending today!",
+        "Button Text": "Compare tickets",
+        "Button Link": "/tickets",
+        "Experience ID": "HEADER_MESSAGE_BAR"
+      },
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#-- Construct the API response using Freemarker -->\n<#-- For your Experience to run your API tab must have, at a minimum, open and closing brackets -->\n{  <#-- Freemarker will go here -->   }"
+          }
+        }
+      ],
+      "render": true
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "79f78cf0-1a61-48d7-bca6-6e2c507e148f",
+      "name": "Message Bar",
+      "isControl": true,
+      "previewUrl": "https://www.edge.localhost/",
+      "assets": {
+        "css": "/* accomodate every size screen by default */\n/* tested on chrome, crome mobile, safari, firefox, edge */\n\n/*\nDeclare Template Variables\n#85BFFF\n*/\n\n/* The following Experience styling is populated with a unique variant identifier: { { ref } }\nwhen deployed to ensure CSS does not impact styling of other elements. */\n\n/* Banner styling (container) */\n#bx-{{ref}} #bx_TopBanner {\n    padding-top: 1rem;\n    padding-bottom: 1rem;\n    color: #232323;\n    font-size: 20px;\n    line-height: 28px;\n    background: #85BFFF;\n}\n\n/* Banner styling */\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n}\n\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button-container {\n    margin-left: 6rem;\n}\n\n/* CTA button */\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button {\n    border: 3px solid #232323;\n    border-radius: 0.375rem;\n    opacity: 1;\n    padding: 0.4em 1em;\n    display: inline-block;\n    text-align: center;\n    text-decoration: none;\n    font-weight: 500;\n    white-space: nowrap;\n}\n\n#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button:hover {\n    background-color: rgb(0, 0, 0, 0.1);\n}\n\n/* mobile Styling */\n@media only screen and (max-width: 768px) {\n    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {\n        flex-direction: column;\n        align-items: flex-start;\n    }\n\n    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__button-container {\n        text-align: right;\n        width: 100%;\n        margin-top: 1rem;\n        margin-left: 0;\n    }\n}",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<section id=\"bx_TopBanner\" class=\"section\">\n    <div class=\"section__content container bx_TopBanner__banner\">\n        <span class=\"bx_TopBanner__message\" style=\"display: inline;\">Early bird discount is ending today!</span>\n        <div class=\"bx_TopBanner__button-container\">\n            <a id=\"bx_TopBanner-button\" class=\"bx_TopBanner__button\" href=\"/tickets\">Compare tickets</a>\n        </div>\n    </div>\n</section>",
+        "js": "// Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\nvar compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\nvar styleTag = document.getElementById('style-' + variant.ref);\nif (styleTag) {\n    styleTag.innerHTML = compiledCSS;\n}\n// End Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n\nreplaceHTML(\"#header-personalized-message-bar\");\n\n\n// Declarations\nconst bxButton = document.querySelector(\"#bx-\"+variant.ref+ ' #bx_TopBanner-button');\n\n// Declare BX function event\nconst sendInteractionToBoxever = function(interactionType){\n    let eventToSend = {\n        \"channel\": \"WEB\",\n        \"type\": \"HEADER_MESSAGE_BAR_\" + interactionType,\n        \"language\": \"EN\",\n        \"currency\": \"CAD\",\n        \"pos\": \"PLAY! Summit\",\n        \"browser_id\": Boxever.getID(),\n        \"page\": window.location.pathname + window.location.search,\n    };\n    Boxever.eventCreate(eventToSend, function(data){ }, 'json');\n}\n\n// Listen on CTA button\nbxButton.onclick = function(){\n    sendInteractionToBoxever(\"CLICKED\")\n    location.href = \"/tickets\";\n};"
+      },
+      "templateVariables": {
+        "Bar Background Color": "#85BFFF",
+        "Message Text": "Early bird discount is ending today!",
+        "Button Text": "Compare tickets",
+        "Button Link": "/tickets",
+        "Experience ID": "HEADER_MESSAGE_BAR"
+      },
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#-- Construct the API response using Freemarker -->\n<#-- For your Experience to run your API tab must have, at a minimum, open and closing brackets -->\n{  <#-- Freemarker will go here -->   }"
+          }
+        }
+      ]
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PAUSED",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2021-12-22T19:17:01.560Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/9c04bcf2-13fc-4d39-bc0d-3028a920a179/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.02,
+    "minimumDetectableDifference": 0.2,
+    "confidenceLevel": 0.95
+  }
+}

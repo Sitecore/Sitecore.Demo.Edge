@@ -114,6 +114,9 @@ type GuestProfileResponse = GuestProfile | undefined;
 
 // ***** API *****
 
+const POINT_OF_SALE = 'PLAY! Summit';
+const CURRENCY = 'USD';
+
 const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
 const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
 const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
@@ -130,6 +133,7 @@ export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
         client_key: '${CDP_CLIENT_KEY}',
         target: '${CDP_API_TARGET_ENDPOINT}',
         cookie_domain: '.edge.localhost',
+        pointOfSale: '${POINT_OF_SALE}',
         web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',
       };`}</Script>
     <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
@@ -153,23 +157,40 @@ function getConfigWithCurrentPage(config: Record<string, unknown>) {
   );
 }
 
-function createEventPayload(eventConfig: Record<string, unknown>) {
+function getLanguage() {
+  let language = window?.navigator?.language ? window.navigator.language : 'en';
+
+  if (language.length > 2) {
+    language = language.slice(0, 2);
+  }
+
+  return language;
+}
+
+function createBasePayload(eventConfig: Record<string, unknown>) {
   return Object.assign(
     {
-      browser_id: window.Boxever.getID(), // For eventCreate calls
-      browserId: window.Boxever.getID(), // For callFlows calls
       channel: BoxeverServiceConfig.channel,
-      language: window.navigator.language ? window.navigator.language : 'en',
-      currency: 'USD',
-      pos: 'PLAY! Summit',
+      language: getLanguage(),
       websiteBaseUrl: BoxeverServiceConfig.websiteBaseUrl,
     },
     eventConfig
   );
 }
 
+function createEventPayload(eventConfig: Record<string, unknown>) {
+  return Object.assign(createBasePayload(eventConfig), {
+    currency: CURRENCY,
+    pos: POINT_OF_SALE,
+    browser_id: window.Boxever.getID(),
+  });
+}
+
 function createFlowPayload(flowConfig: Record<string, unknown>) {
-  return Object.assign(createEventPayload(flowConfig), {
+  return Object.assign(createBasePayload(flowConfig), {
+    currencyCode: CURRENCY,
+    pointOfSale: POINT_OF_SALE,
+    browserId: window.Boxever.getID(),
     clientKey: window._boxever_settings.client_key,
   });
 }

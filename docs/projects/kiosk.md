@@ -26,19 +26,8 @@ In an elevated PowerShell terminal:
 If you want the kiosk application to save contact information in Sitecore CDP, you must:
 
 1. Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
-2. Setup the kiosk environment variables:
-   1. Edit the `.\kiosk\.env` file.
-   2. Fill the following values:
-      1. **NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT**: The Sitecore CDP API target endpoint for your organisation. The URL must end with `/v1.2`. (e.g.: `https://api.boxever.com/v1.2`)
-      2. **NEXT_PUBLIC_CDP_CLIENT_KEY**: Your Sitecore CDP organisation client key.
-   3. Save the file.
-3. Setup the Docker environment variables:
-   1. Edit the `.\.env` file.
-   2. Fill the following values:
-      1. **CDP_API_TARGET_ENDPOINT**: The Sitecore CDP API target endpoint for your organisation. The URL must end with `.com` without the version. (e.g.: `https://api.boxever.com`)
-      2. **CDP_CLIENT_KEY**: Your Sitecore CDP organisation client key.
-      3. **CDP_API_TOKEN**: Your Sitecore CDP organisation API token.
-   3. Save the file.
+2. [Configure the CDP proxy environment variables](../cdp-personalize/README.md#cdp-proxy-and-website).
+3. [Configure the kiosk environment variables](../cdp-personalize/README.md#kiosk).
 
 ## Running the Kiosk
 
