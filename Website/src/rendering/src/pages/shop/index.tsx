@@ -8,6 +8,8 @@ import {
   ShopByVendor,
   ShopLayout,
 } from '../../components/Products/Shop';
+import FrequentlyPurchasedTogether from 'components/Widgets/FrequentlyPurchasedTogether';
+import SearchResults from 'components/FullPageSearch/FullPageSearch';
 
 const Shop = (): JSX.Element => {
   const categoryProps = {
@@ -69,9 +71,16 @@ const Shop = (): JSX.Element => {
       <Head>
         <title>PLAY! SHOP</title>
       </Head>
-
+      <div data-rfkid="rfkid_7"></div>
       <FeaturedProductHero />
       <section className="section">
+        {/* <div
+          data-rfkid="rfkid_6"
+          className="section__content container"
+          style={{ position: 'relative', height: 30 }}
+        >
+          <input id="search-input" type="text" />
+        </div> */}
         <div className="section__content container">
           <ProductSearchBar />
         </div>
