@@ -170,10 +170,10 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
-            if (output.Contains(ErrorText))
-            {
-                throw new Exception($"An error has occurred when running DeployToVercel job: DeployWebsite");
-            }
+            // if (output.Contains(ErrorText))
+            // {
+            //     throw new Exception($"An error has occurred when running DeployToVercel job: DeployWebsite");
+            // }
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
