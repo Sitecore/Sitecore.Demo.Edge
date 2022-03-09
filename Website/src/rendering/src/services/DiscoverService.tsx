@@ -1,7 +1,9 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
+import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
 import PreviewSearchWidgetWrapper from '../components/PreviewSearch/PreviewSearch';
+import SearchResults from 'components/FullPageSearch/FullPageSearch';
 
 // ***** TYPES *****
 
@@ -24,6 +26,7 @@ interface RFK {
     html(...args: unknown[]): ReactElement<unknown, string>;
     useRef(...args: unknown[]): DiscoverReference;
     useEffect(...args: unknown[]): void;
+    // useCallback(...args: unknown[]): void;
     useState(arg1: boolean): [lock: boolean, setLock: (shouldSetLock: boolean) => void];
     useCallback(...args: unknown[]): (...args: unknown[]) => void;
   };
@@ -36,10 +39,20 @@ interface Widgets {
     TRENDING_CATEGORY_CHANGED: string;
     SUGGESTION_CHANGED: string;
   };
+  SearchResultsActions: {
+    KEYPHRASE_CHANGED: unknown;
+    FACET_CLICKED: unknown;
+    CLEAR_FILTERS: unknown;
+    RESULTS_PER_PAGE_CHANGED: unknown;
+    PAGE_NUMBER_CHANGED: unknown;
+    SORT_CHANGED: unknown;
+    PRODUCT_CLICKED: unknown;
+  };
 }
 
 interface Types {
   PREVIEW_SEARCH: string;
+  SEARCH_RESULTS: string;
 }
 
 declare global {
@@ -62,6 +75,16 @@ const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '
 //   ? DISCOVER_CUSTOMER_KEY.substring(DISCOVER_CUSTOMER_KEY.indexOf('-') + 1)
 //   : '';
 const isDiscoverConfigured = !!DISCOVER_API_KEY && !!DISCOVER_CUSTOMER_KEY;
+
+declare global {
+  type eventTypes = 'trackEvent' | 'blah';
+  interface Window {
+    _discover_settings: {
+      uid: () => string;
+      push: (eventTypes: eventTypes, any: any) => void;
+    };
+  }
+}
 
 export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
   <>
@@ -89,6 +112,22 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
         window.RFK.setWidgetType(window.RFK.types.PREVIEW_SEARCH, {
           component: PreviewSearchWidgetWrapper,
         });
+        window.RFK.setWidgetType(window.RFK.types.SEARCH_RESULTS, {
+          component: SearchResults,
+        });
+        // window.RFK.setWidget('rfkid_7', {
+        //   type: window.RFK.types.SEARCH_RESULTS,
+        //   global: true,
+        //   options: {
+        //     preRender: true,
+        //     properties: {
+        //       initial: {
+        //         redirectUrl: '/hs/search?q=',
+        //         inputQuerySelector: '#search-input',
+        //       },
+        //     },
+        //   },
+        // });
         window.RFK.setWidget('rfkid_6', {
           type: window.RFK.types.PREVIEW_SEARCH,
           global: true,
