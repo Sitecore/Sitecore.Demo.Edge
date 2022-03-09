@@ -1,0 +1,112 @@
+div.account-page-container {
+  @apply bg-black bg-gradient-to-l from-black-darkest via-black-dark to-blue-dark h-full pt-20;
+
+  a.logo-link {
+    @apply mx-auto pl-3 block max-w-max mb-20;
+    @apply xs:pl-0;
+  }
+
+  div.tabs-container {
+    @apply relative w-11/12 max-w-xs mx-auto text-center;
+
+    button {
+      @apply w-36 h-16 bg-gray-dark;
+      @apply xs:w-40;
+
+      &.active {
+        @apply bg-yellow;
+      }
+    }
+
+    div.arrow-down-container {
+      @apply absolute w-9 overflow-hidden inline-block -bottom-1/3;
+
+      &.login-tab-active {
+        @apply left-16;
+      }
+
+      &.signup-tab-active {
+        @apply right-16;
+      }
+
+      div.arrow-down {
+        @apply h-6 w-6 bg-yellow -rotate-45 transform origin-top-left;
+      }
+    }
+  }
+
+  div.login-form-container,
+  div.signup-form-container {
+    @apply bg-white-dark bg-no-repeat w-11/12 max-w-xl mx-auto pt-12;
+
+    /* Bypass white margin at the bottom of signup form when switching to it */
+    min-height: 32rem;
+
+    @media (min-width: 768px) {
+      min-height: 34rem;
+    }
+
+    div.login-username,
+    div.login-password,
+    div.signup-name,
+    div.signup-email,
+    div.signup-password,
+    div.signup-confirm-password {
+      @apply relative;
+    }
+
+    #user-icon,
+    #lock-icon,
+    #envelope-icon {
+      @apply text-gray w-9 h-9 absolute left-8 top-1;
+      @apply xs:left-12;
+      @apply sm:left-14;
+    }
+
+    input:not([type='checkbox']) {
+      @apply block w-5/6 h-12 mb-5 mx-auto pl-11;
+      @apply sm:pl-12;
+    }
+
+    .login-btn,
+    .signup-btn {
+      @apply h-10 w-40 mx-auto bg-yellow block mt-6 mb-6 rounded;
+    }
+
+    .signup-btn {
+      @apply mb-12;
+    }
+
+    a.reset-password-link {
+      @apply text-blue block text-center underline mb-12;
+    }
+
+    div.login-providers-container {
+      @apply w-5/6 mx-auto text-center;
+
+      p {
+        @apply text-gray-dark text-center mb-5;
+      }
+
+      div.login-provider {
+        @apply bg-white h-28 w-28 inline-block mb-8 mr-1;
+
+        span {
+          @apply relative top-11;
+        }
+      }
+    }
+
+    div.personalized-offers-container {
+      @apply block w-5/6 h-12 my-10 mx-auto;
+
+      input[type='checkbox'] {
+        @apply w-6 h-6 mr-3 filter invert hue-rotate-30 brightness-125;
+      }
+
+      span {
+        @apply absolute;
+      }
+    }
+  }
+}

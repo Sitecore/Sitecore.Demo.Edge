@@ -99,6 +99,7 @@
 @import "./components/Sponsors/SponsorsGrid.css";
 
 /* 7. Our page-specific styles */
+@import "./pages/login.css";
 
 /* 8. Tailwind utilities */
 
