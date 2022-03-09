@@ -54,7 +54,7 @@ const SessionInformationPageHero = (props: SessionInformationPageHeroProps): JSX
               </div>
               <div>
                 <InfoText Icon={faDoorOpen}>
-                  <Text tag="span" field={props.fields.Rooms[0].fields.Name} />
+                  <Text tag="span" field={props?.fields?.Rooms[0]?.fields?.Name} />
                 </InfoText>
                 <InfoText Icon={faCalendar}>
                   <span>{getSessionDays(props.fields.Day)}</span>
