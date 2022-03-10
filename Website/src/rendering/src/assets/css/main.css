@@ -39,6 +39,9 @@
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/QuantityInput.css';
 
+/* Checkout */
+@import "./components/Checkout/AddressCard.css";
+
 /* Forms */
 @import './components/Forms/AttendeeForm.css';
 @import './components/Forms/RequestInfoForm.css';

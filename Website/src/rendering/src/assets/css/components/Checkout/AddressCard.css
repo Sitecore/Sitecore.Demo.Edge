@@ -1,0 +1,8 @@
+.address-card {
+  padding: 1rem;
+  display: inline-block;
+}
+
+.address-card__active {
+  background-color: #FFD31C;
+}
