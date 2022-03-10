@@ -1,0 +1,41 @@
+{
+  "ref": "174fe600-4588-4d5e-b31f-333b0f481e8c",
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "name": "Website Home Page Hero Offer",
+  "archived": false,
+  "created": 1643754311992,
+  "createdBy": "Redacted",
+  "updated": 1643754311992,
+  "updatedBy": "Redacted",
+  "description": "Defines information to display in the website home page hero",
+  "attributes": [
+    {
+      "name": "imageUrl",
+      "type": "String"
+    },
+    {
+      "name": "title",
+      "type": "String"
+    },
+    {
+      "name": "subtitle",
+      "type": "String"
+    },
+    {
+      "name": "buttonText",
+      "type": "String"
+    },
+    {
+      "name": "buttonColor",
+      "type": "String"
+    },
+    {
+      "name": "buttonUrl",
+      "type": "String"
+    }
+  ],
+  "contexts": [
+    "guest"
+  ],
+  "tags": []
+}

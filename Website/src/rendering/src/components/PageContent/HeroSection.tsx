@@ -29,13 +29,12 @@ const HeroSection = (props: HeroProps): JSX.Element => {
   background-image: url(${props.fields.Hero?.value?.src});
 }`;
 
+  // React throws an error if the root element of the component is removed from the DOM.
+  // The #cdp-audience-based-home-page-hero div outerHTML will be set by Sitecore Personalize.
+  // Thus, we wrap it in another div that becomes the component root element and React is happy.
   const withCdp = isCdpConfigured && (
-    <div id="cdp-audience-based-hero">
-      {/* "ed45ca6f-b409-47ce-8891-da6e98793905" is the "Home Page Hero" variant ID of the Sitecore Personalize "Website - Audience-based home page hero" Web Experience */}
-      <section
-        id="bx-ed45ca6f-b409-47ce-8891-da6e98793905"
-        className={`hero-section hero_${props.rendering.uid}`}
-      ></section>
+    <div>
+      <div id="cdp-audience-based-home-page-hero"></div>
     </div>
   );
 
