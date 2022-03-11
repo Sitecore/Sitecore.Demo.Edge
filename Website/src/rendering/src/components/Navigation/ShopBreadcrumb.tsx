@@ -2,18 +2,18 @@ import React from 'react';
 import { ComponentProps } from 'lib/component-props';
 import Link from 'next/link';
 
-type Breadcrumb = {
+type ShopBreadcrumb = {
   urlPath: string;
   displayName: string;
 };
 
-type BreadcrumbProps = ComponentProps & {
+type ShopBreadcrumbProps = ComponentProps & {
   fields: {
-    items: Breadcrumb[];
+    items: ShopBreadcrumb[];
   };
 };
 
-const Breadcrumb = (props: BreadcrumbProps): JSX.Element => {
+const ShopBreadcrumb = (props: ShopBreadcrumbProps): JSX.Element => {
   if (!props?.fields?.items?.length) {
     return <div></div>;
   }
@@ -41,4 +41,4 @@ const Breadcrumb = (props: BreadcrumbProps): JSX.Element => {
   );
 };
 
-export default Breadcrumb;
+export default ShopBreadcrumb;
