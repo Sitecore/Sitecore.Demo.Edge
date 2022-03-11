@@ -1,3 +1,6 @@
 .address-list {
-  @apply flex space-x-4
+  @apply gap-4;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
