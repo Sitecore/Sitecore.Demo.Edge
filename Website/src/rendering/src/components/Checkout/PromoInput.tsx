@@ -44,11 +44,11 @@ const PromoInput = (): JSX.Element => {
       })}
     </ul>
   ) : (
-    <div></div>
+    ''
   );
 
   return (
-    <div>
+    <div className="promo-input">
       <input
         type="text"
         disabled={!promotions}

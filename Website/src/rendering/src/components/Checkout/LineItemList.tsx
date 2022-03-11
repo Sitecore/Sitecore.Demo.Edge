@@ -9,7 +9,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
   const { lineItems } = useOcCurrentOrder();
 
   return lineItems && lineItems.length ? (
-    <ol>
+    <ol className="line-item-list">
       {lineItems.map((lineItem) => (
         <li key={lineItem.ID}>
           <LineItemCard lineItem={lineItem} editable={props.editable} />

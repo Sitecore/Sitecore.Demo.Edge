@@ -33,7 +33,7 @@ const GiftCheckboxLineItem = (props: GiftCheckboxLineItemProps): JSX.Element => 
   const labelId = `gift-checkbox-lineitem-${props.lineItem.ID}`;
 
   return (
-    <label htmlFor={labelId}>
+    <label htmlFor={labelId} className="gift-checkbox">
       <input
         id={labelId}
         type="checkbox"
@@ -41,7 +41,9 @@ const GiftCheckboxLineItem = (props: GiftCheckboxLineItemProps): JSX.Element => 
         disabled={loading}
         onChange={handleToggle}
       />
-      {props.lineItem.Quantity > 1 ? 'These items are a gift' : 'This item is a gift'}
+      <span className="label-text">
+        {props.lineItem.Quantity > 1 ? 'These items are a gift' : 'This item is a gift'}
+      </span>
     </label>
   );
 };

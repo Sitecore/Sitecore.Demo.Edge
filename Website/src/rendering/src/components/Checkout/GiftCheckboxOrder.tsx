@@ -36,7 +36,7 @@ const GiftCheckboxOrder = (props: GiftCheckboxOrderProps): JSX.Element => {
   const labelId = 'gift-checkbox-order';
 
   return (
-    <label htmlFor={labelId}>
+    <label htmlFor={labelId} className="gift-checkbox">
       <input
         id={labelId}
         type="checkbox"
@@ -44,7 +44,7 @@ const GiftCheckboxOrder = (props: GiftCheckboxOrderProps): JSX.Element => {
         disabled={loading}
         onChange={handleToggle}
       />
-      This order is a gift
+      <span className="label-text">This order is a gift</span>
     </label>
   );
 };
