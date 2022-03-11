@@ -1,7 +1,7 @@
 import React from 'react';
 import { SitecoreContextReactContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import '../src/assets/css/abstracts/mixins.css';
-import '../src/assets/css/main.css';
+import "../src/assets/css/abstracts/mixins.css";
+import "../src/assets/css/main.css";
 import * as nextImage from 'next/image';
 
 export const parameters = {

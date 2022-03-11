@@ -1,42 +1,9 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { AnyAction, configureStore, createSlice, Reducer } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
-export const MockStore = ({ sliceOrSlices, children }: MockStoreProps): JSX.Element => {
-  if (isSingleSlice(sliceOrSlices)) {
-    const reducer = {
-      [sliceOrSlices.name]: createSlice({
-        name: sliceOrSlices.name,
-        initialState: sliceOrSlices.state,
-        reducers: {
-          // We only need a reducer here to satisfy the condition for creating a store
-          // since our components won't be functional the actions/reducers don't actually matter
-          // only the initial state received from the store
-          mockReducer: () => null,
-        },
-      }).reducer,
-    };
-    return <Provider store={configureStore({ reducer })}>{children}</Provider>;
-  } else {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const reducer = sliceOrSlices.reduce((slicesMap: any, sliceDefinition) => {
-      slicesMap[sliceDefinition.name] = createSlice({
-        name: sliceDefinition.name,
-        initialState: sliceDefinition.state,
-        reducers: {
-          // We only need a reducer here to satisfy the condition for creating a store
-          // since our components won't be functional the actions/reducers don't actually matter
-          // only the initial state received from the store
-          mockReducer: () => null,
-        },
-      }).reducer;
-      return slicesMap;
-    }, {});
-    return <Provider store={configureStore({ reducer })}>{children}</Provider>;
-  }
-};
-
-function isSingleSlice(sliceOrSlices: MockSlice | MockSlice[]): sliceOrSlices is MockSlice {
-  return (sliceOrSlices as MockSlice[]).length === undefined;
+export interface MockSlice {
+  name: string;
+  state: unknown;
 }
 
 export interface MockStoreProps {
@@ -44,8 +11,37 @@ export interface MockStoreProps {
   children: JSX.Element;
 }
 
-export interface MockSlice {
-  name: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  state: any;
+function isSingleSlice(sliceOrSlices: MockSlice | MockSlice[]): sliceOrSlices is MockSlice {
+  return (sliceOrSlices as MockSlice[]).length === undefined;
 }
+
+function createMockSlice(sliceDefinition: MockSlice): Reducer<unknown, AnyAction> {
+  return createSlice({
+    name: sliceDefinition.name,
+    initialState: sliceDefinition.state,
+    reducers: {
+      // We only need a reducer here to satisfy the condition for creating a store
+      // since our components won't be functional the actions/reducers don't actually matter
+      // only the initial state received from the store
+      mockReducer: () => null,
+    },
+  }).reducer;
+}
+
+export const MockStore = ({ sliceOrSlices, children }: MockStoreProps): JSX.Element => {
+  let reducer = {};
+
+  if (isSingleSlice(sliceOrSlices)) {
+    reducer = {
+      [sliceOrSlices.name]: createMockSlice(sliceOrSlices),
+    };
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reducer = sliceOrSlices.reduce((slicesMap: any, sliceDefinition) => {
+      slicesMap[sliceDefinition.name] = createMockSlice(sliceDefinition);
+      return slicesMap;
+    }, {});
+  }
+
+  return <Provider store={configureStore({ reducer })}>{children}</Provider>;
+};
