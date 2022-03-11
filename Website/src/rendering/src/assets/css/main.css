@@ -41,6 +41,7 @@
 
 /* Checkout */
 @import "./components/Checkout/AddressCard.css";
+@import "./components/Checkout/AddressList.css";
 
 /* Forms */
 @import './components/Forms/AttendeeForm.css';
