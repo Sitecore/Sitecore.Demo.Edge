@@ -19,7 +19,7 @@ const Cart = (props: CartProps): JSX.Element => {
   const { order } = useOcCurrentOrder();
   const breadCrumbDefinitions: Breadcrumb[] = [
     { urlPath: '/shop', displayName: 'Shop' },
-    { urlPath: '/search', displayName: 'Search' },
+    { urlPath: '/cart', displayName: 'Cart' },
   ];
   return (
     <ShopLayout>
