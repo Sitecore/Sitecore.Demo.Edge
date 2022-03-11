@@ -40,8 +40,8 @@ const Cart = (props: CartProps): JSX.Element => {
           <a>Go to Checkout</a>
         </Link>
       </div>
-      {<GiftCheckboxOrder order={order} />}
-      {<PromoInput />}
+      <GiftCheckboxOrder order={order} />
+      <PromoInput />
       <div data-rfkid="rfkid_11"></div>
     </ShopLayout>
   );
