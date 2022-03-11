@@ -2,14 +2,14 @@ import React from 'react';
 import { ComponentProps } from 'lib/component-props';
 import Link from 'next/link';
 
-type ShopBreadcrumb = {
+export type ShopBreadcrumbItem = {
   urlPath: string;
   displayName: string;
 };
 
 type ShopBreadcrumbProps = ComponentProps & {
   fields: {
-    items: ShopBreadcrumb[];
+    items: ShopBreadcrumbItem[];
   };
 };
 
