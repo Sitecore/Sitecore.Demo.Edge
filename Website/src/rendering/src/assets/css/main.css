@@ -2,104 +2,107 @@
 
 /* 1. Our configuration and helpers */
 
-@import "./abstracts/mixins.css";
+@import './abstracts/mixins.css';
 
 /* 2. Tailwind base stuff */
 
-@import "tailwindcss/base";
+@import 'tailwindcss/base';
 
 /* 3. Our base stuff */
 
-@import "./base/sitecore.css";
-@import "./base/base.css";
-@import "./base/typography.css";
-@import "./base/helpers.css";
+@import './base/sitecore.css';
+@import './base/base.css';
+@import './base/typography.css';
+@import './base/helpers.css';
 
 /* 4. Tailwind components */
 
-@import "tailwindcss/components";
+@import 'tailwindcss/components';
 
 /* 5. Our layout */
 
-@import "./layout/layout.css";
-@import "./layout/buttons.css";
-@import "./layout/forms.css";
-@import "./layout/grids.css";
-@import "./layout/information-section.css";
-@import "./layout/sections.css";
-@import "./layout/section-news.css";
-@import "./layout/section-speakers.css";
-@import "./layout/section-sponsors.css";
-@import "./layout/text.css";
+@import './layout/layout.css';
+@import './layout/buttons.css';
+@import './layout/forms.css';
+@import './layout/grids.css';
+@import './layout/information-section.css';
+@import './layout/sections.css';
+@import './layout/section-news.css';
+@import './layout/section-speakers.css';
+@import './layout/section-sponsors.css';
+@import './layout/text.css';
 
 /* Tailwindify other components and pages from rest.css here */
-@import "./rest.css";
+@import './rest.css';
 
 /* 6. Our components */
 
+/* Checkout */
+@import './components/Checkout/CartDetails.css';
+
 /* Forms */
-@import "./components/Forms/AttendeeForm.css";
-@import "./components/Forms/RequestInfoForm.css";
+@import './components/Forms/AttendeeForm.css';
+@import './components/Forms/RequestInfoForm.css';
 
 /* Navigation */
-@import "./components/Navigation/Breadcrumb.css";
-@import "./components/Navigation/Footer.css";
-@import "./components/Navigation/Header.css";
-@import "./components/Navigation/MainNavigation.css";
-@import "./components/Navigation/ShopNavigation.css";
+@import './components/Navigation/Breadcrumb.css';
+@import './components/Navigation/Footer.css';
+@import './components/Navigation/Header.css';
+@import './components/Navigation/MainNavigation.css';
+@import './components/Navigation/ShopNavigation.css';
 
 /* News */
-@import "./components/News/NewsDetail.css";
-@import "./components/News/NewsGrid.css";
-@import "./components/News/NewsList.css";
+@import './components/News/NewsDetail.css';
+@import './components/News/NewsGrid.css';
+@import './components/News/NewsList.css';
 
 /* NonSitecore */
-@import "./components/NonSitecore/InformationPageHero.css";
+@import './components/NonSitecore/InformationPageHero.css';
 
 /* PageContent */
-@import "./components/PageContent/DynamicWelcomeMessage.css";
-@import "./components/PageContent/FeaturedEvent.css";
-@import "./components/PageContent/FullImageSection.css";
-@import "./components/PageContent/HeaderBanner.css";
-@import "./components/PageContent/HeroImage.css";
-@import "./components/PageContent/HeroSection.css";
-@import "./components/PageContent/Promo.css";
-@import "./components/PageContent/SummitFeatures.css";
-@import "./components/PageContent/TestimonyList.css";
-@import "./components/PageContent/TextCta.css";
-@import "./components/PageContent/ThreeColumnsCta.css";
-@import "./components/PageContent/ThreeColumnsSection.css";
-@import "./components/PageContent/TicketGrid.css";
+@import './components/PageContent/DynamicWelcomeMessage.css';
+@import './components/PageContent/FeaturedEvent.css';
+@import './components/PageContent/FullImageSection.css';
+@import './components/PageContent/HeaderBanner.css';
+@import './components/PageContent/HeroImage.css';
+@import './components/PageContent/HeroSection.css';
+@import './components/PageContent/Promo.css';
+@import './components/PageContent/SummitFeatures.css';
+@import './components/PageContent/TestimonyList.css';
+@import './components/PageContent/TextCta.css';
+@import './components/PageContent/ThreeColumnsCta.css';
+@import './components/PageContent/ThreeColumnsSection.css';
+@import './components/PageContent/TicketGrid.css';
 
 /* Payment */
-@import "./components/Payment/OrderSummary.css";
-@import "./components/Payment/PaymentAndBillingForm.css";
-@import "./components/Payment/PaymentConfirmed.css";
-@import "./components/Payment/PaymentForm.css";
-@import "./components/Payment/PaymentProgress.css";
-@import "./components/Payment/TicketPaymentConfirmed.css";
+@import './components/Payment/OrderSummary.css';
+@import './components/Payment/PaymentAndBillingForm.css';
+@import './components/Payment/PaymentConfirmed.css';
+@import './components/Payment/PaymentForm.css';
+@import './components/Payment/PaymentProgress.css';
+@import './components/Payment/TicketPaymentConfirmed.css';
 
 /* Products */
-@import "./components/Products/ProductDetail.css";
-@import "./components/Products/Shop.css";
+@import './components/Products/ProductDetail.css';
+@import './components/Products/Shop.css';
 
 /* Sessions */
-@import "./components/Sessions/SessionsGrid.css";
-@import "./components/Sessions/SessionList.css";
-@import "./components/Sessions/SessionsFilters.css";
-@import "./components/Sessions/SessionInformationPageHero.css";
+@import './components/Sessions/SessionsGrid.css';
+@import './components/Sessions/SessionList.css';
+@import './components/Sessions/SessionsFilters.css';
+@import './components/Sessions/SessionInformationPageHero.css';
 
 /* Speakers */
-@import "./components/Speakers/FeaturedSpeakers.css";
-@import "./components/Speakers/SpeakerInformationPageHero.css";
-@import "./components/Speakers/SpeakerList.css";
-@import "./components/Speakers/SpeakersGrid.css";
+@import './components/Speakers/FeaturedSpeakers.css';
+@import './components/Speakers/SpeakerInformationPageHero.css';
+@import './components/Speakers/SpeakerList.css';
+@import './components/Speakers/SpeakersGrid.css';
 
 /* Sponsors */
-@import "./components/Sponsors/SponsorsGrid.css";
+@import './components/Sponsors/SponsorsGrid.css';
 
 /* 7. Our page-specific styles */
 
 /* 8. Tailwind utilities */
 
-@import "tailwindcss/utilities";
+@import 'tailwindcss/utilities';

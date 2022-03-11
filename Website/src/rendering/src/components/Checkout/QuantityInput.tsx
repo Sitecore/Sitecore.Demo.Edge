@@ -41,22 +41,24 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
   };
 
   const restrictedQuantityInput = props.priceSchedule.RestrictedQuantity && (
-    <select
-      id={props.controlId}
-      disabled={props.disabled}
-      value={quantity}
-      onChange={handleSelectChange}
-    >
-      {props.priceSchedule.PriceBreaks.map((priceBreak) => (
-        <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
-          {priceBreak.Quantity}
-        </option>
-      ))}
-    </select>
+    <div className="quantity-input">
+      <select
+        id={props.controlId}
+        disabled={props.disabled}
+        value={quantity}
+        onChange={handleSelectChange}
+      >
+        {props.priceSchedule.PriceBreaks.map((priceBreak) => (
+          <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
+            {priceBreak.Quantity}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 
   const unrestrictedQuantityInput = !props.priceSchedule.RestrictedQuantity && (
-    <div className="quantity-input-wrapper">
+    <div className="quantity-input">
       <button
         className="quantity-input-button"
         aria-label="Subtract quantity"
