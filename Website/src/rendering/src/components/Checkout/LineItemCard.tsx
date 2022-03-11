@@ -22,6 +22,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     if (!lineItem.Specs?.length) {
       return lineItem.Product.Name;
     }
+    // TODO: When implementing design, change to keep the original product name and list the specs below the product name.
     const specValues = lineItem.Specs.map((spec) => spec.Value); // ex: Red, Large
     return `${lineItem.Product.Name} (${specValues.join(',')})`;
   };
