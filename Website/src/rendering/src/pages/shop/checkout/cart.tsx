@@ -7,15 +7,7 @@ import GiftCheckboxOrder from 'components/Checkout/GiftCheckboxOrder';
 import PromoInput from 'components/Checkout/PromoInput';
 import useOcCurrentOrder from 'src/hooks/useOcCurrentOrder';
 
-interface CartProps {
-  loading?: boolean;
-  loaded?: boolean;
-  // title?: string;
-  products?: unknown[];
-  dispatch?: () => unknown;
-}
-
-const Cart = (props: CartProps): JSX.Element => {
+const Cart = (): JSX.Element => {
   const { order } = useOcCurrentOrder();
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
     { urlPath: '/shop', displayName: 'Shop' },
@@ -23,7 +15,6 @@ const Cart = (props: CartProps): JSX.Element => {
   ];
   return (
     <ShopLayout>
-      {console.log({ props })}
       <Head>
         <title>PLAY! SHOP - Cart</title>
       </Head>
