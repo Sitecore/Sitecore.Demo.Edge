@@ -32,6 +32,7 @@ export interface OcCurrentOrderState {
   payments?: RequiredDeep<DPayment>[];
   shipEstimateResponse?: RequiredDeep<DShipEstimateResponse>;
   promotions?: RequiredDeep<DOrderPromotion>[];
+  shippingAddress?: RequiredDeep<DAddress>;
 }
 
 const initialState: OcCurrentOrderState = {
@@ -133,7 +134,7 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
 );
 
 export const patchOrder = createOcAsyncThunk<RequiredDeep<DOrder>, PartialDeep<DOrder>>(
-  'ocCurrentCart/delete',
+  'ocCurrentCart/patch',
   async (partialOrder, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
     const orderID = ocCurrentCart.order.ID;
@@ -366,6 +367,7 @@ const ocCurrentCartSlice = createSlice({
       if (action.payload) {
         state.order = action.payload.Order;
         state.lineItems = action.payload.LineItems;
+        state.shippingAddress = state.lineItems?.length ? state.lineItems[0].ShippingAddress : null;
         state.shipEstimateResponse = action.payload.ShipEstimateResponse;
       }
     });
@@ -417,6 +419,9 @@ const ocCurrentCartSlice = createSlice({
     builder.addCase(saveShippingAddress.fulfilled, (state, action) => {
       state.order = action.payload.Order;
       state.lineItems = action.payload.LineItems;
+      state.shippingAddress = action.payload.LineItems?.length
+        ? action.payload.LineItems[0].ShippingAddress
+        : null;
       state.shipEstimateResponse = action.payload.ShipEstimateResponse;
     });
     builder.addCase(saveBillingAddress.fulfilled, (state, action) => {
