@@ -1,0 +1,269 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee",
+  "ref": "d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee",
+  "name": "Session Browse Abandonment",
+  "modifiedByRef": "e9c7b09d-00ba-447e-95f9-d8a6b17f4ce5",
+  "modifiedAt": "2022-02-08T13:40:01.491Z",
+  "revision": 99,
+  "archived": false,
+  "friendlyId": "session_browse_abandonment",
+  "type": "TRIGGERED_V3",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "WEB"
+  ],
+  "triggers": [
+    {
+      "name": "Session Closed",
+      "description": "",
+      "identifiers": [
+        {
+          "operator": "Equals",
+          "value": "SESSION_CLOSED"
+        }
+      ]
+    }
+  ],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "tags": [],
+  "businessProcess": "triggered_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2022-02-08T13:40:01.453Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "12009612-0815-4c33-954f-e98d992f664b",
+        "split": 100
+      }
+    ]
+  },
+  "variants": [
+    {
+      "ref": "12009612-0815-4c33-954f-e98d992f664b",
+      "name": "Personalisation",
+      "isControl": true,
+      "assets": {
+        "css": "/** style your Experience with CSS */",
+        "html": "<!-- define the structure and content of your Experience in HTML e.g.-->\n<div>My Content</div>\n<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type 'd' to see decisioning helpers -->\n",
+        "js": "// You can choose how you want to add your HTML by using insertHTMLBefore, insertHTMLAfter, or replaceHTML methods\n// e.g insertHTMLAfter('.someClassName'); or insertHTMLAfter('body'); or replaceHTML('#myPageId')\n\n/*\n\n(function () {\n  // Add statements here\n})();\n\n*/"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#assign websiteBaseUrl = getDecisionModelResultNode(\"Get Website Base URL\").outputs[0].websiteBaseUrl>\r\n<#assign aDateTime = .now>\r\n{\r\n  \"Email\": \"${guest.email}\",\r\n  \"HasExternalDoubleOptIn\": \"true\",\r\n  \"CustomFields\": [\r\n    \"SubscriptionTimestamp=${aDateTime?iso_local}\",\r\n    \"WebsiteBaseUrl=${websiteBaseUrl}\"\r\n  ]\r\n}"
+          }
+        },
+        {
+          "implementation": "connectionTask",
+          "input": {
+            "inputType": "connectionTaskInput",
+            "connection": {
+              "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+              "href": "https://api-us.boxever.com/v2/connections/e7605e1f-d503-40e6-b1b0-5cae0ebe8e3d",
+              "ref": "e7605e1f-d503-40e6-b1b0-5cae0ebe8e3d",
+              "name": "Sitecore Send Session Browse Abandonment",
+              "description": "Sitecore Send Session Browse Abandonment",
+              "modifiedByRef": "e1761eab-ad16-40fe-8cd3-394ef7251fbd",
+              "modifiedAt": "2022-02-03T21:57:19.444Z",
+              "revision": 1,
+              "archived": false,
+              "auth": {
+                "authType": "NONE"
+              },
+              "request": {
+                "requestType": "POST",
+                "connectionUrl": "https://api.moosend.com/v3/subscribers/ceda7fd4-df53-4e10-b6dc-8a637266d141/subscribe.json?apikey=redacted",
+                "requestBody": "{\n  \"Name\": \"test\",\n  \"Email\": \"test@test.com\",\n  \"HasExternalDoubleOptIn\": true,\n  \"CustomFields\": []\n}"
+              },
+              "inputMappings": [],
+              "outputMappings": [
+                {
+                  "label": "Code",
+                  "outputReference": "Code",
+                  "type": "Number"
+                },
+                {
+                  "label": "Context",
+                  "outputReference": "Context",
+                  "type": "Object"
+                }
+              ],
+              "customHeaders": [
+                {
+                  "name": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "name": "Accept-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "name": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "urlParameters": [],
+              "systemType": "DESTINATION",
+              "connectionTimeout": 1000,
+              "socketTimeout": 1000,
+              "icon": "fad fa-envelope-open"
+            }
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "name": "Custom Real-Time Audience",
+                "ruleData": {
+                  "expression": "(function () {\r\n\r\n    if(!guest.email){\r\n        return false;\r\n    }\r\n    \r\n    if (guest.dataExtensions.length < 1){\r\n        return true;\r\n    }\r\n    \r\n    for(var i = 0; i < guest.dataExtensions.length; i++){\r\n        if (guest.dataExtensions[i].name === \"Ticket\"){\r\n            return false;\r\n        }\r\n    }\r\n    \r\n    return true;\r\n})();"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "de798499-8b1e-4074-815f-65e2817161d1"
+            ]
+          }
+        }
+      ],
+      "description": "Start from scratch and create an API response using Freemarker",
+      "render": false
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "12009612-0815-4c33-954f-e98d992f664b",
+      "name": "Personalisation",
+      "isControl": true,
+      "assets": {
+        "css": "/** style your Experience with CSS */",
+        "html": "<!-- define the structure and content of your Experience in HTML e.g.-->\n<div>My Content</div>\n<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type 'd' to see decisioning helpers -->\n",
+        "js": "// You can choose how you want to add your HTML by using insertHTMLBefore, insertHTMLAfter, or replaceHTML methods\n// e.g insertHTMLAfter('.someClassName'); or insertHTMLAfter('body'); or replaceHTML('#myPageId')\n\n/*\n\n(function () {\n  // Add statements here\n})();\n\n*/"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#assign websiteBaseUrl = getDecisionModelResultNode(\"Get Website Base URL\").outputs[0].websiteBaseUrl>\r\n<#assign aDateTime = .now>\r\n{\r\n  \"Email\": \"${guest.email}\",\r\n  \"HasExternalDoubleOptIn\": \"true\",\r\n  \"CustomFields\": [\r\n    \"SubscriptionTimestamp=${aDateTime?iso_local}\",\r\n    \"WebsiteBaseUrl=${websiteBaseUrl}\"\r\n  ]\r\n}"
+          }
+        },
+        {
+          "implementation": "connectionTask",
+          "input": {
+            "inputType": "connectionTaskInput",
+            "connection": {
+              "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+              "href": "https://api-us.boxever.com/v2/connections/e7605e1f-d503-40e6-b1b0-5cae0ebe8e3d",
+              "ref": "e7605e1f-d503-40e6-b1b0-5cae0ebe8e3d",
+              "name": "Sitecore Send Session Browse Abandonment",
+              "description": "Sitecore Send Session Browse Abandonment",
+              "modifiedByRef": "e1761eab-ad16-40fe-8cd3-394ef7251fbd",
+              "modifiedAt": "2022-02-03T21:57:19.444Z",
+              "revision": 1,
+              "archived": false,
+              "auth": {
+                "authType": "NONE"
+              },
+              "request": {
+                "requestType": "POST",
+                "connectionUrl": "https://api.moosend.com/v3/subscribers/ceda7fd4-df53-4e10-b6dc-8a637266d141/subscribe.json?apikey=redacted",
+                "requestBody": "{\n  \"Name\": \"test\",\n  \"Email\": \"test@test.com\",\n  \"HasExternalDoubleOptIn\": true,\n  \"CustomFields\": []\n}"
+              },
+              "inputMappings": [],
+              "outputMappings": [
+                {
+                  "label": "Code",
+                  "outputReference": "Code",
+                  "type": "Number"
+                },
+                {
+                  "label": "Context",
+                  "outputReference": "Context",
+                  "type": "Object"
+                }
+              ],
+              "customHeaders": [
+                {
+                  "name": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "name": "Accept-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "name": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "urlParameters": [],
+              "systemType": "DESTINATION",
+              "connectionTimeout": 1000,
+              "socketTimeout": 1000,
+              "icon": "fad fa-envelope-open"
+            }
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "name": "Custom Real-Time Audience",
+                "ruleData": {
+                  "expression": "\n\n(function () {\n\n    if (!guest.email) {\n        return false;\n    }\n\n    if (guest.dataExtensions.length < 1) {\n        return true;\n    }\n\n    for (var i = 0; i < guest.dataExtensions.length; i++) {\n        if (guest.dataExtensions[i].name === \"Ticket\") {\n            return false;\n        }\n    }\n\n    return true;\n})();"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "de798499-8b1e-4074-815f-65e2817161d1"
+            ]
+          }
+        }
+      ],
+      "description": "Start from scratch and create an API response using Freemarker"
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2022-02-08T13:40:17.855Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.02,
+    "minimumDetectableDifference": 0.2,
+    "confidenceLevel": 0.95
+  }
+}
