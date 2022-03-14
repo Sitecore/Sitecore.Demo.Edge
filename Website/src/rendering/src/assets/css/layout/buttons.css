@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(../../img/btn-background.webp);
+  background-image: url(../img/btn-background.webp);
   background-size: cover;
   background-position: bottom;
   padding: 6%;
