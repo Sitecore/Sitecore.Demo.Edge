@@ -1,3 +1,5 @@
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 import { addPromotion, removePromotion } from '../../redux/ocCurrentCart';
@@ -29,16 +31,22 @@ const PromoInput = (): JSX.Element => {
   };
 
   const addedPromotions = promotions?.length ? (
-    <ul>
+    <ul className="promotion-list">
       {promotions.map((promotion) => {
         return (
-          <li key={promotion.ID}>
-            <button disabled={loading} onClick={() => handleRemovePromotion(promotion.Code)}>
-              Remove Promotion
+          <li key={promotion.ID} className="promotion">
+            <div>
+              <span className="promotion-code">{promotion.Code}</span>
+              <p className="promotion-desc">{promotion.Description}</p>
+            </div>
+            <span className="promotion-amount">-${promotion.Amount}</span>
+            <button
+              disabled={loading}
+              onClick={() => handleRemovePromotion(promotion.Code)}
+              className="promotion-remove"
+            >
+              <FontAwesomeIcon icon={faPlusCircle} />
             </button>
-            <span>{promotion.Code}</span>
-            <span>{promotion.Description}</span>
-            <span>{promotion.Amount}</span>
           </li>
         );
       })}

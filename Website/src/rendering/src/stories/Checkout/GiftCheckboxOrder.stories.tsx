@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import GiftCheckboxOrder from '../../components/Checkout/GiftCheckboxOrder';
 import { MockStore } from '../mock-store';
+import { cartSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/GiftCheckboxOrder',
@@ -11,7 +12,6 @@ export default {
 const Template: ComponentStory<typeof GiftCheckboxOrder> = (args) => (
   <GiftCheckboxOrder {...args} />
 );
-const mockState = {};
 
 export const IsGift = Template.bind({});
 IsGift.args = {
@@ -23,7 +23,7 @@ IsGift.args = {
 };
 IsGift.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState }}>
+    <MockStore sliceOrSlices={cartSlice}>
       <Story />
     </MockStore>
   ),
@@ -39,7 +39,7 @@ IsNotGift.args = {
 };
 IsNotGift.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState }}>
+    <MockStore sliceOrSlices={cartSlice}>
       <Story />
     </MockStore>
   ),

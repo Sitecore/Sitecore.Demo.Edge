@@ -1,0 +1,25 @@
+.quantity-input {
+  @apply flex w-32;
+
+  &-button {
+    @apply w-9 border-2 border-gray text-xl text-white bg-gray;
+
+    flex-shrink: 0;
+  }
+
+  input {
+    @apply text-center;
+
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      @apply m-0 appearance-none;
+    }
+  }
+
+  select,
+  input {
+    @apply w-full border-2 border-gray italic;
+  }
+}
