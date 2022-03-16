@@ -31,7 +31,9 @@ IsGift.args = {
 IsGift.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={cartSlice}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];
@@ -48,7 +50,9 @@ IsNotGift.args = {
 IsNotGift.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={cartSlice}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];

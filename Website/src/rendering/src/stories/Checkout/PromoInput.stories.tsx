@@ -16,7 +16,9 @@ WithoutAppliedPromotions.args = {};
 WithoutAppliedPromotions.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={[cartSlice, productCacheSlice]}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];
@@ -26,7 +28,9 @@ WithAppliedPromotions.args = {};
 WithAppliedPromotions.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={[promotionCartSlice, productCacheSlice]}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];

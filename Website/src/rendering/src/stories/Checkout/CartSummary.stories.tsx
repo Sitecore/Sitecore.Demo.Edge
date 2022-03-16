@@ -18,7 +18,9 @@ Default.args = {
 Default.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={cartSlice}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];

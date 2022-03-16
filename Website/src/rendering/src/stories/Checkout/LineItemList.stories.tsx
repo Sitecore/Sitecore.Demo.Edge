@@ -20,7 +20,9 @@ Editable.args = {
 Editable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];
@@ -32,7 +34,9 @@ NonEditable.args = {
 NonEditable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <Story />
+      <div className="cart-details">
+        <Story />
+      </div>
     </MockStore>
   ),
 ];
