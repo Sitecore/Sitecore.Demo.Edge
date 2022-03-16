@@ -30,6 +30,10 @@
         }
       }
     }
+
+    a.btn--main {
+      @apply block;
+    }
   }
 
   .cart-summary {
@@ -67,27 +71,31 @@
 
     .promotion-list {
       .promotion {
-        @apply flex items-center mt-2;
-      }
+        @apply flex items-start mt-2;
 
-      .promotion-remove {
-        @apply text-sm ml-3 text-black-lightest;
-
-        svg {
-          @apply transform rotate-45;
+        &-body {
+          @apply mr-3;
         }
-      }
 
-      .promotion-code {
-        @apply text-sm font-bold;
-      }
+        &-remove {
+          @apply text-sm ml-3 text-black-lightest;
 
-      .promotion-amount {
-        @apply text-pink font-bold ml-auto;
-      }
+          svg {
+            @apply transform rotate-45 mt-1;
+          }
+        }
 
-      .promotion-desc {
-        @apply text-sm text-black-lightest;
+        &-amount {
+          @apply text-pink font-bold ml-auto;
+        }
+
+        &-code {
+          @apply text-sm font-bold break-all;
+        }
+
+        &-desc {
+          @apply text-sm text-black-lightest;
+        }
       }
     }
   }
@@ -168,7 +176,7 @@
       }
 
       &-discount {
-        @apply text-sm text-pink;
+        @apply text-sm text-pink ml-1;
       }
 
       &-final {

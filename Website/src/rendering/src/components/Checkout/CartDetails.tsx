@@ -18,9 +18,10 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => (
         <div className="cart-details-actions-wrapper">
           <CartSummary />
           <PromoInput />
-          <button className="btn--main btn--main--round">
-            <Link href="/shop/checkout/quick-checkout">Proceed to Checkout</Link>
-          </button>
+          {/* TODO: convert to submit button when functionality permits */}
+          <Link href="/shop/checkout/quick-checkout">
+            <a className="btn--main btn--main--round">Proceed to Checkout</a>
+          </Link>
         </div>
       </div>
     </div>

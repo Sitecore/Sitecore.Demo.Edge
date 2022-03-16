@@ -35,7 +35,7 @@ const PromoInput = (): JSX.Element => {
       {promotions.map((promotion) => {
         return (
           <li key={promotion.ID} className="promotion">
-            <div>
+            <div className="promotion-body">
               <span className="promotion-code">{promotion.Code}</span>
               <p className="promotion-desc">{promotion.Description}</p>
             </div>

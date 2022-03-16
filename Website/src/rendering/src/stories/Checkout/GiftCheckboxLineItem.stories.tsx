@@ -5,7 +5,7 @@ import { MockStore } from '../mock-store';
 import { cartSlice } from './CheckoutCommon';
 
 export default {
-  title: 'Components/Checkout/GiftCheckbox',
+  title: 'Components/Checkout/GiftCheckboxLineItem',
   component: GiftCheckboxLineItem,
 } as ComponentMeta<typeof GiftCheckboxLineItem>;
 
