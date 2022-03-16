@@ -1,8 +1,10 @@
 import { ShipEstimateResponse } from 'ordercloud-javascript-sdk';
+import { DShipMethodXp } from './DShipMethod';
+
 export type DShipEstimateResponse = ShipEstimateResponse<
   DShipEstimateResponseXp,
   DShipEstimateXp,
-  DShipMethodsXp
+  DShipMethodXp
 >;
 
 export interface DShipEstimateResponseXp {
@@ -10,9 +12,5 @@ export interface DShipEstimateResponseXp {
 }
 
 export interface DShipEstimateXp {
-  // add custom xp properties required for this project here
-}
-
-export interface DShipMethodsXp {
   // add custom xp properties required for this project here
 }

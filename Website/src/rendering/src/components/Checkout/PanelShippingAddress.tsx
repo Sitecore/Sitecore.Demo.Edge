@@ -14,12 +14,16 @@ const PanelShippingAddress = (): JSX.Element => {
   };
 
   return (
-    <div>
-      <h2>Enter a delivery address</h2>
-      <AddressForm
-        address={shippingAddress}
-        onSubmit={(address) => handleSetShippingAddress(address)}
-      />
+    <div className="panel">
+      <div className="panel-header">
+        <h2>Enter a delivery address</h2>
+      </div>
+      <div className="panel-body">
+        <AddressForm
+          address={shippingAddress}
+          onSubmit={(address) => handleSetShippingAddress(address)}
+        />
+      </div>
     </div>
   );
 };
