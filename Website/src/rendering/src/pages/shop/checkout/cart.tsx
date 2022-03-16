@@ -1,29 +1,25 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { ShopLayout } from 'components/Products/Shop';
+import ShopBreadcrumb, { ShopBreadcrumbItem } from 'components/Navigation/ShopBreadcrumb';
+import CartDetails from 'components/Checkout/CartDetails';
 
-interface CartProps {
-  loading?: boolean;
-  loaded?: boolean;
-  // title?: string;
-  products?: unknown[];
-  dispatch?: () => unknown;
-}
-
-const Cart = (props: CartProps): JSX.Element => {
+const Cart = (): JSX.Element => {
+  const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
+    { urlPath: '/shop', displayName: 'Shop' },
+    { urlPath: '/cart', displayName: 'Cart' },
+  ];
   return (
     <ShopLayout>
-      {console.log({ props })}
       <Head>
         <title>PLAY! SHOP - Cart</title>
       </Head>
 
-      <p>Cart Page</p>
-      <div>
-        <Link href="/shop/checkout/quick-checkout">
-          <a>Go to Checkout</a>
-        </Link>
-      </div>
+      <ShopBreadcrumb
+        rendering={{ componentName: '' }}
+        params={{}}
+        fields={{ items: breadCrumbDefinitions }}
+      />
+      <CartDetails />
       <div data-rfkid="rfkid_11"></div>
     </ShopLayout>
   );

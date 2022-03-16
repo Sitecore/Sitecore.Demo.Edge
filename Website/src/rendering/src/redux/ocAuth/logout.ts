@@ -4,7 +4,7 @@ import { createOcAsyncThunk, OcThrottle } from '../ocReduxHelpers';
 import { clearUser, getUser } from '../ocUser';
 import { clearCurrentOrder } from '../ocCurrentCart';
 import { cleanProductCache } from '../ocProductCache';
-import { orderCloudScope } from 'src/constants/ordercloud-scope';
+import { orderCloudScope } from '../../constants/ordercloud-scope';
 
 const logoutThrottle: OcThrottle = {
   location: 'ocAuth',
