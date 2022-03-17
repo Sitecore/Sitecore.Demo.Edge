@@ -12,7 +12,7 @@ SharedFields:
   Value: FeaturedSpeakers
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Applications/16x16/star_yellow.png
+  Value: "edgeicons/32x32/speaker-featured.png"
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
@@ -87,11 +87,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "59de6549-122e-42be-8d9a-4b20b5e699c7"
+      Value: "6f284b09-36bd-4e95-87b5-84c8bac9abda"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211213T172920Z
+      Value: 20220221T090831Z

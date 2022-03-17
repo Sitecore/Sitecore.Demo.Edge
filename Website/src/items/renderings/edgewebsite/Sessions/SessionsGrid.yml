@@ -9,7 +9,7 @@ SharedFields:
   Value: SessionsGrid
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/session-grid.png"
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
@@ -100,11 +100,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ff13d7d1-85b8-4622-aefd-d4e85c1a033f"
+      Value: "fd04d297-288c-4a5a-93b9-c1667e7df3f6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210909T205141Z
+      Value: 20220221T090812Z

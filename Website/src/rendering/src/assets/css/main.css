@@ -1,25 +1,24 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 /* 1. Our configuration and helpers */
 
 @import './abstracts/mixins.css';
 
-/* 2. Tailwind base stuff */
+/* 2. Our base stuff */
 
-@import 'tailwindcss/base';
+@import "./base/sitecore.css";
+@import "./base/base.css";
+@import "./base/typography.css";
+@import "./base/helpers.css";
 
-/* 3. Our base stuff */
+/* 3. Tailwind base stuff */
 
-@import './base/sitecore.css';
-@import './base/base.css';
-@import './base/typography.css';
-@import './base/helpers.css';
+/* Specifically importing after our base stuff to mimic Tailwind v2 file creation */
 
-/* 4. Tailwind components */
-
+@import "tailwindcss/base";
 @import 'tailwindcss/components';
 
-/* 5. Our layout */
+/* 4. Our layout */
 
 @import './layout/layout.css';
 @import './layout/buttons.css';
@@ -35,7 +34,7 @@
 /* Tailwindify other components and pages from rest.css here */
 @import './rest.css';
 
-/* 6. Our components */
+/* 5. Our components */
 
 /* Checkout */
 @import './components/Checkout/CartDetails.css';
@@ -101,6 +100,12 @@
 
 /* Sponsors */
 @import './components/Sponsors/SponsorsGrid.css';
+
+/* 6. Tailwind components */
+
+/* Specifically importing after our components to mimic Tailwind v2 file creation */
+
+@import "tailwindcss/components";
 
 /* 7. Our page-specific styles */
 

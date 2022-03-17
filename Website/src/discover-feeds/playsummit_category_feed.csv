@@ -1,0 +1,85 @@
+﻿ccid,name,url_path,parent_ccid,seo_name,title,desc,meta_title,meta_desc,meta_keywords,secondary_url_paths,breadcrumbs,image_url,banner_url,is_active,is_primary
+PSA0,Activities,/shop/category/activities,,category-activities,Activities,Find a wide selection of products for a variety of sports and recreation activities,,,Sports and Recreation products. Sports products.,,,,,TRUE,TRUE
+PSAR,Running,/shop/category/activities/running,PSA0,category-activities-running,Running,Run and fitness,,,,,Activities>Running,,,TRUE,TRUE
+PSARE,Electronics,/shop/category/activities/running/electronics,PSAR,category-activities-running-electronics,Running Electronics,,,,,,Activities>Running>Electronics,,,TRUE,TRUE
+PSARC,Clothing,/shop/category/activities/running/clothing,PSAR,category-activities-running-clothing,Running Clothing,,,,,,Activities>Running>Clothing,,,TRUE,TRUE
+PSARCM,Men,/shop/category/activities/running/clothing/men,PSARC,category-activities-running-clothing-men,Running Clothing Men,,,,,,Activities>Running>Clothing>Men,,,TRUE,TRUE
+PSARCW,Women,/shop/category/activities/running/clothing/women,PSARC,category-activities-running-clothing-women,Running Clothing Women,,,,,,Activities>Running>Men>Women,,,TRUE,TRUE
+PSARA,Accessories,/shop/category/activities/running/accessories,PSAR,category-activities-running-accessories,Running Accessories,,,,,,Activities>Running>Accessories,,,TRUE,TRUE
+PSAF,Fitness,/shop/category/activities/fitness,PSA0,category-activities-fitness,Fitness,,,,,,Activities>Fitness,,,TRUE,TRUE
+PSAFA,Accessories,/shop/category/activities/fitness/accessories,PSAF,category-activities-fitness-accessories,Fitness Accessories,,,,,,Activities>Fitness>Accessories,,,TRUE,TRUE
+PSAFE,Equipment,/shop/category/activities/fitness/equipment,PSAF,category-activities-fitness-equipment,Fitness Equipment,,,,,,Activities>Fitness>Equipment,,,TRUE,TRUE
+PSAFEM,Machines,/shop/category/activities/fitness/equipment/machines,PSAFE,category-activities-fitness-equipment-machines,Fitness Machines,,,,,,Activities>Fitness>Equipment>Machines,,,TRUE,TRUE
+PSAFER,Resistance Training,/shop/category/activities/fitness/equipment/resistance-training,PSAFE,category-activities-fitness-equipment-resistance-training,Fitness Resistance Training,,,,,,Activities>Fitness>Equipment>Resistance Training,,,TRUE,TRUE
+PSAFEW,Weights,/shop/category/activities/fitness/equipment/weights,PSAFE,category-activities-fitness-equipment-weights,Fitness Weights,,,,,,Activities>Fitness>Equipment>Weights,,,TRUE,TRUE
+PSAFEWB,Barbells,/shop/category/activities/fitness/equipment/weights/barbells,PSAFEW,category-activities-fitness-equipment-weights-barbells,Fitness Barbells,,,,,,Activities>Fitness>Equipment>Weights>Barbells,,,TRUE,TRUE
+PSAFEWD,Dumbells,/shop/category/activities/fitness/equipment/weights/dumbells,PSAFEW,category-activities-fitness-equipment-weights-dumbells,Fitness Dumbells,,,,,,Activities>Fitness>Equipment>Weights>Dumbells,,,TRUE,TRUE
+PSAFEWK,Kettlebells,/shop/category/activities/fitness/equipment/weights/kettlebells,PSAFEW,category-activities-fitness-equipment-weights-kettlebells,Fitness Kettlebells,,,,,,Activities>Fitness>Equipment>Weights>Kettlebells,,,TRUE,TRUE
+PSAFEWW,Wearables,/shop/category/activities/fitness/equipment/weights/wearables,PSAFEW,category-activities-fitness-equipment-weights-wearables,Fitness Wearables,,,,,,Activities>Fitness>Equipment>Weights>Wearables,,,TRUE,TRUE
+PSAFH,Health Supplements,/shop/category/activities/fitness/health-supplements,PSAF,category-activities-fitness-health-supplements,Fitness Health Supplements,,,,,,Activities>Fitness>Health Supplements,,,TRUE,TRUE
+PSAFC,Clothing,/shop/category/activities/fitness/clothing,PSAF,category-activities-fitness-clothing,Fitness Clothing,,,,,,Activities>Fitness>Clothing,,,TRUE,TRUE
+PSAFCM,Men,/shop/category/activities/fitness/clothing/men,PSAFC,category-activities-fitness-clothing-men,Fitness Clothing Men,,,,,,Activities>Fitness>Clothing>Men,,,TRUE,TRUE
+PSAFCW,Women,/shop/category/activities/fitness/clothing/women,PSAFC,category-activities-fitness-clothing-women,Fitness Clothing Women,,,,,,Activities>Fitness>Clothing>Women,,,TRUE,TRUE
+PSAFM,Memberships and Lessons,/shop/category/activities/fitness/memberships-and-lessons,PSAF,category-activities-fitness-memberships-and-lessons,Fitness Memberships and Lessons,,,,,,Activities>Fitness>Memberships and Lessons,,,TRUE,TRUE
+PSAY,Yoga,/shop/category/activities/yoga,PSA0,category-activities-yoga,Yoga,,,,,,Activities>Yoga,,,TRUE,TRUE
+PSAYA,Accessories,/shop/category/activities/yoga/accessories,PSAY,category-activities-yoga-accessories,Yoga Accessories,,,,,,Activities>Yoga>Accessories,,,TRUE,TRUE
+PSAYAM,Mats,/shop/category/activities/yoga/accessories/mats,PSAYA,category-activities-yoga-accessories-mats,Yoga Mats,,,,,,Activities>Yoga>Accessories>Mats,,,TRUE,TRUE
+PSAYAB,Bags,/shop/category/activities/yoga/accessories/bags,PSAYA,category-activities-yoga-accessories-bags,Yoga Bags,,,,,,Activities>Yoga>Accessories>Bags,,,TRUE,TRUE
+PSAYM,Memberships and Lessons,/shop/category/activities/yoga/memberships-and-lessons,PSAY,category-activities-yoga-memberships-and-lessons,Yoga Memberships and Lessons,,,,,,Activities>Yoga>Memberships and Lessons,,,TRUE,TRUE
+PSAYC,Clothing,/shop/category/activities/yoga/clothing,PSAY,category-activities-yoga-clothing,Yoga Clothing,,,,,,Activities>Yoga>Clothing,,,TRUE,TRUE
+PSAYCM,Men,/shop/category/activities/yoga/clothing/men,PSAYC,category-activities-yoga-clothing-men,Yoga Clothing Men,,,,,,Activities>Yoga>Clothing>Men,,,TRUE,TRUE
+PSAYCW,Women,/shop/category/activities/yoga/clothing/women,PSAYC,category-activities-yoga-clothing-women,Yoga Clothing Women,,,,,,Activities>Yoga>Clothing>Women,,,TRUE,TRUE
+PSAC,Cycling,/shop/category/activities/cycling,PSA0,category-activities-cycling,Cycling,,,,,,Activities>Cycling,,,TRUE,TRUE
+PSACE,Equipment,/shop/category/activities/cycling/equipment,PSAC,category-activities-cycling-equipment,Cycling Equipment,,,,,,Activities>Cycling>Equipment,,,TRUE,TRUE
+PSACEM,Maintenance,/shop/category/activities/cycling/equipment/maintenance,PSACE,category-activities-cycling-equipment-maintenance,Cycling Maintenance,,,,,,Activities>Cycling>Equipment>Maintenance,,,TRUE,TRUE
+PSACEE,Electronics,/shop/category/activities/cycling/equipment/electronics,PSACE,category-activities-cycling-equipment-electronics,Cycling Electronics,,,,,,Activities>Cycling>Equipment>Electronics,,,TRUE,TRUE
+PSACES,Safety,/shop/category/activities/cycling/equipment/safety,PSACE,category-activities-cycling-equipment-safety,Cycling Safety,,,,,,Activities>Cycling>Equipment>Safety,,,TRUE,TRUE
+PSACC,Clothing and Accessories,/shop/category/activities/cycling/clothing-and-accessories,PSAC,category-activities-cycling-clothing-and-accessories,Cycling Clothing and Accessories,,,,,,Activities>Cycling>Clothing and Accessories,,,TRUE,TRUE
+PSACCM,Men,/shop/category/activities/cycling/clothing-and-accessories/men,PSACC,category-activities-cycling-clothing-and-accessories-men,Cycling Clothing and Accessories Men,,,,,,Activities>Cycling>Clothing and Accessories>Men,,,TRUE,TRUE
+PSACCW,Women,/shop/category/activities/cycling/clothing-and-accessories/women,PSACC,category-activities-cycling-clothing-and-accessories-women,Cycling Clothing and Accessories Women,,,,,,Activities>Cycling>Clothing and Accessories>Women,,,TRUE,TRUE
+PSACCH,Helmets,/shop/category/activities/cycling/clothing-and-accessories/helmets,PSACC,category-activities-cycling-clothing-and-accessories-helmets,Cycling Helmets,,,,,,Activities>Cycling>Clothing and Accessories>Helmets,,,TRUE,TRUE
+PSAS,Ski and snowboarding,/shop/category/activities/ski-and-snowboarding,PSA0,category-activities-ski-and-snowboarding,Ski and snowboarding,,,,,,Activities>Ski and snowboarding,,,TRUE,TRUE
+PSASM,Memberships and Lessons,/shop/category/activities/ski-and-snowboarding/membership-and-lessons,PSAS,category-activities-ski-and-snowboarding-membership-and-lessons,Ski and snowboarding Memberships and Lessons,,,,,,Activities>Ski and snowboarding>Memberships and Lessons,,,TRUE,TRUE
+PSASC,Clothing,/shop/category/activities/ski-and-snowboarding/clothing,PSAS,category-activities-ski-and-snowboarding-clothing,Ski and snowboarding Clothing,,,,,,Activities>Ski and snowboarding>Clothing,,,TRUE,TRUE
+PSASCM,Men,/shop/category/activities/ski-and-snowboarding/clothing/men,PSASC,category-activities-ski-and-snowboarding-clothing-men,Ski and snowboarding Clothing Men,,,,,,Activities>Ski and snowboarding>Clothing>Men,,,TRUE,TRUE
+PSASCW,Women,/shop/category/activities/ski-and-snowboarding/clothing/women,PSASC,category-activities-ski-and-snowboarding-clothing-women,Ski and snowboarding Clothing Women,,,,,,Activities>Ski and snowboarding>Clothing>Women,,,TRUE,TRUE
+PSASE,Equipment,/shop/category/activities/ski-and-snowboarding/equipment,PSAS,category-activities-ski-and-snowboarding-equipment,Ski and snowboarding Equipment,,,,,,Activities>Ski and snowboarding>Equipment,,,TRUE,TRUE
+PSASESB,Snowboards,/shop/category/activities/ski-and-snowboarding/equipment/snowboards,PSASE,category-activities-ski-and-snowboarding-equipment-snowboards,Ski and snowboarding Snowboards,,,,,,Activities>Ski and snowboarding>Equipment>Snowboards,,,TRUE,TRUE
+PSASESSK,Skis,/shop/category/activities/ski-and-snowboarding/equipment/skis,PSASE,category-activities-ski-and-snowboarding-equipment-skis,Ski and snowboarding Skis,,,,,,Activities>Ski and snowboarding>Equipment>Skis,,,TRUE,TRUE
+PSASEP,Parts and accessories,/shop/category/activities/ski-and-snowboarding/equipment/parts-and-accessories,PSASE,category-activities-ski-and-snowboarding-equipment-parts-and-accessories,Ski and snowboarding Parts and accessories,,,,,,Activities>Ski and snowboarding>Equipment>Parts and accessories,,,TRUE,TRUE
+PSAG,Golf,/shop/category/activities/golf,PSA0,category-activities-golf,Golf,,,,,,Activities>Golf,,,TRUE,TRUE
+PSAGG,Golf clubs and sets,/shop/category/activities/golf/golf-clubs-and-sets,PSAG,category-activities-golf-golf-clubs-and-sets,Golf Golf clubs and sets,,,,,,Activities>Golf>Golf clubs and sets,,,TRUE,TRUE
+PSAGA,Accessories,/shop/category/activities/golf/accessories,PSAG,category-activities-golf-accessories,Golf Accessories,,,,,,Activities>Golf>Accessories,,,TRUE,TRUE
+PSAGE,Electronics,/shop/category/activities/golf/electronics,PSAG,category-activities-golf-electronics,Golf Electronics,,,,,,Activities>Golf>Electronics,,,TRUE,TRUE
+PSAGM,Memberships and Lessons,/shop/category/activities/golf/memberships-and-lessons,PSAG,category-activities-golf-memberships-and-lessons,Golf Memberships and Lessons,,,,,,Activities>Golf>Memberships and Lessons,,,TRUE,TRUE
+PSAGC,Clothing,/shop/category/activities/golf/clothing,PSAG,category-activities-golf-clothing,Golf Clothing,,,,,,Activities>Golf>Clothing,,,TRUE,TRUE
+PSAGCM,Men,/shop/category/activities/golf/clothing/men,PSAGC,category-activities-golf-clothing-men,Golf Clothing Men,,,,,,Activities>Golf>Clothing>Men,,,TRUE,TRUE
+PSAGCW,Women,/shop/category/activities/golf/clothing/women,PSAGC,category-activities-golf-clothing-women,Golf Clothing Women,,,,,,Activities>Golf>Clothing>Women,,,TRUE,TRUE
+PSAH,Hiking,/shop/category/activities/hiking,PSA0,category-activities-hiking,Hiking,,,,,,Activities>Hiking,,,TRUE,TRUE
+PSAHE,Equipment,/shop/category/activities/hiking/equipment,PSAH,category-activities-hiking-equipment,Hiking Equipment,,,,,,Activities>Hiking>Equipment,,,TRUE,TRUE
+PSAHC,Clothing,/shop/category/activities/hiking/clothing,PSAH,category-activities-hiking-clothing,Hiking Clothing,,,,,,Activities>Hiking>Clothing,,,TRUE,TRUE
+PSAHCM,Men,/shop/category/activities/hiking/clothing/men,PSAHC,category-activities-hiking-clothing-men,Hiking Clothing Men,,,,,,Activities>Hiking>Clothing>Men,,,TRUE,TRUE
+PSAHCW,Women,/shop/category/activities/hiking/clothing/women,PSAHC,category-activities-hiking-clothing-women,Hiking Clothing Women,,,,,,Activities>Hiking>Clothing>Women,,,TRUE,TRUE
+PSC0,Clothing,/shop/category/clothing,,category-clothing,Clothing,,,,,,Clothing,,,TRUE,TRUE
+PSCM,Men,/shop/category/clothing/men,PSC0,category-clothing-men,Clothing Men,,,,,,Clothing>Men,,,TRUE,TRUE
+PSCMT,Tops,/shop/category/clothing/men/tops,PSCM,category-clothing-men-tops,Clothing Men Tops,,,,,,Clothing>Men>Tops,,,TRUE,TRUE
+PSCMB,Bottoms,/shop/category/clothing/men/bottoms,PSCM,category-clothing-men-bottoms,Clothing Men Bottoms,,,,,,Clothing>Men>Bottoms,,,TRUE,TRUE
+PSCMF,Footwear,/shop/category/clothing/men/footwear,PSCM,category-clothing-men-footwear,Clothing Men Footwear,,,,,,Clothing>Men>Footwear,,,TRUE,TRUE
+PSCMA,Accessories,/shop/category/clothing/men/accessories,PSCM,category-clothing-men-accessories,Clothing Men Accessories,,,,,,Clothing>Men>Accessories,,,TRUE,TRUE
+PSCMO,Outerwear,/shop/category/clothing/men/outerwear,PSCM,category-clothing-men-outerwear,Clothing Men Outerwear,,,,,,Clothing>Men>Outerwear,,,TRUE,TRUE
+PSCW,Women,/shop/category/clothing/women,PSC0,category-clothing-women,Clothing Women,,,,,,Clothing>Women,,,TRUE,TRUE
+PSCWT,Tops,/shop/category/clothing/women/tops,PSCW,category-clothing-women-tops,Clothing Women Tops,,,,,,Clothing>Women>Tops,,,TRUE,TRUE
+PSCWB,Bottoms,/shop/category/clothing/women/bottoms,PSCW,category-clothing-women-bottoms,Clothing Women Bottoms,,,,,,Clothing>Women>Bottoms,,,TRUE,TRUE
+PSCWF,Footwear,/shop/category/clothing/women/footwear,PSCW,category-clothing-women-footwear,Clothing Women Footwear,,,,,,Clothing>Women>Footwear,,,TRUE,TRUE
+PSCWA,Accessories,/shop/category/clothing/women/accessories,PSCW,category-clothing-women-accessories,Clothing Women Accessories,,,,,,Clothing>Women>Accessories,,,TRUE,TRUE
+PSCWO,Outerwear,/shop/category/clothing/women/outerwear,PSCW,category-clothing-women-outerwear,Clothing Women Outerwear,,,,,,Clothing>Women>Outerwear,,,TRUE,TRUE
+PSEW0,Electronics and Wearables,/shop/category/electronics-and-wearables,,category-electronics-and-wearables,Electronics and Wearables,,,,,,Electronics and wearables,,,TRUE,FALSE
+PSEWH,Health and Wellness,/shop/category/electronics-and-wearables/health-and-wellness,PSEW0,category-electronics-and-wearables-health-and-wellness,Electronics and Wearables Health and Wellness,,,,,,Electronics and Wearables>Health and Wellness,,,TRUE,FALSE
+PSEWA,Activity Trackers,/shop/category/electronics-and-wearables/activity-trackers,PSEW0,category-electronics-and-wearables-activity-trackers,Electronics and Wearables Activity Trackers,,,,,,Electronics and Wearables>Activity Trackers,,,TRUE,FALSE
+PSEWS,Specialty,/shop/category/electronics-and-wearables/specialty,PSEW0,category-electronics-and-wearables-specialty,Electronics and Wearables Specialty,,,,,,Electronics and Wearables>Specialty,,,TRUE,FALSE
+PSSM0,Subscriptions and Memberships,/shop/category/subscriptions-and-memberships,,category-subscriptions-and-memberships,Subscriptions and Memberships,,,,,,Subscriptions and Memberships,,,TRUE,FALSE
+PSSMY,Yoga,/shop/category/subscriptions-and-memberships/yoga,PSSM0,category-subscriptions-and-memberships-yoga,Subscriptions and Memberships Yoga,,,,,,Subscriptions and Memberships>Yoga,,,TRUE,FALSE
+PSSMF,Fitness,/shop/category/subscriptions-and-memberships/fitness,PSSM0,category-subscriptions-and-memberships-fitness,Subscriptions and Memberships Fitness,,,,,,Subscriptions and Memberships>Fitness,,,TRUE,FALSE
+PSSMC,Cycling,/shop/category/subscriptions-and-memberships/cycling,PSSM0,category-subscriptions-and-memberships-cycling,Subscriptions and Memberships Cycling,,,,,,Subscriptions and Memberships>Cycling,,,TRUE,FALSE
+PSSMG,Golf,/shop/category/subscriptions-and-memberships/golf,PSSM0,category-subscriptions-and-memberships-golf,Subscriptions and Memberships Golf,,,,,,Subscriptions and Memberships>Golf,,,TRUE,FALSE
+PSSMSS,Ski and snowboarding,/shop/category/subscriptions-and-memberships/ski-and-snowboarding,PSSM0,category-subscriptions-and-memberships-ski-and-snowboarding,Subscriptions and Memberships Ski and snowboarding,,,,,,Subscriptions and Memberships>Ski and snowboarding,,,TRUE,FALSE

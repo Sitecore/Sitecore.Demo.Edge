@@ -9,7 +9,7 @@ SharedFields:
   Value: SpeakerInformation
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/speaker-info.png"
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
@@ -111,11 +111,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "67024b50-a880-4a43-bd61-0899b686a332"
+      Value: "f14a1db8-a617-498c-bc5a-220384f0a41b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211029T193447Z
+      Value: 20220221T090844Z

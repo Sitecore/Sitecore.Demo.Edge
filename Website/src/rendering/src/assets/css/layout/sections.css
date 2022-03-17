@@ -77,11 +77,11 @@
   }
 
   &--dark-pattern {
-    background: url(../../img/background-pattern-dark.svg);
+    @apply bg-pattern-dark;
   }
 
   &--light-pattern {
-    background: url(../../img/background-pattern-light.svg);
+    @apply bg-pattern-light;
   }
 }
 
