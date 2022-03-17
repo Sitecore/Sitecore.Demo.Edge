@@ -8,9 +8,7 @@ type PriceProps = {
 };
 
 const Price = (props: PriceProps): JSX.Element => {
-  const { max, min, price, finalPrice } = props;
-
-  console.log(max, min, price);
+  const { finalPrice } = props;
   // Price UI component code here.
   return window.RFK.ui.html`$${finalPrice}`;
 };
@@ -71,11 +69,11 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
   </div>`;
 };
 
-type ProductProps = {
+type ProductsProps = {
   products: Product[];
 };
 
-const Products = (props: ProductProps): JSX.Element => {
+const Products = (props: ProductsProps): JSX.Element => {
   const { products } = props;
 
   return window.RFK.ui.html`<ul class="rfksdk_preview-search_product-list">

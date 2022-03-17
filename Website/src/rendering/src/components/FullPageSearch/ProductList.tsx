@@ -62,8 +62,6 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
   //   price,
   //   image_url,
   // } = product;
-  console.log('product item props', props);
-  console.log('and the product', product);
 
   return window.RFK.ui.html`
   <div class="rfksdk_product rfk_sp_product">

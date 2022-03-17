@@ -40,5 +40,5 @@ Default.args = {
   onSuggestionChanged: () => {
     return null;
   },
-  redirectUrl: '/hs/search?q=',
+  redirectUrl: '/shop/products?q=',
 };

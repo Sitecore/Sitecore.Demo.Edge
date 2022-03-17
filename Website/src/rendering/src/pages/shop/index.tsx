@@ -71,7 +71,7 @@ const Shop = (): JSX.Element => {
       <Head>
         <title>PLAY! SHOP</title>
       </Head>
-      <div data-rfkid="rfkid_7"></div>
+      {/* <div data-rfkid="rfkid_7"></div> */}
       <FeaturedProductHero />
       <section className="section">
         {/* <div

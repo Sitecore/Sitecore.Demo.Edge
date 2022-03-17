@@ -1,9 +1,8 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
-import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
 import PreviewSearchWidgetWrapper from '../components/PreviewSearch/PreviewSearch';
-import SearchResults from 'components/FullPageSearch/FullPageSearch';
+import SearchResults from '../components/FullPageSearch/FullPageSearch';
 
 // ***** TYPES *****
 
@@ -55,6 +54,10 @@ interface Types {
   SEARCH_RESULTS: string;
 }
 
+export interface DiscoverReference {
+  current: { contains: (eventTarget: EventTarget) => boolean };
+}
+
 declare global {
   interface Window {
     RFK: RFK;
@@ -66,25 +69,11 @@ declare global {
 
 const DISCOVER_API_KEY = process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
 
-export interface DiscoverReference {
-  current: { contains: (eventTarget: EventTarget) => boolean };
-}
-
 const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
 // const DISCOVER_CUSTOMER_KEY_SUFFIX = !!DISCOVER_CUSTOMER_KEY
 //   ? DISCOVER_CUSTOMER_KEY.substring(DISCOVER_CUSTOMER_KEY.indexOf('-') + 1)
 //   : '';
 const isDiscoverConfigured = !!DISCOVER_API_KEY && !!DISCOVER_CUSTOMER_KEY;
-
-declare global {
-  type eventTypes = 'trackEvent' | 'blah';
-  interface Window {
-    _discover_settings: {
-      uid: () => string;
-      push: (eventTypes: eventTypes, any: any) => void;
-    };
-  }
-}
 
 export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
   <>
@@ -122,7 +111,7 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
         //     preRender: true,
         //     properties: {
         //       initial: {
-        //         redirectUrl: '/hs/search?q=',
+        //         redirectUrl: '/shop/products?q=',
         //         inputQuerySelector: '#search-input',
         //       },
         //     },
@@ -135,18 +124,15 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
             preRender: true,
             properties: {
               initial: {
-                redirectUrl: '/hs/search?q=',
+                redirectUrl: '/shop/products?q=',
                 inputQuerySelector: '#search-input',
               },
             },
           },
         });
+        console.log('should be initing soon');
         window.RFK.init();
       }}
     />
   </>
 ) : undefined;
-
-export const DiscoverSearch: JSX.Element | undefined = <></>;
-
-export class DiscoverService {}
