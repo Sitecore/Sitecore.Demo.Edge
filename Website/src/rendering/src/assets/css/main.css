@@ -6,17 +6,16 @@
 
 /* 2. Our base stuff */
 
-@import "./base/sitecore.css";
-@import "./base/base.css";
-@import "./base/typography.css";
-@import "./base/helpers.css";
+@import './base/sitecore.css';
+@import './base/base.css';
+@import './base/typography.css';
+@import './base/helpers.css';
 
 /* 3. Tailwind base stuff */
 
 /* Specifically importing after our base stuff to mimic Tailwind v2 file creation */
 
-@import "tailwindcss/base";
-@import 'tailwindcss/components';
+@import 'tailwindcss/base';
 
 /* 4. Our layout */
 
@@ -105,7 +104,7 @@
 
 /* Specifically importing after our components to mimic Tailwind v2 file creation */
 
-@import "tailwindcss/components";
+@import 'tailwindcss/components';
 
 /* 7. Our page-specific styles */
 
