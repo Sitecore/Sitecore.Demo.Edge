@@ -1,7 +1,7 @@
 .section__featured__event {
   @apply bg-black bg-left bg-no-repeat bg-cover relative;
 
-  background-image: url('../../../img/featured-event-background.jpg');
+  background-image: url('../img/featured-event-background.jpg');
 
   .content {
     @include flex--fe;
