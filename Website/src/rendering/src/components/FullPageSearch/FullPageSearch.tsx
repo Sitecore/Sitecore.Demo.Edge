@@ -1,33 +1,7 @@
+import debounce from '../../../src/helpers/Debounce';
 import FacetList from './FacetList';
 import ProductList from './ProductList';
 import SearchControls from './SearchControls';
-
-function debounce(
-  func: (arg: string | { value: string }) => void,
-  wait: number,
-  immediate: boolean
-) {
-  let timeout: NodeJS.Timeout;
-
-  return function returnFn(this: unknown, ...rest: unknown[]) {
-    const args = rest;
-
-    const later = () => {
-      timeout = null;
-      if (!immediate) {
-        func.apply(this, args);
-      }
-    };
-
-    const callNow = immediate && !timeout;
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) {
-      func.apply(this, args);
-    }
-  };
-}
 
 type SearchResultsProps = {
   error: unknown;
@@ -66,6 +40,10 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
     dispatch,
   } = props;
 
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlSearchParams.get('q');
+  const keyphraseToUse = keyphrase ?? searchQuery;
+
   if (error) {
     return window.RFK.ui.html`<div>Response error</div>`;
   }
@@ -102,7 +80,7 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
           />
           <div className="rfk_li" data-page="${page}">
             <${SearchControls}
-              keyphrase=${keyphrase}
+              keyphrase=${keyphraseToUse}
               productsPage=${productsPerPage}
               page=${page}
               sortType=${sortType}
@@ -141,7 +119,6 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
               loaded=${loaded}
               loading=${loading}
               onProductClick=${(payload: any) => {
-                console.log('what is in our payload', payload);
                 dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
               }}
             />

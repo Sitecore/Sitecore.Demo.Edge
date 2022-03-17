@@ -58,7 +58,8 @@ const Products = (): JSX.Element => {
 
       <FeaturedProductHero subPageName="Products" />
       <section className="section">
-        <div className="section__content container">
+        <div data-rfkid="rfkid_7"></div>
+        {/* <div className="section__content container">
           <div id="shop-content-container">
             <div id="dropdown-container">
               {dropdownControls.map((dropdown) => (
@@ -72,7 +73,7 @@ const Products = (): JSX.Element => {
             </div>
             <ProductSearchBar reflektionProps={searchBarProps.reflektionProps} />
           </div>
-        </div>
+        </div> */}
       </section>
       {/* TODO: add products listing grid */}
     </ShopLayout>

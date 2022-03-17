@@ -1,52 +1,20 @@
 import { Product } from '../../models/discover/Product';
-import { Category } from '../../models/discover/Category';
-import { Suggestion } from '../../models/discover/Suggestion';
 import ClickOutside from './ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
-
-function debounce(
-  func: (arg: string | { value: string }) => void,
-  wait: number,
-  immediate: boolean
-) {
-  let timeout: NodeJS.Timeout;
-
-  return function returnFn(this: unknown, ...rest: unknown[]) {
-    const args = rest;
-
-    const later = () => {
-      timeout = null;
-      if (!immediate) {
-        func.apply(this, args);
-      }
-    };
-
-    const callNow = immediate && !timeout;
-
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) {
-      func.apply(this, args);
-    }
-  };
-}
-
-interface PreviewSearchResponse {
-  keyphrase?: string;
-  category?: string;
-  trendingCategory?: string;
-  suggestion?: string;
-}
+import debounce from '../../../src/helpers/Debounce';
+import { Category } from '../../../src/models/discover/Category';
+import { Suggestion } from '../../../src/models/discover/Suggestion';
+import { PreviewSearchResponse } from '../../../src/models/discover/PreviewSearchResponse';
 
 type PreviewSearchWidgetWrapperProps = {
   loaded: boolean;
   loading: boolean;
   products: Product[];
   keyphrase: string;
-  trendingCategories: string[];
-  categories: string[];
-  suggestions: string[];
+  trendingCategories: Category[];
+  categories: Category[];
+  suggestions: Suggestion[];
   selectedKeyword: string;
   redirectUrl: string;
   inputQuerySelector: string;

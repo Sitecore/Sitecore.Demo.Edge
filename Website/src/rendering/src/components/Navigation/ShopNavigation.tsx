@@ -10,6 +10,7 @@ import {
   faChevronDown,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { ProductSearchBar } from 'components/Products/Shop';
 
 export type ShopNavigationProps = ComponentProps & {
   fields: {
@@ -75,12 +76,13 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
             </li>
           </ul>
         </div>
-        <Link href="/shop/products" passHref>
-          <div className="shop-search-input-container">
-            <FontAwesomeIcon id="search-icon" icon={faSearch} />
-            <input className="shop-search-input" placeholder="I am shopping for..." />
-          </div>
-        </Link>
+        {/* <Link href="/shop/products" passHref> */}
+        <div className="shop-search-input-container">
+          {/* <FontAwesomeIcon id="search-icon" icon={faSearch} />
+          <input className="shop-search-input" placeholder="I am shopping for..." /> */}
+          <ProductSearchBar />
+        </div>
+        {/* </Link> */}
       </div>
     </nav>
   );

@@ -30,13 +30,16 @@ const SearchControls = (props: SearchControlProps): JSX.Element => {
     onSearchChange,
   } = props;
 
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const searchQuery = urlSearchParams.get('q');
+
+  searchQuery &&
+    window.RFK.ui.useEffect(() => {
+      onSearchChange(searchQuery);
+    }, []);
+
   return window.RFK.ui.html`
-    <div className="rfk_sp_controls">
-    <div className="rfk_sp_controls__control">
-    <label>Search Term:</label>
-    <input type="text" onKeyup=${(e: KeyboardEvent) =>
-      onSearchChange((e.target as HTMLInputElement).value)} />
-  </div>
+  <div className="rfk_sp_controls">
   <div className="rfk_sp_controls__control">
     <label>Number of products:</label>
     <select onChange=${({ target }: Event) => onPerPageChange((target as HTMLInputElement).value)}>

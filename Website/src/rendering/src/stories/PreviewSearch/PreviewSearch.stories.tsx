@@ -37,7 +37,7 @@ Default.args = {
   trendingCategories: ['equipment', 'maintenance'],
   suggestions: ['pump', 'centercycle foot pump'],
   selectedKeyword: 'pump',
-  redirectUrl: '/hs/search?q=',
+  redirectUrl: '/shop/products?q=',
   inputQuerySelector: '#search-input',
   dispatch: () => {
     return null;
