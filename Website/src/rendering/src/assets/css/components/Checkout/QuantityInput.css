@@ -2,9 +2,7 @@
   @apply flex w-32;
 
   &-button {
-    @apply w-9 border-2 border-gray text-xl text-white bg-gray;
-
-    flex-shrink: 0;
+    @apply shrink-0 w-9 border-2 border-gray text-xl text-white bg-gray;
   }
 
   input {
