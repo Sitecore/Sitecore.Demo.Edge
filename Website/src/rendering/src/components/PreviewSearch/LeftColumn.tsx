@@ -12,14 +12,14 @@ type PreviewSearchListProps = {
 const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
   const { items, title, onMouseEnter, onMouseLeave, redirectUrl } = props;
 
-  return window.RFK.ui.html` <div class="list-wrapper">
+  return window.RFK.ui.html` <div class="list-container">
     ${
       items.length > 0 &&
-      window.RFK.ui.html` <h2 class="list-wrapper__title">${title}</h2>
+      window.RFK.ui.html` <h2 class="list-container-title">${title}</h2>
       <ul>
         ${items.map(
           ({ text, id, url }) => window.RFK.ui.html` <li
-            class="list-wrapper__item"
+            class="list-item"
             id=${id}
             onMouseEnter=${() => onMouseEnter(text)}
             onMouseLeave=${onMouseLeave}
@@ -92,7 +92,7 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
     trendingCategories?.length > 0 && categories?.length === 0 && suggestions?.length === 0;
 
   return window.RFK.ui.html`
-    <div class="leftSection">
+    <div class="left-section">
       ${
         ((loaded && !loading) || categories?.length > 0) &&
         window.RFK.ui.html`<${PreviewSearchList}
