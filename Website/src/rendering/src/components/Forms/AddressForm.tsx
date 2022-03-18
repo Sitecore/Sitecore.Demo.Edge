@@ -31,7 +31,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     event.preventDefault();
 
     const updatedAddress = {
-      ...props.address,
+      ...(props.address || {}),
       AddressName: addressName,
       Country: country,
       Street1: street1,

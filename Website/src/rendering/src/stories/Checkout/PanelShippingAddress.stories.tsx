@@ -12,8 +12,8 @@ const Template: ComponentStory<typeof PanelShippingAddress> = (args) => (
   <PanelShippingAddress {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {};
+export const WithSavedAddress = Template.bind({});
+WithSavedAddress.args = {};
 
 const mockState = {
   initialized: true,
@@ -27,9 +27,24 @@ const mockState = {
   },
 };
 
-Default.decorators = [
+WithSavedAddress.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const WithoutSavedAddress = Template.bind({});
+WithSavedAddress.args = {};
+
+const mockState2 = {
+  initialized: true,
+};
+
+WithoutSavedAddress.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState2 }}>
       <Story />
     </MockStore>
   ),
