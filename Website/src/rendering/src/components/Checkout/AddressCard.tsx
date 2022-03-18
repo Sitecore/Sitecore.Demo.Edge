@@ -2,8 +2,10 @@ import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
 
 type AddressCardProps = {
   address: DBuyerAddress;
-  onClick: (address: DBuyerAddress) => void;
-  active: boolean;
+  onClick?: (address: DBuyerAddress) => void;
+  active?: boolean;
+  editable?: boolean;
+  onEdit?: (address: DBuyerAddress) => void;
 };
 
 const AddressCard = (props: AddressCardProps): JSX.Element => {
@@ -12,6 +14,9 @@ const AddressCard = (props: AddressCardProps): JSX.Element => {
   if (props.active) {
     addressClasses.push('address-card__active');
   }
+  const editButton = props.editable && (
+    <button onClick={() => props.onEdit(props.address)}>Edit Address</button>
+  );
   return (
     <div onClick={() => props.onClick(props.address)} className={addressClasses.join(' ')}>
       <strong>{props.address.AddressName}</strong>
@@ -21,6 +26,7 @@ const AddressCard = (props: AddressCardProps): JSX.Element => {
         {props.address.City}, {props.address.State} {props.address.Zip}
       </p>
       <p>{props.address.Country}</p>
+      {editButton}
     </div>
   );
 };

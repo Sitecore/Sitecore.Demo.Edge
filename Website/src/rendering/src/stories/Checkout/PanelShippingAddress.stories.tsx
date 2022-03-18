@@ -18,6 +18,7 @@ WithSavedAddress.args = {};
 const mockState = {
   initialized: true,
   shippingAddress: {
+    ID: 'mockaddressid',
     AddressName: 'Marty Byrde Home',
     Street1: '6818 Gaines Ferry Road',
     City: 'Flowery Branch',
