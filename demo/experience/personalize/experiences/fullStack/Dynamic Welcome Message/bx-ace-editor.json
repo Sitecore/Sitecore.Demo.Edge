@@ -1,0 +1,114 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/c9d86ba0-710a-4388-8b05-ac813d458ccf",
+  "ref": "c9d86ba0-710a-4388-8b05-ac813d458ccf",
+  "name": "Dynamic Welcome Message",
+  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
+  "modifiedAt": "2022-02-02T22:56:01.051Z",
+  "revision": 21,
+  "archived": false,
+  "friendlyId": "dynamic_welcome_message",
+  "type": "INTERACTIVE_API_FLOW",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "WEB"
+  ],
+  "triggers": [],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "tags": [],
+  "businessProcess": "interactive_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2022-02-02T22:56:01.013Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "c203c736-1704-463e-a24a-5fbdcc9caf98",
+        "split": 100
+      }
+    ]
+  },
+  "variants": [
+    {
+      "ref": "c203c736-1704-463e-a24a-5fbdcc9caf98",
+      "name": "Welcome Message",
+      "isControl": true,
+      "assets": {
+        "css": "/** style your Experience with CSS */",
+        "html": "<!-- define the structure and content of your Experience in HTML e.g.-->\n<div>My Content</div>\n<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type 'd' to see decisioning helpers -->\n",
+        "js": "// You can choose how you want to add your HTML by using insertHTMLBefore, insertHTMLAfter, or replaceHTML methods\n// e.g insertHTMLAfter('.someClassName'); or insertHTMLAfter('body'); or replaceHTML('#myPageId')\n\n/*\n\n(function () {\n  // Add statements here\n})();\n\n*/"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#assign welcomeMessageDecisionModel = getDecisionModelResultNode(\"Generate Welcome Message\")>\n<#assign welcomeMessage = \"\">\n<#if (welcomeMessageDecisionModel)??>\n    <#if (welcomeMessageDecisionModel.outputs)??>\n        <#if (welcomeMessageDecisionModel.outputs[0])??>\n            <#if (welcomeMessageDecisionModel.outputs[0].welcomeMessage)??>\n                <#assign welcomeMessage = welcomeMessageDecisionModel.outputs[0].welcomeMessage>\n            </#if>\n        </#if>\n    </#if>\n</#if>\n{\n  \"message\": \"${welcomeMessage}\"\n}"
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "bf638183-08c4-4d93-8eed-9fb94cf66a70"
+            ]
+          }
+        }
+      ],
+      "description": "Start from scratch and create an API response using Freemarker",
+      "render": false
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "c203c736-1704-463e-a24a-5fbdcc9caf98",
+      "name": "Welcome Message",
+      "isControl": true,
+      "assets": {
+        "css": "/** style your Experience with CSS */",
+        "html": "<!-- define the structure and content of your Experience in HTML e.g.-->\n<div>My Content</div>\n<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type 'd' to see decisioning helpers -->\n",
+        "js": "// You can choose how you want to add your HTML by using insertHTMLBefore, insertHTMLAfter, or replaceHTML methods\n// e.g insertHTMLAfter('.someClassName'); or insertHTMLAfter('body'); or replaceHTML('#myPageId')\n\n/*\n\n(function () {\n  // Add statements here\n})();\n\n*/"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#assign welcomeMessageDecisionModel = getDecisionModelResultNode(\"Generate Welcome Message\")>\n<#assign welcomeMessage = \"\">\n<#if (welcomeMessageDecisionModel)??>\n    <#if (welcomeMessageDecisionModel.outputs)??>\n        <#if (welcomeMessageDecisionModel.outputs[0])??>\n            <#if (welcomeMessageDecisionModel.outputs[0].welcomeMessage)??>\n                <#assign welcomeMessage = welcomeMessageDecisionModel.outputs[0].welcomeMessage>\n            </#if>\n        </#if>\n    </#if>\n</#if>\n{\n  \"message\": \"${welcomeMessage}\"\n}"
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "bf638183-08c4-4d93-8eed-9fb94cf66a70"
+            ]
+          }
+        }
+      ],
+      "description": "Start from scratch and create an API response using Freemarker"
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2022-02-02T22:56:00.966Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/c9d86ba0-710a-4388-8b05-ac813d458ccf/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.02,
+    "minimumDetectableDifference": 0.2,
+    "confidenceLevel": 0.95
+  }
+}

@@ -1,9 +1,10 @@
-import { BuyerProduct, RequiredDeep } from 'ordercloud-javascript-sdk';
+import { RequiredDeep } from 'ordercloud-javascript-sdk';
 import { useEffect } from 'react';
+import { DBuyerProduct } from 'src/models/ordercloud/DBuyerProduct';
 import { getProduct, ocProductCacheSelectors } from '../redux/ocProductCache';
 import { useAppDispatch, useAppSelector } from '../redux/store';
 
-const useOcProduct = (productId: string): RequiredDeep<BuyerProduct> => {
+const useOcProduct = (productId: string): RequiredDeep<DBuyerProduct> => {
   const dispatch = useAppDispatch();
   const { product, isAuthenticated } = useAppSelector((s) => ({
     isAuthenticated: s.ocAuth.isAuthenticated,

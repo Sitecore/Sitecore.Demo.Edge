@@ -1,0 +1,24 @@
+{
+  "ref": "4a123f5b-c5ca-4ff6-a703-56d324cf6e22",
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "name": "Website Home Page Hero - Default",
+  "archived": false,
+  "created": 1644006032494,
+  "createdBy": "Redacted",
+  "updated": 1644006032494,
+  "updatedBy": "Redacted",
+  "description": "Default home page hero",
+  "attributes": {
+    "imageUrl": "https://playsummit.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=5ae3562e&t=web",
+    "buttonColor": "yellow",
+    "buttonUrl": "/tickets",
+    "buttonText": "Book Tickets",
+    "title": "RAISE YOUR GAME",
+    "subtitle": "Join us in person or online for the fifth annual PLAY! Summit."
+  },
+  "offerTypeRef": "174fe600-4588-4d5e-b31f-333b0f481e8c",
+  "status": "ACTIVE",
+  "propensity": 0,
+  "tags": [],
+  "isScheduled": false
+}

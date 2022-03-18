@@ -17,9 +17,7 @@
     }
 
     .speaker-image {
-      @apply w-full bg-no-repeat bg-cover bg-blue;
-
-      background-image: url(../../../img/background-element.svg);
+      @apply w-full bg-element bg-no-repeat bg-cover bg-blue;
     }
 
     .speaker-name {

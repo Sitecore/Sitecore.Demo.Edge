@@ -1,0 +1,14 @@
+<#assign welcomeMessageDecisionModel = getDecisionModelResultNode("Generate Welcome Message")>
+<#assign welcomeMessage = "">
+<#if (welcomeMessageDecisionModel)??>
+    <#if (welcomeMessageDecisionModel.outputs)??>
+        <#if (welcomeMessageDecisionModel.outputs[0])??>
+            <#if (welcomeMessageDecisionModel.outputs[0].welcomeMessage)??>
+                <#assign welcomeMessage = welcomeMessageDecisionModel.outputs[0].welcomeMessage>
+            </#if>
+        </#if>
+    </#if>
+</#if>
+{
+  "message": "${welcomeMessage}"
+}

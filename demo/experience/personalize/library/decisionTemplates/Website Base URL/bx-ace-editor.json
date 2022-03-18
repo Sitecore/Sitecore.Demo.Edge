@@ -1,0 +1,26 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/templates/8a79a0fb-f29c-48d3-867b-8de09f0458a2",
+  "ref": "8a79a0fb-f29c-48d3-867b-8de09f0458a2",
+  "name": "Website Base URL",
+  "description": "Gets the PLAY! Summit website base URL from past guest session events.",
+  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
+  "modifiedAt": "2022-02-04T21:10:01.002346Z",
+  "revision": 6,
+  "archived": false,
+  "friendlyId": "website_base_url",
+  "type": "DECISION",
+  "status": "PUBLISHED",
+  "icon": "",
+  "additionalFields": {
+    "decisionOutputReference": "websiteBaseUrl",
+    "decisionReturnType": "String"
+  },
+  "templateElements": [
+    {
+      "id": "js",
+      "template": "(function () {\n \tvar cdpSessions = guest.sessions;\n\n \tfor (var i = 0; i < cdpSessions.length; i++) {\n \t\tvar cdpSession = cdpSessions[i];\n\n \t\tif (cdpSession.sessionType === 'WEB') {\n \t\t\tvar events = cdpSession.events;\n\n \t\t\tfor (var j = 0; j < events.length; j++) {\n \t\t\t\tvar event = events[j];\n\n \t\t\t\tif (event.arbitraryData && event.arbitraryData.websiteBaseUrl) {\n \t\t\t\t\treturn event.arbitraryData.websiteBaseUrl;\n \t\t\t\t}\n \t\t\t}\n \t\t}\n \t}\n \t\n \treturn '';\n})();"
+    }
+  ],
+  "defaultTemplate": false
+}

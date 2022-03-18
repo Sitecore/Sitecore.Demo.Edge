@@ -1,0 +1,39 @@
+<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->
+<!-- Type "d" to see decisioning helpers -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  rel="stylesheet"
+/>
+<div id="bx-transition-card">
+    <div class="bx-transition-card__body">
+        <div class="bx__btn-close"></div>
+        <div class="bx-email_capture_container" id="bx-email_capture_container">
+            <h2 calss="">[[ Title Text | string | Sign Up For Session Updates! | { required: true, group: Title, groupOrder: 2, order: 1 } ]]</h2>
+            <p>[[ Description Top | text | By providing your email address, we can keep you up to date and send you session updates.| { required: true ,group: Description, groupOrder: 3, order: 1 }]]</p>
+
+            <div class="options-container">
+                <div>
+                <input type="text" name="bx-firstname_input" class="bx-email_input bx-name_input input-box" id="bx-firstname_input" placeholder="First name">
+                </div>
+                <div>
+                <input type="text" name="bx-lastname_input" class="bx-email_input bx-name_input input-box" id="bx-lastname_input" placeholder="Last name">
+                </div>
+                <div>
+                <input type="email" name="bx-email_input" class="bx-email_input input-box" id="bx-email_input" placeholder="[[ Input Ghost Text | string | Email | { required: true , group: Email Input, groupOrder: 4, order: 3, } ]]">
+                </div>
+                <a id="bx-transition-card--primary" class="bx-submit btn--main btn--main--round">[[ Button Text | string | Subscribe | {required: true,max: 15, group: Submit Button, order: 4  } ]]</a>
+            </div>
+            <p><a class="options-container__privacy-link" href="[[ Privacy Link | string | /privacy | { required: true, group: Privacy Link, groupOrder: 5, order: 2 } ]]">[[ Privacy Text | string | Privacy Policy | { required: true, group: Privacy Link, order: 1 }]]</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="bx-thank_you_container" id="bx-thank_you_modal">
+    <div class="bx-modal_backdrop" id="bx-thank_you_backdrop"></div>
+    <div class="bx-modal_content">
+        <h3>[[ Modal Title Text | string | Thank You! | { required: true, group: Modal Title, groupOrder: 8, order: 1 } ]]</h3>
+        <p>[[ Modal Description Text | text | You're all signed up. | { required: true, group: Modal Description, groupOrder: 9, order: 1 } ]]</p>
+
+        <div class="bx__btn-close" id="bx-thank_you_close"></div>
+    </div>
+</div>

@@ -110,7 +110,7 @@ const ProductDetail = (): JSX.Element => {
                 Price: <span className="product-price">$256.95</span>
               </div>
               <div>
-                Quantity:{' '}
+                Quantity:
                 <div className="product-quantity">
                   <div className="quantity-number">1</div>
                 </div>
