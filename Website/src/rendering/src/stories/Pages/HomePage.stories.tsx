@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../../components/Navigation/Header';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
-import HeroSection, { HeroProps } from '../../components/Page Content/HeroSection';
+import HeroSection, { HeroProps } from '../../components/PageContent/HeroSection';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/Page Content/ThreeColumnsSection';
+} from '../../components/PageContent/ThreeColumnsSection';
 import SelectedSponsorsGrid, {
   SelectedSponsorsGridProps,
 } from '../../components/Sponsors/SelectedSponsorsGrid';
@@ -74,6 +74,7 @@ const sponsor1 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor2 = {
@@ -88,6 +89,7 @@ const sponsor2 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor3 = {
@@ -102,6 +104,7 @@ const sponsor3 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsorProps = {

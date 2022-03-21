@@ -3,8 +3,6 @@
 /* 1. Tailwind base styles */
 
 @import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 
 /* 2. Our styles */
 
@@ -20,3 +18,10 @@
 @import './layout/PaymentConfirmation';
 @import './layout/SignupForm';
 @import './layout/SignupConfirmation';
+
+/* 3. Tailwind components and utilities */
+
+/* Specifically importing after our components to mimic Tailwind v2 file creation */
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

@@ -65,26 +65,8 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var cdpClientKey = Environment.GetEnvironmentVariable("CDP_CLIENT_KEY");
-            if (string.IsNullOrEmpty(cdpClientKey))
-            {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_CLIENT_KEY is not configured");
-                return;
-            }
-
             var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
-            if (string.IsNullOrEmpty(cdpApiTargetEndpoint))
-            {
-                Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CDP_API_TARGET_ENDPOINT is not configured");
-                return;
-            }
-
             var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
-            if (string.IsNullOrEmpty(cdpProxyUrl))
-            {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_PROXY_URL is not configured");
-                return;
-            }
 
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
@@ -118,6 +100,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");

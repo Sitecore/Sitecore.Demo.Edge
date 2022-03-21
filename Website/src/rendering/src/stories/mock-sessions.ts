@@ -2,9 +2,11 @@ import { GraphQLSession } from 'src/types/session';
 
 export const SESSIONS: GraphQLSession[] = [
   {
-    itemName: 'Fuel For Life Nutrition 101',
     name: {
       value: 'Fuel For Life: Nutrition 101',
+    },
+    url: {
+      path: '/session/Fuel-For-Life-Nutrition-101',
     },
     image: {
       jsonValue: {
@@ -19,12 +21,14 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'Elle Smith',
           name: {
             value: 'Elle Smith',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/Elle-Smith',
           },
         },
       ],
@@ -61,7 +65,6 @@ export const SESSIONS: GraphQLSession[] = [
     },
   },
   {
-    itemName: 'Mountain Biking Tales From The Trail',
     name: {
       value: 'Mountain Biking: Tales From The Trail',
     },
@@ -72,45 +75,56 @@ export const SESSIONS: GraphQLSession[] = [
         },
       },
     },
+    url: {
+      path: '/session/Mountain-Biking-Tales-From-The-Trail',
+    },
     imageTransformation: {
       value: 'medium',
     },
     speakers: {
       targetItems: [
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/Chris-Williams',
           },
         },
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/Chris-Williams',
           },
         },
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/Chris-Williams',
           },
         },
         {
-          itemName: 'Chris Williams',
           name: {
             value: 'Chris Williams',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/Chris-Williams',
           },
         },
       ],
@@ -147,9 +161,11 @@ export const SESSIONS: GraphQLSession[] = [
     },
   },
   {
-    itemName: 'Train Smarter not harder',
     name: {
       value: 'Train Smarter - not harder',
+    },
+    url: {
+      path: '/session/Train-Smarter-not-harder',
     },
     image: {
       jsonValue: {
@@ -164,39 +180,47 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/John-Johnson',
           },
         },
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/John-Johnson',
           },
         },
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/John-Johnson',
           },
         },
         {
-          itemName: 'John Johnson',
           name: {
             value: 'John Johnson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/John-Johnson',
           },
         },
       ],
@@ -233,9 +257,11 @@ export const SESSIONS: GraphQLSession[] = [
     },
   },
   {
-    itemName: '7 Mindset Strategies To Raise Your Game',
     name: {
       value: '7 Mindset Strategies To Raise Your Game',
+    },
+    url: {
+      path: '/session/7-Mindset-Strategies-To-Raise-Your-Game',
     },
     image: {
       jsonValue: {
@@ -250,12 +276,14 @@ export const SESSIONS: GraphQLSession[] = [
     speakers: {
       targetItems: [
         {
-          itemName: 'Tom Hudson',
           name: {
             value: 'Tom Hudson',
           },
-          role: {
+          jobTitle: {
             value: 'Speaker',
+          },
+          url: {
+            path: '/speaker/Tom-Hudson',
           },
         },
       ],

@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { Session } from '../interfaces/session';
-import qr from '../public/play_qr.png';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
+import qrLogo from '../public/p_logo_transparent_square.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
+import { AwesomeQRCode } from '@awesomeqr/react';
 
 type RoomProps = {
   room: string;
@@ -12,6 +13,16 @@ type RoomProps = {
 };
 
 const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Element => {
+  const handleCurrentSessionQrCodeClick = () => {
+    navigator.clipboard.writeText(
+      `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`
+    );
+  };
+
+  const handleNextSessionQrCodeClick = () => {
+    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`);
+  };
+
   return (
     <div className="roomDisplay">
       <div className="image-left">
@@ -25,9 +36,21 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
               alt="Sample"
             />
 
-            <div className="checkin-qrcode">
+            <div className="checkin-container">
               <div className="checkin-text">CHECK IN</div>
-              <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+              <div
+                className="qr-code"
+                title="Click to copy QR code link"
+                onClick={() => handleCurrentSessionQrCodeClick()}
+              >
+                <AwesomeQRCode
+                  options={{
+                    text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
+                    size: 255,
+                    logoImage: qrLogo.src,
+                  }}
+                />
+              </div>
             </div>
           </>
         )}
@@ -76,7 +99,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 </div>
               </div>
               <div className="right-content">
-                <Image className="checkin-code" src={qr} alt="check-in" width={160} height={160} />
+                <div
+                  className="qr-code"
+                  title="Click to copy QR code link"
+                  onClick={() => handleNextSessionQrCodeClick()}
+                >
+                  <AwesomeQRCode
+                    options={{
+                      text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
+                      size: 255,
+                      logoImage: qrLogo.src,
+                    }}
+                  />
+                </div>
               </div>
             </div>
           )}

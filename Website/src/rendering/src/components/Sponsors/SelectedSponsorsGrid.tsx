@@ -13,7 +13,7 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
   const sponsors =
     props?.fields?.Sponsors &&
     props.fields.Sponsors.map((sponsor, index) => (
-      <Link key={index} href={'/sponsors/' + sponsor.fields.Name.value} passHref>
+      <Link key={index} href={sponsor.url} passHref>
         <a className="section__sponsors__grid__sponsor">
           <div className="section__sponsors__grid__sponsor__imagecontainer">
             <Image

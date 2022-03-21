@@ -9,7 +9,7 @@ SharedFields:
   Value: SponsorInformation
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/sponsor-info.png"
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
@@ -30,12 +30,18 @@ SharedFields:
                   premium {
                     value
                   }
+                  url {
+                    path
+                  }
                   speakers {
                     ... on MultilistField {
                       targetItems {
                         ... on Speaker {
                           name: field(name: "name") {
                             value
+                          }
+                          url {
+                            path
                           }
                         }
                       }
@@ -108,11 +114,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f4510ef9-8a07-420c-839a-952535b9bec0"
+      Value: "a3293ac3-8fd0-449d-85cc-a6f32669df56"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220112T152318Z
+      Value: 20220221T090918Z

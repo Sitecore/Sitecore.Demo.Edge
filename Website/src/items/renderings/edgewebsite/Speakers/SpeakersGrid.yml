@@ -12,7 +12,7 @@ SharedFields:
   Value: SpeakersGrid
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/speaker-grid.png"
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
@@ -26,8 +26,11 @@ SharedFields:
               name: field(name: "name") {
                 value
               }
-              role {
+              jobTitle {
                 value
+              }
+              url {
+                path
               }
               picture {
                 jsonValue
@@ -68,11 +71,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "346efc6d-b2ad-4ed0-a190-dc0c7c014171"
+      Value: "22fdcf67-c821-4408-b1fb-41c37964be05"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210909T235504Z
+      Value: 20220221T090859Z

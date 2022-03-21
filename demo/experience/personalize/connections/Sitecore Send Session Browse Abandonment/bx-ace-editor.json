@@ -1,0 +1,51 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v2/connections/e7605e1f-d503-40e6-b1b0-5cae0ebe8e3d",
+  "ref": "e7605e1f-d503-40e6-b1b0-5cae0ebe8e3d",
+  "name": "Sitecore Send Session Browse Abandonment",
+  "description": "Sitecore Send Session Browse Abandonment",
+  "modifiedByRef": "e1761eab-ad16-40fe-8cd3-394ef7251fbd",
+  "modifiedAt": "2022-02-03T21:57:19.444Z",
+  "revision": 1,
+  "archived": false,
+  "auth": {
+    "authType": "NONE"
+  },
+  "request": {
+    "requestType": "POST",
+    "connectionUrl": "https://api.moosend.com/v3/subscribers/ceda7fd4-df53-4e10-b6dc-8a637266d141/subscribe.json?apikey=Redacted",
+    "requestBody": "{\n  \"Name\": \"SitecoreDemo\",\n  \"Email\": \"test@test.com\",\n  \"HasExternalDoubleOptIn\": true,\n  \"CustomFields\": []\n}"
+  },
+  "inputMappings": [],
+  "outputMappings": [
+    {
+      "label": "Code",
+      "outputReference": "Code",
+      "type": "Number"
+    },
+    {
+      "label": "Context",
+      "outputReference": "Context",
+      "type": "Object"
+    }
+  ],
+  "customHeaders": [
+    {
+      "name": "Accept",
+      "value": "application/json"
+    },
+    {
+      "name": "Accept-Encoding",
+      "value": "gzip"
+    },
+    {
+      "name": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "urlParameters": [],
+  "systemType": "DESTINATION",
+  "connectionTimeout": 1000,
+  "socketTimeout": 1000,
+  "icon": "fad fa-envelope-open"
+}

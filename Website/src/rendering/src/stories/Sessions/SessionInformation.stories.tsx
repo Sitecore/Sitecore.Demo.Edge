@@ -18,7 +18,7 @@ const speaker1 = {
     Name: {
       value: 'Mary Asada',
     },
-    Role: {
+    jobTitle: {
       value: 'Athlete',
     },
     Picture: {
@@ -55,6 +55,7 @@ const speaker1 = {
       value: false,
     },
   },
+  url: '/speaker/Speaker-Name',
 } as Speaker;
 
 const speaker2 = {
@@ -62,7 +63,7 @@ const speaker2 = {
     Name: {
       value: 'John Jones',
     },
-    Role: {
+    jobTitle: {
       value: 'Speaker',
     },
     Picture: {
@@ -99,6 +100,7 @@ const speaker2 = {
       value: true,
     },
   },
+  url: '/speaker/Speaker-Name',
 } as Speaker;
 
 const rooms = [

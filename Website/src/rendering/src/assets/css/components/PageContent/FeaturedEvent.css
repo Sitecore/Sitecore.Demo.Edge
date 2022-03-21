@@ -1,0 +1,55 @@
+.section__featured__event {
+  @apply bg-black bg-left bg-no-repeat bg-cover relative;
+
+  background-image: url('../img/featured-event-background.jpg');
+
+  .content {
+    @include flex--fe;
+
+    @apply px-14 max-w-screen-2xl w-full my-0 mx-auto box-border overflow-hidden;
+
+    .triangle-area {
+      @apply max-w-30 relative shadow-xl w-full bg-black-light;
+
+      &::before,
+      &::after {
+        @apply absolute top-0 right-0 border-transparent border-solid;
+
+        content: '';
+      }
+
+      &::before {
+        border-width: 2.5em;
+        border-right-color: #006ef9;
+        border-top-color: #006ef9;
+      }
+
+      &::after {
+        border-radius: 0.4em;
+        border-width: 1.35em;
+        border-right-color: #006ef9;
+        border-top-color: #006ef9;
+      }
+
+      .text-area {
+        @apply p-14;
+
+        .section-title {
+          @apply text-2xl text-orange font-semibold;
+        }
+
+        .event-title {
+          @apply text-5xl font-semibold text-white uppercase m-0;
+        }
+
+        .event-subtitle {
+          @apply text-orange text-xl;
+        }
+      }
+
+      .btn__area {
+        @apply px-14;
+      }
+    }
+  }
+}

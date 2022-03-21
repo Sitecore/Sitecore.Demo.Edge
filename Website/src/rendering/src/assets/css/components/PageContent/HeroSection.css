@@ -1,0 +1,80 @@
+.hero-section {
+  @apply m-0 bg-black bg-left bg-no-repeat bg-cover relative;
+
+  .hero-background {
+    @apply h-64 bg-black bg-left bg-no-repeat bg-cover;
+    @apply md:hidden;
+  }
+
+  .hero-container {
+    @apply flex items-center justify-end w-full my-0 mx-auto box-border overflow-hidden;
+
+    @media (max-width: 767px) {
+      @apply px-0 mx-0 max-w-none;
+    }
+
+    .container-content {
+      @apply w-full bg-black-light;
+      @apply md:w-45;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(80, 80, 80, 1) 0%,
+          rgba(60, 60, 60, 1) 50%,
+          rgba(50, 50, 50, 1) 100%
+        );
+
+      @screen md {
+        box-shadow: 0 0 20px #232323;
+      }
+
+      .btn__area {
+        @apply p-6;
+        @apply md:px-12;
+      }
+
+      .content-text {
+        @apply p-6 relative;
+        @apply md:p-12;
+
+        @screen md {
+          &::after {
+            @apply w-0 h-0 border-solid right-0 top-0 absolute;
+
+            content: '';
+            border-width: 0 110px 110px 0;
+            border-color: transparent #1c80ff transparent transparent;
+          }
+        }
+
+        .slogan {
+          @apply text-white uppercase pb-5 font-extrabold;
+          @apply md:pt-4;
+
+          font-size: 1.5em;
+        }
+
+        .expo {
+          @apply text-orange;
+
+          font-weight: 600;
+          font-size: 1.5em;
+        }
+
+        .title {
+          @apply text-4xl text-white uppercase py-3 m-0 font-bold;
+          @apply md:text-5xl;
+        }
+
+        .subtitle {
+          @apply text-orange pt-2;
+          @apply md:py-2;
+
+          font-size: 1em;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}

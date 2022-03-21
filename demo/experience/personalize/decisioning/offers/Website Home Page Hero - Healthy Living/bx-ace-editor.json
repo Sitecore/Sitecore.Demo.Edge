@@ -1,0 +1,24 @@
+{
+  "ref": "d15d6f27-45ee-465a-ac58-8df3a4a7568c",
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "name": "Website Home Page Hero - Healthy Living",
+  "archived": false,
+  "created": 1643755647373,
+  "createdBy": "Redacted",
+  "updated": 1643911521559,
+  "updatedBy": "Redacted",
+  "description": "Website Home Page Hero for the Healthy Living audience",
+  "attributes": {
+    "imageUrl": "https://ch.sitecoredemo.com/api/public/content/a2c273bef3f8482f919f1e9bb0259fb3?v=d068a332",
+    "title": "shape your health",
+    "subtitle": "Join us in person or online - your PLAY! Summit, your way.",
+    "buttonText": "healthy",
+    "buttonColor": "yellow",
+    "buttonUrl": "/healthy"
+  },
+  "offerTypeRef": "174fe600-4588-4d5e-b31f-333b0f481e8c",
+  "status": "ACTIVE",
+  "propensity": 0,
+  "tags": [],
+  "isScheduled": false
+}
