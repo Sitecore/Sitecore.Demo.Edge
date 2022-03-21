@@ -18,6 +18,7 @@ const nextConfig = {
     PUBLIC_URL: publicUrl,
   },
 
+
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.
@@ -94,7 +95,7 @@ const applyGraphQLCodeGenerationLoaders = (config, options) => {
   return config;
 };
 
-// DEMO TEAM CUSTOMIZATION - Add Next bungle analyzer
+// DEMO TEAM CUSTOMIZATION - Add Next bundle analyzer
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
