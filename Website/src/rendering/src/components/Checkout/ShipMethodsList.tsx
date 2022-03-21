@@ -1,5 +1,6 @@
 import { RequiredDeep, ShipMethodSelection } from 'ordercloud-javascript-sdk';
 import { ChangeEvent } from 'react';
+import { formatCurrency } from 'src/helpers/CurrencyHelper';
 import { DShipMethod } from 'src/models/ordercloud/DShipMethod';
 
 type ShipMethodsListProps = {
@@ -34,7 +35,7 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
         />
         <label htmlFor={shipMethod.ID}>
           <strong>{shipMethod.Name}</strong>
-          <span>{shipMethod.Cost}</span>
+          <span>{formatCurrency(shipMethod.Cost)}</span>
           <span>{shipMethod.xp?.Description}</span>
         </label>
       </div>
