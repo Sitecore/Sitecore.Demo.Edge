@@ -37,7 +37,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
 
   return (
     <nav className="shop-navigation">
-      <div className="shop-navigation-content container">
+      <div className="shop-container shop-navigation-content">
         <div className="logo-container">
           <Link href="/shop">
             <a className="logo-link">
@@ -64,14 +64,14 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
             </li>
             <li className="shop-navigation-menu-item">
-              <Link href="/shop/checkout/cart">
+              <Link href="/shop/checkout/cart" passHref>
                 <a>
                   <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 </a>
               </Link>
             </li>
             <li className="shop-navigation-menu-item">
-              <Link href="/account/login">
+              <Link href="/account/login" passHref>
                 <a>
                   <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
                 </a>
@@ -79,12 +79,18 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
             </li>
           </ul>
         </div>
-        <Link href="/shop/products" passHref>
-          <div className="shop-search-input-container container">
-            <FontAwesomeIcon id="search-icon" icon={faSearch} />
-            <input className="shop-search-input" placeholder="I am shopping for..." />
-          </div>
-        </Link>
+        <div
+          data-rfkid="rfkid_6"
+          id="search-input-container"
+          className="shop-search-input-container"
+        >
+          <FontAwesomeIcon id="search-icon" icon={faSearch} />
+          <input
+            id="search-input"
+            className="shop-search-input"
+            placeholder="I am shopping for..."
+          />
+        </div>
       </div>
     </nav>
   );

@@ -1,4 +1,6 @@
 div.shop-container {
+  @apply w-full px-5 mx-auto max-w-screen-2xl;
+
   /* Featured products */
 
   .section {

@@ -1,16 +1,20 @@
 .shop-navigation {
   @apply bg-black h-28;
-  @apply lg:h-20;
+
+  @screen lg {
+    height: 100px;
+  }
 
   .shop-navigation-content {
-    @include content;
     @include flex--sb-w;
+
+    @apply h-full;
 
     .logo-container {
       @apply pr-3;
 
       .logo-link {
-        @apply text-xl font-bold leading-relaxed inline-block py-3 whitespace-nowrap uppercase text-white;
+        @apply text-xl font-bold leading-relaxed inline-block whitespace-nowrap uppercase text-white;
 
         img {
           @apply h-10;
@@ -19,8 +23,7 @@
     }
 
     .items-container {
-      @apply flex-row pb-5 pt-3 ml-0;
-      @apply sm:pl-4;
+      @apply lg:order-3;
 
       ul {
         @apply flex items-center list-none;
@@ -45,19 +48,15 @@
     }
 
     .shop-search-input-container {
-      @include content;
+      @apply relative w-full bottom-2;
+      @apply lg:bottom-0;
 
-      @apply absolute mb-2 bottom-0 left-0 right-0;
-      @apply lg:max-w-screen-sm lg:bottom-6 lg:right-20;
-      @apply xl:max-w-2xl;
-      @apply 2xl:max-w-screen-lg;
-
-      #search-icon {
-        @apply absolute left-7 top-1;
+      @screen lg {
+        max-width: 65%;
       }
 
       input {
-        @apply block mx-auto my-0 w-full pl-9 rounded;
+        @apply block mx-auto my-0 w-full rounded;
       }
     }
   }
