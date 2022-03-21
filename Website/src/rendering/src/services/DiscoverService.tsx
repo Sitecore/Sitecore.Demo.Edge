@@ -25,7 +25,6 @@ interface RFK {
     html(...args: unknown[]): ReactElement<unknown, string>;
     useRef(...args: unknown[]): DiscoverReference;
     useEffect(...args: unknown[]): void;
-    // useCallback(...args: unknown[]): void;
     useState(arg1: boolean): [lock: boolean, setLock: (shouldSetLock: boolean) => void];
     useCallback(...args: unknown[]): (...args: unknown[]) => void;
   };
