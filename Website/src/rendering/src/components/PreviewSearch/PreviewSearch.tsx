@@ -154,31 +154,33 @@ const PreviewSearchWidgetWrapper = (props: PreviewSearchWidgetWrapperProps): JSX
   ClickOutside(containerRef, () => setOpen(false));
 
   return window.RFK.ui.html`
-    <div class="preview-search">
-      ${
-        open &&
-        window.RFK.ui.html` <div
-        ref=${containerRef}
-        class="preview-search-modal-container container"
-      >
-        <${LeftColumn}
-          categories=${categories}
-          suggestions=${suggestions}
-          trendingCategories=${trendingCategories}
-          loading=${loading}
-          loaded=${loaded}
-          onCategoryChanged=${changeCategory}
-          onTrendingCategoryChanged=${changeTrendingCategory}
-          onSuggestionChanged=${changeSuggestion}
-          redirectUrl=${redirectUrl}
-        />
-        <${RightColumn}
-          selectedKeyword=${selectedKeyword}
-          products=${products}
-          loading=${loading}
-        />
-      </div>`
-      }
+    <div class="preview-search-container">
+      <div class="preview-search">
+        ${
+          open &&
+          window.RFK.ui.html` <div
+          ref=${containerRef}
+          class="preview-search-modal-container"
+        >
+          <${LeftColumn}
+            categories=${categories}
+            suggestions=${suggestions}
+            trendingCategories=${trendingCategories}
+            loading=${loading}
+            loaded=${loaded}
+            onCategoryChanged=${changeCategory}
+            onTrendingCategoryChanged=${changeTrendingCategory}
+            onSuggestionChanged=${changeSuggestion}
+            redirectUrl=${redirectUrl}
+          />
+          <${RightColumn}
+            selectedKeyword=${selectedKeyword}
+            products=${products}
+            loading=${loading}
+          />
+        </div>`
+        }
+      </div>
     </div>
   `;
 };

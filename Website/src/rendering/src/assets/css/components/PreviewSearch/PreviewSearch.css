@@ -1,0 +1,129 @@
+.preview-search-container {
+  @apply fixed left-0 w-full;
+
+  top: 112px;
+
+  @screen lg {
+    top: 100px;
+  }
+
+  .preview-search {
+    @screen lg {
+      @include shop-container;
+    }
+
+    .preview-search-modal-container {
+      min-height: 300px;
+      height: calc(100vh - 112px);
+
+      @screen lg {
+        height: calc(100vh - 100px);
+      }
+
+      @apply bg-gray-light w-full flex flex-row flex-wrap border border-solid border-gray p-5 overflow-scroll;
+      @apply lg:flex-initial;
+
+      .left-section {
+        @apply w-full;
+        @apply lg:w-1/5;
+
+        .list-container {
+          @apply w-full mb-2;
+
+          .list-container-title {
+            @apply font-bold;
+          }
+
+          .list-item {
+            @apply h-6;
+
+            a {
+              @apply text-blue;
+            }
+          }
+        }
+      }
+
+      .right-section {
+        @apply w-full flex flex-wrap justify-between;
+        @apply lg:w-4/5;
+
+        .right-section-title {
+          @apply mb-3 font-bold;
+          @apply lg:mb-1;
+        }
+
+        .view-all-link {
+          @apply text-blue font-medium;
+        }
+
+        .product-list-container {
+          @apply flex flex-wrap justify-between;
+
+          .product-list-item {
+            width: 40vw;
+
+            @screen sm {
+              width: 45vw;
+            }
+
+            @screen lg {
+              width: 22vw;
+            }
+
+            @apply h-auto text-center mb-3;
+
+            .product-container {
+              @apply text-center align-top bg-transparent;
+
+              .product-image-container {
+                height: 40vw;
+
+                @screen sm {
+                  height: 45vw;
+                }
+
+                @screen lg {
+                  height: 22vw;
+                }
+
+                @apply relative w-full border border-solid border-gray;
+
+                .product-image {
+                  @apply relative inline-block w-full h-full;
+                }
+              }
+
+              .product-info-container {
+                width: 40vw;
+
+                @screen sm {
+                  width: 45vw;
+                }
+
+                @screen lg {
+                  width: 22vw;
+                }
+
+                @apply bg-white pt-2 px-1 flex flex-col justify-between;
+
+                .product-name {
+                  @apply font-bold border-0 overflow-hidden text-black text-left overflow-ellipsis whitespace-nowrap;
+                  @apply hover:text-gray-dark;
+                }
+
+                .product-brand {
+                  @apply block text-left overflow-ellipsis whitespace-nowrap;
+                }
+
+                .product-price {
+                  @apply text-blue font-bold mr-1 mb-1 text-right;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

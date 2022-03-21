@@ -18,6 +18,7 @@ const RightColumn = (props: RightColumnProps): JSX.Element => {
               .html`<h2 class="right-section-title">Top results for "${selectedKeyword}"</h2>`
           : window.RFK.ui.html`<h2 class="right-section-title">Top results</h2>`
       }
+      <a href="#" class="view-all-link">View all</a>
       ${!loading && window.RFK.ui.html`<${Products} products=${products} loading=${loading} />`}
       ${loading && window.RFK.ui.html`loading .....`}
     </div>
