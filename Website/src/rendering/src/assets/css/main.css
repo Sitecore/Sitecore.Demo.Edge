@@ -44,8 +44,9 @@
 @import "./components/Checkout/AddressList.css";
 
 /* Forms */
-@import './components/Forms/AttendeeForm.css';
-@import './components/Forms/RequestInfoForm.css';
+@import "./components/Forms/AddressForm.css";
+@import "./components/Forms/AttendeeForm.css";
+@import "./components/Forms/RequestInfoForm.css";
 
 /* Navigation */
 @import './components/Navigation/Breadcrumb.css';
