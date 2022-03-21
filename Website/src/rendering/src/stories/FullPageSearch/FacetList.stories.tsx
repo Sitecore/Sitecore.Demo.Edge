@@ -10,13 +10,29 @@ export default {
 
 const Template: ComponentStory<typeof FacetList> = (args) => <FacetList {...args} />;
 
+const exampleFacet = {
+  display_name: 'Price',
+  facetType: 'price',
+  number_of_products: 8,
+  value: [
+    {
+      count: 2,
+      id: 'facet_ideyJtYXgiOjE1LCJtaW4iOjV9',
+      in_content: 'product',
+      max: 15,
+      min: 5,
+      text: '5 - 15',
+    },
+  ],
+};
+
 export const Default = Template.bind({});
 Default.args = {
-  params: {
-    name: 'FacetList',
+  facets: [exampleFacet],
+  onClear: () => {
+    return null;
   },
-  rendering: {
-    componentName: 'FacetList',
-    dataSource: '/sitecore',
+  onFacetClick: () => {
+    return null;
   },
 };

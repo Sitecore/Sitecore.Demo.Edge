@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 type FacetValueProps = {
   values: unknown[];
   tindex: unknown;

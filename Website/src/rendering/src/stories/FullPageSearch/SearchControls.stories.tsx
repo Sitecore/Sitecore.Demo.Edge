@@ -12,11 +12,28 @@ const Template: ComponentStory<typeof SearchControls> = (args) => <SearchControl
 
 export const Default = Template.bind({});
 Default.args = {
-  params: {
-    name: 'SearchControls',
+  onPageNumberChange: () => {
+    return null;
   },
-  rendering: {
-    componentName: 'SearchControls',
-    dataSource: '/sitecore',
+  onPerPageChange: () => {
+    return null;
   },
+  onSearchChange: () => {
+    return null;
+  },
+  onSortChange: () => {
+    return null;
+  },
+  page: 1,
+  productsPage: undefined,
+  sortChoices: [
+    {
+      label: 'Featured ASC',
+      name: 'featured',
+      order: 'asc',
+    },
+  ],
+  sortDirection: undefined,
+  sortType: undefined,
+  totalPages: 1,
 };

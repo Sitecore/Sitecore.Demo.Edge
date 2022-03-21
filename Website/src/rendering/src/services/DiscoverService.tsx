@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
-import PreviewSearchWidgetWrapper from '../components/PreviewSearch/PreviewSearch';
-import SearchResults from '../components/FullPageSearch/FullPageSearch';
+import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
+import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 
 // ***** TYPES *****
 
@@ -99,24 +99,11 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
           component: FrequentlyPurchasedTogether,
         });
         window.RFK.setWidgetType(window.RFK.types.PREVIEW_SEARCH, {
-          component: PreviewSearchWidgetWrapper,
+          component: PreviewSearch,
         });
         window.RFK.setWidgetType(window.RFK.types.SEARCH_RESULTS, {
-          component: SearchResults,
+          component: FullPageSearch,
         });
-        // window.RFK.setWidget('rfkid_7', {
-        //   type: window.RFK.types.SEARCH_RESULTS,
-        //   global: true,
-        //   options: {
-        //     preRender: true,
-        //     properties: {
-        //       initial: {
-        //         redirectUrl: '/shop/products?q=',
-        //         inputQuerySelector: '#search-input',
-        //       },
-        //     },
-        //   },
-        // });
         window.RFK.setWidget('rfkid_6', {
           type: window.RFK.types.PREVIEW_SEARCH,
           global: true,
@@ -130,7 +117,6 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
             },
           },
         });
-        console.log('should be initing soon');
         window.RFK.init();
       }}
     />

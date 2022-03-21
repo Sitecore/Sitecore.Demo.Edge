@@ -14,13 +14,11 @@ const Price = (props: PriceProps): JSX.Element => {
 };
 
 type ProductItemProps = {
-  includeSku: boolean;
   className: string;
   onClick: () => void;
   onDiscoverStyleOpen: () => void;
   product_url: string;
   name: string;
-  sku: string;
   final_price_min_formatted: number;
   final_price_max_formatted: number;
   final_price: number;
@@ -30,21 +28,15 @@ type ProductItemProps = {
 
 const ProductItem = (props: ProductItemProps): JSX.Element => {
   const {
-    includeSku,
-    className,
     onClick,
-    onDiscoverStyleOpen,
     product_url,
     name,
-    sku,
     final_price_min_formatted,
     final_price_max_formatted,
     final_price,
     price,
     image_url,
   } = props;
-
-  console.log(className, onDiscoverStyleOpen);
 
   return window.RFK.ui.html`<div class="rfksdk_product">
     <div class="rfksdk_product__wrapper">
@@ -54,7 +46,6 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
     </div>
     <div class="rfksdk_product__info">
       <a href="${product_url}">
-        ${includeSku ? window.RFK.ui.html`<div class="rfksdk_product__sku">${sku}</div>` : null}
         <div class="rfksdk_product__name">${name}</div>
       </a>
       <${Price}

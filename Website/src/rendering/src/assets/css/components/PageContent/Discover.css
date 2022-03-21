@@ -381,7 +381,7 @@ li.rfk_selected div > label {
   background-image: -moz-linear-gradient(top, #08c, #0077b3);
   background-image: -o-linear-gradient(top, #08c, #0077b3);
   background-repeat: repeat-x;
-  color: #FFF;
+  color: #fff;
   background-color: #39c !important
 }
 
@@ -684,7 +684,7 @@ li.rfk_selected div > label {
   width: 80%;
   line-height: 35px;
   margin: 0 auto;
-  color: #FFF;
+  color: #fff;
   margin-top: 10px;
   background-color: #39c;
   font-size: 13px
@@ -739,7 +739,7 @@ li.rfk_selected div > label {
   border: 0
 }
 
-.rfk_sp .rfk_drop_down.rfk_visible .rfk_selection:after {
+.rfk_sp .rfk_drop_down.rfk_visible .rfk_selection::after {
   transform: rotate(180deg);
   background-position: 3px 12px
 }
@@ -866,7 +866,7 @@ li.rfk_selected div > label {
   left: 5px
 }
 
-.rfk_sp .rfk_ulli > ul > li.rfk_title .rfk_list.rfk_drop > li:first-child label:after {
+.rfk_sp .rfk_ulli > ul > li.rfk_title .rfk_list.rfk_drop > li:first-child label::after {
   width: 0;
   height: 0;
   border-style: solid;
@@ -973,7 +973,8 @@ li.rfk_selected div > label {
   display: none
 }
 
-.rfk_sp .rfk_ulli > ul > li.rfk_title > .rfk_ttitle, .rfk_sp .rfk_filterby {
+.rfk_sp .rfk_ulli > ul > li.rfk_title > .rfk_ttitle,
+.rfk_sp .rfk_filterby {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -991,7 +992,7 @@ li.rfk_selected div > label {
   padding-bottom: 24px;
 }
 
-.rfk_sp .rfk_ulli > ul > li.rfk_title .rfk_list > li.rfk_selected label:after {
+.rfk_sp .rfk_ulli > ul > li.rfk_title .rfk_list > li.rfk_selected label::after {
   position: absolute;
   overflow: hidden;
   right: 5px;

@@ -7,7 +7,7 @@ import { Category } from '../../../src/models/discover/Category';
 import { Suggestion } from '../../../src/models/discover/Suggestion';
 import { PreviewSearchResponse } from '../../../src/models/discover/PreviewSearchResponse';
 
-type PreviewSearchWidgetWrapperProps = {
+type PreviewSearchProps = {
   loaded: boolean;
   loading: boolean;
   products: Product[];
@@ -21,7 +21,7 @@ type PreviewSearchWidgetWrapperProps = {
   dispatch: (keyphraseChanged: string, previewSearchResponse: PreviewSearchResponse) => void;
 };
 
-const PreviewSearchWidgetWrapper = (props: PreviewSearchWidgetWrapperProps): JSX.Element => {
+const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
   const {
     loaded,
     loading,
@@ -151,4 +151,4 @@ const PreviewSearchWidgetWrapper = (props: PreviewSearchWidgetWrapperProps): JSX
   `;
 };
 
-export default PreviewSearchWidgetWrapper;
+export default PreviewSearch;

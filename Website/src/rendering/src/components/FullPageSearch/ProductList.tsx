@@ -1,26 +1,10 @@
+import { Product } from '../../../src/models/discover/Product';
+
 type PriceProps = {
   max: number;
   min: number;
   price: number;
   finalPrice: number;
-};
-
-type Product = {
-  url: string;
-  name: string;
-  sku: string;
-  final_price_min_formatted: number;
-  final_price_max_formatted: number;
-  final_price: number;
-  price: number;
-  image_url: string;
-};
-
-type ProductItemProps = {
-  includeSku: unknown;
-  className: string;
-  onClick: () => void;
-  product: any;
 };
 
 type ProductListProps = {
@@ -50,33 +34,16 @@ const Price = (props: PriceProps): JSX.Element => {
   </div>`;
 };
 
-const ProductItem = (props: ProductItemProps): JSX.Element => {
-  const { includeSku, className, onClick, ...product } = props;
-  // const {
-  //   url,
-  //   name,
-  //   sku,
-  //   final_price_min_formatted,
-  //   final_price_max_formatted,
-  //   final_price,
-  //   price,
-  //   image_url,
-  // } = product;
-
+const ProductItem = (product: Product): JSX.Element => {
   return window.RFK.ui.html`
   <div class="rfksdk_product rfk_sp_product">
   <div class="rfksdk_product__wrapper">
-    <a href=${product?.product_url} onClick=${onClick}
+    <a href=${product?.product_url} onClick=${product?.onClick}
       ><img class="rfksdk_product__image" src="${product?.image_url}" alt="${product?.name}"
     /></a>
   </div>
   <div class="rfksdk_product__info">
     <a href="${product?.product_url}">
-      ${
-        includeSku
-          ? window.RFK.ui.html`<div class="rfksdk_product__sku">${product?.sku}</div>`
-          : null
-      }
       <div class="rfksdk_product__name">${product?.name}</div>
     </a>
     <${Price}
@@ -86,7 +53,7 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
       min=${product?.final_price_min_formatted}
       max=${product?.final_price_max_formatted}
     />
-    <a href=${product?.product_url} onClick=${onClick} className="rfksdk_product__view-details"
+    <a href=${product?.product_url} onClick=${product?.onClick} className="rfksdk_product__view-details"
       >View</a
     >
   </div>
@@ -95,7 +62,7 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
 };
 
 const ProductList = (props: ProductListProps): JSX.Element => {
-  const { products, onProductClick, onDiscoverStyleOpen, loaded, loading } = props;
+  const { products, onProductClick, loaded, loading } = props;
   const ready = loaded && !loading;
 
   return window.RFK.ui.html`
