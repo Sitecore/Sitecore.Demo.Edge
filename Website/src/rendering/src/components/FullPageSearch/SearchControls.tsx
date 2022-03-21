@@ -1,4 +1,4 @@
-type SearchControlProps = {
+type SearchControlsProps = {
   totalPages: number;
   productsPage: unknown;
   page: number;
@@ -16,7 +16,7 @@ type SortChangeRequest = {
   sortDirection: unknown;
 };
 
-const SearchControls = (props: SearchControlProps): JSX.Element => {
+const SearchControls = (props: SearchControlsProps): JSX.Element => {
   const {
     totalPages,
     productsPage,

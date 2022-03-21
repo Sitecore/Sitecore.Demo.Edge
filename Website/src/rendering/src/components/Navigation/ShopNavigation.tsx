@@ -4,12 +4,7 @@ import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch,
-  faShoppingCart,
-  faChevronDown,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { ProductSearchBar } from 'components/Products/Shop';
 
 export type ShopNavigationProps = ComponentProps & {
@@ -66,12 +61,16 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
             </li>
             <li className="shop-navigation-menu-item">
               <Link href="/shop/checkout/cart" passHref>
-                <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
+                <a>
+                  <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
+                </a>
               </Link>
             </li>
             <li className="shop-navigation-menu-item">
               <Link href="/account/login" passHref>
-                <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+                <a>
+                  <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+                </a>
               </Link>
             </li>
           </ul>

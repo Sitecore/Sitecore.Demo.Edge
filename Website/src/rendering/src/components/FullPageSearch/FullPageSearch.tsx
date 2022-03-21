@@ -3,13 +3,13 @@ import FacetList from './FacetList';
 import ProductList from './ProductList';
 import SearchControls from './SearchControls';
 
-type SearchResultsProps = {
+type FullPageSearchProps = {
   error: unknown;
   loaded: boolean;
   loading: boolean;
-  page: any;
+  page: number;
   keyphrase: unknown;
-  productsPerPage: any;
+  productsPerPage: number;
   totalPages: unknown;
   totalItems: unknown;
   sortType: unknown;
@@ -21,7 +21,21 @@ type SearchResultsProps = {
   dispatch: (...args: unknown[]) => void;
 };
 
-const SearchResults = (props: SearchResultsProps): JSX.Element => {
+type FacetClick = {
+  checked: boolean;
+  facetIndex: number;
+  facetType: string;
+  facetValue: string;
+  facetValueIndex: number;
+  valueIndex: number;
+};
+
+type SortProps = {
+  sortDirection: string;
+  sortType: string;
+};
+
+const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
   const {
     error,
     loaded,
@@ -36,7 +50,6 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
     sortChoices,
     products,
     facets,
-    onSearchChange,
     dispatch,
   } = props;
 
@@ -71,10 +84,10 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
         <div className="rfk_sp rfk-sp">
           <${FacetList}
             facets=${facets}
-            onFacetClick=${(payload: any) => {
+            onFacetClick=${(payload: FacetClick) => {
               dispatch(window.RFK.widgets.SearchResultsActions.FACET_CLICKED, payload);
             }}
-            onClear=${(payload: any) => {
+            onClear=${(payload: PointerEvent) => {
               dispatch(window.RFK.widgets.SearchResultsActions.CLEAR_FILTERS, payload);
             }}
           />
@@ -87,17 +100,17 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
               totalPages=${totalPages}
               sortDirection=${sortDirection}
               sortChoices=${sortChoices}
-              onPerPageChange=${(numProducts: any) => {
+              onPerPageChange=${(numProducts: number) => {
                 dispatch(window.RFK.widgets.SearchResultsActions.RESULTS_PER_PAGE_CHANGED, {
                   numProducts: Number(numProducts),
                 });
               }}
-              onPageNumberChange=${(pageNumber: any) => {
+              onPageNumberChange=${(pageNumber: number) => {
                 dispatch(window.RFK.widgets.SearchResultsActions.PAGE_NUMBER_CHANGED, {
                   pageNumber: Number(pageNumber),
                 });
               }}
-              onSortChange=${(payload: any) => {
+              onSortChange=${(payload: SortProps) => {
                 dispatch(window.RFK.widgets.SearchResultsActions.SORT_CHANGED, payload);
               }}
               onSearchChange=${onSearchChangeDebounced}
@@ -118,7 +131,7 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
               products=${products}
               loaded=${loaded}
               loading=${loading}
-              onProductClick=${(payload: any) => {
+              onProductClick=${(payload: PointerEvent) => {
                 dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
               }}
             />
@@ -128,4 +141,4 @@ const SearchResults = (props: SearchResultsProps): JSX.Element => {
   `;
 };
 
-export default SearchResults;
+export default FullPageSearch;

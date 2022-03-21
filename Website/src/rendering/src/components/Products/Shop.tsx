@@ -1,10 +1,8 @@
 import { PropsWithChildren, ReactElement, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import Section from '../PageContent/Section';
 import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
@@ -67,94 +65,6 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   );
 };
 
-export const searchBarProps = {
-  reflektionProps: {
-    didYouMean: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
-    topCategories: ['Chocolate', 'Christmas', 'Christmas time', 'Car'],
-    products: [
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
-        price: 255.99,
-        sku: '28395',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
-        price: 255.99,
-        sku: '234902',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
-        price: 255.99,
-        sku: '3842',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
-        price: 255.99,
-        sku: '29384',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
-        price: 255.99,
-        sku: '203948',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
-        price: 255.99,
-        sku: '23423',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L.png',
-        price: 255.99,
-        sku: '7864',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L-1.png',
-        price: 255.99,
-        sku: '743',
-      },
-      {
-        image_url: '/assets/img/shop/demo/41VNXF4HU6L-2.png',
-        price: 255.99,
-        sku: '674',
-      },
-    ],
-  },
-};
-
-type FeaturedProductHeroProps = {
-  subPageName?: string;
-};
-
-export const FeaturedProductHero = (props: FeaturedProductHeroProps): JSX.Element => {
-  const shopBreadcrumb = props.subPageName ? <Link href="/shop">Shop</Link> : <>Shop</>;
-  const subPageBreadcrumb = props.subPageName && <> &#62; {props.subPageName}</>;
-
-  return (
-    <section className="section section-featured-products">
-      <div className="section__content container">
-        <div id="featured-products-container">
-          <div id="products-left-container">
-            <h4>
-              <Link href="/">Home</Link> &#62; {shopBreadcrumb}
-              {subPageBreadcrumb}
-            </h4>
-            <h2>CenterCycle Ratchet Kit</h2>
-            <p>Small ratchet kit with a bag for your everyday bike travels and repairs.</p>
-            <div className="add-to-cart">
-              <Link href="/shop/product">
-                <a className="btn--main btn--main--round">Add to cart</a>
-              </Link>
-            </div>
-          </div>
-          <div id="products-right-container">
-            <img src="/assets/img/shop/demo/ratchet.png" alt="CenterCycle Ratchet Kit" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
   const [popupVisible, setpopupVisible] = useState(false);
   return (
@@ -164,7 +74,7 @@ export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
         id="search-input"
         onFocus={() => setpopupVisible(true)}
         onBlur={() => setpopupVisible(false)}
-        placeholder="Search for products"
+        placeholder="I am shopping for..."
       ></input>
       <Popup visible={popupVisible}>
         <ReflektionContent {...props.reflektionProps} />
@@ -212,82 +122,6 @@ export const ReflektionContent = (props: ReflektionContentProps): JSX.Element =>
   ) : null;
 };
 
-export const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
-  <Section
-    fields={{
-      cssClass: {
-        value: '',
-      },
-      brightness: {
-        value: 'dark',
-      },
-      title: {
-        value: 'Shop by category',
-      },
-      content: {
-        value: ' ',
-      },
-      callToActionLink: {
-        value: {
-          href: '/shop/products',
-          text: 'View all products',
-        },
-      },
-    }}
-    rendering={{
-      componentName: '',
-      placeholders: {
-        'jss-section-content': [],
-      },
-    }}
-    params={{}}
-  >
-    <div className="shop-by-container">
-      {props.categories.map((category, index) => (
-        <Category key={index} {...category} />
-      ))}
-    </div>
-  </Section>
-);
-
-export const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
-  <Section
-    fields={{
-      cssClass: {
-        value: ' ',
-      },
-      brightness: {
-        value: 'light',
-      },
-      title: {
-        value: 'Shop by vendor',
-      },
-      content: {
-        value: '',
-      },
-      callToActionLink: {
-        value: {
-          href: '/shop/products',
-          text: 'View all products',
-        },
-      },
-    }}
-    rendering={{
-      componentName: '',
-      placeholders: {
-        'jss-section-content': [],
-      },
-    }}
-    params={{}}
-  >
-    <div className="shop-by-container shop-by-vendor-container">
-      {props.vendors.map((vendor, index) => (
-        <Vendor key={index} {...vendor} />
-      ))}
-    </div>
-  </Section>
-);
-
 export const Product = (props: ProductProps): JSX.Element => (
   <div className="product">
     <Link href={`/shop/products/${props.sku}`}>
@@ -303,50 +137,6 @@ export const Product = (props: ProductProps): JSX.Element => (
   </div>
 );
 
-export const Category = (props: CategoryProps): JSX.Element => (
-  <Link href="/shop/products">
-    <a>
-      <div className="category">
-        <img className="category-image" src={props.image_url} alt={props.categoryName} />
-        <p className="item-name">{props.categoryName}</p>
-      </div>
-    </a>
-  </Link>
-);
-
-export const Vendor = (props: VendorProps): JSX.Element => (
-  <Link href="/shop/products">
-    <a>
-      <div>
-        <img src={props.image_url} alt={props.vendorName} />
-        <p className="item-name">{props.vendorName}</p>
-      </div>
-    </a>
-  </Link>
-);
-
-export const ExpandableDropDown = (props: ExpandableDropDownProps): JSX.Element => {
-  const [expanded, setExpanded] = useState(false);
-  return (
-    <div className="dropdown-container">
-      <span className="dropdown-header" onClick={() => setExpanded(!expanded)}>
-        <Text tag="p" field={{ value: props.title }} />
-        <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} />
-      </span>
-      <ul
-        className={expanded ? 'dropdown-items expanded' : 'dropdown-items'}
-        style={{ height: expanded ? props.items.length * 40 : 0 }}
-      >
-        {props.items.map((item) => (
-          <li key={item.text} className="dropdown-item">
-            <span onClick={() => props.onClick(item.value)}>{item.text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
 // Interfaces
 
 export interface ProductProps {
@@ -355,24 +145,6 @@ export interface ProductProps {
   name?: string;
   vendor?: string;
   sku: string;
-}
-
-export interface CategoryProps {
-  image_url: string;
-  categoryName: string;
-}
-
-export interface ShopByCategoryProps {
-  categories: CategoryProps[];
-}
-
-export interface VendorProps {
-  image_url: string;
-  vendorName: string;
-}
-
-export interface ShopByVendorProps {
-  vendors: VendorProps[];
 }
 
 export interface PopupProps {
@@ -388,19 +160,4 @@ export interface ReflektionContentProps {
 
 export interface SearchBarProps {
   reflektionProps?: ReflektionContentProps;
-}
-
-export interface DropdownItem {
-  text: string;
-  value: string;
-}
-
-export interface ClickDelegate {
-  (value: string): void;
-}
-
-export interface ExpandableDropDownProps {
-  items: DropdownItem[];
-  title: string;
-  onClick: ClickDelegate;
 }
