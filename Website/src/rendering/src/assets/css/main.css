@@ -65,7 +65,6 @@
 @import './components/PageContent/HeaderBanner.css';
 @import './components/PageContent/HeroImage.css';
 @import './components/PageContent/HeroSection.css';
-@import './components/PageContent/PreviewSearch.css';
 @import './components/PageContent/Promo.css';
 @import './components/PageContent/SummitFeatures.css';
 @import './components/PageContent/TestimonyList.css';
@@ -81,6 +80,9 @@
 @import './components/Payment/PaymentForm.css';
 @import './components/Payment/PaymentProgress.css';
 @import './components/Payment/TicketPaymentConfirmed.css';
+
+/* Preview Search */
+@import './components/PreviewSearch/PreviewSearch.css';
 
 /* Products */
 @import './components/Products/ProductDetail.css';

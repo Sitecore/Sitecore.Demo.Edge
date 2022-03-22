@@ -68,14 +68,15 @@ type ProductsProps = {
 const Products = (props: ProductsProps): JSX.Element => {
   const { products } = props;
 
-  return window.RFK.ui.html`<button class="view-all-btn">View all</button>
-      <ul class="product-list-container">
-        ${products?.map(
-          (p) => window.RFK.ui.html` <li class="product-list-item">
-            <${ProductItem} ...${p} />
-          </li>`
-        )}
-      </ul>`;
+  return window.RFK.ui.html`
+    <ul class="product-list-container">
+      ${products?.map(
+        (p) => window.RFK.ui.html` <li class="product-list-item">
+          <${ProductItem} ...${p} />
+        </li>`
+      )}
+    </ul>
+  `;
 };
 
 export default Products;

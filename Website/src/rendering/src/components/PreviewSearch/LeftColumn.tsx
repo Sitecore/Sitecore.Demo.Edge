@@ -94,7 +94,9 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
   return window.RFK.ui.html`
     <div class="left-section">
       ${
-        ((loaded && !loading) || categories?.length > 0) &&
+        loaded &&
+        !loading &&
+        categories?.length > 0 &&
         window.RFK.ui.html`<${PreviewSearchList}
         onMouseEnter=${onCategoryEnter}
         onMouseLeave=${onMouseLeave}
@@ -114,7 +116,9 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
       />`
       }
       ${
-        ((loaded && !loading) || suggestions?.length > 0) &&
+        loaded &&
+        !loading &&
+        suggestions?.length > 0 &&
         window.RFK.ui.html`<${PreviewSearchList}
         onMouseEnter=${onSuggestionEnter}
         onMouseLeave=${onMouseLeave}

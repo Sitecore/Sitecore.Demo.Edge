@@ -2,10 +2,10 @@ import { Product } from '../../models/discover/Product';
 import ClickOutside from './ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
-import debounce from '../../../src/helpers/Debounce';
-import { Category } from '../../../src/models/discover/Category';
-import { Suggestion } from '../../../src/models/discover/Suggestion';
-import { PreviewSearchResponse } from '../../../src/models/discover/PreviewSearchResponse';
+import debounce from '../../helpers/Debounce';
+import { Category } from '../../models/discover/Category';
+import { Suggestion } from '../../models/discover/Suggestion';
+import { PreviewSearchResponse } from '../../models/discover/PreviewSearchResponse';
 
 type PreviewSearchProps = {
   loaded: boolean;
@@ -122,12 +122,13 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
   ClickOutside(containerRef, () => setOpen(false));
 
   return window.RFK.ui.html`
+  <div class="preview-search-container">
     <div class="preview-search">
       ${
         open &&
         window.RFK.ui.html` <div
         ref=${containerRef}
-        class="preview-search-modal-container container"
+        class="preview-search-modal-container"
       >
         <${LeftColumn}
           categories=${categories}
@@ -148,7 +149,8 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
       </div>`
       }
     </div>
-  `;
+  </div>
+`;
 };
 
 export default PreviewSearch;

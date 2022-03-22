@@ -5,7 +5,7 @@ import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { ProductSearchBar } from 'components/Products/Shop';
+import { ProductSearchBar } from '../Products/Shop';
 
 export type ShopNavigationProps = ComponentProps & {
   fields: {
