@@ -1,4 +1,4 @@
-import { formatCurrency } from 'src/helpers/CurrencyHelper';
+import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
 const CartSummary = (): JSX.Element => {

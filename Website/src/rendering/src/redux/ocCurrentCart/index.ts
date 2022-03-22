@@ -375,6 +375,7 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
   'ocCurrentCart/submit',
   async (_, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
+    await Orders.Validate('All', ocCurrentCart.order.ID);
     const submitResponse = await Orders.Submit<DOrder>('All', ocCurrentCart.order.ID);
     // eslint-disable-next-line no-use-before-define
     ThunkAPI.dispatch(clearCurrentOrder());

@@ -1,7 +1,7 @@
 import { RequiredDeep, ShipMethodSelection } from 'ordercloud-javascript-sdk';
 import { ChangeEvent } from 'react';
-import { formatCurrency } from 'src/helpers/CurrencyHelper';
-import { DShipMethod } from 'src/models/ordercloud/DShipMethod';
+import { formatCurrency } from '../../helpers/CurrencyHelper';
+import { DShipMethod } from '../../models/ordercloud/DShipMethod';
 
 type ShipMethodsListProps = {
   shipMethods?: DShipMethod[];
