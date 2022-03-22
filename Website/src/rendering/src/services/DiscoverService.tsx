@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+import TrendingCategories from '../components/Widgets/TrendingCategories';
 
 // ***** TYPES *****
 
@@ -16,9 +17,27 @@ interface RFK {
     options: Record<string, unknown>
   ): void;
   init(): void;
+  widgets: Widgets;
+  types: Types;
   ui: {
     html(...args: unknown[]): ReactElement<unknown, string>;
+    useEffect(...args: unknown[]): void;
+    useCallback(...args: unknown[]): (...args: unknown[]) => void;
   };
+}
+
+interface Widgets {
+  PreviewSearchActions: {
+    CATEGORY_CHANGED: string;
+    KEYPHRASE_CHANGED: string;
+    TRENDING_CATEGORY_CHANGED: string;
+    SUGGESTION_CHANGED: string;
+  };
+}
+
+interface Types {
+  PREVIEW_SEARCH: string;
+  RECOMMENDATION: string;
 }
 
 declare global {
@@ -58,6 +77,10 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
         window.RFK.setWidget('rfkid_11', {
           type: 'recommendation',
           component: FrequentlyPurchasedTogether,
+        });
+        window.RFK.setWidget('ps_trending_categories', {
+          type: window.RFK.types.PREVIEW_SEARCH,
+          component: TrendingCategories,
         });
         window.RFK.init();
       }}
