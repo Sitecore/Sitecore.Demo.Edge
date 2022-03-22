@@ -10,7 +10,7 @@ type PriceProps = {
 const Price = (props: PriceProps): JSX.Element => {
   const { finalPrice } = props;
   // Price UI component code here.
-  return window.RFK.ui.html`$${finalPrice}`;
+  return window.RFK.ui.html`<div class="rfksdk_product__price">$${finalPrice}</div>`;
 };
 
 type ProductItemProps = {
@@ -24,6 +24,7 @@ type ProductItemProps = {
   final_price: number;
   price: number;
   image_url: string;
+  brand: string;
 };
 
 const ProductItem = (props: ProductItemProps): JSX.Element => {
@@ -36,6 +37,7 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
     final_price,
     price,
     image_url,
+    brand,
   } = props;
 
   return window.RFK.ui.html`<div class="rfksdk_product">
@@ -47,6 +49,7 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
     <div class="rfksdk_product__info">
       <a href="${product_url}">
         <div class="rfksdk_product__name">${name}</div>
+        <div class="rfksdk_product__brand">${brand}</div>
       </a>
       <${Price}
         className="rfksdk_product__price"
@@ -67,13 +70,15 @@ type ProductsProps = {
 const Products = (props: ProductsProps): JSX.Element => {
   const { products } = props;
 
-  return window.RFK.ui.html`<ul class="rfksdk_preview-search_product-list">
-    ${products?.map(
-      (p) => window.RFK.ui.html` <li class="rfksdk_preview-search_product-list__item">
-        <${ProductItem} ...${p} />
-      </li>`
-    )}
-  </ul>`;
+  return window.RFK.ui
+    .html`<button class="rfksdk_preview-search_product_view-all-btn">View all</button>
+      <ul class="rfksdk_preview-search_product-list">
+        ${products?.map(
+          (p) => window.RFK.ui.html` <li class="rfksdk_preview-search_product-list__item">
+            <${ProductItem} ...${p} />
+          </li>`
+        )}
+      </ul>`;
 };
 
 export default Products;
