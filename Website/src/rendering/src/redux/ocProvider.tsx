@@ -31,7 +31,7 @@ const OcProvider: FunctionComponent = ({ children }) => {
           dispatch(getUser());
         }
         if (!ocCurrentCart.initialized) {
-          dispatch(retrieveOrder());
+          dispatch(retrieveCart());
         }
       }
     }
