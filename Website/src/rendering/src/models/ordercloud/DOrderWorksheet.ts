@@ -8,7 +8,7 @@ import { DOrderSubmitForApprovalResponseXp } from './DOrderSubmitForApprovalResp
 import { DOrderSubmitResponseXp } from './DOrderSubmitResponse';
 import { DProductXp } from './DProduct';
 import { DShipEstimateResponseXp, DShipEstimateXp } from './DShipEstimateResponse';
-import { DSHipFromAddressXp } from './DShipFromAddress';
+import { DShipFromAddressXp } from './DShipFromAddress';
 import { DShippingAddressXp } from './DShippingAddress';
 import { DUserXp } from './DUser';
 import { DVariantXp } from './DVariant';
@@ -20,7 +20,7 @@ export type DOrderWorksheet = OrderWorksheet<
   DProductXp,
   DVariantXp,
   DShippingAddressXp,
-  DSHipFromAddressXp,
+  DShipFromAddressXp,
   DLineItemXp,
   DShipEstimateXp,
   DShipEstimateResponseXp,

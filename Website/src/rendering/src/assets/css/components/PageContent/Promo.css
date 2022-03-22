@@ -20,7 +20,7 @@
 
       @apply bg-center bg-no-repeat bg-cover bg-white-light text-center;
 
-      background-image: url(../../../img/offer-background.jpg);
+      background-image: url(../img/offer-background.jpg);
       padding: 3em;
       max-width: 700px;
       box-shadow: 0 0 20px rgba(23, 23, 23, 0.3);

@@ -16,6 +16,10 @@ When adding new products, please:
 - Capitalize all product name word first letters.
 - Make sure all the mandatory (red) fields have a value and the product also has a brand, a price, a final price, etc.
 - Ensure the generated product_group and SKU is not a duplicate of an existing product. Change the new product name as needed.
+- If the product has variants:
+  - Copy the product row and paste it below itself. Each row will be a different product variant.
+  - The product_group should be the same for all of these product variants, but the SKUs should be unique. In order to make that happen you should add all variant specifications in the appropriate columns (color, size, etc.). If adding a new color please adjust the formula in the color code column to accommodate for the new color. The color column should contain the basic color name (e.g. red, orange, blue) and the color_display_name column can contain any specific color name you would like (e.g. Crimson, Terracotta, Sky Blue).
+  - If the variant has a specific image, specify it in the sku_image_url column.
 
 ## Changing Products URL
 
@@ -73,4 +77,4 @@ Using an SFTP client:
 
 1. Connect to the Play Summit Sitecore Discover FTP server.
    1. URL and credentials available in Sitecore Discover > Developer Resources > API Hosts > Legacy SFTP DNS.
-2. Upload the CSV files to the `/upload` folder. Override the existing files.
+2. Upload the CSV files to the `/upload` folder. Both category and product feed files need to be present on every upload. Override the existing files.

@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { initializeAuth } from './ocAuth';
 import logout from './ocAuth/logout';
-import { retrieveOrder } from './ocCurrentCart';
+import { retrieveCart } from './ocCurrentCart';
 import { useAppDispatch, useAppSelector } from './store';
 import { getUser } from './ocUser';
 import { Configuration } from 'ordercloud-javascript-sdk';

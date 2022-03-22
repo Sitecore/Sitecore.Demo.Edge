@@ -1,0 +1,17 @@
+{
+  <#if (decisionModelResults)??>
+    <#if (decisionModelResults.decisionModelResultNodes)??>
+        <#list decisionModelResults.decisionModelResultNodes as result>
+            <#if (result.outputs)??>
+                <#list result.outputs as output>
+                    <#list output as outputName, outputValue>
+                        <#if (!outputValue?is_hash) && outputName != "ruleId">
+                            "guestRef" : "${outputValue}"
+                        </#if>
+                    </#list>
+                </#list>
+            </#if>
+        </#list>
+    </#if>
+  </#if>
+}
