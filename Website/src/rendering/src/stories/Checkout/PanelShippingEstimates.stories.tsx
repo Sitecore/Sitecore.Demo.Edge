@@ -73,16 +73,6 @@ const mockState = {
 };
 
 export const WithoutSelections = Template.bind({});
-WithoutSelections.args = {
-  params: {
-    name: 'PanelShippingEstimates',
-  },
-  rendering: {
-    componentName: 'PanelShippingEstimates',
-    dataSource: '/sitecore',
-  },
-};
-
 WithoutSelections.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockState }}>
@@ -92,16 +82,6 @@ WithoutSelections.decorators = [
 ];
 
 export const WithSelections = Template.bind({});
-WithoutSelections.args = {
-  params: {
-    name: 'PanelShippingEstimates',
-  },
-  rendering: {
-    componentName: 'PanelShippingEstimates',
-    dataSource: '/sitecore',
-  },
-};
-
 const mockStateClone = JSON.parse(JSON.stringify(mockState));
 mockStateClone.shipEstimateResponse.ShipEstimates[0].SelectedShipMethodID = 'PICKUP_FROM_SUMMIT';
 WithSelections.decorators = [

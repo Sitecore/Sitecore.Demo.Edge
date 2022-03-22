@@ -9,7 +9,7 @@ const CheckoutSummary = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { order, shipEstimateResponse } = useOcCurrentOrder();
+  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
@@ -35,13 +35,36 @@ const CheckoutSummary = (): JSX.Element => {
     }
   };
 
+  const canSubmitOrder = (): boolean => {
+    debugger;
+    if (loading) {
+      return false;
+    }
+    if (!order.ID) {
+      return false;
+    }
+    if (!selectedShipMethodId) {
+      return false;
+    }
+    if (!shippingAddress?.ID) {
+      return false;
+    }
+    if (!order.BillingAddress?.ID) {
+      return false;
+    }
+    if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
+      return false;
+    }
+    return true;
+  };
+
   const subtotal = order && (
     <div>
       <p>
         Cart ({order.LineItemCount} items): {formatCurrency(order.Subtotal)}
       </p>
       <p>Shipping & Handling: {getShippingMessage()}</p>
-      <button disabled={!order.ID || loading} onClick={handleSubmitOrder}>
+      <button disabled={!canSubmitOrder()} onClick={handleSubmitOrder}>
         Place your order
       </button>
     </div>

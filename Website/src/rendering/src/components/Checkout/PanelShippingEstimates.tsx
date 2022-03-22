@@ -9,7 +9,7 @@ const PanelShippingEstimates = (): JSX.Element => {
   // only returning a single set of ship estimates to keep it simple
   // expect to add a set of ship estimates by supplier in the future
   const dispatch = useAppDispatch();
-  const { shipEstimateResponse } = useOcCurrentOrder();
+  const { shipEstimateResponse, shippingAddress } = useOcCurrentOrder();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
@@ -21,14 +21,16 @@ const PanelShippingEstimates = (): JSX.Element => {
     dispatch(selectShipMethods([selection]));
   };
 
-  const shipMethodsList = shipMethods ? (
+  const shipMethodsList = shipMethods && (
     <ShipMethodsList
       shipEstimateId={shipEstimate.ID}
       shipMethods={shipMethods}
       selectedShipMethodId={selectedShipMethodId}
       onChange={handleShipMethodSelectionChange}
     />
-  ) : (
+  );
+
+  const missingShippingAddress = !shippingAddress?.ID && (
     <div>Please enter shipping address to view delivery types</div>
   );
 
@@ -37,7 +39,10 @@ const PanelShippingEstimates = (): JSX.Element => {
       <div className="panel-header">
         <h2>Delivery Type</h2>
       </div>
-      <div className="panel-body">{shipMethodsList}</div>
+      <div className="panel-body">
+        {shipMethodsList}
+        {missingShippingAddress}
+      </div>
     </div>
   );
 };

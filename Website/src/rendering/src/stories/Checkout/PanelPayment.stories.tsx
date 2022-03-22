@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import PanelPayment from '../../components/Checkout/PanelPayment';
 import { DPayment } from 'src/models/ordercloud/DPayment';
 import { MockStore } from '../mock-store';
+import { getMockExpirationDate } from '../utils';
 
 export default {
   title: 'Components/Checkout/PanelPayment',
@@ -13,13 +14,6 @@ const Template: ComponentStory<typeof PanelPayment> = (args) => <PanelPayment {.
 
 export const WithSavedPayment = Template.bind({});
 WithSavedPayment.args = {};
-
-const getMockExpirationDate = (): string => {
-  const now = new Date();
-  const nowYear = now.getFullYear();
-  now.setFullYear(nowYear + 2);
-  return now.toISOString();
-};
 
 const mockStateSavedPayment = {
   initialized: true,

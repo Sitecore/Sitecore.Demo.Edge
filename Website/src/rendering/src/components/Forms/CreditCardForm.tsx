@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { getMockExpirationDate } from '../../stories/utils';
 import {
   getIsoDateFromYearAndMonth,
   getMonthFromIsoDateString,
@@ -12,12 +13,6 @@ type CreditCardFormProps = {
 };
 
 const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
-  const getMockExpirationDate = (): string => {
-    const now = new Date();
-    const nowYear = now.getFullYear();
-    now.setFullYear(nowYear + 2);
-    return now.toISOString();
-  };
   const [cardholderName, setCardholderName] = useState(
     props?.creditCard?.ID ? props?.creditCard?.CardholderName || '' : 'John Smith' // TODO: remove mocked data once we have saved credit cards
   );
