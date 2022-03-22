@@ -6,12 +6,10 @@ import {
   Certs,
   Configuration,
   DecodedToken,
-  Me,
   PublicKey,
   Tokens,
 } from 'ordercloud-javascript-sdk';
 import parseJwt from 'src/helpers/JwtHelper';
-import { DOrder } from 'src/models/ordercloud/DOrder';
 import cacheData from 'memory-cache';
 
 export function tryDecodeToken(token: string): DecodedToken {
@@ -79,46 +77,13 @@ export async function initializeMiddlewareClient(): Promise<void> {
   const authResponse = await Auth.ClientCredentials(
     process.env.ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET,
     process.env.ORDERCLOUD_MIDDLEWARE_CLIENT_ID,
-    ['OverrideTax']
+    ['OrderAdmin']
   );
   Tokens.SetAccessToken(authResponse.access_token);
   Tokens.SetRefreshToken(authResponse.refresh_token);
 }
 
-// making an assumption that a use will only ever have one unsubmitted order
-export async function getUserOrder(request: NextApiRequest): Promise<DOrder> {
-  const userToken = getUserToken(request);
-  const userOrders = await Me.ListOrders<DOrder>(
-    {
-      sortBy: ['DateCreated'],
-      filters: { Status: 'Unsubmitted' },
-    },
-    { accessToken: userToken }
-  );
-  if (!userOrders.Items.length) {
-    return null;
-  }
-  return userOrders.Items[0];
-}
-
 export function getUserToken(request: NextApiRequest): string {
   const authHeader = request.headers.authorization;
   return authHeader.replace('Authorization ', '');
-}
-
-// nextjs doesn't offer a way of getting the raw body so we have to do it ourselves
-// https://github.com/vercel/next.js/discussions/13405
-export async function readRawBody(request: NextApiRequest & { rawBody?: string }): Promise<string> {
-  return new Promise<string>((resolve) => {
-    let buffer = '';
-    request.setEncoding('utf8');
-    request.on('data', (chunk) => {
-      buffer += chunk;
-    });
-    request.on('end', () => {
-      request.rawBody = buffer;
-      request.body = JSON.parse(Buffer.from(request.rawBody).toString());
-      resolve(buffer);
-    });
-  });
 }

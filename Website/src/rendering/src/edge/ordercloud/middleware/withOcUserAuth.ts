@@ -6,9 +6,8 @@ import { getUserToken, tryDecodeToken, verifyTokenWithKeyId } from '../utils';
 /**
  * Ensures that the api request that this wraps has a valid ordercloud token from the buyer API client
  */
-const withOcUserAuth =
-  (handler: NextApiHandler) =>
-  (request: NextApiRequest, response: NextApiResponse): void | Promise<void> => {
+export default function withOcUserAuth(handler: NextApiHandler): NextApiHandler {
+  return async (request: NextApiRequest, response: NextApiResponse) => {
     const token = getUserToken(request);
     if (!token) {
       return unauthorizedResponse(response);
@@ -30,5 +29,4 @@ const withOcUserAuth =
     }
     return handler(request, response);
   };
-
-export default withOcUserAuth;
+}

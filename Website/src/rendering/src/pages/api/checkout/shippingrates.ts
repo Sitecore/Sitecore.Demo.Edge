@@ -1,9 +1,9 @@
 import { NextApiHandler } from 'next';
-import withWebhookAuth from 'src/edge/ordercloud/middleware/withWebhookAuth';
+import { withOCWebhookAuth } from '@ordercloud/catalyst';
 import { DOrderCheckoutIntegrationEvent } from 'src/models/ordercloud/DOrderCheckoutIntegrationEvent';
 import { DShipEstimateResponse } from 'src/models/ordercloud/DShipEstimateResponse';
 
-// We're taking over body parsing, this is required on endpoints that use withWebhookAuth
+// withOCWebhookAuth needs the raw body in order to validate the payload is coming from ordercloud
 export const config = {
   api: {
     bodyParser: false,
@@ -71,4 +71,4 @@ const routeHandler: NextApiHandler<DShipEstimateResponse> = async (request, resp
   });
 };
 
-export default withWebhookAuth(routeHandler);
+export default withOCWebhookAuth(routeHandler);

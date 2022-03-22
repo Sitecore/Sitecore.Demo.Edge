@@ -1,10 +1,11 @@
 import { NextApiHandler } from 'next';
 import { DPayment } from 'src/models/ordercloud/DPayment';
 import { Orders, Payments, RequiredDeep } from 'ordercloud-javascript-sdk';
-import { errorResponse } from 'src/edge/ordercloud/responses';
 import { DOrder } from 'src/models/ordercloud/DOrder';
 import withOcUserAuth from 'src/edge/ordercloud/middleware/withOcUserAuth';
-import { getUserToken } from 'src/edge/ordercloud/utils';
+import { getUserToken, initializeMiddlewareClient } from 'src/edge/ordercloud/utils';
+import withOcErrorHandler from 'src/edge/ordercloud/middleware/withOcErrorHandler';
+import { CatalystBaseError } from '@ordercloud/catalyst';
 
 /**
  * This endpoint is called by the buyer app when needing to update payments it will receive the expected payments
@@ -13,17 +14,18 @@ import { getUserToken } from 'src/edge/ordercloud/utils';
  * the special role of OrderAdmin which is granted to our middleware client but not buyer users (for security reasons)
  */
 const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, response) => {
+  await initializeMiddlewareClient();
+
   const { orderId } = request.query as { orderId: string };
   const requestedPayments = request.body?.Payments as RequiredDeep<DPayment>[];
   const userToken = getUserToken(request);
   if (!orderId) {
-    return errorResponse(response, 'Missing required parameter orderId', 'Payments.MissingOrderId');
+    throw new CatalystBaseError('Payments.MissingOrderId', 'Missing required parameter orderId');
   }
   if (!requestedPayments?.length) {
-    return errorResponse(
-      response,
-      'Missing required request body Payments of type DPayment[]',
-      'Payments.MissingRequestBody'
+    throw new CatalystBaseError(
+      'Payments.MissingRequestBody',
+      'Missing required request body Payments of type DPayment[]'
     );
   }
   const order = await Orders.Get<DOrder>('All', orderId);
@@ -186,4 +188,4 @@ async function updatePurchaseOrderPayment(
   }
 }
 
-export default withOcUserAuth(routeHandler);
+export default withOcErrorHandler(withOcUserAuth(routeHandler));
