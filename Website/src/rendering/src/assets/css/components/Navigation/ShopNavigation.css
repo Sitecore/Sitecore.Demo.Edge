@@ -55,8 +55,18 @@
         max-width: 65%;
       }
 
-      input {
-        @apply block mx-auto my-0 w-full rounded;
+      .shop-search-input {
+        @apply block mx-auto my-0 w-full rounded border-2 border-solid border-black-light pl-11;
+      }
+
+      .shop-search-icon {
+        position: absolute;
+        left: 17px;
+        top: 6px;
+
+        @screen lg {
+          top: 7px;
+        }
       }
     }
   }

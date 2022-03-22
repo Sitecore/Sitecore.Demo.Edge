@@ -58,7 +58,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       </header>
       <main>
         <HeaderCdpMessageBar />
-        <div className="shop-container">{props.children}</div>
+        <div className="shop-main-container">{props.children}</div>
       </main>
       <footer>
         <Footer {...footerProps} />

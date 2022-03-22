@@ -84,7 +84,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
           id="search-input-container"
           className="shop-search-input-container"
         >
-          <FontAwesomeIcon id="search-icon" icon={faSearch} />
+          <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
           <input
             id="search-input"
             className="shop-search-input"
