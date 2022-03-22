@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 /* 1. Our configuration and helpers */
 
@@ -59,13 +59,13 @@
 @import './components/NonSitecore/InformationPageHero.css';
 
 /* PageContent */
-@import "./components/PageContent/Discover.css";
 @import './components/PageContent/DynamicWelcomeMessage.css';
 @import './components/PageContent/FeaturedEvent.css';
 @import './components/PageContent/FullImageSection.css';
 @import './components/PageContent/HeaderBanner.css';
 @import './components/PageContent/HeroImage.css';
 @import './components/PageContent/HeroSection.css';
+@import './components/PageContent/PreviewSearch.css';
 @import './components/PageContent/Promo.css';
 @import './components/PageContent/SummitFeatures.css';
 @import './components/PageContent/TestimonyList.css';

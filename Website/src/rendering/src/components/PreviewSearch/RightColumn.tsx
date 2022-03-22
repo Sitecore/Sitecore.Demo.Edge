@@ -11,8 +11,8 @@ const RightColumn = (props: RightColumnProps): JSX.Element => {
   const { products, loading } = props;
 
   return window.RFK.ui.html`
-    <div class="rightSection">
-      <h2 class="rightSection__title">Top results</h2>
+    <div class="right-section">
+      <h2 class="right-section-title">Top results</h2>
       ${!loading && window.RFK.ui.html`<${Products} products=${products} loading=${loading} />`}
       ${loading && window.RFK.ui.html`loading .....`}
     </div>

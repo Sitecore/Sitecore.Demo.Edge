@@ -122,12 +122,12 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
   ClickOutside(containerRef, () => setOpen(false));
 
   return window.RFK.ui.html`
-    <div class="rfksdk-preview-search-container">
+    <div class="preview-search">
       ${
         open &&
         window.RFK.ui.html` <div
         ref=${containerRef}
-        class="rfksdk-preview-search-container__modal"
+        class="preview-search-modal-container container"
       >
         <${LeftColumn}
           categories=${categories}

@@ -10,7 +10,7 @@ type PriceProps = {
 const Price = (props: PriceProps): JSX.Element => {
   const { finalPrice } = props;
   // Price UI component code here.
-  return window.RFK.ui.html`<div class="rfksdk_product__price">$${finalPrice}</div>`;
+  return window.RFK.ui.html`<div class="product-price">$${finalPrice}</div>`;
 };
 
 type ProductItemProps = {
@@ -40,25 +40,23 @@ const ProductItem = (props: ProductItemProps): JSX.Element => {
     brand,
   } = props;
 
-  return window.RFK.ui.html`<div class="rfksdk_product">
-    <div class="rfksdk_product__wrapper">
+  return window.RFK.ui.html`<div class="product-container">
+    <div class="product-image-container">
       <a href=${product_url} onClick=${onClick}
-        ><img class="rfksdk_product__image" src="${image_url}" alt="${name}"
+        ><img class="product-image" src="${image_url}" alt="${name}"
       /></a>
     </div>
-    <div class="rfksdk_product__info">
+    <div class="product-info-container">
       <a href="${product_url}">
-        <div class="rfksdk_product__name">${name}</div>
-        <div class="rfksdk_product__brand">${brand}</div>
+        <div class="product-name">${name}</div>
+        <div class="product-brand">${brand}</div>
       </a>
       <${Price}
-        className="rfksdk_product__price"
         price=${price}
         finalPrice=${final_price}
         min=${final_price_min_formatted}
         max=${final_price_max_formatted}
       />
-      <a href=${product_url} onClick=${onClick} className="rfksdk_product__view-details">View</a>
     </div>
   </div>`;
 };
@@ -70,11 +68,10 @@ type ProductsProps = {
 const Products = (props: ProductsProps): JSX.Element => {
   const { products } = props;
 
-  return window.RFK.ui
-    .html`<button class="rfksdk_preview-search_product_view-all-btn">View all</button>
-      <ul class="rfksdk_preview-search_product-list">
+  return window.RFK.ui.html`<button class="view-all-btn">View all</button>
+      <ul class="product-list-container">
         ${products?.map(
-          (p) => window.RFK.ui.html` <li class="rfksdk_preview-search_product-list__item">
+          (p) => window.RFK.ui.html` <li class="product-list-item">
             <${ProductItem} ...${p} />
           </li>`
         )}
