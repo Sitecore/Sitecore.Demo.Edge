@@ -1,19 +1,19 @@
 import { RequiredDeep, Spec } from 'ordercloud-javascript-sdk';
 import { ChangeEvent, FunctionComponent } from 'react';
 
-interface ProductSpecFieldProps {
+interface OrderCloudSpecFieldProps {
   spec: RequiredDeep<Spec>;
   optionId?: string;
   value?: string;
   onChange: (values: { SpecID: string; OptionID?: string; Value?: string }) => void;
 }
 
-const ProductSpecField: FunctionComponent<ProductSpecFieldProps> = ({
+const ProductSpecField: FunctionComponent<OrderCloudSpecFieldProps> = ({
   spec,
   optionId,
   value,
   onChange,
-}) => {
+}): JSX.Element => {
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     onChange({
       SpecID: spec.ID,

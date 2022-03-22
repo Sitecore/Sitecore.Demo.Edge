@@ -1,15 +1,24 @@
-import { useRouter } from 'next/router';
-import { Spec, Variant } from 'ordercloud-javascript-sdk';
-import { FormEvent, useCallback, useEffect, useState } from 'react';
-import useOcProductDetail from 'src/hooks/useOcProductDetail';
-import { createLineItem } from 'src/redux/ocCurrentCart';
-import { useAppDispatch, useAppSelector } from 'src/redux/store';
-import { logViewEvent } from 'src/services/CdpService';
+import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
+import { FormEvent, FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { createLineItem } from '../../redux/ocCurrentCart';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
 import ProductQuantityInput from './ProductQuantityInput';
-import ProductSpecField from './ProductSpecField';
+import ProductSpecList from './ProductSpecList';
+import ProductVariantList from './ProductVariantList';
 import { Product } from './Shop';
 
-type ProductProps = {
+interface ProductDetailsContentProps {
+  sku?: string;
+  productName?: string;
+  variantID?: string;
+  product: RequiredDeep<BuyerProduct>;
+  specs: RequiredDeep<Spec>[];
+  variants: RequiredDeep<Variant>[];
+  similarProducts?: DiscoverProduct[];
+  moreProducts?: DiscoverProduct[];
+}
+
+type DiscoverProduct = {
   name: string;
   price: number;
   image_url: string;
@@ -17,44 +26,26 @@ type ProductProps = {
   sku: string;
 };
 
-type Widget = {
-  widget: {
-    rfkid: string;
-  };
-  content: {
-    product: {
-      value: [ProductProps];
-    };
-  };
-};
-
-type rfkResponse = {
-  batch: [Widget];
-};
-
-type specProps = {
+type OrderCloudSpec = {
   SpecID: string;
   OptionID?: string;
   Value?: string;
 };
 
-const ProductDetailPage = (): JSX.Element => {
+const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
+  sku,
+  productName,
+  variantID,
+  product,
+  specs,
+  variants,
+  similarProducts,
+  moreProducts,
+}): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [similarProducts, setSimilarProducts] = useState<ProductProps[] | undefined>(undefined);
-  const [moreProducts, setMoreProducts] = useState<ProductProps[] | undefined>(undefined);
   const [loading, setLoading] = useState(false);
-  const [specValues, setSpecValues] = useState<specProps[]>([]);
+  const [specValues, setSpecValues] = useState<OrderCloudSpec[]>([]);
 
-  // Products without variants: /shop/products/[productGroup, same as SKU]/[product-name]
-  // Products with variants:
-  // Without a selected variant: /shop/products/[productGroup]/[product-name]
-  // With a pre-selected variant: /shop/products/[productGroup]/[product-name]/[SKU]
-  const router = useRouter();
-  const sku = router?.query?.sections?.length > 0 ? router.query.sections[0] : undefined;
-  const productName = router?.query?.sections?.length > 1 ? router.query.sections[1] : undefined;
-  const variantID = router?.query?.sections?.length > 2 ? router.query.sections[2] : undefined;
-
-  const { product, specs, variants } = useOcProductDetail(sku?.toString());
   const [variant, setVariant] = useState<Variant>(undefined);
 
   // Handle LineItem edits
@@ -75,7 +66,7 @@ const ProductDetailPage = (): JSX.Element => {
 
   // Set the spec values on inital load
   useEffect(() => {
-    let specVals: specProps[] = [];
+    let specVals: OrderCloudSpec[] = [];
     if (lineItem) {
       setSpecValues(lineItem.Specs);
     } else {
@@ -149,8 +140,8 @@ const ProductDetailPage = (): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [specValues]);
 
-  const handleSpecFieldChange = (values: specProps) => {
-    const tempSpecs: specProps[] = specValues.map((s) => {
+  const handleSpecFieldChange = (values: OrderCloudSpec) => {
+    const tempSpecs: OrderCloudSpec[] = specValues.map((s) => {
       if (s.SpecID === values.SpecID) {
         return {
           SpecID: values.SpecID,
@@ -174,61 +165,6 @@ const ProductDetailPage = (): JSX.Element => {
     [dispatch, product, specValues]
   );
 
-  const fetchData = useCallback(() => {
-    const data = {
-      context: {
-        page: {
-          uri: '/hs/product/details',
-          locale_country: 'us',
-          locale_language: 'en',
-          sku: sku,
-        },
-        user: {
-          uuid: '123',
-          user_id: '123',
-        },
-      },
-      batch: [
-        { widget: { rfkid: 'hs_pdp' } },
-        { widget: { rfkid: 'hs_sim' } },
-        { widget: { rfkid: 'hs_more' } },
-      ],
-      content: { product: { field: { value: ['image_url', 'name', 'price', 'brand', 'sku'] } } },
-    };
-
-    const headers = [
-      ['Authorization', '01-90d83624-99f708fa77a1e96a25c4a2afd0f28a4c23ff5251'],
-      ['Content-Type', 'application/json'],
-    ];
-
-    const url = 'https://api.rfksrv.com/search-rec/11269-125757327/3';
-
-    fetch(url, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({ data }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        const similarProducts = getWidgetById(res, 'hs_sim');
-        const moreProducts = getWidgetById(res, 'hs_more');
-
-        setSimilarProducts(similarProducts?.content.product.value);
-        setMoreProducts(moreProducts?.content.product.value);
-      });
-  }, [sku]);
-
-  useEffect(() => {
-    if (sku) {
-      logViewEvent();
-      fetchData();
-    }
-  }, [sku, fetchData]);
-
-  const getWidgetById = (res: rfkResponse, id: string) => {
-    return res.batch.find((widget: Widget) => widget.widget.rfkid === id);
-  };
-
   const productImage =
     variant?.xp?.Images.length > 0 && variant?.xp?.Images[0].Url ? (
       <img className="product-image-main" src={variant.xp.Images[0].Url} alt="variant" />
@@ -238,10 +174,10 @@ const ProductDetailPage = (): JSX.Element => {
 
   // Force route to reload when navigating to a specific variant
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const goToVariant = (link: string) => {
-    window.location.href = link;
+  const goToVariant = (variantID: string) => {
+    window.location.href = `/shop/products/${product.ID}/${productName}/${variantID}`;
   };
-  return product ? (
+  const theProduct = product ? (
     <section className="section">
       <div className="section__content container">
         <div className="product-detail">
@@ -256,49 +192,16 @@ const ProductDetailPage = (): JSX.Element => {
                 <span className="product-price">{product.PriceSchedule.PriceBreaks[0].Price}</span>
               </div>
               <form onSubmit={handleAddToCart}>
-                {specs ? (
-                  <div>
-                    Specs:
-                    <div className="product-specs">
-                      {specs?.map((spec) => {
-                        const specValue = specValues.find(
-                          (specValue) => specValue.SpecID === spec.ID
-                        );
-                        return (
-                          <ProductSpecField
-                            key={spec.ID}
-                            spec={spec}
-                            onChange={handleSpecFieldChange}
-                            optionId={specValue && specValue.OptionID}
-                            value={specValue && specValue.Value}
-                          />
-                        );
-                      })}
-                    </div>
-                  </div>
-                ) : null}
-                {variants && !variantID ? (
-                  <div>
-                    Variants:
-                    <div className="product-variants">
-                      <ul>
-                        {variants?.map((variant, index) => (
-                          <li key={index}>
-                            <button
-                              onClick={() =>
-                                goToVariant(
-                                  `/shop/products/${product.ID}/${productName}/${variant.ID}`
-                                )
-                              }
-                            >
-                              {variant.Name}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ) : null}
+                <ProductSpecList
+                  specs={specs}
+                  specValues={specValues}
+                  onChange={handleSpecFieldChange}
+                />
+                <ProductVariantList
+                  variants={variants}
+                  variantID={variantID}
+                  onChange={goToVariant}
+                />
                 <ProductQuantityInput
                   controlId="addToCart"
                   priceSchedule={product.PriceSchedule}
@@ -335,6 +238,8 @@ const ProductDetailPage = (): JSX.Element => {
       </div>
     </section>
   ) : null;
+
+  return theProduct;
 };
 
-export default ProductDetailPage;
+export default ProductDetailsContent;

@@ -26,30 +26,32 @@ const ProductQuantityInput: FunctionComponent<ProductQuantityInputProps> = ({
     onChange(Number(e.target.value));
   };
 
+  const priceForm = priceSchedule.RestrictedQuantity ? (
+    // eslint-disable-next-line
+    <select id={controlId} disabled={disabled} value={quantity} onChange={handleSelectChange}>
+      {priceSchedule.PriceBreaks.map((pb) => (
+        <option key={pb.Quantity} value={pb.Quantity}>
+          {pb.Quantity}
+        </option>
+      ))}
+    </select>
+  ) : (
+    <input
+      id={controlId}
+      disabled={disabled}
+      type="number"
+      min={priceSchedule.MinQuantity}
+      max={priceSchedule.MaxQuantity}
+      step={1}
+      value={quantity}
+      onChange={handleInputChange}
+    />
+  );
+
   return (
     <label htmlFor={controlId}>
       {label}
-      {priceSchedule.RestrictedQuantity ? (
-        // eslint-disable-next-line
-        <select id={controlId} disabled={disabled} value={quantity} onChange={handleSelectChange}>
-          {priceSchedule.PriceBreaks.map((pb) => (
-            <option key={pb.Quantity} value={pb.Quantity}>
-              {pb.Quantity}
-            </option>
-          ))}
-        </select>
-      ) : (
-        <input
-          id={controlId}
-          disabled={disabled}
-          type="number"
-          min={priceSchedule.MinQuantity}
-          max={priceSchedule.MaxQuantity}
-          step={1}
-          value={quantity}
-          onChange={handleInputChange}
-        />
-      )}
+      {priceForm}
     </label>
   );
 };

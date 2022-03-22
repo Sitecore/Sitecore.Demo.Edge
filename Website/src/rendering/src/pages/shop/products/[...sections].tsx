@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { ShopLayout } from '../../../components/Products/Shop';
-import ProductDetailPage from 'components/Products/ProductDetailPage';
+import ProductDetails from 'components/Products/ProductDetails';
 import { useRouter } from 'next/router';
 
 // Example URL: /shop/products/64114
@@ -12,7 +12,7 @@ const ProductPage = (): JSX.Element => {
       <Head>
         <title>PLAY! SHOP - {productName}</title>
       </Head>
-      <ProductDetailPage />
+      <ProductDetails />
     </ShopLayout>
   );
 };
