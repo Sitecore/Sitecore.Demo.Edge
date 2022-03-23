@@ -50,7 +50,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
 
   // Show shop content if commerce is enabled, otherwise show error message
   const shopContent = isCommerceEnabled ? (
-    <div className="shop-container">{props.children}</div>
+    <div className="shop-main-container">{props.children}</div>
   ) : (
     <p className="shop-integration-error">
       Shop pages are currently disabled because the commerce integration is not configured
