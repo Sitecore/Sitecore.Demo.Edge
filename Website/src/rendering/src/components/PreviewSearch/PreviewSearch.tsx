@@ -48,10 +48,6 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
     []
   );
 
-  const onFocus = (keyphrase: string) => {
-    changeKeyphrase({ value: keyphrase });
-  };
-
   const changeCategory = window.RFK.ui.useCallback(
     debounce(
       (category: string) => {
@@ -88,32 +84,35 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
 
   const [open, setOpen] = window.RFK.ui.useState(false);
 
-  const inputFocusFn = () => {
+  const handleSearchBoxFocus = () => {
     setOpen(true);
-    onFocus(keyphrase);
+    changeKeyphrase({ value: keyphrase });
+  };
+
+  const handleSearchBoxKeyUp = (e: KeyboardEvent) => {
+    switch (e.key) {
+      case 'Escape':
+        setOpen(false);
+        break;
+      case 'Enter':
+        // TODO: Change to a Next.js router route push when we have the Discover SDK initialized on every route change.
+        window.location.href = `${redirectUrl}${(e.target as HTMLInputElement).value}`;
+        break;
+      default:
+        setOpen(true);
+        changeKeyphrase(e.target);
+        break;
+    }
   };
 
   window.RFK.ui.useEffect(() => {
     const inputRef = document.querySelector(inputQuerySelector);
-    inputRef.addEventListener('keyup', (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'Escape':
-          setOpen(false);
-          break;
-        case 'Enter':
-          window.location.href = `${redirectUrl}${(e.target as HTMLInputElement).value}`;
-          break;
-        default:
-          setOpen(true);
-          changeKeyphrase(e.target);
-          break;
-      }
-    });
-    inputRef.addEventListener('focus', inputFocusFn);
+    inputRef.addEventListener('keyup', handleSearchBoxKeyUp);
+    inputRef.addEventListener('focus', handleSearchBoxFocus);
 
     return () => {
-      inputRef.removeEventListener('change', changeKeyphrase);
-      inputRef.removeEventListener('focus', inputFocusFn);
+      inputRef.removeEventListener('keyup', handleSearchBoxKeyUp);
+      inputRef.removeEventListener('focus', handleSearchBoxFocus);
     };
   }, [inputQuerySelector]);
 
