@@ -1,18 +1,20 @@
 .shop-navigation {
   @apply bg-black h-28;
-  @apply lg:h-20;
+
+  @screen lg {
+    height: 100px;
+  }
 
   .shop-navigation-content {
     @include flex--sb-w;
 
-    @apply w-full;
+    @apply h-full;
 
     .logo-container {
-      @apply pl-4;
-      @apply sm:pl-8;
+      @apply pr-3;
 
       .logo-link {
-        @apply text-xl font-bold leading-relaxed inline-block py-3 whitespace-nowrap uppercase text-white;
+        @apply text-xl font-bold leading-relaxed inline-block whitespace-nowrap uppercase text-white;
 
         img {
           @apply h-10;
@@ -21,15 +23,13 @@
     }
 
     .items-container {
-      @apply flex-row pt-3 pb-5;
-      @apply sm:pl-4;
+      @apply lg:order-3;
 
       ul {
         @apply flex items-center list-none;
-        @apply sm:pr-4;
 
         .shop-navigation-menu-item {
-          @apply px-3 py-2 text-base leading-loose text-white align-middle;
+          @apply pl-3 py-2 text-base leading-loose text-white align-middle;
           @apply hover:text-yellow;
 
           &.locale-picker {
@@ -48,19 +48,25 @@
     }
 
     .shop-search-input-container {
-      @apply w-full absolute bottom-0 mb-2;
-      @apply lg:w-1/2 lg:bottom-6 lg:right-1/3;
+      @apply relative w-full bottom-2;
+      @apply lg:bottom-0;
 
-      #search-icon {
-        @apply absolute left-8 top-1;
-        @apply sm:left-10;
-        @apply md:left-12;
-        @apply lg:left-8;
-        @apply 2xl:left-12;
+      @screen lg {
+        max-width: 65%;
       }
 
-      input {
-        @apply block mx-auto my-0 w-11/12 px-10 rounded;
+      .shop-search-input {
+        @apply block mx-auto my-0 w-full rounded border-2 border-solid border-black-light pl-11;
+      }
+
+      .shop-search-icon {
+        position: absolute;
+        left: 17px;
+        top: 6px;
+
+        @screen lg {
+          top: 7px;
+        }
       }
     }
   }

@@ -72,9 +72,8 @@ const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '
 // const DISCOVER_CUSTOMER_KEY_SUFFIX = !!DISCOVER_CUSTOMER_KEY
 //   ? DISCOVER_CUSTOMER_KEY.substring(DISCOVER_CUSTOMER_KEY.indexOf('-') + 1)
 //   : '';
-const isDiscoverConfigured = !!DISCOVER_API_KEY && !!DISCOVER_CUSTOMER_KEY;
 
-export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
+export const DiscoverScripts: JSX.Element = (
   <>
     {/* Beacon for old integration way */}
     {/* <Script
@@ -120,4 +119,4 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
       }}
     />
   </>
-) : undefined;
+);

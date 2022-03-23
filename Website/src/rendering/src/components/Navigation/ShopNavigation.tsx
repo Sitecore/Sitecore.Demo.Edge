@@ -33,7 +33,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
 
   return (
     <nav className="shop-navigation">
-      <div className="shop-navigation-content">
+      <div className="shop-container shop-navigation-content">
         <div className="logo-container">
           <Link href="/shop">
             <a className="logo-link">
