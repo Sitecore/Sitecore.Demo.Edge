@@ -195,3 +195,7 @@ ul.dropdown-items.expanded {
   height: fit-content;
   transition: height 0.3s;
 }
+
+p.shop-integration-error {
+  @apply text-center text-yellow font-bold;
+}
