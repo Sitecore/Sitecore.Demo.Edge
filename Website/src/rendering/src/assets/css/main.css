@@ -86,7 +86,9 @@
 
 /* Products */
 @import './components/Products/ProductDetail.css';
+@import './components/Products/ProductListContainer.css';
 @import './components/Products/Shop.css';
+@import './components/Products/Price.css';
 
 /* Sessions */
 @import './components/Sessions/SessionsGrid.css';

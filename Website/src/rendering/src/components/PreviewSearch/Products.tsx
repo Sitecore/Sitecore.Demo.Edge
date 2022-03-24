@@ -7,16 +7,32 @@ type PriceProps = {
   finalPrice: number;
 };
 
+// TODO: extract Price to a separate component
 const Price = (props: PriceProps): JSX.Element => {
-  const { finalPrice } = props;
-  // Price UI component code here.
-  return window.RFK.ui.html`
-    <div className="price">
-      <span className="price-base">$199.99</span>
-      <span className="price-discount">-20%</span>
-      <span className="price-final">$${finalPrice}</span>
-    </div>
-  `;
+  const { max, min, price, finalPrice } = props;
+
+  if (max) {
+    return window.RFK.ui.html`<div className="rfksdk_price price">
+      <span className="rfksdk_price__range price-base">$${min} - $${max}</span>
+    </div>`;
+  }
+
+  const discounted = finalPrice !== price;
+  const discount = discounted ? Math.round((100 * (price - finalPrice)) / price) : 0;
+
+  return window.RFK.ui.html`<div className=${
+    discounted ? 'rfksdk_price--discounted price price-discounted' : 'price'
+  }>
+    <span className="rfksdk_price__original price-base">$${price}</span>
+    ${
+      discounted && finalPrice
+        ? window.RFK.ui.html`
+          <span className="rfksdk_price__final price-discount">-${discount}%</span>
+          <span className="rfksdk_price__final price-final">$${finalPrice}</span>
+          `
+        : null
+    }
+  </div>`;
 };
 
 type ProductItemProps = {

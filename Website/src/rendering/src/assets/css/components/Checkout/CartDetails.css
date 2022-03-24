@@ -160,18 +160,22 @@
     }
 
     .price {
-      @apply flex flex-wrap justify-end text-right;
-
       &-base {
-        @apply line-through text-sm text-black-lightest;
+        @apply text-xl;
       }
 
-      &-discount {
-        @apply text-sm text-pink ml-1;
-      }
+      &-discounted {
+        .price-base {
+          @apply text-sm;
+        }
 
-      &-final {
-        @apply text-xl text-orange font-bold w-full;
+        .price-discount {
+          @apply text-sm;
+        }
+
+        .price-final {
+          @apply text-xl text-orange;
+        }
       }
     }
 
