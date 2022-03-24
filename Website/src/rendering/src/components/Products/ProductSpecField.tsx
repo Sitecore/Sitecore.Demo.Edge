@@ -1,5 +1,5 @@
 import { RequiredDeep, Spec } from 'ordercloud-javascript-sdk';
-import { ChangeEvent, FunctionComponent } from 'react';
+import { ChangeEvent } from 'react';
 
 interface OrderCloudSpecFieldProps {
   spec: RequiredDeep<Spec>;
@@ -8,12 +8,12 @@ interface OrderCloudSpecFieldProps {
   onChange: (values: { SpecID: string; OptionID?: string; Value?: string }) => void;
 }
 
-const ProductSpecField: FunctionComponent<OrderCloudSpecFieldProps> = ({
+const ProductSpecField = ({
   spec,
   optionId,
   value,
   onChange,
-}): JSX.Element => {
+}: OrderCloudSpecFieldProps): JSX.Element => {
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     onChange({
       SpecID: spec.ID,
@@ -30,22 +30,24 @@ const ProductSpecField: FunctionComponent<OrderCloudSpecFieldProps> = ({
     });
   };
 
+  const specField = spec.OptionCount ? (
+    <select id={spec.ID} name={spec.ID} onChange={handleSelectChange} value={optionId || ''}>
+      {spec.AllowOpenText && <option value="OpenText">Write in option</option>}
+      {spec.Options.map((option) => (
+        <option key={option.ID} value={option.ID}>
+          {option.Value}
+        </option>
+      ))}
+    </select>
+  ) : (
+    <input id={spec.ID} onChange={handleInputChange} value={value || ''} />
+  );
+
   return (
     <div>
       <label htmlFor={spec.ID}>
         {spec.Name}
-        {spec.OptionCount ? (
-          <select id={spec.ID} name={spec.ID} onChange={handleSelectChange} value={optionId || ''}>
-            {spec.AllowOpenText && <option value="OpenText">Write in option</option>}
-            {spec.Options.map((o) => (
-              <option key={o.ID} value={o.ID}>
-                {o.Value}
-              </option>
-            ))}
-          </select>
-        ) : (
-          <input id={spec.ID} onChange={handleInputChange} value={value || ''} />
-        )}
+        {specField}
       </label>
     </div>
   );

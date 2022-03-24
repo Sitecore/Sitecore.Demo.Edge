@@ -1,11 +1,10 @@
 import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
-import { FormEvent, FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import ProductQuantityInput from './ProductQuantityInput';
-import ProductSpecList from './ProductSpecList';
+import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import ProductVariantList from './ProductVariantList';
-import { Product } from './Shop';
 
 interface ProductDetailsContentProps {
   sku?: string;
@@ -14,45 +13,26 @@ interface ProductDetailsContentProps {
   product: RequiredDeep<BuyerProduct>;
   specs: RequiredDeep<Spec>[];
   variants: RequiredDeep<Variant>[];
-  similarProducts?: DiscoverProduct[];
-  moreProducts?: DiscoverProduct[];
 }
 
-type DiscoverProduct = {
-  name: string;
-  price: number;
-  image_url: string;
-  brand: string;
-  sku: string;
-};
-
-type OrderCloudSpec = {
-  SpecID: string;
-  OptionID?: string;
-  Value?: string;
-};
-
-const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
+const ProductDetailsContent = ({
   sku,
   productName,
   variantID,
   product,
   specs,
   variants,
-  similarProducts,
-  moreProducts,
-}): JSX.Element => {
+}: ProductDetailsContentProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const [specValues, setSpecValues] = useState<OrderCloudSpec[]>([]);
-
   const [variant, setVariant] = useState<Variant>(undefined);
 
   // Handle LineItem edits
   const lineItemId = '';
-  const lineItem = useAppSelector((s) =>
-    lineItemId && s.ocCurrentCart.lineItems
-      ? s.ocCurrentCart.lineItems.find((li) => li.ID === lineItemId)
+  const lineItem = useAppSelector((slice) =>
+    lineItemId && slice.ocCurrentCart.lineItems
+      ? slice.ocCurrentCart.lineItems.find((lineItem) => lineItem.ID === lineItemId)
       : undefined
   );
   const [quantity, setQuantity] = useState(
@@ -60,33 +40,38 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
   );
 
   const determineDefaultOptionId = (spec: Spec) => {
-    if (spec.DefaultOptionID) return spec.DefaultOptionID;
+    if (spec.DefaultOptionID) {
+      return spec.DefaultOptionID;
+    }
+
     return spec.OptionCount ? spec.Options[0].ID : undefined;
   };
 
-  // Set the spec values on inital load
+  // Set the spec values on inital load and when the URL changes
   useEffect(() => {
-    let specVals: OrderCloudSpec[] = [];
     if (lineItem) {
       setSpecValues(lineItem.Specs);
     } else {
+      let specVals: OrderCloudSpec[] = [];
+
       if (specs) {
-        specVals = specs.map((s) => {
+        specVals = specs.map((spec) => {
           return {
-            SpecID: s.ID,
-            OptionID: determineDefaultOptionId(s),
-            Value: s.DefaultValue ? s.DefaultValue : undefined,
+            SpecID: spec.ID,
+            OptionID: determineDefaultOptionId(spec),
+            Value: spec.DefaultValue ? spec.DefaultValue : undefined,
           };
         });
       }
+
       if (variants) {
-        if (variantID && variants && variant == undefined) {
+        if (variantID) {
           const tempVariant = variants.find((listedvariant) => listedvariant.ID == variantID);
-          specVals = specVals.map((s) => {
-            const variantSpec = tempVariant.Specs.find((spec) => spec.SpecID == s.SpecID);
+          specVals = specVals.map((specValue) => {
+            const variantSpec = tempVariant.Specs.find((spec) => spec.SpecID == specValue.SpecID);
             return {
-              SpecID: s.SpecID,
-              OptionID: variantSpec ? variantSpec.OptionID : s.OptionID,
+              SpecID: specValue.SpecID,
+              OptionID: variantSpec ? variantSpec.OptionID : specValue.OptionID,
               Value: undefined,
             };
           });
@@ -95,12 +80,13 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lineItem, specs, variants]);
+  }, [lineItem, specs, variants, variantID]);
 
   // Set the variant when specs are updated
   useEffect(() => {
     if (variants && specValues.length > 0) {
       const variantDefinitionSpecs: { SpecID: string; OptionID: string }[] = [];
+
       specs.forEach((spec) => {
         if (spec.DefinesVariant) {
           specValues.forEach((specvalue) => {
@@ -126,6 +112,7 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
           };
           const testOne = JSON.stringify(variantDefinitionSpecs);
           const testTwo = JSON.stringify(tempSpec);
+
           if (testOne.indexOf(testTwo) != -1) {
             specsFound++;
           }
@@ -141,15 +128,15 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
   }, [specValues]);
 
   const handleSpecFieldChange = (values: OrderCloudSpec) => {
-    const tempSpecs: OrderCloudSpec[] = specValues.map((s) => {
-      if (s.SpecID === values.SpecID) {
+    const tempSpecs: OrderCloudSpec[] = specValues.map((spec) => {
+      if (spec.SpecID === values.SpecID) {
         return {
           SpecID: values.SpecID,
           OptionID: values.OptionID === 'OpenText' ? undefined : values.OptionID,
           Value: values.Value,
         };
       }
-      return s;
+      return spec;
     });
 
     setSpecValues(tempSpecs);
@@ -159,25 +146,32 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
     async (e: FormEvent) => {
       e.preventDefault();
       setLoading(true);
-      await dispatch(createLineItem({ ProductID: product.ID, Quantity: 1, Specs: specValues }));
+      await dispatch(
+        createLineItem({
+          ProductID: product.ID,
+          Quantity: 1,
+          Specs: specValues,
+        })
+      );
       setLoading(false);
     },
     [dispatch, product, specValues]
   );
 
   const productImage =
-    variant?.xp?.Images.length > 0 && variant?.xp?.Images[0].Url ? (
+    variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url ? (
       <img className="product-image-main" src={variant.xp.Images[0].Url} alt="variant" />
-    ) : product?.xp?.Images.length > 0 && product?.xp?.Images[0].Url ? (
+    ) : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url ? (
       <img className="product-image-main" src={product.xp.Images[0].Url} alt="product" />
     ) : null;
 
-  // Force route to reload when navigating to a specific variant
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const goToVariant = (variantID: string) => {
-    window.location.href = `/shop/products/${product.ID}/${productName}/${variantID}`;
-  };
-  const theProduct = product ? (
+  const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
+
+  const variantsList = variants && !variantID && (
+    <ProductVariantList sku={sku} productNameSlug={productName} variants={variants} />
+  );
+
+  const productDetails = product && (
     <section className="section">
       <div className="section__content container">
         <div className="product-detail">
@@ -189,7 +183,7 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
               <div>{product.Description}</div>
               <div>
                 Price:{' '}
-                <span className="product-price">{product.PriceSchedule.PriceBreaks[0].Price}</span>
+                <span className="product-price">${product.PriceSchedule.PriceBreaks[0].Price}</span>
               </div>
               <form onSubmit={handleAddToCart}>
                 <ProductSpecList
@@ -197,11 +191,7 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
                   specValues={specValues}
                   onChange={handleSpecFieldChange}
                 />
-                <ProductVariantList
-                  variants={variants}
-                  variantID={variantID}
-                  onChange={goToVariant}
-                />
+                {variantsList}
                 <ProductQuantityInput
                   controlId="addToCart"
                   priceSchedule={product.PriceSchedule}
@@ -210,36 +200,18 @@ const ProductDetailsContent: FunctionComponent<ProductDetailsContentProps> = ({
                 />
                 <div className="product-add-to-cart">
                   <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-                    {`${lineItem ? 'Update' : 'Add To'} Cart`}
+                    {addToCartButtonText}
                   </button>
                 </div>
               </form>
             </div>
           </div>
-          <div className="product-info">
-            <div className="product-list product-list-also-viewed">
-              <h2>Customers who viewed this item also viewed</h2>
-              <div className="shop-by-container">
-                {moreProducts?.map((p, index) => (
-                  <Product key={index} {...p} />
-                ))}
-              </div>
-            </div>
-            <div className="product-list product-list-similar">
-              <h2>Similar items to explore</h2>
-              <div className="shop-by-container">
-                {similarProducts?.map((p, index) =>
-                  index < 5 ? <Product key={index} {...p} /> : ''
-                )}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
-  ) : null;
+  );
 
-  return theProduct;
+  return productDetails;
 };
 
 export default ProductDetailsContent;

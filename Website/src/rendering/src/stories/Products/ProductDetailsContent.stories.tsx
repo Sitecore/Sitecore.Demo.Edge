@@ -1,14 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ProductDetails from '../../components/Products/ProductDetails';
 import { MockSlice, MockStore } from '../mock-store';
 import { authSlice, cartSlice } from '../Checkout/CheckoutCommon';
-import { sku, product, specs, variants, moreProducts, similarProducts } from './ProductsCommon';
+import { sku, product, specs, variants } from './ProductsCommon';
 import ProductDetailsContent from '../../components/Products/ProductDetailsContent';
 
 export default {
-  title: 'Components/Products/ProductDetails',
-  component: ProductDetails,
+  title: 'Components/Products/ProductDetailsContent',
+  component: ProductDetailsContent,
 } as ComponentMeta<typeof ProductDetailsContent>;
 
 const productSlices: MockSlice[] = [cartSlice, authSlice];
@@ -23,8 +22,6 @@ Default.args = {
   product: product,
   specs: specs,
   variants: variants,
-  moreProducts: moreProducts,
-  similarProducts: similarProducts,
 };
 Default.decorators = [
   (Story) => (
@@ -41,8 +38,6 @@ RedSmall.args = {
   specs: specs,
   variants: variants,
   variantID: 'PSPRFSAW-RS',
-  moreProducts: moreProducts,
-  similarProducts: similarProducts,
 };
 RedSmall.decorators = [
   (Story) => (
@@ -59,8 +54,6 @@ GreenMedium.args = {
   specs: specs,
   variants: variants,
   variantID: 'PSPRFSAW-GM',
-  moreProducts: moreProducts,
-  similarProducts: similarProducts,
 };
 GreenMedium.decorators = [
   (Story) => (
@@ -77,8 +70,6 @@ BlueLarge.args = {
   specs: specs,
   variants: variants,
   variantID: 'PSPRFSAW-BL',
-  moreProducts: moreProducts,
-  similarProducts: similarProducts,
 };
 BlueLarge.decorators = [
   (Story) => (

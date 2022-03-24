@@ -1,8 +1,7 @@
 import { RequiredDeep, Spec } from 'ordercloud-javascript-sdk';
-import { FunctionComponent } from 'react';
 import ProductSpecField from './ProductSpecField';
 
-type OrderCloudSpec = {
+export type OrderCloudSpec = {
   SpecID: string;
   OptionID?: string;
   Value?: string;
@@ -14,16 +13,12 @@ interface ProductSpecsInputProps {
   onChange: (values: OrderCloudSpec) => void;
 }
 
-const ProductSpecList: FunctionComponent<ProductSpecsInputProps> = ({
-  specs,
-  specValues,
-  onChange,
-}): JSX.Element => {
-  const productSpecs = specs ? (
+const ProductSpecList = ({ specs, specValues, onChange }: ProductSpecsInputProps): JSX.Element => {
+  const productSpecs = specs && (
     <div>
       Specs:
       <div className="product-specs">
-        {specs?.map((spec: RequiredDeep<Spec>) => {
+        {specs.map((spec: RequiredDeep<Spec>) => {
           const specValue = specValues.find(
             (specValue: OrderCloudSpec) => specValue.SpecID === spec.ID
           );
@@ -39,7 +34,7 @@ const ProductSpecList: FunctionComponent<ProductSpecsInputProps> = ({
         })}
       </div>
     </div>
-  ) : null;
+  );
 
   return productSpecs;
 };

@@ -1,5 +1,5 @@
 import { PriceSchedule, RequiredDeep } from 'ordercloud-javascript-sdk';
-import { ChangeEvent, FunctionComponent } from 'react';
+import { ChangeEvent } from 'react';
 
 interface ProductQuantityInputProps {
   controlId: string;
@@ -10,14 +10,14 @@ interface ProductQuantityInputProps {
   onChange: (quantity: number) => void;
 }
 
-const ProductQuantityInput: FunctionComponent<ProductQuantityInputProps> = ({
+const ProductQuantityInput = ({
   controlId,
   priceSchedule,
   label = 'Quantity',
   disabled,
   quantity,
   onChange,
-}) => {
+}: ProductQuantityInputProps): JSX.Element => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(Number(e.target.value));
   };
@@ -27,11 +27,10 @@ const ProductQuantityInput: FunctionComponent<ProductQuantityInputProps> = ({
   };
 
   const priceForm = priceSchedule.RestrictedQuantity ? (
-    // eslint-disable-next-line
     <select id={controlId} disabled={disabled} value={quantity} onChange={handleSelectChange}>
-      {priceSchedule.PriceBreaks.map((pb) => (
-        <option key={pb.Quantity} value={pb.Quantity}>
-          {pb.Quantity}
+      {priceSchedule.PriceBreaks.map((priceBreak) => (
+        <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
+          {priceBreak.Quantity}
         </option>
       ))}
     </select>
