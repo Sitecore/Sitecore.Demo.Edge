@@ -1,0 +1,33 @@
+.full-page-search {
+  @apply container;
+
+  &-container {
+    @apply flex;
+  }
+
+  &-left {
+    @apply w-1/4;
+  }
+
+  &-right {
+    @apply w-3/4;
+  }
+
+  &-controls {
+    @apply flex justify-between mb-3 text-sm;
+
+    label {
+      @apply mr-3;
+    }
+
+    select {
+      @apply appearance-none bg-white py-1 pl-3 pr-8 bg-select-arrow bg-no-repeat;
+
+      background-position: calc(100% - 0.5rem), center;
+    }
+  }
+
+  .items-num {
+    @apply text-black-lightest;
+  }
+}

@@ -1,6 +1,6 @@
 .preview-search-container {
   @apply fixed left-0 w-full top-28;
-  @apply lg:top-20;
+  @apply lg:top-[100px];
 
   .preview-search {
     @screen lg {
@@ -12,11 +12,11 @@
       height: calc(100vh - 7rem);
 
       @screen lg {
-        height: calc(100vh - 5rem);
+        height: calc(100vh - 100px);
       }
 
       @apply bg-gray-light w-full flex flex-row flex-wrap border border-solid border-gray p-3 overflow-y-auto;
-      @apply md:p-5;
+      @apply sm:p-5;
       @apply lg:flex-initial lg:py-5 lg:px-4;
     }
   }

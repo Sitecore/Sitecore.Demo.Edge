@@ -74,14 +74,9 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
   );
 
   return window.RFK.ui.html`
-  <div className="rfk-full-page-search">
-        ${
-          keyphrase
-            ? window.RFK.ui
-                .html`<div className="rfk_msg_prod">Top Results for: «${keyphrase}»</div>`
-            : null
-        }
-        <div className="rfk_sp rfk-sp">
+    <div className="full-page-search">
+      <div className="full-page-search-container">
+        <div className="full-page-search-left">
           <${FacetList}
             facets=${facets}
             onFacetClick=${(payload: FacetClick) => {
@@ -91,41 +86,42 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
               dispatch(window.RFK.widgets.SearchResultsActions.CLEAR_FILTERS, payload);
             }}
           />
-          <div className="rfk_li" data-page="${page}">
-            <${SearchControls}
-              keyphrase=${keyphraseToUse}
-              productsPage=${productsPerPage}
-              page=${page}
-              sortType=${sortType}
-              totalPages=${totalPages}
-              sortDirection=${sortDirection}
-              sortChoices=${sortChoices}
-              onPerPageChange=${(numProducts: number) => {
-                dispatch(window.RFK.widgets.SearchResultsActions.RESULTS_PER_PAGE_CHANGED, {
-                  numProducts: Number(numProducts),
-                });
-              }}
-              onPageNumberChange=${(pageNumber: number) => {
-                dispatch(window.RFK.widgets.SearchResultsActions.PAGE_NUMBER_CHANGED, {
-                  pageNumber: Number(pageNumber),
-                });
-              }}
-              onSortChange=${(payload: SortProps) => {
-                dispatch(window.RFK.widgets.SearchResultsActions.SORT_CHANGED, payload);
-              }}
-              onSearchChange=${onSearchChangeDebounced}
-            />
-            ${
-              !loading && totalPages > 0
-                ? window.RFK.ui.html`<div className="rfk_sp_results_info">
-                  <span>Shown ${
-                    page < totalPages ? page * productsPerPage : totalItems
-                  } products out of ${totalItems};</span
-                  >
-                  <span>Page ${page} of ${totalPages}</span>
-                </div>`
-                : null
-            }
+        </div>
+        <div className="full-page-search-right">
+          <div data-page="${page}">
+            <div className="full-page-search-controls">
+              ${
+                !loading && totalPages > 0
+                  ? window.RFK.ui.html`
+                    <div className="items-num">
+                      ${totalItems} items
+                    </div>`
+                  : null
+              }
+              <${SearchControls}
+                keyphrase=${keyphraseToUse}
+                productsPage=${productsPerPage}
+                page=${page}
+                sortType=${sortType}
+                totalPages=${totalPages}
+                sortDirection=${sortDirection}
+                sortChoices=${sortChoices}
+                onPerPageChange=${(numProducts: number) => {
+                  dispatch(window.RFK.widgets.SearchResultsActions.RESULTS_PER_PAGE_CHANGED, {
+                    numProducts: Number(numProducts),
+                  });
+                }}
+                onPageNumberChange=${(pageNumber: number) => {
+                  dispatch(window.RFK.widgets.SearchResultsActions.PAGE_NUMBER_CHANGED, {
+                    pageNumber: Number(pageNumber),
+                  });
+                }}
+                onSortChange=${(payload: SortProps) => {
+                  dispatch(window.RFK.widgets.SearchResultsActions.SORT_CHANGED, payload);
+                }}
+                onSearchChange=${onSearchChangeDebounced}
+              />
+            </div>
             ${totalItems === 0 ? 'No results found' : null}
             <${ProductList}
               products=${products}
@@ -138,6 +134,7 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
           </div>
         </div>
       </div>
+    </div>
   `;
 };
 

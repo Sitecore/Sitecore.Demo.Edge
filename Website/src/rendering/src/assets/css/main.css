@@ -43,6 +43,9 @@
 @import './components/Forms/AttendeeForm.css';
 @import './components/Forms/RequestInfoForm.css';
 
+/* Full Page Search */
+@import './components/FullPageSearch/FullPageSearch.css';
+
 /* Navigation */
 @import './components/Navigation/Breadcrumb.css';
 @import './components/Navigation/Footer.css';
