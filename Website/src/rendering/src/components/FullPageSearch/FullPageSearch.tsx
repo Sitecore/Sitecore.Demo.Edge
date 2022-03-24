@@ -1,5 +1,5 @@
 import debounce from '../../../src/helpers/Debounce';
-import FacetList from './FacetList';
+import FacetList, { FacetClickEvent } from './FacetList';
 import ProductList from './ProductList';
 import SearchControls from './SearchControls';
 
@@ -21,16 +21,7 @@ type FullPageSearchProps = {
   dispatch: (...args: unknown[]) => void;
 };
 
-type FacetClick = {
-  checked: boolean;
-  facetIndex: number;
-  facetType: string;
-  facetValue: string;
-  facetValueIndex: number;
-  valueIndex: number;
-};
-
-type SortProps = {
+type SortChangeEvent = {
   sortDirection: string;
   sortType: string;
 };
@@ -42,7 +33,6 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     loading,
     page,
     keyphrase,
-    productsPerPage,
     totalPages,
     totalItems,
     sortType,
@@ -53,25 +43,64 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     dispatch,
   } = props;
 
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlSearchParams.get('q');
-  const keyphraseToUse = keyphrase ?? searchQuery;
+  window.RFK.ui.useEffect(() => {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlSearchParams.get('q');
+    const keyphraseToUse = keyphrase ?? searchQuery;
 
-  if (error) {
-    return window.RFK.ui.html`<div>Response error</div>`;
-  }
+    if (keyphraseToUse) {
+      setInitialKeyphrase(keyphraseToUse);
+    }
+  }, []);
 
-  const onSearchChangeDebounced = window.RFK.ui.useCallback(
+  const setInitialKeyphrase = window.RFK.ui.useCallback(
     debounce(
       (keyphrase) =>
         dispatch(window.RFK.widgets.SearchResultsActions.KEYPHRASE_CHANGED, {
           keyphrase,
         }),
       500,
-      null
+      false
     ),
     []
   );
+
+  if (error) {
+    return window.RFK.ui.html`<div>Response error</div>`;
+  }
+
+  const handleFacetClick = (payload: FacetClickEvent) => {
+    dispatch(window.RFK.widgets.SearchResultsActions.FACET_CLICKED, payload);
+  };
+
+  const handleFacetClear = (payload: PointerEvent) => {
+    dispatch(window.RFK.widgets.SearchResultsActions.CLEAR_FILTERS, payload);
+  };
+
+  const handlePageNumberChange = (pageNumber: string) => {
+    dispatch(window.RFK.widgets.SearchResultsActions.PAGE_NUMBER_CHANGED, {
+      pageNumber: Number(pageNumber),
+    });
+  };
+
+  const handleSortChange = (payload: SortChangeEvent) => {
+    dispatch(window.RFK.widgets.SearchResultsActions.SORT_CHANGED, payload);
+  };
+
+  const handleProductClick = (payload: PointerEvent) => {
+    dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
+  };
+
+  const numberOfResults =
+    !loading &&
+    totalPages > 0 &&
+    window.RFK.ui.html`
+      <div className="items-num">
+        ${totalItems} items
+      </div>
+    `;
+
+  const noResultsMessage = totalItems === 0 && 'No results found';
 
   return window.RFK.ui.html`
     <div className="full-page-search">
@@ -79,57 +108,30 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
         <div className="full-page-search-left">
           <${FacetList}
             facets=${facets}
-            onFacetClick=${(payload: FacetClick) => {
-              dispatch(window.RFK.widgets.SearchResultsActions.FACET_CLICKED, payload);
-            }}
-            onClear=${(payload: PointerEvent) => {
-              dispatch(window.RFK.widgets.SearchResultsActions.CLEAR_FILTERS, payload);
-            }}
+            onFacetClick=${handleFacetClick}
+            onClear=${handleFacetClear}
           />
         </div>
         <div className="full-page-search-right">
           <div data-page="${page}">
             <div className="full-page-search-controls">
-              ${
-                !loading && totalPages > 0
-                  ? window.RFK.ui.html`
-                    <div className="items-num">
-                      ${totalItems} items
-                    </div>`
-                  : null
-              }
+              ${numberOfResults}
               <${SearchControls}
-                keyphrase=${keyphraseToUse}
-                productsPage=${productsPerPage}
-                page=${page}
-                sortType=${sortType}
                 totalPages=${totalPages}
-                sortDirection=${sortDirection}
+                page=${page}
                 sortChoices=${sortChoices}
-                onPerPageChange=${(numProducts: number) => {
-                  dispatch(window.RFK.widgets.SearchResultsActions.RESULTS_PER_PAGE_CHANGED, {
-                    numProducts: Number(numProducts),
-                  });
-                }}
-                onPageNumberChange=${(pageNumber: number) => {
-                  dispatch(window.RFK.widgets.SearchResultsActions.PAGE_NUMBER_CHANGED, {
-                    pageNumber: Number(pageNumber),
-                  });
-                }}
-                onSortChange=${(payload: SortProps) => {
-                  dispatch(window.RFK.widgets.SearchResultsActions.SORT_CHANGED, payload);
-                }}
-                onSearchChange=${onSearchChangeDebounced}
+                sortType=${sortType}
+                sortDirection=${sortDirection}
+                onPageNumberChange=${handlePageNumberChange}
+                onSortChange=${handleSortChange}
               />
             </div>
-            ${totalItems === 0 ? 'No results found' : null}
+            ${noResultsMessage}
             <${ProductList}
               products=${products}
               loaded=${loaded}
               loading=${loading}
-              onProductClick=${(payload: PointerEvent) => {
-                dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
-              }}
+              onProductClick=${handleProductClick}
             />
           </div>
         </div>
