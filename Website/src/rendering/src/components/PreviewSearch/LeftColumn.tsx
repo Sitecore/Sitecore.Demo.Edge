@@ -93,40 +93,42 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
 
   return window.RFK.ui.html`
     <div class="left-section">
-      ${
-        loaded &&
-        !loading &&
-        categories?.length > 0 &&
-        window.RFK.ui.html`<${PreviewSearchList}
-        onMouseEnter=${onCategoryEnter}
-        onMouseLeave=${onMouseLeave}
-        title="Categories"
-        items=${categories}
-      />`
-      }
-      ${
-        loaded &&
-        !loading &&
-        shouldShowTrendingCategories &&
-        window.RFK.ui.html`<${PreviewSearchList}
-        onMouseEnter=${onTrendingCategoryEnter}
-        onMouseLeave=${onMouseLeave}
-        title="Trending Categories"
-        items=${trendingCategories}
-      />`
-      }
-      ${
-        loaded &&
-        !loading &&
-        suggestions?.length > 0 &&
-        window.RFK.ui.html`<${PreviewSearchList}
-        onMouseEnter=${onSuggestionEnter}
-        onMouseLeave=${onMouseLeave}
-        title="Did you mean?"
-        items=${suggestions}
-        redirectUrl=${redirectUrl}
-      />`
-      }
+      <div class="left-section-inner">
+        ${
+          loaded &&
+          !loading &&
+          categories?.length > 0 &&
+          window.RFK.ui.html`<${PreviewSearchList}
+          onMouseEnter=${onCategoryEnter}
+          onMouseLeave=${onMouseLeave}
+          title="Categories"
+          items=${categories}
+        />`
+        }
+        ${
+          loaded &&
+          !loading &&
+          shouldShowTrendingCategories &&
+          window.RFK.ui.html`<${PreviewSearchList}
+          onMouseEnter=${onTrendingCategoryEnter}
+          onMouseLeave=${onMouseLeave}
+          title="Trending Categories"
+          items=${trendingCategories}
+        />`
+        }
+        ${
+          loaded &&
+          !loading &&
+          suggestions?.length > 0 &&
+          window.RFK.ui.html`<${PreviewSearchList}
+          onMouseEnter=${onSuggestionEnter}
+          onMouseLeave=${onMouseLeave}
+          title="Did you mean?"
+          items=${suggestions}
+          redirectUrl=${redirectUrl}
+        />`
+        }
+      </div>
     </div>
   `;
 };

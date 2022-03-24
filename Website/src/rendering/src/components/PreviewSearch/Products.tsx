@@ -10,7 +10,13 @@ type PriceProps = {
 const Price = (props: PriceProps): JSX.Element => {
   const { finalPrice } = props;
   // Price UI component code here.
-  return window.RFK.ui.html`<div class="product-price">$${finalPrice}</div>`;
+  return window.RFK.ui.html`
+    <div className="price">
+      <span className="price-base">$199.99</span>
+      <span className="price-discount">-20%</span>
+      <span className="price-final">$${finalPrice}</span>
+    </div>
+  `;
 };
 
 type ProductItemProps = {
