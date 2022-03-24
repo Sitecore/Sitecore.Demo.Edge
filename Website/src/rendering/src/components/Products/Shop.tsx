@@ -1,11 +1,10 @@
-import { PropsWithChildren, ReactElement, useState } from 'react';
+import { PropsWithChildren } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
+import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const shopNavigationProps = {
@@ -45,6 +44,15 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
     },
   } as unknown as FooterProps;
 
+  // Show shop content if commerce is enabled, otherwise show error message
+  const shopContent = isCommerceEnabled ? (
+    <div className="shop-main-container">{props.children}</div>
+  ) : (
+    <p className="shop-integration-error">
+      Shop pages are currently disabled because the commerce integration is not configured
+    </p>
+  );
+
   return (
     <>
       <Head>
@@ -56,70 +64,13 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       </header>
       <main>
         <HeaderCdpMessageBar />
-        <div className="shop-container">{props.children}</div>
+        {shopContent}
       </main>
       <footer>
         <Footer {...footerProps} />
       </footer>
     </>
   );
-};
-
-export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
-  const [popupVisible, setpopupVisible] = useState(false);
-  return (
-    <div data-rfkid="rfkid_6" id="search-input-container">
-      <FontAwesomeIcon id="search-icon" icon={faSearch} />
-      <input
-        id="search-input"
-        onFocus={() => setpopupVisible(true)}
-        onBlur={() => setpopupVisible(false)}
-        placeholder="I am shopping for..."
-      ></input>
-      <Popup visible={popupVisible}>
-        <ReflektionContent {...props.reflektionProps} />
-      </Popup>
-    </div>
-  );
-};
-
-export const Popup = (props: PopupProps): JSX.Element => {
-  return props.visible ? <div id="popup-container">{props.children}</div> : <></>;
-};
-
-export const ReflektionContent = (props: ReflektionContentProps): JSX.Element => {
-  return props?.products ? (
-    <div id="reflektion-container">
-      <div id="reflektion-left-container">
-        <ul>
-          <li>Did you mean?</li>
-          {props.didYouMean?.map((text) => (
-            <li key={text}>
-              <a href="#">{text}</a>
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <li>Top categories</li>
-          {props.topCategories?.map((text) => (
-            <li key={text}>
-              <a href="#">{text}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div id="reflektion-right-container">
-        {props.products?.map((product) => (
-          <Product
-            key={product.image_url}
-            image_url={product.image_url}
-            price={product.price}
-            sku={product.sku}
-          />
-        ))}
-      </div>
-    </div>
-  ) : null;
 };
 
 export const Product = (props: ProductProps): JSX.Element => (
@@ -145,19 +96,4 @@ export interface ProductProps {
   name?: string;
   vendor?: string;
   sku: string;
-}
-
-export interface PopupProps {
-  children: ReactElement;
-  visible: boolean;
-}
-
-export interface ReflektionContentProps {
-  products?: ProductProps[];
-  didYouMean?: string[];
-  topCategories?: string[];
-}
-
-export interface SearchBarProps {
-  reflektionProps?: ReflektionContentProps;
 }

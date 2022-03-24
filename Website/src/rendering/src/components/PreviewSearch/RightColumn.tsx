@@ -10,6 +10,7 @@ type RightColumnProps = {
 const RightColumn = (props: RightColumnProps): JSX.Element => {
   const { products, loading } = props;
 
+  // TODO: Replace the "View all" link by a link to the search page with the currently typed keyword or the current view of the top results.
   return window.RFK.ui.html`
     <div class="right-section">
       <h2 class="right-section-title">Top results</h2>

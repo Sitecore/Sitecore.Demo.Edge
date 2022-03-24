@@ -4,8 +4,12 @@ import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { ProductSearchBar } from '../Products/Shop';
+import {
+  faSearch,
+  faShoppingCart,
+  faChevronDown,
+  faUserCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 export type ShopNavigationProps = ComponentProps & {
   fields: {
@@ -33,7 +37,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
 
   return (
     <nav className="shop-navigation">
-      <div className="shop-navigation-content">
+      <div className="shop-container shop-navigation-content">
         <div className="logo-container">
           <Link href="/shop">
             <a className="logo-link">
@@ -75,13 +79,16 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
             </li>
           </ul>
         </div>
-        {/* <Link href="/shop/products" passHref> */}
         <div className="shop-search-input-container">
-          {/* <FontAwesomeIcon id="search-icon" icon={faSearch} />
-          <input className="shop-search-input" placeholder="I am shopping for..." /> */}
-          <ProductSearchBar />
+          <div data-rfkid="rfkid_6" id="search-input-container">
+            <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
+            <input
+              id="search-input"
+              className="shop-search-input"
+              placeholder="I am shopping for..."
+            />
+          </div>
         </div>
-        {/* </Link> */}
       </div>
     </nav>
   );

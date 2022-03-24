@@ -16,8 +16,6 @@ const Shop = (): JSX.Element => {
       <section className="section">
         <div className="section__content container">Content here</div>
       </section>
-      <div data-rfkid="hs_sr" data-keyphrase="SAMPLE KEYPHRASE"></div>
-      <div data-rfkid="hs_sr" data-keyphrase=""></div>
     </ShopLayout>
   );
 };

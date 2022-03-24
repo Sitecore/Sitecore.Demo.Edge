@@ -88,8 +88,7 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
     setLock(false);
   };
 
-  const shouldShowTrendingCategories =
-    trendingCategories?.length > 0 && categories?.length === 0 && suggestions?.length === 0;
+  const shouldShowTrendingCategories = trendingCategories?.length > 0 && categories?.length === 0;
 
   return window.RFK.ui.html`
     <div class="left-section">
