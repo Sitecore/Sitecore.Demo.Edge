@@ -2,9 +2,8 @@ import { NextApiHandler } from 'next';
 import { DPayment } from 'src/models/ordercloud/DPayment';
 import { Orders, Payments, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { DOrder } from 'src/models/ordercloud/DOrder';
-import withOcUserAuth from 'src/edge/ordercloud/middleware/withOcUserAuth';
-import { getUserToken, initializeMiddlewareClient } from 'src/edge/ordercloud/utils';
-import { CatalystBaseError, withOcErrorHandler } from '@ordercloud/catalyst';
+import { getUserToken, initializeOrderCloudMiddlewareClient } from 'src/edge/utils';
+import { CatalystBaseError, withOcErrorHandler, withOCUserAuth } from '@ordercloud/catalyst';
 
 /**
  * This endpoint is called by the buyer app when needing to update payments it will receive the expected payments
@@ -13,7 +12,7 @@ import { CatalystBaseError, withOcErrorHandler } from '@ordercloud/catalyst';
  * the special role of OrderAdmin which is granted to our middleware client but not buyer users (for security reasons)
  */
 const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, response) => {
-  await initializeMiddlewareClient();
+  await initializeOrderCloudMiddlewareClient();
 
   const { orderId } = request.query as { orderId: string };
   const requestedPayments = request.body?.Payments as RequiredDeep<DPayment>[];
@@ -212,4 +211,4 @@ async function updatePurchaseOrderPayment(
   }
 }
 
-export default withOcErrorHandler(withOcUserAuth(routeHandler));
+export default withOcErrorHandler(withOCUserAuth(routeHandler));
