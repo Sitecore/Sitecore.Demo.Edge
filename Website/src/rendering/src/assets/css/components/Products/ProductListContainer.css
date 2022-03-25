@@ -13,6 +13,10 @@
       .product-image {
         @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
       }
+
+      .product-offer {
+        @apply absolute bottom-4 pl-2 pr-1 py-[2px] text-xs bg-blue text-white;
+      }
     }
 
     .product-info-container {

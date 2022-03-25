@@ -44,6 +44,7 @@
 @import './components/Forms/RequestInfoForm.css';
 
 /* Full Page Search */
+@import './components/FullPageSearch/FacetList.css';
 @import './components/FullPageSearch/FullPageSearch.css';
 
 /* Navigation */

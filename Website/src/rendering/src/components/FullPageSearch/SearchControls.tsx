@@ -33,22 +33,28 @@ const SearchControls = (props: SearchControlsProps): JSX.Element => {
     onSortChange({ sortType: sort[0], sortDirection: sort[1] });
   };
 
+  // TODO: Implement load more button instead of pagination
   return window.RFK.ui.html`
-    <div className="control-page">
-      <label>Page:</label>
-      <select onChange=${handlePageChange}>
-        ${Array.from({ length: totalPages }, (_, i) => i + 1).map(
-          (dropdownPageNumber) =>
-            window.RFK.ui.html`
-              <option
-                selected=${page === dropdownPageNumber}
-                value=${dropdownPageNumber}
-              >
-                ${dropdownPageNumber}
-              </option>`
-        )}
-      </select>
-    </div>
+    ${
+      totalPages > 1 &&
+      window.RFK.ui.html`
+        <div className="control-page">
+          <label>Page:</label>
+          <select onChange=${handlePageChange}>
+            ${Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (dropdownPageNumber) =>
+                window.RFK.ui.html`
+                  <option
+                    selected=${page === dropdownPageNumber}
+                    value=${dropdownPageNumber}
+                  >
+                    ${dropdownPageNumber}
+                  </option>`
+            )}
+          </select>
+        </div>
+      `
+    }
 
     <div className="control-sort">
       <label>Sort by:</label>

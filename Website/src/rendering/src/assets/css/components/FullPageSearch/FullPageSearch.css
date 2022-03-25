@@ -6,7 +6,7 @@
   }
 
   &-left {
-    @apply w-1/4;
+    @apply w-1/4 mr-3;
   }
 
   &-right {

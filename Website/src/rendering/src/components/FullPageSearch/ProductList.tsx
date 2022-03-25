@@ -48,11 +48,13 @@ const Price = (props: PriceProps): JSX.Element => {
 };
 
 const ProductItem = (product: Product): JSX.Element => {
+  // TODO: add functionality to offer ribbon
   return window.RFK.ui.html`
     <div class="product-container">
       <div class="product-image-container">
         <a href=${product?.product_url} onClick=${product?.onClick}>
           <img class="product-image" src="${product?.image_url}" alt="${product?.name}" />
+          <span className="product-offer">Spring Sale!</span>
         </a>
       </div>
       <div class="product-info-container">
