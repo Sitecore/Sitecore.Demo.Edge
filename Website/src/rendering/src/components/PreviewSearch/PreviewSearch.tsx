@@ -143,6 +143,7 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
         <${RightColumn}
           selectedKeyword=${selectedKeyword}
           products=${products}
+          loaded=${loaded}
           loading=${loading}
         />
       </div>`

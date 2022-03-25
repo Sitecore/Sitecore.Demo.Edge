@@ -1,17 +1,22 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Products from '../../components/PreviewSearch/Products';
+import ProductList from '../../components/Products/ProductList';
 
 export default {
-  title: 'Components/PreviewSearch/Products',
-  component: Products,
-} as ComponentMeta<typeof Products>;
+  title: 'Components/Products/ProductList',
+  component: ProductList,
+} as ComponentMeta<typeof ProductList>;
 
-const Template: ComponentStory<typeof Products> = (args) => <Products {...args} />;
+const Template: ComponentStory<typeof ProductList> = (args) => <ProductList {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  loaded: true,
+  loading: false,
+  onProductClick: () => {
+    return null;
+  },
   products: [
     {
       brand: 'CenterCycle',

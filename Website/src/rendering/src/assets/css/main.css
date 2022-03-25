@@ -89,10 +89,11 @@
 @import './components/PreviewSearch/PreviewSearch.css';
 
 /* Products */
-@import './components/Products/ProductDetail.css';
-@import './components/Products/ProductListContainer.css';
-@import './components/Products/Shop.css';
 @import './components/Products/Price.css';
+@import './components/Products/ProductCard.css';
+@import './components/Products/ProductDetail.css';
+@import './components/Products/ProductList.css';
+@import './components/Products/Shop.css';
 
 /* Sessions */
 @import './components/Sessions/SessionsGrid.css';
