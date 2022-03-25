@@ -27,6 +27,7 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
       props?.creditCard?.ID ? props?.creditCard?.ExpirationDate : getMockExpirationDate() // TODO: remove mocked data once we have saved credit cards
     )
   );
+
   const yearNow = new Date().getFullYear();
   const expirationYearRange = new Array(11).fill('').map((_, index) => yearNow + index);
   const expirationMonthRange = new Array(12)
@@ -125,4 +126,5 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
     </form>
   );
 };
+
 export default CreditCardForm;

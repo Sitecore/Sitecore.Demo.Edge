@@ -18,6 +18,7 @@ const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, r
   const { orderId } = request.query as { orderId: string };
   const requestedPayments = request.body?.Payments as RequiredDeep<DPayment>[];
   const userToken = getUserToken(request);
+
   if (!orderId) {
     throw new CatalystBaseError('Payments.MissingOrderId', 'Missing required parameter orderId');
   }
@@ -27,6 +28,7 @@ const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, r
       'Missing required request body Payments of type DPayment[]'
     );
   }
+
   const order = await Orders.Get<DOrder>('All', orderId);
   let existingPayments = (await Payments.List<DPayment>('All', orderId)).Items;
   existingPayments = await deleteStalePayments(requestedPayments, existingPayments, order);
@@ -48,6 +50,7 @@ const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, r
       updateRequests.push(updatePurchaseOrderPayment(requestedPayment, existingPayment, order));
     }
   });
+
   const updatedPayments = await Promise.all(updateRequests);
   // When a buyer creates a credit card payment, payment.Accepted defaults to false
   // In a real application once a credit card has been authorized then the middleware
@@ -77,7 +80,9 @@ async function deleteStalePayments(
   const toDeleteRequests = toDeletePayments.map((payment) =>
     Payments.Delete('All', order.ID, payment.ID)
   );
+
   await Promise.all(toDeleteRequests);
+
   return existingPayments.filter((payment) => {
     // filter out any payments that were deleted
     return !toDeletePayments.find((deletedPayment) => deletedPayment.ID === payment.ID);

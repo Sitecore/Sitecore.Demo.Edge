@@ -65,6 +65,7 @@ function verifyTokenCryptographically(publicKey: PublicKey, token: string): JwtP
     return null;
   }
 }
+
 export async function initializeMiddlewareClient(): Promise<void> {
   const token = Tokens.GetAccessToken();
   if (token) {
