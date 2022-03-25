@@ -49,7 +49,7 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
       Token: '',
     };
 
-    if (props.onSubmit && typeof props.onSubmit === 'function') {
+    if (props.onSubmit) {
       props.onSubmit(updatedCreditCard);
     }
   };

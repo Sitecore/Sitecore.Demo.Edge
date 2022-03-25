@@ -15,7 +15,7 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
     const shipMethodId = event.target.value;
     const shipMethod = props.shipMethods.find((shipMethod) => shipMethod.ID === shipMethodId);
 
-    if (props.onChange && typeof props.onChange === 'function') {
+    if (props.onChange) {
       props.onChange({
         ShipEstimateID: props.shipEstimateId,
         ShipMethodID: shipMethod.ID,

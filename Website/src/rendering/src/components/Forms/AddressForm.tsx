@@ -46,7 +46,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
       Zip: zip,
     };
 
-    if (props.onSubmit && typeof props.onSubmit === 'function') {
+    if (props.onSubmit) {
       props.onSubmit(updatedAddress);
     }
   };

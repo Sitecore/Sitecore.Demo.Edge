@@ -21,7 +21,7 @@ const AddressCard = (props: AddressCardProps): JSX.Element => {
   );
 
   const onClick = (address: DBuyerAddress) => {
-    if (props.onClick && typeof props.onClick === 'function') {
+    if (props.onClick) {
       props.onClick(address);
     }
   };
