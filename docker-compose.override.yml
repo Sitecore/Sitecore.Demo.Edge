@@ -57,7 +57,7 @@ services:
       NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL: ${ORDERCLOUD_BASE_API_URL}
       ORDERCLOUD_MIDDLEWARE_CLIENT_ID: ${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}
       ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET: ${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}
-      OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY}
+      OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst/blob/main/README.md#usage
       #DEBUG: ${DEBUG} # Uncomment this line and set the DEBUG environment variable value in the .env file to enable debug logging
     depends_on:
       - cm
