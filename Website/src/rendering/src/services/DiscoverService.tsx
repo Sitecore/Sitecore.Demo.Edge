@@ -3,6 +3,7 @@ import Script from 'next/script';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
+import TrendingCategories from '../components/Widgets/TrendingCategories';
 
 // ***** TYPES *****
 
@@ -51,6 +52,7 @@ interface Widgets {
 interface Types {
   PREVIEW_SEARCH: string;
   SEARCH_RESULTS: string;
+  RECOMMENDATION: string;
 }
 
 export interface DiscoverReference {
@@ -114,6 +116,10 @@ export const DiscoverScripts: JSX.Element = (
               },
             },
           },
+        });
+        window.RFK.setWidget('ps_trending_categories', {
+          type: window.RFK.types.PREVIEW_SEARCH,
+          component: TrendingCategories,
         });
         window.RFK.init();
       }}

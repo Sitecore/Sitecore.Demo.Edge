@@ -89,6 +89,7 @@
 @import './components/PreviewSearch/PreviewSearch.css';
 
 /* Products */
+@import './components/Products/CategoriesList.css';
 @import './components/Products/Price.css';
 @import './components/Products/ProductCard.css';
 @import './components/Products/ProductDetail.css';
