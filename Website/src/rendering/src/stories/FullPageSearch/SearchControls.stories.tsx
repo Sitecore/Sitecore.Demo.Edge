@@ -15,17 +15,10 @@ Default.args = {
   onPageNumberChange: () => {
     return null;
   },
-  onPerPageChange: () => {
-    return null;
-  },
-  onSearchChange: () => {
-    return null;
-  },
   onSortChange: () => {
     return null;
   },
   page: 1,
-  productsPage: undefined,
   sortChoices: [
     {
       label: 'Featured ASC',
