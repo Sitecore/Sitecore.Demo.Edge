@@ -36,7 +36,7 @@ const ProductSpecList = ({ specs, specValues, onChange }: ProductSpecsInputProps
     </div>
   );
 
-  return productSpecs;
+  return productSpecs || <></>;
 };
 
 export default ProductSpecList;
