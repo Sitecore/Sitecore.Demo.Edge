@@ -22,4 +22,5 @@ const PanelComments = (props: PanelCommentsProps): JSX.Element => {
     </div>
   );
 };
+
 export default PanelComments;

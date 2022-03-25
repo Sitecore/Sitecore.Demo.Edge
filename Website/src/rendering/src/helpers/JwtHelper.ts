@@ -1,5 +1,11 @@
 import { DecodedToken } from 'ordercloud-javascript-sdk';
 
+export interface JwtHeader {
+  alg: string;
+  kid: string;
+  type: string;
+}
+
 export default function parseJwt(token: string): DecodedToken {
   const decoded = parse(token, 'header');
   return decoded as DecodedToken;
@@ -23,10 +29,4 @@ function parse(token: string, type: 'body' | 'header') {
     )
   );
   return decoded;
-}
-
-export interface JwtHeader {
-  alg: string;
-  kid: string;
-  type: string;
 }

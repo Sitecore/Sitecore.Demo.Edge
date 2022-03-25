@@ -54,4 +54,5 @@ const PanelPayment = (): JSX.Element => {
     </div>
   );
 };
+
 export default PanelPayment;

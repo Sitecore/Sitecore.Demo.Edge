@@ -8,6 +8,7 @@ const CartSummary = (): JSX.Element => {
       Subtotal ({order.LineItemCount} items): <span>{formatCurrency(order.Subtotal)}</span>
     </p>
   );
+
   return <div className="cart-summary">{subtotal}</div>;
 };
 

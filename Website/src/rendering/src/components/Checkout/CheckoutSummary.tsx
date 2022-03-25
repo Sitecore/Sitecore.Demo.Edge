@@ -69,11 +69,16 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
         Cart ({order.LineItemCount} items): {formatCurrency(order.Subtotal)}
       </p>
       <p>Shipping & Handling: {getShippingMessage()}</p>
-      <button disabled={!canSubmitOrder()} onClick={handleSubmitOrder}>
+      <button
+        className="btn--main btn--main--round"
+        disabled={!canSubmitOrder()}
+        onClick={handleSubmitOrder}
+      >
         Place your order
       </button>
     </div>
   );
+
   return <div className="checkout-summary">{subtotal}</div>;
 };
 

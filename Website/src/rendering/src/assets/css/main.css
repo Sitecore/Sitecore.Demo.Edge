@@ -36,20 +36,18 @@
 /* 5. Our components */
 
 /* Checkout */
+@import "./components/Checkout/AddressCard.css";
+@import "./components/Checkout/AddressList.css";
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/QuantityInput.css';
 
-/* Checkout */
-@import "./components/Checkout/AddressCard.css";
-@import "./components/Checkout/AddressList.css";
-
 /* Forms */
 @import "./components/Forms/AddressForm.css";
-@import "./components/Forms/CreditCardForm.css";
 @import "./components/Forms/AttendeeForm.css";
+@import "./components/Forms/CreditCardForm.css";
 @import "./components/Forms/RequestInfoForm.css";
 
-/* Full Page Search */
+/* FullPageSearch */
 @import './components/FullPageSearch/FacetList.css';
 @import './components/FullPageSearch/FullPageSearch.css';
 
@@ -91,7 +89,7 @@
 @import './components/Payment/PaymentProgress.css';
 @import './components/Payment/TicketPaymentConfirmed.css';
 
-/* Preview Search */
+/* PreviewSearch */
 @import './components/PreviewSearch/PreviewSearch.css';
 
 /* Products */

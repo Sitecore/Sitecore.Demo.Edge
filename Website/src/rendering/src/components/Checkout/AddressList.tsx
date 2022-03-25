@@ -18,6 +18,7 @@ const AddressList = (props: AddressListProps): JSX.Element => {
         active={address.ID === props.activeAddressId}
       />
     ));
+
   return <div className="address-list">{addressList}</div>;
 };
 

@@ -15,12 +15,13 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
       <div className="cart-details-actions-wrapper">
         <CartSummary />
         <PromoInput />
-        <Link href="/shop/checkout/quick-checkout">
+        <Link href="/shop/checkout/checkout">
           <a className="btn--main btn--main--round">Proceed to Checkout</a>
         </Link>
       </div>
     </div>
   );
+
   return (
     <div className="cart-details container">
       <h1>Shopping cart</h1>

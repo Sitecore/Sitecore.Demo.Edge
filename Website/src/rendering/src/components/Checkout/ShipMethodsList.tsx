@@ -14,6 +14,7 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const shipMethodId = event.target.value;
     const shipMethod = props.shipMethods.find((shipMethod) => shipMethod.ID === shipMethodId);
+
     if (props.onChange && typeof props.onChange === 'function') {
       props.onChange({
         ShipEstimateID: props.shipEstimateId,
@@ -21,6 +22,7 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
       });
     }
   };
+
   const radioButtons =
     props.shipMethods?.length &&
     props.shipMethods.map((shipMethod) => (
@@ -40,6 +42,7 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
         </label>
       </div>
     ));
+
   return <div className="shipmethods-list">{radioButtons}</div>;
 };
 

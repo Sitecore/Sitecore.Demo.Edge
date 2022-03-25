@@ -11,6 +11,7 @@ const CheckoutDetails = (): JSX.Element => {
   const handleEditComments = (updatedComments: string) => {
     setComments(updatedComments);
   };
+
   return (
     <div>
       <PanelShippingAddress />
@@ -22,4 +23,5 @@ const CheckoutDetails = (): JSX.Element => {
     </div>
   );
 };
+
 export default CheckoutDetails;

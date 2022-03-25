@@ -14,11 +14,14 @@ const CreditCardCard = (props: CreditCardCardProps): JSX.Element => {
     const date = new Date(isoDate);
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
+
     return `${month}/${year}`;
   };
+
   const editButton = props.editable && (
     <button onClick={() => props.onEdit(props.creditCard)}>Edit Credit Card</button>
   );
+
   return (
     <div>
       <p>{props.creditCard.CardType}</p>
