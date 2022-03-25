@@ -28,13 +28,15 @@ const mockStateSavedPayment = {
       CreditCardID: 'mock-creditcard-id',
       Accepted: true,
       Amount: 100,
-      CreditCard: {
-        ID: 'mockcreditcardid',
-        CardType: 'Visa',
-        CardholderName: 'Jon Snow',
-        PartialAccountNumber: '6123',
-        ExpirationDate: getMockExpirationDate(),
-      },
+      xp: {
+        CreditCard: {
+          ID: 'mockcreditcardid',
+          CardType: 'Visa',
+          CardholderName: 'Jon Snow',
+          PartialAccountNumber: '6123',
+          ExpirationDate: getMockExpirationDate(),
+        },
+      }
     },
   ] as DPayment[],
 };

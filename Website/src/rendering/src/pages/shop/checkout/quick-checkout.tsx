@@ -1,15 +1,14 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import { ShopLayout } from 'components/Products/Shop';
+import CheckoutDetails from 'components/Checkout/CheckoutDetails';
+import Link from 'next/link';
 
-const QuickCheckout = (): JSX.Element => {
+const Checkout = (): JSX.Element => {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - Quick Checkout</title>
+        <title>PLAY! SHOP - Checkout</title>
       </Head>
-
-      <p>Quick Checkout Page</p>
       <div>
         <Link href="/shop/checkout/cart">
           <a>Back to Cart</a>
@@ -25,8 +24,9 @@ const QuickCheckout = (): JSX.Element => {
           <a>Login/ Create Account</a>
         </Link>
       </div>
+      <CheckoutDetails />
     </ShopLayout>
   );
 };
 
-export default QuickCheckout;
+export default Checkout;

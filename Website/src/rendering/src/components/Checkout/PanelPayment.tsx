@@ -25,14 +25,17 @@ const PanelPayment = (): JSX.Element => {
   const payment = payments?.length ? payments[0] : null;
 
   const creditCardDisplay =
-    payment?.CreditCard && !isEditing ? (
+    payment?.xp?.CreditCard && !isEditing ? (
       <CreditCardCard
-        creditCard={payment?.CreditCard}
+        creditCard={payment?.xp?.CreditCard}
         editable={true}
         onEdit={() => setIsEditing(true)}
       />
     ) : (
-      <CreditCardForm creditCard={payment?.CreditCard} onSubmit={handleUpdateCreditCardPayment} />
+      <CreditCardForm
+        creditCard={payment?.xp?.CreditCard}
+        onSubmit={handleUpdateCreditCardPayment}
+      />
     );
 
   const cancelEditButton = isEditing && (

@@ -14,6 +14,7 @@ const PanelShippingAddress = (): JSX.Element => {
 
   const handleSetShippingAddress = (address: Partial<DBuyerAddress>) => {
     dispatch(saveShippingAddress(address));
+    setIsEditing(false);
   };
 
   const addressDisplay =

@@ -1,6 +1,6 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
-import { invalidClientResponse, unauthorizedResponse } from 'src/edge/ordercloud/responses';
-import { parseJwtHeader } from 'src/helpers/JwtHelper';
+import { invalidClientResponse, unauthorizedResponse } from '../../../edge/ordercloud/responses';
+import { parseJwtBody } from '../../../helpers/JwtHelper';
 import { getUserToken, tryDecodeToken, verifyTokenWithKeyId } from '../utils';
 
 /**
@@ -16,14 +16,14 @@ export default function withOcUserAuth(handler: NextApiHandler): NextApiHandler 
     if (!decodedToken) {
       return unauthorizedResponse(response);
     }
-    if (decodedToken.cid !== process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID) {
+    if (decodedToken.cid !== process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID?.toLowerCase?.()) {
       return invalidClientResponse(response);
     }
-    const header = parseJwtHeader(token);
-    if (!header || !header?.kid) {
+    const body = parseJwtBody(token);
+    if (!body || !body?.kid) {
       return unauthorizedResponse(response);
     }
-    const isValidToken = verifyTokenWithKeyId(header.kid, token);
+    const isValidToken = verifyTokenWithKeyId(body.kid, token);
     if (!isValidToken) {
       return unauthorizedResponse(response);
     }

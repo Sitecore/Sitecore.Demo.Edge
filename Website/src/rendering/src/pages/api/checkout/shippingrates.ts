@@ -1,5 +1,5 @@
 import { NextApiHandler } from 'next';
-import { withOCWebhookAuth } from '@ordercloud/catalyst';
+import { withOcWebhookAuth } from '@ordercloud/catalyst';
 import { DOrderCheckoutIntegrationEvent } from 'src/models/ordercloud/DOrderCheckoutIntegrationEvent';
 import { DShipEstimateResponse } from 'src/models/ordercloud/DShipEstimateResponse';
 
@@ -71,4 +71,4 @@ const routeHandler: NextApiHandler<DShipEstimateResponse> = async (request, resp
   });
 };
 
-export default withOCWebhookAuth(routeHandler);
+export default withOcWebhookAuth(routeHandler);

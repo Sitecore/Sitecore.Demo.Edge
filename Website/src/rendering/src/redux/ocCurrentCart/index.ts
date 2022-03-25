@@ -8,7 +8,6 @@ import {
   ShipMethodSelection,
   Payments,
   PartialDeep,
-  SpendingAccount,
   Tokens,
 } from 'ordercloud-javascript-sdk';
 import { DAddress } from 'src/models/ordercloud/DAddress';
@@ -61,20 +60,27 @@ export const updateCreditCardPayment = createOcAsyncThunk<
   RequiredDeep<DPayment>[],
   DBuyerCreditCard
 >('ocCurrentCart/updateCreditCardPayment', async (creditCard, ThunkAPI) => {
-  const { ocCurrentCart } = ThunkAPI.getState();
+  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
   const order = ocCurrentCart.order;
-  const updatedCreditCard = await Me.SaveCreditCard(creditCard.ID, creditCard);
+  if (!ocAuth.isAnonymous) {
+    creditCard = creditCard.ID
+      ? await Me.SaveCreditCard(creditCard.ID, creditCard)
+      : await Me.CreateCreditCard(creditCard);
+  }
   const payment: DPayment = {
     Type: 'CreditCard',
-    CreditCardID: updatedCreditCard.ID,
+    CreditCardID: creditCard?.ID,
     Amount: order.Total,
+    xp: {
+      CreditCard: creditCard,
+      SpendingAccount: null,
+    },
   };
   const response = await axios.put<RequiredDeep<DPayment>[]>(
     `/api/checkout/update-payments/${order.ID}`,
     { Payments: [payment] },
     { headers: { Authorization: `Bearer ${Tokens.GetAccessToken()}` } }
   );
-  response.data[0].CreditCard = updatedCreditCard;
   return response.data;
 });
 
@@ -82,32 +88,6 @@ export const retrievePayments = createOcAsyncThunk<RequiredDeep<DPayment>[], str
   'ocCurrentCart/retrievePayments',
   async (orderId) => {
     const response = await Payments.List<DPayment>('All', orderId, { pageSize: 100 });
-    let payments = response.Items;
-    if (!payments.length) {
-      return payments;
-    }
-    // The payment object alone doesn't have details for the associated credit cards
-    // or spending accounts so we're enhancing the payment object with those details here
-    const paymentDetailRequests = payments.map((payment) => {
-      if (payment.Type === 'CreditCard') {
-        return Me.GetCreditCard<DBuyerCreditCard>(payment.CreditCardID);
-      }
-      if (payment.Type === 'SpendingAccount') {
-        return Me.GetSpendingAccount(payment.SpendingAccountID);
-      }
-      // purchase order payments don't have additional information to retrieve
-      return null;
-    });
-    const paymentDetailResponses = await Promise.all(paymentDetailRequests);
-    payments = payments.map((payment, index) => {
-      if (payment.Type === 'CreditCard') {
-        payment.CreditCard = paymentDetailResponses[index] as RequiredDeep<DBuyerCreditCard>;
-      }
-      if (payment.Type === 'SpendingAccount') {
-        payment.SpendingAccount = paymentDetailResponses[index] as RequiredDeep<SpendingAccount>;
-      }
-      return payment;
-    });
     return response.Items;
   }
 );

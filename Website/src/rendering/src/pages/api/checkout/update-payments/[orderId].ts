@@ -4,8 +4,7 @@ import { Orders, Payments, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { DOrder } from 'src/models/ordercloud/DOrder';
 import withOcUserAuth from 'src/edge/ordercloud/middleware/withOcUserAuth';
 import { getUserToken, initializeMiddlewareClient } from 'src/edge/ordercloud/utils';
-import withOcErrorHandler from 'src/edge/ordercloud/middleware/withOcErrorHandler';
-import { CatalystBaseError } from '@ordercloud/catalyst';
+import { CatalystBaseError, withOcErrorHandler } from '@ordercloud/catalyst';
 
 /**
  * This endpoint is called by the buyer app when needing to update payments it will receive the expected payments
@@ -32,7 +31,7 @@ const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, r
   let existingPayments = (await Payments.List<DPayment>('All', orderId)).Items;
   existingPayments = await deleteStalePayments(requestedPayments, existingPayments, order);
 
-  const updateRequests: Promise<void>[] = [];
+  const updateRequests: Promise<DPayment>[] = [];
   requestedPayments.forEach((requestedPayment) => {
     const existingPayment = existingPayments.find(
       (payment) => payment.Type === requestedPayment.Type
@@ -46,13 +45,22 @@ const routeHandler: NextApiHandler<RequiredDeep<DPayment>[]> = async (request, r
         updateSpendingAccountpayment(requestedPayment, existingPayment, order, userToken)
       );
     } else {
-      updateRequests.push(updatePurchaseOrderPayment(existingPayment, order));
+      updateRequests.push(updatePurchaseOrderPayment(requestedPayment, existingPayment, order));
     }
   });
-  await Promise.all(updateRequests);
-  const updatedPayments = (await Payments.List<DPayment>('All', order.ID)).Items;
+  const updatedPayments = await Promise.all(updateRequests);
+  // When a buyer creates a credit card payment, payment.Accepted defaults to false
+  // In a real application once a credit card has been authorized then the middleware
+  // with elevated 'OrderAdmin' role can mark payment as payment.Accepted=true
+  // An order can not be submitted until all payments have payment.Accepted=true
+  const creditCardAcceptRequests = updatedPayments
+    .filter((payment) => payment.Type === 'CreditCard' && !payment.Accepted)
+    .map((payment) => Payments.Patch('All', orderId, payment.ID, { Accepted: true }));
+  await Promise.all(creditCardAcceptRequests);
 
-  return response.status(200).json(updatedPayments);
+  const responseBody = (await Payments.List<DPayment>('All', order.ID)).Items;
+
+  return response.status(200).json(responseBody);
 };
 
 async function deleteStalePayments(
@@ -64,7 +72,7 @@ async function deleteStalePayments(
   // if there are any existing payments not reflected in requestedPayments then they should be deleted
 
   const toDeletePayments = existingPayments.filter((existingPayment) => {
-    return requestedPayments.some((payment) => payment.Type === existingPayment.Type);
+    return requestedPayments.every((payment) => payment.Type !== existingPayment.Type);
   });
   const toDeleteRequests = toDeletePayments.map((payment) =>
     Payments.Delete('All', order.ID, payment.ID)
@@ -81,44 +89,48 @@ async function updateCreditCardPayment(
   existingPayment: RequiredDeep<DPayment>,
   order: DOrder,
   userToken: string
-): Promise<void> {
+): Promise<DPayment> {
   // Note: we pass user's token when creating a new payment because otherwise if they are paying with
   // a personal credit card we'll get a 404 since our middleware user doesn't have access to it
 
-  if (existingPayment === null) {
+  if (!existingPayment) {
     // payment doesn't exist yet, create new
-    await Payments.Create(
+    return await Payments.Create<DPayment>(
       'All',
       order.ID,
       {
         Amount: order.Total,
-        Accepted: true,
+        Accepted: false,
         CreditCardID: requestedPayment.CreditCardID,
         Type: 'CreditCard',
+        xp: requestedPayment.xp,
       },
       { accessToken: userToken }
     );
   } else if (existingPayment.CreditCardID !== requestedPayment.CreditCardID) {
     // can't simply update payment if CreditCardID changed, need to delete and create new
     await Payments.Delete('All', order.ID, existingPayment.ID);
-    await Payments.Create(
+    return await Payments.Create<DPayment>(
       'All',
       order.ID,
       {
         Amount: order.Total,
-        Accepted: true,
+        Accepted: false,
         CreditCardID: requestedPayment.CreditCardID,
         Type: 'CreditCard',
+        xp: requestedPayment.xp,
       },
       { accessToken: userToken }
     );
   } else if (existingPayment.Accepted && existingPayment.Amount === order.Total) {
     // do nothing, no updates needed
+    return {} as DPayment;
   } else {
     // update payment
-    await Payments.Patch('All', order.ID, existingPayment.ID, {
+    return await Payments.Patch<DPayment>('All', order.ID, existingPayment.ID, {
       Amount: order.Total,
       Accepted: true,
+      xp: requestedPayment.xp,
     });
   }
 }
@@ -128,62 +140,69 @@ async function updateSpendingAccountpayment(
   existingPayment: RequiredDeep<DPayment>,
   order: DOrder,
   userToken: string
-): Promise<void> {
+): Promise<DPayment> {
   // Note: we pass user's token when creating a new payment because otherwise if they are paying with
   // a personal spending account we'll get a 404 since our middleware user doesn't have access to it
 
-  if (existingPayment === null) {
+  if (!existingPayment) {
     // payment doesn't exist yet, create new
-    await Payments.Create(
+    return await Payments.Create<DPayment>(
       'All',
       order.ID,
       {
         Amount: order.Total,
         SpendingAccountID: requestedPayment.SpendingAccountID,
         Type: 'SpendingAccount',
+        xp: requestedPayment.xp,
       },
       { accessToken: userToken }
     );
   } else if (existingPayment.SpendingAccountID !== requestedPayment.SpendingAccountID) {
     // can't simply update payment if SpendingAccountID changed, need to delete and create new
     await Payments.Delete('All', order.ID, existingPayment.ID);
-    await Payments.Create(
+    return await Payments.Create<DPayment>(
       'All',
       order.ID,
       {
         Amount: order.Total,
         SpendingAccountID: requestedPayment.SpendingAccountID,
         Type: 'SpendingAccount',
+        xp: requestedPayment.xp,
       },
       { accessToken: userToken }
     );
   } else if (existingPayment.Accepted && existingPayment.Amount === order.Total) {
     // do nothing, no updates needed
+    return {} as DPayment;
   } else {
     // update payment
-    await Payments.Patch('All', order.ID, existingPayment.ID, {
+    return await Payments.Patch<DPayment>('All', order.ID, existingPayment.ID, {
       Amount: order.Total,
       Accepted: true,
+      xp: requestedPayment.xp,
     });
   }
 }
 
 async function updatePurchaseOrderPayment(
+  requestedPayment: RequiredDeep<DPayment>,
   existingPayment: RequiredDeep<DPayment>,
   order: DOrder
-): Promise<void> {
-  if (existingPayment === null) {
-    // payment doesn't exist yet, create new
-    await Payments.Create('All', order.ID, {
+): Promise<DPayment> {
+  if (!existingPayment) {
+    return await Payments.Create<DPayment>('All', order.ID, {
       Amount: order.Total,
       Type: 'PurchaseOrder',
+      xp: requestedPayment.xp,
     });
   } else if (existingPayment.Amount === order.Total) {
     // do nothing, no updates needed
+    return {} as DPayment;
   } else {
     // update payment
-    await Payments.Patch('All', order.ID, existingPayment.ID, {
+    return await Payments.Patch<DPayment>('All', order.ID, existingPayment.ID, {
       Amount: order.Total,
+      xp: requestedPayment.xp,
     });
   }
 }

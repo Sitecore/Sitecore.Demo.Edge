@@ -14,18 +14,23 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
    * 2. Add more supported countries, currently only support US & Canada
    * 3. Disable submit button unless there are actual changes
    * 4. Add ability to discard changes (this would only be on editing addresses)
+   * 5. Remove mocked address once saved addresses are a thing
    */
   const countries = GeographyService.getCountries();
   const [states, setStates] = useState(
     GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code)
   );
-  const [addressName, setAddressName] = useState(props.address?.AddressName);
-  const [country, setCountry] = useState(props.address?.Country);
-  const [street1, setStreet1] = useState(props.address?.Street1);
+  const [addressName, setAddressName] = useState(
+    props?.address ? props.address?.AddressName : 'Home'
+  );
+  const [country, setCountry] = useState(props?.address ? props.address?.Country : 'US');
+  const [street1, setStreet1] = useState(
+    props?.address?.ID ? props.address?.Street1 : '6818 Gaines Ferry Road'
+  );
   const [street2, setStreet2] = useState(props.address?.Street2);
-  const [city, setCity] = useState(props.address?.City);
-  const [state, setState] = useState(props.address?.State);
-  const [zip, setZip] = useState(props.address?.Zip);
+  const [city, setCity] = useState(props?.address ? props.address?.City : 'Flowery Branch');
+  const [state, setState] = useState(props?.address ? props.address?.State : 'GA');
+  const [zip, setZip] = useState(props?.address ? props.address?.Zip : '30542');
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -153,7 +158,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
       </div>
       <div className="button-area">
         <button className="btn--main btn--main--round" type="submit">
-          Submit
+          Save Address
         </button>
       </div>
     </form>

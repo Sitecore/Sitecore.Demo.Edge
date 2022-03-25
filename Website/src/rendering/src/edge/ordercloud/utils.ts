@@ -66,7 +66,8 @@ function verifyTokenCryptographically(publicKey: PublicKey, token: string): JwtP
   }
 }
 export async function initializeMiddlewareClient(): Promise<void> {
-  if (Tokens.GetAccessToken()) {
+  const token = Tokens.GetAccessToken();
+  if (token) {
     // already initialized
     return;
   }
@@ -77,7 +78,7 @@ export async function initializeMiddlewareClient(): Promise<void> {
   const authResponse = await Auth.ClientCredentials(
     process.env.ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET,
     process.env.ORDERCLOUD_MIDDLEWARE_CLIENT_ID,
-    ['OrderAdmin']
+    ['OrderAdmin', 'UnsubmittedOrderReader']
   );
   Tokens.SetAccessToken(authResponse.access_token);
   Tokens.SetRefreshToken(authResponse.refresh_token);
@@ -85,5 +86,5 @@ export async function initializeMiddlewareClient(): Promise<void> {
 
 export function getUserToken(request: NextApiRequest): string {
   const authHeader = request.headers.authorization;
-  return authHeader.replace('Authorization ', '');
+  return authHeader.replace('Bearer ', '');
 }

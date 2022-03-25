@@ -17,8 +17,13 @@ const AddressCard = (props: AddressCardProps): JSX.Element => {
   const editButton = props.editable && (
     <button onClick={() => props.onEdit(props.address)}>Edit Address</button>
   );
+  const onClick = (address: DBuyerAddress) => {
+    if (props.onClick && typeof props.onClick === 'function') {
+      props.onClick(address);
+    }
+  };
   return (
-    <div onClick={() => props.onClick(props.address)} className={addressClasses.join(' ')}>
+    <div onClick={() => onClick(props.address)} className={addressClasses.join(' ')}>
       <strong>{props.address.AddressName}</strong>
       <p>{props.address.Street1}</p>
       {street2}

@@ -1,11 +1,14 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { submitOrder } from '../../redux/ocCurrentCart';
+import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
-const CheckoutSummary = (): JSX.Element => {
+type CheckoutSummaryProps = {
+  orderComments?: string;
+};
+const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -21,6 +24,9 @@ const CheckoutSummary = (): JSX.Element => {
 
   const handleSubmitOrder = async () => {
     setLoading(true);
+    if (props.orderComments) {
+      await dispatch(patchOrder({ Comments: props.orderComments }));
+    }
     await dispatch(submitOrder(onOrderSubmitSuccess));
     setLoading(false);
   };
@@ -36,7 +42,6 @@ const CheckoutSummary = (): JSX.Element => {
   };
 
   const canSubmitOrder = (): boolean => {
-    debugger;
     if (loading) {
       return false;
     }
@@ -46,10 +51,10 @@ const CheckoutSummary = (): JSX.Element => {
     if (!selectedShipMethodId) {
       return false;
     }
-    if (!shippingAddress?.ID) {
+    if (!shippingAddress?.Country) {
       return false;
     }
-    if (!order.BillingAddress?.ID) {
+    if (!order.BillingAddress?.Country) {
       return false;
     }
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {

@@ -39,6 +39,8 @@ services:
       args:
         PARENT_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     mem_limit: 2GB
+    ports:
+      - "8099:3000"
     volumes:
       - .\Website\src\rendering:C:\app
     environment:
@@ -53,6 +55,9 @@ services:
       NEXT_PUBLIC_DISCOVER_API_KEY: ${DISCOVER_API_KEY}
       NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID: ${ORDERCLOUD_BUYER_CLIENT_ID}
       NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL: ${ORDERCLOUD_BASE_API_URL}
+      ORDERCLOUD_MIDDLEWARE_CLIENT_ID: ${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}
+      ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET: ${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}
+      OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY}
       #DEBUG: ${DEBUG} # Uncomment this line and set the DEBUG environment variable value in the .env file to enable debug logging
     depends_on:
       - cm
