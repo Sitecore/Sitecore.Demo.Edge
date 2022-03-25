@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 /* 1. Our configuration and helpers */
 
@@ -43,6 +43,10 @@
 @import './components/Forms/AttendeeForm.css';
 @import './components/Forms/RequestInfoForm.css';
 
+/* Full Page Search */
+@import './components/FullPageSearch/FacetList.css';
+@import './components/FullPageSearch/FullPageSearch.css';
+
 /* Navigation */
 @import './components/Navigation/Breadcrumb.css';
 @import './components/Navigation/Footer.css';
@@ -81,9 +85,15 @@
 @import './components/Payment/PaymentProgress.css';
 @import './components/Payment/TicketPaymentConfirmed.css';
 
+/* Preview Search */
+@import './components/PreviewSearch/PreviewSearch.css';
+
 /* Products */
 @import './components/Products/CategoriesList.css';
+@import './components/Products/Price.css';
+@import './components/Products/ProductCard.css';
 @import './components/Products/ProductDetail.css';
+@import './components/Products/ProductList.css';
 @import './components/Products/Shop.css';
 
 /* Sessions */

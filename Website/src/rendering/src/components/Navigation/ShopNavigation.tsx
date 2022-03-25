@@ -79,17 +79,15 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
             </li>
           </ul>
         </div>
-        <div
-          data-rfkid="rfkid_6"
-          id="search-input-container"
-          className="shop-search-input-container"
-        >
-          <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
-          <input
-            id="search-input"
-            className="shop-search-input"
-            placeholder="I am shopping for..."
-          />
+        <div className="shop-search-input-container">
+          <div data-rfkid="rfkid_6" id="search-input-container">
+            <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
+            <input
+              id="search-input"
+              className="shop-search-input"
+              placeholder="I am shopping for..."
+            />
+          </div>
         </div>
       </div>
     </nav>
