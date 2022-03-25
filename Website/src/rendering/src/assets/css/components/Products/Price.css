@@ -1,0 +1,21 @@
+.price {
+  @apply flex flex-wrap justify-end text-right;
+
+  &-base {
+    @apply text-sm text-blue font-bold w-full;
+  }
+
+  &-discounted {
+    .price-base {
+      @apply text-xs line-through text-black-lightest font-normal w-auto;
+    }
+
+    .price-discount {
+      @apply text-xs text-pink ml-1;
+    }
+
+    .price-final {
+      @apply text-sm text-blue font-bold w-full;
+    }
+  }
+}
