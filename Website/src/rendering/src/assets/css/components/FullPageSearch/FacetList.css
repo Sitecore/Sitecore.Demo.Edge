@@ -9,7 +9,7 @@
     }
 
     &-title {
-      @apply flex justify-between py-1 cursor-pointer;
+      @apply flex justify-between py-1 cursor-pointer font-bold;
 
       &::after {
         @apply block transition-transform;
@@ -66,7 +66,7 @@
     }
 
     .facet-list-title {
-      @apply flex items-center mb-5;
+      @apply flex items-center mb-5 font-bold;
 
       &::before {
         @apply h-4 mr-2;

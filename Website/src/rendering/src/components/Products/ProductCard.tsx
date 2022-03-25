@@ -2,7 +2,7 @@ import Price from './Price';
 
 // TODO: add story for component
 
-type ProductItemProps = {
+type ProductCardProps = {
   className: string;
   onClick: () => void;
   onDiscoverStyleOpen: () => void;
@@ -16,7 +16,7 @@ type ProductItemProps = {
   brand: string;
 };
 
-const ProductCard = (props: ProductItemProps): JSX.Element => {
+const ProductCard = (props: ProductCardProps): JSX.Element => {
   const {
     onClick,
     product_url,
