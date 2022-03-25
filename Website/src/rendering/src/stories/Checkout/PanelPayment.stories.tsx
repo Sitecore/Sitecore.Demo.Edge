@@ -36,7 +36,7 @@ const mockStateSavedPayment = {
           PartialAccountNumber: '6123',
           ExpirationDate: getMockExpirationDate(),
         },
-      }
+      },
     },
   ] as DPayment[],
 };
