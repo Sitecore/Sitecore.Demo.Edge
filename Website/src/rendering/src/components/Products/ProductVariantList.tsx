@@ -1,34 +1,34 @@
+import Link from 'next/link';
 import { RequiredDeep, Variant } from 'ordercloud-javascript-sdk';
-import { FunctionComponent } from 'react';
 
 interface ProductVariantListProps {
+  sku: string;
+  productNameSlug: string;
   variants?: RequiredDeep<Variant>[];
-  variantID?: string;
-  onChange: (variantID: string) => void;
 }
 
-const ProductVariantList: FunctionComponent<ProductVariantListProps> = ({
+const ProductVariantList = ({
+  sku,
+  productNameSlug,
   variants,
-  variantID,
-  onChange,
-}): JSX.Element => {
-  const variantList =
-    variants && !variantID ? (
-      <div>
-        Variants:
-        <div className="product-variants">
-          <ul>
-            {variants?.map((variant, index) => (
-              <li key={index}>
-                <button onClick={() => onChange(variant.ID)}>{variant.Name}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+}: ProductVariantListProps): JSX.Element => {
+  const variantList = variants && (
+    <div>
+      Variants:
+      <div className="product-variants">
+        <ul>
+          {variants.map((variant, index) => (
+            <li key={index}>
+              <Link href={`/shop/products/${sku}/${productNameSlug}/${variant.ID}`}>
+                <a>{variant.Name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    ) : null;
+    </div>
+  );
 
-  // Configure return
   return variantList;
 };
 

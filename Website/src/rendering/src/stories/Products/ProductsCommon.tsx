@@ -1,13 +1,5 @@
 import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 
-type DiscoverProduct = {
-  name: string;
-  price: number;
-  image_url: string;
-  brand: string;
-  sku: string;
-};
-
 export const sku = 'PSPRFSAW';
 export const product: RequiredDeep<BuyerProduct> = {
   PriceSchedule: {
@@ -533,81 +525,5 @@ export const variants: RequiredDeep<Variant>[] = [
         },
       ],
     },
-  },
-];
-
-export const moreProducts: DiscoverProduct[] = [
-  {
-    image_url: '/assets/img/shop/demo/bike-lights.jpg',
-    price: 25.99,
-    name: 'Outrace bike light set',
-    brand: 'Outrace',
-    sku: '0923',
-  },
-  {
-    image_url: '/assets/img/shop/demo/pump-1.png',
-    price: 40,
-    name: 'CenterCycle Travel pump',
-    brand: 'CenterCycle',
-    sku: '129489',
-  },
-  {
-    image_url: '/assets/img/shop/demo/ratchet-kit-3.jpg',
-    price: 52.95,
-    name: 'CenterCycle Ratchet kit',
-    brand: 'CenterCycle',
-    sku: '193405',
-  },
-  {
-    image_url: '/assets/img/shop/demo/bike-seat-1.jpg',
-    price: 119.99,
-    name: 'Striva Ergonomic bike seat',
-    brand: 'Striva',
-    sku: '239805',
-  },
-  {
-    image_url: '/assets/img/shop/demo/bike-helmet-1.jpg',
-    price: 50,
-    name: 'Outrace lightweight bicycle helmet',
-    brand: 'Outrace',
-    sku: '62382',
-  },
-];
-
-export const similarProducts: DiscoverProduct[] = [
-  {
-    image_url: '/assets/img/shop/demo/tough-and-durable-012x.jpg',
-    price: 500,
-    name: 'OverUnder smartwatch',
-    brand: 'OverUnder',
-    sku: '1234',
-  },
-  {
-    image_url: '/assets/img/shop/demo/smart-band-1.png',
-    price: 45,
-    name: 'Striva Smart band',
-    brand: 'Striva',
-    sku: '2367',
-  },
-  {
-    image_url: '/assets/img/shop/demo/prod-habitat-striva5.jpeg',
-    price: 19.95,
-    name: 'Striva Smart fitness tracker',
-    brand: 'Striva',
-    sku: '6543',
-  },
-  {
-    image_url: '/assets/img/shop/demo/Smart-audio-band-1.jpg',
-    price: 150,
-    name: 'Striva Smart audio band',
-    brand: 'Striva',
-    sku: '3456',
-  },
-  {
-    image_url: '/assets/img/shop/demo/phone-holder.jpg',
-    price: 24.95,
-    name: 'Striva Bike phone holder',
-    brand: 'Striva',
-    sku: '2345',
   },
 ];
