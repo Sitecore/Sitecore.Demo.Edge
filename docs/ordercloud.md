@@ -4,7 +4,7 @@
 
 ## Running the application locally
 
-During checkout we make use of OrderCloud's [checkout integration events](https://ordercloud.io/knowledge-base/order-checkout-integration) to retrive shipping estimates as well as to calculate tax. These integration events requires the relevant endpoints to be publicly accessible. For ease of use we have configured the application to reference an always-on, publicly available server to handle these requests. However, such a scenario may arise where you are updating the logic in the endpoints and need those endpoints to be called to validate your logic while developing locally.
+During checkout we make use of OrderCloud's [checkout integration events](https://ordercloud.io/knowledge-base/order-checkout-integration) to retrieve shipping estimates as well as to calculate tax. These integration events require the relevant endpoints to be publicly accessible. For ease of use we have configured the application to reference an always-on, publicly available server to handle these requests. However, such a scenario may arise where you are updating the logic in the endpoints and need those endpoints to be called to validate your logic while developing locally.
 
 To enable this functionality, you will need to follow these steps:
 
