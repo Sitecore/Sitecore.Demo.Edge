@@ -19,7 +19,7 @@ const Cart = (): JSX.Element => {
         params={{}}
         fields={{ items: breadCrumbDefinitions }}
       />
-      <CartDetails />
+      <CartDetails editable={true} />
       <div data-rfkid="rfkid_11"></div>
     </ShopLayout>
   );

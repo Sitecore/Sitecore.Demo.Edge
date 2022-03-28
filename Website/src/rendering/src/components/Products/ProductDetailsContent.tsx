@@ -5,6 +5,9 @@ import { useAppDispatch, useAppSelector } from '../../redux/store';
 import ProductQuantityInput from './ProductQuantityInput';
 import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import ProductVariantList from './ProductVariantList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHistory } from '@fortawesome/free-solid-svg-icons';
 
 interface ProductDetailsContentProps {
   sku?: string;
@@ -149,13 +152,13 @@ const ProductDetailsContent = ({
       await dispatch(
         createLineItem({
           ProductID: product.ID,
-          Quantity: 1,
+          Quantity: quantity,
           Specs: specValues,
         })
       );
       setLoading(false);
     },
-    [dispatch, product, specValues]
+    [dispatch, product, specValues, quantity]
   );
 
   const productImage =
@@ -171,16 +174,28 @@ const ProductDetailsContent = ({
     <ProductVariantList sku={sku} productNameSlug={productName} variants={variants} />
   );
 
+  // TODO: add functionality to button
+  const btnWishList = (
+    <button className="btn-wishlist" aria-label="Add to Wish List" type="button">
+      <FontAwesomeIcon icon={faHeart} />
+    </button>
+  );
+
+  // TODO: add functionality to button
+  const btnSaveLater = (
+    <button className="btn-later" aria-label="Save for Later" type="button">
+      <FontAwesomeIcon icon={faHistory} />
+    </button>
+  );
+
   const productDetails = product && (
     <section className="section">
       <div className="section__content container">
         <div className="product-detail">
           <div className="product-detail-hero">
+            <h2>{product.Name}</h2>
             <div className="product-image">{productImage}</div>
             <div className="product-description">
-              <h2>{product.Name}</h2>
-              <p>SKU: {sku}</p>
-              <div>{product.Description}</div>
               <div>
                 Price:{' '}
                 <span className="product-price">${product.PriceSchedule.PriceBreaks[0].Price}</span>
@@ -192,6 +207,7 @@ const ProductDetailsContent = ({
                   onChange={handleSpecFieldChange}
                 />
                 {variantsList}
+                {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
                 <ProductQuantityInput
                   controlId="addToCart"
                   priceSchedule={product.PriceSchedule}
@@ -200,10 +216,14 @@ const ProductDetailsContent = ({
                 />
                 <div className="product-add-to-cart">
                   <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-                    {addToCartButtonText}
+                    {/* TODO: loader style */}
+                    {!loading ? addToCartButtonText : '...'}
                   </button>
+                  {btnSaveLater}
+                  {btnWishList}
                 </div>
               </form>
+              <div>{product.Description}</div>
             </div>
           </div>
         </div>
