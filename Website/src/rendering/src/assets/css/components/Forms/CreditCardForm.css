@@ -1,0 +1,12 @@
+.form.creditcard-form {
+  @apply space-y-5 p-10;
+
+  input[type="text"],
+  input[type="password"] {
+    @apply sm:w-3/5;
+  }
+}
+
+.expiration-date {
+  display: flex;
+}

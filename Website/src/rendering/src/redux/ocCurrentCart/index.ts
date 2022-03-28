@@ -8,6 +8,7 @@ import {
   ShipMethodSelection,
   Payments,
   PartialDeep,
+  Tokens,
 } from 'ordercloud-javascript-sdk';
 import { DAddress } from 'src/models/ordercloud/DAddress';
 import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
@@ -18,6 +19,8 @@ import { DPayment } from 'src/models/ordercloud/DPayment';
 import { DOrderPromotion } from 'src/models/ordercloud/DOrderPromotion';
 import { DShipEstimateResponse } from 'src/models/ordercloud/DShipEstimateResponse';
 import { createOcAsyncThunk } from '../ocReduxHelpers';
+import { DBuyerCreditCard } from 'src/models/ordercloud/DCreditCard';
+import axios from 'axios';
 
 export interface RecentOrder {
   order: RequiredDeep<DOrder>;
@@ -32,6 +35,7 @@ export interface OcCurrentOrderState {
   payments?: RequiredDeep<DPayment>[];
   shipEstimateResponse?: RequiredDeep<DShipEstimateResponse>;
   promotions?: RequiredDeep<DOrderPromotion>[];
+  shippingAddress?: RequiredDeep<DAddress>;
 }
 
 const initialState: OcCurrentOrderState = {
@@ -42,16 +46,43 @@ export const removeAllPayments = createOcAsyncThunk<undefined, undefined>(
   'ocCurrentCart/removeAllPayments',
   async (_, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
-    const queue: Promise<void>[] = [];
     if (ocCurrentCart.payments) {
-      ocCurrentCart.payments.forEach((p) => {
-        queue.push(Payments.Delete('All', ocCurrentCart.order.ID, p.ID));
+      const requests = ocCurrentCart.payments.map((payment) => {
+        return Payments.Delete('All', ocCurrentCart.order.ID, payment.ID);
       });
+      await Promise.all(requests);
     }
-    await Promise.all(queue);
     return undefined;
   }
 );
+
+export const updateCreditCardPayment = createOcAsyncThunk<
+  RequiredDeep<DPayment>[],
+  DBuyerCreditCard
+>('ocCurrentCart/updateCreditCardPayment', async (creditCard, ThunkAPI) => {
+  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
+  const order = ocCurrentCart.order;
+  if (!ocAuth.isAnonymous) {
+    creditCard = creditCard.ID
+      ? await Me.SaveCreditCard(creditCard.ID, creditCard)
+      : await Me.CreateCreditCard(creditCard);
+  }
+  const payment: DPayment = {
+    Type: 'CreditCard',
+    CreditCardID: creditCard?.ID,
+    Amount: order.Total,
+    xp: {
+      CreditCard: creditCard,
+      SpendingAccount: null,
+    },
+  };
+  const response = await axios.put<RequiredDeep<DPayment>[]>(
+    `/api/checkout/update-payments/${order.ID}`,
+    { Payments: [payment] },
+    { headers: { Authorization: `Bearer ${Tokens.GetAccessToken()}` } }
+  );
+  return response.data;
+});
 
 export const retrievePayments = createOcAsyncThunk<RequiredDeep<DPayment>[], string>(
   'ocCurrentCart/retrievePayments',
@@ -133,7 +164,7 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
 );
 
 export const patchOrder = createOcAsyncThunk<RequiredDeep<DOrder>, PartialDeep<DOrder>>(
-  'ocCurrentCart/delete',
+  'ocCurrentCart/patch',
   async (partialOrder, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
     const orderID = ocCurrentCart.order.ID;
@@ -230,14 +261,14 @@ export const saveShippingAddress = createOcAsyncThunk<
   RequiredDeep<DOrderWorksheet>,
   Partial<DBuyerAddress>
 >('ocCurrentCart/saveShippingAddress', async (request, ThunkAPI) => {
-  const { ocCurrentCart } = ThunkAPI.getState();
+  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
   const orderId = ocCurrentCart.order ? ocCurrentCart.order.ID : undefined;
   if (!orderId) {
     throw new Error('No order ID');
   }
 
   if (request) {
-    if (request.ID) {
+    if (request.ID && !ocAuth.isAnonymous) {
       await Orders.Patch<DOrder>('All', orderId, { ShippingAddressID: request.ID });
     } else {
       await Orders.SetShippingAddress<DOrder>('All', orderId, request as DAddress);
@@ -253,18 +284,17 @@ export const saveBillingAddress = createOcAsyncThunk<
   RequiredDeep<DOrderWorksheet>,
   Partial<DBuyerAddress>
 >('ocCurrentCart/saveBillingAddress', async (request, ThunkAPI) => {
-  const { ocCurrentCart } = ThunkAPI.getState();
+  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
   const orderId = ocCurrentCart.order ? ocCurrentCart.order.ID : undefined;
 
   if (!orderId) {
     throw new Error('No order ID');
   }
-  if (request.ID) {
+  if (request.ID && !ocAuth.isAnonymous) {
     await Orders.Patch<DOrder>('All', orderId, { BillingAddressID: request.ID });
   } else {
     await Orders.SetBillingAddress<DOrder>('All', orderId, request as DAddress);
   }
-  ThunkAPI.dispatch(removeAllPayments());
 
   return IntegrationEvents.Calculate<DOrderWorksheet>('All', orderId);
 });
@@ -280,7 +310,6 @@ export const removeBillingAddress = createOcAsyncThunk<RequiredDeep<DOrderWorksh
     }
 
     await Orders.Patch<DOrder>('All', order.ID, { BillingAddressID: null });
-    ThunkAPI.dispatch(removeAllPayments());
 
     return IntegrationEvents.Calculate<DOrderWorksheet>('All', order.ID);
   }
@@ -313,14 +342,6 @@ export const selectShipMethods = createOcAsyncThunk<
   return response;
 });
 
-export const addPayment = createOcAsyncThunk<RequiredDeep<DPayment>, DPayment>(
-  'ocCurrentCart/addPayment',
-  async (payment, ThunkAPI) => {
-    const { ocCurrentCart } = ThunkAPI.getState();
-    return Payments.Create<DPayment>('All', ocCurrentCart.order.ID, payment);
-  }
-);
-
 export const removePayment = createOcAsyncThunk<string, string>(
   'ocCurrentCart/removePayment',
   async (paymentId, ThunkAPI) => {
@@ -334,6 +355,7 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
   'ocCurrentCart/submit',
   async (_, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
+    await Orders.Validate('All', ocCurrentCart.order.ID);
     const submitResponse = await Orders.Submit<DOrder>('All', ocCurrentCart.order.ID);
     // eslint-disable-next-line no-use-before-define
     ThunkAPI.dispatch(clearCurrentOrder());
@@ -366,6 +388,7 @@ const ocCurrentCartSlice = createSlice({
       if (action.payload) {
         state.order = action.payload.Order;
         state.lineItems = action.payload.LineItems;
+        state.shippingAddress = state.lineItems?.length ? state.lineItems[0].ShippingAddress : null;
         state.shipEstimateResponse = action.payload.ShipEstimateResponse;
       }
     });
@@ -417,6 +440,9 @@ const ocCurrentCartSlice = createSlice({
     builder.addCase(saveShippingAddress.fulfilled, (state, action) => {
       state.order = action.payload.Order;
       state.lineItems = action.payload.LineItems;
+      state.shippingAddress = action.payload.LineItems?.length
+        ? action.payload.LineItems[0].ShippingAddress
+        : null;
       state.shipEstimateResponse = action.payload.ShipEstimateResponse;
     });
     builder.addCase(saveBillingAddress.fulfilled, (state, action) => {
@@ -442,18 +468,11 @@ const ocCurrentCartSlice = createSlice({
     builder.addCase(retrievePayments.fulfilled, (state, action) => {
       state.payments = action.payload;
     });
-    builder.addCase(addPayment.fulfilled, (state, action) => {
-      if (!state.payments) {
-        state.payments = [action.payload];
-      } else {
-        state.payments.push(action.payload);
-      }
-    });
-    builder.addCase(removePayment.fulfilled, (state, action) => {
-      state.payments = state.payments.filter((p) => p.ID !== action.payload);
-    });
     builder.addCase(removeAllPayments.fulfilled, (state) => {
       state.payments = [];
+    });
+    builder.addCase(updateCreditCardPayment.fulfilled, (state, action) => {
+      state.payments = action.payload;
     });
     builder.addCase(submitOrder.fulfilled, (_, action) => {
       action.meta.arg(action.payload.order.ID);
