@@ -134,9 +134,10 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   // TODO: add functionality to field
   const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
 
-  // TODO: add functionality to block (specs to return price and discount)
+  // TODO: add functionality to block (specs to return base and final price)
+  // can use Price component when extracted
   const priceBlock = (
-    <div className="price">
+    <div className="price price-discounted">
       <span className="price-base">$299.99</span>
       <span className="price-discount">-20%</span>
       <span className="price-final">$250.99</span>

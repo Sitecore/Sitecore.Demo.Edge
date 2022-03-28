@@ -27,3 +27,7 @@
   @apply bg-white-light text-blue px-24 text-xl;
   @apply hover:bg-white;
 }
+
+.btn--secondary {
+  @apply text-xl py-1 px-4 border-2 border-black rounded-[4px];
+}
