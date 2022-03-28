@@ -1,3 +1,4 @@
+import PanelDeliveryOptions from './PanelDeliveryOptions';
 import PanelShippingAddress from './PanelShippingAddress';
 import PanelShippingEstimates from './PanelShippingEstimates';
 import PanelBillingAddress from './PanelBillingAddress';
@@ -14,6 +15,7 @@ const CheckoutDetails = (): JSX.Element => {
 
   return (
     <div>
+      <PanelDeliveryOptions />
       <PanelShippingAddress />
       <PanelShippingEstimates />
       <PanelBillingAddress />
