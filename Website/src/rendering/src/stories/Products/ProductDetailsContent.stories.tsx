@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MockSlice, MockStore } from '../mock-store';
 import { authSlice, cartSlice } from '../Checkout/CheckoutCommon';
-import { sku, product, specs, variants } from './ProductsCommon';
+import { product, specs, variants } from './ProductsCommon';
 import ProductDetailsContent from '../../components/Products/ProductDetailsContent';
 
 export default {
@@ -18,7 +18,6 @@ const Template: ComponentStory<typeof ProductDetailsContent> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  sku: sku,
   product: product,
   specs: specs,
   variants: variants,
@@ -33,7 +32,6 @@ Default.decorators = [
 
 export const RedSmall = Template.bind({});
 RedSmall.args = {
-  sku: sku,
   product: product,
   specs: specs,
   variants: variants,
@@ -49,7 +47,6 @@ RedSmall.decorators = [
 
 export const GreenMedium = Template.bind({});
 GreenMedium.args = {
-  sku: sku,
   product: product,
   specs: specs,
   variants: variants,
@@ -65,7 +62,6 @@ GreenMedium.decorators = [
 
 export const BlueLarge = Template.bind({});
 BlueLarge.args = {
-  sku: sku,
   product: product,
   specs: specs,
   variants: variants,

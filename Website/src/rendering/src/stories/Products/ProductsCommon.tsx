@@ -1,6 +1,5 @@
 import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 
-export const sku = 'PSPRFSAW';
 export const product: RequiredDeep<BuyerProduct> = {
   PriceSchedule: {
     OwnerID: 'play-summit-ordercloud-discover',
