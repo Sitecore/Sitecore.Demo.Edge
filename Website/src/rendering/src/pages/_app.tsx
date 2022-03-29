@@ -4,13 +4,9 @@ import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
 import { useEffect } from 'react';
 import Head from 'next/head';
-// DEMO TEAM CUSTOMIZATION - CDP, Discover, and OrcerCloud integrations
+// DEMO TEAM CUSTOMIZATION - CDP integration
 import { CdpScripts, identifyVisitor } from '../services/CdpService';
 import { KeypressHandler } from 'src/services/KeypressHandlerService';
-import { MerchandisingScripts } from 'src/services/MerchandisingService';
-import { Provider } from 'react-redux';
-import reduxStore from '../redux/store';
-import OcProvider from '../redux/ocProvider';
 // END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -59,9 +55,8 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         <meta name="description" content="Play! Summit" />
       </Head>
 
-      {/* DEMO TEAM CUSTOMIZATION - CDP/Discover integration. It is important this script is rendered before the <Component> so the CDP calls made on the first page load are successful. */}
+      {/* DEMO TEAM CUSTOMIZATION - CDP integration. It is important this script is rendered before the <Component> so the CDP calls made on the first page load are successful. */}
       {CdpScripts}
-      {MerchandisingScripts}
       {/* END CUSTOMIZATION*/}
 
       {/*
@@ -70,13 +65,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         If your app is not multilingual, next-localization and references to it can be removed.
       */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
-        {/* DEMO TEAM CUSTOMIZATION - OrderCloud integration */}
-        <Provider store={reduxStore}>
-          <OcProvider>
-            <Component {...rest} />
-          </OcProvider>
-        </Provider>
-        {/* END CUSTOMIZATION */}
+        <Component {...rest} />
       </I18nProvider>
     </>
   );
