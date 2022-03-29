@@ -5,6 +5,10 @@ import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigatio
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
 import { isCommerceEnabled } from '../../helpers/CommerceHelper';
+import { MerchandisingScripts } from '../../services/MerchandisingService';
+import { Provider } from 'react-redux';
+import reduxStore from '../../redux/store';
+import OcProvider from '../../redux/ocProvider';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const shopNavigationProps = {
@@ -46,7 +50,11 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
 
   // Show shop content if commerce is enabled, otherwise show error message
   const shopContent = isCommerceEnabled ? (
-    <div className="shop-main-container">{props.children}</div>
+    <Provider store={reduxStore}>
+      <OcProvider>
+        <div className="shop-main-container">{props.children}</div>
+      </OcProvider>
+    </Provider>
   ) : (
     <p className="shop-integration-error">
       Shop pages are currently disabled because the commerce integration is not configured
@@ -58,6 +66,8 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {MerchandisingScripts}
 
       <header>
         <ShopNavigation {...shopNavigationProps} />
