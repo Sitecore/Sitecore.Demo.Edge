@@ -2,7 +2,6 @@ import { PriceSchedule, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { ChangeEvent, useState } from 'react';
 
 interface ProductQuantityInputProps {
-  controlId?: string;
   priceSchedule: RequiredDeep<PriceSchedule>;
   label?: string;
   disabled?: boolean;
@@ -11,7 +10,6 @@ interface ProductQuantityInputProps {
 }
 
 const ProductQuantityInput = ({
-  controlId,
   priceSchedule,
   disabled,
   quantity,
@@ -45,18 +43,16 @@ const ProductQuantityInput = ({
     onChange(newQuantity);
   };
 
-  const priceForm = priceSchedule.RestrictedQuantity ? (
-    <div className="quantity-input">
-      <select id={controlId} disabled={disabled} value={_quantity} onChange={handleSelectChange}>
-        {priceSchedule.PriceBreaks.map((priceBreak) => (
-          <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
-            {priceBreak.Quantity}
-          </option>
-        ))}
-      </select>
-    </div>
+  const quantityForm = priceSchedule.RestrictedQuantity ? (
+    <select disabled={disabled} value={_quantity} onChange={handleSelectChange}>
+      {priceSchedule.PriceBreaks.map((priceBreak) => (
+        <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
+          {priceBreak.Quantity}
+        </option>
+      ))}
+    </select>
   ) : (
-    <div className="quantity-input">
+    <>
       <button
         className="quantity-input-button"
         aria-label="Subtract quantity"
@@ -67,7 +63,6 @@ const ProductQuantityInput = ({
         -
       </button>
       <input
-        id={controlId}
         disabled={disabled}
         type="number"
         min={priceSchedule.MinQuantity}
@@ -85,10 +80,10 @@ const ProductQuantityInput = ({
       >
         +
       </button>
-    </div>
+    </>
   );
 
-  return priceForm;
+  return <div className="quantity-input">{quantityForm}</div>;
 };
 
 export default ProductQuantityInput;

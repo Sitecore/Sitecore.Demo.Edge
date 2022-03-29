@@ -55,23 +55,27 @@ const ProductSpecField = ({
           ))}
         </select>
       ) : (
-        spec.Options.map((option) => (
-          <>
-            <input
-              type="radio"
-              key={`i${option.ID}`}
-              id={option.ID}
-              name={spec.ID}
-              value={option.ID}
-              onChange={handleRadioChange}
-              checked={optionId === option.ID}
-              className={specType === 'color' ? option.Value.toLowerCase() : ''}
-            />
-            <label htmlFor={option.ID} key={`l${option.ID}`}>
-              <span>{specType === 'size' ? option.Value.substring(0, 1) : option.Value}</span>
-            </label>
-          </>
-        ))
+        spec.Options.map((option) => {
+          const labelText = specType === 'size' ? option.Value.substring(0, 1) : option.Value;
+          return (
+            <>
+              <input
+                type="radio"
+                key={`i${option.ID}`}
+                id={option.ID}
+                name={spec.ID}
+                value={option.ID}
+                onChange={handleRadioChange}
+                checked={optionId === option.ID}
+                className={specType === 'color' ? option.Value.toLowerCase() : ''}
+                title={labelText}
+              />
+              <label htmlFor={option.ID} key={`l${option.ID}`}>
+                <span>{labelText}</span>
+              </label>
+            </>
+          );
+        })
       )}
     </>
   ) : (
@@ -82,7 +86,7 @@ const ProductSpecField = ({
     // TODO: Free text input spec field hidden for now - do we need it?
     !!spec.OptionCount && (
       <div className="spec-item" data-type={specType}>
-        <span className="spec-name">{spec.Name}</span>
+        <div className="spec-name">{spec.Name}</div>
         <label htmlFor={spec.ID}>{specField}</label>
       </div>
     )

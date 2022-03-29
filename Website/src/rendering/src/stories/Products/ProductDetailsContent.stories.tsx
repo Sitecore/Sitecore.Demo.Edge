@@ -30,6 +30,32 @@ Default.decorators = [
   ),
 ];
 
+export const OnSale = Template.bind({});
+OnSale.args = {
+  product: {
+    ...product,
+    PriceSchedule: {
+      ...product.PriceSchedule,
+      PriceBreaks: [
+        {
+          Quantity: 1,
+          Price: 15.99,
+          SalePrice: 10.99,
+        },
+      ],
+    },
+  },
+  specs: specs,
+  variants: variants,
+};
+OnSale.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={productSlices}>
+      <Story />
+    </MockStore>
+  ),
+];
+
 export const RedSmall = Template.bind({});
 RedSmall.args = {
   product: product,
@@ -68,6 +94,20 @@ BlueLarge.args = {
   variantID: 'PSPRFSAW-BL',
 };
 BlueLarge.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={productSlices}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const NoVariants = Template.bind({});
+NoVariants.args = {
+  product: product,
+  specs: [specs[1]],
+  variants: [],
+};
+NoVariants.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={productSlices}>
       <Story />

@@ -21,10 +21,9 @@ const Price = (props: PriceProps): JSX.Element => {
   }
 
   const discounted = finalPrice !== price;
-  const cssClass = `price
-    ${discounted && ' price-discounted'}
-    ${altTheme && ' price-orange'}
-    ${sizeL && ' price-large'}
+  const cssClass = `price ${discounted && 'price-discounted'} ${altTheme && 'price-orange'} ${
+    sizeL && 'price-large'
+  }
   `;
   const discount = discounted ? Math.round((100 * (price - finalPrice)) / price) : 0;
 
@@ -44,6 +43,8 @@ const Price = (props: PriceProps): JSX.Element => {
   `;
 };
 
+export default Price;
+
 // TODO: Merge into one after npm package is integrated
 export const PriceReact = (props: PriceProps): JSX.Element => {
   const { max, min, price, finalPrice, altTheme, sizeL } = props;
@@ -59,11 +60,9 @@ export const PriceReact = (props: PriceProps): JSX.Element => {
   }
 
   const discounted = finalPrice !== price;
-  const cssClass = `price
-    ${discounted && ' price-discounted'}
-    ${altTheme && ' price-orange'}
-    ${sizeL && ' price-large'}
-  `;
+  const cssClass = `price ${discounted && 'price-discounted'} ${altTheme && 'price-orange'} ${
+    sizeL && 'price-large'
+  }`;
   const discount = discounted ? Math.round((100 * (price - finalPrice)) / price) : 0;
 
   const discountAndFinalPrice = discounted && finalPrice && (
@@ -80,5 +79,3 @@ export const PriceReact = (props: PriceProps): JSX.Element => {
     </div>
   );
 };
-
-export default Price;

@@ -21,7 +21,7 @@ const ProductOverview = (props: ProductOverviewProps): JSX.Element => {
       <div className="accordion-heading">Product Overview</div>
       <div className="accordion-body">
         {props.items.map((item, i) => {
-          return <ProductOverviewItem {...item} key={`${i}${item.heading}`} />;
+          return <ProductOverviewItem {...item} key={i} />;
         })}
       </div>
     </div>

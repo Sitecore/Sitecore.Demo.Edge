@@ -118,7 +118,7 @@
         }
 
         .spec-name {
-          @apply block font-bold text-sm;
+          @apply font-bold text-sm;
         }
       }
 

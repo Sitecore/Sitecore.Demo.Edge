@@ -239,16 +239,15 @@ const ProductDetailsContent = ({
                     specValues={specValues}
                     onChange={handleSpecFieldChange}
                   />
-                  {/* {variantsList} */}
                   {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
-                  <label htmlFor="addToCart" className="product-quantity">
+                  <div className="product-quantity">
                     <ProductQuantityInput
                       priceSchedule={product.PriceSchedule}
                       quantity={quantity}
                       onChange={setQuantity}
                     />
                     {quantityAlert}
-                  </label>
+                  </div>
                   <PriceReact {...priceProps} altTheme sizeL />
                   <div className="product-add-to-cart">
                     <button type="submit" className="btn--main btn--main--round" disabled={loading}>

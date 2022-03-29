@@ -64,6 +64,7 @@ export const product: RequiredDeep<BuyerProduct> = {
     ShortDescription: 'Made for: strengthening arms, core, and back.',
   },
 };
+
 export const specs: RequiredDeep<Spec>[] = [
   {
     OwnerID: 'play-summit-ordercloud-discover',
@@ -164,6 +165,7 @@ export const specs: RequiredDeep<Spec>[] = [
     ],
   },
 ];
+
 export const variants: RequiredDeep<Variant>[] = [
   {
     ID: 'PSPRFSAW-BL',
