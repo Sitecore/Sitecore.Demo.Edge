@@ -19,20 +19,21 @@ const ShopBreadcrumb = (props: ShopBreadcrumbProps): JSX.Element => {
   }
 
   const breadcrumbs = props.fields.items.map((breadCrumb, index) => {
-    const definition = {
+    return {
       displayName: breadCrumb.displayName,
       urlPath: breadCrumb.urlPath,
-      className: 'active',
+      active: index === 0,
     };
-    definition.className = index === 0 ? 'active' : 'inactive';
-    return definition;
   });
 
-  const breadcrumbListItems = breadcrumbs.reverse().map((breadCrumb, index) => (
-    <li key={index} className={breadCrumb.className}>
+  const breadcrumbListItems = breadcrumbs.reverse().map((breadCrumb, index) => {
+    const label = breadCrumb.active ? (
+      <span>{breadCrumb.displayName}</span>
+    ) : (
       <Link href={breadCrumb.urlPath}>{breadCrumb.displayName}</Link>
-    </li>
-  ));
+    );
+    return <li key={index}>{label}</li>;
+  });
 
   return (
     <nav className="breadcrumb" aria-label="breadcrumbs">
