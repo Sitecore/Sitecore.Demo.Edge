@@ -1,10 +1,10 @@
+import Head from 'next/head';
 import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import ProductQuantityInput from './ProductQuantityInput';
 import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
-import ProductVariantList from './ProductVariantList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
@@ -13,8 +13,6 @@ import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 
 interface ProductDetailsContentProps {
-  sku?: string;
-  productName?: string;
   variantID?: string;
   product: RequiredDeep<BuyerProduct>;
   specs: RequiredDeep<Spec>[];
@@ -22,8 +20,6 @@ interface ProductDetailsContentProps {
 }
 
 const ProductDetailsContent = ({
-  sku,
-  productName,
   variantID,
   product,
   specs,
@@ -175,11 +171,6 @@ const ProductDetailsContent = ({
 
   const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
 
-  // TODO: Do we need this?
-  const variantsList = variants && !variantID && (
-    <ProductVariantList sku={sku} productNameSlug={productName} variants={variants} />
-  );
-
   // TODO: add functionality to button
   const btnWishList = (
     <button className="btn-wishlist" aria-label="Add to Wish List" type="button">
@@ -230,45 +221,51 @@ const ProductDetailsContent = ({
   };
 
   const productDetails = product && (
-    <section className="section">
-      <div className="shop-container">
-        <div className="product-details">
-          <div className="product-details-hero">
-            <h2 className="product-name">{product.Name}</h2>
-            <ProductImage images={productImageProps} />
-            <div className="product-description">
-              <form onSubmit={handleAddToCart}>
-                <ProductSpecList
-                  specs={specs}
-                  specValues={specValues}
-                  onChange={handleSpecFieldChange}
-                />
-                {/* {variantsList} */}
-                {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
-                <label htmlFor="addToCart" className="product-quantity">
-                  <ProductQuantityInput
-                    priceSchedule={product.PriceSchedule}
-                    quantity={quantity}
-                    onChange={setQuantity}
+    <>
+      <Head>
+        <title>PLAY! SHOP - {product.Name}</title>
+      </Head>
+
+      <section className="section">
+        <div className="shop-container">
+          <div className="product-details">
+            <div className="product-details-hero">
+              <h2 className="product-name">{product.Name}</h2>
+              <ProductImage images={productImageProps} />
+              <div className="product-description">
+                <form onSubmit={handleAddToCart}>
+                  <ProductSpecList
+                    specs={specs}
+                    specValues={specValues}
+                    onChange={handleSpecFieldChange}
                   />
-                  {quantityAlert}
-                </label>
-                <PriceReact {...priceProps} altTheme sizeL />
-                <div className="product-add-to-cart">
-                  <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-                    {/* TODO: loader style */}
-                    {!loading ? addToCartButtonText : '...'}
-                  </button>
-                  {btnSaveLater}
-                  {btnWishList}
-                </div>
-              </form>
+                  {/* {variantsList} */}
+                  {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
+                  <label htmlFor="addToCart" className="product-quantity">
+                    <ProductQuantityInput
+                      priceSchedule={product.PriceSchedule}
+                      quantity={quantity}
+                      onChange={setQuantity}
+                    />
+                    {quantityAlert}
+                  </label>
+                  <PriceReact {...priceProps} altTheme sizeL />
+                  <div className="product-add-to-cart">
+                    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
+                      {/* TODO: loader style */}
+                      {!loading ? addToCartButtonText : '...'}
+                    </button>
+                    {btnSaveLater}
+                    {btnWishList}
+                  </div>
+                </form>
+              </div>
+              <ProductOverview {...overviewProps} />
             </div>
-            <ProductOverview {...overviewProps} />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 
   return productDetails;
