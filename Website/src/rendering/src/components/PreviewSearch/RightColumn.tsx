@@ -1,5 +1,5 @@
 import { Product } from '../../models/discover/Product';
-import ProductList from '../Products/ProductList';
+import ProductList from '../ShopCommon/ProductList';
 
 type RightColumnProps = {
   products: Product[];

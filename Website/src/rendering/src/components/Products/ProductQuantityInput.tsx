@@ -2,7 +2,7 @@ import { PriceSchedule, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { ChangeEvent, useState } from 'react';
 
 interface ProductQuantityInputProps {
-  controlId: string;
+  controlId?: string;
   priceSchedule: RequiredDeep<PriceSchedule>;
   label?: string;
   disabled?: boolean;
@@ -88,7 +88,7 @@ const ProductQuantityInput = ({
     </div>
   );
 
-  return <label htmlFor={controlId}>{priceForm}</label>;
+  return priceForm;
 };
 
 export default ProductQuantityInput;

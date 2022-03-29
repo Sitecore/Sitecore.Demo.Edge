@@ -8,6 +8,9 @@ import ProductVariantList from './ProductVariantList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { PriceReact } from '../ShopCommon/Price';
+import ProductOverview from './ProductOverview';
+import ProductImage from './ProductImage';
 
 interface ProductDetailsContentProps {
   sku?: string;
@@ -161,15 +164,18 @@ const ProductDetailsContent = ({
     [dispatch, product, specValues, quantity]
   );
 
-  const productImage =
-    variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url ? (
-      <img className="product-image-main" src={variant.xp.Images[0].Url} alt="variant" />
-    ) : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url ? (
-      <img className="product-image-main" src={product.xp.Images[0].Url} alt="product" />
-    ) : null;
+  const productImageProps =
+    variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url
+      ? product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
+        ? [...variant.xp.Images, ...product.xp.Images]
+        : variant.xp.Images
+      : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
+      ? product.xp.Images
+      : null;
 
   const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
 
+  // TODO: Do we need this?
   const variantsList = variants && !variantID && (
     <ProductVariantList sku={sku} productNameSlug={productName} variants={variants} />
   );
@@ -177,43 +183,77 @@ const ProductDetailsContent = ({
   // TODO: add functionality to button
   const btnWishList = (
     <button className="btn-wishlist" aria-label="Add to Wish List" type="button">
-      <FontAwesomeIcon icon={faHeart} />
+      <FontAwesomeIcon icon={faHeart} size="lg" />
     </button>
   );
 
   // TODO: add functionality to button
   const btnSaveLater = (
     <button className="btn-later" aria-label="Save for Later" type="button">
-      <FontAwesomeIcon icon={faHistory} />
+      <FontAwesomeIcon icon={faHistory} size="lg" />
     </button>
   );
 
+  // TODO: add functionality to field
+  const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
+
+  const priceProps = {
+    price: product.PriceSchedule.PriceBreaks[0].Price,
+    finalPrice:
+      product.PriceSchedule.PriceBreaks[0].SalePrice || product.PriceSchedule.PriceBreaks[0].Price,
+  };
+
+  // TODO: get actual data
+  const overviewProps = {
+    items: [
+      {
+        heading: 'Full Desription',
+        description: product.Description,
+        disabled: false,
+      },
+      {
+        heading: 'Product Details',
+        description: product.Description,
+        disabled: false,
+      },
+      {
+        heading: 'Delivery Info',
+        description: product.Description,
+        disabled: false,
+      },
+      {
+        heading: 'Return Policy',
+        description: product.Description,
+        disabled: true,
+      },
+    ],
+  };
+
   const productDetails = product && (
     <section className="section">
-      <div className="section__content container">
-        <div className="product-detail">
-          <div className="product-detail-hero">
-            <h2>{product.Name}</h2>
-            <div className="product-image">{productImage}</div>
+      <div className="shop-container">
+        <div className="product-details">
+          <div className="product-details-hero">
+            <h2 className="product-name">{product.Name}</h2>
+            <ProductImage images={productImageProps} />
             <div className="product-description">
-              <div>
-                Price:{' '}
-                <span className="product-price">${product.PriceSchedule.PriceBreaks[0].Price}</span>
-              </div>
               <form onSubmit={handleAddToCart}>
                 <ProductSpecList
                   specs={specs}
                   specValues={specValues}
                   onChange={handleSpecFieldChange}
                 />
-                {variantsList}
+                {/* {variantsList} */}
                 {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
-                <ProductQuantityInput
-                  controlId="addToCart"
-                  priceSchedule={product.PriceSchedule}
-                  quantity={quantity}
-                  onChange={setQuantity}
-                />
+                <label htmlFor="addToCart" className="product-quantity">
+                  <ProductQuantityInput
+                    priceSchedule={product.PriceSchedule}
+                    quantity={quantity}
+                    onChange={setQuantity}
+                  />
+                  {quantityAlert}
+                </label>
+                <PriceReact {...priceProps} altTheme sizeL />
                 <div className="product-add-to-cart">
                   <button type="submit" className="btn--main btn--main--round" disabled={loading}>
                     {/* TODO: loader style */}
@@ -223,8 +263,8 @@ const ProductDetailsContent = ({
                   {btnWishList}
                 </div>
               </form>
-              <div>{product.Description}</div>
             </div>
+            <ProductOverview {...overviewProps} />
           </div>
         </div>
       </div>

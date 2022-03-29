@@ -38,42 +38,54 @@ const ProductSpecField = ({
     });
   };
 
+  const specType = spec.Name.toLowerCase();
+
+  // TODO: Find a better way to get spec types and info for them
+  // TODO: Find a better way to order size options
+  // TODO: Display unavailable options as disabled
   const specField = spec.OptionCount ? (
     <>
-      <select id={spec.ID} name={spec.ID} onChange={handleSelectChange} value={optionId || ''}>
-        {spec.AllowOpenText && <option value="OpenText">Write in option</option>}
-        {spec.Options.map((option) => (
-          <option key={option.ID} value={option.ID}>
-            {option.Value}
-          </option>
-        ))}
-      </select>
-      {spec.Options.map((option) => (
-        <>
-          <input
-            type="radio"
-            key={option.ID}
-            id={option.ID}
-            name={spec.ID}
-            value={option.ID}
-            onChange={handleRadioChange}
-          />
-          <label htmlFor={option.ID}>{option.Value}</label>
-        </>
-      ))}
+      {spec.AllowOpenText ? (
+        <select id={spec.ID} name={spec.ID} onChange={handleSelectChange} value={optionId || ''}>
+          <option value="OpenText">Write in option</option>
+          {spec.Options.map((option) => (
+            <option key={option.ID} value={option.ID}>
+              {option.Value}
+            </option>
+          ))}
+        </select>
+      ) : (
+        spec.Options.map((option) => (
+          <>
+            <input
+              type="radio"
+              key={`i${option.ID}`}
+              id={option.ID}
+              name={spec.ID}
+              value={option.ID}
+              onChange={handleRadioChange}
+              checked={optionId === option.ID}
+              className={specType === 'color' ? option.Value.toLowerCase() : ''}
+            />
+            <label htmlFor={option.ID} key={`l${option.ID}`}>
+              <span>{specType === 'size' ? option.Value.substring(0, 1) : option.Value}</span>
+            </label>
+          </>
+        ))
+      )}
     </>
   ) : (
     <input id={spec.ID} onChange={handleInputChange} value={value || ''} />
   );
 
   return (
-    <div>
-      <label htmlFor={spec.ID}>
-        {console.log(spec)}
-        {spec.Name}
-        {specField}
-      </label>
-    </div>
+    // TODO: Free text input spec field hidden for now - do we need it?
+    !!spec.OptionCount && (
+      <div className="spec-item" data-type={specType}>
+        <span className="spec-name">{spec.Name}</span>
+        <label htmlFor={spec.ID}>{specField}</label>
+      </div>
+    )
   );
 };
 

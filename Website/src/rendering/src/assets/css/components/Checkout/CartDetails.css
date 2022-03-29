@@ -159,26 +159,6 @@
       @apply text-pink;
     }
 
-    .price {
-      &-base {
-        @apply text-xl;
-      }
-
-      &-discounted {
-        .price-base {
-          @apply text-sm;
-        }
-
-        .price-discount {
-          @apply text-sm;
-        }
-
-        .price-final {
-          @apply text-xl text-orange;
-        }
-      }
-    }
-
     .btn-remove,
     .btn-later,
     .btn-wishlist {
