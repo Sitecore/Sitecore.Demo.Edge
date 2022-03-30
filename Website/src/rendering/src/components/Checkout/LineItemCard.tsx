@@ -137,7 +137,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   // TODO: add functionality to block (specs to return base and final price)
   // can use Price component when extracted
   const priceBlock = (
-    <div className="price price-discounted">
+    <div className="price price-discounted price-orange price-large">
       <span className="price-base">$299.99</span>
       <span className="price-discount">-20%</span>
       <span className="price-final">$250.99</span>

@@ -122,6 +122,13 @@ export const DiscoverScripts: JSX.Element = (
           component: TrendingCategories,
         });
         window.RFK.init();
+        const pushState = history.pushState;
+        history.pushState = (...rest) => {
+          pushState.apply(history, rest);
+          setTimeout(() => {
+            window.RFK.init();
+          }, 0);
+        };
       }}
     />
   </>

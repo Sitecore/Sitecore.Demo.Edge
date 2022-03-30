@@ -107,12 +107,16 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
 
   window.RFK.ui.useEffect(() => {
     const inputRef = document.querySelector(inputQuerySelector);
-    inputRef.addEventListener('keyup', handleSearchBoxKeyUp);
-    inputRef.addEventListener('focus', handleSearchBoxFocus);
+    if (inputRef) {
+      inputRef.addEventListener('keyup', handleSearchBoxKeyUp);
+      inputRef.addEventListener('focus', handleSearchBoxFocus);
+    }
 
     return () => {
-      inputRef.removeEventListener('keyup', handleSearchBoxKeyUp);
-      inputRef.removeEventListener('focus', handleSearchBoxFocus);
+      if (inputRef) {
+        inputRef.removeEventListener('keyup', handleSearchBoxKeyUp);
+        inputRef.removeEventListener('focus', handleSearchBoxFocus);
+      }
     };
   }, [inputQuerySelector]);
 

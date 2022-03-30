@@ -1,4 +1,4 @@
-import { Product } from '../../../src/models/discover/Product';
+import { Product } from '../../models/discover/Product';
 import ProductCard from './ProductCard';
 
 // TODO: add story for component
