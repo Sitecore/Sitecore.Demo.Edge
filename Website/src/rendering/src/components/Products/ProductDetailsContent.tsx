@@ -1,14 +1,18 @@
+import Head from 'next/head';
 import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import ProductQuantityInput from './ProductQuantityInput';
 import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
-import ProductVariantList from './ProductVariantList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { PriceReact } from '../ShopCommon/Price';
+import ProductOverview from './ProductOverview';
+import ProductImage from './ProductImage';
 
 interface ProductDetailsContentProps {
-  sku?: string;
-  productName?: string;
   variantID?: string;
   product: RequiredDeep<BuyerProduct>;
   specs: RequiredDeep<Spec>[];
@@ -16,8 +20,6 @@ interface ProductDetailsContentProps {
 }
 
 const ProductDetailsContent = ({
-  sku,
-  productName,
   variantID,
   product,
   specs,
@@ -149,66 +151,120 @@ const ProductDetailsContent = ({
       await dispatch(
         createLineItem({
           ProductID: product.ID,
-          Quantity: 1,
+          Quantity: quantity,
           Specs: specValues,
         })
       );
       setLoading(false);
     },
-    [dispatch, product, specValues]
+    [dispatch, product, specValues, quantity]
   );
 
-  const productImage =
-    variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url ? (
-      <img className="product-image-main" src={variant.xp.Images[0].Url} alt="variant" />
-    ) : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url ? (
-      <img className="product-image-main" src={product.xp.Images[0].Url} alt="product" />
-    ) : null;
+  const productImageProps =
+    variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url
+      ? product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
+        ? [...variant.xp.Images, ...product.xp.Images]
+        : variant.xp.Images
+      : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
+      ? product.xp.Images
+      : null;
 
   const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
 
-  const variantsList = variants && !variantID && (
-    <ProductVariantList sku={sku} productNameSlug={productName} variants={variants} />
+  // TODO: add functionality to button
+  const btnWishList = (
+    <button className="btn-wishlist" aria-label="Add to Wish List" type="button">
+      <FontAwesomeIcon icon={faHeart} size="lg" />
+    </button>
   );
 
+  // TODO: add functionality to button
+  const btnSaveLater = (
+    <button className="btn-later" aria-label="Save for Later" type="button">
+      <FontAwesomeIcon icon={faHistory} size="lg" />
+    </button>
+  );
+
+  // TODO: add functionality to field
+  const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
+
+  const priceProps = {
+    price: product.PriceSchedule.PriceBreaks[0].Price,
+    finalPrice:
+      product.PriceSchedule.PriceBreaks[0].SalePrice || product.PriceSchedule.PriceBreaks[0].Price,
+  };
+
+  // TODO: get actual data
+  const overviewProps = {
+    items: [
+      {
+        heading: 'Full Desription',
+        description: product.Description,
+        disabled: false,
+      },
+      {
+        heading: 'Product Details',
+        description: product.Description,
+        disabled: false,
+      },
+      {
+        heading: 'Delivery Info',
+        description: product.Description,
+        disabled: false,
+      },
+      {
+        heading: 'Return Policy',
+        description: product.Description,
+        disabled: true,
+      },
+    ],
+  };
+
   const productDetails = product && (
-    <section className="section">
-      <div className="section__content container">
-        <div className="product-detail">
-          <div className="product-detail-hero">
-            <div className="product-image">{productImage}</div>
-            <div className="product-description">
-              <h2>{product.Name}</h2>
-              <p>SKU: {sku}</p>
-              <div>{product.Description}</div>
-              <div>
-                Price:{' '}
-                <span className="product-price">${product.PriceSchedule.PriceBreaks[0].Price}</span>
+    <>
+      <Head>
+        <title>PLAY! SHOP - {product.Name}</title>
+      </Head>
+
+      <section className="section">
+        <div className="shop-container">
+          <div className="product-details">
+            <div className="product-details-hero">
+              <h2 className="product-name">{product.Name}</h2>
+              <ProductImage images={productImageProps} />
+              <div className="product-description">
+                <form onSubmit={handleAddToCart}>
+                  <ProductSpecList
+                    specs={specs}
+                    specValues={specValues}
+                    onChange={handleSpecFieldChange}
+                  />
+                  {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
+                  <div className="product-quantity">
+                    <ProductQuantityInput
+                      priceSchedule={product.PriceSchedule}
+                      quantity={quantity}
+                      onChange={setQuantity}
+                    />
+                    {quantityAlert}
+                  </div>
+                  <PriceReact {...priceProps} altTheme sizeL />
+                  <div className="product-add-to-cart">
+                    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
+                      {/* TODO: loader style */}
+                      {!loading ? addToCartButtonText : '...'}
+                    </button>
+                    {btnSaveLater}
+                    {btnWishList}
+                  </div>
+                </form>
               </div>
-              <form onSubmit={handleAddToCart}>
-                <ProductSpecList
-                  specs={specs}
-                  specValues={specValues}
-                  onChange={handleSpecFieldChange}
-                />
-                {variantsList}
-                <ProductQuantityInput
-                  controlId="addToCart"
-                  priceSchedule={product.PriceSchedule}
-                  quantity={quantity}
-                  onChange={setQuantity}
-                />
-                <div className="product-add-to-cart">
-                  <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-                    {addToCartButtonText}
-                  </button>
-                </div>
-              </form>
+              <ProductOverview {...overviewProps} />
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 
   return productDetails;

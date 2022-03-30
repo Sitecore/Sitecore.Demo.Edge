@@ -1,6 +1,6 @@
 import debounce from '../../../src/helpers/Debounce';
 import FacetList, { FacetClickEvent } from './FacetList';
-import ProductList from '../Products/ProductList';
+import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
 
 type FullPageSearchProps = {

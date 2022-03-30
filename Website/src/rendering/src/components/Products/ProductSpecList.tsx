@@ -15,24 +15,21 @@ interface ProductSpecsInputProps {
 
 const ProductSpecList = ({ specs, specValues, onChange }: ProductSpecsInputProps): JSX.Element => {
   const productSpecs = specs && (
-    <div>
-      Specs:
-      <div className="product-specs">
-        {specs.map((spec: RequiredDeep<Spec>) => {
-          const specValue = specValues.find(
-            (specValue: OrderCloudSpec) => specValue.SpecID === spec.ID
-          );
-          return (
-            <ProductSpecField
-              key={spec.ID}
-              spec={spec}
-              onChange={onChange}
-              optionId={specValue && specValue.OptionID}
-              value={specValue && specValue.Value}
-            />
-          );
-        })}
-      </div>
+    <div className="product-specs">
+      {specs.map((spec: RequiredDeep<Spec>) => {
+        const specValue = specValues.find(
+          (specValue: OrderCloudSpec) => specValue.SpecID === spec.ID
+        );
+        return (
+          <ProductSpecField
+            key={spec.ID}
+            spec={spec}
+            onChange={onChange}
+            optionId={specValue && specValue.OptionID}
+            value={specValue && specValue.Value}
+          />
+        );
+      })}
     </div>
   );
 

@@ -94,10 +94,9 @@
 
 /* Products */
 @import './components/Products/CategoriesList.css';
-@import './components/Products/Price.css';
-@import './components/Products/ProductCard.css';
 @import './components/Products/ProductDetail.css';
-@import './components/Products/ProductList.css';
+@import './components/Products/ProductDetails.css';
+@import './components/Products/ProductOverview.css';
 @import './components/Products/Shop.css';
 
 /* Sessions */
@@ -105,6 +104,11 @@
 @import './components/Sessions/SessionList.css';
 @import './components/Sessions/SessionsFilters.css';
 @import './components/Sessions/SessionInformationPageHero.css';
+
+/* Shop Common */
+@import './components/ShopCommon/Price.css';
+@import './components/ShopCommon/ProductCard.css';
+@import './components/ShopCommon/ProductList.css';
 
 /* Speakers */
 @import './components/Speakers/FeaturedSpeakers.css';

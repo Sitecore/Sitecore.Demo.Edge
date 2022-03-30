@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import ProductList from '../../components/Products/ProductList';
+import ProductList from '../../components/ShopCommon/ProductList';
 
 export default {
-  title: 'Components/Products/ProductList',
+  title: 'Components/ShopCommon/ProductList',
   component: ProductList,
 } as ComponentMeta<typeof ProductList>;
 
