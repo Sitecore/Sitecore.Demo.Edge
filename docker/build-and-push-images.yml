@@ -152,9 +152,9 @@ stages:
             targetPath: "Website/src/rendering/storybook-static"
             artifact: "Storybook"
             publishLocation: "pipeline"
-
+        # TODO: Remove --allow-console-errors when Sitecore Discover NPM SDK is integrated and stories are mocked
         - script: |
-            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
+            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes --allow-console-errors
           displayName: 'Push to Chromatic'
           workingDirectory: Website/src/rendering
 
