@@ -8,15 +8,7 @@ export default {
   component: ThankYouSection,
 } as ComponentMeta<typeof ThankYouSection>;
 
-const Template: ComponentStory<typeof ThankYouSection> = (args) => <ThankYouSection {...args} />;
+const Template: ComponentStory<typeof ThankYouSection> = () => <ThankYouSection />;
 
 export const Default = Template.bind({});
-Default.args = {
-  params: {
-    name: 'ThankYouSection',
-  },
-  rendering: {
-    componentName: 'ThankYouSection',
-    dataSource: '/sitecore',
-  },
-};
+Default.args = {};
