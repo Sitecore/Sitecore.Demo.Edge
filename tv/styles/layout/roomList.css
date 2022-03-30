@@ -6,7 +6,7 @@ html {
 .roomList {
   @apply p-10 w-screen h-screen overflow-hidden relative;
 
-  background-image: url(../../public/conference-hallway.jpg);
+  background-image: url(../public/conference-hallway.jpg);
   background-position: top left;
   background-repeat: no-repeat;
 
