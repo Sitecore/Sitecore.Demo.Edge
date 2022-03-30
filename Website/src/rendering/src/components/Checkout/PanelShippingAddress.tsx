@@ -17,6 +17,10 @@ const PanelShippingAddress = (): JSX.Element => {
     setIsEditing(false);
   };
 
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+  };
+
   const addressDisplay =
     shippingAddress && !isEditing ? (
       <AddressCard address={shippingAddress} editable={true} onEdit={() => setIsEditing(true)} />
@@ -24,22 +28,17 @@ const PanelShippingAddress = (): JSX.Element => {
       <AddressForm
         address={shippingAddress}
         onSubmit={(address) => handleSetShippingAddress(address)}
+        isEditing={isEditing}
+        onCancelEdit={handleCancelEdit}
       />
     );
-
-  const cancelEditButton = isEditing && (
-    <button onClick={() => setIsEditing(false)}>Cancel edit</button>
-  );
 
   return (
     <div className="panel">
       <div className="panel-header">
         <h2>Shipping Address</h2>
       </div>
-      <div className="panel-body">
-        {addressDisplay}
-        {cancelEditButton}
-      </div>
+      <div className="panel-body">{addressDisplay}</div>
     </div>
   );
 };

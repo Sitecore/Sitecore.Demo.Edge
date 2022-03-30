@@ -81,6 +81,7 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
         <label htmlFor="cardNumber">Card Number</label>
       </div>
       <div className="expiration-date">
+        <span>Expiration Date</span>
         <div>
           <label htmlFor="expirationMonth">Expiration Month</label>
           <select
