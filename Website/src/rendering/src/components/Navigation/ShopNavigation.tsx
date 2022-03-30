@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,7 @@ import {
   faChevronDown,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { Widget } from '@sitecore-discover/react';
 
 export type ShopNavigationProps = ComponentProps & {
   fields: {
@@ -88,6 +89,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               placeholder="I am shopping for..."
             />
           </div>
+          {/* <Widget rfkId="rfkid_6" /> */}
         </div>
       </div>
     </nav>

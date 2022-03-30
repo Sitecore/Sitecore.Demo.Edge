@@ -1,7 +1,8 @@
+import { useEffect } from 'react';
 import { DiscoverReference } from '../../services/DiscoverService';
 
 const ClickOutside = (ref: DiscoverReference, handler: () => void): void => {
-  window.RFK.ui.useEffect(() => {
+  useEffect(() => {
     const listener = (event: Event) => {
       // Do nothing if clicking ref's element or descendent elements
       if (!ref.current || ref.current.contains(event.target)) {
