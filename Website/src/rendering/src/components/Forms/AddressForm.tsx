@@ -5,6 +5,8 @@ import { GeographyService } from '../../services/GeographyService';
 type AddressFormProps = {
   address?: DBuyerAddress;
   onSubmit?: (address: DBuyerAddress) => void;
+  isEditing?: boolean;
+  onCancelEdit?: () => void;
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -59,7 +61,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="form address-form">
+    <form onSubmit={handleFormSubmit} className="form">
       <div className="floating-label-wrap">
         <input
           type="text"
@@ -160,6 +162,11 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <button className="btn--main btn--main--round" type="submit">
           Save Address
         </button>
+        {props.isEditing && (
+          <button className="cancel-edit" onClick={props.onCancelEdit}>
+            Cancel
+          </button>
+        )}
       </div>
     </form>
   );

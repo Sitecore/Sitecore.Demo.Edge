@@ -1,9 +1,0 @@
-.address-card {
-  padding: 1rem;
-  display: inline-block;
-  min-width: 250px;
-}
-
-.address-card__active {
-  background-color: #ffd31c;
-}

@@ -61,7 +61,7 @@ const PanelShippingEstimates = (): JSX.Element => {
   );
 
   return (
-    <div className="panel">
+    <div className="panel radio-options">
       <div className="panel-header">
         <h2>Delivery Type</h2>
       </div>

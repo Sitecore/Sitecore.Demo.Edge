@@ -9,15 +9,18 @@ const PanelComments = (props: PanelCommentsProps): JSX.Element => {
         <h2>Additional Comments</h2>
       </div>
       <div className="panel-body">
-        <textarea
-          name="order-comments"
-          id="order-comments"
-          rows={3}
-          value={props.orderComments}
-          onChange={(event) => {
-            props.onEditComments(event.target.value);
-          }}
-        ></textarea>
+        <form className="form">
+          <textarea
+            name="order-comments"
+            id="order-comments"
+            rows={3}
+            value={props.orderComments}
+            placeholder="Leave your comment for us here..."
+            onChange={(event) => {
+              props.onEditComments(event.target.value);
+            }}
+          ></textarea>
+        </form>
       </div>
     </div>
   );

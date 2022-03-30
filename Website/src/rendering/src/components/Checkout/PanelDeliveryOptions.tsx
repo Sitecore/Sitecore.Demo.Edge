@@ -1,11 +1,11 @@
 const PanelDeliveryOptions = (): JSX.Element => {
   return (
-    <div className="panel">
+    <div className="panel radio-options">
       <div className="panel-header">
         <h2>Delivery options</h2>
       </div>
       <div className="panel-body">
-        <div>
+        <div className="option-item">
           <input
             type="radio"
             name="deliveryOption"
@@ -14,25 +14,22 @@ const PanelDeliveryOptions = (): JSX.Element => {
             defaultChecked
           />
           <label htmlFor="deliveryOptionShip">
-            <span>Delivery</span>
-            <br />
-            <span>Ship to an address</span>
+            <span className="option-name">Delivery</span>
+            <span className="option-desc">Ship to an address</span>
           </label>
         </div>
-        <div>
+        <div className="option-item">
           <input type="radio" name="deliveryOption" id="deliveryOptionSummit" value="summit" />
           <label htmlFor="deliveryOptionSummit">
-            <span>Pick up from the Summit</span>
-            <br />
-            <span>Pick up your order at the Summit front desk</span>
+            <span className="option-name">Pick up from the Summit</span>
+            <span className="option-desc">Pick up your order at the Summit front desk</span>
           </label>
         </div>
-        <div>
+        <div className="option-item">
           <input type="radio" name="deliveryOption" id="deliveryOptionStore" value="store" />
           <label htmlFor="deliveryOptionStore">
-            <span>Pick up from a store</span>
-            <br />
-            <span>Pick up your order in-store</span>
+            <span className="option-name">Pick up from a store</span>
+            <span className="option-desc">Pick up your order in-store</span>
           </label>
         </div>
       </div>

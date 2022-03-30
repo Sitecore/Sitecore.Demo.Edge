@@ -45,10 +45,13 @@ const PanelBillingAddress = (): JSX.Element => {
     }
   };
 
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+  };
+
   const sameAsShippingCheckboxId = 'same-as-shipping-checkbox';
   const sameAsShippingCheckbox = shippingAddress?.ID && (
-    <div>
-      <label htmlFor={sameAsShippingCheckboxId}>Same as Shipping</label>
+    <div className="same-as-shipping">
       <input
         disabled={loading}
         id={sameAsShippingCheckboxId}
@@ -56,6 +59,7 @@ const PanelBillingAddress = (): JSX.Element => {
         onChange={handleSameAsShipping}
         checked={isSameAsBilling}
       />
+      <label htmlFor={sameAsShippingCheckboxId}>Same as Shipping</label>
     </div>
   );
 
@@ -67,12 +71,10 @@ const PanelBillingAddress = (): JSX.Element => {
       <AddressForm
         address={billingAddress}
         onSubmit={(address) => handleSetBillingAddress(address)}
+        isEditing={isEditing}
+        onCancelEdit={handleCancelEdit}
       />
     ));
-
-  const cancelEditButton = isEditing && (
-    <button onClick={() => setIsEditing(false)}>Cancel edit</button>
-  );
 
   return (
     <div className="panel">
@@ -82,7 +84,6 @@ const PanelBillingAddress = (): JSX.Element => {
       <div className="panel-body">
         {sameAsShippingCheckbox}
         {addressDisplay}
-        {cancelEditButton}
       </div>
     </div>
   );

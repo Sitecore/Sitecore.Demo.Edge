@@ -1,3 +1,5 @@
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DBuyerCreditCard } from 'src/models/ordercloud/DCreditCard';
 
 type CreditCardCardProps = {
@@ -19,16 +21,19 @@ const CreditCardCard = (props: CreditCardCardProps): JSX.Element => {
   };
 
   const editButton = props.editable && (
-    <button onClick={() => props.onEdit(props.creditCard)}>Edit Credit Card</button>
+    <button onClick={() => props.onEdit(props.creditCard)} className="card-edit">
+      <FontAwesomeIcon icon={faEdit} />
+      Edit
+    </button>
   );
 
   return (
-    <div>
-      <p>{props.creditCard.CardType}</p>
+    <div className="info-card">
+      {editButton}
+      <p className="card-name">{props.creditCard.CardType}</p>
       <p>Credit card ending in {props.creditCard.PartialAccountNumber}</p>
       <p>{props.creditCard.CardholderName}</p>
       <p>Expires: {formattedExpirationDate(props.creditCard.ExpirationDate)}</p>
-      {editButton}
     </div>
   );
 };

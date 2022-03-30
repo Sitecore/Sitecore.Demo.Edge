@@ -26,7 +26,7 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
   const radioButtons =
     props.shipMethods?.length &&
     props.shipMethods.map((shipMethod) => (
-      <div key={shipMethod.ID}>
+      <div key={shipMethod.ID} className="option-item">
         <input
           id={shipMethod.ID}
           type="radio"
@@ -36,9 +36,10 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
           onChange={handleChange}
         />
         <label htmlFor={shipMethod.ID}>
-          <strong>{shipMethod.Name}</strong>
-          <span>{formatCurrency(shipMethod.Cost)}</span>
-          <span>{shipMethod.xp?.Description}</span>
+          <span className="option-name">
+            {shipMethod.Name} - {formatCurrency(shipMethod.Cost)}
+          </span>
+          <span className="option-desc">{shipMethod.xp?.Description}</span>
         </label>
       </div>
     ));
