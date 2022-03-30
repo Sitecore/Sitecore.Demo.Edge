@@ -39,6 +39,7 @@
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
 @import './components/Checkout/QuantityInput.css';
+@import './components/Checkout/ThankYouSection.css';
 
 /* Forms */
 @import './components/Forms/AttendeeForm.css';
@@ -102,7 +103,7 @@
 @import './components/Sessions/SessionsFilters.css';
 @import './components/Sessions/SessionInformationPageHero.css';
 
-/* Shop Common */
+/* ShopCommon */
 @import './components/ShopCommon/Price.css';
 @import './components/ShopCommon/ProductCard.css';
 @import './components/ShopCommon/ProductList.css';

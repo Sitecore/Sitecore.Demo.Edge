@@ -15,27 +15,31 @@
   }
 
   .radio-options {
-    .option-item {
-      @apply flex mb-5;
+    .panel-body {
+      @apply space-y-5;
 
-      label {
-        @apply ml-2;
+      .option-item {
+        @apply flex;
 
-        span {
-          @apply block;
+        label {
+          @apply ml-2;
+
+          > span {
+            @apply block;
+          }
         }
-      }
 
-      input {
-        @apply w-4 h-4 mt-[2px];
-      }
+        input {
+          @apply w-4 h-4 mt-0.5;
+        }
 
-      .option-name {
-        @apply font-medium;
-      }
+        .option-name {
+          @apply font-medium;
+        }
 
-      .option-desc {
-        @apply text-xs text-black-lightest;
+        .option-desc {
+          @apply text-xs text-black-lightest;
+        }
       }
     }
   }
@@ -49,18 +53,13 @@
   }
 
   .form {
-    > div {
-      @apply pb-2;
-    }
+    @apply space-y-5;
 
     .floating-label-wrap {
-      @apply mt-4;
-
-      input {
-        &:focus + label,
-        &:not(:placeholder-shown) + label {
-          @apply translate-x-0 -translate-y-6;
-        }
+      input:focus + label,
+      input:not(:placeholder-shown) + label,
+      select + label {
+        @apply translate-x-0 -translate-y-6;
       }
     }
 
@@ -85,7 +84,7 @@
     }
 
     .button-area {
-      @apply pt-3 pb-0 px-0 space-x-4;
+      @apply pt-2 pb-0 px-0 space-x-4;
 
       .cancel-edit {
         @apply font-medium;
@@ -94,7 +93,7 @@
 
     &.creditcard-form {
       .expiration-date {
-        @apply flex flex-wrap gap-x-4 gap-y-1 mt-3;
+        @apply flex flex-wrap gap-x-4 gap-y-1;
 
         span {
           @apply w-full text-base;
@@ -147,6 +146,20 @@
 
     .summary-line {
       @apply flex justify-between py-1 px-6;
+    }
+
+    .subtotal-line {
+      @apply bg-white;
+
+      .line-amount {
+        @apply font-bold;
+      }
+    }
+
+    .shipping-line {
+      .line-amount {
+        @apply text-blue;
+      }
     }
 
     button {

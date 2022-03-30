@@ -60,6 +60,12 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     setState('');
   };
 
+  const cancelEditButton = props.isEditing && (
+    <button className="cancel-edit" onClick={props.onCancelEdit}>
+      Cancel
+    </button>
+  );
+
   return (
     <form onSubmit={handleFormSubmit} className="form">
       <div className="floating-label-wrap">
@@ -73,8 +79,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         />
         <label htmlFor="addressName">Address Name (Optional)</label>
       </div>
-      <div>
-        <label htmlFor="country">Country</label>
+      <div className="floating-label-wrap">
         <select
           id="country"
           required
@@ -90,6 +95,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
+        <label htmlFor="country">Country</label>
       </div>
       <div className="floating-label-wrap">
         <input
@@ -128,8 +134,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         />
         <label htmlFor="city">City</label>
       </div>
-      <div>
-        <label htmlFor="stateProvince">State / Province</label>
+      <div className="floating-label-wrap">
         <select
           id="stateProvince"
           required
@@ -145,6 +150,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
+        <label htmlFor="stateProvince">State / Province</label>
       </div>
       <div className="floating-label-wrap">
         <input
@@ -162,11 +168,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <button className="btn--main btn--main--round" type="submit">
           Save Address
         </button>
-        {props.isEditing && (
-          <button className="cancel-edit" onClick={props.onCancelEdit}>
-            Cancel
-          </button>
-        )}
+        {cancelEditButton}
       </div>
     </form>
   );

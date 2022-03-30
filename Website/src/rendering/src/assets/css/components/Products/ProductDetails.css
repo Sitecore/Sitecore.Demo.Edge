@@ -104,6 +104,10 @@
                 @apply bg-[#ff184d];
               }
 
+              &.black {
+                @apply bg-black-darkest;
+              }
+
               &:checked {
                 @apply border-yellow outline outline-4 outline-yellow;
               }

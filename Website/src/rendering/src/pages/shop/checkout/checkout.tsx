@@ -11,8 +11,8 @@ const Checkout = (): JSX.Element => {
   });
 
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
-    { urlPath: '/checkout', displayName: 'Checkout' },
-    { urlPath: '/cart', displayName: 'Cart' },
+    { urlPath: '/shop/checkout/checkout', displayName: 'Checkout' },
+    { urlPath: '/shop/checkout/cart', displayName: 'Cart' },
   ];
 
   return (
