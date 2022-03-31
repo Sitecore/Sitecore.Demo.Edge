@@ -63,7 +63,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     return true;
   };
 
-  const numberOfItems = `${order.LineItemCount} item${order.LineItemCount > 1 ? 's' : ''}`;
+  const numberOfItems = order && `${order.LineItemCount} item${order.LineItemCount > 1 ? 's' : ''}`;
 
   const subtotal = order && (
     <>
