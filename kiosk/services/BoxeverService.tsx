@@ -545,7 +545,7 @@ export function getGuestFullNameInGuestResponse(
   const data = guestResponse?.data;
 
   if (!data || !data.firstName || !data.lastName) {
-    return;
+    return undefined;
   }
 
   return `${data.firstName} ${data.lastName}`;

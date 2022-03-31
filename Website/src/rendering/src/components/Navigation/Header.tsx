@@ -15,7 +15,7 @@ const Header = (props: HeaderProps): JSX.Element => (
         <Link href="/account/login" prefetch={false}>
           <a>Login</a>
         </Link>
-        <Link href="/cart" prefetch={false}>
+        <Link href="/shop/checkout/cart" prefetch={false}>
           <a>Cart</a>
         </Link>
       </div>

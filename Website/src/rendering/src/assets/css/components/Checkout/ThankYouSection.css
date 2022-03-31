@@ -1,0 +1,7 @@
+.thank-you-section {
+  @apply text-center py-10 space-y-4;
+
+  .thank-you-title {
+    @apply text-[3rem] text-blue font-bold uppercase;
+  }
+}

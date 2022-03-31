@@ -21,6 +21,7 @@
    3. [TV](projects/tv.md#Developing-the-TV)
    4. [Sitecore Discover](discover.md)
    5. [Sitecore Personalize Serialization](cdp-personalize/serialization.md)
+   6. [Sitecore OrderCloud](ordercloud.md)
 7. [Deploying](deploying.md)
 8. [Upgrading](upgrading.md)
 9. [Contributing](contributing.md)

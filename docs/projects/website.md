@@ -89,6 +89,21 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
    6. **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
 3. Save the file.
 
+### Optional: Commerce Configuration
+
+If you want the website to use Commerce you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
+
+1. Edit the `.\.env` file.
+2. Fill the following values
+   1. **ORDERCLOUD_BUYER_CLIENT_ID**: `YOUR_BUYER_APPLICATION_CLIENT_ID`
+   2. **ORDERCLOUD_BASE_API_URL**: `BASE_API_URL_FOR_YOUR_REGION_AND_ENVIRONMENT`
+   3. **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
+   4. **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
+   5. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
+   6. **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
+   7. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
+3. Save the file.
+
 ## Running the Website
 
 1. Ensure you have run the [prerequisites](#Prerequisites) above.
