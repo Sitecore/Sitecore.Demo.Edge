@@ -18,8 +18,8 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     : null;
   const selectedShipMethodId = shipEstimate?.SelectedShipMethodID;
 
-  const onOrderSubmitSuccess = (orderID: string) => {
-    router?.push?.(`/checkout/order-summary/${orderID}`);
+  const onOrderSubmitSuccess = () => {
+    router?.push?.(`/shop/checkout/order-summary`);
   };
 
   const handleSubmitOrder = async () => {

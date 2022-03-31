@@ -16,7 +16,6 @@ const Cart = (): JSX.Element => {
       </Head>
 
       <CartDetails editable={true} />
-      <div data-rfkid="rfkid_11"></div>
     </ShopLayout>
   );
 };
