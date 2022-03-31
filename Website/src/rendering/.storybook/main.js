@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   "stories": [
@@ -8,7 +8,15 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "storybook-addon-breakpoints"
+    "storybook-addon-breakpoints",
+    {
+      name: "@storybook/addon-postcss",
+      options: {
+        postcssLoaderOptions: {
+          implementation: require("postcss"),
+        },
+      },
+    },
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({
@@ -28,7 +36,7 @@ module.exports = {
         }
       ],
       include: path.resolve(__dirname, '../'),
-    })
+    });
     return config
   }
 }

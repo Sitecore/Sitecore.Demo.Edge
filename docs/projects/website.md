@@ -71,16 +71,9 @@ If adding a component story, the title should be: `'Components/%Component Name H
 1. Ensure you have installed and followed the [global prerequisites](../prerequisites.md).
 2. Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
 
-### Optional: Sitecore CDP Module Configuration
+### Optional: Sitecore CDP and Personalize Module Configuration
 
-If you want the website to use Sitecore CDP, you must:
-
-1. Edit the `.\.env` file.
-2. Fill the following values:
-   1. **CDP_API_TARGET_ENDPOINT**: The Sitecore CDP API target endpoint for your organisation. The URL must end with `.com` without the version. (e.g.: `https://api.boxever.com`)
-   2. **CDP_CLIENT_KEY**: Your Sitecore CDP organisation client key.
-   3. **CDP_API_TOKEN**: Your Sitecore CDP organisation API token.
-3. Save the file.
+If you want the website to use Sitecore CDP and Personalize, you must follow the [Sitecore CDP and Personalize](../cdp-personalize/README.md) instructions.
 
 ### Optional: Sitecore Content Hub Module Configuration
 
@@ -94,6 +87,21 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
    4. **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
    5. **DAM_ContentHub**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud`
    6. **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
+3. Save the file.
+
+### Optional: Commerce Configuration
+
+If you want the website to use Commerce you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
+
+1. Edit the `.\.env` file.
+2. Fill the following values
+   1. **ORDERCLOUD_BUYER_CLIENT_ID**: `YOUR_BUYER_APPLICATION_CLIENT_ID`
+   2. **ORDERCLOUD_BASE_API_URL**: `BASE_API_URL_FOR_YOUR_REGION_AND_ENVIRONMENT`
+   3. **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
+   4. **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
+   5. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
+   6. **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
+   7. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
 3. Save the file.
 
 ## Running the Website
@@ -117,6 +125,32 @@ Changes to the front-end project must be reverted from your Git client.
 ### Best Practices
 
 Using a RichText JSS element with a `tag="p"` prop causes issues when editing the element in Horizon. To be specific, Horizon will wrap your plain text inside a paragraph which results in nested `p` tags and an invalid HTML. For this reason it is suggested to use a block element that has no children restrictions like `div`, `section`, `blockquote`, etc.
+
+### Custom Renderings Icons
+
+#### Adding New Icons
+
+To add new icons to the EdgeIcons pack download your selected icons in a `.png` format and 100x100 px in size. When you have your desired icons you should add it to all four subfolders in `Sitecore.Demo.Edge\Website\src\icons`.
+
+#### Generating the ZIP file
+
+In order to be able to use the icons as rendering icons they need to be in a `.zip` format with the following structure: `EdgeIcons.zip\EdgeIcons\[size]x[size]`. To create a zip file right-click the EdgeIcons folder and select *Send to > Compressed (zipped) folder*.
+
+#### Quick Deploy and Test Icons
+
+To test your new zip you can upload it to `Sitecore.Demo.Edge\Website\deploy\sitecore\shell\Themes\Standard`. It will automatically deploy them to your local cm container and you will be able to use and test them immediately.
+
+#### Choosing a Rendering Icon
+
+When creating a new rendering you should select an appropriate icon for it. The custom Edge icons are located in `\sitecore\shell\Themes\Standard\EdgeIcons`. To select an icon, click on the icon of the rendering item and write the relative path to the selected icon (e.g. `edgeicons/32x32/breadcrumb.png`).
+
+#### Adding Icons to the Docker Build
+
+In order for your new icons to be available in all newly built instances, the new ZIP file needs to be added to the Docker build. In order to do that you should replace the existing ZIP file in `Sitecore.Demo.Edge\docker\build\cm\Data\sitecore\shell\Themes` with your new version.
+
+#### Credits
+
+All icons are by [icons8](https://icons8.com/icons/color).
 
 ### Developing the Platform Visual Studio Solution
 

@@ -1,0 +1,10 @@
+<#assign websiteBaseUrl = getDecisionModelResultNode("Get Website Base URL").outputs[0].websiteBaseUrl>
+<#assign aDateTime = .now>
+{
+  "Email": "${guest.email}",
+  "HasExternalDoubleOptIn": "true",
+  "CustomFields": [
+    "SubscriptionTimestamp=${aDateTime?iso_local}",
+    "WebsiteBaseUrl=${websiteBaseUrl}"
+  ]
+}

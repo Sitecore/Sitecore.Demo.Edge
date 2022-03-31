@@ -1,0 +1,239 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/fa85d752-60d4-4de8-abc3-82564396fd92",
+  "ref": "fa85d752-60d4-4de8-abc3-82564396fd92",
+  "name": "Subscribe to update emails",
+  "modifiedByRef": "e9c7b09d-00ba-447e-95f9-d8a6b17f4ce5",
+  "modifiedAt": "2022-02-08T13:05:56.395Z",
+  "revision": 123,
+  "archived": false,
+  "friendlyId": "subscribe_to_update_emails_1",
+  "type": "TRIGGERED_V3",
+  "subtype": "EXPERIENCE",
+  "channels": [
+    "EMAIL"
+  ],
+  "triggers": [
+    {
+      "name": "SUBSCRIBE_TO_UPDATES_IDENTITY",
+      "description": "Subscribe to update emails",
+      "identifiers": [
+        {
+          "operator": "Equals",
+          "value": "SUBSCRIBE_TO_UPDATES_IDENTITY"
+        }
+      ]
+    }
+  ],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "tags": [],
+  "businessProcess": "triggered_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2022-02-08T13:05:56.368Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "d836eb61-40cc-47e6-99c7-f28272330963",
+        "split": 100
+      }
+    ]
+  },
+  "variants": [
+    {
+      "ref": "d836eb61-40cc-47e6-99c7-f28272330963",
+      "name": "Personalisation",
+      "isControl": true,
+      "assets": {
+        "css": "/** style your Experience with CSS */",
+        "html": "<!-- define the structure and content of your Experience in HTML e.g.-->\n<div>My Content</div>\n<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type 'd' to see decisioning helpers -->\n",
+        "js": "// You can choose how you want to add your HTML by using insertHTMLBefore, insertHTMLAfter, or replaceHTML methods\n// e.g insertHTMLAfter('.someClassName'); or insertHTMLAfter('body'); or replaceHTML('#myPageId')\n\n/*\n\n(function () {\n  // Add statements here\n})();\n\n*/"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#assign baseUrl = getDecisionModelResultNode(\"Get Website Base URL\").outputs[0].websiteBaseUrl>\n<#assign aDateTime = .now>\n{\n<#if (guest.firstName)??>\n  \"Name\": \"${guest.firstName} ${guest.lastName}\",\n</#if>\n<#if (guest.email)??>\n  \"Email\": \"${guest.email}\",\n</#if>\n  \"HasExternalDoubleOptIn\": \"true\",\n  \"CustomFields\": [\n    \"SubscriptionTimestamp=${aDateTime?iso_local}\",\n<#if (baseUrl)??>\n    \"WebsiteBaseUrl=${baseUrl}\"\n</#if>\n  ]\n}"
+          }
+        },
+        {
+          "implementation": "connectionTask",
+          "input": {
+            "inputType": "connectionTaskInput",
+            "connection": {
+              "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+              "href": "https://api-us.boxever.com/v2/connections/f2463c31-9e4c-47da-8725-4e3181acbbb5",
+              "ref": "f2463c31-9e4c-47da-8725-4e3181acbbb5",
+              "name": "Sitecore Send add subscriber to updates ",
+              "description": "Sitecore Send add email to subscription list",
+              "modifiedByRef": "171e2c01-9026-4573-bed2-f556d8b37bf5",
+              "modifiedAt": "2022-02-03T02:19:15.747Z",
+              "revision": 1,
+              "archived": false,
+              "auth": {
+                "authType": "NONE"
+              },
+              "request": {
+                "requestType": "POST",
+                "connectionUrl": "https://api.moosend.com/v3/subscribers/9cc1150c-0733-40a1-8a1c-828d9a44707c/subscribe.json?apikey=redacted",
+                "requestBody": "{\r\n  \"Name\": \"test\",\r\n  \"Email\": \"test@test.com\",\r\n  \"HasExternalDoubleOptIn\": false,\r\n  \"CustomFields\": [\r\n    \"Age=25\",\r\n    \"Country=USA\"\r\n  ]\r\n}"
+              },
+              "inputMappings": [],
+              "outputMappings": [
+                {
+                  "label": "Code",
+                  "outputReference": "Code",
+                  "type": "Number"
+                },
+                {
+                  "label": "Context",
+                  "outputReference": "Context",
+                  "type": "Object"
+                }
+              ],
+              "customHeaders": [
+                {
+                  "name": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "name": "Accept-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "name": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "urlParameters": [],
+              "systemType": "DESTINATION",
+              "connectionTimeout": 1000,
+              "socketTimeout": 10000,
+              "icon": "fad fa-envelope-open"
+            }
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "de798499-8b1e-4074-815f-65e2817161d1"
+            ]
+          }
+        }
+      ],
+      "description": "Start from scratch and create an API response using Freemarker",
+      "render": false
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "d836eb61-40cc-47e6-99c7-f28272330963",
+      "name": "Personalisation",
+      "isControl": true,
+      "assets": {
+        "css": "/** style your Experience with CSS */",
+        "html": "<!-- define the structure and content of your Experience in HTML e.g.-->\n<div>My Content</div>\n<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type 'd' to see decisioning helpers -->\n",
+        "js": "// You can choose how you want to add your HTML by using insertHTMLBefore, insertHTMLAfter, or replaceHTML methods\n// e.g insertHTMLAfter('.someClassName'); or insertHTMLAfter('body'); or replaceHTML('#myPageId')\n\n/*\n\n(function () {\n  // Add statements here\n})();\n\n*/"
+      },
+      "templateVariables": {},
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#assign baseUrl = getDecisionModelResultNode(\"Get Website Base URL\").outputs[0].websiteBaseUrl>\n<#assign aDateTime = .now>\n{\n<#if (guest.firstName)??>\n  \"Name\": \"${guest.firstName} ${guest.lastName}\",\n</#if>\n<#if (guest.email)??>\n  \"Email\": \"${guest.email}\",\n</#if>\n  \"HasExternalDoubleOptIn\": \"true\",\n  \"CustomFields\": [\n    \"SubscriptionTimestamp=${aDateTime?iso_local}\",\n<#if (baseUrl)??>\n    \"WebsiteBaseUrl=${baseUrl}\"\n</#if>\n  ]\n}"
+          }
+        },
+        {
+          "implementation": "connectionTask",
+          "input": {
+            "inputType": "connectionTaskInput",
+            "connection": {
+              "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+              "href": "https://api-us.boxever.com/v2/connections/f2463c31-9e4c-47da-8725-4e3181acbbb5",
+              "ref": "f2463c31-9e4c-47da-8725-4e3181acbbb5",
+              "name": "Sitecore Send add subscriber to updates ",
+              "description": "Sitecore Send add email to subscription list",
+              "modifiedByRef": "171e2c01-9026-4573-bed2-f556d8b37bf5",
+              "modifiedAt": "2022-02-03T02:19:15.747Z",
+              "revision": 1,
+              "archived": false,
+              "auth": {
+                "authType": "NONE"
+              },
+              "request": {
+                "requestType": "POST",
+                "connectionUrl": "https://api.moosend.com/v3/subscribers/9cc1150c-0733-40a1-8a1c-828d9a44707c/subscribe.json?apikey=redacted",
+                "requestBody": "{\r\n  \"Name\": \"test\",\r\n  \"Email\": \"test@test.com\",\r\n  \"HasExternalDoubleOptIn\": false,\r\n  \"CustomFields\": [\r\n    \"Age=25\",\r\n    \"Country=USA\"\r\n  ]\r\n}"
+              },
+              "inputMappings": [],
+              "outputMappings": [
+                {
+                  "label": "Code",
+                  "outputReference": "Code",
+                  "type": "Number"
+                },
+                {
+                  "label": "Context",
+                  "outputReference": "Context",
+                  "type": "Object"
+                }
+              ],
+              "customHeaders": [
+                {
+                  "name": "Accept",
+                  "value": "application/json"
+                },
+                {
+                  "name": "Accept-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "name": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "urlParameters": [],
+              "systemType": "DESTINATION",
+              "connectionTimeout": 1000,
+              "socketTimeout": 10000,
+              "icon": "fad fa-envelope-open"
+            }
+          }
+        },
+        {
+          "implementation": "decisionModelTask",
+          "input": {
+            "inputType": "decisionModelTaskInput",
+            "decisionModelRefs": [
+              "de798499-8b1e-4074-815f-65e2817161d1"
+            ]
+          }
+        }
+      ],
+      "description": "Start from scratch and create an API response using Freemarker"
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2022-02-08T13:06:12.699Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/fa85d752-60d4-4de8-abc3-82564396fd92/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.02,
+    "minimumDetectableDifference": 0.2,
+    "confidenceLevel": 0.95
+  }
+}

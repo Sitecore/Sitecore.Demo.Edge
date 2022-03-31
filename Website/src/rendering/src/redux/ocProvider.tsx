@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { initializeAuth } from './ocAuth';
 import logout from './ocAuth/logout';
-import { retrieveOrder } from './ocCurrentCart';
+import { retrieveCart } from './ocCurrentCart';
 import { useAppDispatch, useAppSelector } from './store';
 import { getUser } from './ocUser';
 import { Configuration } from 'ordercloud-javascript-sdk';
+import { isCommerceEnabled } from '../helpers/CommerceHelper';
 
 Configuration.Set({
   baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
@@ -20,16 +21,18 @@ const OcProvider: FunctionComponent = ({ children }) => {
   }));
 
   useEffect(() => {
-    if (!ocAuth.initialized) {
-      dispatch(initializeAuth());
-    } else if (ocAuth.isAnonymous && !ocAuth.isAuthenticated) {
-      dispatch(logout());
-    } else if (ocAuth.isAuthenticated) {
-      if (!ocUser.user && !ocUser.loading) {
-        dispatch(getUser());
-      }
-      if (!ocCurrentCart.initialized) {
-        dispatch(retrieveOrder());
+    if (isCommerceEnabled) {
+      if (!ocAuth.initialized) {
+        dispatch(initializeAuth());
+      } else if (ocAuth.isAnonymous && !ocAuth.isAuthenticated) {
+        dispatch(logout());
+      } else if (ocAuth.isAuthenticated) {
+        if (!ocUser.user && !ocUser.loading) {
+          dispatch(getUser());
+        }
+        if (!ocCurrentCart.initialized) {
+          dispatch(retrieveCart());
+        }
       }
     }
   }, [dispatch, ocAuth, ocUser, ocCurrentCart]);

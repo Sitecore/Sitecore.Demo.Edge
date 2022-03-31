@@ -1,0 +1,17 @@
+{
+  "ref": "69efeff4-95f5-46f6-b4c3-1ddef8d9e17a",
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "name": "Full Stack Experience Offer",
+  "archived": false,
+  "created": 1644246159110,
+  "createdBy": "Redacted",
+  "updated": 1644246159110,
+  "updatedBy": "Redacted",
+  "description": "Empty offer for full stack experiences that do not have any other offer",
+  "attributes": {},
+  "offerTypeRef": "d9e78fdc-0c5a-41c8-967f-361bcadd05c6",
+  "status": "ACTIVE",
+  "propensity": 0,
+  "tags": [],
+  "isScheduled": false
+}

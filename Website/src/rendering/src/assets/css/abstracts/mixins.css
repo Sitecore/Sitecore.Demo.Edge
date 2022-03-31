@@ -47,3 +47,7 @@
 
   max-width: 1440px;
 }
+
+@mixin shop-container {
+  @apply w-full px-5 mx-auto max-w-screen-2xl;
+}

@@ -9,7 +9,7 @@ SharedFields:
   Value: NewsList
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/news-list.png"
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{4D45DA3E-8128-422C-AFDA-E10672117E15}"
@@ -31,11 +31,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6616798a-6377-4463-8cf2-90b1e3def4c1"
+      Value: "24af8107-89fe-42e3-b4ff-a94c764210f5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211213T172843Z
+      Value: 20220221T085854Z

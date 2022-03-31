@@ -1,0 +1,3 @@
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" namespace="http://camunda.org/schema/1.0/dmn" name="definitions" id="definitions"><decision id="e423fbad-a2eb-417a-909b-ace216a1ab5f" name="GetGuestRef"><extensionElements><biodi:bounds x="770" y="340" width="200" height="73.3"/></extensionElements><variable id="variable1632250044523" typeRef="string" name="getguestref"/><literalExpression id="literal1632250044523" expressionLanguage="javascript"><text><![CDATA[(function () {
+    return guest.ref;
+})();]]></text></literalExpression></decision></definitions>
