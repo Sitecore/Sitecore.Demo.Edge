@@ -125,6 +125,7 @@ namespace Sitecore.Demo.Init.Jobs
             var orderCloudBaseApiUrl = Environment.GetEnvironmentVariable("ORDERCLOUD_BASE_API_URL");
             var orderCloudMiddlewareClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_ID");
             var orderCloudMiddlewareClientSecret = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET");
+            var orderCloudMiddlewareAllowedClientIds = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS");
             var orderCloudWebhookHashKey = Environment.GetEnvironmentVariable("ORDERCLOUD_WEBHOOK_HASH_KEY");
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
@@ -168,6 +169,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{orderCloudMiddlewareClientId}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_ID production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudMiddlewareClientSecret}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudMiddlewareAllowedClientIds}\" | vercel env add ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudWebhookHashKey}\" | vercel env add OC_WEBHOOK_HASH_KEY production --token {token} --scope {scope}");
 
