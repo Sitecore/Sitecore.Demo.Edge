@@ -32,6 +32,27 @@ type FacetListProps = {
   facets: unknown[];
   onFacetClick: (...args: unknown[]) => void;
   onClear: (...args: unknown[]) => void;
+  sortFacetProps: sortFacetProps;
+  onToggleClick: (...args: unknown[]) => void;
+};
+
+type sortFacetProps = {
+  sortChoices: unknown;
+  sortType: unknown;
+  sortDirection: unknown;
+  onSortChange: () => void;
+};
+
+type SortFacetProps = {
+  sortChoices: unknown[];
+  sortType: unknown;
+  sortDirection: unknown;
+  onSortChange: (change: SortChangeRequest) => void;
+};
+
+type SortChangeRequest = {
+  sortType: unknown;
+  sortDirection: unknown;
 };
 
 const FacetValues = (props: FacetValueProps): JSX.Element => {
@@ -151,13 +172,47 @@ const ActiveFacetValues = (props: ActiveFacetValueProps): JSX.Element => {
   `;
 };
 
+const SortFacet = (props: SortFacetProps): JSX.Element => {
+  const { sortChoices, sortType, sortDirection, onSortChange } = props;
+  const [toggle, setToggle] = window.RFK.ui.useState(false);
+
+  const handleTitleClick = () => setToggle(!toggle);
+
+  const handleSortChange = ({ target }: Event) => {
+    const sort = (target as HTMLInputElement).value.split('#');
+    onSortChange({ sortType: sort[0], sortDirection: sort[1] });
+  };
+
+  return window.RFK.ui.html`
+    <div className=${toggle ? 'expanded facet' : 'facet'}  data-type="sort">
+      <div className="facet-title" onClick=${handleTitleClick}>
+        <span>Sort by</span>
+      </div>
+      <div className="facet-values">
+        ${sortChoices?.map(({ label, name, order }) => {
+          return window.RFK.ui.html`
+            <input type="radio"
+              checked=${name === sortType && order === sortDirection}
+              value="${name}#${order}"
+              id="${name}#${order}"
+              onChange=${handleSortChange}
+            />
+            <label for="${name}#${order}">${label}</label>
+            `;
+        })}
+      </div>
+    </div>
+  `;
+};
+
 const FacetList = (props: FacetListProps): JSX.Element => {
-  const { facets, onFacetClick, onClear } = props;
+  const { facets, onFacetClick, onClear, sortFacetProps, onToggleClick } = props;
   let acumIndex = 0;
 
   // TODO: Implement and style range filters (e.g. min - max price)
   return window.RFK.ui.html`
     <div className="facet-container">
+      <button className="btn--secondary facet-container-toggle" onClick=${onToggleClick}>Filter</button>
       ${
         facets?.some(({ values = [] }) => values?.some(({ selected }) => selected))
           ? window.RFK.ui.html`
@@ -185,6 +240,12 @@ const FacetList = (props: FacetListProps): JSX.Element => {
           : null
       }
       <div className="facet-list">
+        <${SortFacet}
+          sortChoices=${sortFacetProps.sortChoices}
+          sortType=${sortFacetProps.sortType}
+          sortDirection=${sortFacetProps.sortDirection}
+          onSortChange=${sortFacetProps.onSortChange}
+        />
         ${facets?.map(({ facetType, values, display_name }, tindex) => {
           const componentHtml = window.RFK.ui.html`
             <${Facet}
