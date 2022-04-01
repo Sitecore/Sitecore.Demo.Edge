@@ -1,15 +1,10 @@
 import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch,
-  faShoppingCart,
-  faChevronDown,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Widget } from '@sitecore-discover/react';
 
 const ShopNavigation = (): JSX.Element => {
@@ -125,15 +120,9 @@ const ShopNavigation = (): JSX.Element => {
           </ul>
         </div>
         <div className="shop-search-input-container">
-          <div data-rfkid="rfkid_6" id="search-input-container">
-            <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
-            <input
-              id="search-input"
-              className="shop-search-input"
-              placeholder="I am shopping for..."
-            />
+          <div id="search-input-container">
+            <Widget rfkId="rfkid_6" />
           </div>
-          {/* <Widget rfkId="rfkid_6" /> */}
         </div>
       </div>
     </nav>

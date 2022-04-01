@@ -8,12 +8,6 @@ import {
 import FullPageSearch from 'components/FullPageSearch/FullPageSearch';
 import PreviewSearch from 'components/PreviewSearch/PreviewSearch';
 
-console.log('IDENTIFYING DISCOVER.JS FILE NOW');
-
-// setWidgetType(WidgetDataType.PREVIEW_SEARCH, {
-//   component: PreviewSearch,
-// });
-
 setWidgetType(WidgetDataType.SEARCH_RESULTS, {
   component: FullPageSearch,
 });

@@ -5,7 +5,6 @@ import ShopNavigation from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
 import { isCommerceEnabled } from '../../helpers/CommerceHelper';
-import { MerchandisingScripts } from '../../services/MerchandisingService';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
@@ -73,8 +72,6 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      {/* {MerchandisingScripts} */}
 
       <header>
         <ShopNavigation />
