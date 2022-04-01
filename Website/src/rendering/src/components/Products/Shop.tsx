@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
+import ShopNavigation from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
 import { isCommerceEnabled } from '../../helpers/CommerceHelper';
@@ -11,24 +11,6 @@ import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
-  const shopNavigationProps = {
-    fields: {
-      data: {
-        item: {
-          headerLogo: {
-            jsonValue: {
-              value: {
-                // TODO update with play shop logo when available
-                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
-              },
-            },
-            alt: '',
-          },
-        },
-      },
-    },
-  } as ShopNavigationProps;
-
   const footerProps = {
     fields: {
       data: {
@@ -70,7 +52,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       {MerchandisingScripts}
 
       <header>
-        <ShopNavigation {...shopNavigationProps} />
+        <ShopNavigation />
       </header>
       <main>
         <HeaderCdpMessageBar />

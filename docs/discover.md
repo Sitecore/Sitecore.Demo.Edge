@@ -73,8 +73,10 @@ When changing the products URL structure, it is required to let the Sitecore Dis
 
 ### Upload
 
+If you only modified one of the CSV feed file and you want to use a previously generated CSV file for the other feed, you must ensure that the file modified date is different from the last upload that was done. To do that, open the file in a text editor and save it without any changes.
+
 Using an SFTP client:
 
 1. Connect to the Play Summit Sitecore Discover FTP server.
    1. URL and credentials available in Sitecore Discover > Developer Resources > API Hosts > Legacy SFTP DNS.
-2. Upload the CSV files to the `/upload` folder. Both category and product feed files need to be present on every upload. Override the existing files.
+2. Upload all the CSV files to the `/upload` folder. Both category and product feed files need to have a newer modified date at every upload. Override the existing files.

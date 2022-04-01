@@ -16,8 +16,9 @@
       .logo-link {
         @apply text-xl font-bold leading-relaxed inline-block whitespace-nowrap uppercase text-white;
 
-        img {
-          @apply h-10;
+        svg {
+          @apply h-10 w-24;
+          @apply sm:h-16 sm:w-28;
         }
       }
     }
