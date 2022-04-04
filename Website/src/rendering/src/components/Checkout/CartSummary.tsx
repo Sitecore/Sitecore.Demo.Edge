@@ -1,8 +1,8 @@
 import { formatCurrency } from '../../helpers/CurrencyHelper';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 const CartSummary = (): JSX.Element => {
-  const { order } = useOcCurrentOrder();
+  const { order } = useOcCurrentCart();
   const subtotal = order?.LineItemCount && (
     <p>
       Subtotal ({order.LineItemCount} items): <span>{formatCurrency(order.Subtotal)}</span>

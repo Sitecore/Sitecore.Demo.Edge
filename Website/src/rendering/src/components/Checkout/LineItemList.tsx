@@ -1,4 +1,4 @@
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import LineItemCard from './LineItemCard';
 
 type LineItemListProps = {
@@ -6,7 +6,7 @@ type LineItemListProps = {
 };
 
 const LineItemList = (props: LineItemListProps): JSX.Element => {
-  const { lineItems } = useOcCurrentOrder();
+  const { lineItems } = useOcCurrentCart();
 
   return lineItems && lineItems.length ? (
     <ol className="line-item-list">

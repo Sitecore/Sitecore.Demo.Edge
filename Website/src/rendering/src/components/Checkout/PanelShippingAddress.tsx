@@ -1,5 +1,5 @@
 import AddressForm from '../Forms/AddressForm';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { saveShippingAddress } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
@@ -9,7 +9,7 @@ import AddressCard from './AddressCard';
 const PanelShippingAddress = (): JSX.Element => {
   // TODO: this component should also allow choosing a saved address
   const dispatch = useAppDispatch();
-  const { shippingAddress } = useOcCurrentOrder();
+  const { shippingAddress } = useOcCurrentCart();
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSetShippingAddress = (address: Partial<DBuyerAddress>) => {

@@ -1,6 +1,6 @@
 import { RequiredDeep, ShipMethodSelection } from 'ordercloud-javascript-sdk';
 import { estimateShipping, selectShipMethods } from '../../redux/ocCurrentCart';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import ShipMethodsList from './ShipMethodsList';
 import { useEffect } from 'react';
@@ -11,7 +11,7 @@ const PanelShippingEstimates = (): JSX.Element => {
   // only returning a single set of ship estimates to keep it simple
   // expect to add a set of ship estimates by supplier in the future
   const dispatch = useAppDispatch();
-  const { order, shipEstimateResponse, shippingAddress } = useOcCurrentOrder();
+  const { order, shipEstimateResponse, shippingAddress } = useOcCurrentCart();
   const shipEstimateResponseStringified = JSON.stringify(shipEstimateResponse);
 
   useEffect(() => {

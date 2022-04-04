@@ -1,6 +1,6 @@
 import CreditCardForm from '../../components/Forms/CreditCardForm';
 import { useEffect, useState } from 'react';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import { retrievePayments, updateCreditCardPayment } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
@@ -8,7 +8,7 @@ import CreditCardCard from './CreditCardCard';
 
 const PanelPayment = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { order, payments } = useOcCurrentOrder();
+  const { order, payments } = useOcCurrentCart();
   const [isEditing, setIsEditing] = useState(false);
   useEffect(() => {
     if (order) {

@@ -2,14 +2,14 @@ import CartSummary from './CartSummary';
 import LineItemList from './LineItemList';
 import PromoInput from './PromoInput';
 import Link from 'next/link';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 type CartDetailsProps = {
   editable?: boolean;
 };
 
 const CartDetails = (props: CartDetailsProps): JSX.Element => {
-  const { order } = useOcCurrentOrder();
+  const { order } = useOcCurrentCart();
   const cartDetailsActions = order?.LineItemCount > 0 && (
     <div className="cart-details-actions">
       <div className="cart-details-actions-wrapper">

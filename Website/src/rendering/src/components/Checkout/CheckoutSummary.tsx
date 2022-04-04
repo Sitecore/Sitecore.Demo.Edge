@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 type CheckoutSummaryProps = {
   orderComments?: string;
@@ -12,7 +12,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
+  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;

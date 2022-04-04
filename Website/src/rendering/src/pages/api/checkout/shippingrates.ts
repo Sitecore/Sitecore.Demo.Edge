@@ -3,7 +3,7 @@ import { withOcWebhookAuth } from '@ordercloud/catalyst';
 import { DOrderCheckoutIntegrationEvent } from 'src/models/ordercloud/DOrderCheckoutIntegrationEvent';
 import { DShipEstimateResponse } from 'src/models/ordercloud/DShipEstimateResponse';
 
-// withOCWebhookAuth needs the raw body in order to validate the payload is coming from ordercloud
+// withOcWebhookAuth needs the raw body in order to validate the payload is coming from ordercloud
 export const config = {
   api: {
     bodyParser: false,
