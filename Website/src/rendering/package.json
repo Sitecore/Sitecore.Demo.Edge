@@ -75,6 +75,7 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.4.19",
+    "@types/auth0": "^2.34.18",
     "@types/deep-equal": "^1.0.1",
     "@types/jwk-to-pem": "^2.0.1",
     "@types/lodash": "^4.14.178",
