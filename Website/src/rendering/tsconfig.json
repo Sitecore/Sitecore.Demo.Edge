@@ -45,7 +45,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "public/discover.js"  ],
+, "public/discover.ts"  ],
   "exclude": [
     "node_modules"
   ]
