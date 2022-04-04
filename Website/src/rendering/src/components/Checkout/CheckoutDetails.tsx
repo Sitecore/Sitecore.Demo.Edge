@@ -6,14 +6,16 @@ import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
 import CheckoutSummary from './CheckoutSummary';
 import { useState } from 'react';
+import useOcCurrentCart from 'src/hooks/useOcCurrentCart';
 
 const CheckoutDetails = (): JSX.Element => {
+  const { order } = useOcCurrentCart();
   const [comments, setComments] = useState('');
   const handleEditComments = (updatedComments: string) => {
     setComments(updatedComments);
   };
 
-  return (
+  const checkoutDetails = order?.LineItemCount > 0 && (
     <section className="checkout-details shop-container section">
       <PanelDeliveryOptions />
       <PanelShippingAddress />
@@ -26,6 +28,8 @@ const CheckoutDetails = (): JSX.Element => {
       </div>
     </section>
   );
+
+  return <>{checkoutDetails}</>;
 };
 
 export default CheckoutDetails;
