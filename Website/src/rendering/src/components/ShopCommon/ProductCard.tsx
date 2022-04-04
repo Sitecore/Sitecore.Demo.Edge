@@ -34,7 +34,7 @@ const ProductCard = (props: ProductCardProps): JSX.Element => {
     <div className="product-card">
       <div className="product-image-container">
         <a href={product_url} onClick={onClick}>
-          <img className="product-image" src={image_url} alt="{name}" />
+          <img className="product-image" src={image_url} alt={name} />
           <span className="product-offer">Spring Sale!</span>
         </a>
       </div>

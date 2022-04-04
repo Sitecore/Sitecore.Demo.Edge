@@ -2,20 +2,23 @@ import debounce from '../../../src/helpers/Debounce';
 import FacetList, { FacetClickEvent } from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
+import { Product } from 'src/models/discover/Product';
+import { useEffect } from 'react';
+import { SearchResultsActions } from '@sitecore-discover/widgets';
 
 type FullPageSearchProps = {
   error: unknown;
   loaded: boolean;
   loading: boolean;
   page: number;
-  keyphrase: unknown;
+  keyphrase: string;
   productsPerPage: number;
-  totalPages: unknown;
+  totalPages: number;
   totalItems: unknown;
   sortType: unknown;
   sortDirection: unknown;
-  sortChoices: unknown;
-  products: unknown[];
+  sortChoices: unknown[];
+  products: Product[];
   facets: unknown[];
   onSearchChange: () => void;
   dispatch: (...args: unknown[]) => void;
@@ -27,6 +30,7 @@ type SortChangeEvent = {
 };
 
 const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
+  console.log('rendering full page search, props', props);
   const {
     error,
     loaded,
@@ -43,7 +47,16 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     dispatch,
   } = props;
 
-  window.RFK.ui.useEffect(() => {
+  const setInitialKeyphrase: (keyphrase: string) => void = debounce(
+    (keyphrase) =>
+      dispatch(SearchResultsActions.KEYPHRASE_CHANGED, {
+        keyphrase,
+      }),
+    500,
+    false
+  );
+
+  useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const searchQuery = urlSearchParams.get('q');
     const keyphraseToUse = keyphrase ?? searchQuery;
@@ -53,91 +66,61 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     }
   }, []);
 
-  const setInitialKeyphrase = window.RFK.ui.useCallback(
-    debounce(
-      (keyphrase) =>
-        dispatch(window.RFK.widgets.SearchResultsActions.KEYPHRASE_CHANGED, {
-          keyphrase,
-        }),
-      500,
-      false
-    ),
-    []
-  );
-
   if (error) {
-    return window.RFK.ui.html`<div>Response error</div>`;
+    return <div>Response error</div>;
   }
 
   const handleFacetClick = (payload: FacetClickEvent) => {
-    dispatch(window.RFK.widgets.SearchResultsActions.FACET_CLICKED, payload);
+    dispatch(SearchResultsActions.FACET_CLICKED, payload);
   };
 
   const handleFacetClear = (payload: PointerEvent) => {
-    dispatch(window.RFK.widgets.SearchResultsActions.CLEAR_FILTERS, payload);
+    dispatch(SearchResultsActions.CLEAR_FILTERS, payload);
   };
 
   const handlePageNumberChange = (pageNumber: string) => {
-    dispatch(window.RFK.widgets.SearchResultsActions.PAGE_NUMBER_CHANGED, {
+    dispatch(SearchResultsActions.PAGE_NUMBER_CHANGED, {
       pageNumber: Number(pageNumber),
     });
   };
 
   const handleSortChange = (payload: SortChangeEvent) => {
-    dispatch(window.RFK.widgets.SearchResultsActions.SORT_CHANGED, payload);
+    dispatch(SearchResultsActions.SORT_CHANGED, payload);
   };
 
-  const handleProductClick = (payload: PointerEvent) => {
-    dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
-  };
-
-  const numberOfResults =
-    !loading &&
-    totalPages > 0 &&
-    window.RFK.ui.html`
-      <div className="items-num">
-        ${totalItems} items
-      </div>
-    `;
+  const numberOfResults = !loading && totalPages > 0 && (
+    <div className="items-num">{totalItems} items</div>
+  );
 
   const noResultsMessage = totalItems === 0 && 'No results found';
 
-  return window.RFK.ui.html`
+  return (
     <div className="full-page-search">
       <div className="full-page-search-container">
         <div className="full-page-search-left">
-          <${FacetList}
-            facets=${facets}
-            onFacetClick=${handleFacetClick}
-            onClear=${handleFacetClear}
-          />
+          <FacetList facets={facets} onFacetClick={handleFacetClick} onClear={handleFacetClear} />
         </div>
         <div className="full-page-search-right">
-          <div data-page="${page}">
+          <div data-page={page}>
             <div className="full-page-search-controls">
-              ${numberOfResults}
-              <${SearchControls}
-                totalPages=${totalPages}
-                page=${page}
-                sortChoices=${sortChoices}
-                sortType=${sortType}
-                sortDirection=${sortDirection}
-                onPageNumberChange=${handlePageNumberChange}
-                onSortChange=${handleSortChange}
+              {numberOfResults}
+              <SearchControls
+                totalPages={totalPages}
+                page={page}
+                sortChoices={sortChoices}
+                sortType={sortType}
+                sortDirection={sortDirection}
+                onPageNumberChange={handlePageNumberChange}
+                onSortChange={handleSortChange}
               />
             </div>
-            ${noResultsMessage}
-            <${ProductList}
-              products=${products}
-              loaded=${loaded}
-              loading=${loading}
-              onProductClick=${handleProductClick}
-            />
+            {noResultsMessage}
+            <ProductList products={products} loaded={loaded} loading={loading} />
           </div>
         </div>
       </div>
     </div>
-  `;
+  );
 };
 
 export default FullPageSearch;

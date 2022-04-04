@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect } from 'react';
+import { PropsWithChildren } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import ShopNavigation from '../Navigation/ShopNavigation';
@@ -8,15 +8,9 @@ import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
-import { PageController } from '@sitecore-discover/react';
-import '../../../public/discover';
+import '../../services/DiscoverService';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
-  useEffect(() => {
-    PageController.getContext().setPageUri(window.location.pathname);
-    console.log('USING DISCOVER PAGE CONTROLLER FROM SHOP.TSX');
-  }, []);
-
   const shopNavigationProps = {
     fields: {
       data: {
@@ -72,7 +66,6 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <header>
         <ShopNavigation />
       </header>

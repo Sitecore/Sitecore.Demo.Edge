@@ -27,7 +27,7 @@ const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
                 onMouseEnter={() => onMouseEnter(text)}
                 onMouseLeave={onMouseLeave}
               >
-                {url ? <a href="{url}">{text}</a> : <a href={redirectUrl + text}>{text}</a>}
+                {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>}
               </li>
             ))}
           </ul>
