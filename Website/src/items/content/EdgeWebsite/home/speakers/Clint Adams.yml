@@ -16,6 +16,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "2256955c-26ab-41b5-8e7a-fc504ea1a307"
+      Hint: Sponsors
+      Value: "{DCFB9DD8-7307-475E-8BD9-FEF7852DFEF8}"
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210924T175418Z
@@ -26,6 +29,9 @@ Languages:
       Hint: __Owner
       Value: |
         default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{3983AC76-7325-4AF4-9183-B68DE402F872}"
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -38,7 +44,7 @@ Languages:
       Value: Mapd
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
-      Value: "{7C9530B9-E948-4A84-9A6F-9A3D27B5CB42}|{09F14D56-7984-41A8-8468-6A2B99BB88CB}|{71B49CE4-5034-436E-BE7F-DB838C8FDFEF}"
+      Value: "{7C9530B9-E948-4A84-9A6F-9A3D27B5CB42}|{349CE17E-AB72-4C9B-BF43-8DE819D2E8B2}|{71B49CE4-5034-436E-BE7F-DB838C8FDFEF}"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

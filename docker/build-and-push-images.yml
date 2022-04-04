@@ -152,9 +152,9 @@ stages:
             targetPath: "Website/src/rendering/storybook-static"
             artifact: "Storybook"
             publishLocation: "pipeline"
-
+        # TODO: Remove --exit-once-uploaded when Sitecore Discover NPM SDK is integrated and Discover component stories are mocked and not throwing errors
         - script: |
-            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
+            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes --exit-once-uploaded
           displayName: 'Push to Chromatic'
           workingDirectory: Website/src/rendering
 

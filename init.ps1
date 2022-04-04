@@ -147,6 +147,9 @@ if ($InitEnv) {
     # SITECORE_ADMIN_PASSWORD
     Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
 
+    # SITECORE_USER_PASSWORD (same as admin in local env.)
+    Set-EnvFileVariable "SITECORE_USER_PASSWORD" -Value $AdminPassword
+
     # JSS_EDITING_SECRET
     # Populate it for the Next.js local environment as well
     $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial

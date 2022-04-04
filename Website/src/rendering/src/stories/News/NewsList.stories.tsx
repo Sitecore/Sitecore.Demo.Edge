@@ -32,6 +32,7 @@ const news1 = {
       },
     },
   },
+  url: '/news/item',
 } as News;
 
 const news2 = {
@@ -55,6 +56,7 @@ const news2 = {
       },
     },
   },
+  url: '/news/item',
 } as News;
 
 const news3 = {
@@ -78,6 +80,7 @@ const news3 = {
       },
     },
   },
+  url: '/news/item',
 } as News;
 
 export const Default = Template.bind({});

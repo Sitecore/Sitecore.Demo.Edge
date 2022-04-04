@@ -1,0 +1,48 @@
+.categories-list {
+  @apply text-center py-20;
+
+  &-blue {
+    @apply bg-blue text-white;
+  }
+
+  &-orange {
+    @apply bg-orange;
+  }
+
+  &-pink {
+    @apply bg-pink text-white;
+  }
+
+  &-yellow {
+    @apply bg-yellow;
+  }
+
+  &-gray {
+    @apply bg-gray-light;
+  }
+
+  ul {
+    @apply container flex flex-wrap justify-center gap-4;
+  }
+
+  li {
+    @apply text-sm basis-[calc(50%-0.5rem)];
+    @apply sm:flex-1;
+
+    img {
+      @apply mb-3;
+    }
+
+    h4 {
+      @apply capitalize;
+    }
+  }
+
+  &-title {
+    @apply container mb-5;
+
+    h1 {
+      @apply font-bold text-xl;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "ref": "727c4cb8-f5f9-4c62-a5ed-a4afc988945f",
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "name": "Website Home Page Hero - Other",
+  "archived": false,
+  "created": 1643755706050,
+  "createdBy": "Redacted",
+  "updated": 1643911506297,
+  "updatedBy": "Redacted",
+  "description": "Website Home Page Hero for the other audiences",
+  "attributes": {
+    "imageUrl": "https://ch.sitecoredemo.com/api/public/content/a4519dc7083a43bfab87f284a829e800?v=9e9de21d",
+    "title": "find your path",
+    "subtitle": "Explore the fifth annual PLAY! Summit in person or online.",
+    "buttonText": "other",
+    "buttonUrl": "/other",
+    "buttonColor": "yellow"
+  },
+  "offerTypeRef": "174fe600-4588-4d5e-b31f-333b0f481e8c",
+  "status": "ACTIVE",
+  "propensity": 0,
+  "tags": [],
+  "isScheduled": false
+}

@@ -65,26 +65,8 @@ namespace Sitecore.Demo.Init.Jobs
             }
 
             var cdpClientKey = Environment.GetEnvironmentVariable("CDP_CLIENT_KEY");
-            if (string.IsNullOrEmpty(cdpClientKey))
-            {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_CLIENT_KEY is not configured");
-                return;
-            }
-
             var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
-            if (string.IsNullOrEmpty(cdpApiTargetEndpoint))
-            {
-                Log.LogWarning(
-                    $"{this.GetType().Name} will not execute this time, CDP_API_TARGET_ENDPOINT is not configured");
-                return;
-            }
-
             var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
-            if (string.IsNullOrEmpty(cdpProxyUrl))
-            {
-                Log.LogWarning($"{this.GetType().Name} will not execute this time, CDP_PROXY_URL is not configured");
-                return;
-            }
 
             var auth0Secret = Environment.GetEnvironmentVariable("AUTH0_SECRET");
             var auth0IssuerBaseUrl = Environment.GetEnvironmentVariable("AUTH0_ISSUER_BASE_URL");
@@ -123,6 +105,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
 
             // Deploy project files
             var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
@@ -141,6 +125,14 @@ namespace Sitecore.Demo.Init.Jobs
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
+            var discoverCustomerKey = Environment.GetEnvironmentVariable("DISCOVER_CUSTOMER_KEY");
+            var discoverApiKey = Environment.GetEnvironmentVariable("DISCOVER_API_KEY");
+            var orderCloudBuyerClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_BUYER_CLIENT_ID");
+            var orderCloudBaseApiUrl = Environment.GetEnvironmentVariable("ORDERCLOUD_BASE_API_URL");
+            var orderCloudMiddlewareClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_ID");
+            var orderCloudMiddlewareClientSecret = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET");
+            var orderCloudMiddlewareAllowedClientIds = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS");
+            var orderCloudWebhookHashKey = Environment.GetEnvironmentVariable("ORDERCLOUD_WEBHOOK_HASH_KEY");
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
 
@@ -183,6 +175,22 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata\" | vercel env add AUTH0_SCOPE production --token {token} --scope {scope}");
+            cmd.Run(    
+                $"echo | set /p=\"{discoverCustomerKey}\" | vercel env add NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{discoverApiKey}\" | vercel env add NEXT_PUBLIC_DISCOVER_API_KEY production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudBuyerClientId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudBaseApiUrl}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudMiddlewareClientId}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_ID production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudMiddlewareClientSecret}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudMiddlewareAllowedClientIds}\" | vercel env add ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudWebhookHashKey}\" | vercel env add OC_WEBHOOK_HASH_KEY production --token {token} --scope {scope}");
 
             // Deploy project files
             var output =

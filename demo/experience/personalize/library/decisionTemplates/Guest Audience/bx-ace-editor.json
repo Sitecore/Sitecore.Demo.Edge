@@ -1,0 +1,26 @@
+{
+  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "href": "https://api-us.boxever.com/v3/templates/e7e0bd46-c89d-478e-9fcf-703b037f8abd",
+  "ref": "e7e0bd46-c89d-478e-9fcf-703b037f8abd",
+  "name": "Guest Audience",
+  "description": "Get the audience of a guest from their last session page view on the website",
+  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
+  "modifiedAt": "2022-02-01T22:50:31.407733Z",
+  "revision": 11,
+  "archived": false,
+  "friendlyId": "guest_audience",
+  "type": "DECISION",
+  "status": "PUBLISHED",
+  "icon": "",
+  "additionalFields": {
+    "decisionOutputReference": "GuestAudience",
+    "decisionReturnType": "String"
+  },
+  "templateElements": [
+    {
+      "id": "js",
+      "template": "function getLastSessionPageViews(numberOfPageViews) {\n    var sessionPageViews = [];\n\n \tvar cdpSessions = guest.sessions;\n\n \tfor (var i = 0; i < cdpSessions.length; i++) {\n \t\tvar cdpSession = cdpSessions[i];\n\n \t\tif (cdpSession.sessionType === 'WEB') {\n \t\t\tvar events = cdpSession.events;\n\n \t\t\tfor (var j = 0; j < events.length; j++) {\n \t\t\t\tvar event = events[j];\n\n \t\t\t\tif (event.type === 'VIEW' && event.arbitraryData && event.arbitraryData.sitecoreTemplateName === 'Session') {\n \t\t\t\t\tsessionPageViews.push(event);\n\n \t\t\t\t\tif (sessionPageViews.length === numberOfPageViews) {\n \t\t\t\t\t    break;\n \t\t\t\t\t}\n \t\t\t\t}\n \t\t\t}\n\n \t\t\tif (sessionPageViews.length === numberOfPageViews) {\n \t\t\t    break;\n \t\t\t}\n \t\t}\n \t}\n\n    return sessionPageViews;\n}\n\nfunction getAllAudiencesFromPageView(pageView) {\n    if (pageView && pageView.arbitraryData && pageView.arbitraryData.audiences && pageView.arbitraryData.audiences.length > 0) {\n        return pageView.arbitraryData.audiences;\n    }\n\n    return [];\n}\n\n(function () {\n    var lastSessionPageViews = getLastSessionPageViews(1);\n\n    if (lastSessionPageViews.length > 0) {\n        var audiences = getAllAudiencesFromPageView(lastSessionPageViews[0]);\n\n        if (audiences && audiences.length > 0) {\n            return audiences[0];\n        }\n    }\n\n    return \"\";\n})();\n"
+    }
+  ],
+  "defaultTemplate": false
+}

@@ -1,0 +1,20 @@
+export type Product = {
+  brand: string;
+  breadcrumbs: string;
+  category_names: string[];
+  description: string;
+  final_price: string;
+  final_price_min_formatted: number;
+  final_price_max_formatted: number;
+  finalPrice: string;
+  id: number;
+  image_url: string;
+  name: string;
+  onClick: () => void;
+  price: string;
+  product_group: string;
+  product_url: string;
+  short_description: string;
+  sku: string;
+  skuid: number;
+};

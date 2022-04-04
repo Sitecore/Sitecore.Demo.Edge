@@ -1,0 +1,47 @@
+.section__promo {
+  @apply bg-white;
+
+  padding: 7em 0;
+  box-shadow: 0 0 10px rgba(23, 23, 23, 0.3);
+
+  &__content {
+    @apply h-full;
+
+    &--left {
+      @include flex--fs-center;
+    }
+
+    &--right {
+      @include flex--fe-center;
+    }
+
+    &__card {
+      @include flex--center--column;
+
+      @apply bg-center bg-no-repeat bg-cover bg-white-light text-center;
+
+      background-image: url(../img/offer-background.jpg);
+      padding: 3em;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(23, 23, 23, 0.3);
+
+      h2 {
+        @apply text-black m-0;
+      }
+
+      h5 {
+        @apply text-blue uppercase;
+
+        letter-spacing: 1px;
+        font-weight: 500;
+        margin: 0 0 20px;
+      }
+
+      > div {
+        margin: 20px 0 30px;
+        line-height: 1.4;
+        max-width: 500px;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" namespace="http://camunda.org/schema/1.0/dmn" name="definitions" id="definitions"><decision id="ecdcd85c-383f-4254-bd5c-8c88a6c31608" name="Audience Offer Decision Table"><extensionElements><biodi:bounds x="-100" y="-93" width="200" height="73.3"/><biodi:edge source="c1df59c8-c0ed-4cd0-9c5e-ee4e3bbe480f"/><biodi:edge source="e67fb552-56e5-4d34-8d29-e8b9808a2cae"/></extensionElements><informationRequirement><requiredDecision href="#c1df59c8-c0ed-4cd0-9c5e-ee4e3bbe480f"/></informationRequirement><authorityRequirement><requiredAuthority href="#e67fb552-56e5-4d34-8d29-e8b9808a2cae"/></authorityRequirement><decisionTable hitPolicy="FIRST"><input id="stringeac78b64-abc1-4de8-bee6-d07f9140a7da" label="GuestAudience" camunda:inputVariable=""><inputExpression typeRef="string"><text>GuestAudience</text></inputExpression><inputValues id="string7166a351-7683-49b7-954e-6098569a270d"><text>"Fitness Fanatic","Healthy Living","Adventure Seeker","Outdoor Enthusiast","Weekend Warrior"</text></inputValues></input><output id="stringbc5e7f20-68bd-45a3-a0e7-4cd4f7619659" label="heroContents" name="heroContents" typeRef="com.boxever.offer" biodi:offerTemplateRef="174fe600-4588-4d5e-b31f-333b0f481e8c"/><rule id="AudienceOfferDecisionTable_0"><inputEntry id="input3695aa0a-dc6c-4d6b-91ce-8f7bee3c77dd"><text><![CDATA["Fitness Fanatic"]]></text></inputEntry><outputEntry id="outputcb953477-463f-446d-8955-1af27295d8de"><text><![CDATA["509f6494-095f-4482-a82e-ff7297dc5e56"]]></text></outputEntry></rule><rule id="AudienceOfferDecisionTable_1"><inputEntry id="inputb9f792e4-4fa3-41af-aed9-4acbf36f08f2"><text><![CDATA["Healthy Living"]]></text></inputEntry><outputEntry id="outpute78deb22-4cd4-4c27-af91-323560fbe97e"><text><![CDATA["d15d6f27-45ee-465a-ac58-8df3a4a7568c"]]></text></outputEntry></rule><rule id="AudienceOfferDecisionTable_2"><inputEntry id="input8ed0b4f8-f5fd-417e-bdeb-b88cd87ab48b"><text><![CDATA["Adventure Seeker", "Outdoor Enthusiast", "Weekend Warrior"]]></text></inputEntry><outputEntry id="output82d65775-07d0-4998-b28b-1a92e512f744"><text><![CDATA["727c4cb8-f5f9-4c62-a5ed-a4afc988945f"]]></text></outputEntry></rule><rule id="AudienceOfferDecisionTable_3"><inputEntry id="input79a4a2da-f422-4860-92f7-0f54e522a46e"><text><![CDATA[]]></text></inputEntry><outputEntry id="outpute06ce3e1-c75c-466c-883c-fea61c515510"><text><![CDATA["4a123f5b-c5ca-4ff6-a703-56d324cf6e22"]]></text></outputEntry></rule></decisionTable></decision><knowledgeSource id="e67fb552-56e5-4d34-8d29-e8b9808a2cae" name="Offers"><extensionElements><biodi:bounds x="47" y="90" width="200" height="73.3"/></extensionElements></knowledgeSource><decision id="c1df59c8-c0ed-4cd0-9c5e-ee4e3bbe480f" name="Guest Audience"><extensionElements><biodi:bounds x="-260" y="90" width="200" height="73.3"/></extensionElements><variable id="variabled64a147b-a2a7-4101-9c4c-76077d6a7322" typeRef="string" name="GuestAudience"/><literalExpression id="literald64a147b-a2a7-4101-9c4c-76077d6a7322" expressionLanguage="javascript"><text><![CDATA[function getLastSessionPageViews(numberOfPageViews) {
+    var sessionPageViews = [];
+
+ 	var cdpSessions = guest.sessions;
+
+ 	for (var i = 0; i < cdpSessions.length; i++) {
+ 		var cdpSession = cdpSessions[i];
+
+ 		if (cdpSession.sessionType === 'WEB') {
+ 			var events = cdpSession.events;
+
+ 			for (var j = 0; j < events.length; j++) {
+ 				var event = events[j];
+
+ 				if (event.type === 'VIEW' && event.arbitraryData && event.arbitraryData.sitecoreTemplateName === 'Session') {
+ 					sessionPageViews.push(event);
+
+ 					if (sessionPageViews.length === numberOfPageViews) {
+ 					    break;
+ 					}
+ 				}
+ 			}
+
+ 			if (sessionPageViews.length === numberOfPageViews) {
+ 			    break;
+ 			}
+ 		}
+ 	}
+
+    return sessionPageViews;
+}
+
+function getAllAudiencesFromPageView(pageView) {
+    if (pageView && pageView.arbitraryData && pageView.arbitraryData.audiences && pageView.arbitraryData.audiences.length > 0) {
+        return pageView.arbitraryData.audiences;
+    }
+
+    return [];
+}
+
+(function () {
+    var lastSessionPageViews = getLastSessionPageViews(1);
+
+    if (lastSessionPageViews.length > 0) {
+        var audiences = getAllAudiencesFromPageView(lastSessionPageViews[0]);
+
+        if (audiences && audiences.length > 0) {
+            return audiences[0];
+        }
+    }
+
+    return "";
+})();]]></text></literalExpression></decision></definitions>

@@ -11,24 +11,29 @@ export default {
 
 const Template: ComponentStory<typeof SpeakersGrid> = (args) => <SpeakersGrid {...args} />;
 
+const speakerImage = {
+  jsonValue: {
+    value: {
+      src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/78ef5a244c7c4bcfa129662b4ad93eca?v=1a73b3df&t=profile',
+      alt: '',
+    },
+  },
+};
+
 const speaker1 = {
   itemName: 'First Speaker Name',
   name: {
     value: 'First Speaker Name',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
-    value: true,
+    value: false,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
@@ -37,19 +42,15 @@ const speaker2 = {
   name: {
     value: 'Sophia Taylor',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
-    value: true,
+    value: false,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 
@@ -58,19 +59,15 @@ const speaker3 = {
   name: {
     value: 'Jalen Taylor',
   },
-  picture: {
-    jsonValue: {
-      value: {
-        src: '/assets/img/shop/man-biker.jpg',
-        alt: '',
-      },
-    },
-  },
+  picture: speakerImage,
   featured: {
-    value: true,
+    value: false,
   },
-  role: {
+  jobTitle: {
     value: 'Speaker',
+  },
+  url: {
+    path: '/speaker/Speaker-Name',
   },
 } as GraphQLSpeaker;
 

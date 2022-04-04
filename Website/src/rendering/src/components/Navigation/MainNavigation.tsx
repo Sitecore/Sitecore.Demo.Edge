@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 
 export type MainNavigationProps = ComponentProps & {
   fields: {
@@ -19,6 +20,14 @@ export type MainNavigationProps = ComponentProps & {
 const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  const shopLink = isCommerceEnabled && (
+    <li className="text-menu-item">
+      <Link href="/shop">
+        <a>Shop</a>
+      </Link>
+    </li>
+  );
+
   return (
     <nav className="main-navigation">
       <div className="navigation-content">
@@ -28,7 +37,6 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
               <Image
                 field={props.fields.data.item.headerLogo.jsonValue}
                 alt={props.fields.data.item.headerLogo.alt}
-                loading="lazy"
               />
             </a>
           </Link>
@@ -65,15 +73,16 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
               </Link>
             </li>
             <li className="text-menu-item">
+              <Link href="/sponsors">
+                <a>Sponsors</a>
+              </Link>
+            </li>
+            <li className="text-menu-item">
               <Link href="/about-us">
                 <a>About Us</a>
               </Link>
             </li>
-            <li className="text-menu-item">
-              <Link href="/shop">
-                <a>Shop</a>
-              </Link>
-            </li>
+            {shopLink}
             <li className="button-menu-item">
               <Link href="/tickets">
                 <a className="btn--main btn--main--round">Book Tickets</a>

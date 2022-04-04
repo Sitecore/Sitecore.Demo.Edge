@@ -1,5 +1,7 @@
 export interface Timeslot {
-  name: {
-    value: string;
-  };
+  name:
+    | string
+    | {
+        value: string;
+      };
 }

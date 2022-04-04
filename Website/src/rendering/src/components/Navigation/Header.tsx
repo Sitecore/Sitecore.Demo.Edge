@@ -16,11 +16,10 @@ const Header = (props: HeaderProps): JSX.Element => {
     <>
       <div className="header-eyebrow">
         <div className="content">
-          <a href="#">EN</a>
-          {!user && <a href="/api/auth/login">Login</a>}
-          <Link href="/cart">
-            <a>Cart</a>
+          <Link href="#" prefetch={false}>
+            <a>EN</a>
           </Link>
+          {!user && <a href="/api/auth/login">Login</a>}
           {user && (
             <>
               <a href="#">{user?.name}</a>

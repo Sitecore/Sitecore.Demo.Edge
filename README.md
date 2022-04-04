@@ -9,8 +9,12 @@ This repository is used for the primary Sitecore DXP demo that uses:
 - Sitecore JavaScript Services (JSS)
 - Sitecore CDP
 - Sitecore Personalize
+- Sitecore Discover
+- Sitecore OrderCloud
 - Next.js
 - Vercel
+- Tailwind CSS
+- Storybook
 
 ## [📖 Documentation](docs/README.md)
 

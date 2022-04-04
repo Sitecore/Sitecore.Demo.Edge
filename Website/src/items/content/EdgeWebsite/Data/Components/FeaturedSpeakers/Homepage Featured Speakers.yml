@@ -1,0 +1,34 @@
+﻿---
+ID: "4ec83342-656d-4cf7-a404-0f36df25128e"
+Parent: "50e74ac2-cc2c-51c1-883f-fc6e8ed07cb3"
+Template: "fdf43aad-c5d1-54e4-9909-59bfddc86689"
+Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedSpeakers/Homepage Featured Speakers
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210714T203228Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
+      Hint: NumberOfSpeakers
+      Value: 6
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2f7e1a08-6d08-455c-b5bc-eac0e231e4bb"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211111T215822Z

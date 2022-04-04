@@ -1,0 +1,10 @@
+<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->
+<!-- Type "d" to see decisioning helpers -->
+<section id="bx_TopBanner" class="section">
+    <div class="section__content container bx_TopBanner__banner">
+        <span class="bx_TopBanner__message" style="display: inline;">[[Message Text | string | Early bird discount is ending today! |  { max: 5000, group: Message, groupOrder: 2, order: 1 }]]</span>
+        <div class="bx_TopBanner__button-container">
+            <a id="bx_TopBanner-button" class="bx_TopBanner__button" href="[[Button Link | string | /tickets | { group: Button , required: false, order: 2 }]]">[[Button Text | string | Compare tickets | { group: Button, order: 1 }]]</a>
+        </div>
+    </div>
+</section>

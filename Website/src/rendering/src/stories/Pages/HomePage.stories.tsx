@@ -3,11 +3,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Header from '../../components/Navigation/Header';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
-import HeroSection, { HeroProps } from '../../components/Page Content/HeroSection';
+import HeroSection, { HeroProps } from '../../components/PageContent/HeroSection';
 import ThreeColumnsSection, {
   ThreeColumnsSectionProps,
-} from '../../components/Page Content/ThreeColumnsSection';
-import SponsorsGrid, { SponsorsProps } from '../../components/Sponsors/SponsorsGrid';
+} from '../../components/PageContent/ThreeColumnsSection';
+import SelectedSponsorsGrid, {
+  SelectedSponsorsGridProps,
+} from '../../components/Sponsors/SelectedSponsorsGrid';
 import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
@@ -73,6 +75,7 @@ const sponsor1 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor2 = {
@@ -87,6 +90,7 @@ const sponsor2 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsor3 = {
@@ -101,6 +105,7 @@ const sponsor3 = {
       },
     },
   },
+  url: '/sponsors/test',
 } as Sponsor;
 
 const sponsorProps = {
@@ -117,7 +122,7 @@ const sponsorProps = {
     componentName: 'Rendering',
     dataSource: '/sitecore',
   },
-} as SponsorsProps;
+} as unknown as SelectedSponsorsGridProps;
 
 const threeColProps = {
   fields: {
@@ -188,7 +193,7 @@ const Template: ComponentStory<typeof HeroSection> = () => {
           <HeaderCdpMessageBar />
           <HeroSection {...heroProps} />
           <ThreeColumnsSection {...threeColProps} />
-          <SponsorsGrid {...sponsorProps} />
+          <SelectedSponsorsGrid {...sponsorProps} />
         </main>
         <footer>
           <Footer {...mockFooterProps} />

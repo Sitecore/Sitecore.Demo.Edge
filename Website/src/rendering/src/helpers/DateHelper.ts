@@ -19,7 +19,9 @@ export const getSessionTime = (timeslots: Timeslot[]): string => {
   if (timeslots) {
     const times: number[] = [];
     timeslots.forEach((timeslot) => {
-      let startTime = parseInt(timeslot.name?.value ?? timeslot.name ?? '');
+      let startTime = parseInt(
+        (typeof timeslot.name === 'string' ? timeslot.name : timeslot.name.value) ?? ''
+      );
       if (startTime !== NaN) {
         if (startTime < 7) {
           startTime = startTime + 12;
@@ -48,4 +50,29 @@ export const newsDateFormatter = (date: Date | null): string | undefined =>
 
 export const getSessionDays = (days: Day[]): string => {
   return days.map((day) => day.fields.Name.value.toString()).join(', ');
+};
+
+export const getMonthFromIsoDateString = (isoDate: string): string => {
+  if (!isoDate) {
+    return '';
+  }
+  const date = new Date(isoDate);
+  return (date.getMonth() + 1).toString().padStart(2, '0');
+};
+
+export const getYearFromIsoDateString = (isoDate: string): string => {
+  if (!isoDate) {
+    return '';
+  }
+  const date = new Date(isoDate);
+  return date.getFullYear().toString();
+};
+
+export const getIsoDateFromYearAndMonth = (year: string, month: string): string => {
+  if (!year || !month) {
+    return '';
+  }
+  const dateYear = Number(year);
+  const dateMonth = Number(month) - 1; // month is 0 - 11 in javascript
+  return new Date(dateYear, dateMonth).toISOString();
 };

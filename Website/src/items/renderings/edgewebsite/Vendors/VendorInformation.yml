@@ -9,13 +9,90 @@ SharedFields:
   Value: VendorInformation
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/vendor-info.png"
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query VendorInformationQuery($contextItem: String!) {
+      contextItem: item(path: $contextItem, language: "en") {
+        ... on Vendor {
+          description {
+            value
+          }
+          sessions {
+            ... on MultilistField {
+              targetItems {
+                itemName: name
+                ... on Session {
+                  name: field(name: "name") {
+                    value
+                  }
+                  premium {
+                    value
+                  }
+                  url {
+                    path
+                  }
+                  speakers {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Speaker {
+                          name: field(name: "name") {
+                            value
+                          }
+                          url {
+                            path
+                          }
+                        }
+                      }
+                    }
+                  }
+                  rooms {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Room {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  day {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Day {
+                          name: field(name: "name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                  timeslots {
+                    ... on MultilistField {
+                      targetItems {
+                        ... on Timeslot {
+                          name: field(name: "Name") {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
-  Value: "{6CCCBCDE-5E95-44E4-AE66-CFE7D3A0589E}"
+  Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
   Value: 
@@ -37,11 +114,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ad3977f6-6a77-4427-b9bb-fdca3dc056a1"
+      Value: "49a64b43-27b3-4bcd-b7c1-89623a6f797b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210909T210836Z
+      Value: 20220221T091019Z

@@ -31,6 +31,9 @@ Languages:
     - ID: "36288362-9494-4174-a8a2-d846d958149d"
       Hint: Level
       Value: Silver
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{BB90AE1B-06D6-480D-A238-F2998721A00D}|{465AEE87-D244-403F-B913-A979FE00F7A4}"
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -43,6 +46,9 @@ Languages:
       Hint: Logo
       Value: |
         <image stylelabs-content-id="33980" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33980/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f4f6057bfdf345d389723e0d0d8fd095?v=dc95288b" mediaid="" stylelabs-content-type="Image" alt="Outrace Logo" height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "b308a71f-de7f-407c-88b3-3d780a8a74ca"
