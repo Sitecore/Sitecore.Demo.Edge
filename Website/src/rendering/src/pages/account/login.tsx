@@ -16,6 +16,7 @@ const Login = (): JSX.Element => {
       src: '/assets/img/play-shop-logo.svg',
     },
   };
+
   const loginProviders: LoginProvider[] = [
     {
       name: 'Google',
@@ -35,107 +36,92 @@ const Login = (): JSX.Element => {
     },
   ];
 
-  const [selectedTab, setSelectedTab] = useState('login');
-  const handleTabClick = (tab: string) => {
-    return tab === 'login' ? setSelectedTab('login') : setSelectedTab('signup');
-  };
+  const [isLogin, setIsLogin] = useState(true);
+
+  const loginForm = isLogin && (
+    <form>
+      <div className="form-group">
+        <FontAwesomeIcon className="user-icon" icon={faUserCircle} />
+        <input id="username-input" type="text" placeholder="Username or email..." />
+      </div>
+      <div className="form-group">
+        <FontAwesomeIcon className="lock-icon" icon={faLock} />
+        <input id="password-input" type="password" placeholder="Password..." />
+      </div>
+      <button type="submit" className="login-btn">
+        Sign in
+      </button>
+      <Link href="/account/password-reset">
+        <a className="reset-password-link">Forgot password?</a>
+      </Link>
+      <div className="login-providers-container">
+        <p>Or sign in with:</p>
+        <ul>
+          {loginProviders.map((provider) => {
+            return (
+              <li className="login-provider" key={provider.name}>
+                <span>{provider.name}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </form>
+  );
+
+  const signupForm = !isLogin && (
+    <form>
+      <div className="form-group">
+        <FontAwesomeIcon className="user-icon" icon={faUserCircle} />
+        <input id="name-input" type="text" placeholder="Your name.." />
+      </div>
+      <div className="form-group">
+        <FontAwesomeIcon className="envelope-icon" icon={faEnvelope} />
+        <input id="email-input" type="email" placeholder="Your email.." />
+      </div>
+      <div className="form-group">
+        <FontAwesomeIcon className="lock-icon" icon={faLock} />
+        <input id="password-input" type="password" placeholder="Your password.." />
+      </div>
+      <div className="form-group">
+        <FontAwesomeIcon className="lock-icon" icon={faLock} />
+        <input id="confirm-password-input" type="password" placeholder="Confirm your password.." />
+      </div>
+      <div className="personalized-offers-container">
+        <input type="checkbox" id="personal-offers" name="personal-offers" defaultChecked />
+        <label htmlFor="personal-offers">Yes, I would like to receive personalized offers.</label>
+      </div>
+      <button type="submit" className="signup-btn">
+        Sign up
+      </button>
+    </form>
+  );
 
   return (
-    <>
-      <div className="account-page-container">
-        <Head>
-          <title>PLAY! Shop - Login</title>
-        </Head>
+    <div className="account-page-container">
+      <Head>
+        <title>PLAY! Shop - Login</title>
+      </Head>
+      <div className="account-page-container-content">
         <Link href="/shop">
           <a className="logo-link">
             <Image field={logoLink} alt="Logo image" />
           </a>
         </Link>
         <div className="tabs-container">
-          <button
-            className={`login-tab ${selectedTab === 'login' ? 'active' : ''}`}
-            onClick={() => handleTabClick('login')}
-          >
+          <button className={isLogin && 'active'} onClick={() => setIsLogin(true)}>
             Log in
           </button>
-          <button
-            className={`signup-tab ${selectedTab === 'signup' ? 'active' : ''}`}
-            onClick={() => handleTabClick('signup')}
-          >
+          <button className={!isLogin && 'active'} onClick={() => setIsLogin(false)}>
             Sign up
           </button>
-          <div
-            className={`arrow-down-container ${
-              selectedTab === 'login' ? 'login-tab-active' : 'signup-tab-active'
-            }`}
-          >
-            <div className="arrow-down"></div>
-          </div>
         </div>
-        {selectedTab === 'login' ? (
-          <div className="login-form-container">
-            <form>
-              <div className="login-username">
-                <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-                <input id="username-input" type="text" placeholder="Username or email..." />
-              </div>
-              <div className="login-password">
-                <FontAwesomeIcon id="lock-icon" icon={faLock} />
-                <input id="password-input" type="password" placeholder="Password..." />
-              </div>
-              <button type="submit" className="login-btn">
-                Sign in
-              </button>
-              <Link href="/account/password-reset">
-                <a className="reset-password-link">Forgot password?</a>
-              </Link>
-              <div className="login-providers-container">
-                <p>Or sign in with:</p>
-                {loginProviders.map((provider) => {
-                  return (
-                    <div className="login-provider" key={provider.name}>
-                      <span>{provider.name}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </form>
-          </div>
-        ) : (
-          <div className="signup-form-container">
-            <form>
-              <div className="signup-name">
-                <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-                <input id="name-input" type="text" placeholder="Your name.." />
-              </div>
-              <div className="signup-email">
-                <FontAwesomeIcon id="envelope-icon" icon={faEnvelope} />
-                <input id="email-input" type="email" placeholder="Your email.." />
-              </div>
-              <div className="signup-password">
-                <FontAwesomeIcon id="lock-icon" icon={faLock} />
-                <input id="password-input" type="password" placeholder="Your password.." />
-              </div>
-              <div className="signup-confirm-password">
-                <FontAwesomeIcon id="lock-icon" icon={faLock} />
-                <input
-                  id="confirm-password-input"
-                  type="password"
-                  placeholder="Confirm your password.."
-                />
-              </div>
-              <div className="personalized-offers-container">
-                <input type="checkbox" defaultChecked />
-                <span>Yes, I would like to receive personalized offers.</span>
-              </div>
-              <button type="submit" className="signup-btn">
-                Sign up
-              </button>
-            </form>
-          </div>
-        )}
+        <div className="form-container">
+          {loginForm}
+          {signupForm}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
