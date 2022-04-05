@@ -3,8 +3,8 @@
 type PriceProps = {
   max?: number;
   min?: number;
-  price: string;
-  finalPrice: string;
+  price: number | string;
+  finalPrice: number | string;
   altTheme?: boolean; // alt theme makes main price orange
   sizeL?: boolean;
 };

@@ -20,6 +20,7 @@ type PreviewSearchProps = {
   suggestions: Suggestion[];
   selectedKeyword: string;
   redirectUrl: string;
+  inputQuerySelector: string;
   dispatch: (keyphraseChanged: string, previewSearchResponse: PreviewSearchResponse) => void;
 };
 

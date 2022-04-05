@@ -1,5 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import { KeyboardEvent, useRef } from 'react';
 
 // TODO: add story for component
@@ -31,7 +32,11 @@ const SearchInput = (props: SearchInputProps): JSX.Element => {
 
   return (
     <>
-      <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
+      <Link href={`/shop/products?q=${keyphrase}`}>
+        <a>
+          <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
+        </a>
+      </Link>
       <input
         id="search-input"
         className="shop-search-input"

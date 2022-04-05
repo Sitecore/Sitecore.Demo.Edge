@@ -100,9 +100,10 @@ If you want the website to use Commerce you must configure both Sitecore OrderCl
    3. **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
    4. **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
    5. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
-   6. **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
-   7. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
-3. Save the file.
+3. Edit the `.\Website\src\rendering\.env` file.
+   1. **DISCOVER_CUSTOMER_KEY**: Replace the 0-0 value with `YOUR_DISCOVER_CUSTOMER_KEY`
+   2. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
+4. Save the file.
 
 ## Running the Website
 

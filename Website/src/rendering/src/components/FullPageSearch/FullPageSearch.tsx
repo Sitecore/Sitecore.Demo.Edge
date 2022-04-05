@@ -30,7 +30,6 @@ type SortChangeEvent = {
 };
 
 const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
-  console.log('rendering full page search, props', props);
   const {
     error,
     loaded,
@@ -60,10 +59,10 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const searchQuery = urlSearchParams.get('q');
     const keyphraseToUse = keyphrase ?? searchQuery;
-
     if (keyphraseToUse) {
       setInitialKeyphrase(keyphraseToUse);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (error) {

@@ -50,6 +50,9 @@ Default.args = {
       image_url:
         '//playsummit.sitecoresandbox.cloud/api/public/content/e78328e35361438aad3006fd03602f52?v=7a328415',
       name: 'CenterCycle Hand Pump',
+      onClick: () => {
+        return null;
+      },
       price: '6.99',
       product_group: 'PSPCCHP',
       product_url: '/shop/products/centercycle-hand-pump',
