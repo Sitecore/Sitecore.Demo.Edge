@@ -280,6 +280,22 @@ export const saveShippingAddress = createOcAsyncThunk<
   return IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', orderId);
 });
 
+export const removeShippingAddress = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, undefined>(
+  'ocCurrentCart/removeShippingAddress',
+  async (_, ThunkAPI) => {
+    const { ocCurrentCart } = ThunkAPI.getState();
+    const { order } = ocCurrentCart;
+
+    if (!order?.ID) {
+      throw new Error('No order ID');
+    }
+
+    await Orders.Patch<DOrder>('All', order.ID, { ShippingAddressID: null });
+
+    return IntegrationEvents.Calculate<DOrderWorksheet>('All', order.ID);
+  }
+);
+
 export const saveBillingAddress = createOcAsyncThunk<
   RequiredDeep<DOrderWorksheet>,
   Partial<DBuyerAddress>
@@ -453,6 +469,12 @@ const ocCurrentCartSlice = createSlice({
     builder.addCase(removeBillingAddress.fulfilled, (state, action) => {
       state.order = action.payload.Order;
       state.lineItems = action.payload.LineItems;
+      state.shipEstimateResponse = action.payload.ShipEstimateResponse;
+    });
+    builder.addCase(removeShippingAddress.fulfilled, (state, action) => {
+      state.order = action.payload.Order;
+      state.lineItems = action.payload.LineItems;
+      state.shippingAddress = null;
       state.shipEstimateResponse = action.payload.ShipEstimateResponse;
     });
     builder.addCase(estimateShipping.fulfilled, (state, action) => {

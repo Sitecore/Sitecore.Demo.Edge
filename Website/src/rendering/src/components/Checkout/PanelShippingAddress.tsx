@@ -9,7 +9,7 @@ import AddressCard from './AddressCard';
 const PanelShippingAddress = (): JSX.Element => {
   // TODO: this component should also allow choosing a saved address
   const dispatch = useAppDispatch();
-  const { shippingAddress } = useOcCurrentCart();
+  const { shippingAddress, order } = useOcCurrentCart();
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSetShippingAddress = (address: Partial<DBuyerAddress>) => {
@@ -21,15 +21,21 @@ const PanelShippingAddress = (): JSX.Element => {
     setIsEditing(false);
   };
 
+  const isPickupOrder = order?.xp?.DeliveryType !== 'Ship';
+
   const addressDisplay =
-    shippingAddress && !isEditing ? (
-      <AddressCard address={shippingAddress} editable={true} onEdit={() => setIsEditing(true)} />
-    ) : (
+    !shippingAddress || (isEditing && !isPickupOrder) ? (
       <AddressForm
         address={shippingAddress}
         onSubmit={(address) => handleSetShippingAddress(address)}
         isEditing={isEditing}
         onCancelEdit={handleCancelEdit}
+      />
+    ) : (
+      <AddressCard
+        address={shippingAddress}
+        editable={!isPickupOrder}
+        onEdit={() => setIsEditing(true)}
       />
     );
 

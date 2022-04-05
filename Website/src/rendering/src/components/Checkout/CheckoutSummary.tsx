@@ -41,6 +41,8 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     }
   };
 
+  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
+
   const canSubmitOrder = (): boolean => {
     if (loading) {
       return false;
@@ -48,7 +50,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (!order.ID) {
       return false;
     }
-    if (!selectedShipMethodId) {
+    if (isShipOrder && !selectedShipMethodId) {
       return false;
     }
     if (!shippingAddress?.Country) {

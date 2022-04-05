@@ -1,5 +1,5 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
 
 type AddressFormProps = {
@@ -22,17 +22,23 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
   const [states, setStates] = useState(
     GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code)
   );
-  const [addressName, setAddressName] = useState(
-    props?.address ? props.address?.AddressName : 'Home'
-  );
-  const [country, setCountry] = useState(props?.address ? props.address?.Country : 'US');
-  const [street1, setStreet1] = useState(
-    props?.address?.ID ? props.address?.Street1 : '6818 Gaines Ferry Road'
-  );
-  const [street2, setStreet2] = useState(props.address?.Street2);
-  const [city, setCity] = useState(props?.address ? props.address?.City : 'Flowery Branch');
-  const [state, setState] = useState(props?.address ? props.address?.State : 'GA');
-  const [zip, setZip] = useState(props?.address ? props.address?.Zip : '30542');
+  const [addressName, setAddressName] = useState(props?.address?.AddressName || '');
+  const [country, setCountry] = useState(props?.address?.Country || '');
+  const [street1, setStreet1] = useState(props.address?.Street1 || '');
+  const [street2, setStreet2] = useState(props.address?.Street2 || '');
+  const [city, setCity] = useState(props?.address?.City || '');
+  const [state, setState] = useState(props?.address?.State || '');
+  const [zip, setZip] = useState(props?.address?.Zip || '');
+
+  useEffect(() => {
+    setAddressName(props?.address?.AddressName || 'Home');
+    setCountry(props?.address?.Country || 'US');
+    setStreet1(props?.address?.Street1 || '6818 Gaines Ferry Road');
+    setStreet2(props?.address?.Street2 || '');
+    setCity(props?.address?.City || 'Flowery Branch');
+    setState(props?.address?.State || 'GA');
+    setZip(props?.address?.Zip || '30542');
+  }, [props.address]);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

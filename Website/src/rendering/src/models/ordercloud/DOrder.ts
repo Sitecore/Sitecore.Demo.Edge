@@ -5,4 +5,5 @@ export type DOrder = Order<DOrderXp>;
 export interface DOrderXp {
   // add custom xp properties required for this project here
   IsGift?: boolean;
+  DeliveryType?: 'PickupFromSummit' | 'PickupInStore' | 'Ship';
 }

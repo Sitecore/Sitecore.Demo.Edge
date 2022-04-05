@@ -16,7 +16,7 @@ WithoutSelections.args = {
     {
       ID: 'STANDARD_DELIVERY',
       Name: 'Standard Delivery',
-      Cost: 9.99,
+      Cost: 0,
       EstimatedTransitDays: 3,
       xp: {
         Description: 'Receive your order at your home in 3-5 business days',
@@ -25,28 +25,19 @@ WithoutSelections.args = {
     {
       ID: 'EXPRESS_DELIVERY',
       Name: 'Express Delivery',
-      Cost: 19.99,
-      EstimatedTransitDays: 1,
+      Cost: 4.99,
+      EstimatedTransitDays: 2,
       xp: {
         Description: 'Receive your order at your home in 1-2 business days',
       },
     },
     {
-      ID: 'PICKUP_FROM_SUMMIT',
-      Name: 'Pick up from the Summit',
-      Cost: 0,
-      EstimatedTransitDays: 0,
+      ID: 'ONEDAY_DELIVERY',
+      Name: 'One day delivery',
+      Cost: 9.99,
+      EstimatedTransitDays: 2,
       xp: {
-        Description: 'Pick up your order at the summit front desk',
-      },
-    },
-    {
-      ID: 'PICKUP_IN_STORE',
-      Name: 'Pick up in store',
-      Cost: 0,
-      EstimatedTransitDays: 0,
-      xp: {
-        Description: 'Pick up your order in-store',
+        Description: 'Receive your order at your home the next business day',
       },
     },
   ],
@@ -59,7 +50,7 @@ WithSelections.args = {
     {
       ID: 'STANDARD_DELIVERY',
       Name: 'Standard Delivery',
-      Cost: 9.99,
+      Cost: 0,
       EstimatedTransitDays: 3,
       xp: {
         Description: 'Receive your order at your home in 3-5 business days',
@@ -68,28 +59,19 @@ WithSelections.args = {
     {
       ID: 'EXPRESS_DELIVERY',
       Name: 'Express Delivery',
-      Cost: 19.99,
-      EstimatedTransitDays: 1,
+      Cost: 4.99,
+      EstimatedTransitDays: 2,
       xp: {
         Description: 'Receive your order at your home in 1-2 business days',
       },
     },
     {
-      ID: 'PICKUP_FROM_SUMMIT',
-      Name: 'Pick up from the Summit',
-      Cost: 0,
-      EstimatedTransitDays: 0,
+      ID: 'ONEDAY_DELIVERY',
+      Name: 'One day delivery',
+      Cost: 9.99,
+      EstimatedTransitDays: 2,
       xp: {
-        Description: 'Pick up your order at the summit front desk',
-      },
-    },
-    {
-      ID: 'PICKUP_IN_STORE',
-      Name: 'Pick up in store',
-      Cost: 0,
-      EstimatedTransitDays: 0,
-      xp: {
-        Description: 'Pick up your order in-store',
+        Description: 'Receive your order at your home the next business day',
       },
     },
   ],
