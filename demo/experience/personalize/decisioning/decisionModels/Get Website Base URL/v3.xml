@@ -1,0 +1,23 @@
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" namespace="http://camunda.org/schema/1.0/dmn" name="definitions" id="definitions"><decision id="daca8f49-22fa-412c-b726-de1b8caac1ef" name="Full Stack Experience Decision"><extensionElements><biodi:bounds x="10" y="-260" width="200" height="73.3"/><biodi:edge source="b613191f-c3cb-4113-8d32-2e469ff0fc89"/><biodi:edge source="dda8f930-2164-4928-87b1-5d524a62e14c"/></extensionElements><informationRequirement><requiredDecision href="#b613191f-c3cb-4113-8d32-2e469ff0fc89"/></informationRequirement><authorityRequirement><requiredAuthority href="#dda8f930-2164-4928-87b1-5d524a62e14c"/></authorityRequirement><decisionTable hitPolicy="UNIQUE"><input id="string847661c9-375f-4fea-8714-57c0704e5100" label="Always True" camunda:inputVariable=""><inputExpression typeRef="Boolean" id="literalc30792fc-b39d-4e9a-960b-0e845a2c08f2" expressionLanguage="javascript"><text><![CDATA[(function () {
+  return true;
+})();]]></text></inputExpression></input><output id="stringee99ad7a-800b-4a22-a5ed-16582d55697e" label="Full Stack Experience Offer" name="fullStackExperienceOffer" typeRef="com.boxever.offer" biodi:offerTemplateRef="d9e78fdc-0c5a-41c8-967f-361bcadd05c6"/><rule id="FullStackExperienceDecision_0"><inputEntry id="inputc18e3a17-8d3c-4fd6-a6e3-824b592fbfe2"><text><![CDATA[true]]></text></inputEntry><outputEntry id="output0348bea3-0acc-4b61-a362-cdcff752710d"><text><![CDATA["69efeff4-95f5-46f6-b4c3-1ddef8d9e17a"]]></text></outputEntry></rule></decisionTable></decision><knowledgeSource id="dda8f930-2164-4928-87b1-5d524a62e14c" name="Offers"><extensionElements><biodi:bounds x="150" y="-100" width="200" height="73.3"/></extensionElements></knowledgeSource><decision id="b613191f-c3cb-4113-8d32-2e469ff0fc89" name="Get Website Base URL"><extensionElements><biodi:bounds x="-120" y="-100" width="200" height="73.3"/></extensionElements><variable id="variable151ca754-ece9-4b8f-ad8b-753d8e040f4f" typeRef="string" name="websiteBaseUrl"/><literalExpression id="literal151ca754-ece9-4b8f-ad8b-753d8e040f4f" expressionLanguage="javascript"><text><![CDATA[(function () {
+ 	var cdpSessions = guest.sessions;
+
+ 	for (var i = 0; i < cdpSessions.length; i++) {
+ 		var cdpSession = cdpSessions[i];
+
+ 		if (cdpSession.sessionType === 'WEB') {
+ 			var events = cdpSession.events;
+
+ 			for (var j = 0; j < events.length; j++) {
+ 				var event = events[j];
+
+ 				if (event.arbitraryData && event.arbitraryData.websiteBaseUrl) {
+ 					return event.arbitraryData.websiteBaseUrl;
+ 				}
+ 			}
+ 		}
+ 	}
+ 	
+ 	return '';
+})();]]></text></literalExpression></decision></definitions>

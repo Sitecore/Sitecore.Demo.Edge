@@ -1,29 +1,21 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
+import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
+import CartDetails from 'components/Checkout/CartDetails';
 
-interface CartProps {
-  loading?: boolean;
-  loaded?: boolean;
-  // title?: string;
-  products?: unknown[];
-  dispatch?: () => unknown;
-}
+const Cart = (): JSX.Element => {
+  useEffect(() => {
+    logViewEvent();
+  });
 
-const Cart = (props: CartProps): JSX.Element => {
   return (
     <ShopLayout>
-      {console.log({ props })}
       <Head>
         <title>PLAY! SHOP - Cart</title>
       </Head>
 
-      <p>Cart Page</p>
-      <div>
-        <Link href="/shop/checkout/quick-checkout">
-          <a>Go to Checkout</a>
-        </Link>
-      </div>
+      <CartDetails editable={true} />
       <div data-rfkid="rfkid_11"></div>
     </ShopLayout>
   );

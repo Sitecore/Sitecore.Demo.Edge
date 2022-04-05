@@ -4,7 +4,8 @@
   li {
     @apply inline-block;
 
-    a {
+    a,
+    span {
       @apply text-sm inline-block;
 
       &::before {
@@ -19,17 +20,17 @@
         @apply font-bold;
       }
     }
-  }
 
-  li:not(:first-of-type)::before {
-    @apply font-normal inline;
+    &:not(:first-of-type)::before {
+      @apply font-normal inline;
 
-    content: '> ';
-    padding-left: 5px;
-    padding-right: 3px;
-  }
+      content: '> ';
+      padding-left: 5px;
+      padding-right: 3px;
+    }
 
-  .active {
-    @apply font-bold;
+    &:last-child {
+      @apply font-bold;
+    }
   }
 }

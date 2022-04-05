@@ -1,11 +1,11 @@
 import { AccessToken, Auth, RequiredDeep, Tokens } from 'ordercloud-javascript-sdk';
-import { retrieveOrder, transferAnonOrder } from '../ocCurrentCart';
+import { retrieveCart, transferAnonOrder } from '../ocCurrentCart';
 import { clearProductList } from '../ocProductList';
 import { cleanProductCache } from '../ocProductCache';
 import { createOcAsyncThunk } from '../ocReduxHelpers';
 import { clearUser, getUser } from '../ocUser';
 import { Configuration } from 'ordercloud-javascript-sdk';
-import { orderCloudScope } from 'src/constants/ordercloud-scope';
+import { orderCloudScope } from '../../constants/ordercloud-scope';
 
 export interface LoginActionRequest {
   username: string;
@@ -50,7 +50,7 @@ const login = createOcAsyncThunk<RequiredDeep<AccessToken>, LoginActionRequest>(
     if (transferToken) {
       thunkAPI.dispatch(transferAnonOrder(transferToken));
     } else {
-      thunkAPI.dispatch(retrieveOrder());
+      thunkAPI.dispatch(retrieveCart());
     }
     return response;
   }

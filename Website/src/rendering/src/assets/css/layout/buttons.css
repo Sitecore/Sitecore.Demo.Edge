@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-image: url(../../img/btn-background.webp);
+  background-image: url(../img/btn-background.webp);
   background-size: cover;
   background-position: bottom;
   padding: 6%;
@@ -11,7 +11,8 @@
 }
 
 .btn--main {
-  @apply font-medium hover:shadow-md text-center;
+  @apply font-medium text-center inline-block;
+  @apply hover:shadow-md;
 
   padding: 0.5em 1.55em;
   box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
@@ -26,4 +27,8 @@
 .btn--main--square {
   @apply bg-white-light text-blue px-24 text-xl;
   @apply hover:bg-white;
+}
+
+.btn--secondary {
+  @apply text-xl py-1 px-4 border-2 border-black rounded-[4px];
 }

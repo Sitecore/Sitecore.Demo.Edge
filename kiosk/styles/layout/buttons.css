@@ -2,7 +2,7 @@
   @apply flex px-10 py-8 flex-row justify-items-start items-center bg-cover bg-bottom gap-6 text-center;
   @apply md:flex-col md:justify-items-stretch md:items-stretch;
 
-  background-image: url(../../public/img/btn-background.png);
+  background-image: url(../public/img/btn-background.png);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 
   .btn-right {

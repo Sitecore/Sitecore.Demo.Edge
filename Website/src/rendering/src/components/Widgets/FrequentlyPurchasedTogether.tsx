@@ -13,8 +13,6 @@ type Product = {
 };
 
 const FrequentlyPurchasedTogether = (props: FrequentlyPurchasedTogetherProps): JSX.Element => {
-  console.log({ props });
-
   return window.RFK.ui.html`
     <section>
       Cart Recommendation Widget

@@ -1,0 +1,65 @@
+/* accomodate every size screen by default */
+/* tested on chrome, crome mobile, safari, firefox, edge */
+
+/*
+Declare Template Variables
+[[ Bar Background Color | enum(#85BFFF,#FFEDA3,#FFC987,#FFA1CF) | #85BFFF | { group: General, groupOrder: 1, order: 1 } ]]
+*/
+
+/* The following Experience styling is populated with a unique variant identifier: { { ref } }
+when deployed to ensure CSS does not impact styling of other elements. */
+
+/* Banner styling (container) */
+#bx-{{ref}} #bx_TopBanner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #232323;
+    font-size: 20px;
+    line-height: 28px;
+    background: [[ Bar Background Color ]];
+}
+
+/* Banner styling */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button-container {
+    margin-left: 6rem;
+}
+
+/* CTA button */
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button {
+    border: 3px solid #232323;
+    border-radius: 0.375rem;
+    opacity: 1;
+    padding: 0.4em 1em;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+#bx-{{ref}} #bx_TopBanner .bx_TopBanner__button:hover {
+    background-color: rgb(0, 0, 0, 0.1);
+}
+
+/* mobile Styling */
+@media only screen and (max-width: 768px) {
+    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #bx-{{ref}} #bx_TopBanner .bx_TopBanner__button-container {
+        text-align: right;
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+}

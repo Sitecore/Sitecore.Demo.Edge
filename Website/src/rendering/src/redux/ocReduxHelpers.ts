@@ -1,5 +1,5 @@
 import { AsyncThunk, AsyncThunkPayloadCreator, createAsyncThunk } from '@reduxjs/toolkit';
-import { isOrderCloudError } from 'src/helpers/TypeGuards';
+import { isOrderCloudError } from '../helpers/TypeGuards';
 import logout from './ocAuth/logout';
 import { logError } from './ocErrors';
 import { RootState, AppThunkApi } from './store';

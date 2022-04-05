@@ -1,7 +1,9 @@
+// React throws an error if the root element of the component is removed from the DOM.
+// The #header-personalized-message-bar div outerHTML will be set by Sitecore Personalize.
+// Thus, we wrap it in another div that becomes the component root element and React is happy.
 const HeaderCdpMessageBar = (): JSX.Element => (
-  <div id="header-cdp-message-bar">
-    {/* "79f78cf0-1a61-48d7-bca6-6e2c507e148f" is the "Message Bar" variant ID of the Sitecore Personalize "Website - Message Bar Below Header" Web Experience */}
-    <div id="bx-79f78cf0-1a61-48d7-bca6-6e2c507e148f"></div>
+  <div>
+    <div id="header-personalized-message-bar"></div>
   </div>
 );
 
