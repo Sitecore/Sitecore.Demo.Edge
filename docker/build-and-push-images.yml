@@ -351,7 +351,7 @@ stages:
             targetType: "inline"
             script: |
               Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-              Invoke-RestMethod -Uri "$(NEW_DEV_PORTAL)"" -Method POST -Body "{ tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(NEW_DEV_PORTAL)" -Method POST -Body "{ tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
 
 - stage: Update_DEV_Portal_Databases_Stable
