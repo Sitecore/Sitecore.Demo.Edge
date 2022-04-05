@@ -1,29 +1,23 @@
-/* TODO: replace custom css with Tailwind classes after v3 is available */
-
 .account-page-container {
   @apply relative bg-black bg-gradient-to-l from-black-darkest via-black-dark to-blue-dark h-full py-16 px-3;
 
   &::after {
-    @apply absolute bottom-0 left-0 hidden;
+    @apply content-[url('/assets/img/shop/play-medal.png')];
+    @apply absolute bottom-0 left-0 hidden leading-[0px];
     @apply xl:block;
     @apply 2xl:left-11;
-
-    content: url('/assets/img/shop/play-medal.png');
-    line-height: 0;
   }
 
   &-content {
-    @apply flex flex-col mx-auto;
+    @apply flex flex-col max-w-[585px] mx-auto;
     @apply xl:ml-auto xl:mr-20;
-
-    max-width: 585px;
   }
 
   .logo-link {
     @apply block mx-auto mb-10;
 
     img {
-      width: 385px;
+      @apply w-[385px];
     }
   }
 
@@ -37,11 +31,7 @@
         @apply relative bg-yellow;
 
         &::after {
-          @apply absolute top-12 h-5 w-5 bg-yellow origin-top-left;
-
-          content: '';
-          left: 50%;
-          transform: translateX(-50%) rotate(-45deg);
+          @apply content-[''] absolute top-12 left-[50%] h-5 w-5 bg-yellow -translate-x-[50%] -rotate-45 origin-top-left;
         }
       }
     }
@@ -51,13 +41,7 @@
     @apply bg-white-dark px-8 pt-12 pb-8;
 
     form {
-      @apply flex flex-col;
-
-      min-height: 455px;
-
-      @media (min-width: 1200px) {
-        min-height: 495px;
-      }
+      @apply flex flex-col min-h-[24.75rem];
     }
 
     .form-group {
@@ -67,10 +51,7 @@
     .user-icon,
     .lock-icon,
     .envelope-icon {
-      @apply text-gray w-7 h-7 absolute left-2;
-
-      top: 50%;
-      transform: translateY(-50%);
+      @apply text-gray w-7 h-7 absolute top-[50%] left-2 -translate-y-[50%];
     }
 
     .user-icon {
@@ -134,9 +115,7 @@
 
         &:checked {
           + label::before {
-            @apply bg-no-repeat bg-center;
-
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19.363' height='14.765' viewBox='0 0 19.363 14.765'%3E%3Cg id='Group_427' data-name='Group 427' transform='translate(1.061 1.061)'%3E%3Cg id='Group_276' data-name='Group 276'%3E%3Cline id='Line_3' data-name='Line 3' x1='6.897' y1='6.897' transform='translate(0 5.747)' fill='none' stroke='%23232323' stroke-width='3'/%3E%3Cline id='Line_4' data-name='Line 4' x1='12.644' y2='12.644' transform='translate(4.598)' fill='none' stroke='%23232323' stroke-width='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+            @apply bg-no-repeat bg-center bg-checkbox-check;
           }
         }
       }
@@ -145,10 +124,7 @@
         @apply flex items-center text-sm text-black-lightest;
 
         &::before {
-          @apply w-5 h-5 mr-2 bg-yellow;
-
-          content: '';
-          flex-shrink: 0;
+          @apply content-[''] shrink-0 w-5 h-5 mr-2 bg-yellow;
         }
       }
     }
