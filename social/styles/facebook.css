@@ -1,0 +1,21 @@
+.facebook {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+}
+.facebook .content {
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+  height: 554px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.facebook .content::-webkit-scrollbar {
+  display: none;
+}
+
+.facebook .navbar {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+}

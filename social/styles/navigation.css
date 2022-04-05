@@ -1,0 +1,4 @@
+.nav-button {
+  @apply w-12 h-12 bg-black text-white fixed left-2 bottom-2 p-2 rounded-full;
+
+}

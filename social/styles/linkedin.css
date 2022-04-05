@@ -1,0 +1,32 @@
+.linkedin {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  border-bottom-left-radius: 45px;
+  border-bottom-right-radius: 45px;
+
+  .navbar {
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+  }
+
+  .content {
+    @apply overflow-x-auto h-full bg-gray-100;
+
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    height: 554px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    .tweets {
+      @apply flex flex-col justify-center text-sm;
+
+      .tweet {
+        @apply border-b border-solid border-gray-300 p-2 px-4 pb-4 mb-2 w-full bg-white my-4;
+      }
+    }
+  }
+}
+.linkedin .content::-webkit-scrollbar {
+  display: none;
+}
