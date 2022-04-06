@@ -20,7 +20,7 @@ export async function batchOperations<InputType = any, ReturnType = any>(
   async function runNextBatch(): Promise<ReturnType[]> {
     // run one batch
     const batch = inputs.splice(0, batchSize);
-    const requests = batch.map(async input => {
+    const requests = batch.map(async (input) => {
       try {
         return await operation.call(null, input);
       } catch (e) {
@@ -33,7 +33,7 @@ export async function batchOperations<InputType = any, ReturnType = any>(
     // add batch results to all results
     const batchResults = await Promise.all(requests);
     const batchResultsNoUndefined = batchResults.filter(
-      x => x !== undefined // can be undefined on errors
+      (x) => x !== undefined // can be undefined on errors
     ) as ReturnType[];
     results = [...(results || []), ...batchResultsNoUndefined];
 

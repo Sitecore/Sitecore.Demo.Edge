@@ -1,7 +1,14 @@
 {
   "name": "play-shop-discover-to-ordercloud-feed-importer",
   "description": "A tool to import a Sitecore Discover feed into OrderCloud",
-  "originalAuthors": "Crhistian Ramirez - Max Maher",
+  "author": {
+    "name": "Sitecore Demo Team",
+    "url": "https://www.sitecore.com/"
+  },
+  "contributors": [
+    "Crhistian Ramirez",
+    "Max Maher"
+  ],
   "version": "1.1.3",
   "main": "./lib/src/index.js",
   "types": "./lib/src/index.d.ts",
@@ -17,11 +24,11 @@
     "lib": "lib"
   },
   "bugs": {
-    "url": "https://github.com/crhistianramirez/rfk-oc-feed-importer/issues"
+    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/crhistianramirez/rfk-oc-feed-importer/"
+    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge"
   },
   "keywords": [
     "ordercloud",
@@ -36,7 +43,8 @@
   "scripts": {
     "build": "rm -rf lib && tsc && sed -i 's/\"files\":/\"_files\":/' lib/package.json",
     "debug": "tsc --sourcemap",
-    "start": "lib/cli.js"
+    "start": "lib/cli.js",
+    "lint": "eslint ./src/**/*.ts ./*.ts"
   },
   "dependencies": {
     "@ordercloud/portal-javascript-sdk": "0.0.1-beta.19",

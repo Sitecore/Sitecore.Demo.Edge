@@ -102,7 +102,7 @@ feedimporter
         chalk.yellowBright('.')
     );
   })
-  .catch(err => {
+  .catch((err) => {
     spinner.stop();
     console.error(chalk.redBright('Aaww 💩 Something went wrong:'));
     console.error(chalk.redBright(err.message || err.statusText));
@@ -124,4 +124,4 @@ feedimporter
     process.exit(1); // prevent execution of another command after this
   });
 
-process.on('unhandledRejection', err => console.error(err));
+process.on('unhandledRejection', (err) => console.error(err));
