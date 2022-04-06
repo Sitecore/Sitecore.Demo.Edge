@@ -10,14 +10,17 @@ const PanelPayment = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { order, payments } = useOcCurrentCart();
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (order) {
       dispatch(retrievePayments(order.ID));
     }
   }, [order, dispatch]);
 
-  const handleUpdateCreditCardPayment = (creditCard: DBuyerCreditCard) => {
-    dispatch(updateCreditCardPayment(creditCard));
+  const handleUpdateCreditCardPayment = async (creditCard: DBuyerCreditCard) => {
+    setLoading(true);
+    await dispatch(updateCreditCardPayment(creditCard));
+    setLoading(false);
     setIsEditing(false);
   };
 
@@ -35,6 +38,7 @@ const PanelPayment = (): JSX.Element => {
       <CreditCardForm
         creditCard={payment?.xp?.CreditCard}
         onSubmit={handleUpdateCreditCardPayment}
+        loading={loading}
       />
     );
 

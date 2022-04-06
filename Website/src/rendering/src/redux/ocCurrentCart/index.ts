@@ -204,7 +204,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
 
     // initialize the order if it doesn't exist already
     if (!orderId) {
-      const orderResponse = await Orders.Create<DOrder>('All', {});
+      const orderResponse = await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
       orderId = orderResponse.ID;
     }
     await LineItems.Create<DLineItem>('All', orderId, request);
@@ -428,6 +428,8 @@ const ocCurrentCartSlice = createSlice({
         state.lineItems = action.payload.LineItems;
         state.shippingAddress = state.lineItems?.length ? state.lineItems[0].ShippingAddress : null;
         state.shipEstimateResponse = action.payload.ShipEstimateResponse;
+        state.initialized = true;
+      } else {
         state.initialized = true;
       }
     });

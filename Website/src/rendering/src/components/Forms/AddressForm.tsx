@@ -1,12 +1,14 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { FormEvent, useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
+import Spinner from 'components/ShopCommon/Spinner';
 
 type AddressFormProps = {
   address?: DBuyerAddress;
   onSubmit?: (address: DBuyerAddress) => void;
   isEditing?: boolean;
   onCancelEdit?: () => void;
+  loading?: boolean;
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -171,8 +173,8 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <label htmlFor="postalCode">Postal Code</label>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
-          Save Address
+        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
+          <Spinner loading={props.loading} /> Save Address
         </button>
         {cancelEditButton}
       </div>

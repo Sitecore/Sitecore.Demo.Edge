@@ -22,13 +22,13 @@
 .btn--main--round {
   @apply bg-yellow text-black rounded-md;
   @apply hover:bg-yellow-dark hover:text-black;
-  @apply disabled:bg-yellow-dark cursor-not-allowed;
+  @apply disabled:bg-yellow-dark disabled:cursor-not-allowed;
 }
 
 .btn--main--square {
   @apply bg-white-light text-blue px-24 text-xl;
   @apply hover:bg-white;
-  @apply disabled:bg-white cursor-not-allowed;;
+  @apply disabled:bg-white disabled:cursor-not-allowed;
 }
 
 .btn--secondary {

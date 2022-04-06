@@ -76,6 +76,7 @@ const PanelBillingAddress = (): JSX.Element => {
           onSubmit={(address) => handleSetBillingAddress(address)}
           isEditing={isEditing}
           onCancelEdit={handleCancelEdit}
+          loading={loading}
         />
       );
     } else {

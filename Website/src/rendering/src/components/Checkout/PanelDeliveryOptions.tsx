@@ -31,6 +31,7 @@ const PanelDeliveryOptions = (): JSX.Element => {
   const { order } = useOcCurrentCart();
   const [deliveryType, setDeliveryType] = useState(order?.xp?.DeliveryType || 'Ship');
   const [loading, setIsLoading] = useState(false);
+
   const onDeliveryTypeChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const updatedDeliveryType = event.target.value as DOrder['xp']['DeliveryType'];
     setDeliveryType(updatedDeliveryType);
@@ -48,6 +49,7 @@ const PanelDeliveryOptions = (): JSX.Element => {
       setIsLoading(false);
     }
   };
+
   return (
     <div className="panel radio-options">
       <div className="panel-header">

@@ -8,6 +8,7 @@ import CheckoutSummary from './CheckoutSummary';
 import { useState } from 'react';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import Skeleton from 'react-loading-skeleton';
+import Link from 'next/link';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;
@@ -29,7 +30,7 @@ const CheckoutDetails = (): JSX.Element => {
   };
   const shippingEstimates = order?.xp?.DeliveryType === 'Ship' && <PanelShippingEstimates />;
 
-  const checkoutDetails = order?.LineItemCount > 0 && (
+  const checkoutDetails = (
     <section className="checkout-details shop-container section">
       <PanelDeliveryOptions />
       <PanelShippingAddress />
@@ -43,9 +44,26 @@ const CheckoutDetails = (): JSX.Element => {
     </section>
   );
 
-  const content = initialized ? checkoutDetails : <CheckoutDetailsSkeleton />;
+  const getContent = () => {
+    if (!initialized) {
+      return <CheckoutDetailsSkeleton />;
+    } else if (!order?.LineItemCount) {
+      return (
+        <section className="shop-container section">
+          <p>It doesn&apos;t look like you have any items in your cart</p>
+          <p>
+            <Link href="/shop">
+              <a className="btn--main btn--main--round continue-shopping-btn">Continue Shopping</a>
+            </Link>
+          </p>
+        </section>
+      );
+    } else {
+      return checkoutDetails;
+    }
+  };
 
-  return content;
+  return getContent();
 };
 
 export default CheckoutDetails;

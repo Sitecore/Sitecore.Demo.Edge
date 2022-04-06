@@ -44,6 +44,10 @@
     }
   }
 
+  .skeleton-radio-button {
+    @apply w-4 h-4 mt-0.5;
+  }
+
   .same-as-shipping {
     @apply flex items-center pb-4 font-medium;
 
@@ -166,4 +170,8 @@
       @apply mt-4 mx-auto;
     }
   }
+}
+
+.continue-shopping-btn {
+  @apply my-3;
 }
