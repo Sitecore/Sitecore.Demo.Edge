@@ -19,7 +19,7 @@
             }
 
             .product-offer {
-              @apply absolute bottom-4 pl-4 pr-6 py-[2px] bg-orange text-white opacity-75;
+              @apply absolute top-4 pl-4 pr-6 py-[2px] bg-orange text-white opacity-75;
             }
           }
         }

@@ -12,10 +12,8 @@
 
 .btn--main {
   @apply font-medium text-center inline-block;
-  @apply hover:shadow-md;
 
   padding: 0.5em 1.55em;
-  box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
   transition: all 0.2s ease-in-out;
 }
 
