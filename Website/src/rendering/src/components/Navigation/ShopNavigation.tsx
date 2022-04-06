@@ -113,7 +113,7 @@ const ShopNavigation = (): JSX.Element => {
               </Link>
             </li>
             <li className="shop-navigation-menu-item">
-              <Link href="/account/login" passHref>
+              <Link href="/account" passHref>
                 <a>
                   <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
                 </a>
