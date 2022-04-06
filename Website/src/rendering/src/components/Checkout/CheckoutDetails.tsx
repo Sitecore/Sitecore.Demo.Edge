@@ -7,9 +7,22 @@ import PanelComments from './PanelComments';
 import CheckoutSummary from './CheckoutSummary';
 import { useState } from 'react';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
+import Skeleton from 'react-loading-skeleton';
+
+const CheckoutDetailsSkeleton = (): JSX.Element => {
+  const skeletonCount = 5;
+  const skeletonArray = new Array(skeletonCount).fill('');
+  return (
+    <section className="checkout-details shop-container section">
+      {skeletonArray.map((_, index) => (
+        <Skeleton key={index} height={605} />
+      ))}
+    </section>
+  );
+};
 
 const CheckoutDetails = (): JSX.Element => {
-  const { order } = useOcCurrentCart();
+  const { order, initialized } = useOcCurrentCart();
   const [comments, setComments] = useState('');
   const handleEditComments = (updatedComments: string) => {
     setComments(updatedComments);
@@ -30,7 +43,9 @@ const CheckoutDetails = (): JSX.Element => {
     </section>
   );
 
-  return <>{checkoutDetails}</>;
+  const content = initialized ? checkoutDetails : <CheckoutDetailsSkeleton />;
+
+  return content;
 };
 
 export default CheckoutDetails;
