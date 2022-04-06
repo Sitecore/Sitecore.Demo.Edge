@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import Skeleton from 'react-loading-skeleton';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -16,7 +17,8 @@ type LineItemCardProps = {
 
 const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [loading, setLoading] = useState(false);
+  const [updateLoading, setUpdateLoading] = useState(false);
+  const [removeLoading, setRemoveLoading] = useState(false);
 
   const product = useOcProduct(props.lineItem.ProductID);
 
@@ -46,20 +48,20 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   };
 
   const handleRemoveLineItem = useCallback(async () => {
-    setLoading(true);
+    setRemoveLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
   }, [dispatch, props.lineItem]);
 
   const handleUpdateQuantity = useCallback(
     async (quantity: number) => {
-      setLoading(true);
+      setUpdateLoading(true);
       await dispatch(
         patchLineItem({
           lineItemID: props.lineItem.ID,
           partialLineItem: { Quantity: quantity },
         })
       );
-      setLoading(false);
+      setUpdateLoading(false);
     },
     [dispatch, props.lineItem]
   );
@@ -76,7 +78,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     <QuantityInput
       controlId={`${props.lineItem.ID}_quantity`}
       quantity={props.lineItem.Quantity}
-      disabled={loading}
+      loading={updateLoading}
       onChange={handleUpdateQuantity}
       priceSchedule={product.PriceSchedule}
     />
@@ -87,7 +89,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       className="btn-remove"
       aria-label="Remove Line Item"
       type="button"
-      disabled={loading}
+      disabled={updateLoading}
       onClick={handleRemoveLineItem}
     >
       <FontAwesomeIcon icon={faTrashAlt} />
@@ -144,7 +146,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     </div>
   );
 
-  return (
+  const lineItemCard = (
     <div className="line-item-card">
       <div className="line-item-card-details">
         <h4 className="product-name">{props.lineItem.Product.Name}</h4>
@@ -160,6 +162,16 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       </div>
     </div>
   );
+
+  const content = removeLoading ? (
+    <div className="line-item-card">
+      <Skeleton containerClassName="skeleton-container" height={340} />
+    </div>
+  ) : (
+    lineItemCard
+  );
+
+  return content;
 };
 
 export default LineItemCard;

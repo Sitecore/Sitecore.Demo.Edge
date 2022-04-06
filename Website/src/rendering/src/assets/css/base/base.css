@@ -29,3 +29,15 @@ a:active,
 a:focus {
   @apply opacity-100;
 }
+
+
+/**
+* Use this class when Skeleton component is inside a flex container
+* ie: <Skeleton containerClassname="skeleton-in-flex-container" /> 
+* https://github.com/dvtng/react-loading-skeleton/issues/122
+*/
+.skeleton-container {
+  flex-grow: 1;
+  line-height: 1;
+  display: block;
+}

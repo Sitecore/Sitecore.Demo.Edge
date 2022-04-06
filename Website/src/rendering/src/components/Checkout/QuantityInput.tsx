@@ -1,11 +1,12 @@
 import { RequiredDeep } from 'ordercloud-javascript-sdk';
 import { DPriceSchedule } from '../../models/ordercloud/DPriceSchedule';
 import { ChangeEvent, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 type QuantityInputProps = {
   controlId: string;
   priceSchedule: RequiredDeep<DPriceSchedule>;
-  disabled?: boolean;
+  loading?: boolean;
   quantity: number;
   onChange: (quantity: number) => void;
 };
@@ -14,10 +15,10 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
   const [quantity, setQuantity] = useState(props.quantity);
 
   const addDisabled =
-    props.disabled ||
+    props.loading ||
     (props.priceSchedule.MaxQuantity ? quantity >= props.priceSchedule.MaxQuantity : false);
   const subtractDisabled =
-    props.disabled ||
+    props.loading ||
     (props.priceSchedule.MinQuantity ? quantity < props.priceSchedule.MinQuantity : quantity <= 0);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +45,7 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
     <div className="quantity-input">
       <select
         id={props.controlId}
-        disabled={props.disabled}
+        disabled={props.loading}
         value={quantity}
         onChange={handleSelectChange}
       >
@@ -70,7 +71,7 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
       </button>
       <input
         id={props.controlId}
-        disabled={props.disabled}
+        disabled={props.loading}
         type="number"
         min={props.priceSchedule.MinQuantity}
         max={props.priceSchedule.MaxQuantity}
@@ -90,11 +91,33 @@ const QuantityInput = (props: QuantityInputProps): JSX.Element => {
     </div>
   );
 
-  return (
+  const quantityInput = props.loading ? (
+    <div className="quantity-input">
+      <button
+        className="quantity-input-button"
+        aria-label="Subtract quantity"
+        type="button"
+        disabled={true}
+      >
+        -
+      </button>
+      <Skeleton containerClassName="skeleton-container" height="100%" />
+      <button
+        className="quantity-input-button"
+        aria-label="Add quantity"
+        type="button"
+        disabled={true}
+      >
+        +
+      </button>
+    </div>
+  ) : (
     <>
       {restrictedQuantityInput}
       {unrestrictedQuantityInput}
     </>
   );
+
+  return quantityInput;
 };
 export default QuantityInput;

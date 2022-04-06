@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   LineItems,
   Me,
@@ -30,6 +30,7 @@ export interface RecentOrder {
 
 export interface OcCurrentOrderState {
   initialized: boolean;
+  orderTotalLoading: boolean; // true if any action occurs that may affect the cost of the order
   order?: RequiredDeep<DOrder>;
   lineItems?: RequiredDeep<DLineItem>[];
   payments?: RequiredDeep<DPayment>[];
@@ -40,6 +41,7 @@ export interface OcCurrentOrderState {
 
 const initialState: OcCurrentOrderState = {
   initialized: false,
+  orderTotalLoading: false,
 };
 
 export const removeAllPayments = createOcAsyncThunk<undefined, undefined>(
@@ -383,6 +385,29 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
   }
 );
 
+const thunksThatAffectOrderTotal = [
+  removeAllPayments,
+  refreshPromotions,
+  createLineItem,
+  updateLineItem,
+  patchLineItem,
+  removeLineItem,
+  saveBillingAddress,
+  removeBillingAddress,
+  selectShipMethods,
+];
+const pendingThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map((a) => a.pending);
+const fulfilledThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map((a) => a.fulfilled);
+
+const isOrderTotalLoading = isAnyOf(
+  pendingThunksThatAffectOrderTotal[0],
+  ...pendingThunksThatAffectOrderTotal
+);
+const isOrderTotalNotLoading = isAnyOf(
+  fulfilledThunksThatAffectOrderTotal[0],
+  ...fulfilledThunksThatAffectOrderTotal
+);
+
 const ocCurrentCartSlice = createSlice({
   name: 'ocCurrentCart',
   initialState,
@@ -397,15 +422,13 @@ const ocCurrentCartSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(retrieveCart.pending, (state) => {
-      state.initialized = true;
-    });
     builder.addCase(retrieveCart.fulfilled, (state, action) => {
       if (action.payload) {
         state.order = action.payload.Order;
         state.lineItems = action.payload.LineItems;
         state.shippingAddress = state.lineItems?.length ? state.lineItems[0].ShippingAddress : null;
         state.shipEstimateResponse = action.payload.ShipEstimateResponse;
+        state.initialized = true;
       }
     });
     builder.addCase(patchOrder.fulfilled, (state, action) => {
@@ -498,6 +521,14 @@ const ocCurrentCartSlice = createSlice({
     });
     builder.addCase(submitOrder.fulfilled, (_, action) => {
       action.meta.arg(action.payload.order.ID);
+    });
+
+    // Matchers must come last after all cases
+    builder.addMatcher(isOrderTotalLoading, (state) => {
+      state.orderTotalLoading = true;
+    });
+    builder.addMatcher(isOrderTotalNotLoading, (state) => {
+      state.orderTotalLoading = false;
     });
   },
 });
