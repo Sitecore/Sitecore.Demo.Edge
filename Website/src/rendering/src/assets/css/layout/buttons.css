@@ -19,7 +19,7 @@
 
 .btn--main--round {
   @apply bg-yellow text-black rounded-md;
-  @apply hover:bg-yellow-dark hover:text-black;
+  @apply hover:bg-yellow-dark hover:text-white;
 }
 
 .btn--main--square {
