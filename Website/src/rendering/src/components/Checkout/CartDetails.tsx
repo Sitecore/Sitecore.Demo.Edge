@@ -15,7 +15,7 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
   const { order, initialized } = useOcCurrentCart();
   const [loading, setLoading] = useState(false);
 
-  const getCardDetailsAction = () => {
+  const getCartDetailsAction = () => {
     if (!initialized) {
       return (
         <div className="card-details-actions">
@@ -50,7 +50,7 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
         <div className="cart-details-items">
           <LineItemList editable={props.editable} />
         </div>
-        {getCardDetailsAction()}
+        {getCartDetailsAction()}
       </div>
     </div>
   );
