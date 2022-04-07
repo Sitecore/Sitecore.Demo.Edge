@@ -5,7 +5,7 @@ import Link from 'next/link';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import Skeleton from 'react-loading-skeleton';
 import { useState } from 'react';
-import Spinner from 'components/ShopCommon/Spinner';
+import Spinner from '../../components/ShopCommon/Spinner';
 
 type CartDetailsProps = {
   editable?: boolean;

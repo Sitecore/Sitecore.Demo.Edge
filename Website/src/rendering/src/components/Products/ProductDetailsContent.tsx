@@ -11,7 +11,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
-import Spinner from 'components/ShopCommon/Spinner';
+import Spinner from '../../components/ShopCommon/Spinner';
 
 interface ProductDetailsContentProps {
   variantID?: string;

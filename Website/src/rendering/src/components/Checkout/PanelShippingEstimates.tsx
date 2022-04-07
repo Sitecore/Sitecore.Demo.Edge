@@ -60,7 +60,7 @@ const PanelShippingEstimates = (): JSX.Element => {
         ? (JSON.parse(shipEstimateResponseStringified) as DShipEstimateResponse)
         : null;
       if (
-        order.ID &&
+        order?.ID &&
         shippingAddressStringified &&
         (!shipEstimateResponse || shipEstimateResponse.UnhandledErrorBody)
       ) {
@@ -79,7 +79,7 @@ const PanelShippingEstimates = (): JSX.Element => {
     })();
   }, [
     dispatch,
-    order.ID,
+    order?.ID,
     shippingAddressStringified,
     shipEstimateResponseStringified,
     shippingEstimatesInitialized,
@@ -100,7 +100,7 @@ const PanelShippingEstimates = (): JSX.Element => {
 
   const shipMethodsList = shipMethods && (
     <ShipMethodsList
-      shipEstimateId={shipEstimate.ID}
+      shipEstimateId={shipEstimate?.ID}
       shipMethods={shipMethods}
       selectedShipMethodId={selectedShipMethodId}
       onChange={handleShipMethodSelectionChange}

@@ -6,7 +6,7 @@ import {
   getYearFromIsoDateString,
 } from '../../helpers/DateHelper';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
-import Spinner from 'components/ShopCommon/Spinner';
+import Spinner from '../../components/ShopCommon/Spinner';
 
 type CreditCardFormProps = {
   creditCard?: DBuyerCreditCard;

@@ -1,7 +1,7 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { FormEvent, useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
-import Spinner from 'components/ShopCommon/Spinner';
+import Spinner from '../../components/ShopCommon/Spinner';
 
 type AddressFormProps = {
   address?: DBuyerAddress;

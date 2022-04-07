@@ -76,5 +76,5 @@ WithSelections.args = {
     },
   ],
   shipEstimateId: 'STATIC_SINGLE_SHIPMENT',
-  selectedShipMethodId: 'PICKUP_FROM_SUMMIT',
+  selectedShipMethodId: 'EXPRESS_DELIVERY',
 };

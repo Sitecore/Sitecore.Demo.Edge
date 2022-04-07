@@ -74,7 +74,7 @@ WithoutSelections.decorators = [
 
 export const WithSelections = Template.bind({});
 const mockStateClone = JSON.parse(JSON.stringify(mockState));
-mockStateClone.shipEstimateResponse.ShipEstimates[0].SelectedShipMethodID = 'PICKUP_FROM_SUMMIT';
+mockStateClone.shipEstimateResponse.ShipEstimates[0].SelectedShipMethodID = 'EXPRESS_DELIVERY';
 WithSelections.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockStateClone }}>

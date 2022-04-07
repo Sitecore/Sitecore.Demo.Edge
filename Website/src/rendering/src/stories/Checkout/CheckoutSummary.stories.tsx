@@ -19,6 +19,7 @@ const mockstate1 = {
   order: {
     ID: 'mock-id',
     Subtotal: 123.45,
+    LineItemCount: 3,
   },
 };
 
@@ -44,6 +45,7 @@ const mockstate2 = {
   order: {
     ShippingCost: 0,
     Subtotal: 123.45,
+    LineItemCount: 3,
   },
 };
 
@@ -69,6 +71,7 @@ const mockstate3 = {
   order: {
     ShippingCost: 12.99,
     Subtotal: 123.45,
+    LineItemCount: 3,
   },
 };
 
