@@ -1,6 +1,13 @@
 import Link from 'next/link';
-import { Text, Field, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Text,
+  Field,
+  Image,
+  withDatasourceCheck,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { Vendor } from 'src/types/vendor';
 
 type FeaturedVendorsProps = ComponentProps & {
@@ -12,6 +19,13 @@ type FeaturedVendorsProps = ComponentProps & {
 };
 
 const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasVendors = props?.fields?.Vendors.length;
+
+  !hasVendors && console.log('Missing Data Source Item');
+
   const vendors =
     props.fields?.Vendors &&
     props.fields.Vendors.map((vendor, index) => (
@@ -25,7 +39,7 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
       </Link>
     ));
 
-  return (
+  return hasVendors ? (
     <section className="section section--light">
       <div className="section__content container">
         <Text className="section__content__title" tag="h1" field={props.fields?.Title} />
@@ -40,6 +54,10 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
         </div>
       </div>
     </section>
+  ) : isPageEditing ? (
+    <p>Missing Datasource Item</p>
+  ) : (
+    <></>
   );
 };
 

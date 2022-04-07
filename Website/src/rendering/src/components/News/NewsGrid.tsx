@@ -1,7 +1,12 @@
 import profile from '../../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
-import { Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Image,
+  withDatasourceCheck,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { News } from 'src/types/news';
 
 type NewsGridProps = ComponentProps & {
@@ -11,8 +16,15 @@ type NewsGridProps = ComponentProps & {
 };
 
 const NewsGrid = (props: NewsGridProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasNews = props.fields;
+
+  !hasNews && console.log('Missing Datasource Item');
+
   const newsCards =
-    props.fields.items &&
+    props.fields?.items &&
     props.fields.items
       .sort((a, b) => a.fields.PublishDate.value.localeCompare(b.fields.PublishDate.value))
       .reverse()
@@ -35,7 +47,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         </div>
       ));
 
-  return (
+  return hasNews ? (
     <div className="section__news__grid">
       <div className="section__news__grid__tweet">
         <img
@@ -71,6 +83,10 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         <div className="section__news__grid__news__grid">{newsCards}</div>
       </div>
     </div>
+  ) : isPageEditing ? (
+    <p>Missing Datasourse Item</p>
+  ) : (
+    <></>
   );
 };
 

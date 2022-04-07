@@ -1,5 +1,11 @@
-import { Text, Field, Image } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Text,
+  Field,
+  Image,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 import Link from 'next/link';
 
@@ -30,6 +36,13 @@ const getSpeakerNumberToShow = function (props: FeaturedSpeakersProps) {
 };
 
 const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasSpeakers = props.fields.data?.item;
+
+  !hasSpeakers && console.log('Missing Data Source Item');
+
   const speakers =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results
@@ -58,10 +71,14 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
         </Link>
       ));
 
-  return (
+  return hasSpeakers ? (
     <div className="featured-speakers item-grid">
       <div className="grid-content">{speakers}</div>
     </div>
+  ) : isPageEditing ? (
+    <p>Missing Datasource Item</p>
+  ) : (
+    <></>
   );
 };
 

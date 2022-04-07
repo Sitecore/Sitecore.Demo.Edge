@@ -1,6 +1,11 @@
 import Link from 'next/link';
-import { Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Image,
+  withDatasourceCheck,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
 export type SelectedSponsorsGridProps = ComponentProps & {
@@ -10,6 +15,13 @@ export type SelectedSponsorsGridProps = ComponentProps & {
 };
 
 const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasSponsors = props?.fields?.Sponsors.length;
+
+  !hasSponsors && console.log('Missing Datasource Item');
+
   const sponsors =
     props?.fields?.Sponsors &&
     props.fields.Sponsors.map((sponsor, index) => (
@@ -28,7 +40,13 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
       </Link>
     ));
 
-  return <div className="section__sponsors__grid">{sponsors}</div>;
+  return hasSponsors ? (
+    <div className="section__sponsors__grid">{sponsors}</div>
+  ) : isPageEditing ? (
+    <p>Missing Datasource Item</p>
+  ) : (
+    <></>
+  );
 };
 
 export default withDatasourceCheck()<SelectedSponsorsGridProps>(SelectedSponsorsGrid);

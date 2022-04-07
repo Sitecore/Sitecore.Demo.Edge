@@ -1,6 +1,12 @@
 import Link from 'next/link';
-import { withDatasourceCheck, Image, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  withDatasourceCheck,
+  Image,
+  Text,
+  useSitecoreContext,
+  LayoutServicePageState,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
 type SponsorsGridProps = ComponentProps & {
@@ -10,8 +16,15 @@ type SponsorsGridProps = ComponentProps & {
 };
 
 const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasSponsors = props.fields;
+
+  !hasSponsors && console.log('Missing Datasource Item');
+
   const sponsors =
-    props.fields.items &&
+    props.fields?.items &&
     props.fields.items.map((sponsor, index) => (
       <Link key={index} href={sponsor.url} passHref>
         <a className="grid-item">
@@ -28,7 +41,7 @@ const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
       </Link>
     ));
 
-  return (
+  return hasSponsors ? (
     <section className="section">
       <div className="section__content container">
         <h1 className="section__content__title">Explore Sponsors</h1>
@@ -85,6 +98,10 @@ const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
         </div>
       </div>
     </section>
+  ) : isPageEditing ? (
+    <p>Missing Datasource Item</p>
+  ) : (
+    <></>
   );
 };
 

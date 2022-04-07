@@ -14,7 +14,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     {
-      item(path: "/sitecore/content/EdgeWebsite/Data/Config" language: "en") {
+      item(path: "{4790380A-3F0C-443A-A954-269ECB2D5566}" language: "en") {
         id
         path
         ... on SiteConfiguration {   
@@ -49,11 +49,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9bd7c91b-80e2-479b-83a2-a7087a83cc68"
+      Value: "f2fa3273-20a3-47d1-a83f-9d66ae9f086f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T085754Z
+      Value: 20220407T080010Z
