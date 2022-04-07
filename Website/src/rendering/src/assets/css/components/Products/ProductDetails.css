@@ -136,3 +136,11 @@
     }
   }
 }
+
+.product-details-skeleton {
+  .product-image {
+    .react-loading-skeleton {
+      padding-top: 100%;
+    }
+  }
+}

@@ -396,8 +396,10 @@ const thunksThatAffectOrderTotal = [
   removeBillingAddress,
   selectShipMethods,
 ];
-const pendingThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map((a) => a.pending);
-const fulfilledThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map((a) => a.fulfilled);
+const pendingThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map((thunk) => thunk.pending);
+const fulfilledThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map(
+  (thunk) => thunk.fulfilled
+);
 
 const isOrderTotalLoading = isAnyOf(
   pendingThunksThatAffectOrderTotal[0],

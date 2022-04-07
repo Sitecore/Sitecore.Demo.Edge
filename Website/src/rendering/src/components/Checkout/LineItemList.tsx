@@ -1,6 +1,7 @@
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import LineItemCard from './LineItemCard';
 import Skeleton from 'react-loading-skeleton';
+import Link from 'next/link';
 
 type LineItemListProps = {
   editable?: boolean;
@@ -36,7 +37,16 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
         </ol>
       );
     } else {
-      return <h3>No line items</h3>;
+      return (
+        <>
+          <p>It doesn&apos;t look like you have any items in your cart</p>
+          <p>
+            <Link href="/shop">
+              <a className="btn--main btn--main--round continue-shopping-btn">Continue Shopping</a>
+            </Link>
+          </p>
+        </>
+      );
     }
   };
 

@@ -11,6 +11,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import Spinner from 'components/ShopCommon/Spinner';
 
 interface ProductDetailsContentProps {
   variantID?: string;
@@ -251,8 +252,7 @@ const ProductDetailsContent = ({
                   <PriceReact {...priceProps} altTheme sizeL />
                   <div className="product-add-to-cart">
                     <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-                      {/* TODO: loader style */}
-                      {!loading ? addToCartButtonText : '...'}
+                      <Spinner loading={loading} /> {addToCartButtonText}
                     </button>
                     {btnSaveLater}
                     {btnWishList}
