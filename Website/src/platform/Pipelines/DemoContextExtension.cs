@@ -14,10 +14,10 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
     {
         private string configItemPath;
         public string ConfigItemPath { get { return configItemPath; } set { configItemPath = value; } }
-
+        
         private string startDateFieldName;
         public string StartDateFieldName { get { return startDateFieldName; } set { startDateFieldName = value; } }
-
+        
         private string pageTitleFIeldName;
         public string PageTitleFIeldName { get { return pageTitleFIeldName; } set { pageTitleFIeldName = value; } }
 
@@ -42,7 +42,7 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             }
 
             Item eventItem = args?.RenderedItem?.Database?.GetItem(configItemPath);
-
+            
             if (eventItem == null) return;
 
             args.ContextData.Add("EventInfo", new

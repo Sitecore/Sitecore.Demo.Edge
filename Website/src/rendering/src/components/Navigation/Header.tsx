@@ -1,5 +1,5 @@
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -9,10 +9,11 @@ export type HeaderProps = ComponentProps;
 const Header = (props: HeaderProps): JSX.Element => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
+  const languageList = sitecoreContext['Languages'] as NodeJS.Dict<string | string>[];
+  console.log(sitecoreContext.route.itemLanguage);
   const changeLanguage = (lang: string) => {
-    console.log(lang);
-
     router.push({ pathname, query }, asPath, { locale: lang });
   };
 
@@ -20,14 +21,30 @@ const Header = (props: HeaderProps): JSX.Element => {
     <>
       <div className="header-eyebrow">
         <div className="content">
-          <select>
-            <option value={'en'}>English</option>
-            <option value={'fr-CA'}>French</option>
-            <option value={'es'}>Espanol</option>
+          <select
+            style={{
+              color: 'white',
+              backgroundColor: 'transparent',
+              width: '70px',
+              marginRight: '30px',
+              fontSize: '.75rem',
+            }}
+            onChange={(e) => changeLanguage(e.target.value)}
+            value={sitecoreContext.route.itemLanguage}
+          >
+            {languageList.map((language, index) => (
+              <option
+                key={index}
+                value={language['Name']}
+                style={{
+                  color: 'white',
+                  backgroundColor: 'darkgray',
+                }}
+              >
+                {language.Name}
+              </option>
+            ))}
           </select>
-          <button onClick={() => changeLanguage('da-Dk')}>da</button>
-          <button onClick={() => changeLanguage('fr-CA')}>fr</button>
-          <button onClick={() => changeLanguage('en')}>en</button>
 
           <Link href="/account/login" prefetch={false}>
             <a>Login</a>
