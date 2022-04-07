@@ -128,5 +128,4 @@
 /* 8. Tailwind utilities */
 
 @import 'tailwindcss/utilities';
-
 @import '../../../node_modules/react-loading-skeleton/dist/skeleton.css'
