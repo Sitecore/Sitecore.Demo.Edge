@@ -4,6 +4,8 @@ import PromoInput from './PromoInput';
 import Link from 'next/link';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import Skeleton from 'react-loading-skeleton';
+import { useState } from 'react';
+import Spinner from 'components/ShopCommon/Spinner';
 
 type CartDetailsProps = {
   editable?: boolean;
@@ -11,6 +13,7 @@ type CartDetailsProps = {
 
 const CartDetails = (props: CartDetailsProps): JSX.Element => {
   const { order, initialized } = useOcCurrentCart();
+  const [loading, setLoading] = useState(false);
 
   const getCardDetailsAction = () => {
     if (!initialized) {
@@ -28,7 +31,9 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
             <CartSummary />
             <PromoInput />
             <Link href="/shop/checkout/checkout">
-              <a className="btn--main btn--main--round">Proceed to Checkout</a>
+              <a className="btn--main btn--main--round" onClick={() => setLoading(true)}>
+                <Spinner loading={loading} /> Proceed to Checkout
+              </a>
             </Link>
           </div>
         </div>
