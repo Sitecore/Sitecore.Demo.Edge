@@ -100,7 +100,7 @@ If you want the website to use Commerce you must configure both Sitecore OrderCl
    3. **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
    4. **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
    5. **ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS**: `COMMA_DELIMITED_CLIENTIDS_ALLOWED_TO_MAKE_REQUESTS_TO_MIDDLEWARE`
-   5. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
+   6. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
    7. **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
    8. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
 3. Save the file.
@@ -125,7 +125,13 @@ Changes to the front-end project must be reverted from your Git client.
 
 ### Best Practices
 
+#### Never Use a Paragraph Element For a JSS RichText Component
+
 Using a RichText JSS element with a `tag="p"` prop causes issues when editing the element in Horizon. To be specific, Horizon will wrap your plain text inside a paragraph which results in nested `p` tags and an invalid HTML. For this reason it is suggested to use a block element that has no children restrictions like `div`, `section`, `blockquote`, etc.
+
+#### Use an Item ID Instead of an Item Path For Rendering Items Datasources
+
+When creating a rendering for a new Sitecore Component refrain from using paths as Datasources or inside GraphQL queries. Instead replace them with the corresponding Item IDs, so that renaming the items does not cause any issues later on.
 
 ### Custom Renderings Icons
 
