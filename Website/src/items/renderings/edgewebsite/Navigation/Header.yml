@@ -4,6 +4,9 @@ Parent: "75c438f6-65fd-4e65-95bb-7a12ce6ea229"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/Header
 SharedFields:
+- ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
+  Hint: Data source
+  Value: /sitecore/content/EdgeWebsite/Data/Navigation/Header/Eyebrow
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: Header
@@ -16,14 +19,15 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query ($datasource: String!, $language: String!) {
+    query ($datasource : String!, $language: String!) {
       item(path: $datasource, language: $language) {
+        displayName
         children {
           results {
-            name
-            children {
-              results {
-                name
+            displayName
+            field(name: "Link") {
+              ... on LinkField {
+                jsonValue
               }
             }
           }

@@ -1,12 +1,8 @@
 ﻿---
-ID: "5d574711-291a-48b6-bd01-e92d04aad5e5"
+ID: "835b534c-7eef-4414-ac1f-3060aa634d66"
 Parent: "842934e4-186d-4a9d-92f2-d3a01ef0cba9"
 Template: "ce8e28f6-c530-4bd5-9ca5-00d7d42c26c0"
-Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/mainHeader/About Us
-SharedFields:
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 300
+Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/Main Navigation/Sessions
 Languages:
 - Language: en
   Versions:
@@ -14,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220407T231223Z
+      Value: 20220407T231152Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,15 +21,15 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f9c215e0-ac72-4776-8c88-222d9d6aa072"
+      Value: "5641fcb5-d489-46c1-ae14-4dbd2514804e"
     - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
       Hint: Link
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{2717574C-48A0-5469-85A8-A332DF71F1E4}" />
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220407T231248Z
+      Value: 20220408T224206Z

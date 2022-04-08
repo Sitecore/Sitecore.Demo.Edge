@@ -2,7 +2,7 @@
 ID: "652ba5cf-311c-4d8a-856a-421ddb506f35"
 Parent: "ec875dff-8d63-423f-b65f-c303ee077963"
 Template: "ce8e28f6-c530-4bd5-9ca5-00d7d42c26c0"
-Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/eyebrow/Login
+Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/Eyebrow/Login
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
@@ -25,11 +25,15 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4ae8b05d-aca8-40d1-a690-b2aa7185b3e1"
+      Value: "6bfd10be-3d1c-40b7-b69f-fae3042bc44b"
+    - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
+      Hint: Link
+      Value: |
+        <link text="login" linktype="external" url="/account/login" anchor="" target="" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220407T230949Z
+      Value: 20220408T230031Z

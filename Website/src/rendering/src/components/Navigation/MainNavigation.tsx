@@ -13,13 +13,34 @@ export type MainNavigationProps = ComponentProps & {
           alt: string;
         };
       };
+      links: {
+        children: {
+          results: [
+            {
+              displayName: string;
+              field: {
+                jsonValue: {
+                  value: {
+                    anchor: string;
+                    href: string;
+                    linktype: string;
+                    target: string;
+                    text: string;
+                    url: string;
+                  };
+                };
+              };
+            }
+          ];
+        };
+      };
     };
   };
 };
 
 const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-
+  console.log(props);
   const shopLink = isCommerceEnabled && (
     <li className="text-menu-item">
       <Link href="/shop">
@@ -57,31 +78,13 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
         </div>
         <div className={'items-container' + (navbarOpen ? ' opened' : ' closed')}>
           <ul>
-            <li className="text-menu-item">
-              <Link href="/sessions">
-                <a>Sessions</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/speakers">
-                <a>Speakers</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/vendors">
-                <a>Vendors</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/sponsors">
-                <a>Sponsors</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/about-us">
-                <a>About Us</a>
-              </Link>
-            </li>
+            {props.fields?.data?.links?.children?.results?.map((item, index) => (
+              <li className="text-menu-item" key={index}>
+                <Link href={item.field.jsonValue.value.href} prefetch={false}>
+                  <a>{item.displayName}</a>
+                </Link>
+              </li>
+            ))}
             {shopLink}
             <li className="button-menu-item">
               <Link href="/tickets">
