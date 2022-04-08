@@ -13,6 +13,24 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: edgeicons/32x32/header.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query ($datasource: String!, $language: String!) {
+      item(path: $datasource, language: $language) {
+        children {
+          results {
+            name
+            children {
+              results {
+                name
+              }
+            }
+          }
+        }
+      }
+    }
+    
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
