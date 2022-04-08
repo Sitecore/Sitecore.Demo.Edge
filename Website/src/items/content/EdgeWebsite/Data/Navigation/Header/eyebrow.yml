@@ -1,7 +1,7 @@
 ﻿---
 ID: "ec875dff-8d63-423f-b65f-c303ee077963"
 Parent: "c35956cf-fb37-45ac-aba2-782d83c98266"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Template: "ac3d649a-610a-4f10-be28-78efa6d80e0e"
 Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/eyebrow
 Languages:
 - Language: en
@@ -21,11 +21,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "db2e5229-6263-4ad0-9475-17868d5f4ad2"
+      Value: "129a2fd2-6e29-4cec-8349-eb8ab8f231aa"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220407T222437Z
+      Value: 20220407T230655Z

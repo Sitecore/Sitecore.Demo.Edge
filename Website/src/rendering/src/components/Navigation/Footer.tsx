@@ -38,8 +38,8 @@ const Footer = (props: FooterProps): JSX.Element => {
         <Link href="/">
           <a>
             <Image
-              field={props.fields.data.item.footerLogo.jsonValue}
-              alt={props.fields.data.item.footerLogo.alt}
+              field={props.fields?.data.item.footerLogo.jsonValue}
+              alt={props.fields?.data.item.footerLogo.alt}
               loading="lazy"
             />
           </a>

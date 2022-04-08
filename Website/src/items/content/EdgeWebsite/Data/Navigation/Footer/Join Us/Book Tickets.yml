@@ -1,8 +1,12 @@
 ﻿---
-ID: "842934e4-186d-4a9d-92f2-d3a01ef0cba9"
-Parent: "c35956cf-fb37-45ac-aba2-782d83c98266"
-Template: "ac3d649a-610a-4f10-be28-78efa6d80e0e"
-Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/mainHeader
+ID: "d87eeb6a-7113-4f4d-8e4a-584a339bc659"
+Parent: "362c964c-6b90-4c78-85f9-dd504ff7b09b"
+Template: "ce8e28f6-c530-4bd5-9ca5-00d7d42c26c0"
+Path: /sitecore/content/EdgeWebsite/Data/Navigation/Footer/Join Us/Book Tickets
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
 Languages:
 - Language: en
   Versions:
@@ -10,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220407T222445Z
+      Value: 20220407T231044Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,11 +25,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fb73d548-658d-4067-b92a-4f7951c06503"
+      Value: "770dafb4-7db0-40f5-8212-1181f3e7e34b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220407T230711Z
+      Value: 20220407T231105Z
