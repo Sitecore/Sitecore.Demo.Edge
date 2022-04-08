@@ -11,8 +11,12 @@ const Header = (props: HeaderProps): JSX.Element => {
   const { pathname, asPath, query } = router;
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
+  const languageNames = new Intl.DisplayNames(['en'], {
+    type: 'language',
+  });
+
   const languageList = sitecoreContext['Languages'] as NodeJS.Dict<string | string>[];
-  console.log(sitecoreContext.route.itemLanguage);
+
   const changeLanguage = (lang: string) => {
     router.push({ pathname, query }, asPath, { locale: lang });
   };
@@ -25,12 +29,12 @@ const Header = (props: HeaderProps): JSX.Element => {
             style={{
               color: 'white',
               backgroundColor: 'transparent',
-              width: '70px',
-              marginRight: '30px',
+              width: 'fit-content',
+              marginRight: '10px',
               fontSize: '.75rem',
             }}
             onChange={(e) => changeLanguage(e.target.value)}
-            value={sitecoreContext.route.itemLanguage}
+            value={languageNames.of(sitecoreContext.route.itemLanguage)}
           >
             {languageList.map((language, index) => (
               <option
@@ -41,7 +45,7 @@ const Header = (props: HeaderProps): JSX.Element => {
                   backgroundColor: 'darkgray',
                 }}
               >
-                {language.Name}
+                {languageNames.of(language.Name)}
               </option>
             ))}
           </select>
