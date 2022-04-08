@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+/* 1. Tailwind base styles */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* 2. Our styles */
+@import "./layout/billboard-list.css";
+@import "./layout/billboard.css";
+@import "./layout/navigation.css";
+
+body {
+  @apply font-sans;
+}

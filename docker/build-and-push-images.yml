@@ -85,6 +85,38 @@ stages:
           displayName: 'npm run build'
           workingDirectory: kiosk
 
+- stage: Build_Billboard
+  displayName: "Lint and Build Billboard"
+  dependsOn: []
+  jobs:
+    - job: Build
+      pool:
+        name: 'docker-ltsc2019-agents'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '14.x'
+          displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/billboard/package-lock.json'
+            path: '$(Build.SourcesDirectory)/billboard/node_modules'
+            cacheHitVar: 'CacheRestored'
+        - script: |
+            npm install
+          displayName: 'npm install'
+          workingDirectory: billboard
+          condition: ne(variables['CacheRestored'],'true')
+        - script: |
+            npm run lint
+          displayName: 'npm run lint'
+          workingDirectory: billboard
+        - script: |
+            npm run build
+          displayName: 'npm run build'
+          workingDirectory: billboard
+
 - stage: Build
   displayName: "Lint and Build Website"
   dependsOn: []
