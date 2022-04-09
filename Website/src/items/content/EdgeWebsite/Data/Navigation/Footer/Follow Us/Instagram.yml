@@ -25,11 +25,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c0f8ca3e-472b-4b8a-8728-5782cf77851f"
+      Value: "edbd9223-6855-4315-93be-c16140feafa7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
+    - ID: "bf52b591-6456-4189-b1cc-4a50b2647017"
+      Hint: Fontawesome Icon Name
+      Value: faInstagram
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220407T224213Z
+      Value: 20220408T234450Z

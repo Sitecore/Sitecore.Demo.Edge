@@ -17,7 +17,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query ($datasource : String!, $language: String!) {
-      item(path: "/sitecore/content/EdgeWebsite/Data/Config" language: "en") {
+      item(path: "/sitecore/content/EdgeWebsite/Data/Config" language: $language) {
         id
         path
         ... on SiteConfiguration {

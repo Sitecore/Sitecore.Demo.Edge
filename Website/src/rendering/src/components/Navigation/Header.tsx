@@ -32,7 +32,6 @@ export type HeaderProps = ComponentProps & {
 };
 
 const Header = (props: HeaderProps): JSX.Element => {
-  console.log(props);
   return (
     <>
       <div className="header-eyebrow">
@@ -41,7 +40,7 @@ const Header = (props: HeaderProps): JSX.Element => {
             <a>EN</a>
           </Link>
           {props.fields?.data?.item?.children?.results?.map((item, index) => (
-            <Link key={index} href={item.field.jsonValue.value.href} prefetch={false}>
+            <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
               <a>{item.displayName}</a>
             </Link>
           ))}

@@ -40,7 +40,6 @@ export type MainNavigationProps = ComponentProps & {
 
 const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  console.log(props);
   const shopLink = isCommerceEnabled && (
     <li className="text-menu-item">
       <Link href="/shop">
@@ -80,7 +79,7 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
           <ul>
             {props.fields?.data?.links?.children?.results?.map((item, index) => (
               <li className="text-menu-item" key={index}>
-                <Link href={item.field.jsonValue.value.href} prefetch={false}>
+                <Link href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
                   <a>{item.displayName}</a>
                 </Link>
               </li>
