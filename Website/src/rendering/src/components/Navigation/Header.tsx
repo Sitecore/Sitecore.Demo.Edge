@@ -30,7 +30,6 @@ const Header = (props: HeaderProps): JSX.Element => {
               color: 'white',
               backgroundColor: 'transparent',
               width: 'fit-content',
-              marginRight: '10px',
               fontSize: '.75rem',
             }}
             onChange={(e) => changeLanguage(e.target.value)}
@@ -49,7 +48,6 @@ const Header = (props: HeaderProps): JSX.Element => {
               </option>
             ))}
           </select>
-
           <Link href="/account/login" prefetch={false}>
             <a>Login</a>
           </Link>
