@@ -89,11 +89,13 @@ const Footer = (props: FooterProps): JSX.Element => {
             <li>{item.displayName}</li>
             {item.children.results.map((footerLink, footerLinkIndex) => (
               <li key={footerLinkIndex}>
+                {/* Commenting out cause of error: Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 
                 {footerLink.icon.value && (
                   <FontAwesomeIcon icon={socialIcons[footerLink.displayName.toLowerCase()]} />
                 )}
+                */}
                 <Link href={footerLink.field?.jsonValue?.value?.href ?? '#'}>
-                  {footerLink.displayName}
+                  {footerLink.title.value ? footerLink.title.value : footerLink.displayName}
                 </Link>
               </li>
             ))}
