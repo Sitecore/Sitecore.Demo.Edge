@@ -1,8 +1,12 @@
 ﻿---
-ID: "545c5f02-fb45-4c6d-8d00-9fad72600c80"
-Parent: "ec875dff-8d63-423f-b65f-c303ee077963"
+ID: "09d74ef9-532e-4190-bf70-4b49653c2143"
+Parent: "233cc3ab-ef68-4167-adaa-391c3ff1e907"
 Template: "ce8e28f6-c530-4bd5-9ca5-00d7d42c26c0"
-Path: /sitecore/content/EdgeWebsite/Data/Navigation/Header/Eyebrow/Cart
+Path: /sitecore/content/EdgeWebsite/Data/Navigation/Footer/Pages/Shop
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 Languages:
 - Language: en
   Versions:
@@ -10,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220407T230943Z
+      Value: 20220407T231223Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,15 +25,15 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c7f534fa-cfbf-4d3d-8ae7-dc0513702ea0"
+      Value: "dc02648d-08ce-477a-aa77-0cbee7c481f3"
     - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
       Hint: Link
       Value: |
-        <link text="cart" linktype="external" url="/shop/checkout/cart" anchor="" target="" />
+        <link text="shop" linktype="external" url="/shop" anchor="" target="" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220408T230044Z
+      Value: 20220408T234716Z
