@@ -118,6 +118,7 @@ const nextConfig = {
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
+    localeDetection: false,
   },
 
   // Enable React Strict Mode

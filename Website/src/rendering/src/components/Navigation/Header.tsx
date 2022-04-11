@@ -33,12 +33,12 @@ const Header = (props: HeaderProps): JSX.Element => {
               fontSize: '.75rem',
             }}
             onChange={(e) => changeLanguage(e.target.value)}
-            value={languageNames.of(sitecoreContext.route.itemLanguage)}
           >
             {languageList.map((language, index) => (
               <option
                 key={index}
                 value={language['Name']}
+                label={languageNames.of(language['Name'])}
                 style={{
                   color: 'white',
                   backgroundColor: 'darkgray',

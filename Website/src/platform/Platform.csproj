@@ -108,7 +108,7 @@
     <Content Include="Utilities\Restart.aspx" />
     <Content Include="App_Config\Include\Sitecore.Demo.CustomFields.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.SerializeDepth.config" />
-    <Content Include="App_Config\Include\Sitecore.Language.config" />
+    <Content Include="App_Config\Include\Sitecore.Demo.Language.config" />
     <None Include="Platform.wpp.targets" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="web.config" />
