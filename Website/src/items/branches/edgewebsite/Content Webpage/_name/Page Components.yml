@@ -2,7 +2,7 @@
 ID: "abc9b127-6663-4ef5-8d06-84dc46aa6189"
 Parent: "4692fe56-0de5-467d-9ed2-cf11494701ba"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/templates/Branches/Project/edgewebsite/Content Page/$name/Page Components
+Path: /sitecore/templates/Branches/Project/edgewebsite/Content Webpage/$name/Page Components
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
