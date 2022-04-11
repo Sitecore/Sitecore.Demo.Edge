@@ -1,13 +1,4 @@
 import Link from 'next/link';
-import {
-  faFacebookF,
-  faYoutube,
-  faTwitter,
-  faInstagram,
-  faLinkedin,
-} from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
@@ -59,6 +50,7 @@ export type FooterProps = ComponentProps & {
   };
 };
 
+/*
 const socialIcons = {
   facebook: faFacebookF,
   youtube: faYoutube,
@@ -66,6 +58,7 @@ const socialIcons = {
   instagram: faInstagram,
   linkedin: faLinkedin,
 };
+*/
 
 const Footer = (props: FooterProps): JSX.Element => {
   const newDate = new Date();
