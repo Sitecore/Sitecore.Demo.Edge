@@ -4,7 +4,33 @@ import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export type HeaderProps = ComponentProps;
+export type HeaderProps = ComponentProps & {
+  fields: {
+    data: {
+      item: {
+        children: {
+          results: [
+            {
+              displayName: string;
+              field: {
+                jsonValue: {
+                  value: {
+                    anchor: string;
+                    href: string;
+                    linktype: string;
+                    target: string;
+                    text: string;
+                    url: string;
+                  };
+                };
+              };
+            }
+          ];
+        };
+      };
+    };
+  };
+};
 
 const Header = (props: HeaderProps): JSX.Element => {
   const router = useRouter();
@@ -37,12 +63,12 @@ const Header = (props: HeaderProps): JSX.Element => {
               </option>
             ))}
           </select>
-          <Link href="/account/login" prefetch={false}>
-            <a>Login</a>
-          </Link>
-          <Link href="/shop/checkout/cart" prefetch={false}>
-            <a>Cart</a>
-          </Link>
+
+          {props.fields?.data?.item?.children?.results?.map((item, index) => (
+            <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
+              <a>{item.displayName}</a>
+            </Link>
+          ))}
         </div>
       </div>
       <Placeholder name="jss-header-content" rendering={props.rendering} />
