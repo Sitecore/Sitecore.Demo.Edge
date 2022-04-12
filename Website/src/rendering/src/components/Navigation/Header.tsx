@@ -25,24 +25,13 @@ const Header = (props: HeaderProps): JSX.Element => {
     <>
       <div className="header-eyebrow">
         <div className="content">
-          <select
-            style={{
-              color: 'white',
-              backgroundColor: 'transparent',
-              width: 'fit-content',
-              fontSize: '.75rem',
-            }}
-            onChange={(e) => changeLanguage(e.target.value)}
-          >
+          <select onChange={(e) => changeLanguage(e.target.value)} className="languagePicker">
             {languageList.map((language, index) => (
               <option
                 key={index}
                 value={language['Name']}
                 label={languageNames.of(language['Name'])}
-                style={{
-                  color: 'white',
-                  backgroundColor: 'darkgray',
-                }}
+                className="languageItem"
               >
                 {languageNames.of(language.Name)}
               </option>
