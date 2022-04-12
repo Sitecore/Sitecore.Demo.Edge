@@ -8,7 +8,12 @@ import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
-import '../../services/DiscoverService';
+import { DiscoverServiceFactory } from '../../services/DiscoverServiceFactory';
+
+// Initialize the Discover SDK if commerce is enabled
+if (isCommerceEnabled) {
+  DiscoverServiceFactory('Shop');
+}
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const shopNavigationProps = {

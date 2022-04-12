@@ -6,7 +6,7 @@ import { Product } from 'src/models/discover/Product';
 import { useEffect } from 'react';
 import { SearchResultsActions } from '@sitecore-discover/widgets';
 
-type FullPageSearchProps = {
+export type FullPageSearchProps = {
   error: unknown;
   loaded: boolean;
   loading: boolean;

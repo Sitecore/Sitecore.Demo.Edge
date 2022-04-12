@@ -39,7 +39,7 @@ const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
   );
 };
 
-type LeftColumnProps = {
+export type LeftColumnProps = {
   categories: Category[];
   trendingCategories: Category[];
   suggestions: Suggestion[];

@@ -1,7 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SearchControls from '../../components/FullPageSearch/SearchControls';
+import SearchControls, {
+  SearchControlsProps,
+} from '../../components/FullPageSearch/SearchControls';
+import { DiscoverServiceFactory } from '../../services/DiscoverServiceFactory';
 
 export default {
   title: 'Components/FullPageSearch/SearchControls',
@@ -10,23 +13,28 @@ export default {
 
 const Template: ComponentStory<typeof SearchControls> = (args) => <SearchControls {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  onPageNumberChange: () => {
+const searchControlsProps = {
+  onPageNumberChange: (): void => {
     return null;
   },
-  onSortChange: () => {
+  onSortChange: (): void => {
     return null;
   },
-  page: 1,
+  page: 0,
   sortChoices: [
     {
-      label: 'Featured ASC',
-      name: 'featured',
-      order: 'asc',
+      label: '',
+      name: '',
+      order: '',
     },
   ],
-  sortDirection: undefined,
-  sortType: undefined,
-  totalPages: 1,
+  sortDirection: '',
+  sortType: '',
+  totalPages: 0,
 };
+
+export const Default = Template.bind({});
+Default.args = DiscoverServiceFactory(
+  'storybookSearchControls',
+  searchControlsProps
+) as Partial<SearchControlsProps>;

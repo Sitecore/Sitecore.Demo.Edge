@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-type SearchControlsProps = {
+export type SearchControlsProps = {
   totalPages: number;
   page: number;
   sortChoices: unknown[];
