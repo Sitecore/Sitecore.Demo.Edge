@@ -21,14 +21,38 @@ const ProductQuantityInput = ({
     disabled || (priceSchedule.MaxQuantity ? _quantity >= priceSchedule.MaxQuantity : false);
   const subtractDisabled =
     disabled ||
-    (priceSchedule.MinQuantity ? _quantity < priceSchedule.MinQuantity : _quantity <= 0);
+    (priceSchedule.MinQuantity
+      ? _quantity <= priceSchedule.MinQuantity && _quantity <= 1
+      : _quantity <= 1);
+
+  const isInRange = (q: number) => {
+    let _isInRange = q >= 1;
+
+    if (priceSchedule.MinQuantity) {
+      _isInRange = _isInRange && q >= priceSchedule.MinQuantity;
+    }
+
+    if (priceSchedule.MaxQuantity) {
+      _isInRange = _isInRange && q <= priceSchedule.MaxQuantity;
+    }
+
+    return _isInRange;
+  };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(Number(e.target.value));
+    const _val = Number(e.target.value);
+    if (isInRange(_val)) {
+      setQuantity(_val);
+      onChange(_val);
+    }
   };
 
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange(Number(e.target.value));
+    const _val = Number(e.target.value);
+    if (isInRange(_val)) {
+      setQuantity(_val);
+      onChange(_val);
+    }
   };
 
   const handleSubtract = () => {

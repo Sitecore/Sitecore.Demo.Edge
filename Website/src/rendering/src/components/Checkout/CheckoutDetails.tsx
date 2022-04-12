@@ -14,17 +14,20 @@ const CheckoutDetails = (): JSX.Element => {
   };
 
   return (
-    <section className="checkout-details shop-container section">
-      <PanelDeliveryOptions />
-      <PanelShippingAddress />
-      <PanelShippingEstimates />
-      <PanelBillingAddress />
-      <PanelPayment />
-      <div>
-        <PanelComments orderComments={comments} onEditComments={handleEditComments} />
-        <CheckoutSummary orderComments={comments} />
-      </div>
-    </section>
+    <>
+      <h1 className="shop-container">Checkout</h1>
+      <section className="checkout-details shop-container section">
+        <PanelDeliveryOptions />
+        <PanelShippingAddress />
+        <PanelShippingEstimates />
+        <PanelBillingAddress />
+        <PanelPayment />
+        <div>
+          <PanelComments orderComments={comments} onEditComments={handleEditComments} />
+          <CheckoutSummary orderComments={comments} />
+        </div>
+      </section>
+    </>
   );
 };
 

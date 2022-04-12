@@ -18,6 +18,10 @@
     .panel-body {
       @apply space-y-5;
 
+      .shipmethods-list {
+        @apply space-y-5;
+      }
+
       .option-item {
         @apply flex;
 
@@ -165,5 +169,15 @@
     button {
       @apply mt-4 mx-auto;
     }
+  }
+}
+
+.shop-checkout {
+  h1 {
+    @apply text-xl font-bold;
+  }
+
+  .breadcrumb {
+    @apply shop-container text-blue;
   }
 }

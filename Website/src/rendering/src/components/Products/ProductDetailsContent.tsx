@@ -162,9 +162,7 @@ const ProductDetailsContent = ({
 
   const productImageProps =
     variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url
-      ? product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
-        ? [...variant.xp.Images, ...product.xp.Images]
-        : variant.xp.Images
+      ? variant.xp.Images
       : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
       ? product.xp.Images
       : null;

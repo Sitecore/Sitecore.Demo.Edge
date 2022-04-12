@@ -17,13 +17,18 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
           <span className="product-offer">Best Seller</span>
         </div>
       </div>
-      <div className="image-secondary">
-        {props.images.map((img) => (
-          <div key={img.Url}>
-            <img src={img.Url} alt="" onClick={() => setActiveImg(img.Url)} />
-          </div>
-        ))}
-      </div>
+      {props.images.length > 1 && (
+        <div className="image-secondary">
+          {props.images.map((img, i) => {
+            const isActive = activeImg ? img.Url === activeImg : i === 0;
+            return (
+              <div key={img.Url} className={isActive && 'active'}>
+                <img src={img.Url} alt="" onClick={() => setActiveImg(img.Url)} />
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

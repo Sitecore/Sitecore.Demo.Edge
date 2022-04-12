@@ -21,12 +21,14 @@ const Checkout = (): JSX.Element => {
         <title>PLAY! SHOP - Checkout</title>
       </Head>
 
-      <ShopBreadcrumb
-        rendering={{ componentName: '' }}
-        params={{}}
-        fields={{ items: breadCrumbDefinitions }}
-      />
-      <CheckoutDetails />
+      <div className="shop-checkout">
+        <ShopBreadcrumb
+          rendering={{ componentName: '' }}
+          params={{}}
+          fields={{ items: breadCrumbDefinitions }}
+        />
+        <CheckoutDetails />
+      </div>
     </ShopLayout>
   );
 };

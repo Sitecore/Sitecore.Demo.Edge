@@ -12,7 +12,7 @@
 
         .image-active {
           > div {
-            @apply relative pt-[100%];
+            @apply relative pt-[100%] border-2 border-gray;
 
             img {
               @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
@@ -28,7 +28,11 @@
           @apply flex justify-center gap-2 mt-2;
 
           > div {
-            @apply w-12 h-12;
+            @apply w-12 h-12 border-2 border-gray;
+
+            &.active {
+              @apply border-yellow;
+            }
 
             img {
               @apply w-full h-full object-cover;
