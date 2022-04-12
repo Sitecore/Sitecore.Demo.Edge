@@ -10,7 +10,7 @@ import { PreviewSearchActions } from '@sitecore-discover/widgets';
 import { useRef, useState } from 'react';
 import SearchInput from './SearchInput';
 
-type PreviewSearchProps = {
+export type PreviewSearchProps = {
   loaded: boolean;
   loading: boolean;
   products: Product[];

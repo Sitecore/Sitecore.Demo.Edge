@@ -30,7 +30,7 @@ type FacetProps = {
   onFacetClick: (...args: unknown[]) => void;
 };
 
-type FacetListProps = {
+export type FacetListProps = {
   facets: unknown[];
   onFacetClick: (...args: unknown[]) => void;
   onClear: (...args: unknown[]) => void;

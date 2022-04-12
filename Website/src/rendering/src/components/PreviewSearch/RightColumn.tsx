@@ -1,7 +1,7 @@
 import { Product } from '../../models/discover/Product';
 import ProductList from '../ShopCommon/ProductList';
 
-type RightColumnProps = {
+export type RightColumnProps = {
   products: Product[];
   loaded: boolean;
   loading: boolean;

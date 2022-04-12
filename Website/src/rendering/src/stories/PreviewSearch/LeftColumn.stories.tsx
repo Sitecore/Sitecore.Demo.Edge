@@ -1,7 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import LeftColumn from '../../components/PreviewSearch/LeftColumn';
+import LeftColumn, { LeftColumnProps } from '../../components/PreviewSearch/LeftColumn';
+import { DiscoverServiceFactory } from '../../services/DiscoverServiceFactory';
+import { Category } from '../../models/discover/Category';
 
 export default {
   title: 'Components/PreviewSearch/LeftColumn',
@@ -10,35 +12,26 @@ export default {
 
 const Template: ComponentStory<typeof LeftColumn> = (args) => <LeftColumn {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  categories: [
-    {
-      id: 'suggestion_idZXF1aXBtZW50',
-      in_content: 'product',
-      text: 'equipment',
-      url: '/shop/category/activities/hiking/equipment',
-    },
-  ],
-  trendingCategories: [
-    {
-      id: 'suggestion_idZXF1aXBtZW50',
-      in_content: 'product',
-      text: 'equipment',
-      url: '/shop/category/activities/hiking/equipment',
-    },
-  ],
-  suggestions: [{ freq: 3, id: 'suggestion_idcHVtcA==', in_content: 'product', text: 'pump' }],
+const leftColumnProps = {
+  categories: [] as Category[],
+  trendingCategories: [] as Category[],
+  suggestions: [] as unknown[],
   loading: false,
   loaded: false,
-  onCategoryChanged: () => {
+  onCategoryChanged: (): void => {
     return null;
   },
-  onTrendingCategoryChanged: () => {
+  onTrendingCategoryChanged: (): void => {
     return null;
   },
-  onSuggestionChanged: () => {
+  onSuggestionChanged: (): void => {
     return null;
   },
-  redirectUrl: '/shop/products?q=',
+  redirectUrl: '',
 };
+
+export const Default = Template.bind({});
+Default.args = DiscoverServiceFactory(
+  'storybookLeftColumn',
+  leftColumnProps
+) as Partial<LeftColumnProps>;
