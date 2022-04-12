@@ -40,7 +40,7 @@
     "@next/bundle-analyzer": "^11.1.1",
     "@ordercloud/catalyst": "^1.1.1",
     "@reduxjs/toolkit": "^1.7.2",
-    "@sitecore-discover/react": "0.0.1-alpha1.0",
+    "@sitecore-discover/react": "0.2.0",
     "@sitecore-jss/sitecore-jss-nextjs": "^19.0.0-canary.63",
     "@sitecore-jss/sitecore-jss-tracking": "^19.0.0-canary.63",
     "deep-equal": "^2.0.5",
