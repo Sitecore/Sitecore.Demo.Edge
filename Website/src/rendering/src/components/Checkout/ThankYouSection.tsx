@@ -14,8 +14,8 @@ const ThankYouSection = (): JSX.Element => (
           provided. Please keep it for your records.
         </p>
       </li>
-      {/* TODO: Different text if user is not logged in */}
-      <li>
+      {/* TODO: Show if user is logged in */}
+      {/* <li>
         <span className="item-icon">
           <FontAwesomeIcon icon={faPrint} />
         </span>
@@ -26,6 +26,19 @@ const ThankYouSection = (): JSX.Element => (
             <a>click here</a>
           </Link>{' '}
           to print a copy of your receipt.
+        </p>
+      </li> */}
+      {/* TODO: Don't show if user is logged in */}
+      <li>
+        <span className="item-icon">
+          <FontAwesomeIcon icon={faPrint} />
+        </span>
+        <p>
+          You can now{' '}
+          <Link href="#">
+            <a>print a copy</a>
+          </Link>{' '}
+          of your receipt.
         </p>
       </li>
       {/* TODO: Don't show if user is logged in */}
