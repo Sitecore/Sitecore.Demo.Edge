@@ -1,14 +1,11 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
+import { submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
-type CheckoutSummaryProps = {
-  orderComments?: string;
-};
-const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
+const CheckoutSummary = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -24,9 +21,6 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
 
   const handleSubmitOrder = async () => {
     setLoading(true);
-    if (props.orderComments) {
-      await dispatch(patchOrder({ Comments: props.orderComments }));
-    }
     await dispatch(submitOrder(onOrderSubmitSuccess));
     setLoading(false);
   };
