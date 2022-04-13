@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from 'components/Navigation/ShopBreadcrumb';
+import OrderReviewDetails from 'components/Checkout/OrderReviewDetails';
 
 const OrderReview = (): JSX.Element => {
   useEffect(() => {
@@ -26,6 +27,8 @@ const OrderReview = (): JSX.Element => {
         params={{}}
         fields={{ items: breadCrumbDefinitions }}
       />
+
+      <OrderReviewDetails />
     </ShopLayout>
   );
 };

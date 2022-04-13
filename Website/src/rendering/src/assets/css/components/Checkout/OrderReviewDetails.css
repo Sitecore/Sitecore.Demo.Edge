@@ -1,2 +1,27 @@
 .order-review-details {
+  .checkout-summary {
+    @apply flex flex-col mt-4;
+
+    .summary-line {
+      @apply flex justify-between py-1 px-6;
+    }
+
+    .subtotal-line {
+      @apply bg-white;
+
+      .line-amount {
+        @apply font-bold;
+      }
+    }
+
+    .shipping-line {
+      .line-amount {
+        @apply text-blue;
+      }
+    }
+
+    button {
+      @apply mt-4 mx-auto;
+    }
+  }
 }
