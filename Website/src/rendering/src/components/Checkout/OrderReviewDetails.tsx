@@ -6,8 +6,7 @@ import LineItemList from './LineItemList';
 const OrderReviewDetails = (): JSX.Element => {
   const { order } = useOcCurrentOrder();
   return (
-    <section className="order-review-details shop-container section">
-      <div className="order-review-details container">
+    <div className="order-review-details shop-container">
         <h1>Order review</h1>
         <div className="panel-header">
           <h2>Items</h2>
@@ -15,12 +14,11 @@ const OrderReviewDetails = (): JSX.Element => {
         <div className="order-review-details-grid">
           <div className="order-review-details-items">
             <LineItemList editable={false} />
-          </div>
         </div>
       </div>
 
       <CheckoutSummary />
-    </section>
+    </div>
   );
 };
 
