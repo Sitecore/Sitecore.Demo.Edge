@@ -127,7 +127,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   );
 
   // TODO: add functionality to input
-  const userComment = (
+  const userComment = props.editable && (
     <input type="text" placeholder="Text input for user..." className="user-comment" />
   );
 
