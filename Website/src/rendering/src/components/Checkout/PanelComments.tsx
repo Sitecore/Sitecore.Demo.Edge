@@ -22,7 +22,7 @@ const PanelComments = (): JSX.Element => {
             id="order-comments"
             rows={3}
             placeholder="Leave your comment for us here..."
-            value={order?.Comments}
+            defaultValue={order?.Comments}
             onBlur={(event) => updateComments(event.target.value)}
           ></textarea>
         </form>
