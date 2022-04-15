@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -79,6 +79,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
           <div id="search-input-container">
             <Widget rfkId="rfkid_6" />
           </div>
+          {/* <Widget rfkId="rfkid_6" /> */}
         </div>
       </div>
     </nav>

@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import ShopNavigation, { ShopNavigationProps } from '../Navigation/ShopNavigation';
@@ -16,6 +16,11 @@ if (isCommerceEnabled) {
 }
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  useEffect(() => {
+    PageController.getContext().setPageUri(window.location.pathname);
+    console.log('USING DISCOVER PAGE CONTROLLER FROM SHOP.TSX');
+  }, []);
+
   const shopNavigationProps = {
     fields: {
       data: {
