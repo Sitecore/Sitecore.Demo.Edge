@@ -29,7 +29,7 @@ const CheckoutSummary = (): JSX.Element => {
     if (!selectedShipMethodId) {
       return 'N/A';
     } else if (order.ShippingCost === 0) {
-      return 'Free';
+      return 'FREE';
     } else {
       return formatCurrency(order.ShippingCost);
     }
@@ -57,17 +57,25 @@ const CheckoutSummary = (): JSX.Element => {
     return true;
   };
 
-  const numberOfItems = order && `${order.LineItemCount} item${order.LineItemCount > 1 ? 's' : ''}`;
-
-  const subtotal = order && (
+  const summary = order && (
     <>
-      <p className="summary-line subtotal-line">
-        <span className="line-name">Cart ({numberOfItems}):</span>
+      <p className="summary-line">
+        <span className="line-name">Total:</span>
         <span className="line-amount">{formatCurrency(order.Subtotal)}</span>
       </p>
       <p className="summary-line shipping-line">
-        <span className="line-name">Shipping &amp; Handling:</span>
+        <span className="line-name">Delivery fees:</span>
         <span className="line-amount">{getShippingMessage()}</span>
+      </p>
+      <p className="summary-line">
+        <span className="line-name">Discount:</span>
+        <span className="line-amount">{formatCurrency(order?.PromotionDiscount)}</span>
+      </p>
+      <p className="summary-line total-line">
+        <span className="line-name">Final payment:</span>
+        <span className="line-amount">
+          {formatCurrency(order?.Subtotal + order?.ShippingCost - order?.PromotionDiscount)}
+        </span>
       </p>
       <button
         className="btn--main btn--main--round"
@@ -79,7 +87,7 @@ const CheckoutSummary = (): JSX.Element => {
     </>
   );
 
-  return <div className="checkout-summary">{subtotal}</div>;
+  return <div className="checkout-summary">{summary}</div>;
 };
 
 export default CheckoutSummary;

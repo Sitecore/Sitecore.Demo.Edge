@@ -88,21 +88,17 @@
       @apply flex flex-col mt-4;
 
       .summary-line {
-        @apply flex justify-between py-1 px-6;
-      }
-
-      .subtotal-line {
-        @apply bg-white;
-
-        .line-amount {
-          @apply font-bold;
-        }
+        @apply flex justify-between py-1 px-3;
       }
 
       .shipping-line {
         .line-amount {
           @apply text-blue;
         }
+      }
+
+      .total-line {
+        @apply bg-white font-bold mt-3;
       }
 
       button {
