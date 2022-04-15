@@ -17,6 +17,28 @@ const OrderReviewDetails = (): JSX.Element => {
     return eta.toLocaleDateString();
   };
 
+  const deliveryPanelContent = (
+    <>
+      <p>Delivery type: {deliveryMethod?.Name}</p>
+      <p>Estimated delivery: {calculateEstimatedDelivery(deliveryMethod?.EstimatedTransitDays)}</p>
+      <div>
+        <p className="title">Shipping address:</p>
+        <p>
+          {shippingAddress?.FirstName} {shippingAddress?.LastName}
+        </p>
+        <p>{shippingAddress?.Street1}</p>
+        <p>
+          {shippingAddress?.City}, {shippingAddress?.State}, {shippingAddress?.Zip}
+        </p>
+        <p>{shippingAddress?.Country}</p>
+      </div>
+      <div>
+        <p className="title">Your comment:</p>
+        <p>{order?.Comments}</p>
+      </div>
+    </>
+  );
+
   return (
     <div className="order-review-details shop-container">
       <h1>Order review</h1>
@@ -33,27 +55,7 @@ const OrderReviewDetails = (): JSX.Element => {
           <div className="panel-header">
             <h2>Delivery</h2>
           </div>
-          <div className="panel-body">
-            <p>Delivery type: {deliveryMethod?.Name}</p>
-            <p>
-              Estimated delivery: {calculateEstimatedDelivery(deliveryMethod?.EstimatedTransitDays)}
-            </p>
-            <div>
-              <p className="title">Shipping address:</p>
-              <p>
-                {shippingAddress?.FirstName} {shippingAddress?.LastName}
-              </p>
-              <p>{shippingAddress?.Street1}</p>
-              <p>
-                {shippingAddress?.City}, {shippingAddress?.State}, {shippingAddress?.Zip}
-              </p>
-              <p>{shippingAddress?.Country}</p>
-            </div>
-            <div>
-              <p className="title">Your comment:</p>
-              <p>{order?.Comments}</p>
-            </div>
-          </div>
+          <div className="panel-body">{deliveryPanelContent}</div>
         </div>
         <CheckoutSummary />
       </div>
