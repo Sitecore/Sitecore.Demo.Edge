@@ -16,24 +16,6 @@ if (isCommerceEnabled) {
 }
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
-  const shopNavigationProps = {
-    fields: {
-      data: {
-        item: {
-          headerLogo: {
-            jsonValue: {
-              value: {
-                // TODO update with play shop logo when available
-                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
-              },
-            },
-            alt: '',
-          },
-        },
-      },
-    },
-  } as ShopNavigationProps;
-
   const footerProps = {
     fields: {
       data: {
