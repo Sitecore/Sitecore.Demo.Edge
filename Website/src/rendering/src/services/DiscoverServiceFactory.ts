@@ -1,18 +1,17 @@
 import { MockDiscoverService } from './MockDiscoverService';
 import { DiscoverService } from './DiscoverService';
 import { LeftColumnProps } from 'components/PreviewSearch/LeftColumn';
-import { PreviewSearchProps } from 'components/PreviewSearch/PreviewSearch';
 import { RightColumnProps } from 'components/PreviewSearch/RightColumn';
 import { FacetListProps } from 'components/FullPageSearch/FacetList';
-import { FullPageSearchProps } from 'components/FullPageSearch/FullPageSearch';
 import { SearchControlsProps } from 'components/FullPageSearch/SearchControls';
+import { PreviewSearchWidgetProps, SearchResultsWidgetProps } from '@sitecore-discover/ui';
 
 export type StorybookDiscoverComponentProps =
   | LeftColumnProps
-  | PreviewSearchProps
+  | PreviewSearchWidgetProps
   | RightColumnProps
   | FacetListProps
-  | FullPageSearchProps
+  | SearchResultsWidgetProps
   | SearchControlsProps;
 
 export const DiscoverServiceFactory = (

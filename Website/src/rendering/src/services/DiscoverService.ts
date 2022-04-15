@@ -4,15 +4,13 @@ import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 
 export const DiscoverService = (): void => {
   setWidget('rfkid_7', {
-    global: true,
     component: FullPageSearch,
     type: WidgetDataType.SEARCH_RESULTS,
   });
 
   setWidget('rfkid_6', {
-    global: true,
-    type: WidgetDataType.PREVIEW_SEARCH,
     component: PreviewSearch,
+    type: WidgetDataType.PREVIEW_SEARCH,
     options: {
       preRender: true,
       properties: {

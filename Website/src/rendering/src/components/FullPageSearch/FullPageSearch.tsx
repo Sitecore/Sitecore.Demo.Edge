@@ -1,35 +1,21 @@
 import debounce from '../../../src/helpers/Debounce';
-import FacetList, { FacetClickEvent } from './FacetList';
+import FacetList from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
-import { Product } from 'src/models/discover/Product';
 import { useEffect } from 'react';
-import { SearchResultsActions } from '@sitecore-discover/widgets';
+import {
+  SearchResultsActions,
+  SearchResultsPageNumberChangedActionPayload,
+  SearchResultsFacetClickedChangedActionPayload,
+  SearchResultsSortChangedActionPayload,
+} from '@sitecore-discover/widgets';
+import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 
-export type FullPageSearchProps = {
-  error: unknown;
-  loaded: boolean;
-  loading: boolean;
-  page: number;
-  keyphrase: string;
-  productsPerPage: number;
-  totalPages: number;
-  totalItems: unknown;
-  sortType: unknown;
-  sortDirection: unknown;
-  sortChoices: unknown[];
-  products: Product[];
-  facets: unknown[];
-  onSearchChange: () => void;
-  dispatch: (...args: unknown[]) => void;
-};
+export interface fullPageSearchResultsProps extends SearchResultsWidgetProps {
+  rfkId: string;
+}
 
-type SortChangeEvent = {
-  sortDirection: string;
-  sortType: string;
-};
-
-const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
+const FullPageSearch = (props: fullPageSearchResultsProps): JSX.Element => {
   const {
     error,
     loaded,
@@ -44,13 +30,15 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     products,
     facets,
     dispatch,
+    onFacetClick,
+    onClearFilters,
+    onPageNumberChange,
+    onSortChange,
   } = props;
 
   const setInitialKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
-      dispatch(SearchResultsActions.KEYPHRASE_CHANGED, {
-        keyphrase,
-      }),
+      dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
     500,
     false
   );
@@ -69,22 +57,24 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     return <div>Response error</div>;
   }
 
-  const handleFacetClick = (payload: FacetClickEvent) => {
-    dispatch(SearchResultsActions.FACET_CLICKED, payload);
+  const handleFacetClick = (payload: SearchResultsFacetClickedChangedActionPayload) => {
+    onFacetClick(payload);
   };
 
-  const handleFacetClear = (payload: PointerEvent) => {
-    dispatch(SearchResultsActions.CLEAR_FILTERS, payload);
+  const handleFacetClear = () => {
+    onClearFilters();
   };
 
   const handlePageNumberChange = (pageNumber: string) => {
-    dispatch(SearchResultsActions.PAGE_NUMBER_CHANGED, {
-      pageNumber: Number(pageNumber),
-    });
+    const pageNo: SearchResultsPageNumberChangedActionPayload = {
+      rfkId: 'rfkid_7',
+      page: Number(pageNumber),
+    };
+    onPageNumberChange(pageNo);
   };
 
-  const handleSortChange = (payload: SortChangeEvent) => {
-    dispatch(SearchResultsActions.SORT_CHANGED, payload);
+  const handleSortChange = (payload: SearchResultsSortChangedActionPayload) => {
+    onSortChange(payload);
   };
 
   const numberOfResults = !loading && totalPages > 0 && (

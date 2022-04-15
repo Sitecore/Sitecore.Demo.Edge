@@ -31,6 +31,7 @@ export const mockDiscoverData = {
     redirectUrl: '/shop/products?q=',
   },
   previewSearchProps: {
+    rfkId: 'rfkid_6',
     loaded: false,
     loading: false,
     products: [
@@ -199,6 +200,7 @@ export const mockDiscoverData = {
     },
   },
   fullPageSearchProps: {
+    rfkId: 'rfkid_7',
     error: '',
     dispatch: (): void => {
       return null;

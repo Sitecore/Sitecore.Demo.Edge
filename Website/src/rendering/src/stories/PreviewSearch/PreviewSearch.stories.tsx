@@ -1,8 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import PreviewSearch, { PreviewSearchProps } from '../../components/PreviewSearch/PreviewSearch';
+import PreviewSearch from '../../components/PreviewSearch/PreviewSearch';
 import { DiscoverServiceFactory } from '../../services/DiscoverServiceFactory';
+import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 
 export default {
   title: 'Components/PreviewSearch/PreviewSearch',
@@ -11,18 +12,36 @@ export default {
 
 const Template: ComponentStory<typeof PreviewSearch> = (args) => <PreviewSearch {...args} />;
 
-const previewSearchProps: PreviewSearchProps = {
+const previewSearchProps = {
+  rfkId: '',
   loaded: false,
   loading: false,
-  products: [],
+  products: [''],
   keyphrase: '',
-  trendingCategories: [],
-  categories: [],
-  suggestions: [],
-  selectedKeyword: '',
+  trendingCategories: [] as unknown[],
+  categories: [] as unknown[],
+  suggestions: [] as unknown[],
   redirectUrl: '',
-  inputQuerySelector: '',
-  dispatch: () => {
+  dispatch: (): Promise<void> => {
+    return null;
+  },
+  lockCategories: false,
+  lockSuggestions: false,
+  category: '',
+  suggestion: '',
+  trendingCategory: '',
+  selectedKeyword: '',
+  available: false,
+  onSuggestionChange: (): unknown => {
+    return null;
+  },
+  onTrendingCategoryChange: (): unknown => {
+    return null;
+  },
+  onKeyphraseChange: (): unknown => {
+    return null;
+  },
+  onCategoryChange: (): unknown => {
     return null;
   },
 };
@@ -31,4 +50,4 @@ export const Default = Template.bind({});
 Default.args = DiscoverServiceFactory(
   'storybookPreviewSearch',
   previewSearchProps
-) as Partial<PreviewSearchProps>;
+) as Partial<PreviewSearchWidgetProps>;
