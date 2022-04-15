@@ -34,20 +34,11 @@ const OrderReviewDetails = (): JSX.Element => {
         </p>
         <p>{shippingAddress?.Country}</p>
       </div>
-      <div>
-        <p className="title">Your comment:</p>
-        <p>{order?.Comments}</p>
-      </div>
     </>
   );
 
   const paymentPanelContent = (
     <>
-      <div>
-        <p className="title">Payment method:</p>
-        <p>Full name: {payments?.[0]?.xp?.CreditCard?.CardholderName}</p>
-        <p>Card number: {payments?.[0]?.xp?.CreditCard?.ID}</p>
-      </div>
       <div>
         <p className="title">Billing address:</p>
         <p>
@@ -59,6 +50,15 @@ const OrderReviewDetails = (): JSX.Element => {
           {order?.BillingAddress?.Zip}
         </p>
         <p>{order?.BillingAddress?.Country}</p>
+      </div>
+      <div>
+        <p className="title">Payment method:</p>
+        <p>Full name: {payments?.[0]?.xp?.CreditCard?.CardholderName}</p>
+        <p>Card number: {payments?.[0]?.xp?.CreditCard?.ID}</p>
+      </div>
+      <div>
+        <p className="title">Your comment:</p>
+        <p>{order?.Comments}</p>
       </div>
     </>
   );

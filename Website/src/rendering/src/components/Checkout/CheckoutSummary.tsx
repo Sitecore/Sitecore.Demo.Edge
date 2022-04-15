@@ -60,22 +60,24 @@ const CheckoutSummary = (): JSX.Element => {
   const summary = order && (
     <>
       <p className="summary-line">
-        <span className="line-name">Total:</span>
+        <span className="line-name">Subtotal:</span>
         <span className="line-amount">{formatCurrency(order.Subtotal)}</span>
+      </p>
+      <p className="summary-line">
+        <span className="line-name">Discount:</span>
+        <span className="line-amount">{formatCurrency(order.PromotionDiscount)}</span>
       </p>
       <p className="summary-line shipping-line">
         <span className="line-name">Delivery fees:</span>
         <span className="line-amount">{getShippingMessage()}</span>
       </p>
       <p className="summary-line">
-        <span className="line-name">Discount:</span>
-        <span className="line-amount">{formatCurrency(order?.PromotionDiscount)}</span>
+        <span className="line-name">Taxes:</span>
+        <span className="line-amount">{formatCurrency(order.TaxCost)}</span>
       </p>
       <p className="summary-line total-line">
-        <span className="line-name">Final payment:</span>
-        <span className="line-amount">
-          {formatCurrency(order?.Subtotal + order?.ShippingCost - order?.PromotionDiscount)}
-        </span>
+        <span className="line-name">Total:</span>
+        <span className="line-amount">{formatCurrency(order.Total)}</span>
       </p>
       <button
         className="btn--main btn--main--round"
