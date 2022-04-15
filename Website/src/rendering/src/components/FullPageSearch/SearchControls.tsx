@@ -16,15 +16,7 @@ type SortChangeRequest = {
 };
 
 const SearchControls = (props: SearchControlsProps): JSX.Element => {
-  const {
-    totalPages,
-    page,
-    sortChoices,
-    sortType,
-    sortDirection,
-    onPageNumberChange,
-    onSortChange,
-  } = props;
+  const { totalPages, sortChoices, onPageNumberChange, onSortChange } = props;
 
   const handlePageChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
     onPageNumberChange((target as HTMLSelectElement).value);
@@ -43,11 +35,7 @@ const SearchControls = (props: SearchControlsProps): JSX.Element => {
           <label>Page:</label>
           <select onChange={(event) => handlePageChange(event)}>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((dropdownPageNumber) => (
-              <option
-                selected={page === dropdownPageNumber}
-                value={dropdownPageNumber}
-                key={dropdownPageNumber}
-              >
+              <option value={dropdownPageNumber} key={dropdownPageNumber}>
                 {dropdownPageNumber}
               </option>
             ))}
@@ -59,11 +47,7 @@ const SearchControls = (props: SearchControlsProps): JSX.Element => {
         <label>Sort by:</label>
         <select onChange={(event) => handleSortChange(event)}>
           {sortChoices?.map(({ label, name, order }) => (
-            <option
-              selected={name === sortType && order === sortDirection}
-              value={name + '#' + order}
-              key={name + '#' + order}
-            >
+            <option value={name + '#' + order} key={name + '#' + order}>
               {label}
             </option>
           ))}

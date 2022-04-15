@@ -11,7 +11,7 @@ type PreviewSearchListProps = {
 };
 
 const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
-  const { items, title, onMouseEnter, onMouseLeave, redirectUrl } = props;
+  const { items, title, onMouseEnter, onMouseLeave /*redirectUrl */ } = props;
 
   return (
     <div className="list-container">
@@ -19,7 +19,7 @@ const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
         <div>
           <h2 className="list-container-title">{title}</h2>
           <ul>
-            {items.map(({ text, id, url }) => (
+            {items.map(({ text, id /*url*/ }) => (
               <li
                 className="list-item"
                 id={id}
@@ -27,7 +27,9 @@ const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
                 onMouseEnter={() => onMouseEnter(text)}
                 onMouseLeave={onMouseLeave}
               >
-                {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>}
+                {/* TO-DO - Use this for category pages eventually */}
+                {/* {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>} */}
+                <a href={'/shop/products?q=' + text}>{text}</a>
               </li>
             ))}
           </ul>
@@ -112,16 +114,15 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
             redirectUrl={redirectUrl}
           />
         )}
-        {(loaded && !loading) ||
-          (suggestions?.length > 0 && (
-            <PreviewSearchList
-              onMouseEnter={onSuggestionEnter}
-              onMouseLeave={onMouseLeave}
-              title="Did you mean?"
-              items={suggestions}
-              redirectUrl={redirectUrl}
-            />
-          ))}
+        {((loaded && !loading) || suggestions?.length > 0) && (
+          <PreviewSearchList
+            onMouseEnter={onSuggestionEnter}
+            onMouseLeave={onMouseLeave}
+            title="Did you mean?"
+            items={suggestions}
+            redirectUrl={redirectUrl}
+          />
+        )}
       </div>
     </div>
   );

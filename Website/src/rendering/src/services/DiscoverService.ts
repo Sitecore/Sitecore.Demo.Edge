@@ -3,6 +3,7 @@ import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 
 setWidget('rfkid_7', {
+  global: true,
   component: FullPageSearch,
   type: WidgetDataType.SEARCH_RESULTS,
 });
@@ -22,8 +23,8 @@ setWidget('rfkid_6', {
   },
 });
 
-const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
-const DISCOVER_API_KEY = process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
+const DISCOVER_CUSTOMER_KEY = process.env.DISCOVER_CUSTOMER_KEY || '';
+const DISCOVER_API_KEY = process.env.DISCOVER_API_KEY || '';
 
 setCredentials({
   env: 'prod',
