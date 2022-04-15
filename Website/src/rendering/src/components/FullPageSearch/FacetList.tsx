@@ -1,14 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 
-export type FacetClickEvent = {
-  checked: boolean;
-  facetIndex: number;
-  facetType: string;
-  facetValue: string;
-  facetValueIndex: number;
-  valueIndex: number;
-};
-
 type FacetValueProps = {
   values: unknown[];
   tindex: unknown;

@@ -9,13 +9,11 @@ export const MockDiscoverService = (
   componentProps: Partial<StorybookDiscoverComponentProps>
 ): Partial<StorybookDiscoverComponentProps> => {
   setWidget('rfkid_7', {
-    global: true,
     component: FullPageSearch,
     type: WidgetDataType.SEARCH_RESULTS,
   });
 
   setWidget('rfkid_6', {
-    global: true,
     type: WidgetDataType.PREVIEW_SEARCH,
     component: PreviewSearch,
     options: {
