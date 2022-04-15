@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import ShopNavigation from '../Navigation/ShopNavigation';
@@ -9,8 +9,33 @@ import { MerchandisingScripts } from '../../services/MerchandisingService';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
+import { PageController } from '@sitecore-discover/react';
+import '../../../public/discover';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  useEffect(() => {
+    PageController.getContext().setPageUri(window.location.pathname);
+    console.log('USING DISCOVER PAGE CONTROLLER FROM SHOP.TSX');
+  }, []);
+
+  const shopNavigationProps = {
+    fields: {
+      data: {
+        item: {
+          headerLogo: {
+            jsonValue: {
+              value: {
+                // TODO update with play shop logo when available
+                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b&t=web',
+              },
+            },
+            alt: '',
+          },
+        },
+      },
+    },
+  } as ShopNavigationProps;
+
   const footerProps = {
     fields: {
       data: {
@@ -49,7 +74,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {MerchandisingScripts}
+      {/* {MerchandisingScripts} */}
 
       <header>
         <ShopNavigation />
