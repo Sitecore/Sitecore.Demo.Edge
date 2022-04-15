@@ -17,7 +17,7 @@
       }
 
       &-body {
-        @apply px-3 py-6 text-sm;
+        @apply px-3 py-6 mb-3 text-sm;
 
         .title {
           @apply font-bold mt-3;

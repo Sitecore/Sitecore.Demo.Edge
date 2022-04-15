@@ -3,15 +3,15 @@ import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
 
 const OrderReviewDetails = (): JSX.Element => {
-  const { order, shipEstimateResponse, shippingAddress } = useOcCurrentOrder();
-  console.log({ order, shipEstimateResponse, shippingAddress });
+  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
+  console.log({ order, shipEstimateResponse, shippingAddress, payments });
 
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.[0];
   const deliveryMethod = shipEstimate?.ShipMethods?.filter(
     (method) => method.ID === shipEstimate.SelectedShipMethodID
   )?.[0];
 
-  const calculateEstimatedDelivery = (days: number): string => {
+  const calculateEstimatedDeliveryDate = (days: number): string => {
     const eta = new Date();
     eta.setDate(eta.getDate() + days);
     return eta.toLocaleDateString();
@@ -20,7 +20,9 @@ const OrderReviewDetails = (): JSX.Element => {
   const deliveryPanelContent = (
     <>
       <p>Delivery type: {deliveryMethod?.Name}</p>
-      <p>Estimated delivery: {calculateEstimatedDelivery(deliveryMethod?.EstimatedTransitDays)}</p>
+      <p>
+        Estimated delivery: {calculateEstimatedDeliveryDate(deliveryMethod?.EstimatedTransitDays)}
+      </p>
       <div>
         <p className="title">Shipping address:</p>
         <p>
@@ -39,6 +41,28 @@ const OrderReviewDetails = (): JSX.Element => {
     </>
   );
 
+  const paymentPanelContent = (
+    <>
+      <div>
+        <p className="title">Payment method:</p>
+        <p>Full name: {payments?.[0]?.xp?.CreditCard?.CardholderName}</p>
+        <p>Card number: {payments?.[0]?.xp?.CreditCard?.ID}</p>
+      </div>
+      <div>
+        <p className="title">Billing address:</p>
+        <p>
+          {order?.BillingAddress?.FirstName} {order?.BillingAddress?.LastName}
+        </p>
+        <p>{order?.BillingAddress?.Street1}</p>
+        <p>
+          {order?.BillingAddress?.City}, {order?.BillingAddress?.State},{' '}
+          {order?.BillingAddress?.Zip}
+        </p>
+        <p>{order?.BillingAddress?.Country}</p>
+      </div>
+    </>
+  );
+
   return (
     <div className="order-review-details shop-container">
       <h1>Order review</h1>
@@ -51,13 +75,21 @@ const OrderReviewDetails = (): JSX.Element => {
             <LineItemList editable={false} />
           </div>
         </div>
-        <div className="panel">
-          <div className="panel-header">
-            <h2>Delivery</h2>
+        <div>
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Delivery</h2>
+            </div>
+            <div className="panel-body">{deliveryPanelContent}</div>
           </div>
-          <div className="panel-body">{deliveryPanelContent}</div>
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Payment</h2>
+            </div>
+            <div className="panel-body">{paymentPanelContent}</div>
+          </div>
+          <CheckoutSummary />
         </div>
-        <CheckoutSummary />
       </div>
     </div>
   );
