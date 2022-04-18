@@ -31,3 +31,6 @@ scjssconfig.json
 
 # vercel
 .vercel
+
+# Sitecore internal private NPM registry
+.npmrc
