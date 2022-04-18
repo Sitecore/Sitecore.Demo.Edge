@@ -10,7 +10,7 @@
     @apply sm:grid-cols-2;
 
     .panel {
-      @apply bg-white;
+      @apply bg-white h-[max-content];
 
       &-header {
         @apply px-2 py-1 text-white font-bold bg-blue;

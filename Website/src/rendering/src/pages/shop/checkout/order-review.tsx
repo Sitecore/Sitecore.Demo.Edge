@@ -14,6 +14,7 @@ const OrderReview = (): JSX.Element => {
     { urlPath: '/shop/checkout/order-review', displayName: 'Review order' },
     { urlPath: '/shop/checkout/checkout', displayName: 'Checkout' },
     { urlPath: '/shop/checkout/cart', displayName: 'Cart' },
+    { urlPath: '/shop', displayName: 'Shop' },
   ];
 
   return (
