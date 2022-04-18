@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../redux/store';
 import { patchOrder } from '../../redux/ocCurrentCart';
-import useOcCurrentOrder from 'src/hooks/useOcCurrentOrder';
+import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
 const PanelComments = (): JSX.Element => {
   const dispatch = useAppDispatch();

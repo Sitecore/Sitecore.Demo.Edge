@@ -1,4 +1,4 @@
-import useOcCurrentOrder from 'src/hooks/useOcCurrentOrder';
+import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
 
