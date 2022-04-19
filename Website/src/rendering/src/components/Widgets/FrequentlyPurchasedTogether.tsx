@@ -1,16 +1,14 @@
-type FrequentlyPurchasedTogetherProps = {
-  loading?: boolean;
-  loaded?: boolean;
-  title?: string;
-  products?: unknown[];
-  dispatch?: () => unknown;
-};
+import { RecommendationWidgetProps } from '@sitecore-discover/ui';
 
 type Product = {
   image_url: string;
   name: string;
   price: string;
 };
+
+export interface FrequentlyPurchasedTogetherProps extends RecommendationWidgetProps {
+  rfkId: string;
+}
 
 const FrequentlyPurchasedTogether = (props: FrequentlyPurchasedTogetherProps): JSX.Element => {
   return (

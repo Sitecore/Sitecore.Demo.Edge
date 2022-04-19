@@ -1,8 +1,5 @@
 import { useEffect } from 'react';
-
-interface DiscoverReference {
-  current: { contains: (eventTarget: EventTarget) => boolean };
-}
+import { DiscoverReference } from '../../services/DiscoverService';
 
 const ClickOutside = (ref: DiscoverReference, handler: () => void): void => {
   useEffect(() => {

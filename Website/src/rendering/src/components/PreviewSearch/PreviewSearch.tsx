@@ -8,11 +8,11 @@ import SearchInput from './SearchInput';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import { Action } from '@sitecore-discover/react';
 
-export interface previewSearchResultsWidgetProps extends PreviewSearchWidgetProps {
+export interface PreviewSearchProps extends PreviewSearchWidgetProps {
   rfkId: string;
 }
 
-const PreviewSearch = (props: previewSearchResultsWidgetProps): JSX.Element => {
+const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
   const {
     loaded,
     loading,

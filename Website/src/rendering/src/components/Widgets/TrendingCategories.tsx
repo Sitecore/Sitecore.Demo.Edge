@@ -1,5 +1,8 @@
 import { PreviewSearchActions } from '@sitecore-discover/widgets';
 import { useEffect } from 'react';
+import debounce from '../../helpers/Debounce';
+import { Action } from '@sitecore-discover/react';
+import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 
 export type Category = {
   id: string;
@@ -8,12 +11,9 @@ export type Category = {
   url: string;
 };
 
-export type TrendingCategoriesProps = {
-  loaded: boolean;
-  loading: boolean;
-  trendingCategories: Category[];
-  dispatch: (action: string, payload: unknown) => unknown;
-};
+export interface TrendingCategoriesProps extends PreviewSearchWidgetProps {
+  rfkId: string;
+}
 
 const TrendingCategories = ({
   loaded,
@@ -21,9 +21,17 @@ const TrendingCategories = ({
   trendingCategories,
   dispatch,
 }: TrendingCategoriesProps): JSX.Element => {
-  const changeKeyphrase = dispatch(PreviewSearchActions.KEYPHRASE_CHANGED, {
-    keyphrase: '',
-  });
+  const changeKeyphrase: (text: string) => void = debounce(
+    (text) => {
+      const changeKeyphraseAction: Action = {
+        type: PreviewSearchActions.KEYPHRASE_CHANGED,
+        payload: { keyphrase: text || '' },
+      };
+      dispatch(changeKeyphraseAction);
+    },
+    500,
+    null
+  );
 
   useEffect(() => {
     let hasData = false;
