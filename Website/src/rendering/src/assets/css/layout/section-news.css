@@ -1,5 +1,5 @@
 .section__news {
-  @apply bg-cover bg-center bg-no-repeat bg-pattern-dark;
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-gray;
 
   display: -webkit-flex;
   display: flex;
