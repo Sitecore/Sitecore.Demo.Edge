@@ -173,6 +173,19 @@ The content of the project is mapped to the Rendering container using a Docker v
 
 Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
 
+#### Building the Rendering Next.js Project Locally
+
+If you ever have to build the Next.js application in a command line:
+
+1. Stop the "rendering" Docker container.
+   - Because the rendering container has a mapped folder to `.\Website\src\rendering` and is running `npm run dev`, it shares the same build output folder as `next build`. Building for production while the container is running will produce all kind of errors.
+2. Run `npm run build:local`
+   - Some website code depends on environment variables that are set through the rendering Docker container. When building in a command line, those environment variables require fake values for the build to succeed. This command sets those fake values before starting the build.
+
+When you are done:
+
+1. Start the "rendering" Docker container.
+
 ### Items Serialization
 
 If you change Sitecore content tree items, you must serialize these items using the Sitecore CLI and Sitecore Content Serialization (SCS). We created a PowerShell script to help with this. In an elevated PowerShell terminal:
