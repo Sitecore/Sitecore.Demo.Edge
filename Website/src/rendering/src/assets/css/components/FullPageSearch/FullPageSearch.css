@@ -72,7 +72,8 @@ body.shop-facet-panel-open {
   }
 
   &-header {
-    @apply flex items-center justify-end mb-3 space-x-4;
+    @apply flex items-center justify-between mb-3 space-x-4;
+    @apply sm:justify-end;
     @apply lg:block;
   }
 

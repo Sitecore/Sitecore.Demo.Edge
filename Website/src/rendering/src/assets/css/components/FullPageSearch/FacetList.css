@@ -9,7 +9,7 @@
     }
 
     &-title {
-      @apply flex justify-between py-1 cursor-pointer font-bold;
+      @apply flex justify-between py-1 cursor-pointer font-bold capitalize;
 
       &::after {
         @apply block transition-transform;
