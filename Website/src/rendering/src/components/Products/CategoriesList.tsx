@@ -1,4 +1,5 @@
 import { Category } from '../Widgets/TrendingCategories';
+import { Widget } from '@sitecore-discover/react';
 
 export type CategoriesListProps = {
   title?: string;
@@ -30,7 +31,7 @@ const CategoriesList = (props: CategoriesListProps): JSX.Element => {
           ))}
         </ul>
       ) : (
-        <div data-rfkid="ps_trending_categories"></div>
+        <Widget rfkId="ps_trending_categories" />
       )}
     </section>
   );

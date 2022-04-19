@@ -44,24 +44,20 @@ const TrendingCategories = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    loaded &&
-    !loading && (
-      <ul>
-        $
-        {trendingCategories?.map((cat: Category) => {
-          return (
-            <li key={cat.id}>
-              <a href={cat.url}>
-                <img src="/assets/img/shop/category-placeholder.png" alt={cat.text} />
-                <h4>{cat.text}</h4>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    )
-  );
+  return loaded && !loading ? (
+    <ul>
+      {trendingCategories?.map((cat: Category) => {
+        return (
+          <li key={cat.id}>
+            <a href={cat.url}>
+              <img src="/assets/img/shop/category-placeholder.png" alt={cat.text} />
+              <h4>{cat.text}</h4>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  ) : null;
 };
 
 export default TrendingCategories;

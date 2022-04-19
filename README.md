@@ -16,6 +16,8 @@ This repository is used for the primary Sitecore DXP demo that uses:
 - Tailwind CSS
 - Storybook
 
+**⚠ NOTE ⚠:** This demo is currently in an unusable state due to the use of a pre-release Sitecore Discover NPM package in the website project.
+
 ## [📖 Documentation](docs/README.md)
 
 The setup, installation, development, and usage documentation is available in the [docs folder](docs/README.md).
