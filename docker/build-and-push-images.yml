@@ -118,8 +118,8 @@ stages:
           workingDirectory: Website/src/rendering
 
         - script: |
-            npm run build
-          displayName: 'npm run build'
+            npm run build:local
+          displayName: 'npm run build:local'
           workingDirectory: Website/src/rendering
 
 - stage: Build_Storybook
