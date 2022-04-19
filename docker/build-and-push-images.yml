@@ -134,6 +134,10 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
+        - script: |
+            npm config set @sitecore-discover:registry $(INTERNAL_SITECORE_DISCOVER_NPM_REGISTRY)
+          displayName: 'Add @sitecore-discover internal NPM registry'
+          workingDirectory: Website/src/rendering
         - task: Cache@2
           displayName: "Cache npm packages"
           inputs:
