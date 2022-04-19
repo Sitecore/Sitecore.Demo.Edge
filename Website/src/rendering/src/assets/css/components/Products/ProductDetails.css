@@ -14,7 +14,8 @@
 
         .image-active {
           > div {
-            @apply relative pt-[100%];
+            @apply relative pt-[100%] -mx-[20px];
+            @apply sm:mx-0;
 
             img {
               @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
@@ -39,12 +40,21 @@
         }
       }
 
-      &-description {
+      &-add-to-cart {
+        @apply flex;
+
+        .btn--main {
+          @apply mr-auto;
+          @apply sm:mr-0;
+        }
+
         .btn-later,
         .btn-wishlist {
           @apply text-gray ml-3;
         }
+      }
 
+      &-description {
         .price {
           @apply justify-start text-left my-4;
 
@@ -57,9 +67,9 @@
       }
 
       &-overview {
-        @apply col-span-1;
+        @apply col-span-1 -mx-[20px];
         @apply sm:col-span-2;
-        @apply lg:col-span-1;
+        @apply lg:col-span-1 lg:mx-0;
       }
 
       &-specs {
