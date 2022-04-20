@@ -8,6 +8,11 @@ import {
   faChevronDown,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import MiniCart from '../Checkout/MiniCart';
+import { Provider } from 'react-redux';
+import reduxStore from '../../redux/store';
+import OcProvider from '../../redux/ocProvider';
+import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 
 const ShopNavigation = (): JSX.Element => {
   // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
@@ -15,10 +20,21 @@ const ShopNavigation = (): JSX.Element => {
   const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
+  const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
 
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
     return src;
   };
+
+  const miniCart = isCommerceEnabled ? (
+    <Provider store={reduxStore}>
+      <OcProvider>
+        <MiniCart />
+      </OcProvider>
+    </Provider>
+  ) : (
+    <></>
+  );
 
   return (
     <nav className="shop-navigation">
@@ -106,12 +122,11 @@ const ShopNavigation = (): JSX.Element => {
               <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
             </li>
             <li className="shop-navigation-menu-item">
-              <Link href="/shop/checkout/cart" passHref>
-                <a>
-                  <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
-                </a>
-              </Link>
+              <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
+                <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
+              </button>
             </li>
+            <div className={`mini-cart-wrapper ${isMiniCartOpen && 'open'}`}>{miniCart}</div>
             <li className="shop-navigation-menu-item">
               <Link href="/account/login" passHref>
                 <a>

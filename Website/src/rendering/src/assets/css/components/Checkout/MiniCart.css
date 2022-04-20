@@ -1,0 +1,53 @@
+.mini-cart {
+  @apply max-w-[500px] p-6 bg-black  text-white;
+
+  &-wrapper {
+    @apply absolute top-[100%] right-0 translate-x-[100%] transition-all z-50;
+
+    &.open {
+      @apply translate-x-0;
+    }
+  }
+
+  &-subtotal {
+    @apply flex justify-between py-1 px-2 mb-4 font-bold bg-black-light;
+  }
+
+  &-list {
+    li {
+      @apply relative;
+    }
+
+    &-item {
+      @apply flex mb-4;
+    }
+
+    .item-image {
+      @apply w-14 flex-shrink-0 mr-2;
+    }
+
+    .item-name {
+      @apply font-bold mr-6;
+    }
+
+    .item-price {
+      @apply text-right;
+    }
+
+    .item-details {
+      @apply w-full text-sm;
+    }
+
+    .item-remove {
+      @apply absolute top-0 right-0 text-base font-bold text-black-lightest z-10;
+
+      &[disabled] {
+        @apply opacity-50;
+      }
+    }
+  }
+
+  &-footer {
+    @apply flex justify-between gap-2;
+  }
+}
