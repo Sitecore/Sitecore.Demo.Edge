@@ -43,6 +43,8 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     dispatch,
   } = props;
 
+  const [toggle, setToggle] = window.RFK.ui.useState(false);
+
   window.RFK.ui.useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const searchQuery = urlSearchParams.get('q');
@@ -91,6 +93,12 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
     dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
   };
 
+  const handleToggleClick = () => {
+    const isVisible = !toggle;
+    setToggle(isVisible);
+    document.body.classList.toggle('shop-facet-panel-open', isVisible);
+  };
+
   const numberOfResults =
     !loading &&
     totalPages > 0 &&
@@ -102,29 +110,45 @@ const FullPageSearch = (props: FullPageSearchProps): JSX.Element => {
 
   const noResultsMessage = totalItems === 0 && 'No results found';
 
+  const sortFacetProps = {
+    sortChoices,
+    sortType,
+    sortDirection,
+    onSortChange: handleSortChange,
+  };
+
   return window.RFK.ui.html`
     <div className="full-page-search">
       <div className="full-page-search-container">
+      <div className="facet-panel-mask"></div>
         <div className="full-page-search-left">
           <${FacetList}
             facets=${facets}
             onFacetClick=${handleFacetClick}
             onClear=${handleFacetClear}
+            sortFacetProps=${sortFacetProps}
+            onToggleClick=${handleToggleClick}
           />
+          <div className="button-container">
+            <button className="btn--main btn--main--round" onClick=${handleToggleClick}>Show ${totalItems} results</button>
+          </div>
         </div>
         <div className="full-page-search-right">
           <div data-page="${page}">
-            <div className="full-page-search-controls">
-              ${numberOfResults}
-              <${SearchControls}
-                totalPages=${totalPages}
-                page=${page}
-                sortChoices=${sortChoices}
-                sortType=${sortType}
-                sortDirection=${sortDirection}
-                onPageNumberChange=${handlePageNumberChange}
-                onSortChange=${handleSortChange}
-              />
+            <div className="full-page-search-header">
+              <div className="full-page-search-controls">
+                ${numberOfResults}
+                <${SearchControls}
+                  totalPages=${totalPages}
+                  page=${page}
+                  sortChoices=${sortChoices}
+                  sortType=${sortType}
+                  sortDirection=${sortDirection}
+                  onPageNumberChange=${handlePageNumberChange}
+                  onSortChange=${handleSortChange}
+                />
+              </div>
+              <button className="btn--main btn--main--round facet-container-toggle" onClick=${handleToggleClick}>Filter</button>
             </div>
             ${noResultsMessage}
             <${ProductList}
