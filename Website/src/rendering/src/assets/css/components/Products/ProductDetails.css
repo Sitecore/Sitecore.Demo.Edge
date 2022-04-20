@@ -14,7 +14,7 @@
 
         .image-active {
           > div {
-            @apply relative pt-[100%] -mx-[20px];
+            @apply relative pt-[100%] -mx-5;
             @apply sm:mx-0;
 
             img {
@@ -67,7 +67,7 @@
       }
 
       &-overview {
-        @apply col-span-1 -mx-[20px];
+        @apply col-span-1 -mx-5;
         @apply sm:col-span-2;
         @apply lg:col-span-1 lg:mx-0;
       }
