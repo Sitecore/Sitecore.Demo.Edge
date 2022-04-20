@@ -32,15 +32,8 @@ type FacetListProps = {
   facets: unknown[];
   onFacetClick: (...args: unknown[]) => void;
   onClear: (...args: unknown[]) => void;
-  sortFacetProps: sortFacetProps;
+  sortFacetProps: SortFacetProps;
   onToggleClick: (...args: unknown[]) => void;
-};
-
-type sortFacetProps = {
-  sortChoices: unknown;
-  sortType: unknown;
-  sortDirection: unknown;
-  onSortChange: () => void;
 };
 
 type SortFacetProps = {
