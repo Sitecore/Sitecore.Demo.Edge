@@ -67,12 +67,12 @@ const OrderReviewDetails = (): JSX.Element => {
     <div className="order-review-details shop-container">
       <h1>Order review</h1>
       <div className="grid-container">
-        <div className="panel">
+        <div className="panel line-items-panel">
           <div className="panel-header">
             <h2>Items</h2>
           </div>
           <div className="panel-body">
-            <LineItemList editable={false} />
+            <LineItemList editable={false} reviewOrder={true} />
           </div>
         </div>
         <div>

@@ -12,6 +12,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 type LineItemCardProps = {
   lineItem: DLineItem;
   editable?: boolean;
+  reviewOrder?: boolean;
 };
 
 const LineItemCard = (props: LineItemCardProps): JSX.Element => {
@@ -28,7 +29,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       return '';
     }
     const specValues = lineItem.Specs.map((spec) => <p key={spec.Value}>Color: {spec.Value}</p>);
-    return <div className="product-specs">{specValues}</div>;
+    return <>{specValues}</>;
   };
 
   const getImageUrl = (): string => {
@@ -149,13 +150,20 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       <div className="line-item-card-details">
         <h4 className="product-name">{props.lineItem.Product.Name}</h4>
         {productImage}
-        {getProductSpecs()}
+        <div className="product-specs">
+          {getProductSpecs()}
+          {props.reviewOrder && quantityBlock}
+        </div>
       </div>
       {userComment}
       {giftCheckbox}
       <div className="line-item-card-footer">
-        {quantityBlock}
-        {quantityAlert}
+        {!props.reviewOrder && (
+          <>
+            {quantityBlock}
+            {quantityAlert}
+          </>
+        )}
         {priceBlock}
       </div>
     </div>
