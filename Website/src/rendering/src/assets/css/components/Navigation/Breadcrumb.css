@@ -1,5 +1,9 @@
 .breadcrumb {
-  @apply max-w-screen-2xl mx-auto overflow-hidden bg-transparent p-7 capitalize text-blue;
+  @apply max-w-screen-2xl mx-auto overflow-hidden bg-transparent p-7 capitalize;
+
+  &.shop-breadcrumb {
+    @apply shop-container text-blue pt-4 pb-0;
+  }
 
   li {
     @apply inline-block;
