@@ -11,11 +11,11 @@ import {
 } from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 
-export interface fullPageSearchResultsProps extends SearchResultsWidgetProps {
+export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
 }
 
-const FullPageSearch = (props: fullPageSearchResultsProps): JSX.Element => {
+const FullPageSearch = (props: FullPageSearchResultsProps): JSX.Element => {
   const {
     error,
     loaded,

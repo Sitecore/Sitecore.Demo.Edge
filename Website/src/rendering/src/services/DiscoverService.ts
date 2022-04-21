@@ -8,7 +8,29 @@ export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
 }
 
-export const DiscoverService = (): void => {
+type DiscoverServiceOptions = {
+  isStorybook?: boolean;
+};
+
+export const DiscoverService = (options?: DiscoverServiceOptions): void => {
+  const DISCOVER_CUSTOMER_KEY = options?.isStorybook
+    ? '0-0'
+    : process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
+  const DISCOVER_API_KEY = options?.isStorybook
+    ? '0-0-0'
+    : process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
+
+  if (!DISCOVER_CUSTOMER_KEY || !DISCOVER_API_KEY) {
+    return;
+  }
+
+  setCredentials({
+    env: 'prod',
+    customerKey: `${DISCOVER_CUSTOMER_KEY}`,
+    apiKey: `${DISCOVER_API_KEY}`,
+    useToken: true,
+  });
+
   setWidget('rfkid_7', {
     component: FullPageSearch,
     type: WidgetDataType.SEARCH_RESULTS,
@@ -36,16 +58,6 @@ export const DiscoverService = (): void => {
   setWidget('ps_trending_categories', {
     type: WidgetDataType.PREVIEW_SEARCH,
     component: TrendingCategories,
-  });
-
-  const DISCOVER_CUSTOMER_KEY = process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
-  const DISCOVER_API_KEY = process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
-
-  setCredentials({
-    env: 'prod',
-    customerKey: `${DISCOVER_CUSTOMER_KEY}`,
-    apiKey: `${DISCOVER_API_KEY}`,
-    useToken: true,
   });
 
   init();
