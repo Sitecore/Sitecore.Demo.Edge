@@ -1,5 +1,7 @@
 .mini-cart {
-  @apply max-w-[500px] p-6 bg-black  text-white;
+  @apply w-full p-6 bg-black  text-white;
+  @apply sm:w-96;
+  @apply lg:w-[500px];
 
   &-wrapper {
     @apply absolute top-[100%] right-0 translate-x-[100%] transition-all z-50;
@@ -23,7 +25,11 @@
     }
 
     .item-image {
-      @apply w-14 flex-shrink-0 mr-2;
+      @apply w-14 h-14 flex-shrink-0 mr-2;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
     }
 
     .item-name {
@@ -48,6 +54,11 @@
   }
 
   &-footer {
-    @apply flex justify-between gap-2;
+    @apply flex flex-col justify-between gap-2;
+    @apply lg:flex-row;
+
+    > * {
+      @apply flex items-center justify-center flex-1 p-1;
+    }
   }
 }

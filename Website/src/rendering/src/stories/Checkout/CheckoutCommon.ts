@@ -8,6 +8,7 @@ export const cartState = {
       ID: 'lineitem1',
       Quantity: 1,
       ProductID: 'PSPCCCCBC',
+      LineSubtotal: 4,
       Product: {
         Name: 'CenterCycle Carbon Cycling Bottle Cage',
         xp: {
@@ -25,6 +26,7 @@ export const cartState = {
       ID: 'lineitem2',
       Quantity: 2,
       ProductID: 'PSPPSSGB',
+      LineSubtotal: 10,
       Product: {
         Name: 'Pro Staff Sunday Golf Bag',
         xp: {
@@ -42,6 +44,7 @@ export const cartState = {
       ID: 'lineitem3',
       Quantity: 3,
       ProductID: 'PSPRFSAW',
+      LineSubtotal: 5,
       Product: {
         Name: 'Robit Fitness Strengthening Ab Wheel',
         xp: {
@@ -76,6 +79,7 @@ export const cartState = {
       ID: 'lineitem4',
       Quantity: 100,
       ProductID: 'BUSINESS_CARDS',
+      LineSubtotal: 5,
       Product: {
         Name: 'Standard Business Cards that also have a super duper really long name',
         xp: {
@@ -93,7 +97,7 @@ export const cartState = {
   promotions: [] as unknown,
   initialized: true,
   order: {
-    LineItemCount: 3,
+    LineItemCount: 4,
     Subtotal: 24,
   },
 };

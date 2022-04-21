@@ -1,10 +1,11 @@
-import { DLineItem } from 'src/models/ordercloud/DLineItem';
+import { DLineItem } from '../../models/ordercloud/DLineItem';
 import Link from 'next/link';
-import { useAppDispatch } from 'src/redux/store';
+import { useAppDispatch } from '../../redux/store';
 import { useCallback, useState } from 'react';
-import { removeLineItem } from 'src/redux/ocCurrentCart';
+import { removeLineItem } from '../../redux/ocCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { getImageUrl } from '../../helpers/LineItemsHelpers';
 
 type MiniCartItemProps = {
   lineItem: DLineItem;
@@ -46,32 +47,9 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
     return <>{specValues}</>;
   };
 
-  const getImageUrl = (): string => {
-    const lineItem = props.lineItem;
-    if (!lineItem) {
-      return null;
-    }
-    if (lineItem.Variant?.xp?.Images?.length) {
-      return lineItem.Variant.xp.Images[0].Url;
-    }
-    if (lineItem.Product?.xp?.Images?.length) {
-      return lineItem.Product.xp.Images[0].Url;
-    }
-    return null;
-  };
-
-  const getItemUrl = (): string => {
-    const lineItem = props.lineItem;
-    const itemName = lineItem.Product?.Name?.toLowerCase().replaceAll(' ', '-');
-    const itemVariant = lineItem.Variant?.ID;
-    const url = `/shop/products/${lineItem.ProductID}${`/${itemName}`}${`/${itemVariant}`}`;
-
-    return url;
-  };
-
   const productImage = (
     <img
-      src={getImageUrl() || '/assets/img/shop/category-placeholder.png'}
+      src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
       alt={props.lineItem.Product.Name}
     ></img>
   );
@@ -79,11 +57,13 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
   return (
     <li>
       {btnRemove}
-      <Link href={getItemUrl()}>
+      <Link href="#">
+        {/* TODO: get url from ordercloud data once implemented */}
         <a className="mini-cart-list-item">
           <div className="item-image">{productImage}</div>
           <div className="item-details">
             <h4 className="item-name">{props.lineItem.Product.Name}</h4>
+            <p>Brand</p> {/* TODO: get brand from ordercloud data once implemented */}
             {getProductSpecs()}
             <p>Quantity: {props.lineItem.Quantity}</p>
             <p className="item-price">${props.lineItem.LineSubtotal}</p>

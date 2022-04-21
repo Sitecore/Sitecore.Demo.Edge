@@ -4,6 +4,7 @@ import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import { getItemsCount } from '../../helpers/LineItemsHelpers';
 
 type CheckoutSummaryProps = {
   orderComments?: string;
@@ -12,7 +13,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
+  const { order, shipEstimateResponse, shippingAddress, payments, lineItems } = useOcCurrentOrder();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
@@ -63,7 +64,8 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     return true;
   };
 
-  const numberOfItems = order && `${order.LineItemCount} item${order.LineItemCount > 1 ? 's' : ''}`;
+  const numberOfItems =
+    order && `${getItemsCount(lineItems)} item${getItemsCount(lineItems) > 1 ? 's' : ''}`;
 
   const subtotal = order && (
     <>

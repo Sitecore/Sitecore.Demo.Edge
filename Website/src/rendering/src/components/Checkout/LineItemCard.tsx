@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { getImageUrl } from '../../helpers/LineItemsHelpers';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -31,20 +32,6 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     return <div className="product-specs">{specValues}</div>;
   };
 
-  const getImageUrl = (): string => {
-    const lineItem = props.lineItem;
-    if (!lineItem) {
-      return null;
-    }
-    if (lineItem.Variant?.xp?.Images?.length) {
-      return lineItem.Variant.xp.Images[0].Url;
-    }
-    if (lineItem.Product?.xp?.Images?.length) {
-      return lineItem.Product.xp.Images[0].Url;
-    }
-    return null;
-  };
-
   const handleRemoveLineItem = useCallback(async () => {
     setLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
@@ -64,10 +51,9 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
-  // TODO: add branded placeholder img
   const productImage = (
     <img
-      src={getImageUrl() || 'https://via.placeholder.com/100'}
+      src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
       alt={props.lineItem.Product.Name}
     ></img>
   );
