@@ -8,22 +8,21 @@ export type RightColumnProps = {
   selectedKeyword: string;
 };
 
-const RightColumn = (props: RightColumnProps): JSX.Element => {
-  const { products, loaded, loading, selectedKeyword } = props;
-
-  // TODO: Replace the "View all" link by a link to the search page with the currently typed keyword or the current view of the top results.
-
-  return (
-    <>
-      <div className="right-section">
-        <h2 className="right-section-title">Top results</h2>
-        <a href={'/shop/products/?q=' + selectedKeyword} className="view-all-link">
-          View all
-        </a>
-        <ProductList products={products} loaded={loaded} loading={loading} />
-      </div>
-    </>
-  );
-};
+const RightColumn = ({
+  products,
+  loaded,
+  loading,
+  selectedKeyword,
+}: RightColumnProps): JSX.Element => (
+  <div className="right-section">
+    <h2 className="right-section-title">Top results</h2>
+    {/* TODO: Replace the "View all" link by a link to the search page with the currently typed keyword or the currently viewed results (based on the hovered item in the left column). */}
+    {/* TODO: change for a next/Link component */}
+    <a href={'/shop/products/?q=' + selectedKeyword} className="view-all-link">
+      View all
+    </a>
+    <ProductList products={products} loaded={loaded} loading={loading} />
+  </div>
+);
 
 export default RightColumn;

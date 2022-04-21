@@ -11,31 +11,29 @@ import {
 } from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 
-export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
+interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
 }
 
-const FullPageSearch = (props: FullPageSearchResultsProps): JSX.Element => {
-  const {
-    error,
-    loaded,
-    loading,
-    page,
-    keyphrase,
-    totalPages,
-    totalItems,
-    sortType,
-    sortDirection,
-    sortChoices,
-    products,
-    facets,
-    dispatch,
-    onFacetClick,
-    onClearFilters,
-    onPageNumberChange,
-    onSortChange,
-  } = props;
-
+const FullPageSearch = ({
+  error,
+  loaded,
+  loading,
+  page,
+  keyphrase,
+  totalPages,
+  totalItems,
+  sortType,
+  sortDirection,
+  sortChoices,
+  products,
+  facets,
+  dispatch,
+  onFacetClick,
+  onClearFilters,
+  onPageNumberChange,
+  onSortChange,
+}: FullPageSearchResultsProps): JSX.Element => {
   const setInitialKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
       dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),

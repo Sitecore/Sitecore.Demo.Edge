@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import debounce from '../../helpers/Debounce';
 import { Action } from '@sitecore-discover/react';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
+import Link from 'next/link';
 
-export type Category = {
+type Category = {
   id: string;
   in_content: string;
   text: string;
@@ -46,13 +47,15 @@ const TrendingCategories = ({
 
   return loaded && !loading ? (
     <ul>
-      {trendingCategories?.map((cat: Category) => {
+      {trendingCategories?.map((category: Category) => {
         return (
-          <li key={cat.id}>
-            <a href={cat.url}>
-              <img src="/assets/img/shop/category-placeholder.png" alt={cat.text} />
-              <h4>{cat.text}</h4>
-            </a>
+          <li key={category.id}>
+            <Link href={category.url}>
+              <a>
+                <img src="/assets/img/shop/category-placeholder.png" alt={category.text} />
+                <h4>{category.text}</h4>
+              </a>
+            </Link>
           </li>
         );
       })}

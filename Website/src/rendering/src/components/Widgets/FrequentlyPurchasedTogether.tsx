@@ -6,7 +6,7 @@ type Product = {
   price: string;
 };
 
-export interface FrequentlyPurchasedTogetherProps extends RecommendationWidgetProps {
+interface FrequentlyPurchasedTogetherProps extends RecommendationWidgetProps {
   rfkId: string;
 }
 

@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 
-export type SearchControlsProps = {
+type SearchControlsProps = {
   totalPages: number;
   page: number;
   sortChoices: unknown[];
@@ -15,9 +15,12 @@ type SortChangeRequest = {
   sortDirection: unknown;
 };
 
-const SearchControls = (props: SearchControlsProps): JSX.Element => {
-  const { totalPages, sortChoices, onPageNumberChange, onSortChange } = props;
-
+const SearchControls = ({
+  totalPages,
+  sortChoices,
+  onPageNumberChange,
+  onSortChange,
+}: SearchControlsProps): JSX.Element => {
   const handlePageChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
     onPageNumberChange((target as HTMLSelectElement).value);
   };
@@ -27,22 +30,23 @@ const SearchControls = (props: SearchControlsProps): JSX.Element => {
     onSortChange({ sortType: sort[0], sortDirection: sort[1] });
   };
 
+  const pagination = totalPages > 1 && (
+    <div className="control-page">
+      <label>Page:</label>
+      <select onChange={(event) => handlePageChange(event)}>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((dropdownPageNumber) => (
+          <option value={dropdownPageNumber} key={dropdownPageNumber}>
+            {dropdownPageNumber}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+
   // TODO: Implement load more button instead of pagination
   return (
     <>
-      {totalPages > 1 && (
-        <div className="control-page">
-          <label>Page:</label>
-          <select onChange={(event) => handlePageChange(event)}>
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((dropdownPageNumber) => (
-              <option value={dropdownPageNumber} key={dropdownPageNumber}>
-                {dropdownPageNumber}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
-
+      {pagination}
       <div className="control-sort">
         <label>Sort by:</label>
         <select onChange={(event) => handleSortChange(event)}>

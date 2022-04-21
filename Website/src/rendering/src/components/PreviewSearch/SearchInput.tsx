@@ -1,7 +1,7 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
-import { KeyboardEvent, useRef } from 'react';
+import { useRouter } from 'next/router';
+import { KeyboardEvent, useEffect, useRef } from 'react';
 
 // TODO: add story for component
 
@@ -14,10 +14,30 @@ type SearchInputProps = {
   setOpen: (value: boolean) => void;
 };
 
-const SearchInput = (props: SearchInputProps): JSX.Element => {
-  const { keyphrase, setSearchString, onFocus, placeholder, redirectUrl, setOpen } = props;
-
+const SearchInput = ({
+  setSearchString,
+  onFocus,
+  placeholder,
+  redirectUrl,
+  setOpen,
+}: SearchInputProps): JSX.Element => {
+  const router = useRouter();
   const ref = useRef(null);
+
+  useEffect(() => {
+    const searchTermQueryStringValue = router.query['q'];
+    if (searchTermQueryStringValue) {
+      let searchTerm = '';
+
+      if (typeof searchTermQueryStringValue === 'string') {
+        searchTerm = searchTermQueryStringValue as string;
+      } else if (typeof searchTermQueryStringValue === 'object') {
+        searchTerm = searchTermQueryStringValue[0];
+      }
+
+      (ref.current as HTMLInputElement).value = searchTerm;
+    }
+  }, [router.query]);
 
   const keyListener = (event: KeyboardEvent): void => {
     switch (event.key) {
@@ -25,18 +45,27 @@ const SearchInput = (props: SearchInputProps): JSX.Element => {
         setOpen(false);
         break;
       case 'Enter':
-        // TO-DO - Next.js-friendly way to redirect
-        window.location.href = `${redirectUrl}${keyphrase}`;
+        redirectToSearchPage((event.target as HTMLInputElement).value);
     }
+  };
+
+  const handleSearchIconClick = () => {
+    redirectToSearchPage((ref.current as HTMLInputElement).value);
+  };
+
+  const redirectToSearchPage = (searchTerm: string) => {
+    // TODO: Use Next.js router push() function instead
+    window.location.href = `${redirectUrl}${searchTerm}`;
   };
 
   return (
     <>
-      <Link href={`/shop/products?q=${keyphrase}`}>
-        <a>
-          <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
-        </a>
-      </Link>
+      <FontAwesomeIcon
+        id="search-icon"
+        className="shop-search-icon"
+        icon={faSearch}
+        onClick={handleSearchIconClick}
+      />
       <input
         id="search-input"
         className="shop-search-input"
@@ -45,6 +74,7 @@ const SearchInput = (props: SearchInputProps): JSX.Element => {
         onFocus={(e) => onFocus(e.target.value || '')}
         placeholder={placeholder}
         onKeyUp={keyListener}
+        autoComplete="off"
       />
     </>
   );

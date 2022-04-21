@@ -12,19 +12,17 @@ export interface PreviewSearchProps extends PreviewSearchWidgetProps {
   rfkId: string;
 }
 
-const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
-  const {
-    loaded,
-    loading,
-    products,
-    keyphrase,
-    trendingCategories,
-    categories,
-    suggestions,
-    redirectUrl,
-    dispatch,
-  } = props;
-
+const PreviewSearch = ({
+  loaded,
+  loading,
+  products,
+  keyphrase,
+  trendingCategories,
+  categories,
+  suggestions,
+  redirectUrl,
+  dispatch,
+}: PreviewSearchProps): JSX.Element => {
   const changeKeyphrase: (text: string) => void = debounce(
     (text) => {
       const changeKeyphraseAction: Action = {
@@ -78,37 +76,36 @@ const PreviewSearch = (props: PreviewSearchProps): JSX.Element => {
   );
 
   const [open, setOpen] = useState(false);
-
   const containerRef = useRef(null);
 
   ClickOutside(containerRef, () => setOpen(false));
 
+  const openedPopup = open && (
+    <div className="preview-search-modal-container">
+      <LeftColumn
+        categories={categories}
+        suggestions={suggestions}
+        trendingCategories={trendingCategories}
+        loading={loading}
+        loaded={loaded}
+        onCategoryChanged={changeCategory}
+        onTrendingCategoryChanged={changeTrendingCategory}
+        onSuggestionChanged={changeSuggestion}
+        redirectUrl={redirectUrl}
+      />
+      <RightColumn
+        selectedKeyword={keyphrase}
+        products={products}
+        loading={loading}
+        loaded={loaded}
+      />
+    </div>
+  );
+
   return (
     <>
       <div className="preview-search-container" ref={containerRef}>
-        <div className="preview-search">
-          {open && (
-            <div className="preview-search-modal-container">
-              <LeftColumn
-                categories={categories}
-                suggestions={suggestions}
-                trendingCategories={trendingCategories}
-                loading={loading}
-                loaded={loaded}
-                onCategoryChanged={changeCategory}
-                onTrendingCategoryChanged={changeTrendingCategory}
-                onSuggestionChanged={changeSuggestion}
-                redirectUrl={redirectUrl}
-              />
-              <RightColumn
-                selectedKeyword={keyphrase}
-                products={products}
-                loading={loading}
-                loaded={loaded}
-              />
-            </div>
-          )}
-        </div>
+        <div className="preview-search">{openedPopup}</div>
       </div>
       <SearchInput
         redirectUrl={redirectUrl}

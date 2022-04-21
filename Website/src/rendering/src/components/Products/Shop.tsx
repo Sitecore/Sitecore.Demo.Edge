@@ -1,6 +1,5 @@
 import { PropsWithChildren } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import ShopNavigation from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
@@ -63,28 +62,3 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
     </>
   );
 };
-
-export const Product = (props: ProductProps): JSX.Element => (
-  <div className="product">
-    <Link href={`/shop/products/${props.sku}`}>
-      <a>
-        <img className="product-image" src={props.image_url} alt="Product image" />
-        <div className="product-details">
-          <b>{props.name || 'Product Name'}</b>
-          <p>{props.vendor || 'Vendor Name'}</p>
-          <p>${props.price}</p>
-        </div>
-      </a>
-    </Link>
-  </div>
-);
-
-// Interfaces
-
-export interface ProductProps {
-  image_url: string;
-  price: number;
-  name?: string;
-  vendor?: string;
-  sku: string;
-}
