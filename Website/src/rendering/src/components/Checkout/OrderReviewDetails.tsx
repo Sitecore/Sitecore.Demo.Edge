@@ -4,7 +4,6 @@ import LineItemList from './LineItemList';
 
 const OrderReviewDetails = (): JSX.Element => {
   const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
-  console.log({ order, shipEstimateResponse, shippingAddress, payments });
 
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.[0];
   const deliveryMethod = shipEstimate?.ShipMethods?.filter(
@@ -40,7 +39,7 @@ const OrderReviewDetails = (): JSX.Element => {
   const paymentPanelContent = (
     <>
       <div>
-        <p className="title">Billing address:</p>
+        <p className="title billing-title">Billing address:</p>
         <p>
           {order?.BillingAddress?.FirstName} {order?.BillingAddress?.LastName}
         </p>

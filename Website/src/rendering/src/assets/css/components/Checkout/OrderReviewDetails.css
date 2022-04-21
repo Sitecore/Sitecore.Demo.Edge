@@ -1,8 +1,14 @@
 .order-review-details {
   @apply mb-5;
 
+  &.shop-container {
+    @apply px-0;
+    @apply sm:px-5;
+  }
+
   h1 {
-    @apply text-2xl font-bold mb-3;
+    @apply text-2xl font-bold mb-3 px-5;
+    @apply sm:px-0;
   }
 
   .grid-container {
@@ -17,10 +23,14 @@
       }
 
       &-body {
-        @apply px-3 py-6 mb-3 text-sm;
+        @apply px-3 py-4 mb-3 text-sm;
 
         .title {
-          @apply font-bold mt-3;
+          @apply font-bold;
+
+          &:not(.billing-title) {
+            @apply mt-3;
+          }
         }
       }
 
@@ -34,7 +44,8 @@
     }
 
     .line-item-card {
-      @apply p-2 my-4 bg-white;
+      @apply px-5 py-2 my-4 bg-white;
+      @apply sm:px-2;
 
       &-details {
         @apply grid gap-x-4 grid-cols-[auto_1fr] mb-2;
@@ -57,17 +68,19 @@
       @apply flex flex-col mt-4;
 
       .summary-line {
-        @apply flex justify-between py-1 px-3;
+        @apply flex justify-between px-3;
       }
 
       .shipping-line {
+        @apply pt-2;
+
         .line-amount {
           @apply text-blue;
         }
       }
 
       .total-line {
-        @apply bg-white font-bold mt-3;
+        @apply bg-white font-bold mt-4;
       }
 
       button {
