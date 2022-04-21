@@ -12,7 +12,6 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 type LineItemCardProps = {
   lineItem: DLineItem;
   editable?: boolean;
-  reviewOrder?: boolean;
 };
 
 const LineItemCard = (props: LineItemCardProps): JSX.Element => {
@@ -109,18 +108,20 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     </button>
   );
 
-  const quantityBlock = props.editable ? (
+  const staticQuantityBlock = !props.editable && (
+    <p className="quantity-static">
+      <span className="quantity-label">Quantity: </span>
+      <span className="quantity-num">{props.lineItem.Quantity}</span>
+    </p>
+  );
+
+  const editableQuantityBlock = props.editable && (
     <>
       {quantityInput}
       {btnRemove}
       {btnWishList}
       {btnSaveLater}
     </>
-  ) : (
-    <p className="quantity-static">
-      <span className="quantity-label">Quantity: </span>
-      <span className="quantity-num">{props.lineItem.Quantity}</span>
-    </p>
   );
 
   const giftCheckbox = props.editable && (
@@ -133,7 +134,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   );
 
   // TODO: add functionality to field
-  const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
+  const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
   // TODO: add functionality to block (specs to return base and final price)
   // can use Price component when extracted
@@ -152,18 +153,14 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         {productImage}
         <div className="product-specs">
           {getProductSpecs()}
-          {props.reviewOrder && quantityBlock}
+          {staticQuantityBlock}
         </div>
       </div>
       {userComment}
       {giftCheckbox}
       <div className="line-item-card-footer">
-        {!props.reviewOrder && (
-          <>
-            {quantityBlock}
-            {quantityAlert}
-          </>
-        )}
+        {editableQuantityBlock}
+        {quantityAlert}
         {priceBlock}
       </div>
     </div>

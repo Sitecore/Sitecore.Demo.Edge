@@ -3,7 +3,6 @@ import LineItemCard from './LineItemCard';
 
 type LineItemListProps = {
   editable?: boolean;
-  reviewOrder?: boolean;
 };
 
 const LineItemList = (props: LineItemListProps): JSX.Element => {
@@ -13,11 +12,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
     <ol className="line-item-list">
       {lineItems.map((lineItem) => (
         <li key={lineItem.ID}>
-          <LineItemCard
-            lineItem={lineItem}
-            editable={props.editable}
-            reviewOrder={props.reviewOrder}
-          />
+          <LineItemCard lineItem={lineItem} editable={props.editable} />
         </li>
       ))}
     </ol>

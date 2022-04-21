@@ -72,7 +72,7 @@ const OrderReviewDetails = (): JSX.Element => {
             <h2>Items</h2>
           </div>
           <div className="panel-body">
-            <LineItemList editable={false} reviewOrder={true} />
+            <LineItemList editable={false} />
           </div>
         </div>
         <div>
