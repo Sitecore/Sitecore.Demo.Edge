@@ -9,9 +9,7 @@ type PriceProps = {
   sizeL?: boolean;
 };
 
-const Price = (props: PriceProps): JSX.Element => {
-  const { max, min, price, finalPrice, altTheme, sizeL } = props;
-
+const Price = ({ max, min, price, finalPrice, altTheme, sizeL }: PriceProps): JSX.Element => {
   if (max) {
     return (
       <div className={`price ${altTheme && 'price-orange'} ${sizeL && 'price-large'}`}>
@@ -50,9 +48,14 @@ const Price = (props: PriceProps): JSX.Element => {
 export default Price;
 
 // TODO: Merge into one after npm package is integrated
-export const PriceReact = (props: PriceProps): JSX.Element => {
-  const { max, min, price, finalPrice, altTheme, sizeL } = props;
-
+export const PriceReact = ({
+  max,
+  min,
+  price,
+  finalPrice,
+  altTheme,
+  sizeL,
+}: PriceProps): JSX.Element => {
   if (max) {
     return (
       <div className={`price ${altTheme && 'price-orange'} ${sizeL && 'price-large'}`}>

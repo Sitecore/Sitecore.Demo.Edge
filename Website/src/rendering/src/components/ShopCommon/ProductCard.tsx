@@ -16,29 +16,29 @@ type ProductCardProps = {
   brand?: string;
 };
 
-const ProductCard = (props: ProductCardProps): JSX.Element => {
-  const {
-    onClick,
-    product_url,
-    name,
-    final_price_min_formatted,
-    final_price_max_formatted,
-    final_price,
-    price,
-    image_url,
-    brand,
-  } = props;
-
+const ProductCard = ({
+  onClick,
+  product_url,
+  name,
+  final_price_min_formatted,
+  final_price_max_formatted,
+  final_price,
+  price,
+  image_url,
+  brand,
+}: ProductCardProps): JSX.Element => {
   // TODO: add functionality to offer ribbon
   return (
     <div className="product-card">
       <div className="product-image-container">
+        {/* TODO: change for a next/Link component */}
         <a href={product_url} onClick={onClick}>
           <img className="product-image" src={image_url} alt={name} />
           <span className="product-offer">Spring Sale!</span>
         </a>
       </div>
       <div className="product-info-container">
+        {/* TODO: change for a next/Link component */}
         <a href={product_url}>
           <div className="product-name">{name}</div>
           <div className="product-brand">{brand}</div>
