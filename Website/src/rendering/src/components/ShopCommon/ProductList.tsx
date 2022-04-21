@@ -25,7 +25,7 @@ const ProductList = ({
       {ready &&
         products.map((product) => (
           <li key={product.sku} className="product-list-item">
-            <ProductCard key={product.sku} {...product} onClick={onProductClick} />
+            <ProductCard {...product} onClick={onProductClick} />
           </li>
         ))}
     </ul>

@@ -25,7 +25,7 @@ const SearchInput = ({
   const ref = useRef(null);
 
   useEffect(() => {
-    const searchTermQueryStringValue = router.query['q'];
+    const searchTermQueryStringValue = router?.query['q'];
     if (searchTermQueryStringValue) {
       let searchTerm = '';
 
@@ -37,7 +37,7 @@ const SearchInput = ({
 
       (ref.current as HTMLInputElement).value = searchTerm;
     }
-  }, [router.query]);
+  }, [router?.query]);
 
   const keyListener = (event: KeyboardEvent): void => {
     switch (event.key) {
