@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler, useState } from 'react';
 
 type FacetValueProps = {
   values: unknown[];
@@ -25,6 +25,20 @@ type FacetListProps = {
   facets: unknown[];
   onFacetClick: (...args: unknown[]) => void;
   onClear: (...args: unknown[]) => void;
+  sortFacetProps: SortFacetProps;
+  onToggleClick: (...args: unknown[]) => void;
+};
+
+type SortFacetProps = {
+  sortChoices: unknown[];
+  sortType: unknown;
+  sortDirection: unknown;
+  onSortChange: (change: SortChangeRequest) => void;
+};
+
+type SortChangeRequest = {
+  sortType: unknown;
+  sortDirection: unknown;
 };
 
 const FacetValues = ({
@@ -160,7 +174,56 @@ const ActiveFacetValues = ({
   </ul>
 );
 
-const FacetList = ({ facets, onFacetClick, onClear }: FacetListProps): JSX.Element => {
+const SortFacet = ({
+  sortChoices,
+  sortType,
+  sortDirection,
+  onSortChange,
+}: SortFacetProps): JSX.Element => {
+  const [toggle, setToggle] = useState(false);
+
+  const handleTitleClick = () => setToggle(!toggle);
+
+  const handleSortChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const sort = (target as HTMLInputElement).value.split('#');
+    onSortChange({ sortType: sort[0], sortDirection: sort[1] });
+  };
+
+  return (
+    <div className={toggle ? 'expanded facet' : 'facet'} data-type="sort">
+      <div className="facet-title" onClick={handleTitleClick}>
+        <span>Sort by</span>
+      </div>
+      <div className="facet-values">
+        {sortChoices?.map(({ label, name, order }) => {
+          const inputId = `${name}#${order}`;
+          const isChecked = name === sortType && order === sortDirection;
+
+          return (
+            <>
+              <input
+                type="radio"
+                checked={isChecked}
+                value={inputId}
+                id={inputId}
+                onChange={handleSortChange}
+              />
+              <label htmlFor={inputId}>{label}</label>
+            </>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const FacetList = ({
+  facets,
+  onFacetClick,
+  onClear,
+  sortFacetProps,
+  onToggleClick,
+}: FacetListProps): JSX.Element => {
   let acumIndex = 0;
 
   const activeFilters = facets?.some(({ values = [] }) =>
@@ -194,8 +257,12 @@ const FacetList = ({ facets, onFacetClick, onClear }: FacetListProps): JSX.Eleme
   // TODO: Implement and style range filters (e.g. min - max price)
   return (
     <div className="facet-container">
+      <button className="btn--secondary facet-container-toggle" onClick={onToggleClick}>
+        Filter
+      </button>
       {activeFilters}
       <div className="facet-list">
+        <SortFacet {...sortFacetProps} />
         {facets?.map(({ facetType, values, display_name }, tindex) => {
           const componentHtml = (
             <Facet

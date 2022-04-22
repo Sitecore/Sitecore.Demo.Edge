@@ -39,6 +39,7 @@
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
 @import './components/Checkout/QuantityInput.css';
+@import './components/Checkout/ThankYouHero.css';
 @import './components/Checkout/ThankYouSection.css';
 
 /* Forms */
