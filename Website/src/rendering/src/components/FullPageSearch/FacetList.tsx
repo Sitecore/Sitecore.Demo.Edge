@@ -196,13 +196,13 @@ const SortFacet = ({
       <div className="facet-title" onClick={handleTitleClick}>
         <span>Sort by</span>
       </div>
-      <div className="facet-values">
+      <ul className="facet-values">
         {sortChoices?.map(({ label, name, order }) => {
           const inputId = `${name}#${order}`;
           const isChecked = name === sortType && order === sortDirection;
 
           return (
-            <>
+            <li key={inputId}>
               <input
                 type="radio"
                 checked={isChecked}
@@ -211,10 +211,10 @@ const SortFacet = ({
                 onChange={handleSortChange}
               />
               <label htmlFor={inputId}>{label}</label>
-            </>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
