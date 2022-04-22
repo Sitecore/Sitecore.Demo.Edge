@@ -34,14 +34,14 @@ const FullPageSearch = ({
   onPageNumberChange,
   onSortChange,
 }: FullPageSearchResultsProps): JSX.Element => {
+  const [toggle, setToggle] = useState(false);
+
   const setInitialKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
       dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
     500,
     false
   );
-
-  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -77,17 +77,11 @@ const FullPageSearch = ({
     onSortChange(payload);
   };
 
-  const handleProductClick = (payload: PointerEvent) => {
-    // TODO: Find a replacement for that action that does not seem available in the SDK for full page search widgets
-    // dispatch(window.RFK.widgets.SearchResultsActions.PRODUCT_CLICKED, payload);
-  };
-
   const handleToggleClick = () => {
     const isVisible = !toggle;
     setToggle(isVisible);
     document.body.classList.toggle('shop-facet-panel-open', isVisible);
   };
-
 
   const numberOfResults = !loading && totalPages > 0 && (
     <div className="items-num">{totalItems} items</div>

@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 type FacetValueProps = {
   values: unknown[];
@@ -189,8 +189,10 @@ const SortFacet = ({
     onSortChange({ sortType: sort[0], sortDirection: sort[1] });
   };
 
+  const cssClass = toggle ? 'expanded facet' : 'facet';
+
   return (
-    <div className={toggle ? 'expanded facet' : 'facet'} data-type="sort">
+    <div className={cssClass} data-type="sort">
       <div className="facet-title" onClick={handleTitleClick}>
         <span>Sort by</span>
       </div>
