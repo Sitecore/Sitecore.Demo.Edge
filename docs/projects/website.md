@@ -81,28 +81,28 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
 1. Edit the `.\.env` file.
 2. Fill the following values:
-   1. **CMP_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;`
-   2. **CMP_ServiceBusEntityPathIn**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID`
-   3. **CMP_ServiceBusSubscription**: `hub_out_subscription`
-   4. **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
-   5. **DAM_ContentHub**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud`
-   6. **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
+   - **CMP_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;`
+   - **CMP_ServiceBusEntityPathIn**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID`
+   - **CMP_ServiceBusSubscription**: `hub_out_subscription`
+   - **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
+   - **DAM_ContentHub**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud`
+   - **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
 3. Save the file.
 
 ### Optional: Commerce Configuration
 
-If you want the website to use Commerce you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
+If you want the commerce section of the website you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
 
 1. Edit the `.\.env` file.
-2. Fill the following values
-   1. **ORDERCLOUD_BUYER_CLIENT_ID**: `YOUR_BUYER_APPLICATION_CLIENT_ID`
-   2. **ORDERCLOUD_BASE_API_URL**: `BASE_API_URL_FOR_YOUR_REGION_AND_ENVIRONMENT`
-   3. **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
-   4. **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
-   5. **ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS**: `COMMA_DELIMITED_CLIENTIDS_ALLOWED_TO_MAKE_REQUESTS_TO_MIDDLEWARE`
-   5. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
-   7. **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
-   8. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
+2. Fill the following values:
+   - **ORDERCLOUD_BUYER_CLIENT_ID**: `YOUR_BUYER_APPLICATION_CLIENT_ID`
+   - **ORDERCLOUD_BASE_API_URL**: `BASE_API_URL_FOR_YOUR_REGION_AND_ENVIRONMENT`
+   - **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
+   - **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
+   - **ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS**: `COMMA_DELIMITED_CLIENTIDS_ALLOWED_TO_MAKE_REQUESTS_TO_MIDDLEWARE`
+   - **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
+   - **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
+   - **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
 3. Save the file.
 
 ## Running the Website
@@ -172,6 +172,19 @@ The content of the project is mapped to the Rendering container using a Docker v
 #### Debugging the Rendering Next.js Project
 
 Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
+
+#### Building the Rendering Next.js Project Locally
+
+If you ever have to build the Next.js application in a command line:
+
+1. Stop the "rendering" Docker container.
+   - Because the rendering container has a mapped folder to `.\Website\src\rendering` and is running `npm run dev`, it shares the same build output folder as `next build`. Building for production while the container is running will produce all kind of errors.
+2. Run `npm run build:local`
+   - Some website code depends on environment variables that are set through the rendering Docker container. When building in a command line, those environment variables require fake values for the build to succeed. This command sets those fake values before starting the build.
+
+When you are done:
+
+1. Start the "rendering" Docker container.
 
 ### Items Serialization
 
