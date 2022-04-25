@@ -1,17 +1,37 @@
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { useUser } from '@auth0/nextjs-auth0';
 
 import Link from 'next/link';
 
-export type HeaderProps = ComponentProps;
+export type HeaderProps = ComponentProps & {
+  fields: {
+    data: {
+      item: {
+        children: {
+          results: [
+            {
+              displayName: string;
+              field: {
+                jsonValue: {
+                  value: {
+                    anchor: string;
+                    href: string;
+                    linktype: string;
+                    target: string;
+                    text: string;
+                    url: string;
+                  };
+                };
+              };
+            }
+          ];
+        };
+      };
+    };
+  };
+};
 
 const Header = (props: HeaderProps): JSX.Element => {
-  const { user, error, isLoading } = useUser();
-  console.log(user);
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
-  /* eslint-disable */
   return (
     <>
       <div className="header-eyebrow">
@@ -19,19 +39,16 @@ const Header = (props: HeaderProps): JSX.Element => {
           <Link href="#" prefetch={false}>
             <a>EN</a>
           </Link>
-          {!user && <a href="/api/auth/login">Login</a>}
-          {user && (
-            <>
-              <a href="#">{user?.name}</a>
-              <a href="/api/auth/logout">Logout</a>
-            </>
-          )}
+          {props.fields?.data?.item?.children?.results?.map((item, index) => (
+            <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
+              <a>{item.displayName}</a>
+            </Link>
+          ))}
         </div>
       </div>
       <Placeholder name="jss-header-content" rendering={props.rendering} />
     </>
   );
-  /* eslint-enable */
 };
 
 export default Header;

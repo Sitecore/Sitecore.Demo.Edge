@@ -133,6 +133,8 @@ namespace Sitecore.Demo.Init.Jobs
             var orderCloudMiddlewareClientSecret = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET");
             var orderCloudMiddlewareAllowedClientIds = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS");
             var orderCloudWebhookHashKey = Environment.GetEnvironmentVariable("ORDERCLOUD_WEBHOOK_HASH_KEY");
+            var orderCloudProfiledBuyerId = Environment.GetEnvironmentVariable("ORDERCLOUD_PROFILED_BUYER_ID");
+            var orderCloudOpenIdConnectId = Environment.GetEnvironmentVariable("ORDERCLOUD_OPENID_CONNECT_ID");
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
 
@@ -183,6 +185,10 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{orderCloudBuyerClientId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudBaseApiUrl}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudProfiledBuyerId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_PROFILED_BUYER_ID production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{orderCloudOpenIdConnectId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudMiddlewareClientId}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_ID production --token {token} --scope {scope}");
             cmd.Run(

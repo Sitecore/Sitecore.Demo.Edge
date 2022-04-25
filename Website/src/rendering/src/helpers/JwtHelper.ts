@@ -1,23 +1,7 @@
 import { DecodedToken } from 'ordercloud-javascript-sdk';
 
-export interface JwtHeader {
-  alg: string;
-  kid: string;
-  type: string;
-}
-
-export default function parseJwt(token: string): DecodedToken {
-  const decoded = parse(token, 'header');
-  return decoded as DecodedToken;
-}
-
-export function parseJwtBody(token: string): JwtHeader {
-  const decoded = parse(token, 'body');
-  return decoded as JwtHeader;
-}
-
-function parse(token: string, type: 'body' | 'header') {
-  const base64 = token.split('.')[type === 'body' ? 0 : 1].replace(/-/g, '+').replace(/_/g, '/');
+export function parseJwt(token: string, type: 'body' | 'header' = 'body'): unknown {
+  const base64 = token.split('.')[type === 'header' ? 0 : 1].replace(/-/g, '+').replace(/_/g, '/');
   const decoded = JSON.parse(
     decodeURIComponent(
       (typeof window !== 'undefined' ? atob(base64) : Buffer.from(base64, 'base64').toString())
@@ -29,4 +13,34 @@ function parse(token: string, type: 'body' | 'header') {
     )
   );
   return decoded;
+}
+
+export function parseOrderCloudJwt(token: string): DecodedToken {
+  return parseJwt(token) as DecodedToken;
+}
+
+export function isTokenExpired(token: string): boolean {
+  try {
+    if (!token) {
+      return true;
+    }
+    const decoded = parseOrderCloudJwt(token);
+    const currentSeconds = Date.now() / 1000;
+    const currentSecondsWithBuffer = currentSeconds - 10;
+    return decoded.exp < currentSecondsWithBuffer;
+  } catch {
+    return true;
+  }
+}
+
+export function isAnonymousToken(token: string): boolean {
+  try {
+    if (!token) {
+      return true;
+    }
+    const decoded = parseOrderCloudJwt(token);
+    return Boolean(decoded.orderid);
+  } catch {
+    return true;
+  }
 }

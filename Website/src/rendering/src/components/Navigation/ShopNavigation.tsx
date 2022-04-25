@@ -8,6 +8,16 @@ import {
   faChevronDown,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import useOcAuth from 'src/hooks/useOcAuth';
+import { Tokens } from 'ordercloud-javascript-sdk';
+import { orderCloudScope } from 'src/constants/ordercloud-scope';
+import { isLoginEnabled } from 'temp/config';
+import { parseJwt } from 'src/helpers/JwtHelper';
+
+function isAuthenticated() {
+  const token = Tokens.GetAccessToken();
+  const decodedToken = parseJwt(token);
+}
 
 const ShopNavigation = (): JSX.Element => {
   // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
@@ -15,6 +25,49 @@ const ShopNavigation = (): JSX.Element => {
   const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
+  const { isAnonymous, isAuthenticated } = useOcAuth();
+  const isLoggedIn = !isAnonymous && isAuthenticated;
+
+  const clearOrderCloudTokens = () => {
+    Tokens.RemoveAccessToken();
+    Tokens.RemoveImpersonationToken();
+    Tokens.RemoveRefreshToken();
+  };
+
+  const orderCloudLoginUrl = () => {
+    // build up url for openid connect so user can log into ordercloud via auth0
+    const baseUrl = process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL;
+    const openIdConnectId = process.env.NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID;
+    const clientId = process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID;
+    const roles = orderCloudScope.join(' ');
+    return `${baseUrl}/ocrplogin?id=${openIdConnectId}&cid=${clientId}&roles=${roles}`;
+  };
+
+  const accountMenuItem = isLoginEnabled && isLoggedIn && (
+    <li className="shop-navigation-menu-item">
+      <Link href="/account" passHref>
+        <a>
+          <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+        </a>
+      </Link>
+    </li>
+  );
+
+  /* eslint-disable @next/next/no-html-link-for-pages */
+  const loginMenuItem = isLoginEnabled && !isLoggedIn && (
+    <div className="shop-navigation-menu-item">
+      <a href={orderCloudLoginUrl()}>Login</a>;
+    </div>
+  );
+
+  const logoutMenuItem = isLoginEnabled && isLoggedIn && (
+    <div className="shop-navigation-menu-item">
+      <a href="/api/auth/logout" onClick={clearOrderCloudTokens}>
+        Logout
+      </a>
+    </div>
+  );
+  /* eslint-enable @next/next/no-html-link-for-pages */
 
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
     return src;
@@ -112,13 +165,9 @@ const ShopNavigation = (): JSX.Element => {
                 </a>
               </Link>
             </li>
-            <li className="shop-navigation-menu-item">
-              <Link href="/account" passHref>
-                <a>
-                  <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-                </a>
-              </Link>
-            </li>
+            {accountMenuItem}
+            {loginMenuItem}
+            {logoutMenuItem}
           </ul>
         </div>
         <div className="shop-search-input-container">
