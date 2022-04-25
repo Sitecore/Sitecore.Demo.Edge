@@ -1,0 +1,26 @@
+.thank-you-hero {
+  @apply bg-blue-lightest;
+
+  &-inner {
+    @apply shop-container flex flex-col items-center text-center py-3;
+    @apply sm:flex-row sm:justify-between sm:text-left;
+  }
+
+  h1 {
+    @apply text-4xl font-bold mb-2;
+  }
+
+  p {
+    @apply text-sm;
+  }
+
+  &-image {
+    @apply w-full flex-shrink-0;
+    @apply sm:w-60;
+    @apply lg:w-40;
+
+    img {
+      @apply mx-auto;
+    }
+  }
+}

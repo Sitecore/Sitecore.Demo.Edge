@@ -5,30 +5,31 @@ import ProductCard from './ProductCard';
 
 type ProductListProps = {
   products: Product[];
-  onProductClick: () => void;
-  onDiscoverStyleOpen: () => void;
+  onProductClick?: () => void;
+  onDiscoverStyleOpen?: () => void;
   loaded: boolean;
   loading: boolean;
 };
 
-const ProductList = (props: ProductListProps): JSX.Element => {
-  const { loaded, loading, products, onProductClick } = props;
+const ProductList = ({
+  loaded,
+  loading,
+  products,
+  onProductClick,
+}: ProductListProps): JSX.Element => {
   const ready = loaded && !loading;
 
-  return window.RFK.ui.html`
+  return (
     <ul className="product-list">
-      ${!ready && window.RFK.ui.html`...loading`}
-      ${
-        ready &&
-        products.map(
-          (product) => window.RFK.ui.html`
-            <li class="product-list-item">
-              <${ProductCard} key=${product.sku} ...${product} onClick=${onProductClick} />
-            </li>`
-        )
-      }
+      {!ready && `...loading`}
+      {ready &&
+        products.map((product) => (
+          <li key={product.sku} className="product-list-item">
+            <ProductCard {...product} onClick={onProductClick} />
+          </li>
+        ))}
     </ul>
-  `;
+  );
 };
 
 export default ProductList;

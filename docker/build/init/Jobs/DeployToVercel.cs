@@ -135,6 +135,7 @@ namespace Sitecore.Demo.Init.Jobs
             var orderCloudWebhookHashKey = Environment.GetEnvironmentVariable("ORDERCLOUD_WEBHOOK_HASH_KEY");
             var orderCloudProfiledBuyerId = Environment.GetEnvironmentVariable("ORDERCLOUD_PROFILED_BUYER_ID");
             var orderCloudOpenIdConnectId = Environment.GetEnvironmentVariable("ORDERCLOUD_OPENID_CONNECT_ID");
+            var npmrcFileContents = Environment.GetEnvironmentVariable("NPMRC");
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
 
@@ -197,6 +198,10 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{orderCloudMiddlewareAllowedClientIds}\" | vercel env add ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudWebhookHashKey}\" | vercel env add OC_WEBHOOK_HASH_KEY production --token {token} --scope {scope}");
+
+            // Configure special NPM_RC environment variable for the internal NPM registries. https://vercel.com/support/articles/using-private-dependencies-with-vercel
+            cmd.Run(
+                $"echo | set /p=\"{npmrcFileContents}\" | vercel env add NPM_RC production --token {token} --scope {scope}");
 
             // Deploy project files
             var output =

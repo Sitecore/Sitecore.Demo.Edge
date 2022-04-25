@@ -61,7 +61,8 @@
       }
 
       .shop-search-icon {
-        position: absolute;
+        @apply absolute cursor-pointer;
+
         left: 17px;
         top: 6px;
 

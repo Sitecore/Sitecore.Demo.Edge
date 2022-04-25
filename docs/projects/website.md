@@ -85,7 +85,7 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
    CMP_ContentHub='ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;'
    CMP_ServiceBusEntityPathIn='Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID'
    CMP_ServiceBusSubscription='hub_out_subscription'
-   CMP_ServiceBusEntityPathOut='CMP_ServiceBusEntityPathOut'
+   CMP_ServiceBusEntityPathOut='Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID'
    DAM_ContentHub='https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud'
    DAM_SearchPage='https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets'
    ```
@@ -214,6 +214,19 @@ The content of the project is mapped to the Rendering container using a Docker v
 #### Debugging the Rendering Next.js Project
 
 Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
+
+#### Building the Rendering Next.js Project Locally
+
+If you ever have to build the Next.js application in a command line:
+
+1. Stop the "rendering" Docker container.
+   - Because the rendering container has a mapped folder to `.\Website\src\rendering` and is running `npm run dev`, it shares the same build output folder as `next build`. Building for production while the container is running will produce all kind of errors.
+2. Run `npm run build:local`
+   - Some website code depends on environment variables that are set through the rendering Docker container. When building in a command line, those environment variables require fake values for the build to succeed. This command sets those fake values before starting the build.
+
+When you are done:
+
+1. Start the "rendering" Docker container.
 
 ### Items Serialization
 

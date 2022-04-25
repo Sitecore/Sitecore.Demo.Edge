@@ -1,11 +1,4 @@
-export type FacetClickEvent = {
-  checked: boolean;
-  facetIndex: number;
-  facetType: string;
-  facetValue: string;
-  facetValueIndex: number;
-  valueIndex: number;
-};
+import { ChangeEvent, useState } from 'react';
 
 type FacetValueProps = {
   values: unknown[];
@@ -16,7 +9,7 @@ type FacetValueProps = {
 };
 
 type ActiveFacetValueProps = FacetValueProps & {
-  name: string;
+  name: unknown;
 };
 
 type FacetProps = {
@@ -32,176 +25,264 @@ type FacetListProps = {
   facets: unknown[];
   onFacetClick: (...args: unknown[]) => void;
   onClear: (...args: unknown[]) => void;
+  sortFacetProps: SortFacetProps;
+  onToggleClick: (...args: unknown[]) => void;
 };
 
-const FacetValues = (props: FacetValueProps): JSX.Element => {
-  const { values, tindex, acumIndex, facetType, onFacetClick } = props;
+type SortFacetProps = {
+  sortChoices: unknown[];
+  sortType: unknown;
+  sortDirection: unknown;
+  onSortChange: (change: SortChangeRequest) => void;
+};
 
-  return window.RFK.ui.html`
-    <ul className="facet-values">
-      ${values.map(({ index: facetValueIndex, text, selected, id }, index) => {
-        const handleValueClick = ({ target }: Event) => {
-          onFacetClick({
-            facetType,
-            facetValue: text,
-            facetValueIndex,
-            valueIndex: acumIndex + index,
-            facetIndex: tindex,
-            checked: (target as HTMLInputElement).checked,
-          });
-        };
+type SortChangeRequest = {
+  sortType: unknown;
+  sortDirection: unknown;
+};
 
-        return window.RFK.ui.html` <li
-          index="${index}"
-          data-index="${acumIndex + index}"
-          data-type="${facetType}"
-          data-text="${text}"
-          data-level="0"
+const FacetValues = ({
+  values,
+  tindex,
+  acumIndex,
+  facetType,
+  onFacetClick,
+}: FacetValueProps): JSX.Element => (
+  <ul className="facet-values">
+    {values.map(({ index: facetValueIndex, text, selected, id }, index) => {
+      const handleValueClick = ({ target }: ChangeEvent<HTMLInputElement>) => {
+        onFacetClick({
+          facetType,
+          facetValue: text,
+          facetValueIndex,
+          valueIndex: acumIndex + index,
+          facetIndex: tindex,
+          checked: (target as HTMLInputElement).checked,
+        });
+      };
+
+      return (
+        <li
+          data-index={acumIndex + index}
+          data-type={facetType}
+          data-text={text}
+          data-level={0}
+          key={index}
         >
           <input
             type="checkbox"
-            checked=${selected ? 'checked' : ''}
-            id=${id}
-            onClick=${handleValueClick}
+            checked={selected}
+            id={id}
+            onChange={(event) => handleValueClick(event)}
           />
-          <label for=${id} title="${text}">${text}</label>
-        </li>`;
-      })}
-    </ul>
-  `;
-};
+          <label htmlFor={id} title={text}>
+            {text}
+          </label>
+        </li>
+      );
+    })}
+  </ul>
+);
 
-const Facet = (props: FacetProps): JSX.Element => {
-  const { name, values, index, acumIndex, type, onFacetClick } = props;
-  const [toggle, setToggle] = window.RFK.ui.useState(false);
+const Facet = ({ name, values, index, acumIndex, type, onFacetClick }: FacetProps): JSX.Element => {
+  const [toggle, setToggle] = useState(false);
 
   const handleTitleClick = () => setToggle(!toggle);
 
-  return window.RFK.ui.html`
-    <div className=${toggle ? 'expanded facet' : 'facet'}  data-type="${type}">
-      <div className="facet-title" onClick=${handleTitleClick}>
-        <span>${name}</span>
+  const cssClass = toggle ? 'expanded facet' : 'facet';
+
+  return (
+    <div className={cssClass} data-type={type}>
+      <div className="facet-title" onClick={handleTitleClick}>
+        <span>{name}</span>
       </div>
-      <${FacetValues}
-        values=${values}
-        tindex=${index}
-        acumIndex=${acumIndex}
-        facetType=${type}
-        onFacetClick=${onFacetClick}
+      <FacetValues
+        values={values}
+        tindex={index}
+        acumIndex={acumIndex}
+        facetType={type}
+        key={index}
+        onFacetClick={onFacetClick}
       />
     </div>
-  `;
+  );
 };
 
-const ActiveFacet = (props: FacetProps): JSX.Element => {
-  const { name, values, index, acumIndex, type, onFacetClick } = props;
+const ActiveFacet = ({
+  name,
+  values,
+  index,
+  acumIndex,
+  type,
+  onFacetClick,
+}: FacetProps): JSX.Element => (
+  <div className="facet" data-type={type}>
+    <ActiveFacetValues
+      name={name}
+      values={values}
+      tindex={index}
+      acumIndex={acumIndex}
+      facetType={type}
+      onFacetClick={onFacetClick}
+    />
+  </div>
+);
 
-  return window.RFK.ui.html`
-    <div className="facet" data-type=${type}>
-      <${ActiveFacetValues}
-        name=${name}
-        values=${values}
-        tindex=${index}
-        acumIndex=${acumIndex}
-        facetType=${type}
-        onFacetClick=${onFacetClick}
-      />
-    </div>
-  `;
-};
+const ActiveFacetValues = ({
+  name,
+  values,
+  tindex,
+  acumIndex,
+  facetType,
+  onFacetClick,
+}: ActiveFacetValueProps): JSX.Element => (
+  <ul className="facet-values">
+    {values.map(({ index: facetValueIndex, text, selected, id }, index) => {
+      const handleValueClick = ({ target }: ChangeEvent<HTMLInputElement>) => {
+        onFacetClick({
+          facetType,
+          facetValue: text,
+          facetValueIndex,
+          valueIndex: acumIndex + index,
+          facetIndex: tindex,
+          checked: (target as HTMLInputElement).checked,
+        });
+      };
 
-const ActiveFacetValues = (props: ActiveFacetValueProps): JSX.Element => {
-  const { name, values, tindex, acumIndex, facetType, onFacetClick } = props;
+      return selected ? (
+        <li
+          data-index={acumIndex + index}
+          data-type={facetType}
+          data-text={text}
+          data-level="0"
+          key={index}
+        >
+          <input
+            type="checkbox"
+            checked={selected}
+            id={id}
+            onChange={(event) => handleValueClick(event)}
+          />
+          <label htmlFor={id} title={name + '-' + text}>
+            <span>
+              {name} - {text}
+            </span>
+          </label>
+        </li>
+      ) : null;
+    })}
+  </ul>
+);
 
-  return window.RFK.ui.html`
-    <ul className="facet-values">
-      ${values.map(({ index: facetValueIndex, text, selected, id }, index) => {
-        const handleValueClick = ({ target }: Event) => {
-          onFacetClick({
-            facetType,
-            facetValue: text,
-            facetValueIndex,
-            valueIndex: acumIndex + index,
-            facetIndex: tindex,
-            checked: (target as HTMLInputElement).checked,
-          });
-        };
+const SortFacet = ({
+  sortChoices,
+  sortType,
+  sortDirection,
+  onSortChange,
+}: SortFacetProps): JSX.Element => {
+  const [toggle, setToggle] = useState(false);
 
-        return selected
-          ? window.RFK.ui.html`
-            <li
-              index="${index}"
-              data-index="${acumIndex + index}"
-              data-type="${facetType}"
-              data-text="${text}"
-              data-level="0"
-            >
+  const handleTitleClick = () => setToggle(!toggle);
+
+  const handleSortChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    const sort = (target as HTMLInputElement).value.split('#');
+    onSortChange({ sortType: sort[0], sortDirection: sort[1] });
+  };
+
+  const cssClass = toggle ? 'expanded facet' : 'facet';
+
+  return (
+    <div className={cssClass} data-type="sort">
+      <div className="facet-title" onClick={handleTitleClick}>
+        <span>Sort by</span>
+      </div>
+      <ul className="facet-values">
+        {sortChoices?.map(({ label, name, order }) => {
+          const inputId = `${name}#${order}`;
+          const isChecked = name === sortType && order === sortDirection;
+
+          return (
+            <li key={inputId}>
               <input
-                type="checkbox"
-                checked="checked"
-                id=${id}
-                onClick=${handleValueClick}
+                type="radio"
+                checked={isChecked}
+                value={inputId}
+                id={inputId}
+                onChange={handleSortChange}
               />
-              <label for=${id} title="${name} - ${text}"><span>${name} - ${text}</span></label>
+              <label htmlFor={inputId}>{label}</label>
             </li>
-          `
-          : null;
-      })}
-    </ul>
-  `;
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
-const FacetList = (props: FacetListProps): JSX.Element => {
-  const { facets, onFacetClick, onClear } = props;
+const FacetList = ({
+  facets,
+  onFacetClick,
+  onClear,
+  sortFacetProps,
+  onToggleClick,
+}: FacetListProps): JSX.Element => {
   let acumIndex = 0;
 
+  const activeFilters = facets?.some(({ values = [] }) =>
+    values?.some(({ selected }) => selected)
+  ) && (
+    <div className="facet-list-active">
+      <div className="facet-list-title">
+        <span>Active filters</span>
+      </div>
+      {facets?.map(({ facetType, values, display_name }, tindex) => {
+        const componentHtml = (
+          <ActiveFacet
+            name={display_name}
+            index={tindex}
+            acumIndex={acumIndex}
+            type={facetType}
+            values={values}
+            key={tindex}
+            onFacetClick={onFacetClick}
+          />
+        );
+        acumIndex = acumIndex + values.length;
+        return componentHtml;
+      })}
+      <button className="btn--secondary" onClick={onClear}>
+        Clear All
+      </button>
+    </div>
+  );
+
   // TODO: Implement and style range filters (e.g. min - max price)
-  return window.RFK.ui.html`
+  return (
     <div className="facet-container">
-      ${
-        facets?.some(({ values = [] }) => values?.some(({ selected }) => selected))
-          ? window.RFK.ui.html`
-            <div className="facet-list-active">
-              <div className="facet-list-title">
-                <span>Active filters</span>
-              </div>
-              ${facets?.map(({ facetType, values, display_name }, tindex) => {
-                const componentHtml = window.RFK.ui.html`
-                  <${ActiveFacet}
-                    name=${display_name}
-                    index=${tindex}
-                    acumIndex=${acumIndex}
-                    type=${facetType}
-                    values=${values}
-                    onFacetClick=${onFacetClick}
-                  />
-                `;
-                acumIndex = acumIndex + values.length;
-                return componentHtml;
-              })}
-              <button className="btn--secondary" onClick=${onClear}>Clear All</button>
-            </div>
-          `
-          : null
-      }
+      <button className="btn--secondary facet-container-toggle" onClick={onToggleClick}>
+        Filter
+      </button>
+      {activeFilters}
       <div className="facet-list">
-        ${facets?.map(({ facetType, values, display_name }, tindex) => {
-          const componentHtml = window.RFK.ui.html`
-            <${Facet}
-              name=${display_name}
-              index=${tindex}
-              acumIndex=${acumIndex}
-              type=${facetType}
-              values=${values}
-              onFacetClick=${onFacetClick}
+        <SortFacet {...sortFacetProps} />
+        {facets?.map(({ facetType, values, display_name }, tindex) => {
+          const componentHtml = (
+            <Facet
+              name={display_name}
+              index={tindex}
+              acumIndex={acumIndex}
+              type={facetType}
+              values={values}
+              key={tindex}
+              onFacetClick={onFacetClick}
             />
-          `;
+          );
           acumIndex = acumIndex + values.length;
           return componentHtml;
         })}
       </div>
     </div>
-  `;
+  );
 };
 
 export default FacetList;

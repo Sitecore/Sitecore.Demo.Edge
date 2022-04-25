@@ -2,31 +2,48 @@ import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch,
-  faShoppingCart,
-  faChevronDown,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
 import useOcAuth from 'src/hooks/useOcAuth';
 import { Tokens } from 'ordercloud-javascript-sdk';
 import { orderCloudScope } from 'src/constants/ordercloud-scope';
 import { isLoginEnabled } from 'temp/config';
-import { parseJwt } from 'src/helpers/JwtHelper';
+import { parseOrderCloudJwt } from 'src/helpers/JwtHelper';
+import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { Widget } from '@sitecore-discover/react';
+import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 
-function isAuthenticated() {
-  const token = Tokens.GetAccessToken();
-  const decodedToken = parseJwt(token);
+function isAuthenticated(): boolean {
+  try {
+    const token = Tokens.GetAccessToken();
+    const decodedToken = parseOrderCloudJwt(token);
+    const currentSeconds = Date.now() / 1000;
+    const currentSecondsWithBuffer = currentSeconds - 10;
+    return decodedToken.exp < currentSecondsWithBuffer;
+  } catch {
+    return false;
+  }
 }
 
-const ShopNavigation = (): JSX.Element => {
+function isAnonymous(): boolean {
+  try {
+    const token = Tokens.GetAccessToken();
+    const decodedToken = parseOrderCloudJwt(token);
+    return Boolean(decodedToken.orderid);
+  } catch {
+    return false;
+  }
+}
+
+export type ShopNavigationProps = {
+  previewSearchProps?: PreviewSearchProps; // For Storybook support
+};
+
+const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
   const [locale /*, setLocale */] = useState('EN / CAD');
   const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
-  const { isAnonymous, isAuthenticated } = useOcAuth();
-  const isLoggedIn = !isAnonymous && isAuthenticated;
+  const isLoggedIn = !isAnonymous() && isAuthenticated();
 
   const clearOrderCloudTokens = () => {
     Tokens.RemoveAccessToken();
@@ -72,6 +89,12 @@ const ShopNavigation = (): JSX.Element => {
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
     return src;
   };
+
+  const previewSearchWidget = props.previewSearchProps ? (
+    <PreviewSearch {...props.previewSearchProps} />
+  ) : (
+    <Widget rfkId="rfkid_6" />
+  );
 
   return (
     <nav className="shop-navigation">
@@ -171,14 +194,7 @@ const ShopNavigation = (): JSX.Element => {
           </ul>
         </div>
         <div className="shop-search-input-container">
-          <div data-rfkid="rfkid_6" id="search-input-container">
-            <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
-            <input
-              id="search-input"
-              className="shop-search-input"
-              placeholder="I am shopping for..."
-            />
-          </div>
+          <div id="search-input-container">{previewSearchWidget}</div>
         </div>
       </div>
     </nav>
