@@ -413,3 +413,43 @@ stages:
     - deployment: Update_Production_Database_Deployment
       displayName: "Update Production Database Deployment"
       environment: Production Portal Database
+
+- stage: Trigger_Image_Push
+  displayName: "Trigger Push to Sitecore Registry"
+  dependsOn:
+    - Docker_Windows
+  condition: and(succeeded('Docker_Windows'), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  pool:
+    vmImage: 'ubuntu-latest'
+  jobs:
+    - job: Harbor_Push
+      displayName: "Push to Sitecore Registry"
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: "sdk"
+            version: "5.0.x"
+            installationPath: "c:/program files/dotnet"
+            performMultiLevelLookup: true
+        - template: version.yml
+        - task: TriggerBuild@3
+          displayName: "Trigger Harbor Push"
+          inputs:
+            definitionIsInCurrentTeamProject: true
+            buildDefinition: "103"
+            queueBuildForUserThatTriggeredBuild: true
+            ignoreSslCertificateErrors: false
+            useSameSourceVersion: false
+            useCustomSourceVersion: false
+            useSameBranch: false
+            branchToUse: "main"
+            waitForQueuedBuildsToFinish: false
+            storeInEnvironmentVariable: false
+            buildParameters: "namespace: demo, groupName: demoEdge, tag: $(additionalImageTags)"
+            authenticationMethod: "Personal Access Token"
+            password: "$(System.AccessToken)"
+            enableBuildInQueueCondition: false
+            dependentOnSuccessfulBuildCondition: false
+            dependentOnFailedBuildCondition: false
+            checkbuildsoncurrentbranch: false
+            failTaskIfCondition: false
