@@ -166,10 +166,12 @@ async function categoryBuilder(
         )
       );
     }
+
     const categoryNames =
       row.breadcrumbs.split('>').length > 0 ? row.breadcrumbs.split('>') : [row.name];
     let categoryID = '';
     let parentCategoryID = '';
+
     for (let catName of categoryNames) {
       const categoryNameFormatted = catName.trimStart().trimEnd();
       const categoryIDFormatted = catName
@@ -183,7 +185,13 @@ async function categoryBuilder(
         continue;
       } else {
         processedCategoryIDs.add(matchingCategoryID);
-        await postCategory(matchingCategoryID, categoryNameFormatted, parentCategoryID, catalogID);
+        await postCategory(
+          matchingCategoryID,
+          categoryNameFormatted,
+          parentCategoryID,
+          catalogID,
+          row.url_path
+        );
         parentCategoryID = matchingCategoryID;
       }
     }
@@ -195,13 +203,17 @@ async function postCategory(
   categoryID: string,
   categoryName: string,
   parentCategoryID: string,
-  catalogID: string
+  catalogID: string,
+  urlPath: string
 ) {
   const categoryRequest = {
     ID: categoryID,
     Active: true,
     Name: categoryName,
     ParentID: parentCategoryID,
+    xp: {
+      UrlPath: urlPath,
+    },
   };
   try {
     return await OrderCloudSDK.Categories.Save(catalogID, categoryRequest.ID, categoryRequest);
