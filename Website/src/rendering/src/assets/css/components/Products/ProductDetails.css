@@ -12,7 +12,7 @@
 
         .image-active {
           > div {
-            @apply relative pt-[100%] border-2 border-gray;
+            @apply relative pt-[100%];
 
             img {
               @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
