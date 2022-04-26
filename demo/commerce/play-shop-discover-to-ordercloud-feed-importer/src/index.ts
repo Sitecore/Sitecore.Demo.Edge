@@ -280,7 +280,7 @@ async function postProducts(productFeed: any[], catalogID: string, imageUrlPrefi
   await generateVariants(productIdToVariantRowsMap);
 
   // Update the variants (IDs, imageUrls)
-  await updateVariants(productIdToVariantRowsMap);
+  await updateVariants(productIdToVariantRowsMap, imageUrlPrefix);
 
   // Process the normal products without variants
   await helpers.batchOperations(
@@ -338,6 +338,14 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
     return;
   }
 
+  const additionalImageUrls: { Url: string; ThumbnailUrl: string }[] =
+    row.additional_image_urls.length > 0
+      ? row.additional_image_urls.split('|').map((imgUrl: string) => ({
+          Url: imageUrlPrefix + imgUrl,
+          ThumbnailUrl: '',
+        }))
+      : [];
+
   const productRequest = {
     ID: row.product_group,
     Name: row.name,
@@ -348,9 +356,9 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       Images: [
         {
           Url: imageUrlPrefix + row.image_url,
-          ThumbnailUrl: imageUrlPrefix + row.image_url,
-          Tags: null,
+          ThumbnailUrl: '',
         },
+        ...additionalImageUrls,
       ],
       Status: 'Draft',
       IsResale: false,
@@ -375,6 +383,8 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       FreeShipping: false,
       FreeShippingMessage: 'Free Shipping',
       Documents: null,
+      Brand: row.brand,
+      ProductUrl: row.product_url,
     },
   };
 
@@ -487,7 +497,10 @@ async function generateVariants(productIdToVariantRowsMap: Map<string, any[]>) {
   }
 }
 
-async function updateVariants(productIdToVariantRowsMap: Map<string, any[]>) {
+async function updateVariants(
+  productIdToVariantRowsMap: Map<string, any[]>,
+  imageUrlPrefix: string
+) {
   for (let productId of productIdToVariantRowsMap.keys()) {
     // Retrieve the variants for this specific product
     let productVariants: Variant[] = [];
@@ -503,15 +516,26 @@ async function updateVariants(productIdToVariantRowsMap: Map<string, any[]>) {
     // Update the variants (IDs, imageUrls) of this specific product
     for (let variant of productVariants) {
       let variantRow = productIdToVariantRowsMap.get(productId)?.pop();
+      let additionalSkuImageUrls: { Url: string; ThumbnailUrl: string }[] =
+        variantRow.additional_sku_image_urls.length > 0
+          ? variantRow.additional_sku_image_urls.split('|').map((imgUrl: string) => ({
+              Url: imageUrlPrefix + imgUrl,
+              ThumbnailUrl: '',
+            }))
+          : [];
+
       try {
         await OrderCloudSDK.Products.PatchVariant(productId, variant.ID, {
           ID: variantRow.sku,
           xp: {
             Images: [
               {
-                Url: variantRow.sku_image_url,
+                Url: imageUrlPrefix + variantRow.sku_image_url,
+                ThumbnailUrl: '',
               },
+              ...additionalSkuImageUrls,
             ],
+            SkuUrl: variantRow.sku_url,
           },
         });
       } catch (ex) {
