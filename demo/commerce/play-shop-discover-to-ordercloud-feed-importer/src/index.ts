@@ -559,6 +559,23 @@ async function updateVariants(
   }
 }
 
+async function getCategoryProductAssignments(
+  catalogID: string,
+  categoryID: string,
+  productID: string
+) {
+  const listOptions = {
+    categoryID,
+    productID,
+  };
+  try {
+    return await OrderCloudSDK.Categories.ListProductAssignments(catalogID, listOptions);
+  } catch (ex) {
+    results.products.errors++;
+    handleError(`Error getting category product assignments for product ${productID}`, ex);
+  }
+}
+
 export default {
   run,
 };
