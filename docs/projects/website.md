@@ -132,6 +132,7 @@ Enabling this allows your users to log in via single sign on (Auth0) as well as 
    AUTH0_ISSUER_BASE_URL='https://YOUR_DOMAIN'
    AUTH0_CLIENT_ID='YOUR_CLIENT_ID'
    AUTH0_CLIENT_SECRET='YOUR_CLIENT_SECRET'
+   AUTH0_ENABLED='false'
    ORDERCLOUD_OPENID_CONNECT_ID='YOUR_OPENID_CONNECT_ID'
    ORDERCLOUD_PROFILED_BUYER_ID='YOUR_BUYER_ID_FOR_PROFILED_USERS'
    ```
@@ -144,6 +145,7 @@ Enabling this allows your users to log in via single sign on (Auth0) as well as 
 | `AUTH0_ISSUER_BASE_URL`         | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
 | `AUTH0_CLIENT_ID`               | Your Auth0 application's Client ID                                                                                                                                                         |
 | `AUTH0_CLIENT_SECRET`           | Your Auth0 application's Client Secret                                                                                                                                                     |
+| `AUTH0_ENABLED`                 | 'true' or 'false' indicating whether or not auth0 is configured, must be true for profiled user features to appear                                                                         |
 | `ORDERCLOUD_OPENID_CONNECT_ID`  | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |                                                                                                                                        |
 | `ORDERCLOUD_PROFILED_BUYER_ID`  | The ID of the buyer organization where profiled users should be created under                                                                                                              |                                                                                                                                        |
 

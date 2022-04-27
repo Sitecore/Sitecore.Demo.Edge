@@ -14,19 +14,11 @@ import packageConfig from '../package.json';
  * @param {object} configOverrides Keys in this object will override any equivalent global config keys.
  */
 export function generateConfig(configOverrides?: { [key: string]: string }): void {
+  console.log(process.env.AUTH0_SECRET);
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
     jssAppName: 'Unknown',
-    isLoginEnabled: Boolean(
-      process.env.AUTH0_SECRET &&
-        process.env.AUTH0_BASE_UR &&
-        process.env.AUTH0_ISSUER_BASE_URL &&
-        process.env.AUTH0_CLIENT_ID &&
-        process.env.AUTH0_CLIENT_SECRET &&
-        process.env.ORDERCLOUD_PROFILED_BUYER_ID &&
-        process.env.ORDERCLOUD_OPENID_CONNECT_ID
-    ),
   };
 
   // require + combine config sources

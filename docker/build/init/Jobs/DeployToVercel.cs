@@ -72,6 +72,7 @@ namespace Sitecore.Demo.Init.Jobs
             var auth0IssuerBaseUrl = Environment.GetEnvironmentVariable("AUTH0_ISSUER_BASE_URL");
             var auth0ClientId = Environment.GetEnvironmentVariable("AUTH0_CLIENT_ID");
             var auth0ClientSecret = Environment.GetEnvironmentVariable("AUTH0_CLIENT_SECRET");
+            var auth0Enabled = Environment.GetEnvironmentVariable("AUTH0_ENABLED");
 
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
@@ -176,6 +177,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{auth0ClientId}\" | vercel env add AUTH0_CLIENT_ID production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0Enabled}\" | vercel env add AUTH0_ENABLED production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata\" | vercel env add AUTH0_SCOPE production --token {token} --scope {scope}");
             cmd.Run(    
