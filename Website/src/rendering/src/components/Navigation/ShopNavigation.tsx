@@ -2,7 +2,6 @@ import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useOcAuth from 'src/hooks/useOcAuth';
 import { Tokens } from 'ordercloud-javascript-sdk';
 import { orderCloudScope } from 'src/constants/ordercloud-scope';
 import { isLoginEnabled } from 'temp/config';
@@ -17,7 +16,7 @@ function isAuthenticated(): boolean {
     const decodedToken = parseOrderCloudJwt(token);
     const currentSeconds = Date.now() / 1000;
     const currentSecondsWithBuffer = currentSeconds - 10;
-    return decodedToken.exp < currentSecondsWithBuffer;
+    return decodedToken.exp > currentSecondsWithBuffer;
   } catch {
     return false;
   }
@@ -73,7 +72,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   /* eslint-disable @next/next/no-html-link-for-pages */
   const loginMenuItem = isLoginEnabled && !isLoggedIn && (
     <div className="shop-navigation-menu-item">
-      <a href={orderCloudLoginUrl()}>Login</a>;
+      <a href={orderCloudLoginUrl()}>Login</a>
     </div>
   );
 
