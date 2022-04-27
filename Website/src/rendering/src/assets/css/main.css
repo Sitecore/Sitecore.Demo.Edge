@@ -105,6 +105,7 @@
 @import './components/Sessions/SessionInformationPageHero.css';
 
 /* ShopCommon */
+@import './components/ShopCommon/CartBadge.css';
 @import './components/ShopCommon/Price.css';
 @import './components/ShopCommon/ProductCard.css';
 @import './components/ShopCommon/ProductList.css';
