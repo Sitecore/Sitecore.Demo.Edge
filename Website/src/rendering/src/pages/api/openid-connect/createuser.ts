@@ -1,8 +1,8 @@
 import { NextApiHandler } from 'next';
 import { withOcWebhookAuth } from '@ordercloud/catalyst';
 import { OpenIdConnectPayload, OpenIdConnectResponse, Users } from 'ordercloud-javascript-sdk';
-import { parseJwt } from 'src/helpers/JwtHelper';
-import { isOrderCloudError } from 'src/helpers/TypeGuards';
+import { parseJwt } from '../../../helpers/JwtHelper';
+import { isOrderCloudError } from '../../../helpers/TypeGuards';
 
 // withOCWebhookAuth needs the raw body in order to validate the payload is coming from ordercloud
 export const config = {

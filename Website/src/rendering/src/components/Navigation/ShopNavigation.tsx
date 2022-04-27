@@ -3,9 +3,8 @@ import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tokens } from 'ordercloud-javascript-sdk';
-import { orderCloudScope } from 'src/constants/ordercloud-scope';
-import { isLoginEnabled } from 'temp/config';
-import { parseOrderCloudJwt } from 'src/helpers/JwtHelper';
+import { orderCloudScope } from '../../constants/ordercloud-scope';
+import { parseOrderCloudJwt } from '../../helpers/JwtHelper';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Widget } from '@sitecore-discover/react';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
@@ -42,6 +41,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
+  const isLoginEnabled = process.env.NEXT_PUBLIC_AUTH0_ENABLED === 'true';
   const isLoggedIn = !isAnonymous() && isAuthenticated();
 
   const clearOrderCloudTokens = () => {

@@ -76,7 +76,7 @@ namespace Sitecore.Demo.Init.Jobs
 
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
-                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region, auth0Secret, auth0IssuerBaseUrl, auth0ClientId, auth0ClientSecret));
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region, auth0Secret, auth0IssuerBaseUrl, auth0ClientId, auth0ClientSecret, auth0Enabled));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
                 cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task.WaitAll(tv, website, kiosk);
@@ -122,7 +122,7 @@ namespace Sitecore.Demo.Init.Jobs
 
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
             string cdpProxyUrl, string token, string scope, string region, string auth0Secret,
-            string auth0IssuerBaseUrl, string auth0ClientId, string auth0ClientSecret)
+            string auth0IssuerBaseUrl, string auth0ClientId, string auth0ClientSecret, string auth0Enabled)
         {
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");

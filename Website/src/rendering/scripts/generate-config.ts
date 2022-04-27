@@ -14,7 +14,6 @@ import packageConfig from '../package.json';
  * @param {object} configOverrides Keys in this object will override any equivalent global config keys.
  */
 export function generateConfig(configOverrides?: { [key: string]: string }): void {
-  console.log(process.env.AUTH0_SECRET);
   const defaultConfig = {
     sitecoreApiKey: 'no-api-key-set',
     sitecoreApiHost: '',
