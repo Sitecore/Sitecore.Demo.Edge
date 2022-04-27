@@ -121,12 +121,12 @@ const ShopNavigation = (): JSX.Element => {
               <span>{locale}</span>
               <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
             </li>
-            <li className={`shop-navigation-menu-item ${isMiniCartOpen && 'active'}`}>
+            <li className={`shop-navigation-menu-item ${isMiniCartOpen ? 'active' : ''}`}>
               <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
               </button>
             </li>
-            <div className={`mini-cart-wrapper ${isMiniCartOpen && 'open'}`}>{miniCart}</div>
+            <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>{miniCart}</div>
             <li className="shop-navigation-menu-item">
               <Link href="/account/login" passHref>
                 <a>
