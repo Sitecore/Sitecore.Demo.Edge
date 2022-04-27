@@ -121,7 +121,7 @@ const ShopNavigation = (): JSX.Element => {
               <span>{locale}</span>
               <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
             </li>
-            <li className="shop-navigation-menu-item">
+            <li className={`shop-navigation-menu-item ${isMiniCartOpen && 'active'}`}>
               <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
               </button>

@@ -33,6 +33,10 @@
           @apply pl-3 py-2 text-base leading-loose text-white align-middle;
           @apply hover:text-yellow;
 
+          &.active {
+            @apply text-yellow;
+          }
+
           &.locale-picker {
             @apply flex items-center;
 
