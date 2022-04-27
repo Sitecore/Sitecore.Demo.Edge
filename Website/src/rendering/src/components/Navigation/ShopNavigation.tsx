@@ -2,17 +2,18 @@ import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch,
-  faShoppingCart,
-  faChevronDown,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
 import IfCommerceEnabled from '../ShopCommon/IfCommerceEnabled';
+import { Widget } from '@sitecore-discover/react';
+import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 
-const ShopNavigation = (): JSX.Element => {
+export type ShopNavigationProps = {
+  previewSearchProps?: PreviewSearchProps; // For Storybook support
+};
+
+const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
   const [locale /*, setLocale */] = useState('EN / CAD');
   const [flagUrl /*, setFlagUrl */] = useState(
@@ -23,6 +24,12 @@ const ShopNavigation = (): JSX.Element => {
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
     return src;
   };
+
+  const previewSearchWidget = props.previewSearchProps ? (
+    <PreviewSearch {...props.previewSearchProps} />
+  ) : (
+    <Widget rfkId="rfkid_6" />
+  );
 
   return (
     <nav className="shop-navigation">
@@ -71,14 +78,7 @@ const ShopNavigation = (): JSX.Element => {
           </ul>
         </div>
         <div className="shop-search-input-container">
-          <div data-rfkid="rfkid_6" id="search-input-container">
-            <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
-            <input
-              id="search-input"
-              className="shop-search-input"
-              placeholder="I am shopping for..."
-            />
-          </div>
+          <div id="search-input-container">{previewSearchWidget}</div>
         </div>
       </div>
     </nav>
