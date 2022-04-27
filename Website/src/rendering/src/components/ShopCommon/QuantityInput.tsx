@@ -1,20 +1,22 @@
 import { PriceSchedule, RequiredDeep } from 'ordercloud-javascript-sdk';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FocusEvent, useState } from 'react';
 
-interface ProductQuantityInputProps {
+interface QuantityInputProps {
+  controlId: string;
   priceSchedule: RequiredDeep<PriceSchedule>;
   label?: string;
   disabled?: boolean;
-  quantity: number;
+  quantity: number | string;
   onChange: (quantity: number) => void;
 }
 
-const ProductQuantityInput = ({
+const QuantityInput = ({
+  controlId,
   priceSchedule,
   disabled,
   quantity,
   onChange,
-}: ProductQuantityInputProps): JSX.Element => {
+}: QuantityInputProps): JSX.Element => {
   const [_quantity, setQuantity] = useState(quantity);
 
   const addDisabled =
@@ -44,6 +46,15 @@ const ProductQuantityInput = ({
     if (isInRange(_val)) {
       setQuantity(_val);
       onChange(_val);
+    } else if (e.target.value === '') {
+      setQuantity('');
+    }
+  };
+
+  const handleInputBlur = (e: FocusEvent<HTMLInputElement>) => {
+    if (e.target.value === '') {
+      setQuantity(priceSchedule.MinQuantity ? priceSchedule.MinQuantity : 1);
+      onChange(priceSchedule.MinQuantity ? priceSchedule.MinQuantity : 1);
     }
   };
 
@@ -56,19 +67,19 @@ const ProductQuantityInput = ({
   };
 
   const handleSubtract = () => {
-    const newQuantity = _quantity - 1;
+    const newQuantity = Number(_quantity) - 1;
     setQuantity(newQuantity);
     onChange(newQuantity);
   };
 
   const handleAdd = () => {
-    const newQuantity = _quantity + 1;
+    const newQuantity = Number(_quantity) + 1;
     setQuantity(newQuantity);
     onChange(newQuantity);
   };
 
   const quantityForm = priceSchedule.RestrictedQuantity ? (
-    <select disabled={disabled} value={_quantity} onChange={handleSelectChange}>
+    <select id={controlId} disabled={disabled} value={_quantity} onChange={handleSelectChange}>
       {priceSchedule.PriceBreaks.map((priceBreak) => (
         <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
           {priceBreak.Quantity}
@@ -94,6 +105,7 @@ const ProductQuantityInput = ({
         step={1}
         value={_quantity}
         onChange={handleInputChange}
+        onBlur={handleInputBlur}
       />
       <button
         className="quantity-input-button"
@@ -110,4 +122,4 @@ const ProductQuantityInput = ({
   return <div className="quantity-input">{quantityForm}</div>;
 };
 
-export default ProductQuantityInput;
+export default QuantityInput;

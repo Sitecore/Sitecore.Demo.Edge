@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import QuantityInput from '../../components/Checkout/QuantityInput';
+import QuantityInput from '../../components/ShopCommon/QuantityInput';
 import { DPriceSchedule } from 'src/models/ordercloud/DPriceSchedule';
 import { RequiredDeep } from 'ordercloud-javascript-sdk';
 
 export default {
-  title: 'Components/Checkout/QuantityInput',
+  title: 'Components/ShopCommon/QuantityInput',
   component: QuantityInput,
 } as ComponentMeta<typeof QuantityInput>;
 

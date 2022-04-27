@@ -38,7 +38,6 @@
 /* Checkout */
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
-@import './components/Checkout/QuantityInput.css';
 @import './components/Checkout/ThankYouSection.css';
 
 /* Forms */
@@ -107,6 +106,7 @@
 @import './components/ShopCommon/Price.css';
 @import './components/ShopCommon/ProductCard.css';
 @import './components/ShopCommon/ProductList.css';
+@import './components/ShopCommon/QuantityInput.css';
 
 /* Speakers */
 @import './components/Speakers/FeaturedSpeakers.css';

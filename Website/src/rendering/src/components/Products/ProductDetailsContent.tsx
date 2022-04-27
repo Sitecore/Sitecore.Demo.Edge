@@ -3,7 +3,7 @@ import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
-import ProductQuantityInput from './ProductQuantityInput';
+import QuantityInput from '../ShopCommon/QuantityInput';
 import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -237,9 +237,9 @@ const ProductDetailsContent = ({
                     specValues={specValues}
                     onChange={handleSpecFieldChange}
                   />
-                  {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
                   <div className="product-quantity">
-                    <ProductQuantityInput
+                    <QuantityInput
+                      controlId={variantID}
                       priceSchedule={product.PriceSchedule}
                       quantity={quantity}
                       onChange={setQuantity}
