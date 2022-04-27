@@ -190,7 +190,8 @@ async function categoryBuilder(
           categoryNameFormatted,
           parentCategoryID,
           catalogID,
-          row.url_path
+          row.url_path,
+          row.breadcrumbs
         );
         parentCategoryID = matchingCategoryID;
       }
@@ -204,7 +205,8 @@ async function postCategory(
   categoryName: string,
   parentCategoryID: string,
   catalogID: string,
-  urlPath: string
+  urlPath: string,
+  breadcrumbs: string
 ) {
   const categoryRequest = {
     ID: categoryID,
@@ -213,6 +215,7 @@ async function postCategory(
     ParentID: parentCategoryID,
     xp: {
       UrlPath: urlPath,
+      Breadcrumbs: breadcrumbs,
     },
   };
   try {
@@ -434,10 +437,13 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       return;
     }
 
-    // Get the specific category's URL path in order to construct the breadcrumbs
+    // Get the specific category's URL path and breadcrumbs name in order to construct the category breadcrumbs for the product
     try {
       const category = await OrderCloudSDK.Categories.Get(catalogID, categoryIDFormatted);
-      categoryBreadcrumbs.push(category.xp.UrlPath);
+      categoryBreadcrumbs.push({
+        UrlPath: category.xp.UrlPath,
+        BreadcrumbsName: category.xp.Breadcrumbs,
+      });
     } catch (ex) {
       results.categories.errors++;
       handleError(`Error getting category ${categoryIDFormatted}`, ex);
@@ -445,7 +451,7 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
     }
   }
 
-  // Update the product's XP with the breadcrumbs
+  // Update the product's XP with the category breadcrumbs
   try {
     await OrderCloudSDK.Products.Patch(row.product_group, {
       xp: { CategoryBreadcrumbs: categoryBreadcrumbs },
