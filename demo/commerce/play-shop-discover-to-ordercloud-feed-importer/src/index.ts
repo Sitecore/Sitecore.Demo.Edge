@@ -434,7 +434,7 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       return;
     }
 
-    // Get the specific category's URL path
+    // Get the specific category's URL path in order to construct the breadcrumbs
     try {
       const category = await OrderCloudSDK.Categories.Get(catalogID, categoryIDFormatted);
       categoryBreadcrumbs.push(category.xp.UrlPath);
@@ -443,6 +443,17 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       handleError(`Error getting category ${categoryIDFormatted}`, ex);
       return;
     }
+  }
+
+  // Update the product's XP with the breadcrumbs
+  try {
+    await OrderCloudSDK.Products.Patch(row.product_group, {
+      xp: { CategoryBreadcrumbs: categoryBreadcrumbs },
+    });
+  } catch (ex) {
+    results.products.errors++;
+    handleError(`Error updating product ${row.product_group}`, ex);
+    return;
   }
 }
 
