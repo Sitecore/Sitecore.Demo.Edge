@@ -410,6 +410,7 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
 
   // Post category-product assignment
   const categoriesSplitByPipe = row.ccids.split('|');
+  const categoryBreadcrumbs = [];
   for (let pipeSplitCategory of categoriesSplitByPipe) {
     const categoryIDFormatted = pipeSplitCategory
       .replace(/[`~!@#$%^&*()|+=?;:'",.<>{}[\]\\/]/gi, '') // Remove most special characters (not hyphens/underscores)
@@ -430,6 +431,16 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
         `Error assigning product ${row.product_group} to category ${categoryIDFormatted}`,
         ex
       );
+      return;
+    }
+
+    // Get the specific category's URL path
+    try {
+      const category = await OrderCloudSDK.Categories.Get(catalogID, categoryIDFormatted);
+      categoryBreadcrumbs.push(category.xp.UrlPath);
+    } catch (ex) {
+      results.categories.errors++;
+      handleError(`Error getting category ${categoryIDFormatted}`, ex);
       return;
     }
   }
