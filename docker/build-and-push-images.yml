@@ -97,6 +97,10 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
+        - script: |
+            npm config set @sitecore-discover:registry $(INTERNAL_SITECORE_DISCOVER_NPM_REGISTRY)
+          displayName: 'Add @sitecore-discover internal NPM registry'
+          workingDirectory: Website/src/rendering
         - task: Cache@2
           displayName: "Cache npm packages"
           inputs:
@@ -114,8 +118,8 @@ stages:
           workingDirectory: Website/src/rendering
 
         - script: |
-            npm run build
-          displayName: 'npm run build'
+            npm run build:local
+          displayName: 'npm run build:local'
           workingDirectory: Website/src/rendering
 
 - stage: Build_Storybook
@@ -130,6 +134,10 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
+        - script: |
+            npm config set @sitecore-discover:registry $(INTERNAL_SITECORE_DISCOVER_NPM_REGISTRY)
+          displayName: 'Add @sitecore-discover internal NPM registry'
+          workingDirectory: Website/src/rendering
         - task: Cache@2
           displayName: "Cache npm packages"
           inputs:
@@ -351,8 +359,9 @@ stages:
             targetType: "inline"
             script: |
               Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
-              Invoke-RestMethod -Uri "$(NEW_DEV_PORTAL_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(NEW_DEV_PORTAL_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(NEW_PROD_PORTAL_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
 
 - stage: Update_DEV_Portal_Databases_Stable
   displayName: "Update 'stable' version in the DEV portal database"

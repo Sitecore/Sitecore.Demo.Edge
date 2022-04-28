@@ -30,7 +30,8 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
