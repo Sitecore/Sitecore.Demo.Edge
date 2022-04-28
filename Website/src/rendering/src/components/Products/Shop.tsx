@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import Head from 'next/head';
 import ShopNavigation from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
@@ -8,10 +8,15 @@ import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
 import { DiscoverService } from '../../services/DiscoverService';
+import { logViewEvent } from '../../services/CdpService';
 
 DiscoverService();
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  useEffect(() => {
+    logViewEvent();
+  }, []);
+
   const footerProps = {
     fields: {
       data: {
