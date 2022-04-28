@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import PanelShippingEstimates from '../../components/Checkout/PanelShippingEstimates';
 import { MockStore } from '../mock-store';
 import { DShipEstimateResponse } from 'src/models/ordercloud/DShipEstimateResponse';
+import { shipMethods } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/PanelShippingEstimates',
@@ -26,35 +27,7 @@ const mockState = {
             Quantity: 2,
           },
         ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
+        ShipMethods: shipMethods,
       },
     ],
     HttpStatusCode: 200,

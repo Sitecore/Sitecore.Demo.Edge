@@ -12,6 +12,33 @@ export default {
 
 const Template: ComponentStory<typeof CheckoutDetails> = (args) => <CheckoutDetails {...args} />;
 
+export const NoLineItems = Template.bind({});
+const noLineItemsState = {
+  initialized: true,
+  order: {
+    LineItemCount: 0,
+  },
+};
+NoLineItems.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noLineItemsState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const Loading = Template.bind({});
+const loadingState = {
+  initialized: false,
+};
+Loading.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
 export const NoStepsComplete = Template.bind({});
 const noStepsCompleteState = {
   initialized: true,
