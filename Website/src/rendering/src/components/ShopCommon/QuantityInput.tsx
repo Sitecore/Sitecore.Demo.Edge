@@ -28,24 +28,24 @@ const QuantityInput = ({
       : _quantity <= 1);
 
   const isInRange = (q: number) => {
-    let _isInRange = q >= 1;
+    let isInRange = q >= 1;
 
     if (priceSchedule.MinQuantity) {
-      _isInRange = _isInRange && q >= priceSchedule.MinQuantity;
+      isInRange = isInRange && q >= priceSchedule.MinQuantity;
     }
 
     if (priceSchedule.MaxQuantity) {
-      _isInRange = _isInRange && q <= priceSchedule.MaxQuantity;
+      isInRange = isInRange && q <= priceSchedule.MaxQuantity;
     }
 
-    return _isInRange;
+    return isInRange;
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const _val = Number(e.target.value);
-    if (isInRange(_val)) {
-      setQuantity(_val);
-      onChange(_val);
+    const val = Number(e.target.value);
+    if (isInRange(val)) {
+      setQuantity(val);
+      onChange(val);
     } else if (e.target.value === '') {
       setQuantity('');
     }
@@ -59,10 +59,10 @@ const QuantityInput = ({
   };
 
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const _val = Number(e.target.value);
-    if (isInRange(_val)) {
-      setQuantity(_val);
-      onChange(_val);
+    const val = Number(e.target.value);
+    if (isInRange(val)) {
+      setQuantity(val);
+      onChange(val);
     }
   };
 
