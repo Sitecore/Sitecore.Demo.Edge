@@ -63,7 +63,7 @@ const CheckoutSummary = (): JSX.Element => {
         <span className="line-name">Subtotal:</span>
         <span className="line-amount">{formatCurrency(order.Subtotal)}</span>
       </p>
-      <p className="summary-line">
+      <p className={`summary-line ${order.PromotionDiscount !== 0 ? 'has-discount' : ''}`}>
         <span className="line-name">Discount:</span>
         <span className="line-amount">{formatCurrency(order.PromotionDiscount)}</span>
       </p>
