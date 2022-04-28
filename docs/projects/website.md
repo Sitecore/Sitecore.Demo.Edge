@@ -186,4 +186,3 @@ If you checkout a different branch while the containers are running or you manua
 ```ps1
 .\serpush.ps1
 ```
-test
