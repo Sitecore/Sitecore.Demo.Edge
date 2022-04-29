@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
+import { BuyerProduct, LineItem, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
@@ -11,6 +11,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import { logAddToCart } from '../../services/CdpService';
 
 interface ProductDetailsContentProps {
   variantID?: string;
@@ -148,7 +149,7 @@ const ProductDetailsContent = ({
     async (e: FormEvent) => {
       e.preventDefault();
       setLoading(true);
-      await dispatch(
+      const response = await dispatch(
         createLineItem({
           ProductID: product.ID,
           Quantity: quantity,
@@ -156,6 +157,26 @@ const ProductDetailsContent = ({
         })
       );
       setLoading(false);
+
+      const resPayload: { LineItems?: LineItem[] } = response?.payload;
+      const lineItem = resPayload?.LineItems[resPayload.LineItems.length - 1];
+      const addToCartPayload = {
+        // TODO change when possible to select language from dropdown
+        language: 'EN',
+        currency: product.xp.Currency,
+        product: {
+          type: product.xp.ProductType,
+          item_id: lineItem.Variant?.ID || lineItem.ProductID,
+          name: lineItem.Product.Name,
+          orderedAt: lineItem.DateAdded,
+          quantity: lineItem.Quantity,
+          price: lineItem.UnitPrice,
+          productId: lineItem.ProductID,
+          currency: product.xp.Currency,
+          referenceId: lineItem.ID,
+        },
+      };
+      logAddToCart(addToCartPayload);
     },
     [dispatch, product, specValues, quantity]
   );

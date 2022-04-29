@@ -86,6 +86,13 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   );
 }
 
+/**
+ * Logs an ADD (add to cart) event for PLAY! Shop
+ */
+export function logAddToCart(payload: Record<string, unknown>): Promise<unknown> {
+  return logEvent('ADD', payload);
+}
+
 export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
