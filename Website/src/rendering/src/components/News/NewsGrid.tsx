@@ -19,7 +19,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasNews = props.fields;
+  const hasNews = !!props.fields;
 
   !hasNews && console.log('Missing Datasource Item');
 

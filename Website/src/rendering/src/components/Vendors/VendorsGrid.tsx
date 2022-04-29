@@ -19,7 +19,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasVendors = props.fields;
+  const hasVendors = !!props.fields;
 
   !hasVendors && console.log('Missing Datasource Item');
 

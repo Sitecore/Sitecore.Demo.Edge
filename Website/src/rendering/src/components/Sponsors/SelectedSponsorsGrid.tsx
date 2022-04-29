@@ -18,7 +18,7 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasSponsors = props?.fields?.Sponsors.length;
+  const hasSponsors = !!props?.fields?.Sponsors?.length;
 
   !hasSponsors && console.log('Missing Datasource Item');
 

@@ -21,7 +21,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasNews = !!props.fields.items.length;
+  const hasNews = !!props?.fields?.items?.length;
 
   !hasNews && console.log('Missing Datasource Item');
 

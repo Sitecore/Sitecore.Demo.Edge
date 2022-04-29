@@ -19,7 +19,7 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasSessions = props.fields.data?.item;
+  const hasSessions = !!props.fields?.data?.item;
 
   !hasSessions && console.log('Missing Datasource Item');
 

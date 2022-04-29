@@ -22,7 +22,7 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasVendors = props?.fields?.Vendors.length;
+  const hasVendors = !!props?.fields?.Vendors?.length;
 
   !hasVendors && console.log('Missing Data Source Item');
 

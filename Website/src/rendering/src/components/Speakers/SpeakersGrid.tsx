@@ -25,7 +25,7 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
-  const hasSpeakers = props.fields.data?.item;
+  const hasSpeakers = !!props.fields?.data?.item;
 
   !hasSpeakers && console.log('Missing Datasource Item');
 
