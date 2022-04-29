@@ -22,7 +22,7 @@ Default.args = {
     PriceBreaks: [{ Quantity: 1, Price: 20 }],
   } as RequiredDeep<DPriceSchedule>,
   disabled: false,
-  quantity: 1,
+  initialQuantity: 1,
   onChange: () => {
     return null;
   },
@@ -39,7 +39,7 @@ WithDisabled.args = {
     PriceBreaks: [{ Quantity: 1, Price: 20 }],
   } as RequiredDeep<DPriceSchedule>,
   disabled: true,
-  quantity: 0,
+  initialQuantity: 0,
   onChange: () => {
     return null;
   },
@@ -61,7 +61,7 @@ WithRestrictedQuantities.args = {
     ],
   } as RequiredDeep<DPriceSchedule>,
   disabled: false,
-  quantity: 0,
+  initialQuantity: 0,
   onChange: () => {
     return null;
   },
