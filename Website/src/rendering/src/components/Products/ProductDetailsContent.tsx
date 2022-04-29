@@ -241,7 +241,7 @@ const ProductDetailsContent = ({
                     <QuantityInput
                       controlId={variantID}
                       priceSchedule={product.PriceSchedule}
-                      quantity={quantity}
+                      initialQuantity={quantity}
                       onChange={setQuantity}
                     />
                     {quantityAlert}

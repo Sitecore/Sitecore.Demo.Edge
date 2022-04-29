@@ -76,7 +76,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const quantityInput = props.editable && product && (
     <QuantityInput
       controlId={`${props.lineItem.ID}_quantity`}
-      quantity={props.lineItem.Quantity}
+      initialQuantity={props.lineItem.Quantity}
       disabled={loading}
       onChange={handleUpdateQuantity}
       priceSchedule={product.PriceSchedule}

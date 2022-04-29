@@ -14,9 +14,9 @@ const CheckoutDetails = (): JSX.Element => {
   };
 
   return (
-    <>
-      <h1 className="shop-container">Checkout</h1>
-      <section className="checkout-details shop-container section">
+    <section className="checkout-details shop-container">
+      <h1>Checkout</h1>
+      <div className="checkout-details-grid">
         <PanelDeliveryOptions />
         <PanelShippingAddress />
         <PanelShippingEstimates />
@@ -26,8 +26,8 @@ const CheckoutDetails = (): JSX.Element => {
           <PanelComments orderComments={comments} onEditComments={handleEditComments} />
           <CheckoutSummary orderComments={comments} />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

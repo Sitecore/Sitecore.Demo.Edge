@@ -1,6 +1,14 @@
 .checkout-details {
-  @apply grid grid-cols-1 gap-4;
-  @apply sm:grid-cols-2;
+  @apply pb-5;
+
+  &-grid {
+    @apply grid grid-cols-1 gap-4 -mx-5;
+    @apply sm:grid-cols-2 sm:mx-0;
+  }
+
+  h1 {
+    @apply text-2xl font-bold mb-3;
+  }
 
   .panel {
     @apply bg-white;
@@ -169,15 +177,5 @@
     button {
       @apply mt-4 mx-auto;
     }
-  }
-}
-
-.shop-checkout {
-  h1 {
-    @apply text-xl font-bold;
-  }
-
-  .breadcrumb {
-    @apply shop-container text-blue;
   }
 }

@@ -6,7 +6,7 @@ interface QuantityInputProps {
   priceSchedule: RequiredDeep<PriceSchedule>;
   label?: string;
   disabled?: boolean;
-  quantity: number | string;
+  initialQuantity: number | string;
   onChange: (quantity: number) => void;
 }
 
@@ -14,72 +14,72 @@ const QuantityInput = ({
   controlId,
   priceSchedule,
   disabled,
-  quantity,
+  initialQuantity,
   onChange,
 }: QuantityInputProps): JSX.Element => {
-  const [_quantity, setQuantity] = useState(quantity);
+  const [editedQuantity, setEditedQuantity] = useState(initialQuantity);
 
   const addDisabled =
-    disabled || (priceSchedule.MaxQuantity ? _quantity >= priceSchedule.MaxQuantity : false);
+    disabled || (priceSchedule.MaxQuantity ? editedQuantity >= priceSchedule.MaxQuantity : false);
   const subtractDisabled =
     disabled ||
     (priceSchedule.MinQuantity
-      ? _quantity <= priceSchedule.MinQuantity && _quantity <= 1
-      : _quantity <= 1);
+      ? editedQuantity <= priceSchedule.MinQuantity && editedQuantity <= 1
+      : editedQuantity <= 1);
 
-  const isInRange = (q: number) => {
-    let isInRange = q >= 1;
+  const isInRange = (quantity: number) => {
+    let isInRange = quantity >= 1;
 
     if (priceSchedule.MinQuantity) {
-      isInRange = isInRange && q >= priceSchedule.MinQuantity;
+      isInRange = isInRange && quantity >= priceSchedule.MinQuantity;
     }
 
     if (priceSchedule.MaxQuantity) {
-      isInRange = isInRange && q <= priceSchedule.MaxQuantity;
+      isInRange = isInRange && quantity <= priceSchedule.MaxQuantity;
     }
 
     return isInRange;
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const val = Number(e.target.value);
-    if (isInRange(val)) {
-      setQuantity(val);
-      onChange(val);
+    const inputQuantity = Number(e.target.value);
+    if (isInRange(inputQuantity)) {
+      setEditedQuantity(inputQuantity);
+      onChange(inputQuantity);
     } else if (e.target.value === '') {
-      setQuantity('');
+      setEditedQuantity('');
     }
   };
 
   const handleInputBlur = (e: FocusEvent<HTMLInputElement>) => {
     if (e.target.value === '') {
-      setQuantity(priceSchedule.MinQuantity ? priceSchedule.MinQuantity : 1);
+      setEditedQuantity(priceSchedule.MinQuantity ? priceSchedule.MinQuantity : 1);
       onChange(priceSchedule.MinQuantity ? priceSchedule.MinQuantity : 1);
     }
   };
 
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const val = Number(e.target.value);
-    if (isInRange(val)) {
-      setQuantity(val);
-      onChange(val);
+    const selectedQuantity = Number(e.target.value);
+    if (isInRange(selectedQuantity)) {
+      setEditedQuantity(selectedQuantity);
+      onChange(selectedQuantity);
     }
   };
 
   const handleSubtract = () => {
-    const newQuantity = Number(_quantity) - 1;
-    setQuantity(newQuantity);
+    const newQuantity = Number(editedQuantity) - 1;
+    setEditedQuantity(newQuantity);
     onChange(newQuantity);
   };
 
   const handleAdd = () => {
-    const newQuantity = Number(_quantity) + 1;
-    setQuantity(newQuantity);
+    const newQuantity = Number(editedQuantity) + 1;
+    setEditedQuantity(newQuantity);
     onChange(newQuantity);
   };
 
   const quantityForm = priceSchedule.RestrictedQuantity ? (
-    <select id={controlId} disabled={disabled} value={_quantity} onChange={handleSelectChange}>
+    <select id={controlId} disabled={disabled} value={editedQuantity} onChange={handleSelectChange}>
       {priceSchedule.PriceBreaks.map((priceBreak) => (
         <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
           {priceBreak.Quantity}
@@ -103,7 +103,7 @@ const QuantityInput = ({
         min={priceSchedule.MinQuantity}
         max={priceSchedule.MaxQuantity}
         step={1}
-        value={_quantity}
+        value={editedQuantity}
         onChange={handleInputChange}
         onBlur={handleInputBlur}
       />
