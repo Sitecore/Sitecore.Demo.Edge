@@ -9,7 +9,7 @@ type ProductImageProps = {
 const ProductImage = (props: ProductImageProps): JSX.Element => {
   const [activeImg, setActiveImg] = useState(null);
 
-  const uniqueImages = [...new Set(props.images)];
+  const uniqueImages = [...new Map(props.images.map((image) => [image['Url'], image])).values()];
 
   const thumbnails = uniqueImages.length > 1 && (
     <div className="image-secondary">
@@ -24,7 +24,7 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
     </div>
   );
 
-  return (
+  const images = uniqueImages.length > 0 && (
     <div className="product-image">
       <div className="image-active">
         <div>
@@ -35,6 +35,8 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
       {thumbnails}
     </div>
   );
+
+  return images;
 };
 
 export default ProductImage;

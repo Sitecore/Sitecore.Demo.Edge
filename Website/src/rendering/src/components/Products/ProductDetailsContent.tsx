@@ -165,7 +165,7 @@ const ProductDetailsContent = ({
       ? variant.xp.Images
       : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
       ? product.xp.Images
-      : null;
+      : [];
 
   const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
 
