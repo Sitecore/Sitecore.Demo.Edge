@@ -12,6 +12,7 @@ import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { logAddToCart } from '../../services/CdpService';
+import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
 
 interface ProductDetailsContentProps {
   variantID?: string;
@@ -160,12 +161,12 @@ const ProductDetailsContent = ({
 
       const resPayload: { LineItems?: LineItem[] } = response?.payload;
       const lineItem = resPayload?.LineItems[resPayload.LineItems.length - 1];
-      const addToCartPayload = {
+      const addToCartPayload: Partial<AddToCartPayload> = {
         // TODO change when possible to select language from dropdown
         language: 'EN',
         currency: product.xp.Currency,
         product: {
-          type: product.xp.ProductType,
+          type: product.xp.ProductType.toUpperCase(),
           item_id: lineItem.Variant?.ID || lineItem.ProductID,
           name: lineItem.Product.Name,
           orderedAt: lineItem.DateAdded,
