@@ -4,6 +4,8 @@ import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import { logOrderCheckout } from '../../services/CdpService';
+import { OrderCheckoutPayload } from '../../models/cdp/OrderCheckoutPayload';
 
 type CheckoutSummaryProps = {
   orderComments?: string;
@@ -19,6 +21,22 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const selectedShipMethodId = shipEstimate?.SelectedShipMethodID;
 
   const onOrderSubmitSuccess = () => {
+    const orderCheckoutPayload: Partial<OrderCheckoutPayload> = {
+      // TODO change when possible to select language from dropdown
+      language: 'EN',
+      currency: order.Currency || 'USD',
+      order: {
+        referenceId: order.ID,
+        orderedAt: order.DateSubmitted || order.LastUpdated,
+        status: order.Status.toUpperCase(),
+        currencyCode: order.Currency || 'USD',
+        price: order.Total,
+        paymentType: payments[0].Type,
+        cardType: payments[0]?.xp?.CreditCard?.CardType,
+      },
+    };
+    logOrderCheckout(order.FromUser.Email, orderCheckoutPayload);
+
     router?.push?.(`/shop/checkout/order-summary`);
   };
 
