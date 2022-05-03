@@ -93,6 +93,18 @@ export function logAddToCart(payload: Record<string, unknown>): Promise<unknown>
   return logEvent('ADD', payload);
 }
 
+/**
+ * Logs an ORDER_CHECKOUT event for PLAY! Shop
+ */
+export function logOrderCheckout(
+  email: string,
+  payload: Record<string, unknown>
+): Promise<unknown> {
+  identifyVisitor(email);
+
+  return logEvent('ORDER_CHECKOUT', payload);
+}
+
 export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
