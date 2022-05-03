@@ -96,12 +96,12 @@ export function logAddToCart(payload: Record<string, unknown>): Promise<unknown>
 /**
  * Logs an ORDER_CHECKOUT event for PLAY! Shop
  */
-export function logOrderCheckout(
+export async function logOrderCheckout(
   email: string,
   payload: Record<string, unknown>
 ): Promise<unknown> {
-  identifyVisitor(email);
-
+  // The guest must be identified first
+  await identifyVisitor(email);
   return logEvent('ORDER_CHECKOUT', payload);
 }
 
