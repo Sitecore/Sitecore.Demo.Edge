@@ -5,7 +5,7 @@ const Account = (): JSX.Element => {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! Summit - My Account</title>
+        <title>PLAY! SHOP - My Account</title>
       </Head>
 
       <p>My Account</p>

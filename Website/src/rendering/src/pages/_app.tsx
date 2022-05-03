@@ -10,7 +10,6 @@ import { KeypressHandler } from 'src/services/KeypressHandlerService';
 // END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { UserProvider } from '@auth0/nextjs-auth0';
 
 config.autoAddCss = false;
 
@@ -67,9 +66,7 @@ function App({ Component, pageProps, router }: AppProps): JSX.Element {
         If your app is not multilingual, next-localization and references to it can be removed.
       */}
       <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
-        <UserProvider>
-          <Component {...rest} />
-        </UserProvider>
+        <Component {...rest} />
       </I18nProvider>
     </>
   );

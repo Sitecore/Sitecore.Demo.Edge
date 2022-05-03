@@ -11,7 +11,6 @@ import SessionInformation, {
 import { Speaker } from 'src/types/speaker';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { UserProvider } from '@auth0/nextjs-auth0';
 
 export default {
   title: 'Pages/Session Information Page',
@@ -192,20 +191,18 @@ const sessionInformationProps = {
 
 const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
-    <UserProvider>
-      <SitecoreContext componentFactory={mockComponentFactory}>
-        <header>
-          <Header {...mockHeaderProps} />
-        </header>
-        <main>
-          <HeaderCdpMessageBar />
-          <SessionInformation {...sessionInformationProps} />
-        </main>
-        <footer>
-          <Footer {...mockFooterProps} />
-        </footer>
-      </SitecoreContext>
-    </UserProvider>
+    <SitecoreContext componentFactory={mockComponentFactory}>
+      <header>
+        <Header {...mockHeaderProps} />
+      </header>
+      <main>
+        <HeaderCdpMessageBar />
+        <SessionInformation {...sessionInformationProps} />
+      </main>
+      <footer>
+        <Footer {...mockFooterProps} />
+      </footer>
+    </SitecoreContext>
   );
 };
 
