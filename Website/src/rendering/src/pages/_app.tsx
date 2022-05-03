@@ -10,7 +10,6 @@ import { KeypressHandler } from 'src/services/KeypressHandlerService';
 // END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-
 config.autoAddCss = false;
 
 // Using nprogress is completely optional.
