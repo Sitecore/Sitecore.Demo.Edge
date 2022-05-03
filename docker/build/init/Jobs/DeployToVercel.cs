@@ -68,15 +68,9 @@ namespace Sitecore.Demo.Init.Jobs
             var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
             var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
 
-            var auth0Secret = Environment.GetEnvironmentVariable("AUTH0_SECRET");
-            var auth0IssuerBaseUrl = Environment.GetEnvironmentVariable("AUTH0_ISSUER_BASE_URL");
-            var auth0ClientId = Environment.GetEnvironmentVariable("AUTH0_CLIENT_ID");
-            var auth0ClientSecret = Environment.GetEnvironmentVariable("AUTH0_CLIENT_SECRET");
-            var auth0Enabled = Environment.GetEnvironmentVariable("AUTH0_ENABLED");
-
             Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
-                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region, auth0Secret, auth0IssuerBaseUrl, auth0ClientId, auth0ClientSecret, auth0Enabled));
+                DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region));
             Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
                 cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task.WaitAll(tv, website, kiosk);
@@ -121,13 +115,17 @@ namespace Sitecore.Demo.Init.Jobs
         }
 
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
-            string cdpProxyUrl, string token, string scope, string region, string auth0Secret,
-            string auth0IssuerBaseUrl, string auth0ClientId, string auth0ClientSecret, string auth0Enabled)
+            string cdpProxyUrl, string token, string scope, string region)
         {
+            // General
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
+
+            // Discover
             var discoverCustomerKey = Environment.GetEnvironmentVariable("DISCOVER_CUSTOMER_KEY");
             var discoverApiKey = Environment.GetEnvironmentVariable("DISCOVER_API_KEY");
+
+            // OrderCloud
             var orderCloudBuyerClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_BUYER_CLIENT_ID");
             var orderCloudBaseApiUrl = Environment.GetEnvironmentVariable("ORDERCLOUD_BASE_API_URL");
             var orderCloudMiddlewareClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_ID");
@@ -136,7 +134,17 @@ namespace Sitecore.Demo.Init.Jobs
             var orderCloudWebhookHashKey = Environment.GetEnvironmentVariable("ORDERCLOUD_WEBHOOK_HASH_KEY");
             var orderCloudProfiledBuyerId = Environment.GetEnvironmentVariable("ORDERCLOUD_PROFILED_BUYER_ID");
             var orderCloudOpenIdConnectId = Environment.GetEnvironmentVariable("ORDERCLOUD_OPENID_CONNECT_ID");
+
+            // Auth0
+            var auth0Secret = Environment.GetEnvironmentVariable("AUTH0_SECRET");
+            var auth0IssuerBaseUrl = Environment.GetEnvironmentVariable("AUTH0_ISSUER_BASE_URL");
+            var auth0ClientId = Environment.GetEnvironmentVariable("AUTH0_CLIENT_ID");
+            var auth0ClientSecret = Environment.GetEnvironmentVariable("AUTH0_CLIENT_SECRET");
+            var auth0Enabled = Environment.GetEnvironmentVariable("AUTH0_ENABLED");
+
+            // .npmrc file
             var npmrcFileContents = Environment.GetEnvironmentVariable("NPMRC");
+
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
 
@@ -153,6 +161,8 @@ namespace Sitecore.Demo.Init.Jobs
             var productionUrl = $"https://{ns}-website-{scope}.vercel.app";
 
             // Configure env. variables
+
+            // General
             cmd.Run(
                 $"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
             cmd.Run(
@@ -161,30 +171,22 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
+
+            // CDP
             cmd.Run(
                 $"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
+
+            // Discover
             cmd.Run(
-                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add AUTH0_BASE_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0Secret}\" | vercel env add AUTH0_SECRET production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0IssuerBaseUrl}\" | vercel env add AUTH0_ISSUER_BASE_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0ClientId}\" | vercel env add AUTH0_CLIENT_ID production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0Enabled}\" | vercel env add AUTH0_ENABLED production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata\" | vercel env add AUTH0_SCOPE production --token {token} --scope {scope}");
-            cmd.Run(    
                 $"echo | set /p=\"{discoverCustomerKey}\" | vercel env add NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{discoverApiKey}\" | vercel env add NEXT_PUBLIC_DISCOVER_API_KEY production --token {token} --scope {scope}");
+
+            // OrderCloud
             cmd.Run(
                 $"echo | set /p=\"{orderCloudBuyerClientId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID production --token {token} --scope {scope}");
             cmd.Run(
@@ -202,14 +204,28 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{orderCloudWebhookHashKey}\" | vercel env add OC_WEBHOOK_HASH_KEY production --token {token} --scope {scope}");
 
+            // Auth0
+            cmd.Run(
+                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add AUTH0_BASE_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0Secret}\" | vercel env add AUTH0_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0IssuerBaseUrl}\" | vercel env add AUTH0_ISSUER_BASE_URL production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0ClientId}\" | vercel env add AUTH0_CLIENT_ID production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"{auth0Enabled}\" | vercel env add AUTH0_ENABLED production --token {token} --scope {scope}");
+            cmd.Run(
+                $"echo | set /p=\"openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata\" | vercel env add AUTH0_SCOPE production --token {token} --scope {scope}");
+
             // Configure special NPM_RC environment variable for the internal NPM registries. https://vercel.com/support/articles/using-private-dependencies-with-vercel
             cmd.Run(
                 $"echo | set /p=\"{npmrcFileContents}\" | vercel env add NPM_RC production --token {token} --scope {scope}");
 
             // Deploy project files
-            var output =
-                cmd.Run(
-                    $"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
+            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
             if (output.Contains(ErrorText))
             {
                 throw new Exception($"An error has occurred when running DeployToVercel job: DeployWebsite");

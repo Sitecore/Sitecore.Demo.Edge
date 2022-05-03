@@ -2,34 +2,16 @@ import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Tokens } from 'ordercloud-javascript-sdk';
-import { orderCloudScope } from '../../constants/ordercloud-scope';
-import { parseOrderCloudJwt } from '../../helpers/JwtHelper';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Widget } from '@sitecore-discover/react';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
-
-function isAuthenticated(): boolean {
-  try {
-    const token = Tokens.GetAccessToken();
-    const decodedToken = parseOrderCloudJwt(token);
-    const currentSeconds = Date.now() / 1000;
-    const currentSecondsWithBuffer = currentSeconds - 10;
-    return decodedToken.exp > currentSecondsWithBuffer;
-  } catch {
-    return false;
-  }
-}
-
-function isAnonymous(): boolean {
-  try {
-    const token = Tokens.GetAccessToken();
-    const decodedToken = parseOrderCloudJwt(token);
-    return Boolean(decodedToken.orderid);
-  } catch {
-    return false;
-  }
-}
+import {
+  clearAuthenticationTokens,
+  isLoggedIn,
+  isLoginEnabled,
+  loginUrl,
+  logoutUrl,
+} from '../../services/AuthenticationService';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -41,23 +23,6 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
-  const isLoginEnabled = process.env.NEXT_PUBLIC_AUTH0_ENABLED === 'true';
-  const isLoggedIn = !isAnonymous() && isAuthenticated();
-
-  const clearOrderCloudTokens = () => {
-    Tokens.RemoveAccessToken();
-    Tokens.RemoveImpersonationToken();
-    Tokens.RemoveRefreshToken();
-  };
-
-  const orderCloudLoginUrl = () => {
-    // build up url for openid connect so user can log into ordercloud via auth0
-    const baseUrl = process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL;
-    const openIdConnectId = process.env.NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID;
-    const clientId = process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID;
-    const roles = orderCloudScope.join(' ');
-    return `${baseUrl}/ocrplogin?id=${openIdConnectId}&cid=${clientId}&roles=${roles}`;
-  };
 
   const accountMenuItem = isLoginEnabled && isLoggedIn && (
     <li className="shop-navigation-menu-item">
@@ -72,13 +37,13 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   /* eslint-disable @next/next/no-html-link-for-pages */
   const loginMenuItem = isLoginEnabled && !isLoggedIn && (
     <div className="shop-navigation-menu-item">
-      <a href={orderCloudLoginUrl()}>Login</a>
+      <a href={loginUrl}>Login</a>
     </div>
   );
 
   const logoutMenuItem = isLoginEnabled && isLoggedIn && (
     <div className="shop-navigation-menu-item">
-      <a href="/api/auth/logout" onClick={clearOrderCloudTokens}>
+      <a href={logoutUrl} onClick={clearAuthenticationTokens}>
         Logout
       </a>
     </div>
