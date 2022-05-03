@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 import { logOrderCheckout } from '../../services/CdpService';
-import { OrderCheckoutPayload } from '../../models/cdp/OrderCheckoutPayload';
+import { OrderItem, OrderCheckoutPayload } from '../../models/cdp/OrderCheckoutPayload';
 
 type CheckoutSummaryProps = {
   orderComments?: string;
@@ -14,25 +14,39 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
+  const { order, shipEstimateResponse, shippingAddress, payments, lineItems } = useOcCurrentOrder();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
   const selectedShipMethodId = shipEstimate?.SelectedShipMethodID;
 
   const onOrderSubmitSuccess = () => {
+    const orderItems: OrderItem[] = [];
+    lineItems.forEach((lineItem) => {
+      orderItems.push({
+        type: 'LINEITEM',
+        referenceId: lineItem.ID,
+        orderedAt: lineItem.DateAdded,
+        price: lineItem.UnitPrice,
+        name: lineItem.Product.Name,
+        productId: lineItem.ProductID,
+        quantity: lineItem.Quantity,
+      });
+    });
+
     const orderCheckoutPayload: Partial<OrderCheckoutPayload> = {
       // TODO change when possible to select language from dropdown
       language: 'EN',
       currency: order.Currency || 'USD',
       order: {
+        orderItems,
         referenceId: order.ID,
         orderedAt: order.DateSubmitted || order.LastUpdated,
         status: order.Status.toUpperCase(),
         currencyCode: order.Currency || 'USD',
         price: order.Total,
         paymentType: payments[0].Type,
-        cardType: payments[0]?.xp?.CreditCard?.CardType,
+        cardType: payments[0].xp?.CreditCard?.CardType,
       },
     };
     logOrderCheckout(order.FromUser.Email, orderCheckoutPayload);
