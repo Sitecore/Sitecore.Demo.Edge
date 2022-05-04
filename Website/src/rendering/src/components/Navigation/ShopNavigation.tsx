@@ -5,13 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Widget } from '@sitecore-discover/react';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
-import {
-  clearAuthenticationTokens,
-  isLoggedIn,
-  isLoginEnabled,
-  loginUrl,
-  logoutUrl,
-} from '../../services/AuthenticationService';
+import { isLoginEnabled } from '../../services/AuthenticationService';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -24,7 +18,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
 
-  const accountMenuItem = isLoginEnabled && isLoggedIn && (
+  const accountMenuItem = isLoginEnabled && (
     <li className="shop-navigation-menu-item">
       <Link href="/account" passHref>
         <a>
@@ -33,22 +27,6 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
       </Link>
     </li>
   );
-
-  /* eslint-disable @next/next/no-html-link-for-pages */
-  const loginMenuItem = isLoginEnabled && !isLoggedIn && (
-    <div className="shop-navigation-menu-item">
-      <a href={loginUrl}>Login</a>
-    </div>
-  );
-
-  const logoutMenuItem = isLoginEnabled && isLoggedIn && (
-    <div className="shop-navigation-menu-item">
-      <a href={logoutUrl} onClick={clearAuthenticationTokens}>
-        Logout
-      </a>
-    </div>
-  );
-  /* eslint-enable @next/next/no-html-link-for-pages */
 
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
     return src;
@@ -153,8 +131,6 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               </Link>
             </li>
             {accountMenuItem}
-            {loginMenuItem}
-            {logoutMenuItem}
           </ul>
         </div>
         <div className="shop-search-input-container">
