@@ -1,25 +1,28 @@
 .product-details {
   &-hero {
-    @apply grid grid-cols-2 gap-3;
+    @apply grid grid-cols-1 gap-3;
+    @apply sm:grid-cols-2;
 
     .product {
       &-name {
-        @apply col-span-2 text-xl font-bold w-full;
+        @apply text-xl font-bold w-full;
+        @apply sm:col-span-2;
       }
 
       &-image {
-        @apply row-span-3;
+        @apply lg:row-span-3;
 
         .image-active {
           > div {
-            @apply relative pt-[100%];
+            @apply relative pt-[100%] -mx-5;
+            @apply sm:mx-0;
 
             img {
               @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
             }
 
             .product-offer {
-              @apply absolute bottom-4 pl-4 pr-6 py-[2px] bg-orange text-white opacity-75;
+              @apply absolute top-4 pl-4 pr-6 py-[2px] bg-orange text-white opacity-75;
             }
           }
         }
@@ -28,7 +31,11 @@
           @apply flex justify-center gap-2 mt-2;
 
           > div {
-            @apply w-12 h-12;
+            @apply w-12 h-12 border-2 border-gray;
+
+            &.active {
+              @apply border-yellow;
+            }
 
             img {
               @apply w-full h-full object-cover;
@@ -37,12 +44,21 @@
         }
       }
 
-      &-description {
+      &-add-to-cart {
+        @apply flex;
+
+        .btn--main {
+          @apply mr-auto;
+          @apply sm:mr-0;
+        }
+
         .btn-later,
         .btn-wishlist {
           @apply text-gray ml-3;
         }
+      }
 
+      &-description {
         .price {
           @apply justify-start text-left my-4;
 
@@ -52,6 +68,12 @@
             }
           }
         }
+      }
+
+      &-overview {
+        @apply col-span-1 -mx-5;
+        @apply sm:col-span-2;
+        @apply lg:col-span-1 lg:mx-0;
       }
 
       &-specs {
@@ -76,7 +98,7 @@
             }
 
             > label {
-              @apply flex flex-row-reverse justify-end;
+              @apply flex;
 
               label {
                 @apply flex justify-center items-center w-9 h-9 mr-2 border border-gray cursor-pointer;

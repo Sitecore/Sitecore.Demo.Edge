@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import { DLineItem } from 'src/models/ordercloud/DLineItem';
 import useOcProduct from '../../hooks/useOcProduct';
 import { patchLineItem, removeLineItem } from '../../redux/ocCurrentCart';
-import QuantityInput from './QuantityInput';
+import QuantityInput from '../ShopCommon/QuantityInput';
+import { PriceReact } from '../ShopCommon/Price';
 import GiftCheckboxLineItem from './GiftCheckboxLineItem';
 import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -75,7 +76,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const quantityInput = props.editable && product && (
     <QuantityInput
       controlId={`${props.lineItem.ID}_quantity`}
-      quantity={props.lineItem.Quantity}
+      initialQuantity={props.lineItem.Quantity}
       disabled={loading}
       onChange={handleUpdateQuantity}
       priceSchedule={product.PriceSchedule}
@@ -136,14 +137,14 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   // TODO: add functionality to field
   const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
-  // TODO: add functionality to block (specs to return base and final price)
-  // can use Price component when extracted
+  // TODO: specs to return base and final price
   const priceBlock = (
-    <div className="price price-discounted price-orange price-large">
-      <span className="price-base">$299.99</span>
-      <span className="price-discount">-20%</span>
-      <span className="price-final">$250.99</span>
-    </div>
+    <PriceReact
+      price={props.lineItem.UnitPrice}
+      finalPrice={props.lineItem.UnitPrice}
+      altTheme={true}
+      sizeL={true}
+    />
   );
 
   return (

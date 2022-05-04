@@ -1,0 +1,3 @@
+.breadcrumb.shop-breadcrumb {
+  @apply shop-container pt-3 pb-0 text-blue;
+}
