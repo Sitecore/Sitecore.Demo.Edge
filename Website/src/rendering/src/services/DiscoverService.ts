@@ -3,7 +3,6 @@ import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchas
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import TrendingCategories from '../components/Widgets/TrendingCategories';
-
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
 }
@@ -32,6 +31,11 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   });
 
   setWidget('rfkid_7', {
+    component: FullPageSearch,
+    type: WidgetDataType.SEARCH_RESULTS,
+  });
+
+  setWidget('rfkid_10', {
     component: FullPageSearch,
     type: WidgetDataType.SEARCH_RESULTS,
   });

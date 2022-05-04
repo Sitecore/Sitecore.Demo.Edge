@@ -10,12 +10,17 @@ import {
   SearchResultsSortChangedActionPayload,
 } from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { PageController } from '@sitecore-discover/react';
+import { useRouter } from 'next/router';
 
 interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
 }
 
 const FullPageSearch = ({
+  rfkId,
   error,
   loaded,
   loading,
@@ -34,9 +39,13 @@ const FullPageSearch = ({
   onPageNumberChange,
   onSortChange,
 }: FullPageSearchResultsProps): JSX.Element => {
+  const router = useRouter();
+
+  const isCategoryProductListingPage = rfkId === 'rfkid_10';
+
   const [toggle, setToggle] = useState(false);
 
-  const setInitialKeyphrase: (keyphrase: string) => void = debounce(
+  const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
       dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
     500,
@@ -48,7 +57,7 @@ const FullPageSearch = ({
     const searchQuery = urlSearchParams.get('q');
     const keyphraseToUse = keyphrase ?? searchQuery;
     if (keyphraseToUse) {
-      setInitialKeyphrase(keyphraseToUse);
+      setKeyphrase(keyphraseToUse);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -67,7 +76,7 @@ const FullPageSearch = ({
 
   const handlePageNumberChange = (pageNumber: string) => {
     const pageNo: SearchResultsPageNumberChangedActionPayload = {
-      rfkId: 'rfkid_7',
+      rfkId,
       page: Number(pageNumber),
     };
     onPageNumberChange(pageNo);
@@ -96,11 +105,42 @@ const FullPageSearch = ({
     onSortChange: handleSortChange,
   };
 
+  // TO-DO - Replace this with category from SDK response
+  const paths = router.asPath.split('/');
+  const category = paths[paths.length - 1];
+  const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+
   return (
     <div className="full-page-search">
+      {isCategoryProductListingPage && (
+        <section className="categories-list categories-list-blue">
+          <div className="categories-list-title">
+            {/* TO-DO: Replace with category name from Discover SDK */}
+            <h1>{categoryName}</h1>
+            {/* TO-DO: Replace with category description from Discover SDK */}
+            <p>Category Description</p>
+          </div>
+        </section>
+      )}
       <div className="full-page-search-container">
         <div className="facet-panel-mask"></div>
         <div className="full-page-search-left">
+          {isCategoryProductListingPage && (
+            <>
+              <div className="shop-search-input-container">
+                <div id="search-input-container">
+                  <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
+                  <input
+                    id="search-input"
+                    className="shop-search-input"
+                    onChange={(e) => setKeyphrase(e.target.value || '')}
+                    placeholder="Search within the list"
+                    autoComplete="off"
+                  />
+                </div>
+              </div>
+            </>
+          )}
           <FacetList
             facets={facets}
             onFacetClick={handleFacetClick}
