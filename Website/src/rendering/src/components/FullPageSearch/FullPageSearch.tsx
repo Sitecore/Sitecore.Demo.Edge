@@ -12,8 +12,6 @@ import {
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { PageController } from '@sitecore-discover/react';
-import { useRouter } from 'next/router';
 
 interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -39,8 +37,6 @@ const FullPageSearch = ({
   onPageNumberChange,
   onSortChange,
 }: FullPageSearchResultsProps): JSX.Element => {
-  const router = useRouter();
-
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
 
   const [toggle, setToggle] = useState(false);
@@ -106,9 +102,12 @@ const FullPageSearch = ({
   };
 
   // TO-DO - Replace this with category from SDK response
-  const paths = router.asPath.split('/');
-  const category = paths[paths.length - 1];
-  const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+  let categoryName = '';
+  if (typeof window !== 'undefined') {
+    const urlSegments = window.location.href.split('/');
+    const category = urlSegments[urlSegments.length - 1];
+    categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+  }
 
   return (
     <div className="full-page-search">
