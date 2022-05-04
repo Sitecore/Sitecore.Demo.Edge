@@ -21,7 +21,8 @@ const MyAccount: FunctionComponent = (): JSX.Element => {
     <table>
       <tr>
         <th>ID</th>
-        <th>From</th>
+        <th>Date</th>
+        <th>Status</th>
         <th>Total</th>
       </tr>
       {orders.map((order, key) => {
@@ -29,12 +30,11 @@ const MyAccount: FunctionComponent = (): JSX.Element => {
           <tr key={key}>
             <td>
               <Link href={`orders/${order.ID}`}>
-                <a>{order.ID}</a>
+                <a>{order?.ID}</a>
               </Link>
             </td>
-            <td>
-              {order?.FromUser?.FirstName} {order?.FromUser?.LastName}
-            </td>
+            <td>{order?.DateCreated}</td>
+            <td>{order?.Status}</td>
             <td>{order.Total}</td>
           </tr>
         );
