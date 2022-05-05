@@ -3,7 +3,7 @@ import { BuyerProduct, LineItem, RequiredDeep, Spec, Variant } from 'ordercloud-
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
-import ProductQuantityInput from './ProductQuantityInput';
+import QuantityInput from '../ShopCommon/QuantityInput';
 import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -184,12 +184,10 @@ const ProductDetailsContent = ({
 
   const productImageProps =
     variant?.xp?.Images?.length > 0 && variant.xp.Images[0]?.Url
-      ? product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
-        ? [...variant.xp.Images, ...product.xp.Images]
-        : variant.xp.Images
+      ? variant.xp.Images
       : product?.xp?.Images?.length > 0 && product.xp.Images[0]?.Url
       ? product.xp.Images
-      : null;
+      : [];
 
   const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
 
@@ -261,11 +259,11 @@ const ProductDetailsContent = ({
                     specValues={specValues}
                     onChange={handleSpecFieldChange}
                   />
-                  {/* TODO: Maybe get rid of this one, extract QuantityInput from Cart and use that instead */}
                   <div className="product-quantity">
-                    <ProductQuantityInput
+                    <QuantityInput
+                      controlId={variantID}
                       priceSchedule={product.PriceSchedule}
-                      quantity={quantity}
+                      initialQuantity={quantity}
                       onChange={setQuantity}
                     />
                     {quantityAlert}
