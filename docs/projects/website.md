@@ -16,9 +16,10 @@ Main PLAY! Summit website built with:
 
 The `\Website` folder has:
 
+- A Docker environment files.
 - A Visual Studio solution.
 - Sitecore CLI configuration.
-- A `\deploy` folder that is volume mounted to the CM container. It is used to deploy from Visual Studio to the running container.
+- A `\docker\deploy` folder that is volume mounted to the CM container. It is used to deploy from Visual Studio to the running container.
 
 The `\src` subfolder has the Sitecore Content Serialization (SCS) configuration and 3 subfolders:
 
@@ -79,7 +80,7 @@ If you want the website to use Sitecore CDP and Personalize, you must follow the
 
 If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
-1. Edit the `.\.env` file.
+1. Edit the `.\Website\.env` file.
 2. Fill the following values:
 
    ```shell
@@ -202,7 +203,7 @@ In order to be able to use the icons as rendering icons they need to be in a `.z
 
 #### Quick Deploy and Test Icons
 
-To test your new zip you can upload it to `Sitecore.Demo.Edge\Website\deploy\sitecore\shell\Themes\Standard`. It will automatically deploy them to your local cm container and you will be able to use and test them immediately.
+To test your new zip you can upload it to `Sitecore.Demo.Edge\Website\docker\deploy\sitecore\shell\Themes\Standard`. It will automatically deploy them to your local cm container and you will be able to use and test them immediately.
 
 #### Choosing a Rendering Icon
 

@@ -28,7 +28,7 @@ If you want to use this integration, you must:
 
 ### CDP Proxy and Website
 
-1. Open the root `.env` file.
+1. Open the `Website\.env` file.
 2. For `CDP_API_TARGET_ENDPOINT`, take the URL of your CDP/Personalize dashboard and use the follwing mapping:
    - For `https://app.boxever.com`, the API target endpoint is `https://api.boxever.com`
    - For `https://app-us.boxever.com`, the API target endpoint is `https://api-us.boxever.com`
