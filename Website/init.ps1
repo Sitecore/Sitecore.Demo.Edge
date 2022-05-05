@@ -154,8 +154,7 @@ if ($InitEnv) {
     # Populate it for the Next.js local environment as well
     $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
     Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
-    # DEMO TEAM CUSTOMIZATION - Moved the Docker files up one level.
-    Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path .\Website\src\rendering\.env
+    Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path .\src\rendering\.env
 
     # DEMO TEAM CUSTOMIZATION - Non-interactive CLI login
     $clientSecret = Get-SitecoreRandomString 64 -DisallowSpecial
