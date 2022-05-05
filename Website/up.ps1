@@ -44,7 +44,7 @@ if (-not $SkipBuild) {
 
 # DEMO TEAM CUSTOMIZATION - Install npm modules before starting the development rendering container.
 # Install npm modules in rendering folder
-Push-Location .\Website\src\rendering
+Push-Location .\src\rendering
 npm install
 Pop-Location
 
@@ -75,9 +75,6 @@ if (-not $status.status -eq "enabled") {
 $clientSecretVariable = "ID_SERVER_DEMO_CLIENT_SECRET"
 $clientSecret = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$clientSecretVariable=.+" } 
 $clientSecret = $clientSecret.Split("=")[1]
-
-# DEMO TEAM CUSTOMIZATION - Moved the Docker files up one level. Must run the Sitecore CLI commands in the .\Website folder.
-Push-Location .\Website
 
 try {
     # DEMO TEAM CUSTOMIZATION - Added restore command for computers without the Sitecore CLI already installed.
@@ -123,9 +120,6 @@ try {
 }
 catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
-}
-finally {
-    Pop-Location
 }
 
 # DEMO TEAM CUSTOMIZATION - Enable/Run/Disable init container
