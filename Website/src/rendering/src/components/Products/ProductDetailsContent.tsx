@@ -159,21 +159,22 @@ const ProductDetailsContent = ({
       );
       setLoading(false);
 
+      // Retrieve the lineitem that was just created
       const resPayload: { LineItems?: LineItem[] } = response?.payload;
-      const lineItem = resPayload?.LineItems[resPayload.LineItems.length - 1];
-      const addToCartPayload: Partial<AddToCartPayload> = {
-        // TODO change when possible to select language from dropdown
-        language: 'EN',
-        currency: product.xp.Currency,
+      const sameProductLineItems = resPayload?.LineItems.filter(
+        (item) => item.ProductID === product.ID
+      );
+      const lineItem = sameProductLineItems[sameProductLineItems.length - 1];
+      const addToCartPayload: AddToCartPayload = {
         product: {
-          type: product.xp.ProductType.toUpperCase(),
+          type: lineItem.Product.xp.ProductType.toUpperCase(),
           item_id: lineItem.Variant?.ID || lineItem.ProductID,
           name: lineItem.Product.Name,
-          orderedAt: lineItem.DateAdded,
+          orderedAt: new Date().toISOString(),
           quantity: lineItem.Quantity,
           price: lineItem.UnitPrice,
           productId: lineItem.ProductID,
-          currency: product.xp.Currency,
+          currency: 'USD',
           referenceId: lineItem.ID,
         },
       };

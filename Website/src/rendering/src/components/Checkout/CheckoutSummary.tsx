@@ -34,16 +34,13 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
       });
     });
 
-    const orderCheckoutPayload: Partial<OrderCheckoutPayload> = {
-      // TODO change when possible to select language from dropdown
-      language: 'EN',
-      currency: order.Currency || 'USD',
+    const orderCheckoutPayload: OrderCheckoutPayload = {
       order: {
         orderItems,
         referenceId: order.ID,
         orderedAt: order.DateSubmitted || order.LastUpdated,
         status: order.Status.toUpperCase(),
-        currencyCode: order.Currency || 'USD',
+        currencyCode: 'USD',
         price: order.Total,
         paymentType: payments[0].Type,
         cardType: payments[0].xp?.CreditCard?.CardType,

@@ -9,6 +9,8 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
+import { logAddToCart } from '../../services/CdpService';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -61,6 +63,22 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         })
       );
       setLoading(false);
+
+      const lineItem = props.lineItem;
+      const addToCartPayload: AddToCartPayload = {
+        product: {
+          type: lineItem.Product.xp.ProductType.toUpperCase(),
+          item_id: lineItem.Variant?.ID || lineItem.ProductID,
+          name: lineItem.Product.Name,
+          orderedAt: new Date().toISOString(),
+          quantity: quantity - lineItem.Quantity,
+          price: lineItem.UnitPrice,
+          productId: lineItem.ProductID,
+          currency: 'USD',
+          referenceId: lineItem.ID,
+        },
+      };
+      logAddToCart(addToCartPayload);
     },
     [dispatch, props.lineItem]
   );

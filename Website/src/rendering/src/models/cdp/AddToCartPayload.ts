@@ -1,11 +1,4 @@
 export type AddToCartPayload = {
-  channel: string;
-  type: string;
-  language: string;
-  currency: string;
-  page: string;
-  pos: string;
-  browser_id: string;
   product: {
     type: string;
     item_id: string;

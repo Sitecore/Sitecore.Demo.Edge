@@ -21,13 +21,6 @@ export type OrderItem = Partial<OrderCheckoutCommon> & {
 };
 
 export type OrderCheckoutPayload = {
-  type: string;
-  browser_id: string;
-  channel: string;
-  pos: string;
-  language: string;
-  currency: string;
-  page: string;
   order: OrderCheckoutCommon & {
     paymentType: string;
     cardType: string;
