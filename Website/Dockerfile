@@ -49,8 +49,7 @@ RUN msbuild .\src\Foundation\BranchPresets\Sitecore.Demo.Edge.Foundation.BranchP
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
-COPY --from=builder /build/docker/deploy/platform  ./sitecore/
-COPY --from=builder /build/docker/deploy/BranchPresets  ./sitecore/
+COPY --from=builder /build/docker/deploy  ./sitecore/
 COPY src/ ./src
 COPY ../tv/ ./src/tv
 COPY ../kiosk/ ./src/kiosk

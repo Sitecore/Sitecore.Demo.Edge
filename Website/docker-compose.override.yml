@@ -42,7 +42,7 @@ services:
     ports:
       - "8099:3000"
     volumes:
-      - .\Website\src\rendering:C:\app
+      - .\src\rendering:C:\app
     environment:
       SITECORE_API_HOST: "http://cm"
       NEXTJS_DIST_DIR: ".next-container"
@@ -224,7 +224,7 @@ services:
     depends_on:
       - solution
     volumes:
-      - ${LOCAL_DEPLOY_PATH}:C:\deploy
+      - ${LOCAL_DEPLOY_PATH}:C:\deploy # DEMO TEAM CUSTOMIZATION - Removed the platform subfolder
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:

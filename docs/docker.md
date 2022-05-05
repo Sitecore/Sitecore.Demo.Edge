@@ -45,7 +45,7 @@ Ensure you have installed and followed the [global prerequisites](prerequisites.
 
 > You must use an elevated/Administrator Windows PowerShell 5.1 prompt for these commands, PowerShell 7 is not supported at this time.
 
-In an elevated PowerShell terminal:
+In an elevated PowerShell terminal in the `.\Website` folder:
 
 1. If your local IIS is listening on port 443, you'll need to stop it.
 
@@ -73,7 +73,7 @@ In an elevated PowerShell terminal:
 
 ## Starting the Containers
 
-In an elevated PowerShell terminal:
+In an elevated PowerShell terminal in the `.\Website` folder:
 
 1. Ensure you have run the [prerequisites](#Prerequisites) above.
 
@@ -90,7 +90,7 @@ In an elevated PowerShell terminal:
 
 ## Stopping the Containers
 
-The Linux MSSQL container is super slow to terminate when using the `docker-compose down` command. We created a script to speed up containers termination. In an elevated PowerShell terminal:
+The Linux MSSQL container is super slow to terminate when using the `docker-compose down` command. We created a script to speed up containers termination. In an elevated PowerShell terminal in the `.\Website` folder:
 
 ```ps1
 .\down.ps1
@@ -98,7 +98,7 @@ The Linux MSSQL container is super slow to terminate when using the `docker-comp
 
 ## Starting Over
 
-A script here can be used to "reset" the state of your containers. It clears all mounted data and deployed/copied build output. In an elevated PowerShell terminal:
+A script here can be used to "reset" the state of your containers. It clears all mounted data and deployed/copied build output. In an elevated PowerShell terminal in the `.\Website` folder:
 
 1. Ensure you have [stopped the containers](#Stopping-the-Containers).
 2. Run the script:
