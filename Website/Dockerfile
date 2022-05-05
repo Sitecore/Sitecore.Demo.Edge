@@ -49,7 +49,8 @@ RUN msbuild .\src\Foundation\BranchPresets\Sitecore.Demo.Edge.Foundation.BranchP
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
+# DEMO TEAM CUSTOMIZATION - Removed the platform subfolder
 COPY --from=builder /build/docker/deploy  ./sitecore/
 
-# Copy sources for initcontainer to deploy the front-end projects to Vercel
+# DEMO TEAM CUSTOMIZATION - Copy sources for initcontainer to deploy the front-end projects to Vercel
 COPY src/ ./src
