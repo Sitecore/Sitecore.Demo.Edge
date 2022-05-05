@@ -68,50 +68,12 @@ namespace Sitecore.Demo.Init.Jobs
             var cdpApiTargetEndpoint = Environment.GetEnvironmentVariable("CDP_API_TARGET_ENDPOINT");
             var cdpProxyUrl = Environment.GetEnvironmentVariable("CDP_PROXY_URL");
 
-            Task tv = Task.Factory.StartNew(() => DeployTv(ns, cmpEndpointUrl, cmpApiKey, token, scope, region));
             Task website = Task.Factory.StartNew(() =>
                 DeployWebsite(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl, token, scope, region));
-            Task kiosk = Task.Factory.StartNew(() => DeployKiosk(ns, cdpClientKey, cdpApiTargetEndpoint, cdpProxyUrl,
-                cmpEndpointUrl, cmpApiKey, token, scope, region));
-            Task.WaitAll(tv, website, kiosk);
+            Task.WaitAll(website);
 
             Log.LogInformation($"{this.GetType().Name} task complete");
             await Complete();
-        }
-
-        private static void DeployTv(string ns, string cmpEndpointUrl, string cmpApiKey, string token, string scope, string region)
-        {
-            var sourceDirectory = "C:\\app\\tv";
-            var targetDirectory = $"C:\\app\\{ns}-tv";
-
-            // Needed to ensure that Vercel project has unique name per namespace
-            Directory.Move(sourceDirectory, targetDirectory);
-
-            var cmd = new WindowsCommandLine(targetDirectory);
-
-            // Remove project if already exists
-            cmd.Run($"vercel remove {ns}-tv --token {token} --scope {scope} --yes");
-
-            // Create new project
-            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
-
-            // Configure env. variables
-            cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
-
-            // Deploy project files
-            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
-            if (output.Contains(ErrorText))
-            {
-                throw new Exception($"An error has occurred when running DeployToVercel job: DeployTv");
-            }
-
-            // Assign custom domain name
-            cmd.Run($"vercel domains add {ns}-tv.sitecoredemo.com --token {token} --scope {scope}");
         }
 
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
@@ -188,48 +150,6 @@ namespace Sitecore.Demo.Init.Jobs
 
             // Assign custom domain name
             cmd.Run($"vercel domains add {ns}-website.sitecoredemo.com --token {token} --scope {scope}");
-        }
-
-        private static void DeployKiosk(string ns, string cdpClientKey, string cdpApiTargetEndpoint, string cdpProxyUrl,
-            string cmpEndpointUrl, string cmpApiKey, string token, string scope, string region)
-        {
-            var sourceDirectory = "C:\\app\\kiosk";
-            var targetDirectory = $"C:\\app\\{ns}-kiosk";
-
-            // Needed to ensure that Vercel project has unique name per namespace
-            Directory.Move(sourceDirectory, targetDirectory);
-
-            var cmd = new WindowsCommandLine(targetDirectory);
-
-            // Remove project if already exists
-            cmd.Run($"vercel remove {ns}-kiosk --token {token} --scope {scope} --yes");
-
-            // Create new project
-            cmd.Run($"vercel link --confirm --token {token} --debug --scope {scope}");
-
-            // Configure env. variables
-            cmd.Run(
-                $"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add NEXT_PUBLIC_WEBSITE_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cmpEndpointUrl}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_ENDPOINT_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{cmpApiKey}\" | vercel env add NEXT_PUBLIC_CMP_PREVIEW_API_KEY production --token {token} --scope {scope}");
-
-            // Deploy project files
-            var output = cmd.Run($"vercel --confirm --debug --prod --no-clipboard --token {token} --scope {scope} --regions {region}");
-            if (output.Contains(ErrorText))
-            {
-                throw new Exception($"An error has occurred when running DeployToVercel job: DeployKiosk");
-            }
-
-            // Assign custom domain name
-            cmd.Run($"vercel domains add {ns}-kiosks.sitecoredemo.com --token {token} --scope {scope}");
         }
     }
 }
