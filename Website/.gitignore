@@ -32,6 +32,7 @@ Thumbs.db
 *.ilk
 *.log
 [Bb]in
+!docker/build/**/[Bb]in
 [Dd]ebug*/
 *.lib
 *.sbr

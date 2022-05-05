@@ -4,7 +4,7 @@
 .vs
 .vscode
 build
-deploy
+docker
 packages
 **/bin/
 **/obj/
@@ -13,6 +13,6 @@ packages
 
 # files
 *Dockerfile
+docker-compose*
 **/*.md
 *.ps1
-scjssconfig.json
