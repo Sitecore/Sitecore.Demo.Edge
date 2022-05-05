@@ -50,6 +50,6 @@ RUN msbuild .\src\Foundation\BranchPresets\Sitecore.Demo.Edge.Foundation.BranchP
 FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
 COPY --from=builder /build/docker/deploy  ./sitecore/
+
+# Copy sources for initcontainer to deploy the front-end projects to Vercel
 COPY src/ ./src
-COPY ../tv/ ./src/tv
-COPY ../kiosk/ ./src/kiosk
