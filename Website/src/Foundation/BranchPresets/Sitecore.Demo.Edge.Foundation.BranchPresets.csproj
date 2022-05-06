@@ -54,7 +54,7 @@
     <Reference Include="System.Threading.Thread" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Kernel">
+    <PackageReference Include="Sitecore.XmCloud.Kernel">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
