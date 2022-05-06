@@ -1,8 +1,12 @@
 const jssConfig = require('./src/temp/config');
 const packageConfig = require('./package.json').config;
-const {
-  getPublicUrl,
-} = require('@sitecore-jss/sitecore-jss-nextjs');
+const { getPublicUrl } = require('@sitecore-jss/sitecore-jss-nextjs');
+const plugins = require('./src/temp/next-config-plugins') || {};
+// DEMO TEAM CUSTOMIZATION - Add Next bundle analyzer
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+// END CUSTOMIZATION
 
 const publicUrl = getPublicUrl();
 
@@ -21,9 +25,7 @@ const nextConfig = {
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.
-    // DEMO TEAM CUSTOMIZATION - Remove unused languages
     locales: ['en'],
-    // END CUSTOMIZATION
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
@@ -35,68 +37,28 @@ const nextConfig = {
   async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
+      // API endpoints
       {
-        source: '/sitecore/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
-      },
-      {
-        source: '/:locale/sitecore/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/sitecore/:path*`,
+        source: '/sitecore/api/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/sitecore/api/:path*`,
       },
       // media items
       {
         source: '/-/:path*',
         destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
       },
-      {
-        source: '/:locale/-/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/-/:path*`,
-      },
       // visitor identification
       {
-        source: '/layouts/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
-      },
-      {
-        source: '/:locale/layouts/:path*',
-        destination: `${jssConfig.sitecoreApiHost}/layouts/:path*`,
+        source: '/layouts/system/:path*',
+        destination: `${jssConfig.sitecoreApiHost}/layouts/system/:path*`,
       },
     ];
   },
-  
-  webpack: (config, options) => {
-    applyGraphQLCodeGenerationLoaders(config, options);
-
-
-    return config;
-  },
 };
 
-const applyGraphQLCodeGenerationLoaders = (config, options) => {
-  config.module.rules.push({
-    test: /\.graphql$/,
-    exclude: /node_modules/,
-    use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
-  });
-
-  config.module.rules.push({
-    test: /\.graphqls$/,
-    exclude: /node_modules/,
-    use: ['graphql-let/schema/loader'],
-  });
-
-  config.module.rules.push({
-    test: /\.ya?ml$/,
-    type: 'json',
-    use: 'yaml-loader',
-  });
-
-  return config;
-};
-
-// DEMO TEAM CUSTOMIZATION - Add Next bundle analyzer
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-module.exports = withBundleAnalyzer(nextConfig);
-// END CUSTOMIZATION
+module.exports = () => {
+  // Run the base config through any configured plugins
+  // DEMO TEAM CUSTOMIZATION - Add Next bundle analyzer
+  return withBundleAnalyzer(Object.values(plugins).reduce((acc, plugin) => plugin(acc), nextConfig));
+  // END CUSTOMIZATION
+}

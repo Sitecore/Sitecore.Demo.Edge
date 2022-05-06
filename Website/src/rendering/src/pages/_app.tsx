@@ -2,21 +2,23 @@ import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
-import { useEffect } from 'react';
+// DEMO TEAM CUSTOMIZATION - CDP integration, FontAwesome, Head
 import Head from 'next/head';
-// DEMO TEAM CUSTOMIZATION - CDP integration
+import { useEffect } from 'react';
 import { CdpScripts, identifyVisitor } from '../services/CdpService';
 import { KeypressHandler } from 'src/services/KeypressHandlerService';
-// END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
+// END CUSTOMIZATION
 
-// Using nprogress is completely optional.
-//  nprogress provides a loading indicator on page/route changes.
-// Remove it in package.json as well if removed here.
+// Using bootstrap and nprogress are completely optional.
+//  bootstrap is used here to provide a clean layout for samples, without needing extra CSS in the sample app
+//  nprogress provides a loading indicator on page/route changes
+// Remove these in package.json as well if removed here.
+// DEMO TEAM CUSTOMIZATION - Removed Bootstrap
 import 'nprogress/nprogress.css';
-import 'assets/css/main.css';
+import 'assets/css/main.css'; // DEMO TEAM CUSTOMIZATION - Changes CSS file
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100 });
 
@@ -24,6 +26,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
+// DEMO TEAM CUSTOMIZATION (next line) - Add router prop
 function App({ Component, pageProps, router }: AppProps): JSX.Element {
   // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links. Also register a key press handler to close CDP sessions and forget CDP guests.
   useEffect(() => {
