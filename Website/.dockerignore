@@ -2,7 +2,8 @@
 .git
 .gitignore
 .vs
-.vscode
+.config
+.sitecore
 build
 docker
 packages
@@ -10,9 +11,17 @@ packages
 **/obj/
 **/out/
 **/node_modules/
+**/.generated/
+**/.next*/
+**/.vscode/
+**/coverage/
 
 # files
 *Dockerfile
 docker-compose*
 **/*.md
 *.ps1
+scjssconfig.json
+**/*.yml
+**/*.module.json
+sitecore.json

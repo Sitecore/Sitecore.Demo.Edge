@@ -2,13 +2,9 @@
 
 ARG PARENT_IMAGE
 ARG SOLUTION_IMAGE
-ARG HEADLESS_SERVICES_IMAGE
-ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
-FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
-FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${PARENT_IMAGE}
 
@@ -18,16 +14,13 @@ RUN Install-PackageProvider -Name NuGet -Force; `
     Set-PackageSource -Name PSGallery -Trusted ; `
     Install-Module -Name SqlServer;
 
-COPY --from=headless_services /module/db /jss_data
-COPY --from=spe_assets /module/db /spe_data
 COPY --from=ch_assets /module/db /ch_data
 
-COPY ./sql /sql
 COPY ./tools/scripts\ .\
 
 RUN .\InstallPrerequisites.ps1;
 
-ENTRYPOINT ["powershell.exe", ".\\StartInit.ps1", "-ResourcesDirectory $env:RESOURCES_PATH", "-SqlServer $env:SQL_SERVER", "-SqlAdminUser $env:SQL_ADMIN_LOGIN", "-SqlAdminPassword $env:SQL_ADMIN_PASSWORD", "-SitecoreAdminUsername $env:SITECORE_ADMIN_USERNAME", "-SitecoreAdminPassword $env:sitecore_admin_password", "-SitecoreUserPassword $env:SITECORE_USER_PASSWORD", "-SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME", "-DatabasesToDeploy $env:DATABASES_TO_DEPLOY", "-PostDeploymentWaitPeriod $env:POST_DEPLOYMENT_WAIT_PERIOD", `
+ENTRYPOINT ["powershell.exe", ".\\StartInit.ps1", "-ResourcesDirectory $env:RESOURCES_PATH", "-SqlServer $env:SQL_SERVER", "-SqlAdminUser $env:SQL_ADMIN_LOGIN", "-SqlAdminPassword $env:SQL_ADMIN_PASSWORD", "-SitecoreAdminUsername $env:SITECORE_ADMIN_USERNAME", "-SitecoreAdminPassword $env:sitecore_admin_password", "-SqlElasticPoolName $env:SQL_ELASTIC_POOL_NAME", "-DatabasesToDeploy $env:DATABASES_TO_DEPLOY", "-PostDeploymentWaitPeriod $env:POST_DEPLOYMENT_WAIT_PERIOD", `
     "-DatabaseUsers @( `
     @{'databaseName' = 'Sitecore.Master'; 'username' = $env:Master_Database_Username; 'password' = $env:Master_Database_Password}, `
     @{'databaseName' = 'Sitecore.Core'; 'username' = $env:Core_Database_Username; 'password' = $env:Core_Database_Password}, `

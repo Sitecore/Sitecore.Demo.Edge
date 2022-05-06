@@ -18,6 +18,7 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
+// DEMO TEAM CUSTOMIZATION - Remove manifest scaffolding
 import generateStorySrc from './templates/story-src'; // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
 
 const componentRootPath = 'src/components';
@@ -49,6 +50,8 @@ const componentOutputPath = scaffoldFile(
   componentFilename
 );
 
+// DEMO TEAM CUSTOMIZATION - Remove manifest scaffolding
+
 // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
 if (!componentOutputPath) {
   throw `Skipping creating ${componentArg}; already exists.`;
@@ -68,6 +71,8 @@ console.log(
 Scaffolding of ${componentName} complete.
 Next steps:`)
 );
+
+// DEMO TEAM CUSTOMIZATION - Remove manifest scaffolding
 
 // DEMO TEAM CUSTOMIZATION - Reworked next steps order and content
 console.log(`* Implement the React component in ${chalk.green(componentOutputPath)}`);

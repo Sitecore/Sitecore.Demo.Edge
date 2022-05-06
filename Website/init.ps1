@@ -40,12 +40,12 @@ Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Gr
 Import-Module PowerShellGet
 $SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
 if (-not $SitecoreGallery) {
-    Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green 
+    Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
     Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
     $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
 
-# Install and Import SitecoreDockerTools 
+# Install and Import SitecoreDockerTools
 $dockerToolsVersion = "10.2.7"
 Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
 if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {
@@ -67,7 +67,7 @@ try {
         # mkcert installed in PATH
         $mkcert = "mkcert"
     } elseif (-not (Test-Path $mkcert)) {
-        Write-Host "Downloading and installing mkcert certificate tool..." -ForegroundColor Green 
+        Write-Host "Downloading and installing mkcert certificate tool..." -ForegroundColor Green
         Invoke-WebRequest "https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-windows-amd64.exe" -UseBasicParsing -OutFile mkcert.exe
         if ((Get-FileHash mkcert.exe).Hash -ne "1BE92F598145F61CA67DD9F5C687DFEC17953548D013715FF54067B34D7C3246") {
             Remove-Item mkcert.exe -Force
@@ -96,9 +96,6 @@ finally {
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "cm.edge.localhost"
-Add-HostsEntry "cd.edge.localhost"
-Add-HostsEntry "id.edge.localhost"
-Add-HostsEntry "sh.edge.localhost"
 Add-HostsEntry "www.edge.localhost"
 
 
@@ -107,6 +104,7 @@ Add-HostsEntry "www.edge.localhost"
 ###############################
 
 if ($InitEnv) {
+
     Write-Host "Populating required .env file values..." -ForegroundColor Green
 
     # HOST_LICENSE_FOLDER
@@ -114,9 +112,6 @@ if ($InitEnv) {
 
     # CM_HOST
     Set-EnvFileVariable "CM_HOST" -Value "cm.edge.localhost"
-
-    # ID_HOST
-    Set-EnvFileVariable "ID_HOST" -Value "id.edge.localhost"
 
     # RENDERING_HOST
     Set-EnvFileVariable "RENDERING_HOST" -Value "www.edge.localhost"
@@ -130,44 +125,44 @@ if ($InitEnv) {
     # MEDIA_REQUEST_PROTECTION_SHARED_SECRET
     Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
 
-    # SITECORE_IDSECRET = random 64 chars
-    Set-EnvFileVariable "SITECORE_IDSECRET" -Value (Get-SitecoreRandomString 64 -DisallowSpecial)
-
-    # SITECORE_ID_CERTIFICATE
-    $idCertPassword = Get-SitecoreRandomString 8 -DisallowSpecial
-    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreCertificateAsBase64String -KeyLength 2048 -DnsName "localhost" -Password (ConvertTo-SecureString -String $idCertPassword -Force -AsPlainText))
-
-    # SITECORE_ID_CERTIFICATE_PASSWORD
-    Set-EnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
-
     # SQL_SA_PASSWORD
     # Need to ensure it meets SQL complexity requirements
     Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
 
+    # SQL_SERVER
+    Set-EnvFileVariable "SQL_SERVER" -Value "mssql"
+
+    # SQL_SA_LOGIN
+    Set-EnvFileVariable "SQL_SA_LOGIN" -Value "sa"
+
     # SITECORE_ADMIN_PASSWORD
     Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
-
-    # SITECORE_USER_PASSWORD (same as admin in local env.)
-    Set-EnvFileVariable "SITECORE_USER_PASSWORD" -Value $AdminPassword
 
     # JSS_EDITING_SECRET
     # Populate it for the Next.js local environment as well
     $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
     Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
-    Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path .\src\rendering\.env
-
-    # DEMO TEAM CUSTOMIZATION - Non-interactive CLI login
-    $clientSecret = Get-SitecoreRandomString 64 -DisallowSpecial
-    Set-EnvFileVariable "ID_SERVER_DEMO_CLIENT_SECRET" -Value $clientSecret
+    # DEMO TEAM CUSTOMIZATION - Maybe not needed
+    # Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path .\src\rendering\.env
 }
 
 Write-Host "Done!" -ForegroundColor Green
 
-Write-Host
-Write-Host ("#"*75) -ForegroundColor Cyan
-Write-Host "To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable" -ForegroundColor Cyan
-Write-Host "using the following commmand:" -ForegroundColor Cyan
-Write-Host "setx NODE_EXTRA_CA_CERTS $caRoot"
-Write-Host
-Write-Host "You will need to restart your terminal or VS Code for it to take effect." -ForegroundColor Cyan
-Write-Host ("#"*75) -ForegroundColor Cyan
+Push-Location docker\traefik\certs
+try
+{
+    Write-Host
+    Write-Host ("#"*75) -ForegroundColor Cyan
+    Write-Host "To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable" -ForegroundColor Cyan
+    Write-Host "using the following commmand:" -ForegroundColor Cyan
+    Write-Host "setx NODE_EXTRA_CA_CERTS $caRoot"
+    Write-Host
+    Write-Host "You will need to restart your terminal or VS Code for it to take effect." -ForegroundColor Cyan
+    Write-Host ("#"*75) -ForegroundColor Cyan
+}
+catch {
+    Write-Error "An error occurred while attempting to generate TLS certificate: $_"
+}
+finally {
+    Pop-Location
+}

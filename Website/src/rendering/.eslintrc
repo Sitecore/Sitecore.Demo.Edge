@@ -5,8 +5,8 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:yaml/recommended"
+    "plugin:yaml/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -20,7 +20,7 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "jsx-quotes": ["error", "prefer-double"],
-    "@typescript-eslint/no-empty-interface": "off" // empty interfaces intentionally used to provide scaffolding for custom ordercloud models
+    "@typescript-eslint/no-empty-interface": "off", // DEMO TEAM CUSTOMIZATION - Empty interfaces intentionally used to provide scaffolding for custom ordercloud models
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }

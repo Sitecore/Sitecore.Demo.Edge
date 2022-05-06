@@ -6,15 +6,15 @@
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PlatformVersion>10.2.0-r*</PlatformVersion>
+    <PlatformVersion>0.*</PlatformVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Update="Sitecore.Kernel" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.ContentSearch" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.ContentSearch.Linq" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.LayoutService" Version="8.0.0" />
-    <PackageReference Update="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="19.0.0-r*" />
+    <PackageReference Update="Sitecore.XmCloud.Kernel" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.XmCloud.ContentSearch" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.XmCloud.ContentSearch.Linq" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.XmCloud.LayoutService" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.XmCloud.Assemblies" Version="$(PlatformVersion)" />
+    <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="19.*" />
     <PackageReference Update="Sitecore.JavaScriptServices.ViewEngine" Version="19.0.0" />
     <PackageReference Update="Sitecore.Connector.CMP" Version="3.1.0" />
     <PackageReference Update="Sitecore.Services.GraphQL" Version="6.0.0" />

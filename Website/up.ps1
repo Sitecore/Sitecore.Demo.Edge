@@ -1,4 +1,4 @@
-# DEMO TEAM CUSTOMIZATION - Add ability to skip building the containers.
+# DEMO TEAM CUSTOMIZATION - Add ability to skip building the containers, skip running the init container, and use pre-release versions.
 [CmdletBinding(DefaultParameterSetName = "no-arguments")]
 Param (
     [Parameter(HelpMessage = "Whether to skip building the Docker images.")]
@@ -13,9 +13,20 @@ Param (
 
 $ErrorActionPreference = "Stop";
 
+$envContent = Get-Content .env -Encoding UTF8
+$xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
+$xmCloudDeployConfig = $envContent | Where-Object { $_ -imatch "^XMCLOUDDEPLOY_CONFIG=.+" }
+$sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
+$sitecoreVersion = $envContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
+
+$xmCloudHost = $xmCloudHost.Split("=")[1]
+$xmCloudDeployConfig = $xmCloudDeployConfig.Split("=")[1]
+$sitecoreDockerRegistry = $sitecoreDockerRegistry.Split("=")[1]
+$sitecoreVersion = $sitecoreVersion.Split("=")[1]
+
 # Double check whether init has been run
 $envCheckVariable = "HOST_LICENSE_FOLDER"
-$envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
+$envCheck = $envContent | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
     if (Test-Path "C:\License") {
         Write-Host "Initializing environment using default values" -ForegroundColor Yellow
@@ -32,6 +43,9 @@ if (-not $envCheck) {
     }
 }
 
+Write-Host "Keeping XM Cloud base image up to date" -ForegroundColor Green
+docker pull "$($sitecoreDockerRegistry)sitecore-xmcloud-cm:$($sitecoreVersion)"
+
 # DEMO TEAM CUSTOMIZATION - Add ability to skip building the containers.
 if (-not $SkipBuild) {
     # Build all containers in the Sitecore instance, forcing a pull of latest base containers
@@ -41,12 +55,6 @@ if (-not $SkipBuild) {
         Write-Error "Container build failed, see errors above."
     }
 }
-
-# DEMO TEAM CUSTOMIZATION - Install npm modules before starting the development rendering container.
-# Install npm modules in rendering folder
-Push-Location .\src\rendering
-npm install
-Pop-Location
 
 # Start the Sitecore instance
 Write-Host "Starting Sitecore environment..." -ForegroundColor Green
@@ -59,8 +67,7 @@ do {
     Start-Sleep -Milliseconds 100
     try {
         $status = Invoke-RestMethod "http://localhost:8079/api/http/routers/cm-secure@docker"
-    }
-    catch {
+    } catch {
         if ($_.Exception.Response.StatusCode.value__ -ne "404") {
             throw
         }
@@ -71,55 +78,63 @@ if (-not $status.status -eq "enabled") {
     Write-Error "Timeout waiting for Sitecore CM to become available via Traefik proxy. Check CM container logs."
 }
 
-# DEMO TEAM CUSTOMIZATION - Non-interactive CLI login
-$clientSecretVariable = "ID_SERVER_DEMO_CLIENT_SECRET"
-$clientSecret = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$clientSecretVariable=.+" } 
-$clientSecret = $clientSecret.Split("=")[1]
-
-try {
-    # DEMO TEAM CUSTOMIZATION - Added restore command for computers without the Sitecore CLI already installed.
+Write-Host "Restoring Sitecore CLI..." -ForegroundColor Green
     dotnet tool restore
-
-    dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
-    }
-
-    # Populate Solr managed schemas to avoid errors during item deploy
-    Write-Host "Populating Solr managed schema..." -ForegroundColor Green
-    # DEMO TEAM CUSTOMIZATION - Populate Solr managed schemas using Sitecore CLI. Must run it twice because some indexes are failing the first time.
-    dotnet sitecore index schema-populate
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "Populating Solr managed schema failed, see errors above."
-    }
-    dotnet sitecore index schema-populate
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "Populating Solr managed schema failed, see errors above."
-    }
-
-    # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
-    # Push the serialized items
-    Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
-    dotnet sitecore ser push
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "Serialization push failed, see errors above."
-    }
-    # DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
-    dotnet sitecore publish
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "Serialization publish failed, see errors above."
-    }
-
-    # DEMO TEAM CUSTOMIZATION - Rebuild indexes using Sitecore CLI.
-    # Rebuild indexes
-    Write-Host "Rebuilding indexes ..." -ForegroundColor Green
-    dotnet sitecore index rebuild
-    if ($LASTEXITCODE -ne 0) {
-        Write-Error "Rebuild indexes failed, see errors above."
-    }
+Write-Host "Installing Sitecore CLI Plugins..."
+dotnet sitecore --help | Out-Null
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Unexpected error installing Sitecore CLI Plugins"
 }
-catch {
-    Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
+
+# update XM Cloud Deploy plugin
+$pluginJsonFiles = Get-ChildItem -path "$PSScriptRoot\.sitecore\package-cache\nuget\Sitecore.DevEx.Extensibility.XMCloud.*" -filter plugin.json -Recurse
+$pluginJsonContent = Get-Content $xmCloudDeployConfig
+foreach ($pluginJsonFile in $pluginJsonFiles) {
+    $pluginJsonContent | Set-Content -Path $pluginJsonFile.FullName
+}
+
+Write-Host "Logging into Sitecore..." -ForegroundColor Green
+dotnet sitecore cloud login
+dotnet sitecore login --ref xmcloud --cm https://$xmCloudHost --allow-write true
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
+}
+
+# Populate Solr managed schemas to avoid errors during item deploy
+Write-Host "Populating Solr managed schema..." -ForegroundColor Green
+dotnet sitecore index schema-populate
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Populating Solr managed schema failed, see errors above."
+}
+# DEMO TEAM CUSTOMIZATION - Populate Solr managed schemas a second time because some indexes are failing the first time.
+dotnet sitecore index schema-populate
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Populating Solr managed schema failed, see errors above."
+}
+
+# DEMO TEAM CUSTOMIZATION - Moved index rebuild
+
+# DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode. Moved publish to a later stage.
+# JSS sample has already been deployed and serialized, push the serialized items
+Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
+dotnet sitecore ser push
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Serialization push failed, see errors above."
+}
+
+# DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
+dotnet sitecore publish
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Publishing failed, see errors above."
+}
+
+# DEMO TEAM CUSTOMIZATION - Moved index indexe here.
+# Rebuild indexes
+Write-Host "Rebuilding indexes ..." -ForegroundColor Green
+dotnet sitecore index rebuild
+if ($LASTEXITCODE -ne 0) {
+    Write-Error "Rebuild indexes failed, see errors above."
 }
 
 # DEMO TEAM CUSTOMIZATION - Enable/Run/Disable init container
@@ -133,6 +148,7 @@ if (-not $SkipInit) {
         $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
     }
 
+    # Install and Import SitecoreDockerTools
     $dockerToolsVersion = "10.2.7"
     Remove-Module SitecoreDockerTools -ErrorAction SilentlyContinue
     if (-not (Get-InstalledModule -Name SitecoreDockerTools -RequiredVersion $dockerToolsVersion -ErrorAction SilentlyContinue)) {

@@ -1,4 +1,5 @@
 import { generateConfig } from './generate-config';
+// DEMO TEAM CUSTOMIZATION - Remove disconnected mode
 /*
   BOOTSTRAPPING
   The bootstrap process runs before build, and generates JS that needs to be
@@ -6,12 +7,15 @@ import { generateConfig } from './generate-config';
   and the global config module.
 */
 
+// DEMO TEAM CUSTOMIZATION - Remove disconnected mode
 /*
   CONFIG GENERATION
   Generates the /src/temp/config.js file which contains runtime configuration
   that the app can import and use.
 */
+// DEMO TEAM CUSTOMIZATION - Remove disconnected mode
 const configOverride: { [key: string]: string } = {};
+// DEMO TEAM CUSTOMIZATION - Remove disconnected mode
 
 generateConfig(configOverride);
 
@@ -19,6 +23,11 @@ generateConfig(configOverride);
   COMPONENT FACTORY GENERATION
 */
 import './generate-component-factory';
+
+/*
+   PLUGINS GENERATION
+*/
+import './generate-plugins';
 
 /*
   DEMO TEAM CUSTOMIZATION

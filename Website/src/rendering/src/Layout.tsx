@@ -1,28 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import Head from 'next/head';
-import deepEqual from 'deep-equal';
+// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
 import {
   Placeholder,
-  withSitecoreContext,
   getPublicUrl,
+  LayoutServiceData,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
-import { logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+// DEMO TEAM CUSTOMIZATION - Not loading navigation in the layout
+// DEMO TEAM CUSTOMIZATION - CDP integration
+import { logViewEvent } from './services/CdpService';
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
+// END CUSTOMIZATION
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
-// DEMO TEAM CUSTOMIZATION - Move navigation to a component
-
 interface LayoutProps {
-  sitecoreContext: SitecoreContextValue; // DEMO TEAM CUSTOMIZATION - Different type name
+  layoutData: LayoutServiceData;
 }
 
-// DEMO TEAM CUSTOMIZATION - Add sitecoreContext to destructuring
-const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+  const { route } = layoutData.sitecore;
+
   // DEMO TEAM CUSTOMIZATION - Log page views in CDP
   useEffect(() => {
     logViewEvent(route);
@@ -30,20 +31,37 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Add CSS classes when Experience Editor is active
+  const { context } = layoutData.sitecore;
   const isExperienceEditorActiveCssClass =
-    sitecoreContext.pageState === LayoutServicePageState.Edit ||
-    sitecoreContext.pageState === LayoutServicePageState.Preview
+    context.pageState === LayoutServicePageState.Edit ||
+    context.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Use event name from context as the page title
-  const contextTitle = sitecoreContext['EventInfo'] as NodeJS.Dict<string | string>;
+  const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
   let pageTitle = contextTitle.titlePrefix;
   if (route?.fields?.pageTitle?.value) {
-    pageTitle += ' - ' + route?.fields?.pageTitle?.value;
+    pageTitle += ` - ${route.fields.pageTitle.value}`;
   }
   // END CUSTOMIZATION
+
+  // DEMO TEAM CUSTOMIZATION - Add placeholders
+  const content = route && (
+    <>
+      <header className={isExperienceEditorActiveCssClass}>
+        <Placeholder name="jss-header" rendering={route} />
+      </header>
+      <main className={isExperienceEditorActiveCssClass}>
+        <HeaderCdpMessageBar />
+        <Placeholder name="jss-main" rendering={route} />
+      </main>
+      <footer>
+        <Placeholder name="jss-footer" rendering={route} />
+      </footer>
+    </>
+  );
 
   return (
     <>
@@ -55,27 +73,11 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
 
       {/* DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification and Navigation */}
 
-      {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
-      <header className={isExperienceEditorActiveCssClass}>
-        <Placeholder name="jss-header" rendering={route} />
-      </header>
-      <main className={isExperienceEditorActiveCssClass}>
-        <HeaderCdpMessageBar />
-        <Placeholder name="jss-main" rendering={route} />
-      </main>
-      <footer>
-        <Placeholder name="jss-footer" rendering={route} />
-      </footer>
-      {/* END CUSTOMIZATION*/}
+      {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
+      {content}
     </>
   );
 };
 
-const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
-  if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
-
-  return false;
-};
-
-export default withSitecoreContext()(React.memo(Layout, propsAreEqual));
+export default Layout;
