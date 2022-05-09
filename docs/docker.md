@@ -54,8 +54,8 @@ In an elevated PowerShell terminal in the `.\Website` folder:
    ```
 
 2. Before you can run the containers, you will need to run a script to prepare the following for the Sitecore container environment:
-   - A valid/trusted wildcard certificate for `*.edge.localhost`
-   - Hosts file entries for `edge.localhost`
+   - A valid/trusted wildcard certificate for `*.xmcloudcm.localhost`
+   - Hosts file entries for `xmcloudcm.localhost`
    - Required environment variable values in `.env` for the Sitecore instance
 
    The provided `init.ps1` will take care of them.

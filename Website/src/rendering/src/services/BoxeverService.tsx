@@ -132,7 +132,7 @@ export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
       _boxever_settings = {
         client_key: '${CDP_CLIENT_KEY}',
         target: '${CDP_API_TARGET_ENDPOINT}',
-        cookie_domain: '.edge.localhost',
+        cookie_domain: '.xmcloudcm.localhost',
         pointOfSale: '${POINT_OF_SALE}',
         web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',
       };`}</Script>

@@ -76,7 +76,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
-    & $mkcert "*.edge.localhost"
+    & $mkcert "*.xmcloudcm.localhost"
 
     # stash CAROOT path for messaging at the end of the script
     $caRoot = "$(& $mkcert -CAROOT)\rootCA.pem"
@@ -95,8 +95,8 @@ finally {
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
-Add-HostsEntry "cm.edge.localhost"
-Add-HostsEntry "www.edge.localhost"
+Add-HostsEntry "cm.xmcloudcm.localhost"
+Add-HostsEntry "www.xmcloudcm.localhost"
 
 
 ###############################
@@ -111,10 +111,10 @@ if ($InitEnv) {
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
     # CM_HOST
-    Set-EnvFileVariable "CM_HOST" -Value "cm.edge.localhost"
+    Set-EnvFileVariable "CM_HOST" -Value "cm.xmcloudcm.localhost"
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.edge.localhost"
+    Set-EnvFileVariable "RENDERING_HOST" -Value "www.xmcloudcm.localhost"
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
