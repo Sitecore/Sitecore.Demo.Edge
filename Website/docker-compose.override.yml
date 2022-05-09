@@ -151,20 +151,9 @@ services:
     build:
       context: ./docker/build/mssql-init
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}
-        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xmcloud-mssql-init:${SITECORE_VERSION}
+        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_NONPRODUCTION_DOCKER_REGISTRY}modules/sitecore-chub-assets:5.0.0-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-    environment:
-      SQL_SERVER: ${SQL_SERVER}
-      SQL_ADMIN_LOGIN: ${SQL_SA_LOGIN}
-      SQL_ADMIN_PASSWORD: ${SQL_SA_PASSWORD}
-      SITECORE_ADMIN_USERNAME: "sitecore\\superuser"
-      SITECORE_ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
-      POST_DEPLOYMENT_WAIT_PERIOD: 300
-    healthcheck:
-      test: ["CMD", "powershell", "-command", "if ([System.Environment]::GetEnvironmentVariable('DatabasesDeploymentStatus', 'Machine') -eq 'Complete') { exit 0 } else { exit 1}"]
-      start_period: 300s
-      interval: 5s
     depends_on:
       mssql:
         condition: service_healthy
@@ -193,7 +182,7 @@ services:
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${DEMO_VERSION}
         TOOLS_IMAGE: ${TOOLS_IMAGE}
         # DEMO TEAM CUSTOMIZATION - Content Hub module
-        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
+        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_NONPRODUCTION_DOCKER_REGISTRY}modules/sitecore-chub-assets:5.0.0-${NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:
