@@ -107,11 +107,6 @@ dotnet sitecore index schema-populate
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Populating Solr managed schema failed, see errors above."
 }
-# DEMO TEAM CUSTOMIZATION - Populate Solr managed schemas a second time because some indexes are failing the first time.
-dotnet sitecore index schema-populate
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Populating Solr managed schema failed, see errors above."
-}
 
 # DEMO TEAM CUSTOMIZATION - Moved index rebuild
 

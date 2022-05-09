@@ -146,19 +146,19 @@ services:
         target: c:\data
 
   # Custom mssql init
-  mssql-init:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${DEMO_VERSION}
-    build:
-      context: ./docker/build/mssql-init
-      args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xmcloud-mssql-init:${SITECORE_VERSION}
-        CONTENTHUB_ASSETS_IMAGE: ${SITECORE_NONPRODUCTION_DOCKER_REGISTRY}modules/sitecore-chub-assets:5.0.0-${NANOSERVER_VERSION}
-        SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-    depends_on:
-      mssql:
-        condition: service_healthy
-      solution:
-        condition: service_started
+  # mssql-init:
+  #   image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${DEMO_VERSION}
+  #   build:
+  #     context: ./docker/build/mssql-init
+  #     args:
+  #       PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xmcloud-mssql-init:${SITECORE_VERSION}
+  #       CONTENTHUB_ASSETS_IMAGE: ${SITECORE_NONPRODUCTION_DOCKER_REGISTRY}modules/sitecore-chub-assets:5.0.0-${NANOSERVER_VERSION}
+  #       SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${DEMO_VERSION}
+  #   depends_on:
+  #     mssql:
+  #       condition: service_healthy
+  #     solution:
+  #       condition: service_started
 
   # Mount our Solr data folder and use our retagged Solr image.
   # Some modules (like SXA) also require additions to the Solr image.
