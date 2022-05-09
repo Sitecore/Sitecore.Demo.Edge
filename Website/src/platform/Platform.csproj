@@ -97,6 +97,10 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+	<PackageReference Include="Sitecore.Connector.ContentHub.DAM">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Sitecore.LoadBalancing.config" />

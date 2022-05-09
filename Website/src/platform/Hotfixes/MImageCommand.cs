@@ -1,7 +1,6 @@
 ﻿using System;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
 using Sitecore.Globalization;
 using Sitecore.Shell.Applications.WebEdit.Commands;
 using Sitecore.Web.UI.Sheer;
