@@ -14,13 +14,7 @@ param (
     [string]$SqlAdminPassword,
 
     [Parameter(Mandatory)]
-    [string]$SitecoreAdminUsername,
-
-    [Parameter(Mandatory)]
     [string]$SitecoreAdminPassword,
-
-    [Parameter(Mandatory)]
-    [string]$SitecoreUserPassword,
 
     [string]$SqlElasticPoolName,
     [object[]]$DatabaseUsers,
