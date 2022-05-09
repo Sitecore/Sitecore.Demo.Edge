@@ -467,7 +467,11 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, any[]>) {
   const possibleSpecs: string[] = ['Color', 'Size'];
 
   for (let productId of productIdToVariantRowsMap.keys()) {
+    let specListOrder = 1;
+
     for (let specName of possibleSpecs) {
+      let specOptionListOrder = 1;
+
       if (productIdToVariantRowsMap.get(productId)[0][specName.toLowerCase()]) {
         try {
           await OrderCloudSDK.Specs.Save(`${productId}-${specName}`, {
@@ -475,6 +479,7 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, any[]>) {
             Name: specName,
             Required: true,
             DefinesVariant: true,
+            ListOrder: specListOrder,
           });
         } catch (ex) {
           results.products.errors++;
@@ -482,19 +487,32 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, any[]>) {
           return;
         }
 
+        const existingSpecOptionValues = [];
         for (let variantRow of productIdToVariantRowsMap.get(productId)) {
-          // Create all the spec options of this spec for each variant of this specific product
-          await createSpecOptions(productId, specName, variantRow);
+          // If the spec option already exists we skip this iteration
+          if (existingSpecOptionValues.includes(variantRow[specName.toLowerCase()])) {
+            continue;
+          }
+          // Create a spec option of this spec for each variant of this specific product
+          await createSpecOption(productId, specName, variantRow, specOptionListOrder);
+          existingSpecOptionValues.push(variantRow[specName.toLowerCase()]);
+          specOptionListOrder++;
         }
 
         // Assign this product to the spec
         await createSpecProductAssignment(productId, specName);
       }
+      specListOrder++;
     }
   }
 }
 
-async function createSpecOptions(productId: string, specName: string, variantRow: any) {
+async function createSpecOption(
+  productId: string,
+  specName: string,
+  variantRow: any,
+  listOrder: number
+) {
   try {
     await OrderCloudSDK.Specs.SaveOption(
       `${productId}-${specName}`,
@@ -502,6 +520,7 @@ async function createSpecOptions(productId: string, specName: string, variantRow
       {
         ID: `${productId}-${specName}-${variantRow[specName.toLowerCase()]}`,
         Value: variantRow[specName.toLowerCase()],
+        ListOrder: listOrder,
       }
     );
   } catch (ex) {
