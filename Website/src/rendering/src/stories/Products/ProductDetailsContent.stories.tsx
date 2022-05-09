@@ -13,7 +13,9 @@ export default {
 const productSlices: MockSlice[] = [cartSlice, authSlice];
 
 const Template: ComponentStory<typeof ProductDetailsContent> = (args) => (
-  <ProductDetailsContent {...args} />
+  <MockStore sliceOrSlices={productSlices}>
+    <ProductDetailsContent {...args} />
+  </MockStore>
 );
 
 export const Default = Template.bind({});
@@ -22,13 +24,6 @@ Default.args = {
   specs: specs,
   variants: variants,
 };
-Default.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={productSlices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const OnSale = Template.bind({});
 OnSale.args = {
@@ -48,13 +43,6 @@ OnSale.args = {
   specs: specs,
   variants: variants,
 };
-OnSale.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={productSlices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const RedSmall = Template.bind({});
 RedSmall.args = {
@@ -63,13 +51,6 @@ RedSmall.args = {
   variants: variants,
   variantID: 'PSPRFSAW-RS',
 };
-RedSmall.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={productSlices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const GreenMedium = Template.bind({});
 GreenMedium.args = {
@@ -78,13 +59,6 @@ GreenMedium.args = {
   variants: variants,
   variantID: 'PSPRFSAW-GM',
 };
-GreenMedium.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={productSlices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const BlueLarge = Template.bind({});
 BlueLarge.args = {
@@ -93,13 +67,6 @@ BlueLarge.args = {
   variants: variants,
   variantID: 'PSPRFSAW-BL',
 };
-BlueLarge.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={productSlices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const NoVariants = Template.bind({});
 NoVariants.args = {
@@ -107,10 +74,16 @@ NoVariants.args = {
   specs: [specs[1]],
   variants: [],
 };
-NoVariants.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={productSlices}>
-      <Story />
-    </MockStore>
-  ),
-];
+
+export const NoImages = Template.bind({});
+NoImages.args = {
+  product: {
+    ...product,
+    xp: {
+      ...product.xp,
+      Images: [],
+    },
+  },
+  specs: specs,
+  variants: [],
+};
