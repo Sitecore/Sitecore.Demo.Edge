@@ -118,12 +118,6 @@ if ($LASTEXITCODE -ne 0) {
     Write-Error "Serialization push failed, see errors above."
 }
 
-# DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
-dotnet sitecore publish
-if ($LASTEXITCODE -ne 0) {
-    Write-Error "Publishing failed, see errors above."
-}
-
 # DEMO TEAM CUSTOMIZATION - Moved index indexe here.
 # Rebuild indexes
 Write-Host "Rebuilding indexes ..." -ForegroundColor Green
