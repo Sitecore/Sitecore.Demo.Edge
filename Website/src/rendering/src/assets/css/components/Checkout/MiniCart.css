@@ -1,7 +1,11 @@
 .mini-cart {
-  @apply w-full p-6 bg-black  text-white;
+  @apply relative max-h-[calc(100vh-112px)] overflow-y-auto w-screen bg-black text-base text-white;
   @apply sm:w-96;
-  @apply lg:w-[500px];
+  @apply lg:w-[500px] lg:max-h-[calc(100vh-100px)];
+
+  > h3 {
+    @apply p-6;
+  }
 
   &-wrapper {
     @apply absolute top-[100%] right-0 translate-x-[100%] transition-all z-50;
@@ -12,16 +16,18 @@
   }
 
   &-subtotal {
-    @apply flex justify-between py-1 px-2 mb-4 font-bold bg-black-light;
+    @apply sticky bottom-0 flex justify-between py-1 px-2 mb-4 font-bold bg-black-light;
   }
 
   &-list {
+    @apply px-6 pt-6 space-y-4;
+
     li {
       @apply relative;
     }
 
     &-item {
-      @apply flex mb-4;
+      @apply flex;
     }
 
     .item-image {
@@ -54,6 +60,10 @@
   }
 
   &-footer {
+    @apply sticky bottom-0 p-6 bg-black z-20;
+  }
+
+  &-buttons {
     @apply flex flex-col justify-between gap-2;
     @apply lg:flex-row;
 

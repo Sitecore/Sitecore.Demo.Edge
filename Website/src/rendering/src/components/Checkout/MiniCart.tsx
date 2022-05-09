@@ -7,20 +7,20 @@ import { getItemsCount } from '../../helpers/LineItemsHelpers';
 const MiniCart = (): JSX.Element => {
   const { lineItems, order } = useOcCurrentOrder();
 
-  return (
-    <div className="mini-cart">
-      {lineItems && lineItems.length ? (
-        <>
-          <ol className="mini-cart-list">
-            {lineItems.map((lineItem: DLineItem) => (
-              <MiniCartItem key={lineItem.ID} lineItem={lineItem} />
-            ))}
-          </ol>
+  const cartContent =
+    lineItems && lineItems.length ? (
+      <>
+        <ol className="mini-cart-list">
+          {lineItems.map((lineItem: DLineItem) => (
+            <MiniCartItem key={lineItem.ID} lineItem={lineItem} />
+          ))}
+        </ol>
+        <div className="mini-cart-footer">
           <p className="mini-cart-subtotal">
             <span>Subtotal ({getItemsCount(lineItems)} items):</span>
             <span> ${order.Subtotal}</span>
           </p>
-          <div className="mini-cart-footer">
+          <div className="mini-cart-buttons">
             <Link href="/shop/checkout/cart">
               <a className="btn--secondary btn--secondary--light btn--secondary--round">
                 View full cart
@@ -30,12 +30,13 @@ const MiniCart = (): JSX.Element => {
               <a className="btn--main btn--main--round">Proceed to checkout</a>
             </Link>
           </div>
-        </>
-      ) : (
-        <h3>Cart is empty</h3>
-      )}
-    </div>
-  );
+        </div>
+      </>
+    ) : (
+      <h3>Cart is empty</h3>
+    );
+
+  return <div className="mini-cart">{cartContent}</div>;
 };
 
 export default MiniCart;

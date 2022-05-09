@@ -68,9 +68,11 @@ export const cartState = {
       },
       Specs: [
         {
+          Name: 'Color',
           Value: 'Green',
         },
         {
+          Name: 'Size',
           Value: 'Large',
         },
       ],

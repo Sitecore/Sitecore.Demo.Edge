@@ -22,7 +22,7 @@
         @apply flex items-center list-none space-x-5;
 
         .shop-navigation-menu-item {
-          @apply relative flex-shrink-0 text-base text-white align-middle;
+          @apply flex-shrink-0 text-base text-white align-middle;
           @apply hover:text-yellow;
 
           &.active {
@@ -31,6 +31,10 @@
 
           &:not(.locale-picker) {
             @apply text-[1.75rem];
+          }
+
+          &.cart-menu-item > button {
+            @apply relative;
           }
 
           &.locale-picker {

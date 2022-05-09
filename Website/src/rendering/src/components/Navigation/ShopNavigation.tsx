@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
@@ -8,6 +8,7 @@ import CartBadge from '../ShopCommon/CartBadge';
 import IfCommerceEnabled from '../ShopCommon/IfCommerceEnabled';
 import { Widget } from '@sitecore-discover/react';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
+import ClickOutside from '../ShopCommon/ClickOutside';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -20,6 +21,11 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
+  const miniCartRef = useRef(null);
+
+  ClickOutside(miniCartRef, () => {
+    setIsMiniCartOpen(false);
+  });
 
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
     return src;
@@ -55,19 +61,24 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               <span>{locale}</span>
               <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
             </li>
-            <li className={`shop-navigation-menu-item ${isMiniCartOpen ? 'active' : ''}`}>
+            <li
+              className={`shop-navigation-menu-item cart-menu-item ${
+                isMiniCartOpen ? 'active' : ''
+              }`}
+              ref={miniCartRef}
+            >
               <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 <IfCommerceEnabled>
                   <CartBadge />
                 </IfCommerceEnabled>
               </button>
-            </li>
-            <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
               <IfCommerceEnabled>
-                <MiniCart />
+                <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
+                  <MiniCart />
+                </div>
               </IfCommerceEnabled>
-            </div>
+            </li>
             <li className="shop-navigation-menu-item">
               <Link href="/account/login" passHref>
                 <a>

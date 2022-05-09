@@ -21,14 +21,16 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
 
   const product = useOcProduct(props.lineItem.ProductID);
 
-  // TODO: have specs return their key as well (ex: Color, Size, etc.)
-  // currently only the values are returned (ex: Red, Large)
   const getProductSpecs = () => {
     const lineItem = props.lineItem;
     if (!lineItem.Specs?.length) {
       return '';
     }
-    const specValues = lineItem.Specs.map((spec) => <p key={spec.Value}>Color: {spec.Value}</p>);
+    const specValues = lineItem.Specs.map((spec) => (
+      <p key={spec.Value}>
+        {spec.Name}: {spec.Value}
+      </p>
+    ));
     return <div className="product-specs">{specValues}</div>;
   };
 
