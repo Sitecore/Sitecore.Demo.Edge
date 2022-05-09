@@ -161,8 +161,8 @@ if (-not $SkipInit) {
 
 Write-Host "Opening site..." -ForegroundColor Green
 
-Start-Process https://cm.edge.localhost/sitecore/
-Start-Process https://www.edge.localhost/
+Start-Process https://cm.xmcloudcm.localhost/sitecore/
+Start-Process https://www.xmcloudcm.localhost/
 
 Write-Host ""
 Write-Host "Use the following command to monitor your Rendering Host:" -ForegroundColor Green

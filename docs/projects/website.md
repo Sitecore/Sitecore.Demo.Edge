@@ -51,7 +51,7 @@ This Visual Studio / MSBuild project is used to deploy code and configuration to
 
 ### Rendering Next.js Project
 
-The `\rendering` folder contains the main website JSS Next.js project. The content of this folder is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
+The `\rendering` folder contains the main website JSS Next.js project. The content of this folder is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.xmcloudcm.localhost](https://www.xmcloudcm.localhost).
 
 You can also run the Next.js application directly using `npm` commands within `src\rendering`. It is not recommended to run both the rendering Docker container and the npm commands at the same time as both use the same output folder. Stop the rendering Docker container if you want to run the Next.js application using `npm` commands.
 
@@ -168,7 +168,7 @@ To debug, you can attach to the `w3wp` process within the `cm` container from Vi
 
 #### Deploying the Rendering Next.js Project
 
-The content of the project is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
+The content of the project is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.xmcloudcm.localhost](https://www.xmcloudcm.localhost).
 
 #### Debugging the Rendering Next.js Project
 
