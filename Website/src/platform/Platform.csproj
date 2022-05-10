@@ -97,7 +97,7 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
-	<PackageReference Include="Sitecore.Connector.ContentHub.DAM">
+    <PackageReference Include="Sitecore.Connector.ContentHub.DAM">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
