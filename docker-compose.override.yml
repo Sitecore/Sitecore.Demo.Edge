@@ -71,26 +71,6 @@ services:
       - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
       - "traefik.http.routers.rendering-secure.tls=true"
 
-  # Sitecore CDP Proxy
-  cdp:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-cdp:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    build:
-      context: ./docker/build/cdp
-    environment:
-      ASPNETCORE_URLS: "http://*:5000"
-      CDP_API_TARGET_ENDPOINT: ${CDP_API_TARGET_ENDPOINT}/v2
-      CDP_CLIENT_KEY: ${CDP_CLIENT_KEY}
-      CDP_API_TOKEN: ${CDP_API_TOKEN}
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.cdp-secure.entrypoints=websecure"
-      - "traefik.http.routers.cdp-secure.rule=Host(`${CDP_PROXY_HOST}`)"
-      - "traefik.http.routers.cdp-secure.tls=true"
-      - "traefik.http.routers.cdp-secure.middlewares=force-STS-Header"
-      - "traefik.http.services.cdp.loadbalancer.server.port=5000"
-
   init:
     healthcheck:
       test: ["CMD", "powershell", "ps"]
