@@ -10,6 +10,9 @@ export interface DProductXp {
     ThumbnailUrl?: string;
     Url?: string;
   }[];
-  Breadcrumbs?: string[];
+  CategoryBreadcrumbs?: {
+    UrlPath: string;
+    BreadcrumbsName: string;
+  }[];
   ShortDescription?: string;
 }
