@@ -86,16 +86,16 @@
 
   &::before,
   &::after {
-    @apply bg-play-element-gray bg-no-repeat bg-contain;
+    @apply bg-play-element-gray bg-no-repeat bg-contain bg-right-top;
     @apply lg:content-[''] lg:absolute lg:top-0 lg:w-[250px] lg:h-[300px];
     @apply xl:w-[300px] xl:h-[350px];
   }
 
   &::before {
-    @apply left-0 bg-left-top -scale-x-[1];
+    @apply left-0 -scale-x-[1];
   }
 
   &::after {
-    @apply right-0 bg-right-top;
+    @apply right-0;
   }
 }
