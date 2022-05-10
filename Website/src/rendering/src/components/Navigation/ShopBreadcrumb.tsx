@@ -36,7 +36,7 @@ const ShopBreadcrumb = (props: ShopBreadcrumbProps): JSX.Element => {
   });
 
   return (
-    <nav className="breadcrumb" aria-label="breadcrumbs">
+    <nav className="breadcrumb shop-breadcrumb" aria-label="breadcrumbs">
       <ol className="list">{breadcrumbListItems}</ol>
     </nav>
   );
