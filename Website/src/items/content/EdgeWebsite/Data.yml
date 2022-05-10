@@ -7,7 +7,7 @@ SharedFields:
 - ID: "dec8d2d5-e3cf-48b6-a653-8e69e2716641"
   Hint: __Security
   Value: |
-    ar|sitecore\Demo Content Approver|pd|!*|ar|sitecore\Demo Content Creator|pd|!*|
+    ar|sitecore\Demo Content Approver|pe|+item:read|pd|+item:read|!*|ar|sitecore\Demo Content Creator|pe|+item:read|pd|+item:read|!*|
 Languages:
 - Language: en
   Versions:
@@ -26,11 +26,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d65d330d-7525-4f6c-a6ce-26a4d4751568"
+      Value: "e47dff0e-1ab6-4da1-a7eb-65554ec7faa1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220114T125814Z
+      Value: 20220506T142546Z

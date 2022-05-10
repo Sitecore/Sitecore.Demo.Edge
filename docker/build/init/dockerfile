@@ -70,6 +70,7 @@ COPY --from=solution /artifacts/src/kiosk ./kiosk
 COPY --from=solution /artifacts/src/EdgeWebsite.module.json ./src/
 COPY --from=solution /artifacts/src/EdgeWebsite-Content.module.json ./src/
 COPY --from=solution /artifacts/src/InitItems.module.json ./src/
+COPY --from=solution /artifacts/src/Hotfixes.module.json ./src/
 COPY --from=solution /artifacts/src/Roles.module.json ./src/
 COPY --from=solution /artifacts/src/items/ ./src/items
 

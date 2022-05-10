@@ -56,8 +56,6 @@ COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 # Copy the Content Hub Connector Module
 COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
 RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.DiagnosticSource.dll);if ($lastexitcode -eq 0){write-host "Robocopy succeeded"}else{write-host $lastexitcode};
-COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
-COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
 
 # Copy additinal files to container
 COPY ./Data/ /inetpub/wwwroot/
@@ -78,9 +76,5 @@ RUN Rename-Item -Path 'C:\inetpub\wwwroot\App_Config\Include\Spe\Spe.IdentitySer
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
     ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\web.config' -XdtPath $_.FullName `
     -XdtDllPath 'C:\\tools\\bin\\Microsoft.Web.XmlTransform.dll'; };
-
-RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/App_Config/ConnectionStrings*.xdt' -Recurse ) | `
-    ForEach-Object { & '/tools/scripts/Invoke-XdtTransform.ps1' -Path '/inetpub/wwwroot/app_config/ConnectionStrings.config' -XdtPath $_.FullName `
-    -XdtDllPath '/tools/bin/Microsoft.Web.XmlTransform.dll'; };
 
 ENTRYPOINT [ "powershell.exe", "C:\\tools\\entrypoints\\aks\\boot.ps1" ]
