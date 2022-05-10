@@ -1,0 +1,15 @@
+# Additional Git ignore rules for files we do not want to upload to XM Cloud during environment creation.
+# TODO: Remove that file and upload-to-xmcloud.ps1 once XM Cloud has a mechanism other than the Git ignore file to select what must be uploaded.
+/.config/
+/.vscode/
+/docker/
+/src/discover-feeds/
+/src/icons/
+/src/rendering/
+/tools/
+/.gitignore.default
+/.gitignore.deploy
+/*.ps1
+/docker-compose*.yml
+/Dockerfile
+/xmcloud.plugin*.json
