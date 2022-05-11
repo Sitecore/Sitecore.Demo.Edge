@@ -33,8 +33,6 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
     <p>Missing Datasource Item</p>
   );
 
-  console.log(props);
-
   const speakers =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results
