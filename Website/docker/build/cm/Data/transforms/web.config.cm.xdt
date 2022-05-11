@@ -10,12 +10,8 @@
       </httpProtocol>
     </system.webServer>
   </location>
-  <system.web>
-    <!-- Change the hash algorithm for password encryption - https://doc.sitecore.com/developers/91/platform-administration-and-architecture/en/change-the-hash-algorithm-for-password-encryption.html -->
-    <membership xdt:Transform="SetAttributes" xdt:Locator="Match(defaultProvider)" defaultProvider="sitecore" hashAlgorithmType="SHA512"/>
-  </system.web>
   <runtime>
-    <assemblyBinding  xmlns="urn:schemas-microsoft-com:asm.v1" xdt:Transform="InsertIfMissing">
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1" xdt:Transform="InsertIfMissing">
       <!-- Include binding redirects for CH Connector 5.0.0 on XM -->
       <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Caching.Abstractions')">
       </dependentAssembly>
