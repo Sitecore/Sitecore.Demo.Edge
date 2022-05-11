@@ -3,7 +3,6 @@ import { config } from './config';
 
 const handler: NextApiHandler<unknown> = async (request, response) => {
   try {
-    console.log('calling the api....');
     const resData = await fetch(`${config.apiTargetEndpoint}/guests/${request.query.guestRef}`, {
       headers: config.headers,
     })
