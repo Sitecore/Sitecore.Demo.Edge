@@ -18,8 +18,7 @@ WORKDIR C:\inetpub\wwwroot
 COPY --from=tools C:\tools C:\tools
 
 # Copy the Content Hub Connector Module
-COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
-RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.DiagnosticSource.dll);if ($lastexitcode -eq 0){write-host "Robocopy succeeded"}else{write-host $lastexitcode};
+COPY --from=ch_assets /module/cm/content /inetpub/wwwroot
 
 # Copy additional files to container
 COPY ./Data/ /inetpub/wwwroot/
@@ -33,4 +32,8 @@ COPY --from=solution /artifacts/src/rendering/public ./
 # Perform transforms
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
     ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\web.config' -XdtPath $_.FullName `
+    -XdtDllPath 'C:\\tools\\bin\\Microsoft.Web.XmlTransform.dll'; };
+
+RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\app_config\\ConnectionStrings*.xdt' -Recurse ) | `
+    ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\app_config\\ConnectionStrings.config' -XdtPath $_.FullName `
     -XdtDllPath 'C:\\tools\\bin\\Microsoft.Web.XmlTransform.dll'; };
