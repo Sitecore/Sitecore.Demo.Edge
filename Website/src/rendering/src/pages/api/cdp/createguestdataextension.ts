@@ -8,14 +8,14 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       {
         headers: config.headers,
         method: 'POST',
-        body: request.body,
+        body: JSON.stringify(request.body),
       }
     )
       .then((res) => res.text())
-      .then((res) => JSON.parse(res).data);
-    return response.status(200).json({ resData });
+      .then((res) => JSON.parse(res));
+    return response.status(200).json(resData);
   } catch (error) {
-    return response.status(500).json({ error });
+    return response.status(500).json(error);
   }
 };
 

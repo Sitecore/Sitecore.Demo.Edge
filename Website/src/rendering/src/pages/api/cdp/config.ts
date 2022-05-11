@@ -1,5 +1,5 @@
 const clientKey = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY;
-const apiTargetEndpoint = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT;
+const apiTargetEndpoint = process.env.CDP_AUTHENTICATED_API_TARGET_ENDPOINT;
 const apiToken = process.env.CDP_API_TOKEN;
 
 export const config = {
@@ -8,6 +8,6 @@ export const config = {
   apiToken,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `${clientKey}:${apiToken}`,
+    Authorization: `Basic ${Buffer.from(`${clientKey}:${apiToken}`).toString('base64')}`,
   },
 };
