@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import debounce from '../../../src/helpers/Debounce';
 import FacetList from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
@@ -112,12 +113,20 @@ const FullPageSearch = ({
     categoryName = category.charAt(0).toUpperCase() + category.slice(1);
   }
 
+  const pageTitle = isCategoryProductListingPage ? categoryName : 'Products';
+
+  const categoryHero = isCategoryProductListingPage && (
+    /* TODO: Replace props with data from Discover SDK */
+    <CategoryHero categoryName={categoryName} categoryDescription="Category Description" />
+  );
+
   return (
     <>
-      {isCategoryProductListingPage && (
-        /* TODO: Replace props with data from Discover SDK */
-        <CategoryHero categoryName={categoryName} categoryDescription="Category Description" />
-      )}
+      <Head>
+        <title>PLAY! SHOP - {pageTitle}</title>
+      </Head>
+
+      {categoryHero}
       <section className="full-page-search section">
         <div className="full-page-search-container">
           <div className="facet-panel-mask"></div>

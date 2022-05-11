@@ -3,6 +3,7 @@ import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchas
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import TrendingCategories from '../components/Widgets/TrendingCategories';
+
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
 }

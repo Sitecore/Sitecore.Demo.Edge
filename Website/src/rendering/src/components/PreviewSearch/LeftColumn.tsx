@@ -23,7 +23,7 @@ const PreviewSearchList = ({
         <div>
           <h2 className="list-container-title">{title}</h2>
           <ul>
-            {items.map(({ text, id /*url*/ }) => (
+            {items.map(({ text, id, url }) => (
               <li
                 className="list-item"
                 id={id}
@@ -31,10 +31,7 @@ const PreviewSearchList = ({
                 onMouseEnter={() => onMouseEnter(text)}
                 onMouseLeave={onMouseLeave}
               >
-                {/* TODO:  - Use this for category pages eventually */}
-                {/* {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>} */}
-                {/* TODO: change for a next/Link component */}
-                <a href={'/shop/products?q=' + text}>{text}</a>
+                <a href={url}>{text}</a>
               </li>
             ))}
           </ul>
