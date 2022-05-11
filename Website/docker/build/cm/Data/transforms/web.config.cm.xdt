@@ -10,25 +10,59 @@
       </httpProtocol>
     </system.webServer>
   </location>
+  <system.web>
+    <!-- Change the hash algorithm for password encryption - https://doc.sitecore.com/developers/91/platform-administration-and-architecture/en/change-the-hash-algorithm-for-password-encryption.html -->
+    <membership xdt:Transform="SetAttributes" xdt:Locator="Match(defaultProvider)" defaultProvider="sitecore" hashAlgorithmType="SHA512"/>
+  </system.web>
   <runtime>
-    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+    <assemblyBinding  xmlns="urn:schemas-microsoft-com:asm.v1" xdt:Transform="InsertIfMissing">
       <!-- Include binding redirects for CH Connector 5.0.0 on XM -->
-      <dependentAssembly xdt:Transform="Insert">
+      <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Caching.Abstractions')">
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Primitives')">
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Azure.ServiceBus')">
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Azure.Amqp')">
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Caching.Memory')">
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Remove" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Remotion.Linq')">
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Insert" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Caching.Abstractions')">
         <assemblyIdentity name="Microsoft.Extensions.Caching.Abstractions" publicKeyToken="adb9793829ddae60" />
         <bindingRedirect oldVersion="0.0.0.0-3.1.14.0" newVersion="3.1.14.0" />
         <codeBase version="2.1.2.0" href="bin/Microsoft.Extensions.Caching.Abstractions.dll" />
         <codeBase version="3.1.5.0" href="bin/Microsoft.Extensions.Caching.Abstractions.dll" />
         <codeBase version="3.1.14.0" href="bin/scch/Microsoft.Extensions.Caching.Abstractions.dll" />
       </dependentAssembly>
-      <dependentAssembly xdt:Transform="Insert">
-        <assemblyIdentity name="Microsoft.Extensions.Caching.Memory" publicKeyToken="adb9793829ddae60" culture="neutral"/>
-        <bindingRedirect oldVersion="0.0.0.0-3.1.5.0" newVersion="3.1.5.0"/>
+      <dependentAssembly xdt:Transform="Insert" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Primitives')">
+        <assemblyIdentity name="Microsoft.Extensions.Primitives" publicKeyToken="adb9793829ddae60" />
+        <bindingRedirect oldVersion="0.0.0.0-3.1.14.0" newVersion="3.1.14.0" />
+        <codeBase version="2.1.1.0" href="bin/Microsoft.Extensions.Primitives.dll" />
+        <codeBase version="3.1.5.0" href="bin/Microsoft.Extensions.Primitives.dll" />
+        <codeBase version="3.1.14.0" href="bin/scch/Microsoft.Extensions.Primitives.dll" />
       </dependentAssembly>
-      <dependentAssembly xdt:Transform="Insert">
-        <assemblyIdentity name="Microsoft.Azure.ServiceBus" publicKeyToken="7e34167dcc6d6d8c" culture="neutral" />
-        <bindingRedirect oldVersion="0.0.0.0-3.2.1.0" newVersion="4.1.2.0" />
+      <dependentAssembly xdt:Transform="Insert" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Azure.ServiceBus')">
+        <assemblyIdentity name="Microsoft.Azure.ServiceBus" publicKeyToken="7e34167dcc6d6d8c" />
+        <codeBase version="3.1.0.0" href="bin/Microsoft.Azure.ServiceBus.dll" />
         <codeBase version="3.2.1.0" href="bin/Microsoft.Azure.ServiceBus.dll" />
         <codeBase version="4.1.2.0" href="bin/scch/Microsoft.Azure.ServiceBus.dll" />
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Insert" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Azure.Amqp')">
+        <assemblyIdentity name="Microsoft.Azure.Amqp" publicKeyToken="31bf3856ad364e35" />
+        <codeBase version="2.3.0.0" href="bin/Microsoft.Azure.Amqp.dll" />
+        <codeBase version="2.4.0.0" href="bin/scch/Microsoft.Azure.Amqp.dll" />
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Insert" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Microsoft.Extensions.Caching.Memory')">
+        <assemblyIdentity name="Microsoft.Extensions.Caching.Memory" publicKeyToken="adb9793829ddae60" />
+        <codeBase version="2.1.2.0" href="bin/Microsoft.Extensions.Caching.Memory.dll" />
+        <codeBase version="3.1.5.0" href="bin/Microsoft.Extensions.Caching.Memory.dll" />
+        <codeBase version="3.1.14.0" href="bin/scch/Microsoft.Extensions.Caching.Memory.dll" />
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Insert" xdt:Locator="Condition(./_defaultNamespace:assemblyIdentity/@name='Remotion.Linq')">
+        <assemblyIdentity name="Remotion.Linq" publicKeyToken="fee00910d6e5f53b"/>
+        <codeBase version="2.2.0.0" href="bin/scch/Remotion.Linq.dll"/>
       </dependentAssembly>
     </assemblyBinding>
   </runtime>
