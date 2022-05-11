@@ -11,6 +11,9 @@ SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
   Value: "{C2DC4690-AF44-48C7-BB21-90D1AD246732}"
+- ID: "1864e99d-c29a-40bf-96e0-b3e7896a013b"
+  Hint: UseLanguageSpecificLayout
+  Value: 
 - ID: "300fb7a0-b27f-44dd-9af0-b37a19723e0e"
   Hint: RouteTemplateName
   Value: Settings Route
@@ -32,6 +35,9 @@ SharedFields:
 - ID: "72e83c8d-3578-4e50-b4c0-93a78a1729f2"
   Hint: FilesystemPath
   Value: /dist/PLAY Website
+- ID: "9016141c-ff51-40f2-9135-40f5161b9784"
+  Hint: ServerSideRenderingEngine
+  Value: http
 - ID: "a7bbad73-b933-49ff-95c8-1c269cb35e7c"
   Hint: DictionaryPath
   Value: "{9127A604-9F3E-4CFF-A6C5-E04C5FA8BD76}"
@@ -68,11 +74,11 @@ Languages:
         sitecore\sitecoredemo@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d9f757da-eacf-48ad-b140-967be01dcf02"
+      Value: "d23fdd4c-72b4-4f92-9be8-0932673b0868"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220511T192048Z
+      Value: 20220511T202452Z
