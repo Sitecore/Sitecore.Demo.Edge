@@ -5,7 +5,7 @@
       <httpProtocol>
         <customHeaders>
           <!-- CSP -->
-          <add xdt:Transform="SetAttributes" xdt:Locator="Match(name)" name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net https://stylelabs.eu.auth0.com https://login.windows.net https://login.microsoftonline.com https://*.boxever.com; img-src 'self' data: https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com; frame-ancestors 'self' https://sh.xmcloudcm.localhost https://*.sitecoredemo.com;"/>
+          <add xdt:Transform="SetAttributes" xdt:Locator="Match(name)" name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net https://stylelabs.eu.auth0.com https://login.windows.net https://login.microsoftonline.com https://*.boxever.com; img-src 'self' data: https://*.stylelabs.io https://*.stylelabs.cloud https://*.stylelabsdemo.com https://*.stylelabsqa.com https://*.stylelabsdev.com https://*.sitecoresandbox.cloud https://*.azureedge.net https://*.gravatar.com https://*.wp.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com; frame-ancestors 'self' https://sh.xmcloudcm.localhost https://*.sitecoredemo.com;"/>
         </customHeaders>
       </httpProtocol>
     </system.webServer>
@@ -14,4 +14,26 @@
     <!-- Change the hash algorithm for password encryption - https://doc.sitecore.com/developers/91/platform-administration-and-architecture/en/change-the-hash-algorithm-for-password-encryption.html -->
     <membership xdt:Transform="SetAttributes" xdt:Locator="Match(defaultProvider)" defaultProvider="sitecore" hashAlgorithmType="SHA512"/>
   </system.web>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <!-- Include binding redirects for CH Connector 5.0.0 on XM -->
+      <dependentAssembly xdt:Transform="Insert">
+        <assemblyIdentity name="Microsoft.Extensions.Caching.Abstractions" publicKeyToken="adb9793829ddae60" />
+        <bindingRedirect oldVersion="0.0.0.0-3.1.14.0" newVersion="3.1.14.0" />
+        <codeBase version="2.1.2.0" href="bin/Microsoft.Extensions.Caching.Abstractions.dll" />
+        <codeBase version="3.1.5.0" href="bin/Microsoft.Extensions.Caching.Abstractions.dll" />
+        <codeBase version="3.1.14.0" href="bin/scch/Microsoft.Extensions.Caching.Abstractions.dll" />
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Insert">
+        <assemblyIdentity name="Microsoft.Extensions.Caching.Memory" publicKeyToken="adb9793829ddae60" culture="neutral"/>
+        <bindingRedirect oldVersion="0.0.0.0-3.1.5.0" newVersion="3.1.5.0"/>
+      </dependentAssembly>
+      <dependentAssembly xdt:Transform="Insert">
+        <assemblyIdentity name="Microsoft.Azure.ServiceBus" publicKeyToken="7e34167dcc6d6d8c" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-3.2.1.0" newVersion="4.1.2.0" />
+        <codeBase version="3.2.1.0" href="bin/Microsoft.Azure.ServiceBus.dll" />
+        <codeBase version="4.1.2.0" href="bin/scch/Microsoft.Azure.ServiceBus.dll" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
 </configuration>

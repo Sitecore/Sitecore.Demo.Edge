@@ -88,38 +88,6 @@ services:
       - "traefik.http.routers.cdp-secure.middlewares=force-STS-Header"
       - "traefik.http.services.cdp.loadbalancer.server.port=5000"
 
-  # init:
-  #   healthcheck:
-  #     test: ["CMD", "powershell", "ps"]
-  #   image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-init:${SITECORE_VERSION}-${DEMO_VERSION}
-  #   isolation: ${ISOLATION}
-  #   build:
-  #     context: .\docker\build\init
-  #     args:
-  #       BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-  #       BASE_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-  #       SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-  #       NODEJS_VERSION: ${NODEJS_VERSION}
-  #   environment:
-  #     ADMIN_PASSWORD: ${SITECORE_ADMIN_PASSWORD}
-  #     ADMIN_USER_NAME: "sitecore\\superuser"
-  #     HOST_CM: "http://cm"
-  #     HOST_ID: "http://id"
-  #     INIT_CONTEXT: Data Source=${SQL_SERVER};Initial Catalog=platform_init_ready;User ID=${SQL_SA_LOGIN};Password=${SQL_SA_PASSWORD}
-  #     VERCEL_TOKEN: ${VERCEL_TOKEN}
-  #     PUBLIC_HOST_CM: ${PUBLIC_HOST_CM}
-  #     PUBLIC_HOST_ID: ${PUBLIC_HOST_ID}
-  #     DAM_URL: ${DAM_ContentHub}
-  #   depends_on:
-  #     mssql:
-  #       condition: service_healthy
-  #     cm:
-  #       condition: service_healthy
-  #     solution:
-  #       condition: service_started
-  #   deploy:
-  #     replicas: ${INIT_CONTAINERS_COUNT}
-
   # Mount the Traefik configuration and certs.
   traefik:
     volumes:
@@ -136,21 +104,6 @@ services:
       - type: bind
         source: .\docker\data\sql
         target: c:\data
-
-  # Custom mssql init
-  # mssql-init:
-  #   image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${DEMO_VERSION}
-  #   build:
-  #     context: ./docker/build/mssql-init
-  #     args:
-  #       PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sitecore-xmcloud-mssql-init:${SITECORE_VERSION}
-  #       CONTENTHUB_ASSETS_IMAGE: ${SITECORE_NONPRODUCTION_DOCKER_REGISTRY}modules/sitecore-chub-assets:5.0.0-${NANOSERVER_VERSION}
-  #       SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${DEMO_VERSION}
-  #   depends_on:
-  #     mssql:
-  #       condition: service_healthy
-  #     solution:
-  #       condition: service_started
 
   # Mount our Solr data folder and use our retagged Solr image.
   # Some modules (like SXA) also require additions to the Solr image.

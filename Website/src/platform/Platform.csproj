@@ -85,6 +85,10 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+    <PackageReference Include="Sitecore.Connector.ContentHub.DAM">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Sitecore.JavaScriptServices.ViewEngine">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -103,6 +107,7 @@
     <Content Include="App_Config\Include\Sitecore.Media.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.Custom.config" />
+    <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.Hotfixes.MImageCommand.config" />
     <Content Include="Utilities\ClearAllCaches.aspx" />
     <Content Include="Utilities\IndexRebuild.aspx" />
     <Content Include="Utilities\Restart.aspx" />
@@ -117,6 +122,8 @@
     <Compile Include="FieldSerializer\DemoImageFieldSerializer.cs" />
     <Compile Include="FieldSerializer\GetDemoImageFieldSerializer.cs" />
     <Compile Include="FieldMapping\DemoFieldTypeFactoryStore.cs" />
+    <Compile Include="Hotfixes\MImageCommand.cs" />
+    <Compile Include="Hotfixes\MImageControl.cs" />
     <Compile Include="Pipelines\PublishSyncedItem.cs" />
     <Compile Include="Pipelines\DemoCmpFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
