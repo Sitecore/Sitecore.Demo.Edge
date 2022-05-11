@@ -1,0 +1,20 @@
+{
+    "namespace": "HeadlessSxaWebsite",
+    "references": [ "InitItems" ],
+    "items": {
+        "includes": [
+            {
+                "name": "sxa-placeholders",
+                "path": "/sitecore/layout/Placeholder Settings/Project/PLAY Summit"
+            },
+            {
+                "name": "sxa-renderings",
+                "path": "/sitecore/layout/Renderings/Project/PLAY Summit"
+            },
+            {
+                "name": "sxa-templates",
+                "path": "/sitecore/templates/Project/PLAY Summit"
+            }
+        ]
+    }
+}
