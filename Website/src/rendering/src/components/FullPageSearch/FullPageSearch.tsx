@@ -2,7 +2,7 @@ import debounce from '../../../src/helpers/Debounce';
 import FacetList from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import {
   SearchResultsActions,
   SearchResultsPageNumberChangedActionPayload,
@@ -10,8 +10,7 @@ import {
   SearchResultsSortChangedActionPayload,
 } from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import CategoryHero from '../Products/CategoryHero';
 
 interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -88,6 +87,10 @@ const FullPageSearch = ({
     document.body.classList.toggle('shop-facet-panel-open', isVisible);
   };
 
+  const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setKeyphrase(e.target.value || '');
+  };
+
   const numberOfResults = !loading && totalPages > 0 && (
     <div className="items-num">{totalItems} items</div>
   );
@@ -101,7 +104,7 @@ const FullPageSearch = ({
     onSortChange: handleSortChange,
   };
 
-  // TO-DO - Replace this with category from SDK response
+  // TODO: Replace this with category from SDK response
   let categoryName = '';
   if (typeof window !== 'undefined') {
     const urlSegments = window.location.href.split('/');
@@ -110,77 +113,59 @@ const FullPageSearch = ({
   }
 
   return (
-    <div className="full-page-search">
+    <>
       {isCategoryProductListingPage && (
-        <section className="categories-list categories-list-blue">
-          <div className="categories-list-title">
-            {/* TO-DO: Replace with category name from Discover SDK */}
-            <h1>{categoryName}</h1>
-            {/* TO-DO: Replace with category description from Discover SDK */}
-            <p>Category Description</p>
-          </div>
-        </section>
+        /* TODO: Replace props with data from Discover SDK */
+        <CategoryHero categoryName={categoryName} categoryDescription="Category Description" />
       )}
-      <div className="full-page-search-container">
-        <div className="facet-panel-mask"></div>
-        <div className="full-page-search-left">
-          {isCategoryProductListingPage && (
-            <>
-              <div className="shop-search-input-container">
-                <div id="search-input-container">
-                  <FontAwesomeIcon id="search-icon" className="shop-search-icon" icon={faSearch} />
-                  <input
-                    id="search-input"
-                    className="shop-search-input"
-                    onChange={(e) => setKeyphrase(e.target.value || '')}
-                    placeholder="Search within the list"
-                    autoComplete="off"
-                  />
-                </div>
-              </div>
-            </>
-          )}
-          <FacetList
-            facets={facets}
-            onFacetClick={handleFacetClick}
-            onClear={handleFacetClear}
-            sortFacetProps={sortFacetProps}
-            onToggleClick={handleToggleClick}
-          />
-          <div className="button-container">
-            <button className="btn--main btn--main--round" onClick={handleToggleClick}>
-              Show {totalItems} results
-            </button>
-          </div>
-        </div>
-        <div className="full-page-search-right">
-          <div data-page={page}>
-            <div className="full-page-search-header">
-              <div className="full-page-search-controls">
-                {numberOfResults}
-                <SearchControls
-                  totalPages={totalPages}
-                  page={page}
-                  sortChoices={sortChoices}
-                  sortType={sortType}
-                  sortDirection={sortDirection}
-                  onPageNumberChange={handlePageNumberChange}
-                  onSortChange={handleSortChange}
-                />
-              </div>
-              <button
-                className="btn--main btn--main--round facet-container-toggle"
-                onClick={handleToggleClick}
-              >
-                Filter
+      <section className="full-page-search section">
+        <div className="full-page-search-container">
+          <div className="facet-panel-mask"></div>
+          <div className="full-page-search-left">
+            <FacetList
+              facets={facets}
+              onFacetClick={handleFacetClick}
+              onClear={handleFacetClear}
+              sortFacetProps={sortFacetProps}
+              onToggleClick={handleToggleClick}
+              isCategoryProductListingPage={isCategoryProductListingPage}
+              onSearchInputChange={handleSearchInputChange}
+            />
+            <div className="button-container">
+              <button className="btn--main btn--main--round" onClick={handleToggleClick}>
+                Show {totalItems} results
               </button>
             </div>
-            {noResultsMessage}
-            <ProductList products={products} loaded={loaded} loading={loading} />
+          </div>
+          <div className="full-page-search-right">
+            <div data-page={page}>
+              <div className="full-page-search-header">
+                <div className="full-page-search-controls">
+                  {numberOfResults}
+                  <SearchControls
+                    totalPages={totalPages}
+                    page={page}
+                    sortChoices={sortChoices}
+                    sortType={sortType}
+                    sortDirection={sortDirection}
+                    onPageNumberChange={handlePageNumberChange}
+                    onSortChange={handleSortChange}
+                  />
+                </div>
+                <button
+                  className="btn--main btn--main--round facet-container-toggle"
+                  onClick={handleToggleClick}
+                >
+                  Filter
+                </button>
+              </div>
+              {noResultsMessage}
+              <ProductList products={products} loaded={loaded} loading={loading} />
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 
