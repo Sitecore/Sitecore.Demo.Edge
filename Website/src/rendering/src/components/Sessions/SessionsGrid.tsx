@@ -21,7 +21,11 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSessions = !!props.fields?.data?.item;
 
-  !hasSessions && console.log('Missing Datasource Item');
+  !hasSessions && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasSessions && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
 
   const sessions =
     props.fields.data?.item?.children?.results &&
@@ -29,14 +33,17 @@ const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
       <SessionItem key={index} session={session} />
     ));
 
-  return hasSessions ? (
+  const sessionsGrid = hasSessions && (
     <div className="item-grid sessions-grid">
       <div className="grid-content">{sessions}</div>
     </div>
-  ) : isPageEditing ? (
-    <p>Missing Datasource Item</p>
-  ) : (
-    <></>
+  );
+
+  return (
+    <>
+      {sessionsGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

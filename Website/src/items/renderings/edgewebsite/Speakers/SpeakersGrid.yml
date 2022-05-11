@@ -16,8 +16,8 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query {
-      item(path: "{1F4B781B-F2A5-5647-99DF-C0C369162C4D}", language: "en") {
+    query($datasource:String!) {
+      item(path: $datasource, language: "en") {
         children(hasLayout: true, first: 22) {
           total
           results {
@@ -71,11 +71,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "58489b13-6b1d-401d-86b3-f16a4c2577a6"
+      Value: "e1532e47-d561-4385-b07d-f5be9c6bd8f4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220407T075348Z
+      Value: 20220511T065313Z

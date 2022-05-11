@@ -27,7 +27,13 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSpeakers = !!props.fields?.data?.item;
 
-  !hasSpeakers && console.log('Missing Datasource Item');
+  !hasSpeakers && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasSpeakers && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
+
+  console.log(props);
 
   const speakers =
     props.fields.data?.item?.children?.results &&
@@ -49,12 +55,13 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
         </Link>
       ));
 
-  return hasSpeakers ? (
-    <div className="speakers-grid container">{speakers}</div>
-  ) : isPageEditing ? (
-    <p>Missing Datasource Item</p>
-  ) : (
-    <></>
+  const speakersGrid = hasSpeakers && <div className="speakers-grid container">{speakers}</div>;
+
+  return (
+    <>
+      {speakersGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

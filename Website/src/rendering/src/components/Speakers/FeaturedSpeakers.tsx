@@ -41,7 +41,11 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSpeakers = !!props.fields?.data?.item;
 
-  !hasSpeakers && console.log('Missing Datasource Item');
+  !hasSpeakers && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasSpeakers && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
 
   const speakers =
     props.fields.data?.item?.children?.results &&
@@ -71,14 +75,17 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
         </Link>
       ));
 
-  return hasSpeakers ? (
+  const featuredSpeakers = hasSpeakers && (
     <div className="featured-speakers item-grid">
       <div className="grid-content">{speakers}</div>
     </div>
-  ) : isPageEditing ? (
-    <p>Missing Datasource Item</p>
-  ) : (
-    <></>
+  );
+
+  return (
+    <>
+      {featuredSpeakers}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

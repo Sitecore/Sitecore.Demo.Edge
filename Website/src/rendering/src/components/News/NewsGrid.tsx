@@ -21,7 +21,9 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasNews = !!props.fields;
 
-  !hasNews && console.log('Missing Datasource Item');
+  !hasNews && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasNews && isPageEditing && <p>Missing Datasource Item</p>;
 
   const newsCards =
     props.fields?.items &&
@@ -47,7 +49,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         </div>
       ));
 
-  return hasNews ? (
+  const newsGrid = hasNews && (
     <div className="section__news__grid">
       <div className="section__news__grid__tweet">
         <img
@@ -83,10 +85,13 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         <div className="section__news__grid__news__grid">{newsCards}</div>
       </div>
     </div>
-  ) : isPageEditing ? (
-    <p>Missing Datasourse Item</p>
-  ) : (
-    <></>
+  );
+
+  return (
+    <>
+      {newsGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

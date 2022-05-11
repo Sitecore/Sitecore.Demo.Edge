@@ -21,7 +21,11 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasVendors = !!props.fields;
 
-  !hasVendors && console.log('Missing Datasource Item');
+  !hasVendors && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasVendors && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
 
   const vendors =
     props.fields?.items &&
@@ -41,7 +45,7 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
       </Link>
     ));
 
-  return hasVendors ? (
+  const vendorsGrid = hasVendors && (
     <section className="section">
       <div className="section__content container">
         <h1 className="section__content__title">All Event Vendors</h1>
@@ -98,10 +102,13 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
         </div>
       </div>
     </section>
-  ) : isPageEditing ? (
-    <p>Missing Datasource Item</p>
-  ) : (
-    <></>
+  );
+
+  return (
+    <>
+      {vendorsGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

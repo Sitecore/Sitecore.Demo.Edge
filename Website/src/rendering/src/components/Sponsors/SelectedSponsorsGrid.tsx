@@ -20,7 +20,11 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSponsors = !!props?.fields?.Sponsors?.length;
 
-  !hasSponsors && console.log('Missing Datasource Item');
+  !hasSponsors && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasSponsors && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
 
   const sponsors =
     props?.fields?.Sponsors &&
@@ -40,12 +44,15 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
       </Link>
     ));
 
-  return hasSponsors ? (
+  const selectedSponsorsGrid = hasSponsors && (
     <div className="section__sponsors__grid">{sponsors}</div>
-  ) : isPageEditing ? (
-    <p>Missing Datasource Item</p>
-  ) : (
-    <></>
+  );
+
+  return (
+    <>
+      {selectedSponsorsGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

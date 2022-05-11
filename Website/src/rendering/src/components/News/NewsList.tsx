@@ -23,7 +23,9 @@ const NewsList = (props: NewsListProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasNews = !!props?.fields?.items?.length;
 
-  !hasNews && console.log('Missing Datasource Item');
+  !hasNews && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasNews && isPageEditing && <p>Missing Datasource Item</p>;
 
   const newsCards =
     props.fields.items &&
@@ -50,16 +52,19 @@ const NewsList = (props: NewsListProps): JSX.Element => {
       </div>
     ));
 
-  return hasNews ? (
+  const newsList = hasNews && (
     <section className="section section__news--list">
       <div className="container">
         <div className="content">{newsCards}</div>
       </div>
     </section>
-  ) : isPageEditing ? (
-    <p>Missing Datasource Item</p>
-  ) : (
-    <></>
+  );
+
+  return (
+    <>
+      {newsList}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 
