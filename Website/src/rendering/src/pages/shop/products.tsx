@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { logViewEvent } from '../../services/CdpService';
 import { ShopLayout } from '../../components/Products/Shop';
+import { Widget } from '@sitecore-discover/react';
 
 const Products = (): JSX.Element => {
   useEffect(() => {
@@ -15,7 +16,7 @@ const Products = (): JSX.Element => {
       </Head>
 
       <section className="section">
-        <div data-rfkid="rfkid_7"></div>
+        <Widget rfkId="rfkid_7" />
       </section>
     </ShopLayout>
   );

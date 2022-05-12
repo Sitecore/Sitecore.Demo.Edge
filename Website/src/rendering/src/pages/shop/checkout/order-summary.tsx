@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
 import ThankYouSection from 'components/Checkout/ThankYouSection';
+import ThankYouHero from 'components/Checkout/ThankYouHero';
 
 const OrderSummary = (): JSX.Element => {
   useEffect(() => {
@@ -14,13 +15,7 @@ const OrderSummary = (): JSX.Element => {
       <Head>
         <title>PLAY! SHOP - Order Summary</title>
       </Head>
-
-      <section
-        className="hero-image"
-        style={{
-          backgroundImage: `url("/assets/img/shop/order-thank-you.jpg")`,
-        }}
-      />
+      <ThankYouHero />
       <ThankYouSection />
     </ShopLayout>
   );

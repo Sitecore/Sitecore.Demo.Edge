@@ -37,13 +37,13 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
             <a>
               <img
                 className="section__news__grid__news__image"
-                src={news.fields.Image.value?.src}
+                src={news.fields.Image?.value?.src}
                 alt="News"
                 width="465px"
                 height="260px"
                 loading="lazy"
               />
-              {news.fields.Title.value}
+              {news.fields.Title?.value}
             </a>
           </Link>
         </div>

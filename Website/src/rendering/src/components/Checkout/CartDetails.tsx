@@ -23,7 +23,7 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
   );
 
   return (
-    <div className="cart-details container">
+    <div className="cart-details shop-container">
       <h1>Shopping cart</h1>
       <div className="cart-details-grid">
         <div className="cart-details-items">
