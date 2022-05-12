@@ -1,5 +1,5 @@
 import TrendingCategories, { TrendingCategoriesProps } from '../Widgets/TrendingCategories';
-import { Widget } from '@sitecore-discover/react';
+import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 
 export type CategoriesListProps = {
   title?: string;
@@ -14,7 +14,7 @@ const CategoriesList = (props: CategoriesListProps): JSX.Element => {
   const trendingCategoriesWidget = props.trendingCategoriesProps ? (
     <TrendingCategories {...props.trendingCategoriesProps} />
   ) : (
-    <Widget rfkId="ps_trending_categories" />
+    <DiscoverWidget rfkId="ps_trending_categories" />
   );
 
   return (
