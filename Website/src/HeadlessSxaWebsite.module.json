@@ -14,6 +14,18 @@
             {
                 "name": "sxa-templates",
                 "path": "/sitecore/templates/Project/PLAY Summit"
+            },
+            {
+                "name": "powershell-scripts",
+                "path": "/sitecore/system/Modules/PowerShell/Script Library/SPE/Reporting/Content Reports/Reports/EdgeWebsite"
+            },
+            {
+                "name": "cmp-config",
+                "path": "/sitecore/system/Modules/CMP/Config"
+            },
+            {
+                "name": "demo-workflow",
+                "path": "/sitecore/system/Workflows/Demo Workflow"
             }
         ]
     }
