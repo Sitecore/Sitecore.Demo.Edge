@@ -100,14 +100,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e063800f-b2f9-4730-9bac-14432521e12e"
+      Value: "3157a178-3356-4183-af41-85af046eb78f"
     - ID: "a186dea1-d336-4aa4-8448-fbdd419c31fe"
       Hint: ImageTransformation
-      Value: postcard
+      Value: banner
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211116T174823Z
+      Value: 20220512T132326Z

@@ -97,7 +97,7 @@ Languages:
     Fields:
     - ID: "2063a900-230c-4172-ba19-c00992f363f7"
       Hint: ImageTransformation
-      Value: web
+      Value: banner
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T161122Z
@@ -117,11 +117,11 @@ Languages:
       Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9633d568-356f-4bb1-a16e-bc2934f6e99e"
+      Value: "52276a44-bbe5-4d5e-8b92-b2133a381388"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211116T174838Z
+      Value: 20220512T132327Z
