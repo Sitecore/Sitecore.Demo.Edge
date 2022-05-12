@@ -3,7 +3,7 @@ import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { Widget } from '@sitecore-discover/react';
+import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 
 export type ShopNavigationProps = {
@@ -24,7 +24,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const previewSearchWidget = props.previewSearchProps ? (
     <PreviewSearch {...props.previewSearchProps} />
   ) : (
-    <Widget rfkId="rfkid_6" />
+    <DiscoverWidget rfkId="rfkid_6" />
   );
 
   return (
