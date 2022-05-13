@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/ProductCategoriesGrid/Data/Categor
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/EdgeWebsite/Data/Product Categories
+  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Product Categories
 - ID: "39847666-389d-409b-95bd-f2016f11eed5"
   Hint: Unversioned
   Value: 
@@ -37,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "164aa4e6-e564-4b92-8bf6-7c36f48a0a7e"
+      Value: "8c00643a-994c-4f67-872b-2e611045d878"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211210T142610Z
+      Value: 20220513T164226Z

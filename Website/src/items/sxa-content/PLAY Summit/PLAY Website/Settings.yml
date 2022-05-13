@@ -13,28 +13,40 @@ SharedFields:
   Value: "{C2DC4690-AF44-48C7-BB21-90D1AD246732}"
 - ID: "1864e99d-c29a-40bf-96e0-b3e7896a013b"
   Hint: UseLanguageSpecificLayout
-  Value: 
+  Value: 1
 - ID: "300fb7a0-b27f-44dd-9af0-b37a19723e0e"
   Hint: RouteTemplateName
   Value: Settings Route
 - ID: "30e0a829-637e-478c-a136-66adb568398d"
   Hint: GraphQLEndpoint
-  Value: /api/PLAY Website
+  Value: /sitecore/api/graph/edge
 - ID: "32ce6bbe-4217-46e5-9335-42793884cbe3"
   Hint: AppTemplate
   Value: "{507B2363-3200-4CEA-B238-3045731BA6A5}"
+- ID: "3af0e329-6d5e-4d8f-9f82-f48265658a3e"
+  Hint: DefaultWorkflow
+  Value: "{6C59AE29-D0A1-4B77-9305-0ABAB21D5FE5}"
 - ID: "3e4f559f-8e59-4405-b50d-619811371f6c"
   Hint: Name
-  Value: PLAY Website
+  Value: edgewebsite
 - ID: "5764d2d4-724d-4313-a81b-9246c911faff"
   Hint: AppDatasourcesPath
   Value: "{44864379-85FA-46DF-A102-35A8BC2391B5}"
 - ID: "5ca117eb-8782-4a4f-9f2f-30de31fc2e34"
   Hint: PlaceholdersPath
   Value: "{B63FE2F1-B5CA-481F-8D7C-CC11BF1DABF8}"
+- ID: "5e8ed724-126a-4bb7-8106-85c2d1042c9e"
+  Hint: ServerSideRenderingEngineApplicationUrl
+  Value: "http://rendering:3000"
 - ID: "72e83c8d-3578-4e50-b4c0-93a78a1729f2"
   Hint: FilesystemPath
-  Value: /dist/PLAY Website
+  Value: /dist/edgewebsite
+- ID: "797d2f63-d5c4-4c4c-b21f-d3e250e2ab12"
+  Hint: DeploymentSecret
+  Value: 511cdfab92b7440db866ac0fb817b490
+- ID: "89849738-34ee-46bc-b525-825f1153189e"
+  Hint: ServerSideRenderingEngineEndpointUrl
+  Value: "http://rendering:3000/api/editing/render"
 - ID: "9016141c-ff51-40f2-9135-40f5161b9784"
   Hint: ServerSideRenderingEngine
   Value: http
@@ -47,6 +59,9 @@ SharedFields:
 - ID: "c8d002f9-9518-4c5e-9baa-6617e13f0797"
   Hint: LayoutPath
   Value: "{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}"
+- ID: "e3259313-387a-41f0-b113-962f14b1aa2b"
+  Hint: LayoutServiceConfiguration
+  Value: "sxa-jss"
 - ID: "e8881464-38af-4655-be4a-ee10586578a2"
   Hint: Templates
   Value: "{348162CF-D211-43B5-A745-DC5C8F62D677}"
@@ -74,11 +89,11 @@ Languages:
         sitecore\sitecoredemo@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d23fdd4c-72b4-4f92-9be8-0932673b0868"
+      Value: "a92045dd-592c-4802-84d1-d2b2264a8758"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220511T202452Z
+      Value: 20220513T161431Z

@@ -14,7 +14,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query($language: String!) {
-      item(path: "/sitecore/content/EdgeWebsite/home/sessions", language: $language) {
+      item(path: "/sitecore/content/PLAY Summit/PLAY Website/home/sessions", language: $language) {
         children(hasLayout: true, first: 200) {
           total
           results {
@@ -100,11 +100,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fd04d297-288c-4a5a-93b9-c1667e7df3f6"
+      Value: "9bb47c80-87f2-4c4d-ba6a-ba246ca372cb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T090812Z
+      Value: 20220513T164804Z

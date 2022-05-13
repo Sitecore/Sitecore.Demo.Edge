@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Speaker/Data/Role
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/EdgeWebsite/Data/CMP Data/Speaker Type
+  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/CMP Data/Speaker Type
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: Droplist
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0d87c6ab-0c92-4a34-8149-eb4e0e00b093"
+      Value: "4eaaa13c-31bc-4aa4-aef4-7f28d1cf02d9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T145211Z
+      Value: 20220513T164333Z

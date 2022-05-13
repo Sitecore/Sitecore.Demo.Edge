@@ -15,7 +15,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/ProductCategoriesGrid
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/ProductCategoriesGrid
+  Value: ./Page Components|/sitecore/content/PLAY Summit/PLAY Website/Data/Components/ProductCategoriesGrid
 Languages:
 - Language: en
   Versions:
@@ -34,11 +34,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8a7a8a07-88f2-4eaf-850a-79d0c9cda995"
+      Value: "4b901290-caf2-4dec-a9c8-59bc251461eb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T092313Z
+      Value: 20220513T171551Z

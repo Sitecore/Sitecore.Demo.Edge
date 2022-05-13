@@ -18,7 +18,7 @@ SharedFields:
   Value: "{3DF775BF-3F56-446F-9D81-43DE64DA4DDA}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/EdgeWebsite/Data/Components/PaymentProgress
+  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Components/PaymentProgress
 Languages:
 - Language: en
   Versions:
@@ -37,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d7505d7d-f3d2-42b7-ae0e-90e79f85cad5"
+      Value: "0554db7c-981a-43ea-b2ec-8d864a7043c7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T091913Z
+      Value: 20220513T171539Z
