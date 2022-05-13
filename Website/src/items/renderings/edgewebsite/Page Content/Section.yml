@@ -18,7 +18,7 @@ SharedFields:
   Value: /sitecore/templates/Project/edgewebsite/Section
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/Section
+  Value: ./Page Components|/sitecore/content/PLAY Summit/PLAY Website/Data/Components/Section
 Languages:
 - Language: en
   Versions:
@@ -37,11 +37,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1d8c3490-21b8-42e2-a46a-117a7c1f4453"
+      Value: "b0512d6f-2e74-44f8-841d-6b10a56e15c4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T090231Z
+      Value: 20220513T164720Z

@@ -19,6 +19,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
       otherwise, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
       rootItemId: '{GUID}'
       */
+      rootItemId: '{507B2363-3200-4CEA-B238-3045731BA6A5}'
     });
   }
 

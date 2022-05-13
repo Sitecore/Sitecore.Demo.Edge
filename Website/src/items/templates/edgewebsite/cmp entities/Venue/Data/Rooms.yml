@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Venue/Data/Rooms
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/EdgeWebsite/Data/CMP Data/Rooms
+  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/CMP Data/Rooms
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
   Value: 1
@@ -34,11 +34,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ea510f67-c2d0-4752-bce3-31e7550d9705"
+      Value: "48e7f6e3-e2ed-4ba8-99b1-3c49ef05c5a2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210920T181004Z
+      Value: 20220513T164402Z
