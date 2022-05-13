@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/MainNavigation
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Navigation/Header/Main Navigation
+  Value: 
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: MainNavigation
@@ -38,9 +38,20 @@ SharedFields:
               }
             }
           }
+          links : item(path: "{842934E4-186D-4A9D-92F2-D3A01EF0CBA9}", language: $language) {
+            displayName
+            children {
+              results {
+                displayName
+                field(name: "Link") {
+                  ... on LinkField {
+                    jsonValue
+                  }
+                }
+              }
+            }
+          }
         }
-      }
-    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 

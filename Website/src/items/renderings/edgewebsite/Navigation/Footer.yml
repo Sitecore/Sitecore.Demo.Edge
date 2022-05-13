@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/Footer
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Navigation/Footer 
+  Value: 
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: Footer
@@ -27,7 +27,7 @@ SharedFields:
           }
         }
       }
-      links : item(path: $datasource, language: $language) {
+      links : item(path: "{ECDD5437-0848-47BE-ACCD-04BB1D631C94}", language: $language) {
         displayName
         children {
           results {

@@ -37,16 +37,16 @@ SharedFields:
   Value: "{B63FE2F1-B5CA-481F-8D7C-CC11BF1DABF8}"
 - ID: "5e8ed724-126a-4bb7-8106-85c2d1042c9e"
   Hint: ServerSideRenderingEngineApplicationUrl
-  Value: "http://rendering:3000"
+  Value: 
 - ID: "72e83c8d-3578-4e50-b4c0-93a78a1729f2"
   Hint: FilesystemPath
   Value: /dist/edgewebsite
 - ID: "797d2f63-d5c4-4c4c-b21f-d3e250e2ab12"
   Hint: DeploymentSecret
-  Value: 511cdfab92b7440db866ac0fb817b490
+  Value: 
 - ID: "89849738-34ee-46bc-b525-825f1153189e"
   Hint: ServerSideRenderingEngineEndpointUrl
-  Value: "http://rendering:3000/api/editing/render"
+  Value: 
 - ID: "9016141c-ff51-40f2-9135-40f5161b9784"
   Hint: ServerSideRenderingEngine
   Value: http
@@ -89,11 +89,11 @@ Languages:
         sitecore\sitecoredemo@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a92045dd-592c-4802-84d1-d2b2264a8758"
+      Value: "5fa27807-d82a-4023-bc97-6009531c9163"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220513T161431Z
+      Value: 20220513T185322Z
