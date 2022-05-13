@@ -53,6 +53,9 @@ SharedFields:
 - ID: "a7bbad73-b933-49ff-95c8-1c269cb35e7c"
   Hint: DictionaryPath
   Value: "{9127A604-9F3E-4CFF-A6C5-E04C5FA8BD76}"
+- ID: "b0711df7-724a-4c6c-8d4d-be846de6124c"
+  Hint: ProtectDeveloperItems
+  Value: 
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 2000
@@ -89,11 +92,11 @@ Languages:
         sitecore\sitecoredemo@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5fa27807-d82a-4023-bc97-6009531c9163"
+      Value: "e1299e36-8d86-44fe-b4d4-c0581f24f084"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220513T185322Z
+      Value: 20220513T212827Z
