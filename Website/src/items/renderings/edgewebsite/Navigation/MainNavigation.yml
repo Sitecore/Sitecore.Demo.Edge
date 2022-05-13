@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/MainNavigation
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Navigation/Header/Main Navigation
+  Value: 
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: MainNavigation
@@ -16,31 +16,31 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query ($datasource : String!, $language: String!) {
-      item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: $language) {
-        id
-        path
-        ... on SiteConfiguration {
-          headerLogo {
-            jsonValue
-            alt
-          }
-        }
-      }
-      links : item(path: $datasource, language: $language) {
-        displayName
-        children {
-          results {
-            displayName
-            field(name: "Link") {
-              ... on LinkField {
+    query ($language: String!) {
+          item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: $language) {
+            id
+            path
+            ... on SiteConfiguration {
+              headerLogo {
                 jsonValue
+                alt
+              }
+            }
+          }
+          links : item(path: "{842934E4-186D-4A9D-92F2-D3A01EF0CBA9}", language: $language) {
+            displayName
+            children {
+              results {
+                displayName
+                field(name: "Link") {
+                  ... on LinkField {
+                    jsonValue
+                  }
+                }
               }
             }
           }
         }
-      }
-    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -65,11 +65,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "42cc9903-b91b-4fc1-9928-274a7bf63457"
+      Value: "3f41f158-9cbb-45de-9c5e-1885a31db1df"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220513T162428Z
+      Value: 20220513T185235Z

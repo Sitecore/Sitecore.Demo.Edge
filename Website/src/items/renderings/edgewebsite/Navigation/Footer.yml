@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/Footer
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Navigation/Footer 
+  Value: 
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: Footer
@@ -16,7 +16,7 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query ($datasource : String!, $language: String!) {
+    query ($language: String!) {
       item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: $language) {
         id
         path
@@ -27,7 +27,7 @@ SharedFields:
           }
         }
       }
-      links : item(path: $datasource, language: $language) {
+      links : item(path: "{ECDD5437-0848-47BE-ACCD-04BB1D631C94}", language: $language) {
         displayName
         children {
           results {
@@ -76,11 +76,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "413713d4-58bf-4d34-8d8b-4ba861dbcebe"
+      Value: "81e49236-a97c-4a35-87e9-a15015947f27"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220513T162528Z
+      Value: 20220513T185858Z
