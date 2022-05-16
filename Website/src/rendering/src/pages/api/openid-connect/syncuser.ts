@@ -43,7 +43,7 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
 
   try {
     const updatedUser = await Users.Patch(
-      process.env.NEXT_PUBLIC_ORDERCLOUD_PROFILED_BUYER_ID,
+      process.env.ORDERCLOUD_PROFILED_BUYER_ID,
       existingUser.ID,
       {
         Username: claims.email || 'NOT_AVAILABLE',

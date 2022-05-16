@@ -25,7 +25,7 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
 
     // create a new user in ordercloud on the fly to call out to associate with the incoming idp identity
     const newUser = await Users.Create(
-      process.env.NEXT_PUBLIC_ORDERCLOUD_PROFILED_BUYER_ID,
+      process.env.ORDERCLOUD_PROFILED_BUYER_ID,
       {
         Username: claims.email, // claims.email is guaranteed
         Email: claims.email, // claims.email is guaranteed

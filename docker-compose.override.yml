@@ -55,10 +55,10 @@ services:
       NEXT_PUBLIC_DISCOVER_API_KEY: ${DISCOVER_API_KEY}
       NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID: ${ORDERCLOUD_BUYER_CLIENT_ID}
       NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL: ${ORDERCLOUD_BASE_API_URL}
-      NEXT_PUBLIC_ORDERCLOUD_PROFILED_BUYER_ID: ${ORDERCLOUD_PROFILED_BUYER_ID}
       NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID: ${ORDERCLOUD_OPENID_CONNECT_ID}
       ORDERCLOUD_MIDDLEWARE_CLIENT_ID: ${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}
       ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET: ${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}
+      ORDERCLOUD_PROFILED_BUYER_ID: ${ORDERCLOUD_PROFILED_BUYER_ID}
       OC_API_CLIENTS_WITH_ACCESS: ${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst#user-verification
       OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst/blob/main/README.md#webhook-verification
       # Auth0 - Not referenced in our code but used by the @auth0/nextjs-auth0 library

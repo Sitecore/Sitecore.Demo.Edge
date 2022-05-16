@@ -192,7 +192,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{orderCloudBaseApiUrl}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{orderCloudProfiledBuyerId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_PROFILED_BUYER_ID production --token {token} --scope {scope}");
+                $"echo | set /p=\"{orderCloudProfiledBuyerId}\" | vercel env add ORDERCLOUD_PROFILED_BUYER_ID production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudOpenIdConnectId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID production --token {token} --scope {scope}");
             cmd.Run(
