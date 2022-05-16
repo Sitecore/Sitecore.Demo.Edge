@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Widget } from '@sitecore-discover/react';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
-import { isLoginEnabled } from '../../services/AuthenticationService';
+import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -18,7 +18,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
   );
 
-  const accountMenuItem = isLoginEnabled && (
+  const accountMenuItem = isAuthenticationEnabled && (
     <li className="shop-navigation-menu-item">
       <Link href="/account" passHref>
         <a>

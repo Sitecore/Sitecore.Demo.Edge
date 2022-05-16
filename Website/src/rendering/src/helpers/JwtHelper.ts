@@ -15,6 +15,7 @@ export function parseJwt(token: string, type: 'body' | 'header' = 'body'): unkno
   return decoded;
 }
 
+// TODO: Move OrderCloud specific code in a OrderCloud specific file
 export function parseOrderCloudJwt(token: string): DecodedToken {
   return parseJwt(token) as DecodedToken;
 }

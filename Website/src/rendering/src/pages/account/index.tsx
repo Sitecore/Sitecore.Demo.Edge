@@ -3,20 +3,20 @@ import { ShopLayout } from '../../components/Products/Shop';
 import {
   clearAuthenticationTokens,
   isLoggedIn,
-  isLoginEnabled,
+  isAuthenticationEnabled,
   loginUrl,
   logoutUrl,
 } from '../../services/AuthenticationService';
 
 const Account = (): JSX.Element => {
   /* eslint-disable @next/next/no-html-link-for-pages */
-  const loginMenuItem = isLoginEnabled && !isLoggedIn && (
+  const loginMenuItem = isAuthenticationEnabled && !isLoggedIn && (
     <div className="shop-navigation-menu-item">
       <a href={loginUrl}>Login</a>
     </div>
   );
 
-  const logoutMenuItem = isLoginEnabled && isLoggedIn && (
+  const logoutMenuItem = isAuthenticationEnabled && isLoggedIn && (
     <div className="shop-navigation-menu-item">
       <a href={logoutUrl} onClick={clearAuthenticationTokens}>
         Logout
