@@ -3,7 +3,10 @@ import { useState } from 'react';
 import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
+import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
+import mapUserForDiscover from '../../../src/helpers/discover/UserMapper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import { Actions, PageController } from '@sitecore-discover/react';
 
 type CheckoutSummaryProps = {
   orderComments?: string;
@@ -12,14 +15,28 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
+  const { order, lineItems, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
   const selectedShipMethodId = shipEstimate?.SelectedShipMethodID;
 
   const onOrderSubmitSuccess = () => {
+    dispatchDiscoverOrderConfirmEvent();
     router?.push?.(`/shop/checkout/order-summary`);
+  };
+
+  const dispatchDiscoverOrderConfirmEvent = () => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.ORDER_CONFIRM,
+      payload: {
+        products: mapProductsForDiscover(lineItems),
+        user: mapUserForDiscover(order.FromUser),
+        orderId: order.ID,
+        total: order.Total,
+        subtotal: order.Subtotal,
+      },
+    });
   };
 
   const handleSubmitOrder = async () => {
