@@ -11,6 +11,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import ProductBreadcrumb from '../Navigation/ProductBreadcrumb';
 
 interface ProductDetailsContentProps {
   variantID?: string;
@@ -228,6 +229,11 @@ const ProductDetailsContent = ({
         <div className="shop-container">
           <div className="product-details">
             <div className="product-details-hero">
+              <ProductBreadcrumb
+                productName={product.Name}
+                productUrl={product.xp.ProductUrl}
+                categoryBreadcrumbs={product.xp.CategoryBreadcrumbs}
+              />
               <h2 className="product-name">{product.Name}</h2>
               <ProductImage images={productImageProps} />
               <div className="product-description">
