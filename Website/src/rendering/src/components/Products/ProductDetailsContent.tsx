@@ -12,9 +12,8 @@ import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { Actions, PageController } from '@sitecore-discover/react';
-import { ContentBlockWidgetProps } from '@sitecore-discover/ui';
 
-interface ProductDetailsContentProps extends ContentBlockWidgetProps {
+interface ProductDetailsContentProps {
   variantID?: string;
   product: RequiredDeep<BuyerProduct>;
   specs: RequiredDeep<Spec>[];
