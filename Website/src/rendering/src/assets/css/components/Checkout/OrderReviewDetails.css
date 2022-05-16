@@ -28,7 +28,7 @@
         .title {
           @apply font-bold;
 
-          &:not(.billing-title) {
+          &:not(.payment-title) {
             @apply mt-3;
           }
         }

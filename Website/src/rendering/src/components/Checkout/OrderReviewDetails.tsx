@@ -39,7 +39,13 @@ const OrderReviewDetails = (): JSX.Element => {
   const paymentPanelContent = (
     <>
       <div>
-        <p className="title billing-title">Billing address:</p>
+        <p className="title payment-title">Payment method:</p>
+        <p>Name on card: {payments?.[0]?.xp?.CreditCard?.CardholderName}</p>
+        <p>Credit card ending in: {payments?.[0]?.xp?.CreditCard?.ID}</p>
+        <p>Expires on: {payments?.[0]?.xp?.CreditCard?.ExpirationDate}</p>
+      </div>
+      <div>
+        <p className="title">Billing address:</p>
         <p>
           {order?.BillingAddress?.FirstName} {order?.BillingAddress?.LastName}
         </p>
@@ -49,15 +55,6 @@ const OrderReviewDetails = (): JSX.Element => {
           {order?.BillingAddress?.Zip}
         </p>
         <p>{order?.BillingAddress?.Country}</p>
-      </div>
-      <div>
-        <p className="title">Payment method:</p>
-        <p>Full name: {payments?.[0]?.xp?.CreditCard?.CardholderName}</p>
-        <p>Card number: {payments?.[0]?.xp?.CreditCard?.ID}</p>
-      </div>
-      <div>
-        <p className="title">Your comment:</p>
-        <p>{order?.Comments}</p>
       </div>
     </>
   );
@@ -86,6 +83,12 @@ const OrderReviewDetails = (): JSX.Element => {
               <h2>Payment</h2>
             </div>
             <div className="panel-body">{paymentPanelContent}</div>
+          </div>
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Additional Comments</h2>
+            </div>
+            <div className="panel-body">{order?.Comments}</div>
           </div>
           <CheckoutSummary />
         </div>
