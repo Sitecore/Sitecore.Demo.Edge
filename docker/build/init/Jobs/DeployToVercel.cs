@@ -200,7 +200,7 @@ namespace Sitecore.Demo.Init.Jobs
             cmd.Run(
                 $"echo | set /p=\"{orderCloudMiddlewareClientSecret}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET production --token {token} --scope {scope}");
             cmd.Run(
-                $"echo | set /p=\"{orderCloudMiddlewareAllowedClientIds}\" | vercel env add ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS production --token {token} --scope {scope}");
+                $"echo | set /p=\"{orderCloudMiddlewareAllowedClientIds}\" | vercel env add OC_API_CLIENTS_WITH_ACCESS production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{orderCloudWebhookHashKey}\" | vercel env add OC_WEBHOOK_HASH_KEY production --token {token} --scope {scope}");
 
