@@ -166,10 +166,12 @@ async function categoryBuilder(
         )
       );
     }
+
     const categoryNames =
       row.breadcrumbs.split('>').length > 0 ? row.breadcrumbs.split('>') : [row.name];
     let categoryID = '';
     let parentCategoryID = '';
+
     for (let catName of categoryNames) {
       const categoryNameFormatted = catName.trimStart().trimEnd();
       const categoryIDFormatted = catName
@@ -183,7 +185,14 @@ async function categoryBuilder(
         continue;
       } else {
         processedCategoryIDs.add(matchingCategoryID);
-        await postCategory(matchingCategoryID, categoryNameFormatted, parentCategoryID, catalogID);
+        await postCategory(
+          matchingCategoryID,
+          categoryNameFormatted,
+          parentCategoryID,
+          catalogID,
+          row.url_path,
+          row.breadcrumbs
+        );
         parentCategoryID = matchingCategoryID;
       }
     }
@@ -195,13 +204,19 @@ async function postCategory(
   categoryID: string,
   categoryName: string,
   parentCategoryID: string,
-  catalogID: string
+  catalogID: string,
+  urlPath: string,
+  breadcrumbs: string
 ) {
   const categoryRequest = {
     ID: categoryID,
     Active: true,
     Name: categoryName,
     ParentID: parentCategoryID,
+    xp: {
+      UrlPath: urlPath,
+      Breadcrumbs: breadcrumbs,
+    },
   };
   try {
     return await OrderCloudSDK.Categories.Save(catalogID, categoryRequest.ID, categoryRequest);
@@ -398,6 +413,7 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
 
   // Post category-product assignment
   const categoriesSplitByPipe = row.ccids.split('|');
+  const categoryBreadcrumbs = [];
   for (let pipeSplitCategory of categoriesSplitByPipe) {
     const categoryIDFormatted = pipeSplitCategory
       .replace(/[`~!@#$%^&*()|+=?;:'",.<>{}[\]\\/]/gi, '') // Remove most special characters (not hyphens/underscores)
@@ -420,6 +436,30 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       );
       return;
     }
+
+    // Get the specific category's URL path and breadcrumbs name in order to construct the category breadcrumbs for the product
+    try {
+      const category = await OrderCloudSDK.Categories.Get(catalogID, categoryIDFormatted);
+      categoryBreadcrumbs.push({
+        UrlPath: category.xp.UrlPath,
+        BreadcrumbsName: category.xp.Breadcrumbs,
+      });
+    } catch (ex) {
+      results.categories.errors++;
+      handleError(`Error getting category ${categoryIDFormatted}`, ex);
+      return;
+    }
+  }
+
+  // Update the product's XP with the category breadcrumbs
+  try {
+    await OrderCloudSDK.Products.Patch(row.product_group, {
+      xp: { CategoryBreadcrumbs: categoryBreadcrumbs },
+    });
+  } catch (ex) {
+    results.products.errors++;
+    handleError(`Error updating product ${row.product_group}`, ex);
+    return;
   }
 }
 
@@ -427,7 +467,11 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, any[]>) {
   const possibleSpecs: string[] = ['Color', 'Size'];
 
   for (let productId of productIdToVariantRowsMap.keys()) {
+    let specListOrder = 1;
+
     for (let specName of possibleSpecs) {
+      let specOptionListOrder = 1;
+
       if (productIdToVariantRowsMap.get(productId)[0][specName.toLowerCase()]) {
         try {
           await OrderCloudSDK.Specs.Save(`${productId}-${specName}`, {
@@ -435,6 +479,7 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, any[]>) {
             Name: specName,
             Required: true,
             DefinesVariant: true,
+            ListOrder: specListOrder,
           });
         } catch (ex) {
           results.products.errors++;
@@ -442,19 +487,32 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, any[]>) {
           return;
         }
 
+        const existingSpecOptionValues = [];
         for (let variantRow of productIdToVariantRowsMap.get(productId)) {
-          // Create all the spec options of this spec for each variant of this specific product
-          await createSpecOptions(productId, specName, variantRow);
+          // If the spec option already exists we skip this iteration
+          if (existingSpecOptionValues.includes(variantRow[specName.toLowerCase()])) {
+            continue;
+          }
+          // Create a spec option of this spec for each variant of this specific product
+          await createSpecOption(productId, specName, variantRow, specOptionListOrder);
+          existingSpecOptionValues.push(variantRow[specName.toLowerCase()]);
+          specOptionListOrder++;
         }
 
         // Assign this product to the spec
         await createSpecProductAssignment(productId, specName);
       }
+      specListOrder++;
     }
   }
 }
 
-async function createSpecOptions(productId: string, specName: string, variantRow: any) {
+async function createSpecOption(
+  productId: string,
+  specName: string,
+  variantRow: any,
+  listOrder: number
+) {
   try {
     await OrderCloudSDK.Specs.SaveOption(
       `${productId}-${specName}`,
@@ -462,6 +520,7 @@ async function createSpecOptions(productId: string, specName: string, variantRow
       {
         ID: `${productId}-${specName}-${variantRow[specName.toLowerCase()]}`,
         Value: variantRow[specName.toLowerCase()],
+        ListOrder: listOrder,
       }
     );
   } catch (ex) {
