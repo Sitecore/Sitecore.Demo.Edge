@@ -23,6 +23,8 @@ const PreviewSearch = ({
   redirectUrl,
   dispatch,
 }: PreviewSearchProps): JSX.Element => {
+  const [selectedKeyword, setSelectedKeyword] = useState(keyphrase);
+
   const changeKeyphrase: (text: string) => void = debounce(
     (text) => {
       const changeKeyphraseAction: Action = {
@@ -30,6 +32,7 @@ const PreviewSearch = ({
         payload: { keyphrase: text || '' },
       };
       dispatch(changeKeyphraseAction);
+      setSelectedKeyword(text || '');
     },
     500,
     null
@@ -46,6 +49,7 @@ const PreviewSearch = ({
         payload: { category },
       };
       dispatch(changeCategoryAction);
+      setSelectedKeyword(category);
     },
     200,
     null
@@ -58,6 +62,7 @@ const PreviewSearch = ({
         payload: { trendingCategory },
       };
       dispatch(changeTrendingCategoryAction);
+      setSelectedKeyword(trendingCategory);
     },
     200,
     null
@@ -70,6 +75,7 @@ const PreviewSearch = ({
         payload: { suggestion },
       };
       dispatch(changeSuggestionAction);
+      setSelectedKeyword(suggestion);
     },
     200,
     null
@@ -94,7 +100,7 @@ const PreviewSearch = ({
         redirectUrl={redirectUrl}
       />
       <RightColumn
-        selectedKeyword={keyphrase}
+        selectedKeyword={selectedKeyword}
         products={products}
         loading={loading}
         loaded={loaded}
