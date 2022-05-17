@@ -217,8 +217,6 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{auth0Enabled}\" | vercel env add AUTH0_ENABLED production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata\" | vercel env add AUTH0_SCOPE production --token {token} --scope {scope}");
 
             // Configure special NPM_RC environment variable for the internal NPM registries. https://vercel.com/support/articles/using-private-dependencies-with-vercel
             cmd.Run(

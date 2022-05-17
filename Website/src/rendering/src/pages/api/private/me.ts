@@ -16,7 +16,8 @@ const userHandler = async (req: any, res: any) => {
     const currentUserManagementClient = new ManagementClient({
       token: accessToken,
       domain: baseUrl.replace('https://', ''),
-      scope: process.env.AUTH0_SCOPE,
+      scope:
+        'openid profile email read:current_user create:current_user_metadata read:current_user_metadata update:current_user_metadata',
     });
 
     const user = await currentUserManagementClient.updateUserMetadata({ id }, params);
