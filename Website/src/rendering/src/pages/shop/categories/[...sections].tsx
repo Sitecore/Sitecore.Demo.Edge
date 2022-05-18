@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { ShopLayout } from '../../../components/Products/Shop';
-import { Widget } from '@sitecore-discover/react';
+import DiscoverWidget from '../../../components/ShopCommon/DiscoverWidget';
 
 const CategoryPage = (): JSX.Element => {
   return (
@@ -8,7 +8,7 @@ const CategoryPage = (): JSX.Element => {
       <Head>
         <title>PLAY! SHOP - Category</title>
       </Head>
-      <Widget rfkId="rfkid_10" />
+      <DiscoverWidget rfkId="rfkid_10" />
     </ShopLayout>
   );
 };
