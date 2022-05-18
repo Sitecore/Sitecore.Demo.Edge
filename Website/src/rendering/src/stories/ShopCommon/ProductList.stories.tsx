@@ -28,8 +28,7 @@ Default.args = {
       final_price_max_formatted: 6.99,
       finalPrice: '6.99',
       id: 406222380,
-      image_url:
-        '//playsummit.sitecoresandbox.cloud/api/public/content/e78328e35361438aad3006fd03602f52?v=7a328415',
+      image_url: 'https://ch.sitecoredemo.com/api/public/content/bike-hand-pump-product?v=4e0023e4',
       name: 'CenterCycle Hand Pump',
       onClick: () => {
         return null;

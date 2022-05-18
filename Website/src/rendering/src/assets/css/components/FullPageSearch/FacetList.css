@@ -9,7 +9,7 @@
     }
 
     &-title {
-      @apply flex justify-between py-1 cursor-pointer font-bold;
+      @apply flex justify-between py-1 cursor-pointer font-bold capitalize;
 
       &::after {
         @apply block transition-transform;
@@ -20,7 +20,8 @@
     }
 
     &-values {
-      @apply hidden bg-white py-3 px-2;
+      @apply hidden bg-white-light py-3 px-2;
+      @apply lg:bg-white;
 
       li {
         @apply flex items-center;
@@ -55,10 +56,12 @@
   }
 
   &-active {
-    @apply flex flex-col p-4 mb-4 text-sm bg-white;
+    @apply flex flex-col mb-4 text-sm bg-white;
+    @apply lg:p-4;
 
     button {
-      @apply mx-auto mt-3;
+      @apply mt-3;
+      @apply lg:mx-auto;
     }
 
     input[type='checkbox'] {
@@ -95,6 +98,43 @@
           }
         }
       }
+    }
+  }
+
+  .facet[data-type='sort'] {
+    @apply lg:hidden;
+
+    input {
+      @apply hidden;
+    }
+
+    input:checked + label {
+      @apply bg-white;
+    }
+
+    label {
+      @apply block;
+    }
+  }
+}
+
+.facet-container {
+  @apply flex flex-col p-4;
+  @apply lg:p-0;
+
+  .facet-container-toggle {
+    @apply ml-auto mb-2;
+  }
+
+  &-toggle {
+    @apply text-base;
+    @apply lg:hidden;
+
+    &::before {
+      @apply relative top-[2px] h-3 mr-2;
+
+      /* TODO: use FontAwesomeIcon instead of pseudo element */
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17.081' height='14.946' viewBox='0 0 17.081 14.946'%3E%3Cpath id='sliders-h-solid' d='M16.547,43.743H5.338v-.534a.535.535,0,0,0-.534-.534H3.736a.535.535,0,0,0-.534.534v.534H.534A.535.535,0,0,0,0,44.277v1.068a.535.535,0,0,0,.534.534H3.2v.534a.535.535,0,0,0,.534.534H4.8a.535.535,0,0,0,.534-.534v-.534H16.547a.535.535,0,0,0,.534-.534V44.277A.535.535,0,0,0,16.547,43.743Zm0-5.338H13.878v-.534a.535.535,0,0,0-.534-.534H12.277a.535.535,0,0,0-.534.534v.534H.534A.535.535,0,0,0,0,38.939v1.068a.535.535,0,0,0,.534.534H11.743v.534a.535.535,0,0,0,.534.534h1.068a.535.535,0,0,0,.534-.534V40.54h2.669a.535.535,0,0,0,.534-.534V38.939A.535.535,0,0,0,16.547,38.405Zm0-5.338H9.608v-.534A.535.535,0,0,0,9.074,32H8.007a.535.535,0,0,0-.534.534v.534H.534A.535.535,0,0,0,0,33.6v1.068a.535.535,0,0,0,.534.534H7.473v.534a.535.535,0,0,0,.534.534H9.074a.535.535,0,0,0,.534-.534V35.2h6.939a.535.535,0,0,0,.534-.534V33.6A.535.535,0,0,0,16.547,33.068Z' transform='translate(0 -32)'/%3E%3C/svg%3E%0A");
     }
   }
 }
