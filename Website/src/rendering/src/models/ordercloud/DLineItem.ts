@@ -15,4 +15,5 @@ export type DLineItem = LineItem<
 export interface DLineItemXp {
   // add custom xp properties required for this project here
   IsGift?: boolean;
+  Comment?: string;
 }

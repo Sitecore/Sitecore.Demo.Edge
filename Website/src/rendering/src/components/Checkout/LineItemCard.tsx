@@ -29,7 +29,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       return '';
     }
     const specValues = lineItem.Specs.map((spec) => <p key={spec.Value}>Color: {spec.Value}</p>);
-    return <div className="product-specs">{specValues}</div>;
+    return <>{specValues}</>;
   };
 
   const getImageUrl = (): string => {
@@ -58,6 +58,20 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         patchLineItem({
           lineItemID: props.lineItem.ID,
           partialLineItem: { Quantity: quantity },
+        })
+      );
+      setLoading(false);
+    },
+    [dispatch, props.lineItem]
+  );
+
+  const handleUpdateComment = useCallback(
+    async (comment: string) => {
+      setLoading(true);
+      await dispatch(
+        patchLineItem({
+          lineItemID: props.lineItem.ID,
+          partialLineItem: { xp: { Comment: comment } },
         })
       );
       setLoading(false);
@@ -109,31 +123,41 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     </button>
   );
 
-  const quantityBlock = props.editable ? (
-    <>
-      {quantityInput}
-      {btnRemove}
-      {btnWishList}
-      {btnSaveLater}
-    </>
-  ) : (
+  const staticQuantityBlock = !props.editable && (
     <p className="quantity-static">
       <span className="quantity-label">Quantity: </span>
       <span className="quantity-num">{props.lineItem.Quantity}</span>
     </p>
   );
 
+  const editableQuantityBlock = props.editable && (
+    <>
+      {quantityInput}
+      {btnRemove}
+      {btnWishList}
+      {btnSaveLater}
+    </>
+  );
+
   const giftCheckbox = props.editable && (
     <GiftCheckboxLineItem lineItem={props.lineItem}></GiftCheckboxLineItem>
   );
 
-  // TODO: add functionality to input
-  const userComment = (
-    <input type="text" placeholder="Text input for user..." className="user-comment" />
+  const editableUserComment = props.editable && (
+    <input
+      type="text"
+      placeholder="Text input for user..."
+      className="user-comment"
+      defaultValue={props.lineItem.xp?.Comment}
+      // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
+      onBlur={(event) => handleUpdateComment(event.target.value)}
+    />
   );
 
+  const staticUserComment = !props.editable && <p>{props.lineItem.xp?.Comment}</p>;
+
   // TODO: add functionality to field
-  const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
+  const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
   // TODO: specs to return base and final price
   const priceBlock = (
@@ -150,12 +174,16 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       <div className="line-item-card-details">
         <h4 className="product-name">{props.lineItem.Product.Name}</h4>
         {productImage}
-        {getProductSpecs()}
+        <div className="product-specs">
+          {getProductSpecs()}
+          {staticQuantityBlock}
+          {staticUserComment}
+        </div>
       </div>
-      {userComment}
+      {editableUserComment}
       {giftCheckbox}
       <div className="line-item-card-footer">
-        {quantityBlock}
+        {editableQuantityBlock}
         {quantityAlert}
         {priceBlock}
       </div>

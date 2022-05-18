@@ -4,11 +4,7 @@ import PromoInput from './PromoInput';
 import Link from 'next/link';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
-type CartDetailsProps = {
-  editable?: boolean;
-};
-
-const CartDetails = (props: CartDetailsProps): JSX.Element => {
+const CartDetails = (): JSX.Element => {
   const { order } = useOcCurrentOrder();
   const cartDetailsActions = order?.LineItemCount > 0 && (
     <div className="cart-details-actions">
@@ -27,7 +23,7 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
       <h1>Shopping cart</h1>
       <div className="cart-details-grid">
         <div className="cart-details-items">
-          <LineItemList editable={props.editable} />
+          <LineItemList editable={true} />
         </div>
         {cartDetailsActions}
       </div>
