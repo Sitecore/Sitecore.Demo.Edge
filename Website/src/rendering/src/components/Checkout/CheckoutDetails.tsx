@@ -1,10 +1,10 @@
-import Link from 'next/link';
 import PanelDeliveryOptions from './PanelDeliveryOptions';
 import PanelShippingAddress from './PanelShippingAddress';
 import PanelShippingEstimates from './PanelShippingEstimates';
 import PanelBillingAddress from './PanelBillingAddress';
 import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
+import CheckoutSummary from './CheckoutSummary';
 
 const CheckoutDetails = (): JSX.Element => {
   return (
@@ -18,9 +18,7 @@ const CheckoutDetails = (): JSX.Element => {
         <PanelPayment />
         <div>
           <PanelComments />
-          <Link href="/shop/checkout/order-review">
-            <a className="btn--main btn--main--round review-order-btn">Review order</a>
-          </Link>
+          <CheckoutSummary />
         </div>
       </div>
     </section>

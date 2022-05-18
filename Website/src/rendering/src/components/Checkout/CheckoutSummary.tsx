@@ -57,6 +57,26 @@ const CheckoutSummary = (): JSX.Element => {
     return true;
   };
 
+  const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
+
+  const ctaButton = router.route.includes('/shop/checkout/checkout') ? (
+    <button
+      className="btn--main btn--main--round"
+      disabled={!canSubmitOrder()}
+      onClick={handleReviewOrderClick}
+    >
+      Review order
+    </button>
+  ) : (
+    <button
+      className="btn--main btn--main--round"
+      disabled={!canSubmitOrder()}
+      onClick={handleSubmitOrder}
+    >
+      Place your order
+    </button>
+  );
+
   const summary = order && (
     <>
       <p className="summary-line">
@@ -79,13 +99,7 @@ const CheckoutSummary = (): JSX.Element => {
         <span className="line-name">Total:</span>
         <span className="line-amount">{formatCurrency(order.Total)}</span>
       </p>
-      <button
-        className="btn--main btn--main--round"
-        disabled={!canSubmitOrder()}
-        onClick={handleSubmitOrder}
-      >
-        Place your order
-      </button>
+      {ctaButton}
     </>
   );
 
