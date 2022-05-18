@@ -279,15 +279,19 @@ const FacetList = ({
     </div>
   );
 
+  const searchInput = isCategoryProductListingPage && (
+    <SearchInput onSearchInputChange={onSearchInputChange} />
+  );
+
   // TODO: Implement and style range filters (e.g. min - max price)
   return (
     <div className="facet-container">
       <button className="btn--secondary facet-container-toggle" onClick={onToggleClick}>
         Filter
       </button>
+      {searchInput}
       {activeFilters}
       <div className="facet-list">
-        {isCategoryProductListingPage && <SearchInput onSearchInputChange={onSearchInputChange} />}
         <SortFacet {...sortFacetProps} />
         {facets?.map(({ facetType, values, display_name }, tindex) => {
           const componentHtml = (
