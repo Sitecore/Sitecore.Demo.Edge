@@ -39,7 +39,7 @@ const CheckoutSummary = (): JSX.Element => {
     if (loading) {
       return false;
     }
-    if (!order.ID) {
+    if (!order?.ID) {
       return false;
     }
     if (!selectedShipMethodId) {
@@ -48,7 +48,7 @@ const CheckoutSummary = (): JSX.Element => {
     if (!shippingAddress?.Country) {
       return false;
     }
-    if (!order.BillingAddress?.Country) {
+    if (!order?.BillingAddress?.Country) {
       return false;
     }
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
