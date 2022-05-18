@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import {
   IntegrationEvents,
-  LineItem,
-  LineItems,
   OrderWorksheet,
   Payment,
   Payments,
   ShipMethod,
 } from 'ordercloud-javascript-sdk';
 import { useRouter } from 'next/router';
-import { formatCurrency } from 'src/helpers/CurrencyHelper';
-import LineItemCard from 'components/Checkout/LineItemCard';
+import { formatCurrency } from '../../helpers/CurrencyHelper';
+import LineItemCard from '../Checkout/LineItemCard';
 
 const OrderHistoryDetails = (): JSX.Element => {
   const [order, setOrder] = useState<OrderWorksheet>({});
@@ -56,7 +54,7 @@ const OrderHistoryDetails = (): JSX.Element => {
   const billingAddress =
     order && order.Order && order.Order.BillingAddress ? (
       <>
-        <h3>Billing Address</h3>
+        <p className="title">Billing Address</p>
         <p>{order?.Order?.BillingAddress?.AddressName}</p>
         <p>{order?.Order?.BillingAddress?.CompanyName}</p>
         <p>{order?.Order?.BillingAddress?.FirstName}</p>
@@ -70,13 +68,13 @@ const OrderHistoryDetails = (): JSX.Element => {
         <p>{order?.Order?.BillingAddress?.Phone}</p>
       </>
     ) : (
-      <h3>No billing address found</h3>
+      <p className="title">No billing address found</p>
     );
 
   const shippingAddress =
     order.LineItems && order.LineItems.length ? (
       <>
-        <h3>Shipping Address</h3>
+        <p className="title">Shipping Address</p>
         <p>{order.LineItems[0]?.ShippingAddress?.AddressName}</p>
         <p>{order.LineItems[0]?.ShippingAddress?.CompanyName}</p>
         <p>{order.LineItems[0]?.ShippingAddress?.FirstName}</p>
@@ -90,31 +88,73 @@ const OrderHistoryDetails = (): JSX.Element => {
         <p>{order.LineItems[0]?.ShippingAddress?.Phone}</p>
       </>
     ) : (
-      <h3>No line items</h3>
+      <p className="title">No Shipping Address</p>
     );
 
   // Configure return
   return (
-    <section className="section">
-      <div className="shop-container">
-        <div className="order-history-details">
-          <p>ID: {order?.Order?.ID}</p>
-          <p>DateSubmitted: {order?.Order?.DateSubmitted}</p>
-          <p>Status: {order?.Order?.Status}</p>
-          <p>Payment: {payment[0]?.Type}</p>
-          <p>
-            From User: {order?.Order?.FromUser?.FirstName} {order?.Order?.FromUser?.LastName}
-          </p>
-          {billingAddress}
-          {shippingAddress}
-          <p>Subtotal: {formatCurrency(order?.Order?.Subtotal)}</p>
-          <p>Ship Method: {shipMethod?.Name}</p>
-          <p>Shipping Cost: {formatCurrency(order?.Order?.ShippingCost)}</p>
-          <p>TaxCost: {formatCurrency(order?.Order?.TaxCost)}</p>
-          <p>Discount: {formatCurrency(order?.Order?.PromotionDiscount)}</p>
-          <p>Total: {formatCurrency(order?.Order?.Total)}</p>
+    <section className="order-review-details shop-container">
+      <p className="order-status">{order?.Order?.Status}</p>
+      <h1>{order?.Order?.ID}</h1>
+      <p className="order-date">Placed: {order?.Order?.DateSubmitted}</p>
+      <div className="grid-container">
+        <div className="panel line-items-panel">
+          <div className="panel-header">
+            <h2>Items</h2>
+          </div>
+          <div className="panel-body">{lineItemList}</div>
         </div>
-        {lineItemList}
+        <div>
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Delivery</h2>
+            </div>
+            <div className="panel-body">
+              <p>Delivery type: Standard</p>
+              <p>Ship Method: {shipMethod?.Name}</p>
+              <p>Estimated Delivery: 1st of April 2022</p>
+              {shippingAddress}
+              <p className="title">Your Comment:</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, tempore?</p>
+            </div>
+          </div>
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Payment</h2>
+            </div>
+            <div className="panel-body">
+              <p className="title">Payment method:</p>
+              <p>{payment[0]?.Type}</p>
+              {billingAddress}
+            </div>
+          </div>
+          <div className="checkout-summary">
+            <p className="summary-line">
+              <span className="line-name">Subtotal:</span>
+              <span className="line-amount">{formatCurrency(order?.Order?.Subtotal)}</span>
+            </p>
+            <p
+              className={`summary-line ${
+                order?.Order?.PromotionDiscount !== 0 ? 'has-discount' : ''
+              }`}
+            >
+              <span className="line-name">Discount:</span>
+              <span className="line-amount">{formatCurrency(order?.Order?.PromotionDiscount)}</span>
+            </p>
+            <p className="summary-line shipping-line">
+              <span className="line-name">Delivery fees:</span>
+              <span className="line-amount">{formatCurrency(order?.Order?.ShippingCost)}</span>
+            </p>
+            <p className="summary-line">
+              <span className="line-name">Taxes:</span>
+              <span className="line-amount">{formatCurrency(order?.Order?.TaxCost)}</span>
+            </p>
+            <p className="summary-line total-line">
+              <span className="line-name">Total:</span>
+              <span className="line-amount">{formatCurrency(order?.Order?.Total)}</span>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

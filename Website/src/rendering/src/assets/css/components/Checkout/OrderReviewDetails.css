@@ -1,0 +1,95 @@
+.order-review-details {
+  @apply mb-5;
+
+  &.shop-container {
+    @apply px-0;
+    @apply sm:px-5;
+  }
+
+  h1 {
+    @apply text-2xl font-bold mb-3 px-5;
+    @apply sm:px-0;
+  }
+
+  .grid-container {
+    @apply grid grid-cols-1 gap-4;
+    @apply sm:grid-cols-2;
+
+    .panel {
+      @apply bg-white h-[max-content];
+
+      &-header {
+        @apply px-2 py-1 text-white font-bold bg-blue;
+      }
+
+      &-body {
+        @apply px-3 py-4 mb-3 text-sm;
+
+        .title {
+          @apply font-bold;
+
+          &:not(.billing-title) {
+            @apply mt-3;
+          }
+        }
+      }
+
+      &.line-items-panel {
+        @apply bg-transparent;
+
+        .panel-body {
+          @apply p-0;
+        }
+      }
+    }
+
+    .line-item-card {
+      @apply px-5 py-2 my-4 bg-white;
+      @apply sm:px-2;
+
+      &-details {
+        @apply grid gap-x-4 grid-cols-[auto_1fr] mb-2;
+      }
+
+      .product-name {
+        @apply font-bold mb-2 row-start-1 col-start-1 col-span-2;
+      }
+
+      .product-specs {
+        @apply text-sm row-start-2 col-start-2;
+      }
+
+      img {
+        @apply w-14 h-14 object-contain;
+      }
+    }
+
+    .checkout-summary {
+      @apply flex flex-col mt-4;
+
+      .summary-line {
+        @apply flex justify-between px-3 text-sm;
+
+        &.has-discount {
+          @apply text-pink;
+        }
+      }
+
+      .shipping-line {
+        @apply pt-2;
+
+        .line-amount {
+          @apply text-blue;
+        }
+      }
+
+      .total-line {
+        @apply bg-white font-bold mt-4 py-1 text-base;
+      }
+
+      button {
+        @apply mt-4 mx-auto;
+      }
+    }
+  }
+}

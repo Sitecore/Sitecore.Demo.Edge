@@ -11,12 +11,12 @@ export default {
 const Template: ComponentStory<typeof MyAccount> = (args) => <MyAccount {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  params: {
-    name: 'MyAccount',
-  },
-  rendering: {
-    componentName: 'MyAccount',
-    dataSource: '/sitecore',
-  },
-};
+// Default.args = {
+//   params: {
+//     name: 'MyAccount',
+//   },
+//   rendering: {
+//     componentName: 'MyAccount',
+//     dataSource: '/sitecore',
+//   },
+// };

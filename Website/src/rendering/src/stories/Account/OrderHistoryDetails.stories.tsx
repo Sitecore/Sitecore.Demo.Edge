@@ -8,7 +8,9 @@ export default {
   component: OrderHistoryDetails,
 } as ComponentMeta<typeof OrderHistoryDetails>;
 
-const Template: ComponentStory<typeof OrderHistoryDetails> = (args) => <OrderHistoryDetails {...args} />;
+const Template: ComponentStory<typeof OrderHistoryDetails> = (args) => (
+  <OrderHistoryDetails {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
