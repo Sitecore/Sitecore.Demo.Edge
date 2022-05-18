@@ -10,8 +10,6 @@
   }
 
   .shipping-line {
-    @apply pt-2;
-
     .line-amount {
       @apply text-blue;
     }

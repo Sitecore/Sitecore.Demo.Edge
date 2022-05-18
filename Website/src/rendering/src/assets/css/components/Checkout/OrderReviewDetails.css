@@ -43,6 +43,7 @@
       }
     }
 
+    /* TODO: Look at merging CartDetails and OrderReviewDetails styles if possible. Maybe extract to LineItemList.css? */
     .line-item-card {
       @apply px-5 py-2 my-4 bg-white;
       @apply sm:px-2;
@@ -52,7 +53,7 @@
       }
 
       .product-name {
-        @apply font-bold mb-2 row-start-1 col-start-1 col-span-2;
+        @apply font-bold mb-2 row-start-1 col-start-1 col-span-2 text-base;
       }
 
       .product-specs {

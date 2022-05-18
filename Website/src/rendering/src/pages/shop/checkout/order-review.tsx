@@ -11,10 +11,9 @@ const OrderReview = (): JSX.Element => {
   });
 
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
-    { urlPath: '/shop/checkout/order-review', displayName: 'Review order' },
+    { urlPath: '/shop/checkout/order-review', displayName: 'Order review' },
     { urlPath: '/shop/checkout/checkout', displayName: 'Checkout' },
     { urlPath: '/shop/checkout/cart', displayName: 'Cart' },
-    { urlPath: '/shop', displayName: 'Shop' },
   ];
 
   return (
