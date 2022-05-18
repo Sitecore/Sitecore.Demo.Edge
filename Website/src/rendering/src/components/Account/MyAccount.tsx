@@ -18,46 +18,42 @@ const MyAccount: FunctionComponent = (): JSX.Element => {
   }, [orders]);
 
   const ordersList = orders.length > 0 && (
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Total</th>
-      </tr>
-      {orders.map((order, key) => {
+    <ul>
+      {orders.map((order) => {
+        const statusBgClass =
+          order?.Status === 'Completed'
+            ? 'bg-orange'
+            : order?.Status === 'Canceled'
+            ? 'bg-pink'
+            : 'bg-blue-light';
+
         return (
-          <tr key={key}>
-            <td>
-              <Link href={`orders/${order.ID}`}>
-                <a>{order?.ID}</a>
-              </Link>
-            </td>
-            <td>{order?.DateCreated}</td>
-            <td>{order?.Status}</td>
-            <td>{order.Total}</td>
-          </tr>
+          <li key={order?.ID}>
+            <Link href={`orders/${order?.ID}`}>
+              <a>
+                <p className={`order-status ${statusBgClass}`}>{order?.Status || 'Unsubmitted'} </p>
+                <p className="order-id">{order?.ID || '5625590'}</p>
+                <p>Placed: {order?.DateCreated || '09.02.2022'}</p>
+                <p>Total: {order?.Total || '$1,899.99'}</p>
+              </a>
+            </Link>
+          </li>
         );
       })}
-    </table>
+    </ul>
   );
 
   // Configure return
   return (
-    <div className="full-page-search">
-      <div className="full-page-search-container">
-        <div className="full-page-search-left">
-          <ul>
-            <li>
-              <Link href="#">
-                <a onClick={(e) => getMyOrders(e)}>My Orders</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="full-page-search-right">{ordersList}</div>
-      </div>
-    </div>
+    <section className="order-history shop-container">
+      <Link href="#">
+        <a className="btn--main btn--main--round" onClick={(e) => getMyOrders(e)}>
+          My Orders
+        </a>
+      </Link>
+      <h1>Order History</h1>
+      <div className="order-history-grid">{ordersList}</div>
+    </section>
   );
 };
 

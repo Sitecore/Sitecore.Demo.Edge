@@ -93,10 +93,10 @@ const OrderHistoryDetails = (): JSX.Element => {
 
   // Configure return
   return (
-    <div className="order-review-details shop-container">
-      <h1>{order?.Order?.ID}</h1>
-      <p>Placed: {order?.Order?.DateSubmitted}</p>
+    <section className="order-review-details shop-container">
       <p className="order-status">{order?.Order?.Status}</p>
+      <h1>{order?.Order?.ID}</h1>
+      <p className="order-date">Placed: {order?.Order?.DateSubmitted}</p>
       <div className="grid-container">
         <div className="panel line-items-panel">
           <div className="panel-header">
@@ -156,7 +156,7 @@ const OrderHistoryDetails = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
