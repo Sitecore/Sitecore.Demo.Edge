@@ -1,9 +1,16 @@
 import { NextApiHandler } from 'next';
 import { withOcWebhookAuth } from '@ordercloud/catalyst';
-import { OpenIdConnectPayload, OpenIdConnectResponse, Users } from 'ordercloud-javascript-sdk';
+import {
+  Configuration,
+  OpenIdConnectPayload,
+  OpenIdConnectResponse,
+  Users,
+} from 'ordercloud-javascript-sdk';
 import { parseJwt } from '../../../helpers/JwtHelper';
 import { isOrderCloudError } from '../../../helpers/TypeGuards';
 import { Auth0Claims } from '../../../interfaces/Auth0';
+
+Configuration.Set({ baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL });
 
 // withOCWebhookAuth needs the raw body in order to validate the payload is coming from ordercloud
 export const config = {
