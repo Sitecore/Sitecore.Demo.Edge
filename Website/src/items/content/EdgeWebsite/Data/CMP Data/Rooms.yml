@@ -7,6 +7,9 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: office/32x32/arrow_circle2.png
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{F7E573B9-48D8-421E-B81A-E472E5B7F072}"
 - ID: "39c4902e-9960-4469-aeef-e878e9c8218f"
   Hint: __Hidden
   Value: 0
@@ -42,11 +45,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "898da9d1-54ce-411e-a62b-1fccd363352c"
+      Value: "1ad55d2c-178a-4cb3-8ecf-cf424f415106"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210825T115444Z
+      Value: 20220310T154005Z
