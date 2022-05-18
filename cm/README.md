@@ -8,4 +8,6 @@ It will monitor file changes in a repository (default branch) and automatically 
 
 For example, README.md will be copied into C:\inetpub\wwwroot\README.md,  any existing files will be overwritten.
 
-Changes to system files or directories might cause Sitecore restart! Removing files is not supported and the workaround is to Stop/Wait 5 mins/Start the instance (this will apply the files from scratch).
+Use caution when copying 'system' files (such as web.config). Overwriting system files incorrectly configured could prevent the instance from starting correctly. Note that changes to system files or directories might cause a Sitecore restart.
+
+To remove files, first remove them from the Git-Synced folder then stop and start the instance.
