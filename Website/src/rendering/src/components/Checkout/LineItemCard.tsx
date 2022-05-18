@@ -65,6 +65,20 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
+  const handleUpdateComment = useCallback(
+    async (comment: string) => {
+      setLoading(true);
+      await dispatch(
+        patchLineItem({
+          lineItemID: props.lineItem.ID,
+          partialLineItem: { xp: { Comment: comment } },
+        })
+      );
+      setLoading(false);
+    },
+    [dispatch, props.lineItem]
+  );
+
   // TODO: add branded placeholder img
   const productImage = (
     <img
@@ -129,10 +143,18 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     <GiftCheckboxLineItem lineItem={props.lineItem}></GiftCheckboxLineItem>
   );
 
-  // TODO: add functionality to input
-  const userComment = props.editable && (
-    <input type="text" placeholder="Text input for user..." className="user-comment" />
+  const editableUserComment = props.editable && (
+    <input
+      type="text"
+      placeholder="Text input for user..."
+      className="user-comment"
+      defaultValue={props.lineItem.xp?.Comment}
+      // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
+      onBlur={(event) => handleUpdateComment(event.target.value)}
+    />
   );
+
+  const staticUserComment = !props.editable && <p>{props.lineItem.xp?.Comment}</p>;
 
   // TODO: add functionality to field
   const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
@@ -155,9 +177,10 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         <div className="product-specs">
           {getProductSpecs()}
           {staticQuantityBlock}
+          {staticUserComment}
         </div>
       </div>
-      {userComment}
+      {editableUserComment}
       {giftCheckbox}
       <div className="line-item-card-footer">
         {editableQuantityBlock}
