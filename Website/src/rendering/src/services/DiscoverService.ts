@@ -20,7 +20,7 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     ? '0-0-0'
     : process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
 
-  if (!DISCOVER_CUSTOMER_KEY || !DISCOVER_API_KEY) {
+  if (typeof window === 'undefined' || !DISCOVER_CUSTOMER_KEY || !DISCOVER_API_KEY) {
     return;
   }
 

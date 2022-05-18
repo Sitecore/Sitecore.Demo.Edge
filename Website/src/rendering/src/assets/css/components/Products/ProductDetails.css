@@ -31,7 +31,11 @@
           @apply flex justify-center gap-2 mt-2;
 
           > div {
-            @apply w-12 h-12;
+            @apply w-12 h-12 border-2 border-gray;
+
+            &.active {
+              @apply border-yellow;
+            }
 
             img {
               @apply w-full h-full object-cover;
