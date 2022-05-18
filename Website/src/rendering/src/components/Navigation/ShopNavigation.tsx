@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
-import { Widget } from '@sitecore-discover/react';
+import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 import ClickOutside from '../ShopCommon/ClickOutside';
 
@@ -33,7 +33,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const previewSearchWidget = props.previewSearchProps ? (
     <PreviewSearch {...props.previewSearchProps} />
   ) : (
-    <Widget rfkId="rfkid_6" />
+    <DiscoverWidget rfkId="rfkid_6" />
   );
 
   return (
