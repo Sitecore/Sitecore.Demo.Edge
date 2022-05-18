@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
-import IfCommerceEnabled from '../ShopCommon/IfCommerceEnabled';
 import { Widget } from '@sitecore-discover/react';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 import ClickOutside from '../ShopCommon/ClickOutside';
@@ -69,15 +68,11 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
             >
               <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
-                <IfCommerceEnabled>
-                  <CartBadge />
-                </IfCommerceEnabled>
+                <CartBadge />
               </button>
-              <IfCommerceEnabled>
-                <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
-                  <MiniCart />
-                </div>
-              </IfCommerceEnabled>
+              <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
+                <MiniCart />
+              </div>
             </li>
             <li className="shop-navigation-menu-item">
               <Link href="/account/login" passHref>

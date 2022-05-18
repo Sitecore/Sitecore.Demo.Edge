@@ -287,7 +287,13 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const shopContent = isCommerceEnabled ? (
     <Provider store={reduxStore}>
       <OcProvider>
-        <div className="shop-main-container">{props.children}</div>
+        <header>
+          <ShopNavigation />
+        </header>
+        <main>
+          <HeaderCdpMessageBar />
+          <div className="shop-main-container">{props.children}</div>
+        </main>
       </OcProvider>
     </Provider>
   ) : (
@@ -301,13 +307,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-        <ShopNavigation />
-      </header>
-      <main>
-        <HeaderCdpMessageBar />
-        {shopContent}
-      </main>
+      {shopContent}
       <footer>
         <Footer {...footerProps} />
       </footer>
