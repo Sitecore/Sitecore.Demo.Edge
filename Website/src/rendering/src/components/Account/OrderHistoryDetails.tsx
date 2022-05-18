@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   IntegrationEvents,
+  ListPage,
   OrderWorksheet,
   Payment,
   Payments,
@@ -10,16 +11,34 @@ import { useRouter } from 'next/router';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import LineItemCard from '../Checkout/LineItemCard';
 
-const OrderHistoryDetails = (): JSX.Element => {
+interface OrderHistoryDetailsProps {
+  storyOrder?: OrderWorksheet;
+  storyPayment?: ListPage<Payment>;
+  storyOrderId?: string;
+}
+
+const OrderHistoryDetails = ({
+  storyOrder,
+  storyPayment,
+  storyOrderId,
+}: OrderHistoryDetailsProps): JSX.Element => {
   const [order, setOrder] = useState<OrderWorksheet>({});
   const [payment, setPayment] = useState<Payment[]>([]);
   const [shipMethod, setShipMethod] = useState<ShipMethod>({});
   const router = useRouter();
-  const orderId = router?.query?.order?.length > 0 ? router.query.order : undefined;
+  const orderId = storyOrderId
+    ? storyOrderId
+    : router?.query?.order?.length > 0
+    ? router.query.order
+    : undefined;
 
   const getMyOrder = async () => {
-    const myOrder = await IntegrationEvents.GetWorksheet<OrderWorksheet>('All', orderId.toString());
-    const orderPayment = await Payments.List('All', orderId.toString());
+    const myOrder = storyOrder
+      ? storyOrder
+      : await IntegrationEvents.GetWorksheet<OrderWorksheet>('All', orderId.toString());
+    const orderPayment = storyPayment
+      ? storyPayment
+      : await Payments.List('All', orderId.toString());
     if (myOrder.ShipEstimateResponse.ShipEstimates.length > 0) {
       const shipMethods = myOrder.ShipEstimateResponse.ShipEstimates[0].ShipMethods;
       const selectedID = myOrder.ShipEstimateResponse.ShipEstimates[0].SelectedShipMethodID;

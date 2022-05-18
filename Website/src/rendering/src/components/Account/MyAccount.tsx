@@ -1,13 +1,17 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Me, Order } from 'ordercloud-javascript-sdk';
+import React, { useEffect, useState } from 'react';
+import { ListPage, Me, Order } from 'ordercloud-javascript-sdk';
 import Link from 'next/link';
 
-const MyAccount: FunctionComponent = (): JSX.Element => {
+interface MyAccountProps {
+  storyOrders?: ListPage<Order>;
+}
+
+const MyAccount = ({ storyOrders }: MyAccountProps): JSX.Element => {
   const [orders, setOrders] = useState<Order[]>([]);
   // Add custom functions
   const getMyOrders = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e?.preventDefault();
-    const myOrders = await Me.ListOrders<Order>();
+    const myOrders = storyOrders ? storyOrders : await Me.ListOrders<Order>();
     setOrders(myOrders.Items);
   };
 
