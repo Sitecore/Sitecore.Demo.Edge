@@ -59,6 +59,7 @@ const CheckoutSummary = (): JSX.Element => {
 
   const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
 
+  // TODO: Change the button choice condition based on a prop passed to the component. If we ever rename the pages, the component will not work as expected.
   const ctaButton = router.route.includes('/shop/checkout/checkout') ? (
     <button
       className="btn--main btn--main--round"
