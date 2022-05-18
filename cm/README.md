@@ -1,8 +1,8 @@
-# Git Sync for Demo Portal deployments
+# Git Sync
 
-## When deployed to AKS from the Demo Portal, files from this folder will be copied to the website root folder automatically
+## The files from this folder will be copied to the website root folder automatically
 
-Git Sync is a one-way (from your Git repository -> to your instance) continuous (on startup, and then checked once a minute) file system synchronization.
+Git Sync is a one-way (from your Git repository -> to your instance) continuous (on startup, and then checked once a minute) file system synchronization. It can be enabled by setting **GIT_SYNC_REPO** environment variable.
 
 It will monitor file changes in a repository (default branch) and automatically copy them into website root folder (C:\inetpub\wwwroot).
 
