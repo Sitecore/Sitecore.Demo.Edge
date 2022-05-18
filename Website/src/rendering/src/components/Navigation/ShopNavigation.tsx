@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
+import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -15,6 +16,16 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [locale /*, setLocale */] = useState('EN / CAD');
   const [flagUrl /*, setFlagUrl */] = useState(
     'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
+  );
+
+  const accountMenuItem = isAuthenticationEnabled && (
+    <li className="shop-navigation-menu-item">
+      <Link href="/account" passHref>
+        <a>
+          <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+        </a>
+      </Link>
+    </li>
   );
 
   const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
@@ -119,13 +130,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
                 </a>
               </Link>
             </li>
-            <li className="shop-navigation-menu-item">
-              <Link href="/account/login" passHref>
-                <a>
-                  <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-                </a>
-              </Link>
-            </li>
+            {accountMenuItem}
           </ul>
         </div>
         <div className="shop-search-input-container">

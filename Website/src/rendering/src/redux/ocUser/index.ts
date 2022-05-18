@@ -3,7 +3,7 @@ import { Me, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { DMeUser } from 'src/models/ordercloud/DUser';
 import { createOcAsyncThunk, OcThrottle } from '../ocReduxHelpers';
 
-interface ocUserState {
+export interface ocUserState {
   user?: DMeUser;
   loading: boolean;
   error?: SerializedError;
