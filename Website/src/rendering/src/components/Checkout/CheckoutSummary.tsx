@@ -4,13 +4,12 @@ import { submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
-import { getItemsCount } from '../../helpers/LineItemsHelpers';
 
 const CheckoutSummary = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { order, shipEstimateResponse, shippingAddress, payments, lineItems } = useOcCurrentOrder();
+  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
@@ -57,9 +56,6 @@ const CheckoutSummary = (): JSX.Element => {
     }
     return true;
   };
-
-  const numberOfItems =
-        order && `${getItemsCount(lineItems)} item${getItemsCount(lineItems) > 1 ? 's' : ''}`;
 
   const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
 
