@@ -51,7 +51,7 @@ const Header = (props: HeaderProps): JSX.Element => {
     <>
       <div className="header-eyebrow">
         <div className="content">
-          <select onChange={(e) => changeLanguage(e.target.value)} className="languagePicker">
+          <select onChange={(e) => changeLanguage(e.target.value)} className="languagePicker" defaultValue={sitecoreContext.language}>
             {languageList.map((language, index) => (
               <option
                 key={index}
