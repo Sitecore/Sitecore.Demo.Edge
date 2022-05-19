@@ -42,6 +42,7 @@ const nextConfig = {
       'en-ZA',
       'en-ZW',
       'es-ES',
+      'es-MX',
       'et-EE',
       'eu-ES',
       'fa-IR',
