@@ -95,6 +95,7 @@
 
 /* Products */
 @import './components/Products/CategoriesList.css';
+@import './components/Products/CategoryHero.css';
 @import './components/Products/ProductDetail.css';
 @import './components/Products/ProductDetails.css';
 @import './components/Products/ProductOverview.css';
