@@ -52,7 +52,7 @@ const Header = (props: HeaderProps): JSX.Element => {
       <div className="header-eyebrow">
         <div className="content">
           <select
-            onChange={(e) => changeLanguage(e.target.value)}
+            onClick={(e) => changeLanguage(e.currentTarget.value)}
             className="languagePicker"
             defaultValue={sitecoreContext.language}
           >
@@ -60,10 +60,10 @@ const Header = (props: HeaderProps): JSX.Element => {
               <option
                 key={index}
                 value={language['Name']}
-                label={languageNames.of(language.Name)}
+                label={languageNames.of(language['Name'])}
                 className="languageItem"
               >
-                {languageNames.of(language.Name)}
+                {languageNames.of(language['Name'])}
               </option>
             ))}
           </select>
