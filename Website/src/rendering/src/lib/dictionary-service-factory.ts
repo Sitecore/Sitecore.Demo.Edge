@@ -13,6 +13,7 @@ export class DictionaryServiceFactory {
       otherwise, the service will attempt to figure out the root item for the current JSS App using GraphQL and app name.
       rootItemId: '{GUID}'
       */
+      rootItemId: '{6DB09CEF-64A8-52A3-A980-38408109C4D7}'
     });
   }
 }
