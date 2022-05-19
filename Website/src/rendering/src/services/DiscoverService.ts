@@ -1,4 +1,10 @@
-import { init, setWidget, setCredentials, WidgetDataType, PageController } from '@sitecore-discover/react';
+import {
+  init,
+  setWidget,
+  setCredentials,
+  WidgetDataType,
+  PageController,
+} from '@sitecore-discover/react';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
