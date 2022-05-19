@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Price from './Price';
 
 // TODO: add story for component
@@ -31,18 +32,20 @@ const ProductCard = ({
   return (
     <div className="product-card">
       <div className="product-image-container">
-        {/* TODO: change for a next/Link component */}
-        <a href={product_url} onClick={onClick}>
-          <img className="product-image" src={image_url} alt={name} />
-          <span className="product-offer">Spring Sale!</span>
-        </a>
+        <Link href={product_url}>
+          <a onClick={onClick}>
+            <img className="product-image" src={image_url} alt={name} />
+            <span className="product-offer">Spring Sale!</span>
+          </a>
+        </Link>
       </div>
       <div className="product-info-container">
-        {/* TODO: change for a next/Link component */}
-        <a href={product_url}>
-          <div className="product-name">{name}</div>
-          <div className="product-brand">{brand}</div>
-        </a>
+        <Link href={product_url}>
+          <a>
+            <div className="product-name">{name}</div>
+            <div className="product-brand">{brand}</div>
+          </a>
+        </Link>
         <Price
           price={price}
           finalPrice={final_price}
