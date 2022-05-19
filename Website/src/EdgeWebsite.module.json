@@ -29,7 +29,7 @@
             },
             {
                 "name": "standard-template-fallback",
-                "path": "/sitecore/templates/System/Templates/Standard template/__Standard Values"
+                "path": "/sitecore/templates/System/Templates/Standard template"
             },
             {
                 "name": "branches",
