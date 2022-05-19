@@ -60,7 +60,7 @@ const Header = (props: HeaderProps): JSX.Element => {
               <option
                 key={index}
                 value={language['Name']}
-                label={languageNames.of(language['Name'])}
+                label={languageNames.of(language.Name)}
                 className="languageItem"
               >
                 {languageNames.of(language.Name)}
