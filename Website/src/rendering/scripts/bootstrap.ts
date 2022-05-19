@@ -19,3 +19,10 @@ generateConfig(configOverride);
   COMPONENT FACTORY GENERATION
 */
 import './generate-component-factory';
+
+/*
+  DEMO TEAM CUSTOMIZATION
+  Generates the /src/temp/categoriesData.ts file in order to be used
+  by the CategoryBreadcrumb component
+*/
+import './generate-categories-data';
