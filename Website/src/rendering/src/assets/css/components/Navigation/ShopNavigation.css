@@ -36,18 +36,6 @@
           &.cart-menu-item > button {
             @apply relative;
           }
-
-          &.locale-picker {
-            @apply flex items-center;
-
-            span {
-              @apply pl-0.5;
-            }
-
-            #arrow-down-icon {
-              @apply pl-1;
-            }
-          }
         }
       }
     }

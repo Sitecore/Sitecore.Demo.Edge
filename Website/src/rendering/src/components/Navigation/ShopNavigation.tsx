@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
 import DiscoverWidget from '../ShopCommon/DiscoverWidget';
@@ -15,11 +14,6 @@ export type ShopNavigationProps = {
 };
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
-  // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
-  const [locale /*, setLocale */] = useState('EN / CAD');
-  const [flagUrl /*, setFlagUrl */] = useState(
-    'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
-  );
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
 
@@ -36,10 +30,6 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   ClickOutside(miniCartRef, () => {
     setIsMiniCartOpen(false);
   });
-
-  const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
-    return src;
-  };
 
   const previewSearchWidget = props.previewSearchProps ? (
     <PreviewSearch {...props.previewSearchProps} />
@@ -59,18 +49,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
         </div>
         <div className="items-container">
           <ul>
-            <li className="shop-navigation-menu-item locale-picker">
-              <ImageNext
-                loader={flagLoader}
-                src={flagUrl}
-                alt="flag"
-                width={40}
-                height={35}
-                unoptimized
-              />
-              <span>{locale}</span>
-              <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
-            </li>
+            {/* TODO: Remove condition from JSX */}
             <li
               className={`shop-navigation-menu-item cart-menu-item ${
                 isMiniCartOpen ? 'active' : ''
@@ -81,6 +60,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 <CartBadge />
               </button>
+              {/* TODO: Remove condition from JSX */}
               <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
                 <MiniCart />
               </div>

@@ -26,6 +26,7 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
     <button
       className="item-remove"
       aria-label="Remove Item"
+      title="Remove Item"
       type="button"
       disabled={loading}
       onClick={handleRemoveItem}

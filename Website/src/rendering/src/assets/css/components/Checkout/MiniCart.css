@@ -1,6 +1,6 @@
 .mini-cart {
-  @apply relative max-h-[calc(100vh-112px)] overflow-y-auto w-screen bg-black text-base text-white;
-  @apply sm:w-96;
+  @apply relative max-h-[calc(100vh-56px)] overflow-y-auto w-full bg-black text-base text-white;
+  @apply sm:w-96 sm:max-h-[calc(100vh-112px)];
   @apply lg:w-[500px] lg:max-h-[calc(100vh-100px)];
 
   > h3 {
@@ -8,7 +8,8 @@
   }
 
   &-wrapper {
-    @apply absolute top-[100%] right-0 translate-x-[100%] transition-all z-50;
+    @apply absolute top-[50%] right-0 translate-x-[100%] transition-all z-50 w-full;
+    @apply sm:w-auto sm:top-[100%];
 
     &.open {
       @apply translate-x-0;
