@@ -32,7 +32,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         {spec.Name}: {spec.Value}
       </p>
     ));
-    return <>{specValues}<>;
+    return <>{specValues}</>;
   };
 
   const handleRemoveLineItem = useCallback(async () => {
