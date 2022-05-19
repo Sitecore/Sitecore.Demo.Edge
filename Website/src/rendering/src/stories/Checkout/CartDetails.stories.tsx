@@ -15,9 +15,7 @@ const slices: MockSlice[] = [cartSlice, productCacheSlice, authSlice];
 const promoSlices: MockSlice[] = [promotionCartSlice, productCacheSlice, authSlice];
 
 export const Editable = Template.bind({});
-Editable.args = {
-  editable: true,
-};
+Editable.args = {};
 Editable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
@@ -26,22 +24,8 @@ Editable.decorators = [
   ),
 ];
 
-export const NonEditable = Template.bind({});
-NonEditable.args = {
-  editable: false,
-};
-NonEditable.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={slices}>
-      <Story />
-    </MockStore>
-  ),
-];
-
 export const WithPromotions = Template.bind({});
-WithPromotions.args = {
-  editable: true,
-};
+WithPromotions.args = {};
 WithPromotions.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={promoSlices}>

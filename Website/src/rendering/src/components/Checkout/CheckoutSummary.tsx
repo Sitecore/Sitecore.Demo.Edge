@@ -1,15 +1,12 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { patchOrder, submitOrder } from '../../redux/ocCurrentCart';
+import { submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 import { getItemsCount } from '../../helpers/LineItemsHelpers';
 
-type CheckoutSummaryProps = {
-  orderComments?: string;
-};
-const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
+const CheckoutSummary = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -25,9 +22,6 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
 
   const handleSubmitOrder = async () => {
     setLoading(true);
-    if (props.orderComments) {
-      await dispatch(patchOrder({ Comments: props.orderComments }));
-    }
     await dispatch(submitOrder(onOrderSubmitSuccess));
     setLoading(false);
   };
@@ -36,7 +30,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (!selectedShipMethodId) {
       return 'N/A';
     } else if (order.ShippingCost === 0) {
-      return 'Free';
+      return 'FREE';
     } else {
       return formatCurrency(order.ShippingCost);
     }
@@ -46,7 +40,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (loading) {
       return false;
     }
-    if (!order.ID) {
+    if (!order?.ID) {
       return false;
     }
     if (!selectedShipMethodId) {
@@ -55,7 +49,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (!shippingAddress?.Country) {
       return false;
     }
-    if (!order.BillingAddress?.Country) {
+    if (!order?.BillingAddress?.Country) {
       return false;
     }
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
@@ -65,29 +59,56 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   };
 
   const numberOfItems =
-    order && `${getItemsCount(lineItems)} item${getItemsCount(lineItems) > 1 ? 's' : ''}`;
+        order && `${getItemsCount(lineItems)} item${getItemsCount(lineItems) > 1 ? 's' : ''}`;
 
-  const subtotal = order && (
+  const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
+
+  // TODO: Change the button choice condition based on a prop passed to the component. If we ever rename the pages, the component will not work as expected.
+  const ctaButton = router.route.includes('/shop/checkout/checkout') ? (
+    <button
+      className="btn--main btn--main--round"
+      disabled={!canSubmitOrder()}
+      onClick={handleReviewOrderClick}
+    >
+      Review order
+    </button>
+  ) : (
+    <button
+      className="btn--main btn--main--round"
+      disabled={!canSubmitOrder()}
+      onClick={handleSubmitOrder}
+    >
+      Place your order
+    </button>
+  );
+
+  const summary = order && (
     <>
-      <p className="summary-line subtotal-line">
-        <span className="line-name">Cart ({numberOfItems}):</span>
+      <p className="summary-line">
+        <span className="line-name">Subtotal:</span>
         <span className="line-amount">{formatCurrency(order.Subtotal)}</span>
       </p>
+      <p className={`summary-line ${order.PromotionDiscount !== 0 ? 'has-discount' : ''}`}>
+        <span className="line-name">Discount:</span>
+        <span className="line-amount">{formatCurrency(order.PromotionDiscount)}</span>
+      </p>
       <p className="summary-line shipping-line">
-        <span className="line-name">Shipping &amp; Handling:</span>
+        <span className="line-name">Delivery fees:</span>
         <span className="line-amount">{getShippingMessage()}</span>
       </p>
-      <button
-        className="btn--main btn--main--round"
-        disabled={!canSubmitOrder()}
-        onClick={handleSubmitOrder}
-      >
-        Place your order
-      </button>
+      <p className="summary-line">
+        <span className="line-name">Taxes:</span>
+        <span className="line-amount">{formatCurrency(order.TaxCost)}</span>
+      </p>
+      <p className="summary-line total-line">
+        <span className="line-name">Total:</span>
+        <span className="line-amount">{formatCurrency(order.Total)}</span>
+      </p>
+      {ctaButton}
     </>
   );
 
-  return <div className="checkout-summary">{subtotal}</div>;
+  return <div className="checkout-summary">{summary}</div>;
 };
 
 export default CheckoutSummary;

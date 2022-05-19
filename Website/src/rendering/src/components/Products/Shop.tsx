@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import Head from 'next/head';
+import { UserProvider } from '@auth0/nextjs-auth0';
 import ShopNavigation from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
@@ -284,18 +285,20 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   } as unknown as FooterProps;
 
   // Show shop content if commerce is enabled, otherwise show error message
-  const shopContent = isCommerceEnabled ? (
-    <Provider store={reduxStore}>
-      <OcProvider>
-        <header>
-          <ShopNavigation />
-        </header>
-        <main>
-          <HeaderCdpMessageBar />
-          <div className="shop-main-container">{props.children}</div>
-        </main>
-      </OcProvider>
-    </Provider>
+    const shopContent = isCommerceEnabled ? (
+      <UserProvider>
+        <Provider store={reduxStore}>
+          <OcProvider>
+            <header>
+              <ShopNavigation />
+            </header>
+            <main>
+              <HeaderCdpMessageBar />
+              <div className="shop-main-container">{props.children}</div>
+            </main>
+          </OcProvider>
+        </Provider>
+      <UserProvider>
   ) : (
     <p className="shop-integration-error">
       Shop pages are currently disabled because the commerce integration is not configured

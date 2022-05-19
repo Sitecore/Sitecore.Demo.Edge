@@ -7,6 +7,7 @@ import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
 import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
+import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
 
 export type ShopNavigationProps = {
@@ -21,6 +22,16 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   );
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
+
+  const accountMenuItem = isAuthenticationEnabled && (
+    <li className="shop-navigation-menu-item">
+      <Link href="/account" passHref>
+        <a>
+          <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+        </a>
+      </Link>
+    </li>
+  );
 
   ClickOutside(miniCartRef, () => {
     setIsMiniCartOpen(false);
@@ -74,13 +85,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
                 <MiniCart />
               </div>
             </li>
-            <li className="shop-navigation-menu-item">
-              <Link href="/account/login" passHref>
-                <a>
-                  <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-                </a>
-              </Link>
-            </li>
+            {accountMenuItem}
           </ul>
         </div>
         <div className="shop-search-input-container">
