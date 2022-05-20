@@ -39,6 +39,7 @@
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
 @import './components/Checkout/CheckoutSummary.css';
+@import './components/Checkout/MiniCart.css';
 @import './components/Checkout/OrderReviewDetails.css';
 @import './components/Checkout/ThankYouHero.css';
 @import './components/Checkout/ThankYouSection.css';
@@ -108,6 +109,7 @@
 @import './components/Sessions/SessionInformationPageHero.css';
 
 /* ShopCommon */
+@import './components/ShopCommon/CartBadge.css';
 @import './components/ShopCommon/Price.css';
 @import './components/ShopCommon/ProductCard.css';
 @import './components/ShopCommon/ProductList.css';

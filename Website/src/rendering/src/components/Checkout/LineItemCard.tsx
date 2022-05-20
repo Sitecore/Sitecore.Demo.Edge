@@ -9,6 +9,7 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { getImageUrl } from '../../helpers/LineItemsHelpers';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -21,29 +22,17 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
 
   const product = useOcProduct(props.lineItem.ProductID);
 
-  // TODO: have specs return their key as well (ex: Color, Size, etc.)
-  // currently only the values are returned (ex: Red, Large)
   const getProductSpecs = () => {
     const lineItem = props.lineItem;
     if (!lineItem.Specs?.length) {
       return '';
     }
-    const specValues = lineItem.Specs.map((spec) => <p key={spec.Value}>Color: {spec.Value}</p>);
+    const specValues = lineItem.Specs.map((spec) => (
+      <p key={spec.Value}>
+        {spec.Name}: {spec.Value}
+      </p>
+    ));
     return <>{specValues}</>;
-  };
-
-  const getImageUrl = (): string => {
-    const lineItem = props.lineItem;
-    if (!lineItem) {
-      return null;
-    }
-    if (lineItem.Variant?.xp?.Images?.length) {
-      return lineItem.Variant.xp.Images[0].Url;
-    }
-    if (lineItem.Product?.xp?.Images?.length) {
-      return lineItem.Product.xp.Images[0].Url;
-    }
-    return null;
   };
 
   const handleRemoveLineItem = useCallback(async () => {
@@ -79,10 +68,9 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
-  // TODO: add branded placeholder img
   const productImage = (
     <img
-      src={getImageUrl() || 'https://via.placeholder.com/100'}
+      src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
       alt={props.lineItem.Product.Name}
     ></img>
   );
