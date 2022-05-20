@@ -11,6 +11,7 @@ type ShopBreadcrumbProps = ComponentProps & {
   fields: {
     items: ShopBreadcrumbItem[];
   };
+  isCategoryBreadcrumb?: boolean;
 };
 
 const ShopBreadcrumb = (props: ShopBreadcrumbProps): JSX.Element => {
@@ -37,7 +38,9 @@ const ShopBreadcrumb = (props: ShopBreadcrumbProps): JSX.Element => {
 
   return (
     <nav className="breadcrumb shop-breadcrumb" aria-label="breadcrumbs">
-      <ol className="list">{breadcrumbListItems}</ol>
+      <ol className={`list ${props.isCategoryBreadcrumb && 'category-breadcrumb-list'}`}>
+        {breadcrumbListItems}
+      </ol>
     </nav>
   );
 };
