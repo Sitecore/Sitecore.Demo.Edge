@@ -12,6 +12,7 @@ import {
 } from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 import CategoryHero from '../Products/CategoryHero';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -105,20 +106,11 @@ const FullPageSearch = ({
     onSortChange: handleSortChange,
   };
 
-  // TODO: Replace this with category from SDK response
-  let categoryName = '';
-  if (typeof window !== 'undefined') {
-    const urlSegments = window.location.href.split('/');
-    const category = urlSegments[urlSegments.length - 1];
-    categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-  }
+  const category = getCategoryByUrlPath(window.location.pathname);
 
-  const pageTitle = isCategoryProductListingPage ? categoryName : 'Products';
+  const pageTitle = isCategoryProductListingPage ? category.name : 'Products';
 
-  const categoryHero = isCategoryProductListingPage && (
-    /* TODO: Replace props with data from Discover SDK */
-    <CategoryHero categoryName={categoryName} categoryDescription="Category Description" />
-  );
+  const categoryHero = isCategoryProductListingPage && <CategoryHero category={category} />;
 
   return (
     <>
