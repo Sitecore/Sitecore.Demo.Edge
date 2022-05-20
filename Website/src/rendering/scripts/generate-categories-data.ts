@@ -14,9 +14,9 @@ async function csvToJson(filepath: string): Promise<unknown[]> {
 }
 
 (async function exportCategoriesData(): Promise<void> {
-  const inputFile = path.join(__dirname, '../../discover-feeds/playsummit_category_feed.csv');
+  const inputFile = path.join(__dirname, '/../discover-feeds/playsummit_category_feed.csv');
 
-  const outputDir = path.join(__dirname, '../src/temp/');
+  const outputDir = path.join(__dirname, '/../src/temp/');
   const outputFile = path.join(outputDir, 'categoriesData.ts');
 
   const categoriesData = await csvToJson(inputFile);
