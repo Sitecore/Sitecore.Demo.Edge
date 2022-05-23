@@ -38,6 +38,9 @@
 /* Checkout */
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
+@import './components/Checkout/CheckoutSummary.css';
+@import './components/Checkout/MiniCart.css';
+@import './components/Checkout/OrderReviewDetails.css';
 @import './components/Checkout/ThankYouHero.css';
 @import './components/Checkout/ThankYouSection.css';
 
@@ -93,6 +96,7 @@
 
 /* Products */
 @import './components/Products/CategoriesList.css';
+@import './components/Products/CategoryHero.css';
 @import './components/Products/ProductDetail.css';
 @import './components/Products/ProductDetails.css';
 @import './components/Products/ProductOverview.css';
@@ -105,6 +109,7 @@
 @import './components/Sessions/SessionInformationPageHero.css';
 
 /* ShopCommon */
+@import './components/ShopCommon/CartBadge.css';
 @import './components/ShopCommon/Price.css';
 @import './components/ShopCommon/ProductCard.css';
 @import './components/ShopCommon/ProductList.css';

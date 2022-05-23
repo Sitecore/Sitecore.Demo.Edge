@@ -1,11 +1,12 @@
+import { getItemsCount } from '../../helpers/LineItemsHelpers';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
 
 const CartSummary = (): JSX.Element => {
-  const { order } = useOcCurrentOrder();
+  const { lineItems, order } = useOcCurrentOrder();
   const subtotal = order?.LineItemCount && (
     <p>
-      Subtotal ({order.LineItemCount} items): <span>{formatCurrency(order.Subtotal)}</span>
+      Subtotal ({getItemsCount(lineItems)} items): <span>{formatCurrency(order.Subtotal)}</span>
     </p>
   );
 

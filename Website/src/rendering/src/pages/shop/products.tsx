@@ -15,9 +15,7 @@ const Products = (): JSX.Element => {
         <title>PLAY! SHOP - Products</title>
       </Head>
 
-      <section className="section">
-        <DiscoverWidget rfkId="rfkid_7" />
-      </section>
+      <DiscoverWidget rfkId="rfkid_7" />
     </ShopLayout>
   );
 };

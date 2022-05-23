@@ -5,14 +5,8 @@ import PanelBillingAddress from './PanelBillingAddress';
 import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
 import CheckoutSummary from './CheckoutSummary';
-import { useState } from 'react';
 
 const CheckoutDetails = (): JSX.Element => {
-  const [comments, setComments] = useState('');
-  const handleEditComments = (updatedComments: string) => {
-    setComments(updatedComments);
-  };
-
   return (
     <section className="checkout-details shop-container">
       <h1>Checkout</h1>
@@ -23,8 +17,8 @@ const CheckoutDetails = (): JSX.Element => {
         <PanelBillingAddress />
         <PanelPayment />
         <div>
-          <PanelComments orderComments={comments} onEditComments={handleEditComments} />
-          <CheckoutSummary orderComments={comments} />
+          <PanelComments />
+          <CheckoutSummary />
         </div>
       </div>
     </section>

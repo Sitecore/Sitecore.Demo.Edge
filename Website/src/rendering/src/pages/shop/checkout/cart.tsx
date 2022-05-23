@@ -15,7 +15,7 @@ const Cart = (): JSX.Element => {
         <title>PLAY! SHOP - Cart</title>
       </Head>
 
-      <CartDetails editable={true} />
+      <CartDetails />
     </ShopLayout>
   );
 };

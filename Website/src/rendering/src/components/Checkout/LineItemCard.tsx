@@ -9,6 +9,7 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { getImageUrl } from '../../helpers/LineItemsHelpers';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -21,29 +22,17 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
 
   const product = useOcProduct(props.lineItem.ProductID);
 
-  // TODO: have specs return their key as well (ex: Color, Size, etc.)
-  // currently only the values are returned (ex: Red, Large)
   const getProductSpecs = () => {
     const lineItem = props.lineItem;
     if (!lineItem.Specs?.length) {
       return '';
     }
-    const specValues = lineItem.Specs.map((spec) => <p key={spec.Value}>Color: {spec.Value}</p>);
-    return <div className="product-specs">{specValues}</div>;
-  };
-
-  const getImageUrl = (): string => {
-    const lineItem = props.lineItem;
-    if (!lineItem) {
-      return null;
-    }
-    if (lineItem.Variant?.xp?.Images?.length) {
-      return lineItem.Variant.xp.Images[0].Url;
-    }
-    if (lineItem.Product?.xp?.Images?.length) {
-      return lineItem.Product.xp.Images[0].Url;
-    }
-    return null;
+    const specValues = lineItem.Specs.map((spec) => (
+      <p key={spec.Value}>
+        {spec.Name}: {spec.Value}
+      </p>
+    ));
+    return <>{specValues}</>;
   };
 
   const handleRemoveLineItem = useCallback(async () => {
@@ -65,10 +54,23 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
-  // TODO: add branded placeholder img
+  const handleUpdateComment = useCallback(
+    async (comment: string) => {
+      setLoading(true);
+      await dispatch(
+        patchLineItem({
+          lineItemID: props.lineItem.ID,
+          partialLineItem: { xp: { Comment: comment } },
+        })
+      );
+      setLoading(false);
+    },
+    [dispatch, props.lineItem]
+  );
+
   const productImage = (
     <img
-      src={getImageUrl() || 'https://via.placeholder.com/100'}
+      src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
       alt={props.lineItem.Product.Name}
     ></img>
   );
@@ -109,31 +111,41 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     </button>
   );
 
-  const quantityBlock = props.editable ? (
-    <>
-      {quantityInput}
-      {btnRemove}
-      {btnWishList}
-      {btnSaveLater}
-    </>
-  ) : (
+  const staticQuantityBlock = !props.editable && (
     <p className="quantity-static">
       <span className="quantity-label">Quantity: </span>
       <span className="quantity-num">{props.lineItem.Quantity}</span>
     </p>
   );
 
+  const editableQuantityBlock = props.editable && (
+    <>
+      {quantityInput}
+      {btnRemove}
+      {btnWishList}
+      {btnSaveLater}
+    </>
+  );
+
   const giftCheckbox = props.editable && (
     <GiftCheckboxLineItem lineItem={props.lineItem}></GiftCheckboxLineItem>
   );
 
-  // TODO: add functionality to input
-  const userComment = (
-    <input type="text" placeholder="Text input for user..." className="user-comment" />
+  const editableUserComment = props.editable && (
+    <input
+      type="text"
+      placeholder="Text input for user..."
+      className="user-comment"
+      defaultValue={props.lineItem.xp?.Comment}
+      // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
+      onBlur={(event) => handleUpdateComment(event.target.value)}
+    />
   );
 
+  const staticUserComment = !props.editable && <p>{props.lineItem.xp?.Comment}</p>;
+
   // TODO: add functionality to field
-  const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
+  const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
   // TODO: specs to return base and final price
   const priceBlock = (
@@ -150,12 +162,16 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       <div className="line-item-card-details">
         <h4 className="product-name">{props.lineItem.Product.Name}</h4>
         {productImage}
-        {getProductSpecs()}
+        <div className="product-specs">
+          {getProductSpecs()}
+          {staticQuantityBlock}
+          {staticUserComment}
+        </div>
       </div>
-      {userComment}
+      {editableUserComment}
       {giftCheckbox}
       <div className="line-item-card-footer">
-        {quantityBlock}
+        {editableQuantityBlock}
         {quantityAlert}
         {priceBlock}
       </div>

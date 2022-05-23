@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
 
@@ -12,7 +13,7 @@ type PreviewSearchListProps = {
 const PreviewSearchList = ({
   items,
   title,
-  /* redirectUrl, */
+  redirectUrl,
   onMouseEnter,
   onMouseLeave,
 }: PreviewSearchListProps): JSX.Element => {
@@ -22,20 +23,23 @@ const PreviewSearchList = ({
         <div>
           <h2 className="list-container-title">{title}</h2>
           <ul>
-            {items.map(({ text, id /*url*/ }) => (
-              <li
-                className="list-item"
-                id={id}
-                key={id}
-                onMouseEnter={() => onMouseEnter(text)}
-                onMouseLeave={onMouseLeave}
-              >
-                {/* TODO:  - Use this for category pages eventually */}
-                {/* {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>} */}
-                {/* TODO: change for a next/Link component */}
-                <a href={'/shop/products?q=' + text}>{text}</a>
-              </li>
-            ))}
+            {items.map(({ text, id, url }) => {
+              const href = url ? url : `${redirectUrl}${text}`;
+
+              return (
+                <li
+                  className="list-item"
+                  id={id}
+                  key={id}
+                  onMouseEnter={() => onMouseEnter(text)}
+                  onMouseLeave={onMouseLeave}
+                >
+                  <Link href={href}>
+                    <a>{text}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

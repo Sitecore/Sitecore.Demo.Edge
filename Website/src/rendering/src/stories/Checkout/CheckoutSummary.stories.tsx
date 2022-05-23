@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import CheckoutSummary from '../../components/Checkout/CheckoutSummary';
 import { MockStore } from '../mock-store';
+import { cartSlice, cartState } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutSummary',
@@ -14,17 +15,9 @@ const Template: ComponentStory<typeof CheckoutSummary> = (args) => <CheckoutSumm
 export const WithoutShippingOptionSelected = Template.bind({});
 WithoutShippingOptionSelected.args = {};
 
-const mockstate1 = {
-  initialized: true,
-  order: {
-    ID: 'mock-id',
-    Subtotal: 123.45,
-  },
-};
-
 WithoutShippingOptionSelected.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockstate1 }}>
+    <MockStore sliceOrSlices={cartSlice}>
       <Story />
     </MockStore>
   ),
@@ -33,7 +26,8 @@ WithoutShippingOptionSelected.decorators = [
 export const WithFreeShippingCost = Template.bind({});
 WithFreeShippingCost.args = {};
 
-const mockstate2 = {
+const freeShippingState = {
+  ...cartState,
   shipEstimateResponse: {
     ShipEstimates: [
       {
@@ -49,7 +43,7 @@ const mockstate2 = {
 
 WithFreeShippingCost.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockstate2 }}>
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: freeShippingState }}>
       <Story />
     </MockStore>
   ),
@@ -58,7 +52,8 @@ WithFreeShippingCost.decorators = [
 export const WithShippingCost = Template.bind({});
 WithShippingCost.args = {};
 
-const mockstate3 = {
+const paidShippingState = {
+  ...cartState,
   shipEstimateResponse: {
     ShipEstimates: [
       {
@@ -74,7 +69,7 @@ const mockstate3 = {
 
 WithShippingCost.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: mockstate3 }}>
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: paidShippingState }}>
       <Story />
     </MockStore>
   ),
