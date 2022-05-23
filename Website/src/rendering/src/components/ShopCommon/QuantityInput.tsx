@@ -1,5 +1,6 @@
 import { PriceSchedule, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { ChangeEvent, FocusEvent, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 interface QuantityInputProps {
   controlId: string;
@@ -30,7 +31,7 @@ const QuantityInput = ({
   const isInRange = (quantity: number) => {
     let isInRange = quantity >= 1;
 
-    if (priceSchedule.MinQuantity) {
+    if (priceSchedule?.MinQuantity) {
       isInRange = isInRange && quantity >= priceSchedule.MinQuantity;
     }
 
@@ -80,8 +81,10 @@ const QuantityInput = ({
 
   // selected from restricted quantities such as business cards that come in 100, 200, 250, etc.
   // TODO add skeleton loading indicator
-  const restrictedQuantityInput = (
-    <select id={controlId} disabled={loading} value={editedQuantity} onChange={handleSelectChange}>
+  const restrictedQuantityInput = loading ? (
+    <Skeleton containerClassName="skeleton-container" height="100%" />
+  ) : (
+    <select id={controlId} value={editedQuantity} onChange={handleSelectChange}>
       {priceSchedule.PriceBreaks.map((priceBreak) => (
         <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
           {priceBreak.Quantity}
@@ -92,7 +95,27 @@ const QuantityInput = ({
 
   // unrestricted in the sense that there is no predetermined set of quantities but there may still be min or max set at priceschedule level
   // TODO: add loading indicator
-  const quantityInput = (
+  const quantityInput = loading ? (
+    <div className="quantity-input">
+      <button
+        className="quantity-input-button"
+        aria-label="Subtract quantity"
+        type="button"
+        disabled={true}
+      >
+        -
+      </button>
+      <Skeleton containerClassName="skeleton-container" height="100%" />
+      <button
+        className="quantity-input-button"
+        aria-label="Add quantity"
+        type="button"
+        disabled={true}
+      >
+        +
+      </button>
+    </div>
+  ) : (
     <>
       <button
         className="quantity-input-button"
@@ -125,7 +148,7 @@ const QuantityInput = ({
     </>
   );
 
-  const quantityForm = priceSchedule.RestrictedQuantity ? restrictedQuantityInput : quantityInput;
+  const quantityForm = priceSchedule?.RestrictedQuantity ? restrictedQuantityInput : quantityInput;
 
   return <div className="quantity-input">{quantityForm}</div>;
 };

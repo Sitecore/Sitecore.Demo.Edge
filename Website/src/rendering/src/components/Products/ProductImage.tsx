@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 type ProductImageProps = {
   images: {
     Url: string;
   }[];
+  loading?: boolean;
 };
 
 const ProductImage = (props: ProductImageProps): JSX.Element => {
@@ -24,12 +26,19 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
     </div>
   );
 
-  const images = uniqueImages.length > 0 && (
+  const activeImage = props.loading ? (
+    <Skeleton height="100%" />
+  ) : (
+    <img src={activeImg || uniqueImages[0].Url} alt="" />
+  );
+  const productOffer = !props.loading && <span className="product-offer">Best Seller</span>;
+
+  const images = (uniqueImages.length > 0 || props.loading) && (
     <div className="product-image">
       <div className="image-active">
         <div>
-          <img src={activeImg || uniqueImages[0].Url} alt="" />
-          <span className="product-offer">Best Seller</span>
+          {activeImage}
+          {productOffer}
         </div>
       </div>
       {thumbnails}

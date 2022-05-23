@@ -1,35 +1,8 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import Skeleton from 'react-loading-skeleton';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
 import { logViewEvent } from '../../services/CdpService';
 import ProductDetailsContent from './ProductDetailsContent';
-
-const ProductDetailsSkeleton = (): JSX.Element => {
-  return (
-    <section className="section">
-      <div className="shop-container">
-        <div className="product-details product-details-skeleton">
-          <div className="product-details-hero">
-            <h2 className="product-name">
-              <Skeleton width={300} />
-            </h2>
-            <div className="product-image">
-              <Skeleton />
-            </div>
-            <div className="product-description">
-              <Skeleton height={164} />
-            </div>
-            <div className="product-overview accordion">
-              <Skeleton height={300} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const ProductDetails = (): JSX.Element => {
   // Products without variants: /shop/products/[productGroup, same as SKU]/[product-name]
@@ -48,31 +21,15 @@ const ProductDetails = (): JSX.Element => {
     }
   }, [sku]);
 
-  const getProductDetailsContent = () => {
-    if (loading) {
-      return <ProductDetailsSkeleton />;
-    } else if (product) {
-      return (
-        <ProductDetailsContent
-          variantID={variantID}
-          product={product}
-          specs={specs}
-          variants={variants}
-        />
-      );
-    } else {
-      return (
-        <>
-          <Head>
-            <title>PLAY! SHOP - Product not found</title>
-          </Head>
-          Product not found
-        </>
-      );
-    }
-  };
-
-  return getProductDetailsContent();
+  return (
+    <ProductDetailsContent
+      initialLoading={loading}
+      variantID={variantID}
+      product={product}
+      specs={specs}
+      variants={variants}
+    />
+  );
 };
 
 export default ProductDetails;
