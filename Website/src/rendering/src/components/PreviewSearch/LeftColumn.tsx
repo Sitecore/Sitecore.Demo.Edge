@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
 
@@ -67,31 +66,32 @@ const LeftColumn = ({
   onSuggestionChanged,
   redirectUrl,
 }: LeftColumnProps): JSX.Element => {
-  const [lock, setLock] = useState(false);
+  // TODO Investigate if we can remove lock completely
+  let lock = false;
 
   const onCategoryEnter = (category: string) => {
     if (!lock) {
       onCategoryChanged(category);
     }
-    setLock(true);
+    lock = true;
   };
 
   const onTrendingCategoryEnter = (trendingCategory: string) => {
     if (!lock) {
       onTrendingCategoryChanged(trendingCategory);
     }
-    setLock(true);
+    lock = true;
   };
 
   const onSuggestionEnter = (suggestion: string) => {
     if (!lock) {
       onSuggestionChanged(suggestion);
     }
-    setLock(true);
+    lock = true;
   };
 
   const onMouseLeave = () => {
-    setLock(false);
+    lock = false;
   };
 
   const isLoaded = loaded && !loading;
