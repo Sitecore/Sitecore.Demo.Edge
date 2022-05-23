@@ -1,6 +1,14 @@
 .checkout-details {
-  @apply grid grid-cols-1 gap-4;
-  @apply sm:grid-cols-2;
+  @apply pb-5;
+
+  &-grid {
+    @apply grid grid-cols-1 gap-4 -mx-5;
+    @apply sm:grid-cols-2 sm:mx-0;
+  }
+
+  h1 {
+    @apply text-2xl font-bold mb-3;
+  }
 
   .panel {
     @apply bg-white;
@@ -17,6 +25,10 @@
   .radio-options {
     .panel-body {
       @apply space-y-5;
+
+      .shipmethods-list {
+        @apply space-y-5;
+      }
 
       .option-item {
         @apply flex;
@@ -143,32 +155,6 @@
 
   .address-list {
     @apply grid gap-4 grid-cols-2;
-  }
-
-  .checkout-summary {
-    @apply flex flex-col mt-4;
-
-    .summary-line {
-      @apply flex justify-between py-1 px-6;
-    }
-
-    .subtotal-line {
-      @apply bg-white;
-
-      .line-amount {
-        @apply font-bold;
-      }
-    }
-
-    .shipping-line {
-      .line-amount {
-        @apply text-blue;
-      }
-    }
-
-    button {
-      @apply mt-4 mx-auto;
-    }
   }
 }
 

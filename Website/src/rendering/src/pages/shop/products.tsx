@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { logViewEvent } from '../../services/CdpService';
 import { ShopLayout } from '../../components/Products/Shop';
+import DiscoverWidget from '../../components/ShopCommon/DiscoverWidget';
 
 const Products = (): JSX.Element => {
   useEffect(() => {
@@ -14,9 +15,7 @@ const Products = (): JSX.Element => {
         <title>PLAY! SHOP - Products</title>
       </Head>
 
-      <section className="section">
-        <div data-rfkid="rfkid_7"></div>
-      </section>
+      <DiscoverWidget rfkId="rfkid_7" />
     </ShopLayout>
   );
 };

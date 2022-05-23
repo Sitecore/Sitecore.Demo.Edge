@@ -31,3 +31,6 @@ scjssconfig.json
 
 # vercel
 .vercel
+
+#npm
+.npmrc

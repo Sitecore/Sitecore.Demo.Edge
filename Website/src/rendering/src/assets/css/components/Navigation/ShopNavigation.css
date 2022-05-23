@@ -1,73 +1,55 @@
 .shop-navigation {
-  @apply bg-black h-28;
+  @apply relative bg-black h-28;
 
   @screen lg {
     height: 100px;
   }
 
   .shop-navigation-content {
-    @include flex--sb-w;
-
-    @apply h-full;
+    @apply flex flex-wrap justify-between items-center h-full;
+    @apply lg:flex-nowrap;
 
     .logo-container {
-      @apply pr-3;
-
-      .logo-link {
-        @apply text-xl font-bold leading-relaxed inline-block whitespace-nowrap uppercase text-white;
-
-        svg {
-          @apply h-10 w-24;
-          @apply sm:h-16 sm:w-28;
-        }
-      }
+      @apply flex-shrink-0 w-24;
+      @apply sm:w-28;
     }
 
     .items-container {
+      @apply flex-shrink-0;
       @apply lg:order-3;
 
       ul {
-        @apply flex items-center list-none;
+        @apply flex items-center list-none space-x-5;
 
         .shop-navigation-menu-item {
-          @apply pl-3 py-2 text-base leading-loose text-white align-middle;
+          @apply flex-shrink-0 text-base text-white align-middle;
           @apply hover:text-yellow;
 
-          &.locale-picker {
-            @apply flex items-center;
+          &.active {
+            @apply text-yellow;
+          }
 
-            span {
-              @apply pl-0.5;
-            }
+          &:not(.locale-picker) {
+            @apply text-[1.75rem];
+          }
 
-            #arrow-down-icon {
-              @apply pl-1;
-            }
+          &.cart-menu-item > button {
+            @apply relative;
           }
         }
       }
     }
 
     .shop-search-input-container {
-      @apply relative w-full bottom-2;
-      @apply lg:bottom-0;
-
-      @screen lg {
-        max-width: 65%;
-      }
+      @apply relative basis-full;
+      @apply lg:mx-12;
 
       .shop-search-input {
-        @apply block mx-auto my-0 w-full rounded border-2 border-solid border-black-light pl-11;
+        @apply block mx-auto my-0 w-full pl-11 py-2 text-sm;
       }
 
       .shop-search-icon {
-        position: absolute;
-        left: 17px;
-        top: 6px;
-
-        @screen lg {
-          top: 7px;
-        }
+        @apply absolute left-3 top-1/2 transform -translate-y-1/2 cursor-pointer;
       }
     }
   }

@@ -5,7 +5,6 @@ import PanelBillingAddress from './PanelBillingAddress';
 import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
 import CheckoutSummary from './CheckoutSummary';
-import { useState } from 'react';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import Skeleton from 'react-loading-skeleton';
 import Link from 'next/link';
@@ -24,22 +23,21 @@ const CheckoutDetailsSkeleton = (): JSX.Element => {
 
 const CheckoutDetails = (): JSX.Element => {
   const { order, initialized } = useOcCurrentCart();
-  const [comments, setComments] = useState('');
-  const handleEditComments = (updatedComments: string) => {
-    setComments(updatedComments);
-  };
   const shippingEstimates = order?.xp?.DeliveryType === 'Ship' && <PanelShippingEstimates />;
 
   const checkoutDetails = (
-    <section className="checkout-details shop-container section">
-      <PanelDeliveryOptions />
-      <PanelShippingAddress />
-      {shippingEstimates}
-      <PanelBillingAddress />
-      <PanelPayment />
-      <div>
-        <PanelComments orderComments={comments} onEditComments={handleEditComments} />
-        <CheckoutSummary orderComments={comments} />
+    <section className="checkout-details shop-container">
+      <h1>Checkout</h1>
+      <div className="checkout-details-grid">
+        <PanelDeliveryOptions />
+        <PanelShippingAddress />
+        {shippingEstimates}
+        <PanelBillingAddress />
+        <PanelPayment />
+        <div>
+          <PanelComments />
+          <CheckoutSummary />
+        </div>
       </div>
     </section>
   );

@@ -7,11 +7,7 @@ import Skeleton from 'react-loading-skeleton';
 import { useState } from 'react';
 import Spinner from '../../components/ShopCommon/Spinner';
 
-type CartDetailsProps = {
-  editable?: boolean;
-};
-
-const CartDetails = (props: CartDetailsProps): JSX.Element => {
+const CartDetails = (): JSX.Element => {
   const { order, initialized } = useOcCurrentCart();
   const [loading, setLoading] = useState(false);
 
@@ -44,11 +40,11 @@ const CartDetails = (props: CartDetailsProps): JSX.Element => {
   };
 
   return (
-    <div className="cart-details container">
+    <div className="cart-details shop-container">
       <h1>Shopping cart</h1>
       <div className="cart-details-grid">
         <div className="cart-details-items">
-          <LineItemList editable={props.editable} />
+          <LineItemList editable={true} />
         </div>
         {getCartDetailsAction()}
       </div>

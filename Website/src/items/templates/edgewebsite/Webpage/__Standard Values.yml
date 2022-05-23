@@ -7,8 +7,8 @@ SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
   Value: |
-    {6DB09CEF-64A8-52A3-A980-38408109C4D7}
     {4AFA104F-090A-438E-AF07-8134D5D27DD9}
+    {6DB09CEF-64A8-52A3-A980-38408109C4D7}
 - ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
   Hint: __Default workflow
   Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
@@ -19,18 +19,6 @@ SharedFields:
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
-        <p
-          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
-          key="jss-header"
-          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
-        <p
-          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
-          key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
-        <p
-          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
-          key="jss-footer"
-          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
         <p
           uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
           key="jss-header-content"
@@ -43,6 +31,18 @@ SharedFields:
           uid="{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}"
           key="jss-summit-features-content"
           md="{C8C6EFD2-E574-4FD9-8833-4C5D6A23042F}" />
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
         <r
           rname="Header"
           id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
@@ -109,14 +109,35 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ae716920-e154-431b-9fac-bf560c141613"
+      Value: "cd8e8711-00b3-4d4c-ba83-0789dc060a6a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211215T162302Z
+      Value: 20220310T152108Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: $name
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220406T211750Z
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "413d726b-40b1-4826-872b-4ebf6c8d6421"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220406T211750Z

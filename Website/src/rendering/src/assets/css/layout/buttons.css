@@ -12,17 +12,16 @@
 
 .btn--main {
   @apply font-medium text-center inline-block;
-  @apply hover:shadow-md;
 
   padding: 0.5em 1.55em;
-  box-shadow: 0 0 3px rgba(23, 23, 23, 0.3);
   transition: all 0.2s ease-in-out;
 }
 
 .btn--main--round {
   @apply bg-yellow text-black rounded-md;
-  @apply hover:bg-yellow-dark hover:text-black;
+  @apply hover:bg-yellow-dark hover:text-white;
   @apply disabled:bg-yellow-dark disabled:cursor-not-allowed;
+  @apply hover:bg-yellow-dark hover:text-white;
 }
 
 .btn--main--square {
@@ -33,4 +32,12 @@
 
 .btn--secondary {
   @apply text-xl py-1 px-4 border-2 border-black rounded-[4px];
+
+  &--light {
+    @apply border-white text-white;
+  }
+
+  &--round {
+    @apply text-base font-medium rounded-md;
+  }
 }

@@ -1,0 +1,49 @@
+﻿---
+ID: "4692fe56-0de5-467d-9ed2-cf11494701ba"
+Parent: "4afa104f-090a-438e-af07-8134d5d27dd9"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Content Webpage/$name
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:ds="{E091B133-450A-4144-AC0A-FA6F4C1C8A48}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211215T161327Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "fecb5084-49e2-49d1-ae6e-7a43365602d0"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211215T161823Z

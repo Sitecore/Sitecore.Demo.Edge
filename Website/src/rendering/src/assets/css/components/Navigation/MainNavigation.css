@@ -57,6 +57,7 @@
         .button-menu-item {
           a {
             @apply ml-3 mt-3 inline-block text-black;
+            @apply hover:text-white;
             @apply xl:mt-0;
           }
         }

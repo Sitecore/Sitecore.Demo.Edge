@@ -4,6 +4,9 @@ Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: /sitecore/content/EdgeWebsite/home/news
 SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{4B8F13A2-EF1A-4A41-857D-A2191FD7C1E7}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 900
@@ -102,14 +105,14 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "da36b0e4-6b05-4cdd-943b-f9e9f5100c4d"
+      Value: "95387ff2-e11c-422e-ad20-445fa3270052"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210907T161016Z
+      Value: 20220310T153610Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: News
