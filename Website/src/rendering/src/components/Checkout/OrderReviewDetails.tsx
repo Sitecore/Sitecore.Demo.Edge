@@ -1,9 +1,15 @@
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import { useRouter } from 'next/router';
+import { submitOrder } from '../../redux/ocCurrentCart';
+import { useAppDispatch } from '../../redux/store';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
 
+// TODO: Create Storybook story for that component
 const OrderReviewDetails = (): JSX.Element => {
-  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentOrder();
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
 
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.[0];
   const deliveryMethod = shipEstimate?.ShipMethods?.filter(
@@ -59,6 +65,12 @@ const OrderReviewDetails = (): JSX.Element => {
     </>
   );
 
+  const onOrderSubmitSuccess = () => {
+    router?.push(`/shop/checkout/order-summary`);
+  };
+
+  const handleSubmitOrder = async () => dispatch(submitOrder(onOrderSubmitSuccess));
+
   return (
     <div className="order-review-details shop-container">
       <h1>Order review</h1>
@@ -90,7 +102,7 @@ const OrderReviewDetails = (): JSX.Element => {
             </div>
             <div className="panel-body">{order?.Comments}</div>
           </div>
-          <CheckoutSummary />
+          <CheckoutSummary buttonText="Place your order" onClick={handleSubmitOrder} />
         </div>
       </div>
     </div>

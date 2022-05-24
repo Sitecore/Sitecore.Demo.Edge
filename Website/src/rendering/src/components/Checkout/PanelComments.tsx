@@ -1,10 +1,10 @@
 import { useAppDispatch } from '../../redux/store';
 import { patchOrder } from '../../redux/ocCurrentCart';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 const PanelComments = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const { order } = useOcCurrentOrder();
+  const { order } = useOcCurrentCart();
 
   const updateComments = async (input: string) => {
     await dispatch(patchOrder({ Comments: input }));
