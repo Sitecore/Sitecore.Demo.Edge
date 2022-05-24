@@ -14,6 +14,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
   const { lineItems, initialized } = useOcCurrentCart();
   const skeletonCount = 2;
 
+  // TODO: Try to remove code duplication here and in ShopNavigation.tsx
   const dispatchDiscoverCartStatusListActionEvent = () => {
     PageController.getDispatcher().dispatch({
       type: Actions.CART_STATUS,

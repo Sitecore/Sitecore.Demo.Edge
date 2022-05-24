@@ -155,9 +155,12 @@ const ProductDetailsContent = ({
       type: Actions.ADD_TO_CART,
       payload: {
         page: 'pdp',
+        // TODO: On product with variants, Product.ID is equal to the Discover product group, not the variant SKU. We must send the variant SKU.
         sku: product.ID,
         quantity: quantity,
-        price: product.PriceSchedule.PriceBreaks[0].Price,
+        price:
+          product.PriceSchedule.PriceBreaks[0].SalePrice ||
+          product.PriceSchedule.PriceBreaks[0].Price,
         priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
       },
     });
