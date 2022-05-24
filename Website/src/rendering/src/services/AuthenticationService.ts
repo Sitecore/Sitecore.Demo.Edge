@@ -15,7 +15,7 @@ export const isAuthenticationEnabled =
 
 // build up url for openid connect so user can log into ordercloud via auth0
 const roles = orderCloudScope.join(' ');
-export const loginUrl = (appstartpath = ''): string => {
+export const getLoginUrl = (appstartpath = ''): string => {
   if (appstartpath) {
     appstartpath = encodeURIComponent(appstartpath);
   }
