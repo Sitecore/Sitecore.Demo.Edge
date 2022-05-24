@@ -8,6 +8,7 @@ import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
+import AccountPopup from './AccountPopup';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -17,18 +18,29 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
 
+  const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
+  const accountPopupRef = useRef(null);
+
   const accountMenuItem = isAuthenticationEnabled && (
-    <li className="shop-navigation-menu-item">
-      <Link href="/account" passHref>
-        <a>
-          <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-        </a>
-      </Link>
+    <li
+      className={`shop-navigation-menu-item ${isAccountPopupOpen && 'active'}`}
+      ref={accountPopupRef}
+    >
+      <button onClick={() => setIsAccountPopupOpen(!isAccountPopupOpen)}>
+        <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+      </button>
+      <div className={`account-popup-wrapper ${isAccountPopupOpen && 'open'}`}>
+        <AccountPopup />
+      </div>
     </li>
   );
 
   ClickOutside(miniCartRef, () => {
     setIsMiniCartOpen(false);
+  });
+
+  ClickOutside(accountPopupRef, () => {
+    setIsAccountPopupOpen(false);
   });
 
   const previewSearchWidget = props.previewSearchProps ? (
