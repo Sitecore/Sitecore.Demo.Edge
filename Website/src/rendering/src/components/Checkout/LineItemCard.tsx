@@ -181,6 +181,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   );
 
   const content = removeLoading ? (
+    // TODO: Refactor to avoid HTML repetition
     <div className="line-item-card">
       <Skeleton containerClassName="skeleton-container" height={340} />
     </div>

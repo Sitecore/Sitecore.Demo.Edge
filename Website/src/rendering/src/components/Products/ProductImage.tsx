@@ -26,24 +26,30 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
     </div>
   );
 
-  const activeImage = props.loading ? (
-    <Skeleton height="100%" />
-  ) : (
-    <img src={activeImg || uniqueImages[0].Url} alt="" />
-  );
+  const getActiveImage = () => {
+    if (props.loading) {
+      return <Skeleton height="100%" />;
+    } else if (activeImg || uniqueImages[0]) {
+      return <img src={activeImg || uniqueImages[0].Url} alt="" />;
+    } else {
+      return null;
+    }
+  };
+
   const productOffer = !props.loading && <span className="product-offer">Best Seller</span>;
 
-  const images = (uniqueImages.length > 0 || props.loading) && (
-    <div className="product-image">
-      <div className="image-active">
-        <div>
-          {activeImage}
-          {productOffer}
+  const images =
+    uniqueImages.length > 0 || props.loading ? (
+      <div className="product-image">
+        <div className="image-active">
+          <div>
+            {getActiveImage()}
+            {productOffer}
+          </div>
         </div>
+        {thumbnails}
       </div>
-      {thumbnails}
-    </div>
-  );
+    ) : null;
 
   return images;
 };

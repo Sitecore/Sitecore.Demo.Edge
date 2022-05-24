@@ -10,6 +10,7 @@ import Skeleton from 'react-loading-skeleton';
 const ShipMethodsSkeleton = (): JSX.Element => {
   const optionCount = 4;
   return (
+    // TODO: Refactor to avoid HTML repetition
     <div className="shipmethods-list">
       {new Array(optionCount).fill('').map((_, index) => (
         <div key={index} className="option-item">

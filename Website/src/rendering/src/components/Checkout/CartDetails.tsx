@@ -14,9 +14,10 @@ const CartDetails = (): JSX.Element => {
   const getCartDetailsAction = () => {
     if (!initialized) {
       return (
-        <div className="card-details-actions">
-          <div className="card-details-actions-wrapper">
-            <Skeleton containerClassName="skeleton-container" width={400} height={163} />
+        // TODO: Refactor to avoid HTML repetition
+        <div className="cart-details-actions">
+          <div className="cart-details-actions-wrapper">
+            <Skeleton containerClassName="skeleton-container" height={163} />
           </div>
         </div>
       );

@@ -1,27 +1,23 @@
-import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { submitOrder } from '../../redux/ocCurrentCart';
-import { useAppDispatch } from '../../redux/store';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
-const CheckoutSummary = (): JSX.Element => {
-  const dispatch = useAppDispatch();
+type CheckoutSummaryProps = {
+  buttonText: string;
+  onClick: () => Promise<unknown>;
+};
+
+const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
   const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
   const selectedShipMethodId = shipEstimate?.SelectedShipMethodID;
 
-  const onOrderSubmitSuccess = () => {
-    router?.push?.(`/shop/checkout/order-summary`);
-  };
-
-  const handleSubmitOrder = async () => {
+  const handleButtonClick = async () => {
     setLoading(true);
-    await dispatch(submitOrder(onOrderSubmitSuccess));
+    await props.onClick();
     setLoading(false);
   };
 
@@ -59,27 +55,6 @@ const CheckoutSummary = (): JSX.Element => {
     return true;
   };
 
-  const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
-
-  // TODO: Change the button choice condition based on a prop passed to the component. If we ever rename the pages, the component will not work as expected.
-  const ctaButton = router.route.includes('/shop/checkout/checkout') ? (
-    <button
-      className="btn--main btn--main--round"
-      disabled={!canSubmitOrder()}
-      onClick={handleReviewOrderClick}
-    >
-      Review order
-    </button>
-  ) : (
-    <button
-      className="btn--main btn--main--round"
-      disabled={!canSubmitOrder()}
-      onClick={handleSubmitOrder}
-    >
-      Place your order
-    </button>
-  );
-
   const summary = order && (
     <>
       <p className="summary-line">
@@ -102,7 +77,13 @@ const CheckoutSummary = (): JSX.Element => {
         <span className="line-name">Total:</span>
         <span className="line-amount">{formatCurrency(order.Total)}</span>
       </p>
-      {ctaButton}
+      <button
+        className="btn--main btn--main--round"
+        disabled={!canSubmitOrder()}
+        onClick={handleButtonClick}
+      >
+        {props.buttonText}
+      </button>
     </>
   );
 

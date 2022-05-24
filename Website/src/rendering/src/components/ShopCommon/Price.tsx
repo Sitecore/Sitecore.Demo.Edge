@@ -62,6 +62,8 @@ export const PriceReact = ({
 }: PriceProps): JSX.Element => {
   if (loading) {
     return (
+      // TODO: Refactor to avoid HTML repetition
+      // TODO: Extract JSX logic into a const
       <div className={`price ${sizeL && 'price-large'}`}>
         <span className="price-base">
           <Skeleton width={70} />
@@ -72,6 +74,7 @@ export const PriceReact = ({
 
   if (max) {
     return (
+      // TODO: Extract JSX logic into a const
       <div className={`price ${altTheme && 'price-orange'} ${sizeL && 'price-large'}`}>
         <span className="price-base">
           $${min} - $${max}

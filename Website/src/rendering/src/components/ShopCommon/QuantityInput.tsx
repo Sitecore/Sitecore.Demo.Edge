@@ -80,7 +80,7 @@ const QuantityInput = ({
   };
 
   // selected from restricted quantities such as business cards that come in 100, 200, 250, etc.
-  // TODO add skeleton loading indicator
+  // TODO: add skeleton loading indicator
   const restrictedQuantityInput = loading ? (
     <Skeleton containerClassName="skeleton-container" height="100%" />
   ) : (
@@ -95,6 +95,7 @@ const QuantityInput = ({
 
   // unrestricted in the sense that there is no predetermined set of quantities but there may still be min or max set at priceschedule level
   // TODO: add loading indicator
+  // TODO: Refactor to avoid HTML repetition
   const quantityInput = loading ? (
     <div className="quantity-input">
       <button

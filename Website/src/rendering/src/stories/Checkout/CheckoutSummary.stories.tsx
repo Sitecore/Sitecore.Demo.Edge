@@ -13,15 +13,8 @@ export default {
 const Template: ComponentStory<typeof CheckoutSummary> = (args) => <CheckoutSummary {...args} />;
 
 export const WithoutShippingOptionSelected = Template.bind({});
-WithoutShippingOptionSelected.args = {};
-
-const mockstate1 = {
-  initialized: true,
-  order: {
-    ID: 'mock-id',
-    Subtotal: 123.45,
-    LineItemCount: 3,
-  },
+WithoutShippingOptionSelected.args = {
+  buttonText: 'Review order',
 };
 
 WithoutShippingOptionSelected.decorators = [
@@ -33,7 +26,9 @@ WithoutShippingOptionSelected.decorators = [
 ];
 
 export const WithFreeShippingCost = Template.bind({});
-WithFreeShippingCost.args = {};
+WithFreeShippingCost.args = {
+  buttonText: 'Review order',
+};
 
 const freeShippingState = {
   ...cartState,
@@ -60,7 +55,9 @@ WithFreeShippingCost.decorators = [
 ];
 
 export const WithShippingCost = Template.bind({});
-WithShippingCost.args = {};
+WithShippingCost.args = {
+  buttonText: 'Review order',
+};
 
 const paidShippingState = {
   ...cartState,

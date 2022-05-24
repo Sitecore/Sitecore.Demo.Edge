@@ -157,7 +157,3 @@
     @apply grid gap-4 grid-cols-2;
   }
 }
-
-.continue-shopping-btn {
-  @apply my-3;
-}

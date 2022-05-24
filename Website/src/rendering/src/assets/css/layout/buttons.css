@@ -21,7 +21,6 @@
   @apply bg-yellow text-black rounded-md;
   @apply hover:bg-yellow-dark hover:text-white;
   @apply disabled:bg-yellow-dark disabled:cursor-not-allowed;
-  @apply hover:bg-yellow-dark hover:text-white;
 }
 
 .btn--main--square {

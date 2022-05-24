@@ -234,7 +234,8 @@ const ProductDetailsContent = ({
   const btnAddToCart = initialLoading ? (
     <Skeleton className="btn--main" width={168} />
   ) : (
-    <button type="submit" className={`btn--main btn--main--round `} disabled={loading}>
+    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
+      {/* TODO: Extract JSX logic into a const */}
       <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
     </button>
   );
@@ -254,6 +255,7 @@ const ProductDetailsContent = ({
           <div className="product-details">
             <div className="product-details-hero">
               <h2 className="product-name">
+                {/* TODO: Extract JSX logic into a const */}
                 {initialLoading ? <Skeleton width={300} /> : product && product.Name}
               </h2>
               <ProductImage images={productImageProps} loading={initialLoading} />
@@ -291,6 +293,7 @@ const ProductDetailsContent = ({
     <>
       <Head>
         <title>
+          {/* TODO: Extract JSX logic into a const */}
           PLAY! SHOP - {loading ? 'loading...' : product ? product.Name : 'Product not found'}
         </title>
       </Head>

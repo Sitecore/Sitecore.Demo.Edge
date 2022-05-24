@@ -14,6 +14,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
   const getContent = () => {
     if (!initialized) {
       return (
+        // TODO: Refactor to avoid HTML repetition
         <ol className="line-item-list">
           {new Array(skeletonCount).fill('').map((_, index) => {
             return (
@@ -38,6 +39,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
       );
     } else {
       return (
+        // TODO: Extract into a NoItemsInCartMessage.tsx that can also be used in CheckoutDetails.tsx
         <>
           <p>It doesn&apos;t look like you have any items in your cart</p>
           <p>

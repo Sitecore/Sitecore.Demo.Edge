@@ -11,6 +11,8 @@ export default {
 
 const Template: ComponentStory<typeof PanelComments> = (args) => <PanelComments {...args} />;
 
+// TODO: Fix stories or component. They do not show existing comment.
+
 export const WithExistingComment = Template.bind({});
 WithExistingComment.args = {
   orderComments: 'Is it possible to deliver the product in the evening after 6PM CST?',

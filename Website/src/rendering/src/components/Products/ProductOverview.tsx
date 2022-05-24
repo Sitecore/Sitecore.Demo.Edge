@@ -46,6 +46,7 @@ const ProductOverviewItem = (props: ProductOverviewItemProps): JSX.Element => {
   return (
     <div className={`accordion-item ${additionalClass}`}>
       <button className="accordion-item-heading" disabled={isDisabled} onClick={handleItemClick}>
+        {/* TODO: Extract JSX logic into a const */}
         {props.loading ? <Skeleton width={100} /> : props.heading}
         <FontAwesomeIcon icon={faChevronDown} />
       </button>
