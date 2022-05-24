@@ -7,6 +7,10 @@ type CategoryBreadcrumbProps = {
 };
 
 const CategoryBreadcrumb = ({ category }: CategoryBreadcrumbProps): JSX.Element => {
+  if (!category) {
+    return null;
+  }
+
   const categories: Category[] = getCategoryChain(category.ccid);
 
   // If it's a top-level category we hide the breadcrumb
@@ -19,14 +23,12 @@ const CategoryBreadcrumb = ({ category }: CategoryBreadcrumbProps): JSX.Element 
       : [];
 
   return (
-    <>
-      <ShopBreadcrumb
-        rendering={{ componentName: '' }}
-        params={{}}
-        fields={{ items: shopBreadcrumbItems }}
-        isCategoryBreadcrumb={true}
-      />
-    </>
+    <ShopBreadcrumb
+      rendering={{ componentName: '' }}
+      params={{}}
+      fields={{ items: shopBreadcrumbItems }}
+      additionalCssClass="category-breadcrumb"
+    />
   );
 };
 

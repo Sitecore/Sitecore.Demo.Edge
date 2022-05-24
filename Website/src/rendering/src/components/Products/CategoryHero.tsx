@@ -6,7 +6,11 @@ type CategoryHeroProps = {
 };
 
 const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
-  const categoryDisplayName = category?.title.length > 0 ? category.title : category.name;
+  if (!category) {
+    return null;
+  }
+
+  const categoryDisplayName = category.title ? category.title : category.name;
 
   return (
     <section className="category-hero">
@@ -14,7 +18,7 @@ const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
       <div className="category-hero-container">
         <div className="category-hero-content">
           <h1>{categoryDisplayName}</h1>
-          <p>{category?.desc}</p>
+          <p>{category.desc}</p>
         </div>
         {/* TODO: Add subcategories here */}
         {/* <div className="category-hero-sub">
