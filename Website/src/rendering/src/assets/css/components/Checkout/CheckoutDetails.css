@@ -56,6 +56,10 @@
     }
   }
 
+  .skeleton-radio-button {
+    @apply w-4 h-4 mt-0.5;
+  }
+
   .same-as-shipping {
     @apply flex items-center pb-4 font-medium;
 
@@ -151,31 +155,5 @@
 
   .address-list {
     @apply grid gap-4 grid-cols-2;
-  }
-
-  .checkout-summary {
-    @apply flex flex-col mt-4;
-
-    .summary-line {
-      @apply flex justify-between py-1 px-6;
-    }
-
-    .subtotal-line {
-      @apply bg-white;
-
-      .line-amount {
-        @apply font-bold;
-      }
-    }
-
-    .shipping-line {
-      .line-amount {
-        @apply text-blue;
-      }
-    }
-
-    button {
-      @apply mt-4 mx-auto;
-    }
   }
 }

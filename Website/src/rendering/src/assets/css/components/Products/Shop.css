@@ -199,3 +199,7 @@ ul.dropdown-items.expanded {
 p.shop-integration-error {
   @apply text-center text-yellow font-bold;
 }
+
+.continue-shopping-btn {
+  @apply my-3;
+}
