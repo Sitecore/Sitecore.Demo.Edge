@@ -5,7 +5,7 @@ import {
   WidgetDataType,
   PageController,
 } from '@sitecore-discover/react';
-import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+import CustomersAlsoBought from '../components/Widgets/CustomersAlsoBought';
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import TrendingCategories from '../components/Widgets/TrendingCategories';
@@ -62,8 +62,8 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   });
 
   setWidget('rfkid_33', {
+    component: CustomersAlsoBought,
     type: WidgetDataType.RECOMMENDATION,
-    component: FrequentlyPurchasedTogether,
     options: {
       properties: {
         initial: {
@@ -74,8 +74,8 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   });
 
   setWidget('ps_trending_categories', {
-    type: WidgetDataType.PREVIEW_SEARCH,
     component: TrendingCategories,
+    type: WidgetDataType.PREVIEW_SEARCH,
   });
 
   init();
