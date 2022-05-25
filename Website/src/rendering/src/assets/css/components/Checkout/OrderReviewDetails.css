@@ -7,12 +7,20 @@
   }
 
   h1 {
-    @apply text-2xl font-bold mb-3 px-5;
+    @apply text-2xl font-bold px-5;
     @apply sm:px-0;
   }
 
+  .order-date {
+    @apply text-black-lightest;
+  }
+
+  .order-status {
+    @apply float-right clear-left text-white text-xs px-3 py-[2px];
+  }
+
   .grid-container {
-    @apply grid grid-cols-1 gap-4;
+    @apply grid grid-cols-1 gap-4 mt-3;
     @apply sm:grid-cols-2;
 
     .panel {

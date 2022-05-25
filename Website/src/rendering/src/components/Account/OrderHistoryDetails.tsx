@@ -10,6 +10,7 @@ import {
 import { useRouter } from 'next/router';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import LineItemCard from '../Checkout/LineItemCard';
+import { getOrderDate } from '../../helpers/DateHelper';
 
 interface OrderHistoryDetailsProps {
   storyOrder?: OrderWorksheet;
@@ -110,12 +111,19 @@ const OrderHistoryDetails = ({
       <p className="title">No Shipping Address</p>
     );
 
+  const statusBgClass =
+    order?.Order?.Status === 'Completed'
+      ? 'bg-orange'
+      : order?.Order?.Status === 'Canceled'
+      ? 'bg-pink'
+      : 'bg-blue-light';
+
   // Configure return
   return (
     <section className="order-review-details shop-container">
-      <p className="order-status">{order?.Order?.Status}</p>
+      <p className={`order-status ${statusBgClass}`}>{order?.Order?.Status}</p>
       <h1>{order?.Order?.ID}</h1>
-      <p className="order-date">Placed: {order?.Order?.DateSubmitted}</p>
+      <p className="order-date">Placed: {getOrderDate(new Date(order?.Order?.DateSubmitted))}</p>
       <div className="grid-container">
         <div className="panel line-items-panel">
           <div className="panel-header">
@@ -133,8 +141,6 @@ const OrderHistoryDetails = ({
               <p>Ship Method: {shipMethod?.Name}</p>
               <p>Estimated Delivery: 1st of April 2022</p>
               {shippingAddress}
-              <p className="title">Your Comment:</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, tempore?</p>
             </div>
           </div>
           <div className="panel">
@@ -145,6 +151,17 @@ const OrderHistoryDetails = ({
               <p className="title">Payment method:</p>
               <p>{payment[0]?.Type}</p>
               {billingAddress}
+            </div>
+          </div>
+          <div className="panel">
+            <div className="panel-header">
+              <h2>Additional comment</h2>
+            </div>
+            <div className="panel-body">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum adipisci autem
+                sapiente, ratione earum labore commodi eligendi perferendis ipsa quam!
+              </p>
             </div>
           </div>
           <div className="checkout-summary">

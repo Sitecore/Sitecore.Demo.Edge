@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { ListPage, Me, Order } from 'ordercloud-javascript-sdk';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { getOrderDate } from '../../helpers/DateHelper';
 
 interface MyAccountProps {
   storyOrders?: ListPage<Order>;
@@ -16,10 +19,9 @@ const MyAccount = ({ storyOrders }: MyAccountProps): JSX.Element => {
   };
 
   useEffect(() => {
-    if (orders.length > 0) {
-      console.log(orders);
-    }
-  }, [orders]);
+    getMyOrders(null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const ordersList = orders.length > 0 && (
     <ul>
@@ -35,10 +37,13 @@ const MyAccount = ({ storyOrders }: MyAccountProps): JSX.Element => {
           <li key={order?.ID}>
             <Link href={`orders/${order?.ID}`}>
               <a>
-                <p className={`order-status ${statusBgClass}`}>{order?.Status || 'Unsubmitted'} </p>
-                <p className="order-id">{order?.ID || '5625590'}</p>
-                <p>Placed: {order?.DateCreated || '09.02.2022'}</p>
-                <p>Total: {order?.Total || '$1,899.99'}</p>
+                <p className={`order-status ${statusBgClass}`}>{order?.Status} </p>
+                <div>
+                  <p className="order-id">{order?.ID}</p>
+                  <p>Placed: {getOrderDate(new Date(order?.DateCreated))}</p>
+                  <p>Total: ${order?.Total}</p>
+                </div>
+                <FontAwesomeIcon icon={faEye} className="order-view" />
               </a>
             </Link>
           </li>
@@ -50,11 +55,6 @@ const MyAccount = ({ storyOrders }: MyAccountProps): JSX.Element => {
   // Configure return
   return (
     <section className="order-history shop-container">
-      <Link href="#">
-        <a className="btn--main btn--main--round" onClick={(e) => getMyOrders(e)}>
-          My Orders
-        </a>
-      </Link>
       <h1>Order History</h1>
       <div className="order-history-grid">{ordersList}</div>
     </section>

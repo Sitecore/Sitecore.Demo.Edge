@@ -21,12 +21,20 @@
         @apply mb-1;
       }
 
+      div {
+        @apply mr-16;
+      }
+
       .order-status {
         @apply absolute top-3 right-0 text-white text-xs px-3 py-[2px];
       }
 
       .order-id {
-        @apply text-base font-bold mb-2;
+        @apply text-base font-bold mb-2 overflow-hidden text-ellipsis;
+      }
+
+      .order-view {
+        @apply absolute bottom-3 right-3 text-black-lightest text-2xl;
       }
     }
   }
