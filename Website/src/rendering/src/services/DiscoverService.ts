@@ -67,7 +67,7 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     options: {
       properties: {
         initial: {
-          numberOfItems: 4,
+          totalItems: 4,
         },
       },
     },
