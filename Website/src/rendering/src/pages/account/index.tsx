@@ -12,7 +12,7 @@ const Account = (): JSX.Element => {
   /* eslint-disable @next/next/no-html-link-for-pages */
   const loginMenuItem = isAuthenticationEnabled && !isLoggedIn && (
     <div className="shop-navigation-menu-item">
-      <a href={getLoginUrl()}>Login</a>
+      <a href={getLoginUrl('/shop')}>Login</a>
     </div>
   );
 
