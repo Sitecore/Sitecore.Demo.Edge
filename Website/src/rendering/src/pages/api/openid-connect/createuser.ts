@@ -31,9 +31,14 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
     // The claims (user details) from parsing auth0's ID token, claims here vary by provider
     const claims = parseJwt(payload.TokenResponse.id_token) as Auth0Claims;
 
-    const usersList = await Users.List(process.env.ORDERCLOUD_PROFILED_BUYER_ID, {
-      filters: { Username: claims.email },
-    });
+    const usersList = await Users.List(
+      process.env.ORDERCLOUD_PROFILED_BUYER_ID,
+      {
+        filters: { Username: claims.email },
+      },
+      // access token has been granted elevated role BuyerUserAdmin required to list users
+      { accessToken: payload.OrderCloudAccessToken }
+    );
 
     const existingUser = usersList.Items[0];
     if (existingUser) {
