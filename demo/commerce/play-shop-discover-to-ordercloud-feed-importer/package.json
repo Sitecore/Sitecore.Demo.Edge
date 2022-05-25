@@ -2,7 +2,7 @@
   "name": "play-shop-discover-to-ordercloud-feed-importer",
   "description": "A tool to import a Sitecore Discover feed into OrderCloud",
   "author": {
-    "name": "Sitecore Demo Team",
+    "name": "Sitecore Demo Solutions Team",
     "url": "https://www.sitecore.com/"
   },
   "contributors": [
@@ -24,7 +24,7 @@
     "lib": "lib"
   },
   "bugs": {
-    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge"
+    "url": "https://github.com/Sitecore/Sitecore.Demo.Edge/issues"
   },
   "repository": {
     "type": "git",
@@ -41,9 +41,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf lib && tsc && sed -i 's/\"files\":/\"_files\":/' lib/package.json",
+    "build": "(if exist lib (rmdir /Q /S lib)) && tsc",
     "debug": "tsc --sourcemap",
-    "start": "lib/cli.js",
+    "start": "node lib/cli.js",
     "lint": "eslint ./src/**/*.ts ./*.ts"
   },
   "dependencies": {

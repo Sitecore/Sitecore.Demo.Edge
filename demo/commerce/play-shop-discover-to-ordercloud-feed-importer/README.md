@@ -12,10 +12,16 @@ This tool is only meant to generate B2C scenarios. Sitecore Discover does have s
 
 - [Node](https://nodejs.org/en/) >= 12
 
+## Build
+
+```shell
+npm run build
+```
+
 ## Usage
 
 ```shell
-Usage: importfeed [options]
+Usage: npm run start -- [options]
 
 A tool to import a Sitecore Discover feed into OrderCloud
 
@@ -38,7 +44,7 @@ Options:
 The shortest possible syntax
 
 ```shell
-importfeed -u myusername -p mypassword -m mymarketplaceid
+npm run start -- -u myusername -p mypassword -m mymarketplaceid
 ```
 
 This will import products and categories from the playsummit template into your ordercloud marketplace
@@ -46,7 +52,7 @@ This will import products and categories from the playsummit template into your 
 Using an existing catalog and buyer
 
 ```shell
-importfeed -u myusername -p mypassword -m mymarketplaceid -b mybuyerid -x mycatalogid
+npm run start -- -u myusername -p mypassword -m mymarketplaceid -b mybuyerid -x mycatalogid
 ```
 
 This will load products and categories into the provided catalog and make those products & categories visible to the provided buyer
@@ -54,7 +60,7 @@ This will load products and categories into the provided catalog and make those 
 Using your own Sitecore Discover feed files
 
 ```shell
-importfeed -u myusername -p mypassword -m mymarketplaceid -f path/to/my/product-feed.csv -c path/to/mycategory-feed.csv
+npm run start -- -u myusername -p mypassword -m mymarketplaceid -f path/to/my/product-feed.csv -c path/to/mycategory-feed.csv
 ```
 
 Instead of using the templates stored in our application, you can provide your own Sitecore Discover feeds but they should match the format of the existing feeds used in the templates.

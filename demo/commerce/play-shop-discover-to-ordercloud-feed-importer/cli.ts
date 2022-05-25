@@ -14,6 +14,7 @@ clear();
 console.log(chalk.cyanBright(figlet.textSync('sitecore', { horizontalLayout: 'full' })));
 
 program
+  .name('npm run start --')
   .version(packageInfo.version, '-v, --version')
   .description('A tool to import a Sitecore Discover feed into OrderCloud')
   .option('-u, --username <string>', 'username for portal credentials https://ordercloud.io/')
