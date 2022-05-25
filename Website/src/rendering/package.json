@@ -58,8 +58,9 @@
     "postcss-sassy-mixins": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-loading-skeleton": "^3.0.3",
-    "react-redux": "^7.2.6"
+    "csvtojson": "^2.0.10"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.19.1",
