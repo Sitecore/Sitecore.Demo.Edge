@@ -14,6 +14,8 @@ const Template: ComponentStory<typeof LineItemCard> = (args) => <LineItemCard {.
 
 const slices = [orderSlice, authSlice, productCacheSlice];
 
+// TODO: Fix stories or component. Prices are not displayed.
+
 export const Default = Template.bind({});
 Default.args = {
   editable: true,

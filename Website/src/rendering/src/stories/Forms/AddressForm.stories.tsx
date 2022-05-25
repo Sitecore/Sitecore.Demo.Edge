@@ -10,6 +10,11 @@ export default {
 
 const Template: ComponentStory<typeof AddressForm> = (args) => <AddressForm {...args} />;
 
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
 export const Default = Template.bind({});
 Default.args = {
   onSubmit: (address) => {

@@ -1,8 +1,8 @@
 import { getItemsCount } from '../../helpers/LineItemsHelpers';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 const CartBadge = (): JSX.Element => {
-  const { lineItems } = useOcCurrentOrder();
+  const { lineItems } = useOcCurrentCart();
 
   return lineItems ? <div className="cart-badge">{getItemsCount(lineItems)}</div> : <></>;
 };

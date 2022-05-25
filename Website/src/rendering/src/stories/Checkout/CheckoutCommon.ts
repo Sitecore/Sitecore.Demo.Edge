@@ -164,6 +164,15 @@ export const cartSlice: MockSlice = {
   state: cartState,
 };
 
+export const notInitializedCartSlice: MockSlice = {
+  name: 'ocCurrentCart',
+  state: {
+    ...cartState,
+    initialized: false,
+    orderTotalLoading: true,
+  },
+};
+
 export const productCacheSlice: MockSlice = {
   name: 'ocProductCache',
   state: productCacheState,
@@ -200,3 +209,33 @@ export const promotionCartSlice: MockSlice = {
     ] as DOrderPromotion[],
   },
 };
+
+export const shipMethods = [
+  {
+    ID: 'STANDARD_DELIVERY',
+    Name: 'Standard Delivery',
+    Cost: 0,
+    EstimatedTransitDays: 3,
+    xp: {
+      Description: 'Receive your order at your home in 3-5 business days',
+    },
+  },
+  {
+    ID: 'EXPRESS_DELIVERY',
+    Name: 'Express Delivery',
+    Cost: 4.99,
+    EstimatedTransitDays: 2,
+    xp: {
+      Description: 'Receive your order at your home in 1-2 business days',
+    },
+  },
+  {
+    ID: 'ONEDAY_DELIVERY',
+    Name: 'One day delivery',
+    Cost: 9.99,
+    EstimatedTransitDays: 1,
+    xp: {
+      Description: 'Receive your order at your home the next business day',
+    },
+  },
+];

@@ -18,7 +18,8 @@ const OcProvider: FunctionComponent = ({ children }) => {
   const token = getTokenFromPath(router.asPath);
   if (token) {
     Tokens.SetAccessToken(token);
-    router.replace('/shop', undefined, { shallow: true }); // clear token from url
+    delete router.query.oidcToken;
+    router.push(router);
   }
   const dispatch = useAppDispatch();
   const { ocAuth, ocUser, ocCurrentCart } = useAppSelector((s) => ({

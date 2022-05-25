@@ -1,11 +1,11 @@
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DLineItem } from '../../models/ordercloud/DLineItem';
 import Link from 'next/link';
 import MiniCartItem from './MiniCartItem';
 import { getItemsCount } from '../../helpers/LineItemsHelpers';
 
 const MiniCart = (): JSX.Element => {
-  const { lineItems, order } = useOcCurrentOrder();
+  const { lineItems, order } = useOcCurrentCart();
 
   const cartContent =
     lineItems && lineItems.length ? (

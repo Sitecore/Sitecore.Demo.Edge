@@ -12,12 +12,43 @@ export default {
 
 const Template: ComponentStory<typeof CheckoutDetails> = (args) => <CheckoutDetails {...args} />;
 
+export const NoLineItems = Template.bind({});
+const noLineItemsState = {
+  initialized: true,
+  order: {
+    LineItemCount: 0,
+  },
+};
+NoLineItems.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noLineItemsState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const Loading = Template.bind({});
+const loadingState = {
+  initialized: false,
+};
+Loading.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
 export const NoStepsComplete = Template.bind({});
 const noStepsCompleteState = {
   initialized: true,
   order: {
     ShippingCost: 0,
     Subtotal: 123.45,
+    LineItemCount: 1,
+    xp: {
+      DeliveryType: 'Ship',
+    },
   },
 };
 NoStepsComplete.decorators = [
@@ -54,7 +85,7 @@ const shippingCompleteState = {
           {
             ID: 'STANDARD_DELIVERY',
             Name: 'Standard Delivery',
-            Cost: 9.99,
+            Cost: 0,
             EstimatedTransitDays: 3,
             xp: {
               Description: 'Receive your order at your home in 3-5 business days',
@@ -63,28 +94,19 @@ const shippingCompleteState = {
           {
             ID: 'EXPRESS_DELIVERY',
             Name: 'Express Delivery',
-            Cost: 19.99,
-            EstimatedTransitDays: 1,
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
             xp: {
               Description: 'Receive your order at your home in 1-2 business days',
             },
           },
           {
-            ID: 'PICKUP_FROM_SUMMIT',
-            Name: 'Pick up from the Summit',
-            Cost: 0,
-            EstimatedTransitDays: 0,
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
             xp: {
-              Description: 'Pick up your order at the summit front desk',
-            },
-          },
-          {
-            ID: 'PICKUP_IN_STORE',
-            Name: 'Pick up in store',
-            Cost: 0,
-            EstimatedTransitDays: 0,
-            xp: {
-              Description: 'Pick up your order in-store',
+              Description: 'Receive your order at your home the next business day',
             },
           },
         ],
@@ -95,6 +117,10 @@ const shippingCompleteState = {
     ID: 'mockid123',
     Subtotal: 123.45,
     ShippingCost: 0,
+    LineItemCount: 1,
+    xp: {
+      DeliveryType: 'Ship',
+    },
   },
 };
 ShippingComplete.decorators = [
@@ -132,7 +158,7 @@ const shippingEstimatesCompleteState = {
           {
             ID: 'STANDARD_DELIVERY',
             Name: 'Standard Delivery',
-            Cost: 9.99,
+            Cost: 0,
             EstimatedTransitDays: 3,
             xp: {
               Description: 'Receive your order at your home in 3-5 business days',
@@ -141,28 +167,19 @@ const shippingEstimatesCompleteState = {
           {
             ID: 'EXPRESS_DELIVERY',
             Name: 'Express Delivery',
-            Cost: 19.99,
-            EstimatedTransitDays: 1,
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
             xp: {
               Description: 'Receive your order at your home in 1-2 business days',
             },
           },
           {
-            ID: 'PICKUP_FROM_SUMMIT',
-            Name: 'Pick up from the Summit',
-            Cost: 0,
-            EstimatedTransitDays: 0,
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
             xp: {
-              Description: 'Pick up your order at the summit front desk',
-            },
-          },
-          {
-            ID: 'PICKUP_IN_STORE',
-            Name: 'Pick up in store',
-            Cost: 0,
-            EstimatedTransitDays: 0,
-            xp: {
-              Description: 'Pick up your order in-store',
+              Description: 'Receive your order at your home the next business day',
             },
           },
         ],
@@ -173,6 +190,10 @@ const shippingEstimatesCompleteState = {
     ID: 'mockid123',
     Subtotal: 123.45,
     ShippingCost: 19.99,
+    LineItemCount: 1,
+    xp: {
+      DeliveryType: 'Ship',
+    },
   },
 };
 ShippingEstimatesComplete.decorators = [
@@ -210,7 +231,7 @@ const billingAddressCompleteState = {
           {
             ID: 'STANDARD_DELIVERY',
             Name: 'Standard Delivery',
-            Cost: 9.99,
+            Cost: 0,
             EstimatedTransitDays: 3,
             xp: {
               Description: 'Receive your order at your home in 3-5 business days',
@@ -219,28 +240,19 @@ const billingAddressCompleteState = {
           {
             ID: 'EXPRESS_DELIVERY',
             Name: 'Express Delivery',
-            Cost: 19.99,
-            EstimatedTransitDays: 1,
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
             xp: {
               Description: 'Receive your order at your home in 1-2 business days',
             },
           },
           {
-            ID: 'PICKUP_FROM_SUMMIT',
-            Name: 'Pick up from the Summit',
-            Cost: 0,
-            EstimatedTransitDays: 0,
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
             xp: {
-              Description: 'Pick up your order at the summit front desk',
-            },
-          },
-          {
-            ID: 'PICKUP_IN_STORE',
-            Name: 'Pick up in store',
-            Cost: 0,
-            EstimatedTransitDays: 0,
-            xp: {
-              Description: 'Pick up your order in-store',
+              Description: 'Receive your order at your home the next business day',
             },
           },
         ],
@@ -251,6 +263,7 @@ const billingAddressCompleteState = {
     ID: 'mockid123',
     Subtotal: 123.45,
     ShippingCost: 19.99,
+    LineItemCount: 1,
     BillingAddress: {
       ID: 'mockaddressid',
       AddressName: 'Marty Byrde Home',
@@ -259,6 +272,9 @@ const billingAddressCompleteState = {
       State: 'GA',
       Zip: '30542',
       Country: 'US',
+    },
+    xp: {
+      DeliveryType: 'Ship',
     },
   },
 };
@@ -297,7 +313,7 @@ const paymentCompleteState = {
           {
             ID: 'STANDARD_DELIVERY',
             Name: 'Standard Delivery',
-            Cost: 9.99,
+            Cost: 0,
             EstimatedTransitDays: 3,
             xp: {
               Description: 'Receive your order at your home in 3-5 business days',
@@ -306,28 +322,19 @@ const paymentCompleteState = {
           {
             ID: 'EXPRESS_DELIVERY',
             Name: 'Express Delivery',
-            Cost: 19.99,
-            EstimatedTransitDays: 1,
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
             xp: {
               Description: 'Receive your order at your home in 1-2 business days',
             },
           },
           {
-            ID: 'PICKUP_FROM_SUMMIT',
-            Name: 'Pick up from the Summit',
-            Cost: 0,
-            EstimatedTransitDays: 0,
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
             xp: {
-              Description: 'Pick up your order at the summit front desk',
-            },
-          },
-          {
-            ID: 'PICKUP_IN_STORE',
-            Name: 'Pick up in store',
-            Cost: 0,
-            EstimatedTransitDays: 0,
-            xp: {
-              Description: 'Pick up your order in-store',
+              Description: 'Receive your order at your home the next business day',
             },
           },
         ],
@@ -338,6 +345,7 @@ const paymentCompleteState = {
     ID: 'mockid123',
     Subtotal: 123.45,
     ShippingCost: 19.99,
+    LineItemCount: 1,
     BillingAddress: {
       ID: 'mockaddressid',
       AddressName: 'Marty Byrde Home',
@@ -346,6 +354,9 @@ const paymentCompleteState = {
       State: 'GA',
       Zip: '30542',
       Country: 'US',
+    },
+    xp: {
+      DeliveryType: 'Ship',
     },
   },
   payments: [
@@ -370,6 +381,119 @@ const paymentCompleteState = {
 PaymentComplete.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: paymentCompleteState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const PickupFromSummit = Template.bind({});
+const pickupFromSummitState = {
+  initialized: true,
+  shippingAddress: {
+    AddressName: 'Play! Summit',
+    Street1: '101 California St',
+    Street2: 'St #1600',
+    City: 'San Francisco',
+    State: 'CA',
+    Country: 'US',
+    Zip: '94111',
+  },
+  order: {
+    ID: 'mockid123',
+    Subtotal: 123.45,
+    ShippingCost: 19.99,
+    LineItemCount: 1,
+    BillingAddress: {
+      ID: 'mockaddressid',
+      AddressName: 'Marty Byrde Home',
+      Street1: '6818 Gaines Ferry Road',
+      City: 'Flowery Branch',
+      State: 'GA',
+      Zip: '30542',
+      Country: 'US',
+    },
+    xp: {
+      DeliveryType: 'PickupFromSummit',
+    },
+  },
+  payments: [
+    {
+      ID: 'mockpaymentid',
+      Type: 'CreditCard',
+      CreditCardID: 'mock-creditcard-id',
+      Accepted: true,
+      Amount: 100,
+      xp: {
+        CreditCard: {
+          ID: 'mockcreditcardid',
+          CardType: 'Visa',
+          CardholderName: 'Jon Snow',
+          PartialAccountNumber: '6123',
+          ExpirationDate: getMockExpirationDate(),
+        },
+      },
+    },
+  ],
+};
+PickupFromSummit.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: pickupFromSummitState }}>
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const PickupFromStore = Template.bind({});
+const pickupFromStoreState = {
+  initialized: true,
+  shippingAddress: {
+    AddressName: 'Store #1234',
+    Street1: '110 N. 5th St #300',
+    City: 'Minneapolis',
+    State: 'MN',
+    Country: 'US',
+    Zip: '55403',
+  },
+  order: {
+    ID: 'mockid123',
+    Subtotal: 123.45,
+    ShippingCost: 19.99,
+    LineItemCount: 1,
+    BillingAddress: {
+      ID: 'mockaddressid',
+      AddressName: 'Marty Byrde Home',
+      Street1: '6818 Gaines Ferry Road',
+      City: 'Flowery Branch',
+      State: 'GA',
+      Zip: '30542',
+      Country: 'US',
+    },
+    xp: {
+      DeliveryType: 'PickupInStore',
+    },
+  },
+  payments: [
+    {
+      ID: 'mockpaymentid',
+      Type: 'CreditCard',
+      CreditCardID: 'mock-creditcard-id',
+      Accepted: true,
+      Amount: 100,
+      xp: {
+        CreditCard: {
+          ID: 'mockcreditcardid',
+          CardType: 'Visa',
+          CardholderName: 'Jon Snow',
+          PartialAccountNumber: '6123',
+          ExpirationDate: getMockExpirationDate(),
+        },
+      },
+    },
+  ],
+};
+PickupFromStore.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: pickupFromStoreState }}>
       <Story />
     </MockStore>
   ),
