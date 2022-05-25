@@ -4,6 +4,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ShopNavigation from '../../components/Navigation/ShopNavigation';
 import { DiscoverService } from '../../services/DiscoverService';
 import { mockDiscoverData } from '../mock-discover-data';
+import { MockStore } from '../mock-store';
+import { cartSlice } from '../Checkout/CheckoutCommon';
 
 export default {
   title: 'Components/Navigation/ShopNavigation',
@@ -20,3 +22,10 @@ export const Default = Template.bind({});
 Default.args = {
   previewSearchProps: mockDiscoverData.previewSearchProps,
 };
+Default.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={cartSlice}>
+      <Story />
+    </MockStore>
+  ),
+];

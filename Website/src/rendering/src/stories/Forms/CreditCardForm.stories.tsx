@@ -10,6 +10,11 @@ export default {
 
 const Template: ComponentStory<typeof CreditCardForm> = (args) => <CreditCardForm {...args} />;
 
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
 export const NewCreditCard = Template.bind({});
 NewCreditCard.args = {
   onSubmit: (creditcard) => {

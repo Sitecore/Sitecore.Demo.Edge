@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
@@ -14,7 +13,7 @@ const ProductDetails = (): JSX.Element => {
   const sku = router?.query?.sections?.length > 0 ? router.query.sections[0] : undefined;
   const variantID = router?.query?.sections?.length > 2 ? router.query.sections[2] : undefined;
 
-  const { product, specs, variants } = useOcProductDetail(sku?.toString());
+  const { product, loading, specs, variants } = useOcProductDetail(sku?.toString());
 
   useEffect(() => {
     if (sku) {
@@ -22,23 +21,15 @@ const ProductDetails = (): JSX.Element => {
     }
   }, [sku]);
 
-  const productDetailsContent = product ? (
+  return (
     <ProductDetailsContent
+      initialLoading={loading}
       variantID={variantID}
       product={product}
       specs={specs}
       variants={variants}
     />
-  ) : (
-    <>
-      <Head>
-        <title>PLAY! SHOP - Product not found</title>
-      </Head>
-      Product not found
-    </>
   );
-
-  return productDetailsContent;
 };
 
 export default ProductDetails;

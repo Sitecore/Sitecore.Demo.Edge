@@ -1,0 +1,75 @@
+.mini-cart {
+  @apply relative max-h-[calc(100vh-56px)] overflow-y-auto w-full bg-black text-base text-white;
+  @apply sm:w-96 sm:max-h-[calc(100vh-112px)];
+  @apply lg:w-[500px] lg:max-h-[calc(100vh-100px)];
+
+  > h3 {
+    @apply p-6;
+  }
+
+  &-wrapper {
+    @apply absolute top-[50%] right-0 translate-x-[100%] transition-all z-50 w-full;
+    @apply sm:w-auto sm:top-[100%];
+
+    &.open {
+      @apply translate-x-0;
+    }
+  }
+
+  &-subtotal {
+    @apply sticky bottom-0 flex justify-between py-1 px-2 mb-4 font-bold bg-black-light;
+  }
+
+  &-list {
+    @apply px-6 pt-6 space-y-4;
+
+    li {
+      @apply relative;
+    }
+
+    &-item {
+      @apply flex;
+    }
+
+    .item-image {
+      @apply w-14 h-14 flex-shrink-0 mr-2;
+
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    .item-name {
+      @apply font-bold mr-6;
+    }
+
+    .item-price {
+      @apply text-right;
+    }
+
+    .item-details {
+      @apply w-full text-sm;
+    }
+
+    .item-remove {
+      @apply absolute top-0 right-0 text-base font-bold text-black-lightest z-10;
+
+      &[disabled] {
+        @apply opacity-50;
+      }
+    }
+  }
+
+  &-footer {
+    @apply sticky bottom-0 p-6 bg-black z-20;
+  }
+
+  &-buttons {
+    @apply flex flex-col justify-between gap-2;
+    @apply lg:flex-row;
+
+    > * {
+      @apply flex items-center justify-center flex-1 p-1;
+    }
+  }
+}

@@ -1,8 +1,15 @@
-type PanelCommentsProps = {
-  orderComments?: string;
-  onEditComments?: (comments: string) => void;
-};
-const PanelComments = (props: PanelCommentsProps): JSX.Element => {
+import { useAppDispatch } from '../../redux/store';
+import { patchOrder } from '../../redux/ocCurrentCart';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
+
+const PanelComments = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const { order } = useOcCurrentCart();
+
+  const updateComments = async (input: string) => {
+    await dispatch(patchOrder({ Comments: input }));
+  };
+
   return (
     <div className="panel">
       <div className="panel-header">
@@ -14,11 +21,10 @@ const PanelComments = (props: PanelCommentsProps): JSX.Element => {
             name="order-comments"
             id="order-comments"
             rows={3}
-            value={props.orderComments}
             placeholder="Leave your comment for us here..."
-            onChange={(event) => {
-              props.onEditComments(event.target.value);
-            }}
+            defaultValue={order?.Comments}
+            // TODO: Investigate if we need to disable the "Review order" button while the comment is being saved
+            onBlur={(event) => updateComments(event.target.value)}
           ></textarea>
         </form>
       </div>

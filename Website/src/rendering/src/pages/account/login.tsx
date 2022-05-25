@@ -5,7 +5,7 @@ const Login = (): JSX.Element => {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! Summit - Login</title>
+        <title>PLAY! SHOP - Login</title>
       </Head>
 
       <p>Login Page</p>

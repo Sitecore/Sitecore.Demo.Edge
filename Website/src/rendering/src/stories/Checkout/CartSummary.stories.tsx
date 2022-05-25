@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CartSummary from '../../components/Checkout/CartSummary';
 import { MockStore } from '../mock-store';
-import { cartSlice } from './CheckoutCommon';
+import { cartSlice, notInitializedCartSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CartSummary',
@@ -18,6 +18,20 @@ Default.args = {
 Default.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={cartSlice}>
+      <div className="cart-details">
+        <Story />
+      </div>
+    </MockStore>
+  ),
+];
+
+export const Loading = Template.bind({});
+Loading.args = {
+  order: {},
+};
+Loading.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={notInitializedCartSlice}>
       <div className="cart-details">
         <Story />
       </div>
