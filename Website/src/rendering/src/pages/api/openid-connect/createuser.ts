@@ -31,6 +31,20 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
     // The claims (user details) from parsing auth0's ID token, claims here vary by provider
     const claims = parseJwt(payload.TokenResponse.id_token) as Auth0Claims;
 
+    const usersList = await Users.List(process.env.ORDERCLOUD_PROFILED_BUYER_ID, {
+      filters: { Username: claims.email },
+    });
+
+    const existingUser = usersList.Items[0];
+    if (existingUser) {
+      // Its possible the same user logged in via different IDPs (google vs email vs facebook) in which case we will simply
+      // merge both idp identities into the single ordercloud user identity
+      return response.status(200).json({
+        Username: existingUser.Username,
+        ErrorMessage: '',
+      });
+    }
+
     // create a new user in ordercloud on the fly to call out to associate with the incoming idp identity
     const newUser = await Users.Create(
       process.env.ORDERCLOUD_PROFILED_BUYER_ID,

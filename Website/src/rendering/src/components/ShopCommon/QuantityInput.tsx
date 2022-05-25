@@ -1,11 +1,12 @@
 import { PriceSchedule, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { ChangeEvent, FocusEvent, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 interface QuantityInputProps {
   controlId: string;
   priceSchedule: RequiredDeep<PriceSchedule>;
   label?: string;
-  disabled?: boolean;
+  loading?: boolean;
   initialQuantity: number | string;
   onChange: (quantity: number) => void;
 }
@@ -13,16 +14,16 @@ interface QuantityInputProps {
 const QuantityInput = ({
   controlId,
   priceSchedule,
-  disabled,
+  loading,
   initialQuantity,
   onChange,
 }: QuantityInputProps): JSX.Element => {
   const [editedQuantity, setEditedQuantity] = useState(initialQuantity);
 
   const addDisabled =
-    disabled || (priceSchedule.MaxQuantity ? editedQuantity >= priceSchedule.MaxQuantity : false);
+    loading || (priceSchedule.MaxQuantity ? editedQuantity >= priceSchedule.MaxQuantity : false);
   const subtractDisabled =
-    disabled ||
+    loading ||
     (priceSchedule.MinQuantity
       ? editedQuantity <= priceSchedule.MinQuantity && editedQuantity <= 1
       : editedQuantity <= 1);
@@ -30,7 +31,7 @@ const QuantityInput = ({
   const isInRange = (quantity: number) => {
     let isInRange = quantity >= 1;
 
-    if (priceSchedule.MinQuantity) {
+    if (priceSchedule?.MinQuantity) {
       isInRange = isInRange && quantity >= priceSchedule.MinQuantity;
     }
 
@@ -78,14 +79,43 @@ const QuantityInput = ({
     onChange(newQuantity);
   };
 
-  const quantityForm = priceSchedule.RestrictedQuantity ? (
-    <select id={controlId} disabled={disabled} value={editedQuantity} onChange={handleSelectChange}>
+  // selected from restricted quantities such as business cards that come in 100, 200, 250, etc.
+  // TODO: add skeleton loading indicator
+  const restrictedQuantityInput = loading ? (
+    <Skeleton containerClassName="skeleton-container" height="100%" />
+  ) : (
+    <select id={controlId} value={editedQuantity} onChange={handleSelectChange}>
       {priceSchedule.PriceBreaks.map((priceBreak) => (
         <option key={priceBreak.Quantity} value={priceBreak.Quantity}>
           {priceBreak.Quantity}
         </option>
       ))}
     </select>
+  );
+
+  // unrestricted in the sense that there is no predetermined set of quantities but there may still be min or max set at priceschedule level
+  // TODO: add loading indicator
+  // TODO: Refactor to avoid HTML repetition
+  const quantityInput = loading ? (
+    <div className="quantity-input">
+      <button
+        className="quantity-input-button"
+        aria-label="Subtract quantity"
+        type="button"
+        disabled={true}
+      >
+        -
+      </button>
+      <Skeleton containerClassName="skeleton-container" height="100%" />
+      <button
+        className="quantity-input-button"
+        aria-label="Add quantity"
+        type="button"
+        disabled={true}
+      >
+        +
+      </button>
+    </div>
   ) : (
     <>
       <button
@@ -98,7 +128,7 @@ const QuantityInput = ({
         -
       </button>
       <input
-        disabled={disabled}
+        disabled={loading}
         type="number"
         min={priceSchedule.MinQuantity}
         max={priceSchedule.MaxQuantity}
@@ -118,6 +148,8 @@ const QuantityInput = ({
       </button>
     </>
   );
+
+  const quantityForm = priceSchedule?.RestrictedQuantity ? restrictedQuantityInput : quantityInput;
 
   return <div className="quantity-input">{quantityForm}</div>;
 };

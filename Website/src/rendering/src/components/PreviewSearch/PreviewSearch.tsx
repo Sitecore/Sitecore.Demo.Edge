@@ -1,4 +1,4 @@
-import ClickOutside from './ClickOutside';
+import ClickOutside from '../ShopCommon/ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 import debounce from '../../helpers/Debounce';
