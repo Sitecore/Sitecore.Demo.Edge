@@ -61,9 +61,16 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     },
   });
 
-  setWidget('rfkid_11', {
+  setWidget('rfkid_33', {
     type: WidgetDataType.RECOMMENDATION,
     component: FrequentlyPurchasedTogether,
+    options: {
+      properties: {
+        initial: {
+          numberOfItems: 4,
+        },
+      },
+    },
   });
 
   setWidget('ps_trending_categories', {
