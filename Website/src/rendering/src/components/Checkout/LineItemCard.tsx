@@ -135,11 +135,11 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
 
   const editableUserComment = props.editable && (
     <>
-      <label htmlFor="comment" className="user-comment-label">
+      <label htmlFor={`${props.lineItem.ID}-comment`} className="user-comment-label">
         Comments
       </label>
       <input
-        id="comment"
+        id={`${props.lineItem.ID}-comment`}
         type="text"
         className="user-comment"
         defaultValue={props.lineItem.xp?.Comment}
