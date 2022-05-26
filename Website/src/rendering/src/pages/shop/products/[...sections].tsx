@@ -12,6 +12,8 @@ const ProductPage = (): JSX.Element => {
 
       <ProductDetails />
       <DiscoverWidget rfkId="rfkid_33" />
+      <DiscoverWidget rfkId="rfkid_31" />
+      <DiscoverWidget rfkId="rfkid_32" />
     </ShopLayout>
   );
 };

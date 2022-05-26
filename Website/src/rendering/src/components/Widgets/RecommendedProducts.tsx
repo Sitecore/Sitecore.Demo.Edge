@@ -14,12 +14,15 @@ const RecommendedProducts = (props: RecommendedProductsProps): JSX.Element => {
     onProductClick({ sku: product.sku, rfkId: rfkID });
   };
 
+  // TO-DO - Remove this when the Discover SDK allows us to configure a maximum number of products it returns.
+  const firstFourProucts = products?.slice(0, 4);
+
   const recommendedProducts = products?.length ? (
     <section className="section">
       <div className="shop-container">
         <h3>{title}</h3>
         <ProductList
-          products={products}
+          products={firstFourProucts}
           loaded={loaded}
           loading={loading}
           onProductClick={handleProductClick}
