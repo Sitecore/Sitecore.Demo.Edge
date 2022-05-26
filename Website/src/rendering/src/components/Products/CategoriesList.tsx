@@ -24,6 +24,7 @@ const CategoriesList = (props: CategoriesListProps): JSX.Element => {
         <p>{props.subtitle}</p>
       </div>
       {trendingCategoriesWidget}
+      <DiscoverWidget rfkId="rfkid_1" />
     </section>
   );
 };

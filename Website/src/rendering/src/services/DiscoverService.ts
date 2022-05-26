@@ -75,7 +75,7 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     },
   });
 
-  setWidget('rfkid_32', {
+  setWidget('rfkid_1', {
     component: RecommendedForYou,
     type: WidgetDataType.RECOMMENDATION,
     options: {
