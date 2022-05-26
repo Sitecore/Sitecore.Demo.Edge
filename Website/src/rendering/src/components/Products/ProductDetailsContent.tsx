@@ -249,17 +249,21 @@ const ProductDetailsContent = ({
     </div>
   );
 
+  const productBreadcrumb = product && (
+    <ProductBreadcrumb
+      productName={product?.Name}
+      productUrl={product?.xp?.ProductUrl}
+      ccid={product?.xp?.CCID}
+    />
+  );
+
   const productDetails =
     loading || product ? (
       <section className="section">
         <div className="shop-container">
           <div className="product-details">
             <div className="product-details-hero">
-              <ProductBreadcrumb
-                productName={product.Name}
-                productUrl={product.xp.ProductUrl}
-                categoryBreadcrumbs={product.xp.CategoryBreadcrumbs}
-              />
+              {productBreadcrumb}
               <h2 className="product-name">
                 {/* TODO: Extract JSX logic into a const */}
                 {initialLoading ? <Skeleton width={300} /> : product && product.Name}
