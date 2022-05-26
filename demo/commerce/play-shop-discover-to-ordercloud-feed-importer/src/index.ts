@@ -185,14 +185,7 @@ async function categoryBuilder(
         continue;
       } else {
         processedCategoryIDs.add(matchingCategoryID);
-        await postCategory(
-          matchingCategoryID,
-          categoryNameFormatted,
-          parentCategoryID,
-          catalogID,
-          row.url_path,
-          row.breadcrumbs
-        );
+        await postCategory(matchingCategoryID, categoryNameFormatted, parentCategoryID, catalogID);
         parentCategoryID = matchingCategoryID;
       }
     }
@@ -204,19 +197,13 @@ async function postCategory(
   categoryID: string,
   categoryName: string,
   parentCategoryID: string,
-  catalogID: string,
-  urlPath: string,
-  breadcrumbs: string
+  catalogID: string
 ) {
   const categoryRequest = {
     ID: categoryID,
     Active: true,
     Name: categoryName,
     ParentID: parentCategoryID,
-    xp: {
-      UrlPath: urlPath,
-      Breadcrumbs: breadcrumbs,
-    },
   };
   try {
     return await OrderCloudSDK.Categories.Save(catalogID, categoryRequest.ID, categoryRequest);
@@ -400,6 +387,7 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       Documents: null,
       Brand: row.brand,
       ProductUrl: row.product_url,
+      CCID: row.ccids.split('|')?.[0],
     },
   };
 
@@ -413,7 +401,6 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
 
   // Post category-product assignment
   const categoriesSplitByPipe = row.ccids.split('|');
-  const categoryBreadcrumbs = [];
   for (let pipeSplitCategory of categoriesSplitByPipe) {
     const categoryIDFormatted = pipeSplitCategory
       .replace(/[`~!@#$%^&*()|+=?;:'",.<>{}[\]\\/]/gi, '') // Remove most special characters (not hyphens/underscores)
@@ -436,30 +423,6 @@ async function processSingleProduct(row: any, catalogID: string, imageUrlPrefix:
       );
       return;
     }
-
-    // Get the specific category's URL path and breadcrumbs name in order to construct the category breadcrumbs for the product
-    try {
-      const category = await OrderCloudSDK.Categories.Get(catalogID, categoryIDFormatted);
-      categoryBreadcrumbs.push({
-        UrlPath: category.xp.UrlPath,
-        BreadcrumbsName: category.xp.Breadcrumbs,
-      });
-    } catch (ex) {
-      results.categories.errors++;
-      handleError(`Error getting category ${categoryIDFormatted}`, ex);
-      return;
-    }
-  }
-
-  // Update the product's XP with the category breadcrumbs
-  try {
-    await OrderCloudSDK.Products.Patch(row.product_group, {
-      xp: { CategoryBreadcrumbs: categoryBreadcrumbs },
-    });
-  } catch (ex) {
-    results.products.errors++;
-    handleError(`Error updating product ${row.product_group}`, ex);
-    return;
   }
 }
 
