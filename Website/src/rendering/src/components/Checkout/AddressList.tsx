@@ -3,8 +3,10 @@ import AddressCard from './AddressCard';
 
 type AddressListProps = {
   addresses: DBuyerAddress[];
-  activeAddressId: string;
+  activeAddressId?: string;
   onClick: (address: DBuyerAddress) => void;
+  editable?: boolean;
+  onEdit?: (address: DBuyerAddress) => void;
 };
 
 const AddressList = (props: AddressListProps): JSX.Element => {
@@ -16,6 +18,7 @@ const AddressList = (props: AddressListProps): JSX.Element => {
         key={address.ID}
         address={address}
         active={address.ID === props.activeAddressId}
+        editable={props.editable}
       />
     ));
 

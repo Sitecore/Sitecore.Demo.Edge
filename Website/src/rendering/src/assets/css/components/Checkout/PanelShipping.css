@@ -1,0 +1,7 @@
+.panel-shipping {
+  @apply flex justify-between items-center;
+}
+
+.panel-shipping a {
+  @apply text-xs font-medium underline;
+}

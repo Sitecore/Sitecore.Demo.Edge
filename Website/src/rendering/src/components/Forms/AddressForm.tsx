@@ -1,14 +1,15 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
 import Spinner from '../../components/ShopCommon/Spinner';
 
 type AddressFormProps = {
   address?: DBuyerAddress;
-  onSubmit?: (address: DBuyerAddress) => void;
+  onSubmit?: (address: DBuyerAddress, saveToAddressBook: boolean) => void;
   isEditing?: boolean;
   onCancelEdit?: () => void;
   loading?: boolean;
+  showSaveToAddressBook?: boolean;
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -31,16 +32,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
   const [city, setCity] = useState(props?.address?.City || '');
   const [state, setState] = useState(props?.address?.State || '');
   const [zip, setZip] = useState(props?.address?.Zip || '');
-
-  useEffect(() => {
-    setAddressName(props?.address?.AddressName || 'Home');
-    setCountry(props?.address?.Country || 'US');
-    setStreet1(props?.address?.Street1 || '6818 Gaines Ferry Road');
-    setStreet2(props?.address?.Street2 || '');
-    setCity(props?.address?.City || 'Flowery Branch');
-    setState(props?.address?.State || 'GA');
-    setZip(props?.address?.Zip || '30542');
-  }, [props.address]);
+  const [saveToAddressBook, setSaveToAddressBook] = useState(false);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,7 +49,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     };
 
     if (props.onSubmit) {
-      props.onSubmit(updatedAddress);
+      props.onSubmit(updatedAddress, saveToAddressBook);
     }
   };
 
@@ -72,6 +64,19 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     <button className="cancel-edit" onClick={props.onCancelEdit}>
       Cancel
     </button>
+  );
+
+  // TODO: this checkbox needs to be styled
+  const saveToAddressBookInput = props.showSaveToAddressBook && (
+    <div className="floating-label-wrap">
+      <input
+        type="checkbox"
+        id="saveToAddressBook"
+        onChange={() => setSaveToAddressBook(!saveToAddressBook)}
+        checked={saveToAddressBook}
+      />
+      <label htmlFor="saveToAddressBook">Save to address book</label>
+    </div>
   );
 
   return (
@@ -172,6 +177,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         />
         <label htmlFor="postalCode">Postal Code</label>
       </div>
+      {saveToAddressBookInput}
       <div className="button-area">
         <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
           <Spinner loading={props.loading} /> Save Address
