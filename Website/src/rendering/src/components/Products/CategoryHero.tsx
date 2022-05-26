@@ -1,15 +1,24 @@
+import CategoryBreadcrumb from '../../components/Navigation/CategoryBreadcrumb';
+import { Category } from '../../helpers/CategoriesDataHelper';
+
 type CategoryHeroProps = {
-  categoryName: string;
-  categoryDescription: string;
+  category: Category;
 };
 
-const CategoryHero = ({ categoryName, categoryDescription }: CategoryHeroProps): JSX.Element => {
+const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
+  if (!category) {
+    return null;
+  }
+
+  const categoryDisplayName = category.title ? category.title : category.name;
+
   return (
     <section className="category-hero">
+      <CategoryBreadcrumb category={category} />
       <div className="category-hero-container">
         <div className="category-hero-content">
-          <h1>{categoryName}</h1>
-          <p>{categoryDescription}</p>
+          <h1>{categoryDisplayName}</h1>
+          <p>{category.desc}</p>
         </div>
         {/* TODO: Add subcategories here */}
         {/* <div className="category-hero-sub">

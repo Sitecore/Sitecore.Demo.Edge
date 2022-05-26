@@ -1,3 +1,4 @@
 *
 !.gitignore
 !GraphQLIntrospectionResult.json
+!categoriesData.ts

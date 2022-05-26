@@ -57,7 +57,9 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
         Email: claims.email || 'NOT_AVAILABLE',
         FirstName: claims.given_name || 'NOT_AVAILABLE',
         LastName: claims.family_name || 'NOT_AVAILABLE',
-      }
+      },
+      // access token has been granted elevated role BuyerUserAdmin required to patch users
+      { accessToken: payload.OrderCloudAccessToken }
     );
     return response.status(200).json({
       Username: updatedUser.Username,
