@@ -47,10 +47,10 @@ stages:
           displayName: 'npm run lint'
           workingDirectory: tv
 
-        - script: |
-            npm run build
-          displayName: 'npm run build'
-          workingDirectory: tv
+        # - script: |
+        #     npm run build
+        #   displayName: 'npm run build'
+        #   workingDirectory: tv
 
 - stage: Build_Kiosk
   displayName: "Lint and Build Kiosk"
@@ -80,10 +80,10 @@ stages:
           displayName: 'npm run lint'
           workingDirectory: kiosk
 
-        - script: |
-            npm run build
-          displayName: 'npm run build'
-          workingDirectory: kiosk
+        # - script: |
+        #     npm run build
+        #   displayName: 'npm run build'
+        #   workingDirectory: kiosk
 
 - stage: Build
   displayName: "Lint and Build Website"
@@ -362,6 +362,8 @@ stages:
               Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=5" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=3" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
 
 - stage: Update_DEV_Portal_Databases_Stable
   displayName: "Update 'stable' version in the DEV portal database"
@@ -387,6 +389,7 @@ stages:
             script: |
               Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=2" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=8" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
 
 - stage: Update_PROD_Portal_Database_Stable
   displayName: "Update 'stable' version in the PROD portal database"
@@ -412,6 +415,7 @@ stages:
             script: |
               Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=2" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=4" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
     - deployment: Update_Production_Database_Deployment
       displayName: "Update Production Database Deployment"
       environment: Production Portal Database
