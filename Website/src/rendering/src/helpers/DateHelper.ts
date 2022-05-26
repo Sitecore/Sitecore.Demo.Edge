@@ -78,5 +78,5 @@ export const getIsoDateFromYearAndMonth = (year: string, month: string): string 
 };
 
 export const getOrderDate = (date: Date): string => {
-  return date?.toLocaleDateString('en-GB').replaceAll('/', '.');
+  return date?.toLocaleDateString('en-GB').replace(/\//g, '.');
 };
