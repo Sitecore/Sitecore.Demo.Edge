@@ -1,25 +1,25 @@
 import React from 'react';
+import { Category, getCategoryChain } from '../../helpers/CategoriesDataHelper';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from './ShopBreadcrumb';
-import { DProductXp } from '../../models/ordercloud/DProduct';
 
 type ProductBreadcrumbProps = {
   productName: string;
   productUrl: string;
-  categoryBreadcrumbs: DProductXp['CategoryBreadcrumbs'];
+  ccid: string;
 };
 
 const ProductBreadcrumb = (props: ProductBreadcrumbProps): JSX.Element => {
-  const shopBreadcrumbs: ShopBreadcrumbItem[][] = [];
+  const categories: Category[] = getCategoryChain(props.ccid);
 
-  props.categoryBreadcrumbs.forEach((breadcrumb) => {
-    const itemNames = breadcrumb.BreadcrumbsName.split('>').reverse();
-    const itemPaths = breadcrumb.UrlPath.split('/');
+  const shopBreadcrumbs: ShopBreadcrumbItem[] = categories.map((category) => ({
+    urlPath: category.url_path,
+    displayName: category.title ? category.title : category.name,
+  }));
 
-    const breadcrumbs = itemNames.map((name, index) => ({
-      displayName: name,
-      urlPath: index === 0 ? itemPaths.join('/') : itemPaths.slice(0, -index).join('/'),
-    }));
-    shopBreadcrumbs.push(breadcrumbs);
+  // Add the product itself to the breadcrumbs
+  shopBreadcrumbs.unshift({
+    urlPath: props.productUrl,
+    displayName: props.productName,
   });
 
   return (
@@ -28,7 +28,7 @@ const ProductBreadcrumb = (props: ProductBreadcrumbProps): JSX.Element => {
         rendering={{ componentName: '' }}
         params={{}}
         fields={{ items: shopBreadcrumbs }}
-        isProductBreadcrumb={true}
+        additionalCssClass="product-breadcrumb"
       />
     </>
   );
