@@ -1,7 +1,3 @@
 .breadcrumb.shop-breadcrumb {
   @apply shop-container pt-3 pb-0 text-blue;
-
-  .product-breadcrumb-list li:last-child {
-    @apply font-normal;
-  }
 }
