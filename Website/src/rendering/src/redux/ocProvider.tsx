@@ -16,11 +16,23 @@ Configuration.Set({
 const OcProvider: FunctionComponent = ({ children }) => {
   const router = useRouter();
   const token = getTokenFromPath(router.asPath);
+
   if (token) {
     Tokens.SetAccessToken(token);
+
+    // Remove the query string arguments from the URL without reloading the page
     delete router.query.oidcToken;
-    router.push(router);
+    delete router.query.idpToken;
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: router.query,
+      },
+      undefined,
+      { shallow: true }
+    );
   }
+
   const dispatch = useAppDispatch();
   const { ocAuth, ocUser, ocCurrentCart } = useAppSelector((s) => ({
     ocAuth: s.ocAuth,
