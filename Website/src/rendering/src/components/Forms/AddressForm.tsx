@@ -76,7 +76,8 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
 
   return (
     <form onSubmit={handleFormSubmit} className="form">
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="addressName">Address Name (Optional)</label>
         <input
           type="text"
           placeholder="Address Name"
@@ -85,9 +86,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           onChange={(e) => setAddressName(e.target.value)}
           value={addressName}
         />
-        <label htmlFor="addressName">Address Name (Optional)</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="country">Country</label>
         <select
           id="country"
           required
@@ -103,9 +104,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
-        <label htmlFor="country">Country</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="street1">Street 1</label>
         <input
           type="text"
           placeholder="Street 1"
@@ -116,9 +117,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           onChange={(e) => setStreet1(e.target.value)}
           value={street1}
         />
-        <label htmlFor="street1">Street 1</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="street2">Street 2 (Optional)</label>
         <input
           type="text"
           placeholder="Street 2"
@@ -127,9 +128,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           onChange={(e) => setStreet2(e.target.value)}
           value={street2}
         />
-        <label htmlFor="street2">Street 2 (Optional)</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="city">City</label>
         <input
           type="text"
           placeholder="City"
@@ -140,9 +141,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           onChange={(e) => setCity(e.target.value)}
           value={city}
         />
-        <label htmlFor="city">City</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="stateProvince">State / Province</label>
         <select
           id="stateProvince"
           required
@@ -158,9 +159,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
-        <label htmlFor="stateProvince">State / Province</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="postalCode">Postal Code</label>
         <input
           type="text"
           id="postalCode"
@@ -170,7 +171,6 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           onChange={(e) => setZip(e.target.value)}
           value={zip}
         />
-        <label htmlFor="postalCode">Postal Code</label>
       </div>
       <div className="button-area">
         <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
