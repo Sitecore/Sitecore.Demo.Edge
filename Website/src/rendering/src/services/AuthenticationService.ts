@@ -14,11 +14,11 @@ export const isAuthenticationEnabled =
 
 // build up url for openid connect so user can log into ordercloud via auth0
 const roles = orderCloudScope.join(' ');
-export const getLoginUrl = (appstartpath = ''): string => {
-  if (appstartpath) {
-    appstartpath = encodeURIComponent(appstartpath);
+export const getLoginUrl = (redirectTo = ''): string => {
+  if (redirectTo) {
+    redirectTo = `&appstartpath=${encodeURIComponent(redirectTo)}`;
   }
-  return `${ORDERCLOUD_BASE_API_URL}/ocrplogin?id=${ORDERCLOUD_OPENID_CONNECT_ID}&cid=${ORDERCLOUD_BUYER_CLIENT_ID}&roles=${roles}&appstartpath=${appstartpath}`;
+  return `${ORDERCLOUD_BASE_API_URL}/ocrplogin?id=${ORDERCLOUD_OPENID_CONNECT_ID}&cid=${ORDERCLOUD_BUYER_CLIENT_ID}&roles=${roles}${redirectTo}`;
 };
 export const logoutUrl = '/api/auth/logout';
 

@@ -21,6 +21,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
   const accountPopupRef = useRef(null);
 
+  // TODO: Remove conditions from JSX
   const accountMenuItem = isAuthenticationEnabled && (
     <li
       className={`shop-navigation-menu-item ${isAccountPopupOpen && 'active'}`}

@@ -14,25 +14,35 @@ const AccountPopup = (): JSX.Element => {
   const { user } = useOcUser();
   const { isAnonymous, isAuthenticated } = useOcAuth();
 
+  if (!isAuthenticationEnabled) {
+    return null;
+  }
+
   const isUserLoggedIn = !isAnonymous && isAuthenticated;
 
-  const guestMenuItems = isAuthenticationEnabled && !isUserLoggedIn && (
+  const guestMenuItems = !isUserLoggedIn && (
     <>
       <Link href={getLoginUrl(router.asPath)}>
         <a className="btn--secondary btn--secondary--light btn--secondary--round">Login</a>
       </Link>
-      {/* TODO Replace with signup url when available */}
+      {/* TODO: Replace with signup url when available */}
       <Link href={getLoginUrl(router.asPath)}>
         <a className="btn--main btn--main--round">Register</a>
       </Link>
     </>
   );
 
-  const loggedInMenuItems = isAuthenticationEnabled && isUserLoggedIn && (
+  const getGreeting = () => {
+    let greeding = 'Greetings';
+    if (user?.FirstName || user?.LastName) {
+      greeding += `, ${user?.FirstName} ${user?.LastName}`;
+    }
+    return greeding;
+  };
+
+  const loggedInMenuItems = isUserLoggedIn && (
     <>
-      <h3>
-        Greetings, {user?.FirstName} {user?.LastName}
-      </h3>
+      <h3>{getGreeting()}</h3>
       <Link href={logoutUrl}>
         <a className="btn--main btn--main--round" onClick={clearAuthenticationTokens}>
           Logout
