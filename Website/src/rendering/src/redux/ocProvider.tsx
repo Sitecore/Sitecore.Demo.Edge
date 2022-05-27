@@ -7,6 +7,8 @@ import { getUser } from './ocUser';
 import { Configuration, Tokens } from 'ordercloud-javascript-sdk';
 import { isCommerceEnabled } from '../helpers/CommerceHelper';
 import { useRouter } from 'next/router';
+import { Actions, PageController } from '@sitecore-discover/react';
+import { DMeUser } from 'src/models/ordercloud/DUser';
 
 Configuration.Set({
   baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
@@ -32,6 +34,7 @@ const OcProvider: FunctionComponent = ({ children }) => {
     if (isCommerceEnabled) {
       if (!ocAuth.initialized) {
         dispatch(initializeAuth());
+        dispatchDiscoverUserLoginEvent(ocUser.user);
       } else if (ocAuth.isAnonymous && !ocAuth.isAuthenticated) {
         dispatch(logout());
       } else if (ocAuth.isAuthenticated) {
@@ -46,6 +49,16 @@ const OcProvider: FunctionComponent = ({ children }) => {
   }, [dispatch, ocAuth, ocUser, ocCurrentCart]);
 
   return <>{children}</>;
+};
+
+const dispatchDiscoverUserLoginEvent = (user: DMeUser) => {
+  PageController.getDispatcher().dispatch({
+    type: Actions.USER_LOGIN,
+    payload: {
+      email: user.Email,
+      id: user.ID,
+    },
+  });
 };
 
 function getTokenFromPath(path?: string): string {
