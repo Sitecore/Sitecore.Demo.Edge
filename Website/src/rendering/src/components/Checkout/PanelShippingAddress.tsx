@@ -58,6 +58,7 @@ const PanelShippingAddress = (): JSX.Element => {
       onCancelEdit={handleCancelEdit}
       showSaveToAddressBook={false}
       loading={loading}
+      prefix="shipping"
     />
   );
 
@@ -73,6 +74,7 @@ const PanelShippingAddress = (): JSX.Element => {
       onCancelEdit={handleCancelEdit}
       showSaveToAddressBook={!isAnonymous}
       loading={loading}
+      prefix="shipping"
     />
   );
 

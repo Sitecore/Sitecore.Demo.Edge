@@ -54,8 +54,7 @@ const SearchInput = ({
   };
 
   const redirectToSearchPage = (searchTerm: string) => {
-    // TODO: Use Next.js router push() function instead
-    window.location.href = `${redirectUrl}${searchTerm}`;
+    router.push(`${redirectUrl}${searchTerm}`);
   };
 
   return (

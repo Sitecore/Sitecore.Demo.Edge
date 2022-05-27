@@ -17,15 +17,17 @@ const PanelComments = (): JSX.Element => {
       </div>
       <div className="panel-body">
         <form className="form">
-          <textarea
-            name="order-comments"
-            id="order-comments"
-            rows={3}
-            placeholder="Leave your comment for us here..."
-            defaultValue={order?.Comments}
-            // TODO: Investigate if we need to disable the "Review order" button while the comment is being saved
-            onBlur={(event) => updateComments(event.target.value)}
-          ></textarea>
+          <div>
+            <label htmlFor="order-comments">Leave your comment for us here...</label>
+            <textarea
+              name="order-comments"
+              id="order-comments"
+              rows={3}
+              defaultValue={order?.Comments}
+              // TODO: Investigate if we need to disable the "Review order" button while the comment is being saved
+              onBlur={(event) => updateComments(event.target.value)}
+            ></textarea>
+          </div>
         </form>
       </div>
     </div>

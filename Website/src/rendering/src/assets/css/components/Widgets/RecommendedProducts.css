@@ -1,0 +1,18 @@
+.recommended-products {
+  &-title {
+    @apply mb-2 ml-4 font-bold;
+
+    &::before {
+      @apply content-[''] inline-block w-2 h-2 -ml-4 mr-2 align-middle bg-blue;
+    }
+
+    &-orange::before {
+      @apply bg-orange;
+    }
+  }
+
+  .product-list {
+    @apply grid-cols-2;
+    @apply lg:grid-cols-4;
+  }
+}

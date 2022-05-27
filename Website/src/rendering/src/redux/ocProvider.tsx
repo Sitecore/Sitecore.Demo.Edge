@@ -7,6 +7,9 @@ import { getUser } from './ocUser';
 import { Configuration, Tokens } from 'ordercloud-javascript-sdk';
 import { isCommerceEnabled } from '../helpers/CommerceHelper';
 import { useRouter } from 'next/router';
+import { Actions, PageController } from '@sitecore-discover/react';
+
+// TODO: Look into decoupling OrderCloud, Auth0, and Discover logic to keep this file for OrderCloud code only
 
 Configuration.Set({
   baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
@@ -15,13 +18,37 @@ Configuration.Set({
 
 const OcProvider: FunctionComponent = ({ children }) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  const dispatchDiscoverUserLoginEvent = async () => {
+    const user = await dispatch(getUser()).unwrap();
+    PageController.getDispatcher().dispatch({
+      type: Actions.USER_LOGIN,
+      payload: {
+        email: user.Email,
+        id: user.ID,
+      },
+    });
+  };
+
   const token = getTokenFromPath(router.asPath);
   if (token) {
     Tokens.SetAccessToken(token);
+
+    // Remove the query string arguments from the URL without reloading the page
     delete router.query.oidcToken;
-    router.push(router);
+    delete router.query.idpToken;
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: router.query,
+      },
+      undefined,
+      { shallow: true }
+    );
+    dispatchDiscoverUserLoginEvent();
   }
-  const dispatch = useAppDispatch();
+
   const { ocAuth, ocUser, ocCurrentCart } = useAppSelector((s) => ({
     ocAuth: s.ocAuth,
     ocUser: s.ocUser,
