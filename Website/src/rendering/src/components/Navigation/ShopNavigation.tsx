@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
+import { Actions, PageController } from '@sitecore-discover/react';
+import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
@@ -16,6 +19,7 @@ export type ShopNavigationProps = {
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
+  const { lineItems } = useOcCurrentCart();
 
   const accountMenuItem = isAuthenticationEnabled && (
     <li className="shop-navigation-menu-item">
@@ -30,6 +34,23 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   ClickOutside(miniCartRef, () => {
     setIsMiniCartOpen(false);
   });
+
+  // TODO: Try to remove code duplication here and in LineItemList.tsx
+  const dispatchDiscoverCartStatusListActionEvent = () => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.CART_STATUS,
+      payload: {
+        products: mapProductsForDiscover(lineItems),
+      },
+    });
+  };
+
+  const handleCartIconClick = () => {
+    if (!isMiniCartOpen && lineItems?.length !== undefined) {
+      dispatchDiscoverCartStatusListActionEvent();
+    }
+    setIsMiniCartOpen(!isMiniCartOpen);
+  };
 
   const previewSearchWidget = props.previewSearchProps ? (
     <PreviewSearch {...props.previewSearchProps} />
@@ -56,7 +77,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               }`}
               ref={miniCartRef}
             >
-              <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
+              <button onClick={handleCartIconClick}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 <CartBadge />
               </button>

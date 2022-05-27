@@ -4,6 +4,7 @@ import {
   setCredentials,
   WidgetDataType,
   PageController,
+  trackPageViewEvent,
 } from '@sitecore-discover/react';
 import CustomersAlsoBought from '../components/Widgets/CustomersAlsoBought';
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
@@ -112,5 +113,13 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     pushState.apply(history, rest);
     const context = PageController.getContext();
     context.setPageUri(window.location.pathname);
+    trackPageViewEvent({
+      page: {
+        uri: context.getPageUri(),
+      },
+      user: {
+        uuid: context.getUserUuid(),
+      },
+    });
   };
 };

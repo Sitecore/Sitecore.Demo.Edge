@@ -1,15 +1,18 @@
 import { useRouter } from 'next/router';
+import { Actions, PageController } from '@sitecore-discover/react';
 import { submitOrder } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
+import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
+import mapUserForDiscover from '../../../src/helpers/discover/UserMapper';
 
 // TODO: Create Storybook story for that component
 const OrderReviewDetails = (): JSX.Element => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
+  const { order, lineItems, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
 
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.[0];
   const deliveryMethod = shipEstimate?.ShipMethods?.filter(
@@ -66,7 +69,21 @@ const OrderReviewDetails = (): JSX.Element => {
   );
 
   const onOrderSubmitSuccess = () => {
+    dispatchDiscoverOrderConfirmEvent();
     router?.push(`/shop/checkout/order-summary`);
+  };
+
+  const dispatchDiscoverOrderConfirmEvent = () => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.ORDER_CONFIRM,
+      payload: {
+        products: mapProductsForDiscover(lineItems),
+        user: mapUserForDiscover(order.FromUser),
+        orderId: order.ID,
+        total: order.Total,
+        subtotal: order.Subtotal,
+      },
+    });
   };
 
   const handleSubmitOrder = async () => dispatch(submitOrder(onOrderSubmitSuccess));
