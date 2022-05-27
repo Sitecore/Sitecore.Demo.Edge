@@ -9,6 +9,7 @@ type ProductListProps = {
   onDiscoverStyleOpen?: () => void;
   loaded: boolean;
   loading: boolean;
+  altTheme?: boolean; // makes offer ribbon and price orange
 };
 
 const ProductList = ({
@@ -16,6 +17,7 @@ const ProductList = ({
   loading,
   products,
   onProductClick,
+  altTheme,
 }: ProductListProps): JSX.Element => {
   const ready = loaded && !loading;
 
@@ -25,7 +27,11 @@ const ProductList = ({
       {ready &&
         products.map((product) => (
           <li key={product.sku} className="product-list-item">
-            <ProductCard {...product} onClick={() => !!onProductClick && onProductClick(product)} />
+            <ProductCard
+              {...product}
+              onClick={() => !!onProductClick && onProductClick(product)}
+              altTheme={altTheme}
+            />
           </li>
         ))}
     </ul>

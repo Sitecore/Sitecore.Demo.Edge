@@ -8,21 +8,22 @@ interface RecommendedProductsProps extends RecommendationWidgetProps {
 }
 
 const RecommendedProducts = (props: RecommendedProductsProps): JSX.Element => {
-  const { onProductClick, products, rfkID, title, loaded, loading } = props;
+  const { onProductClick, products, rfkID, title, loaded, loading, altTheme } = props;
 
   const handleProductClick = (product: Product) => {
     onProductClick({ sku: product.sku, rfkId: rfkID });
   };
 
   const recommendedProducts = products?.length ? (
-    <section className="section">
+    <section className="section recommended-products">
       <div className="shop-container">
-        <h3>{title}</h3>
+        <h3 className="recommended-products-title">{title}</h3>
         <ProductList
           products={products}
           loaded={loaded}
           loading={loading}
           onProductClick={handleProductClick}
+          altTheme={altTheme}
         />
       </div>
     </section>

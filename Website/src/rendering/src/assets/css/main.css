@@ -125,6 +125,9 @@
 /* Sponsors */
 @import './components/Sponsors/SponsorsGrid.css';
 
+/* Widgets */
+@import './components/Widgets/RecommendedProducts.css';
+
 /* 6. Tailwind components */
 
 /* Specifically importing after our components to mimic Tailwind v2 file creation */
@@ -139,4 +142,4 @@
 
 /* 9. Other styles */
 
-@import '../../../node_modules/react-loading-skeleton/dist/skeleton.css'
+@import '../../../node_modules/react-loading-skeleton/dist/skeleton.css';
