@@ -4,6 +4,7 @@ import debounce from '../../helpers/Debounce';
 import { Action } from '@sitecore-discover/react';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import Link from 'next/link';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 type Category = {
   id: string;
@@ -52,7 +53,7 @@ const TrendingCategories = ({
           <li key={category.id}>
             <Link href={category.url}>
               <a>
-                <img src="/assets/img/shop/category-placeholder.png" alt={category.text} />
+                <img src={getCategoryByUrlPath(category.url).image_url} alt={category.text} />
                 <h4>{category.text}</h4>
               </a>
             </Link>
