@@ -15,6 +15,7 @@ Configuration.Set({
   clientID: process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID,
 });
 
+// TODO: Look into decoupling OrderCloud, Auth0, and Discover logic below to keep this file for OrderCloud code only
 const dispatchDiscoverUserLoginEvent = (user: DMeUser) => {
   PageController.getDispatcher().dispatch({
     type: Actions.USER_LOGIN,
