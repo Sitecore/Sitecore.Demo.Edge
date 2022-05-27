@@ -53,6 +53,7 @@
 @import './components/FullPageSearch/FullPageSearch.css';
 
 /* Navigation */
+@import './components/Navigation/AccountPopup.css';
 @import './components/Navigation/Breadcrumb.css';
 @import './components/Navigation/CategoryBreadcrumb.css';
 @import './components/Navigation/Footer.css';
