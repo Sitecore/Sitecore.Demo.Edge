@@ -46,7 +46,7 @@ const ProductCard = ({
       </div>
       <div className="product-info-container">
         <Link href={product_url}>
-          <a>
+          <a onClick={onClick}>
             <div className="product-name">{name}</div>
             <div className="product-brand">{brand}</div>
           </a>
