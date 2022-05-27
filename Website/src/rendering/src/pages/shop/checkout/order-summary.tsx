@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
@@ -11,12 +11,21 @@ const OrderSummary = (): JSX.Element => {
   });
 
   return (
-    <ShopLayout>
-      <Head>
-        <title>PLAY! SHOP - Order Summary</title>
-      </Head>
+    <>
       <ThankYouHero />
       <ThankYouSection />
+    </>
+  );
+};
+
+OrderSummary.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <ShopLayout>
+      <Head>
+        <title>PLAY! SHOP - My Account</title>
+      </Head>
+
+      {page}
     </ShopLayout>
   );
 };

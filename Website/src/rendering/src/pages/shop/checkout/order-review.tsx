@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
@@ -17,11 +17,7 @@ const OrderReview = (): JSX.Element => {
   ];
 
   return (
-    <ShopLayout>
-      <Head>
-        <title>PLAY! SHOP - Order Review</title>
-      </Head>
-
+    <>
       <ShopBreadcrumb
         rendering={{ componentName: '' }}
         params={{}}
@@ -29,6 +25,18 @@ const OrderReview = (): JSX.Element => {
       />
 
       <OrderReviewDetails />
+    </>
+  );
+};
+
+OrderReview.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <ShopLayout>
+      <Head>
+        <title>PLAY! SHOP - My Account</title>
+      </Head>
+
+      {page}
     </ShopLayout>
   );
 };

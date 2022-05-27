@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
@@ -16,17 +16,24 @@ const Checkout = (): JSX.Element => {
   ];
 
   return (
-    <ShopLayout>
-      <Head>
-        <title>PLAY! SHOP - Checkout</title>
-      </Head>
-
+    <>
       <ShopBreadcrumb
         rendering={{ componentName: '' }}
         params={{}}
         fields={{ items: breadCrumbDefinitions }}
       />
       <CheckoutDetails />
+    </>
+  );
+};
+
+Checkout.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <ShopLayout>
+      <Head>
+        <title>PLAY! SHOP - Checkout</title>
+      </Head>
+      {page}
     </ShopLayout>
   );
 };
