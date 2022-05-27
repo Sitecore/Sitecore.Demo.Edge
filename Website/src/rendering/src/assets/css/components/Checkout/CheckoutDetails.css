@@ -69,25 +69,25 @@
   }
 
   .form {
-    @apply space-y-5;
-
-    .floating-label-wrap {
-      input:focus + label,
-      input:not(:placeholder-shown) + label,
-      select + label {
-        @apply translate-x-0 -translate-y-6;
-      }
-    }
+    @apply space-y-4;
 
     input,
     select,
     textarea {
-      @apply block w-full py-1 px-4 border-2 border-black-lightest rounded-none font-normal;
+      @apply block w-full py-1 px-2 border-2 border-black-lightest rounded-none font-normal;
 
       &:focus,
       &:active {
         @apply rounded-none outline-none;
       }
+
+      &::placeholder {
+        @apply italic;
+      }
+    }
+
+    select {
+      @apply px-1.5;
     }
 
     textarea {
@@ -96,7 +96,7 @@
     }
 
     label {
-      @apply py-1 px-4 italic font-normal;
+      @apply block pb-1 text-sm font-normal;
     }
 
     .button-area {
@@ -112,7 +112,7 @@
         @apply flex flex-wrap gap-x-4 gap-y-1;
 
         span {
-          @apply w-full text-base;
+          @apply w-full text-sm;
         }
 
         label {

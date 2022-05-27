@@ -12,6 +12,7 @@ import {
 } from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 import CategoryHero from '../Products/CategoryHero';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -105,19 +106,13 @@ const FullPageSearch = ({
     onSortChange: handleSortChange,
   };
 
-  // TODO: Replace this with category from SDK response
-  let categoryName = '';
-  if (typeof window !== 'undefined') {
-    const urlSegments = window.location.href.split('/');
-    const category = urlSegments[urlSegments.length - 1];
-    categoryName = category.charAt(0).toUpperCase() + category.slice(1);
-  }
+  // TODO: Extract this whole component except this line that gets the URL path into a FullPageSearchContent.tsx component that will accept an extra prop for the urlPath. Then rename the FullPageSearch.stories.tsx to FullPageSearchContent.stories.tsx and test the sub component. Create test cases when the urlPath is for a non-existing category, an existing category, etc.
+  const category = getCategoryByUrlPath(window.location.pathname);
 
-  const pageTitle = isCategoryProductListingPage ? categoryName : 'Products';
+  const pageTitle = isCategoryProductListingPage && category ? category.name : 'Products';
 
-  const categoryHero = isCategoryProductListingPage && (
-    /* TODO: Replace props with data from Discover SDK */
-    <CategoryHero categoryName={categoryName} categoryDescription="Category Description" />
+  const categoryHero = isCategoryProductListingPage && category && (
+    <CategoryHero category={category} />
   );
 
   return (

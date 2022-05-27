@@ -47,10 +47,10 @@ stages:
           displayName: 'npm run lint'
           workingDirectory: tv
 
-        - script: |
-            npm run build
-          displayName: 'npm run build'
-          workingDirectory: tv
+        # - script: |
+        #     npm run build
+        #   displayName: 'npm run build'
+        #   workingDirectory: tv
 
 - stage: Build_Kiosk
   displayName: "Lint and Build Kiosk"
@@ -80,10 +80,10 @@ stages:
           displayName: 'npm run lint'
           workingDirectory: kiosk
 
-        - script: |
-            npm run build
-          displayName: 'npm run build'
-          workingDirectory: kiosk
+        # - script: |
+        #     npm run build
+        #   displayName: 'npm run build'
+        #   workingDirectory: kiosk
 
 - stage: Build
   displayName: "Lint and Build Website"

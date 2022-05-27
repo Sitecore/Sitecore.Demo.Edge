@@ -12,6 +12,10 @@
 
     .product-offer {
       @apply absolute bottom-4 pl-2 pr-1 py-[2px] text-xs bg-blue text-white;
+
+      &-orange {
+        @apply bg-orange;
+      }
     }
   }
 
