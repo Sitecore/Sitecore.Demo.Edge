@@ -134,14 +134,19 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   );
 
   const editableUserComment = props.editable && (
-    <input
-      type="text"
-      placeholder="Text input for user..."
-      className="user-comment"
-      defaultValue={props.lineItem.xp?.Comment}
-      // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
-      onBlur={(event) => handleUpdateComment(event.target.value)}
-    />
+    <>
+      <label htmlFor={`${props.lineItem.ID}-comment`} className="user-comment-label">
+        Comments
+      </label>
+      <input
+        id={`${props.lineItem.ID}-comment`}
+        type="text"
+        className="user-comment"
+        defaultValue={props.lineItem.xp?.Comment}
+        // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
+        onBlur={(event) => handleUpdateComment(event.target.value)}
+      />
+    </>
   );
 
   const staticUserComment = !props.editable && <p>{props.lineItem.xp?.Comment}</p>;
