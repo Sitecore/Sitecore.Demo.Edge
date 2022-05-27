@@ -81,29 +81,87 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
 1. Edit the `.\.env` file.
 2. Fill the following values:
-   1. **CMP_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;`
-   2. **CMP_ServiceBusEntityPathIn**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID`
-   3. **CMP_ServiceBusSubscription**: `hub_out_subscription`
-   4. **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
-   5. **DAM_ContentHub**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud`
-   6. **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
+
+   ```shell
+   # Content Hub Connector
+   CMP_ContentHub=ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;
+   CMP_ServiceBusEntityPathIn=Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID
+   CMP_ServiceBusSubscription=hub_out_subscription
+   CMP_ServiceBusEntityPathOut=Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID
+   DAM_ContentHub=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud
+   DAM_SearchPage=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets
+   ```
+
 3. Save the file.
 
 ### Optional: Commerce Configuration
 
-If you want the website to use Commerce you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
+If you want the website to use Commerce, you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
 
 1. Edit the `.\.env` file.
-2. Fill the following values
-   1. **ORDERCLOUD_BUYER_CLIENT_ID**: `YOUR_BUYER_APPLICATION_CLIENT_ID`
-   2. **ORDERCLOUD_BASE_API_URL**: `BASE_API_URL_FOR_YOUR_REGION_AND_ENVIRONMENT`
-   3. **ORDERCLOUD_MIDDLEWARE_CLIENT_ID**: `YOUR_MIDDLEWARE_CLIENT_ID`
-   4. **ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET**: `SECRET_TO_YOUR_MIDDLEWARE_CLIENT`
-   5. **ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS**: `COMMA_DELIMITED_CLIENTIDS_ALLOWED_TO_MAKE_REQUESTS_TO_MIDDLEWARE`
-   5. **ORDERCLOUD_WEBHOOK_HASH_KEY**: `HASH_KEY_DEFINED_ON_YOUR_CHECKOUT_INTEGRATION_EVENT`
-   7. **DISCOVER_CUSTOMER_KEY**: `YOUR_DISCOVER_CUSTOMER_KEY`
-   8. **DISCOVER_API_KEY**: `YOUR_DISCOVER_API_KEY`
+2. Fill the following values (see table below for description)
+
+   ```shell
+   # Discover
+   DISCOVER_CUSTOMER_KEY=YOUR_DISCOVER_CUSTOMER_KEY
+   DISCOVER_API_KEY=YOUR_DISCOVER_API_KEY
+
+   # OrderCloud
+   ORDERCLOUD_BUYER_CLIENT_ID=YOUR_BUYER_APPLICATION_CLIENT_ID
+   ORDERCLOUD_BASE_API_URL=YOUR_ORDERCLOUD_BASE_API_URL
+   ORDERCLOUD_MIDDLEWARE_CLIENT_ID=YOUR_MIDDLEWARE_CLIENT_ID
+   ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET=YOUR_MIDDLEWARE_CLIENT_SECRET
+   ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS=YOUR_ALLOWED_CLIENT_IDS
+   ORDERCLOUD_WEBHOOK_HASH_KEY=YOUR_WEBHOOK_HASH_KEY
+   ```
+
 3. Save the file.
+
+| Variable                                  | Description                                                                                                                                                                                        |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ORDERCLOUD_BUYER_CLIENT_ID`              | Your buyer application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured to allow anonymous shopping.                                             |
+| `ORDERCLOUD_BASE_API_URL`                 | The base URL for accessing the ordercloud api. Generally in the shape https://{region}-{environment}.ordercloud.io. Access in portal when viewing your Marketplace.                                |
+| `ORDERCLOUD_MIDDLEWARE_CLIENT_ID`         | Your middleware application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured with `AllowSeller=true` as well as with a `DefaultContextUsername`  |
+| `ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET`     | Your middleware application ClientSecret                                                                                                                                                           |
+| `ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS` | A comma delimited list of API ClientIDs that should be allowed to call out to them middleware endpoints. Generally this should be just `ORDERCLOUD_BUYER_CLIENT_ID`                                |
+| `ORDERCLOUD_WEBHOOK_HASH_KEY`             | A long secret value used to encrypt and validate webhook requests. You can generate a suitable string using openssl rand -hex 32 on the command line                                               |
+| `DISCOVER_CUSTOMER_KEY`                   | Your Discover Customer Key. In the Discover CEC under Developer Resources > API Access                                                                                                             |
+| `DISCOVER_API_KEY`                        | Your Discover API Key. In the Discover CEC under Developer Resources > API Access                                                                                                                  |
+
+### Optional: Profiled User Configuration
+
+Enabling this allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. To do that you must have configured commerce and have access to an [auth0](https://auth0.com) instance.
+
+1. Follow [instructions here](../ordercloud.md#) to configure OrderCloud for single sign on
+2. Edit the `.\.env` file
+3. Fill the following values (see table below for description and checkout Configuring OpenID Connect Integration)
+
+   ```shell
+   # OrderCloud
+   ORDERCLOUD_PROFILED_BUYER_ID=YOUR_BUYER_ID_FOR_PROFILED_USERS
+   ORDERCLOUD_OPENID_CONNECT_ID=YOUR_OPENID_CONNECT_ID
+
+   # Auth0 Variables
+   AUTH0_SECRET=use [openssl rand -hex 32] to generate a 32 bytes value
+   AUTH0_BASE_URL=https://www.edge.localhost
+   AUTH0_ISSUER_BASE_URL=https://YOUR_DOMAIN
+   AUTH0_CLIENT_ID=YOUR_CLIENT_ID
+   AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
+   AUTH0_ENABLED=true
+   ```
+
+4. Save the file.
+
+| Variable                        | Description                                                                                                                                                                                |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AUTH0_SECRET`                  | A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line                                                  |
+| `AUTH0_BASE_URL`                | The base URL of your application.                                                                                                                                                          |
+| `AUTH0_ISSUER_BASE_URL`         | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
+| `AUTH0_CLIENT_ID`               | Your Auth0 application's Client ID                                                                                                                                                         |
+| `AUTH0_CLIENT_SECRET`           | Your Auth0 application's Client Secret                                                                                                                                                     |
+| `AUTH0_ENABLED`                 | `true` or `false` indicating whether or not auth0 is configured, must be true for profiled user features to appear                                                                         |
+| `ORDERCLOUD_OPENID_CONNECT_ID`  | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |                                                                                                                                        |
+| `ORDERCLOUD_PROFILED_BUYER_ID`  | The ID of the buyer organization where profiled users should be created under                                                                                                              |                                                                                                                                        |
 
 ## Running the Website
 
@@ -172,6 +230,19 @@ The content of the project is mapped to the Rendering container using a Docker v
 #### Debugging the Rendering Next.js Project
 
 Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
+
+#### Building the Rendering Next.js Project Locally
+
+If you ever have to build the Next.js application in a command line:
+
+1. Stop the "rendering" Docker container.
+   - Because the rendering container has a mapped folder to `.\Website\src\rendering` and is running `npm run dev`, it shares the same build output folder as `next build`. Building for production while the container is running will produce all kind of errors.
+2. Run `npm run build:local`
+   - Some website code depends on environment variables that are set through the rendering Docker container. When building in a command line, those environment variables require fake values for the build to succeed. This command sets those fake values before starting the build.
+
+When you are done:
+
+1. Start the "rendering" Docker container.
 
 ### Items Serialization
 

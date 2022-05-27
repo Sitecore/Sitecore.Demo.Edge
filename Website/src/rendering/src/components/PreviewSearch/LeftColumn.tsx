@@ -1,39 +1,51 @@
+import Link from 'next/link';
+import { useState } from 'react';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
 
 type PreviewSearchListProps = {
-  items: [];
+  items: unknown[];
   title: string;
+  redirectUrl: string;
   onMouseEnter: (text: string) => void;
   onMouseLeave: () => void;
-  redirectUrl: string;
 };
 
-const PreviewSearchList = (props: PreviewSearchListProps): JSX.Element => {
-  const { items, title, onMouseEnter, onMouseLeave, redirectUrl } = props;
+const PreviewSearchList = ({
+  items,
+  title,
+  redirectUrl,
+  onMouseEnter,
+  onMouseLeave,
+}: PreviewSearchListProps): JSX.Element => {
+  return (
+    <div className="list-container">
+      {items.length > 0 && (
+        <div>
+          <h2 className="list-container-title">{title}</h2>
+          <ul>
+            {items.map(({ text, id, url }) => {
+              const href = url ? url : `${redirectUrl}${text}`;
 
-  return window.RFK.ui.html` <div class="list-container">
-    ${
-      items.length > 0 &&
-      window.RFK.ui.html` <h2 class="list-container-title">${title}</h2>
-      <ul>
-        ${items.map(
-          ({ text, id, url }) => window.RFK.ui.html` <li
-            class="list-item"
-            id=${id}
-            onMouseEnter=${() => onMouseEnter(text)}
-            onMouseLeave=${onMouseLeave}
-          >
-            ${
-              url
-                ? window.RFK.ui.html`<a href="${url}">${text}</a>`
-                : window.RFK.ui.html`<a href="${redirectUrl}${text}">${text}</a>`
-            }
-          </li>`
-        )}
-      </ul>`
-    }
-  </div>`;
+              return (
+                <li
+                  className="list-item"
+                  id={id}
+                  key={id}
+                  onMouseEnter={() => onMouseEnter(text)}
+                  onMouseLeave={onMouseLeave}
+                >
+                  <Link href={href}>
+                    <a>{text}</a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
 };
 
 type LeftColumnProps = {
@@ -48,20 +60,18 @@ type LeftColumnProps = {
   redirectUrl: string;
 };
 
-const LeftColumn = (props: LeftColumnProps): JSX.Element => {
-  const {
-    categories,
-    trendingCategories,
-    suggestions,
-    loading,
-    loaded,
-    onCategoryChanged,
-    onTrendingCategoryChanged,
-    onSuggestionChanged,
-    redirectUrl,
-  } = props;
-
-  const [lock, setLock] = window.RFK.ui.useState(false);
+const LeftColumn = ({
+  categories,
+  trendingCategories,
+  suggestions,
+  loading,
+  loaded,
+  onCategoryChanged,
+  onTrendingCategoryChanged,
+  onSuggestionChanged,
+  redirectUrl,
+}: LeftColumnProps): JSX.Element => {
+  const [lock, setLock] = useState(false);
 
   const onCategoryEnter = (category: string) => {
     if (!lock) {
@@ -88,48 +98,51 @@ const LeftColumn = (props: LeftColumnProps): JSX.Element => {
     setLock(false);
   };
 
-  const shouldShowTrendingCategories = trendingCategories?.length > 0 && categories?.length === 0;
+  const isLoaded = loaded && !loading;
+  const shouldShowSuggestedCategories = isLoaded && categories?.length > 0;
+  const shouldShowTrendingCategories =
+    isLoaded && !shouldShowSuggestedCategories && trendingCategories?.length > 0;
+  const shouldShowDidYouMean = isLoaded && suggestions?.length > 0;
 
-  return window.RFK.ui.html`
-    <div class="left-section">
-      <div class="left-section-inner">
-        ${
-          loaded &&
-          !loading &&
-          categories?.length > 0 &&
-          window.RFK.ui.html`<${PreviewSearchList}
-          onMouseEnter=${onCategoryEnter}
-          onMouseLeave=${onMouseLeave}
-          title="Categories"
-          items=${categories}
-        />`
-        }
-        ${
-          loaded &&
-          !loading &&
-          shouldShowTrendingCategories &&
-          window.RFK.ui.html`<${PreviewSearchList}
-          onMouseEnter=${onTrendingCategoryEnter}
-          onMouseLeave=${onMouseLeave}
-          title="Trending Categories"
-          items=${trendingCategories}
-        />`
-        }
-        ${
-          loaded &&
-          !loading &&
-          suggestions?.length > 0 &&
-          window.RFK.ui.html`<${PreviewSearchList}
-          onMouseEnter=${onSuggestionEnter}
-          onMouseLeave=${onMouseLeave}
-          title="Did you mean?"
-          items=${suggestions}
-          redirectUrl=${redirectUrl}
-        />`
-        }
+  const suggestedCategoriesList = shouldShowSuggestedCategories && (
+    <PreviewSearchList
+      onMouseEnter={onCategoryEnter}
+      onMouseLeave={onMouseLeave}
+      title="Categories"
+      items={categories}
+      redirectUrl={redirectUrl}
+    />
+  );
+
+  const trendingCategoriesList = shouldShowTrendingCategories && (
+    <PreviewSearchList
+      onMouseEnter={onTrendingCategoryEnter}
+      onMouseLeave={onMouseLeave}
+      title="Trending Categories"
+      items={trendingCategories}
+      redirectUrl={redirectUrl}
+    />
+  );
+
+  const didYouMeanList = shouldShowDidYouMean && (
+    <PreviewSearchList
+      onMouseEnter={onSuggestionEnter}
+      onMouseLeave={onMouseLeave}
+      title="Did you mean?"
+      items={suggestions}
+      redirectUrl={redirectUrl}
+    />
+  );
+
+  return (
+    <div className="left-section">
+      <div className="left-section-inner">
+        {suggestedCategoriesList}
+        {trendingCategoriesList}
+        {didYouMeanList}
       </div>
     </div>
-  `;
+  );
 };
 
 export default LeftColumn;

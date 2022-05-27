@@ -6,10 +6,12 @@ import {
   getYearFromIsoDateString,
 } from '../../helpers/DateHelper';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
+import Spinner from '../../components/ShopCommon/Spinner';
 
 type CreditCardFormProps = {
   creditCard?: DBuyerCreditCard;
   onSubmit?: (payment: DBuyerCreditCard) => void;
+  loading?: boolean;
 };
 
 const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
@@ -120,8 +122,8 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
         </div>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
-          Save
+        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
+          <Spinner loading={props.loading} /> Save
         </button>
       </div>
     </form>

@@ -1,6 +1,6 @@
 .product-card {
   .product-image-container {
-    @apply relative w-full border border-solid border-gray;
+    @apply relative w-full;
 
     a {
       @apply block relative pt-[100%];
