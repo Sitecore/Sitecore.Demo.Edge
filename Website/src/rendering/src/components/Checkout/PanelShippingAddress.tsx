@@ -34,6 +34,7 @@ const PanelShippingAddress = (): JSX.Element => {
         isEditing={isEditing}
         onCancelEdit={handleCancelEdit}
         loading={loading}
+        prefix="shipping"
       />
     ) : (
       <AddressCard

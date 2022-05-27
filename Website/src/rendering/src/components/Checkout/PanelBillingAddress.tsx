@@ -77,6 +77,7 @@ const PanelBillingAddress = (): JSX.Element => {
           isEditing={isEditing}
           onCancelEdit={handleCancelEdit}
           loading={loading}
+          prefix="billing"
         />
       );
     } else {
