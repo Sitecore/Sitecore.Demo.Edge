@@ -33,6 +33,7 @@ Checkout.getLayout = function getLayout(page: ReactElement) {
       <Head>
         <title>PLAY! SHOP - Checkout</title>
       </Head>
+
       {page}
     </ShopLayout>
   );

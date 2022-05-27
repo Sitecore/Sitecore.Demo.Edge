@@ -16,7 +16,7 @@ Products.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - My Account</title>
+        <title>PLAY! SHOP - Products</title>
       </Head>
 
       {page}

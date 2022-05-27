@@ -33,7 +33,7 @@ OrderReview.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - My Account</title>
+        <title>PLAY! SHOP - Order Review</title>
       </Head>
 
       {page}
