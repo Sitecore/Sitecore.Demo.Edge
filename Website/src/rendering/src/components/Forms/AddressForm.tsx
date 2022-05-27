@@ -9,6 +9,7 @@ type AddressFormProps = {
   isEditing?: boolean;
   onCancelEdit?: () => void;
   loading?: boolean;
+  prefix?: string; // needed when more that one form on checkout page
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -74,22 +75,24 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     </button>
   );
 
+  const idPrefix = props.prefix ? `${props.prefix}-` : '';
+
   return (
     <form onSubmit={handleFormSubmit} className="form">
       <div>
-        <label htmlFor="addressName">Address Name (Optional)</label>
+        <label htmlFor={`${idPrefix}addressName`}>Address Name (Optional)</label>
         <input
           type="text"
-          id="addressName"
+          id={`${idPrefix}addressName`}
           maxLength={100}
           onChange={(e) => setAddressName(e.target.value)}
           value={addressName}
         />
       </div>
       <div>
-        <label htmlFor="country">Country</label>
+        <label htmlFor={`${idPrefix}country`}>Country</label>
         <select
-          id="country"
+          id={`${idPrefix}country`}
           required
           onChange={(e) => handleCountryChange(e.target.value)}
           value={country}
@@ -105,10 +108,10 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         </select>
       </div>
       <div>
-        <label htmlFor="street1">Street 1</label>
+        <label htmlFor={`${idPrefix}street1`}>Street 1</label>
         <input
           type="text"
-          id="street1"
+          id={`${idPrefix}street1`}
           autoComplete="address-line1"
           required
           maxLength={100}
@@ -117,20 +120,20 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         />
       </div>
       <div>
-        <label htmlFor="street2">Street 2 (Optional)</label>
+        <label htmlFor={`${idPrefix}street2`}>Street 2 (Optional)</label>
         <input
           type="text"
-          id="street2"
+          id={`${idPrefix}street2`}
           autoComplete="address-line2"
           onChange={(e) => setStreet2(e.target.value)}
           value={street2}
         />
       </div>
       <div>
-        <label htmlFor="city">City</label>
+        <label htmlFor={`${idPrefix}city`}>City</label>
         <input
           type="text"
-          id="city"
+          id={`${idPrefix}city`}
           autoComplete="address-level2"
           required
           maxLength={100}
@@ -139,9 +142,9 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         />
       </div>
       <div>
-        <label htmlFor="stateProvince">State / Province</label>
+        <label htmlFor={`${idPrefix}stateProvince`}>State / Province</label>
         <select
-          id="stateProvince"
+          id={`${idPrefix}stateProvince`}
           required
           onChange={(e) => setState(e.target.value)}
           value={state}
@@ -157,10 +160,10 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         </select>
       </div>
       <div>
-        <label htmlFor="postalCode">Postal Code</label>
+        <label htmlFor={`${idPrefix}postalCode`}>Postal Code</label>
         <input
           type="text"
-          id="postalCode"
+          id={`${idPrefix}postalCode`}
           autoComplete="postal-code"
           required
           maxLength={100}
