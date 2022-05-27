@@ -12,7 +12,7 @@ const CartSummary = (): JSX.Element => {
   );
 
   const content = orderTotalLoading ? (
-    <Skeleton containerClassName="skeleton-container" height={40} />
+    <Skeleton containerClassName="skeleton-container" height={45} />
   ) : (
     <div className="cart-summary">{subtotal}</div>
   );

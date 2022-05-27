@@ -63,6 +63,11 @@
   .promo-input {
     input {
       @apply italic px-6 py-1 mt-1 border-2 border-black-lightest w-full;
+
+      &:focus,
+      &:active {
+        @apply rounded-none outline-none;
+      }
     }
 
     .promotion-list {
@@ -153,6 +158,11 @@
     .user-comment {
       @apply w-full border-2 border-black-lightest px-2 py-1 mt-1 italic text-sm text-black;
       @apply placeholder:text-black;
+
+      &:focus,
+      &:active {
+        @apply rounded-none outline-none;
+      }
 
       &-label {
         @apply text-sm;
