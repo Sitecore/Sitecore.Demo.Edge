@@ -40,9 +40,8 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     </li>
   );
 
-  ClickOutside(miniCartRef, () => {
-    setIsMiniCartOpen(false);
-  });
+  const closeMinicart = () => setIsMiniCartOpen(false);
+  ClickOutside(miniCartRef, closeMinicart);
 
   ClickOutside(accountPopupRef, () => {
     setIsAccountPopupOpen(false);
@@ -96,7 +95,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               </button>
               {/* TODO: Remove condition from JSX */}
               <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
-                <MiniCart />
+                <MiniCart onNavigatingAway={closeMinicart} />
               </div>
             </li>
             {accountMenuItem}

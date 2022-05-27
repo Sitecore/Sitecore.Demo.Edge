@@ -12,9 +12,7 @@ export default {
 const Template: ComponentStory<typeof MiniCart> = (args) => <MiniCart {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  editable: true,
-};
+Default.args = {};
 Default.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={cartSlice}>

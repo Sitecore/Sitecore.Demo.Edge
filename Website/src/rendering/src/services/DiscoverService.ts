@@ -6,10 +6,12 @@ import {
   PageController,
   trackPageViewEvent,
 } from '@sitecore-discover/react';
-import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+import CustomersAlsoBought from '../components/Widgets/CustomersAlsoBought';
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import TrendingCategories from '../components/Widgets/TrendingCategories';
+import SimilarProducts from '../components/Widgets/SimilarProducts';
+import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -62,14 +64,45 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     },
   });
 
-  setWidget('rfkid_11', {
+  setWidget('rfkid_31', {
+    component: SimilarProducts,
     type: WidgetDataType.RECOMMENDATION,
-    component: FrequentlyPurchasedTogether,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_1', {
+    component: RecommendedForYou,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_33', {
+    component: CustomersAlsoBought,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
   });
 
   setWidget('ps_trending_categories', {
-    type: WidgetDataType.PREVIEW_SEARCH,
     component: TrendingCategories,
+    type: WidgetDataType.PREVIEW_SEARCH,
   });
 
   init();
