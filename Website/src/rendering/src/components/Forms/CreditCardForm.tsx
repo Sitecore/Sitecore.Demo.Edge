@@ -58,34 +58,31 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
 
   return (
     <form onSubmit={handleFormSubmit} className="form creditcard-form">
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="cardholderName">Name on Card</label>
         <input
           type="text"
-          placeholder="Name on Card"
           id="cardholderName"
           required
           autoComplete="cc-name"
           value={cardholderName}
           onChange={(e) => setCardholderName(e.target.value)}
         />
-        <label htmlFor="cardholderName">Name on Card</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor="cardNumber">Card Number</label>
         <input
           type="text"
-          placeholder="Card number"
           id="cardNumber"
           required
           autoComplete="cc-number"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
         />
-        <label htmlFor="cardNumber">Card Number</label>
       </div>
       <div className="expiration-date">
         <span>Expiration Date</span>
         <div>
-          <label htmlFor="expirationMonth">Expiration Month</label>
           <select
             id="expirationMonth"
             required
@@ -103,7 +100,6 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
           </select>
         </div>
         <div>
-          <label htmlFor="expirationYear">Expiration year</label>
           <select
             id="expirationYear"
             required
