@@ -15,6 +15,16 @@ Configuration.Set({
   clientID: process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID,
 });
 
+const dispatchDiscoverUserLoginEvent = (user: DMeUser) => {
+  PageController.getDispatcher().dispatch({
+    type: Actions.USER_LOGIN,
+    payload: {
+      email: user.Email,
+      id: user.ID,
+    },
+  });
+};
+
 const OcProvider: FunctionComponent = ({ children }) => {
   const router = useRouter();
   const token = getTokenFromPath(router.asPath);
@@ -30,35 +40,30 @@ const OcProvider: FunctionComponent = ({ children }) => {
     ocCurrentCart: s.ocCurrentCart,
   }));
 
+  const getUserForDiscover = async () => {
+    const user = await dispatch(getUser()).unwrap();
+    dispatchDiscoverUserLoginEvent(user);
+  };
+
   useEffect(() => {
     if (isCommerceEnabled) {
       if (!ocAuth.initialized) {
         dispatch(initializeAuth());
-        dispatchDiscoverUserLoginEvent(ocUser.user);
       } else if (ocAuth.isAnonymous && !ocAuth.isAuthenticated) {
         dispatch(logout());
       } else if (ocAuth.isAuthenticated) {
         if (!ocUser.user && !ocUser.loading) {
-          dispatch(getUser());
+          getUserForDiscover();
         }
         if (!ocCurrentCart.initialized) {
           dispatch(retrieveCart());
         }
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, ocAuth, ocUser, ocCurrentCart]);
 
   return <>{children}</>;
-};
-
-const dispatchDiscoverUserLoginEvent = (user: DMeUser) => {
-  PageController.getDispatcher().dispatch({
-    type: Actions.USER_LOGIN,
-    payload: {
-      email: user.Email,
-      id: user.ID,
-    },
-  });
 };
 
 function getTokenFromPath(path?: string): string {
