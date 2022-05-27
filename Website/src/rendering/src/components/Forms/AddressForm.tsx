@@ -80,7 +80,6 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <label htmlFor="addressName">Address Name (Optional)</label>
         <input
           type="text"
-          placeholder="Address Name"
           id="addressName"
           maxLength={100}
           onChange={(e) => setAddressName(e.target.value)}
@@ -109,7 +108,6 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <label htmlFor="street1">Street 1</label>
         <input
           type="text"
-          placeholder="Street 1"
           id="street1"
           autoComplete="address-line1"
           required
@@ -122,7 +120,6 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <label htmlFor="street2">Street 2 (Optional)</label>
         <input
           type="text"
-          placeholder="Street 2"
           id="street2"
           autoComplete="address-line2"
           onChange={(e) => setStreet2(e.target.value)}
@@ -133,7 +130,6 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         <label htmlFor="city">City</label>
         <input
           type="text"
-          placeholder="City"
           id="city"
           autoComplete="address-level2"
           required

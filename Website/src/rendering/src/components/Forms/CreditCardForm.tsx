@@ -62,7 +62,6 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
         <label htmlFor="cardholderName">Name on Card</label>
         <input
           type="text"
-          placeholder="Name on Card"
           id="cardholderName"
           required
           autoComplete="cc-name"
@@ -74,7 +73,6 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
         <label htmlFor="cardNumber">Card Number</label>
         <input
           type="text"
-          placeholder="Card number"
           id="cardNumber"
           required
           autoComplete="cc-number"

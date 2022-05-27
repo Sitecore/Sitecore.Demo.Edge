@@ -74,7 +74,7 @@
     input,
     select,
     textarea {
-      @apply block w-full py-1 px-3 border-2 border-black-lightest rounded-none font-normal;
+      @apply block w-full py-1 px-2 border-2 border-black-lightest rounded-none font-normal;
 
       &:focus,
       &:active {
@@ -84,6 +84,10 @@
       &::placeholder {
         @apply italic;
       }
+    }
+
+    select {
+      @apply px-1.5;
     }
 
     textarea {
