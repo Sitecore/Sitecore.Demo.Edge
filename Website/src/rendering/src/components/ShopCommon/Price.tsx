@@ -1,5 +1,7 @@
 // TODO: add story for component
 
+import Skeleton from 'react-loading-skeleton';
+
 type PriceProps = {
   max?: number;
   min?: number;
@@ -7,6 +9,7 @@ type PriceProps = {
   finalPrice: number | string;
   altTheme?: boolean; // alt theme makes main price orange
   sizeL?: boolean;
+  loading?: boolean;
 };
 
 const Price = ({ max, min, price, finalPrice, altTheme, sizeL }: PriceProps): JSX.Element => {
@@ -55,9 +58,23 @@ export const PriceReact = ({
   finalPrice,
   altTheme,
   sizeL,
+  loading,
 }: PriceProps): JSX.Element => {
+  if (loading) {
+    return (
+      // TODO: Refactor to avoid HTML repetition
+      // TODO: Extract JSX logic into a const
+      <div className={`price ${sizeL && 'price-large'}`}>
+        <span className="price-base">
+          <Skeleton width={70} />
+        </span>
+      </div>
+    );
+  }
+
   if (max) {
     return (
+      // TODO: Extract JSX logic into a const
       <div className={`price ${altTheme && 'price-orange'} ${sizeL && 'price-large'}`}>
         <span className="price-base">
           $${min} - $${max}

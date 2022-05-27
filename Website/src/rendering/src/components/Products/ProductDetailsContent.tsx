@@ -13,12 +13,16 @@ import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { logAddToCart } from '../../services/CdpService';
 import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
+import { Actions, PageController } from '@sitecore-discover/react';
+import Spinner from '../../components/ShopCommon/Spinner';
+import Skeleton from 'react-loading-skeleton';
 
 interface ProductDetailsContentProps {
   variantID?: string;
   product: RequiredDeep<BuyerProduct>;
   specs: RequiredDeep<Spec>[];
   variants: RequiredDeep<Variant>[];
+  initialLoading?: boolean;
 }
 
 const ProductDetailsContent = ({
@@ -26,11 +30,13 @@ const ProductDetailsContent = ({
   product,
   specs,
   variants,
+  initialLoading,
 }: ProductDetailsContentProps): JSX.Element => {
   const dispatch = useAppDispatch();
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [specValues, setSpecValues] = useState<OrderCloudSpec[]>([]);
   const [variant, setVariant] = useState<Variant>(undefined);
+  const loading = initialLoading || isLoading;
 
   // Handle LineItem edits
   const lineItemId = '';
@@ -146,10 +152,26 @@ const ProductDetailsContent = ({
     setSpecValues(tempSpecs);
   };
 
+  const dispatchDiscoverAddToCartEvent = (product: BuyerProduct, quantity: number) => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.ADD_TO_CART,
+      payload: {
+        page: 'pdp',
+        // TODO: On product with variants, Product.ID is equal to the Discover product group, not the variant SKU. We must send the variant SKU.
+        sku: product.ID,
+        quantity: quantity,
+        price:
+          product.PriceSchedule.PriceBreaks[0].SalePrice ||
+          product.PriceSchedule.PriceBreaks[0].Price,
+        priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
+      },
+    });
+  };
+
   const handleAddToCart = useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
-      setLoading(true);
+      setIsLoading(true);
       const response = await dispatch(
         createLineItem({
           ProductID: product.ID,
@@ -157,7 +179,9 @@ const ProductDetailsContent = ({
           Specs: specValues,
         })
       );
-      setLoading(false);
+      setIsLoading(false);
+
+      dispatchDiscoverAddToCartEvent(product, quantity);
 
       // Retrieve the lineitem that was just created
       const resPayload: { LineItems?: LineItem[] } = response?.payload;
@@ -190,29 +214,37 @@ const ProductDetailsContent = ({
       ? product.xp.Images
       : [];
 
-  const addToCartButtonText = `${lineItem ? 'Update' : 'Add To'} Cart`;
-
   // TODO: add functionality to button
-  const btnWishList = (
+  const btnWishList = initialLoading ? (
+    <Skeleton width={27} height={27} className="btn-wishlist" />
+  ) : (
     <button className="btn-wishlist" aria-label="Add to Wish List" type="button">
       <FontAwesomeIcon icon={faHeart} size="lg" />
     </button>
   );
 
   // TODO: add functionality to button
-  const btnSaveLater = (
+  const btnSaveLater = initialLoading ? (
+    <Skeleton width={27} height={27} className="btn-later" />
+  ) : (
     <button className="btn-later" aria-label="Save for Later" type="button">
       <FontAwesomeIcon icon={faHistory} size="lg" />
     </button>
   );
 
   // TODO: add functionality to field
-  const quantityAlert = <p className="quantity-alert">Only 3 left!</p>;
+  const quantityAlert = initialLoading ? (
+    <Skeleton className="quantity-alert" width={88} />
+  ) : (
+    <p className="quantity-alert">Only 3 left!</p>
+  );
 
   const priceProps = {
-    price: product.PriceSchedule.PriceBreaks[0].Price,
+    price: !loading && product.PriceSchedule.PriceBreaks[0].Price,
     finalPrice:
-      product.PriceSchedule.PriceBreaks[0].SalePrice || product.PriceSchedule.PriceBreaks[0].Price,
+      !loading &&
+      (product.PriceSchedule.PriceBreaks[0].SalePrice ||
+        product.PriceSchedule.PriceBreaks[0].Price),
   };
 
   // TODO: get actual data
@@ -220,39 +252,55 @@ const ProductDetailsContent = ({
     items: [
       {
         heading: 'Full Desription',
-        description: product.Description,
+        description: product?.Description,
         disabled: false,
       },
       {
         heading: 'Product Details',
-        description: product.Description,
+        description: product?.Description,
         disabled: false,
       },
       {
         heading: 'Delivery Info',
-        description: product.Description,
+        description: product?.Description,
         disabled: false,
       },
       {
         heading: 'Return Policy',
-        description: product.Description,
+        description: product?.Description,
         disabled: true,
       },
     ],
   };
 
-  const productDetails = product && (
-    <>
-      <Head>
-        <title>PLAY! SHOP - {product.Name}</title>
-      </Head>
+  const btnAddToCart = initialLoading ? (
+    <Skeleton className="btn--main" width={168} />
+  ) : (
+    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
+      {/* TODO: Extract JSX logic into a const */}
+      <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
+    </button>
+  );
 
+  const productAddToCart = (
+    <div className="product-add-to-cart">
+      {btnAddToCart}
+      {btnSaveLater}
+      {btnWishList}
+    </div>
+  );
+
+  const productDetails =
+    loading || product ? (
       <section className="section">
         <div className="shop-container">
           <div className="product-details">
             <div className="product-details-hero">
-              <h2 className="product-name">{product.Name}</h2>
-              <ProductImage images={productImageProps} />
+              <h2 className="product-name">
+                {/* TODO: Extract JSX logic into a const */}
+                {initialLoading ? <Skeleton width={300} /> : product && product.Name}
+              </h2>
+              <ProductImage images={productImageProps} loading={initialLoading} />
               <div className="product-description">
                 <form onSubmit={handleAddToCart}>
                   <ProductSpecList
@@ -263,32 +311,37 @@ const ProductDetailsContent = ({
                   <div className="product-quantity">
                     <QuantityInput
                       controlId={variantID}
-                      priceSchedule={product.PriceSchedule}
+                      priceSchedule={product?.PriceSchedule}
                       initialQuantity={quantity}
                       onChange={setQuantity}
+                      loading={loading}
                     />
                     {quantityAlert}
                   </div>
-                  <PriceReact {...priceProps} altTheme sizeL />
-                  <div className="product-add-to-cart">
-                    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-                      {/* TODO: loader style */}
-                      {!loading ? addToCartButtonText : '...'}
-                    </button>
-                    {btnSaveLater}
-                    {btnWishList}
-                  </div>
+                  <PriceReact {...priceProps} altTheme sizeL loading={initialLoading} />
+                  {productAddToCart}
                 </form>
               </div>
-              <ProductOverview {...overviewProps} />
+              <ProductOverview {...overviewProps} loading={initialLoading} />
             </div>
           </div>
         </div>
       </section>
+    ) : (
+      <div>Product not found</div>
+    );
+
+  return (
+    <>
+      <Head>
+        <title>
+          {/* TODO: Extract JSX logic into a const */}
+          PLAY! SHOP - {loading ? 'loading...' : product ? product.Name : 'Product not found'}
+        </title>
+      </Head>
+      {productDetails}
     </>
   );
-
-  return productDetails;
 };
 
 export default ProductDetailsContent;

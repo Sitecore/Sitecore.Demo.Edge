@@ -1,5 +1,5 @@
 import { RequiredDeep, ShipMethodSelection } from 'ordercloud-javascript-sdk';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import { DShipMethod } from '../../models/ordercloud/DShipMethod';
 
@@ -8,11 +8,14 @@ type ShipMethodsListProps = {
   shipEstimateId?: string;
   selectedShipMethodId?: string;
   onChange?: (shipMethod: RequiredDeep<ShipMethodSelection>) => void;
+  loading?: boolean;
 };
 
 const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
+  const [selectedMethodId, setSelectedMethodId] = useState(props.selectedShipMethodId || '');
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const shipMethodId = event.target.value;
+    setSelectedMethodId(shipMethodId);
     const shipMethod = props.shipMethods.find((shipMethod) => shipMethod.ID === shipMethodId);
 
     if (props.onChange) {
@@ -31,8 +34,9 @@ const ShipMethodsList = (props: ShipMethodsListProps): JSX.Element => {
           id={shipMethod.ID}
           type="radio"
           value={shipMethod.ID}
-          checked={props.selectedShipMethodId === shipMethod.ID}
+          checked={shipMethod.ID === selectedMethodId}
           name="selected-ship-method"
+          disabled={props.loading}
           onChange={handleChange}
         />
         <label htmlFor={shipMethod.ID}>

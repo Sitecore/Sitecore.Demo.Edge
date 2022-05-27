@@ -1,22 +1,23 @@
 import AddressForm from '../../components/Forms/AddressForm';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { removeBillingAddress, saveBillingAddress } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { useState } from 'react';
 import AddressCard from './AddressCard';
+import { isSameAddress } from '../../helpers/AddressHelper';
 
 const PanelBillingAddress = (): JSX.Element => {
   // TODO: this component should also allow choosing a saved address
   const dispatch = useAppDispatch();
-  const { order, shippingAddress } = useOcCurrentOrder();
+  const { order, shippingAddress } = useOcCurrentCart();
   const billingAddress = order?.BillingAddress;
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isSameAsBilling, setIsSameAsBilling] = useState(
-    billingAddress?.ID && shippingAddress?.ID && billingAddress?.ID === shippingAddress?.ID
+    Boolean(billingAddress && shippingAddress && isSameAddress(billingAddress, shippingAddress))
   );
-  const [tempAddress, setTempAddress] = useState({} as DBuyerAddress); // saves address prior to unchecking "same as billing" so we can revert if necessary
+  const [tempAddress, setTempAddress] = useState({} as DBuyerAddress); // saves address prior to unchecking "same as billing" so we can revert to last saved address if necessary
 
   const handleSetBillingAddress = async (address: Partial<DBuyerAddress>) => {
     setLoading(true);
@@ -24,12 +25,12 @@ const PanelBillingAddress = (): JSX.Element => {
     setLoading(false);
   };
 
-  const handleSameAsShipping = () => {
+  const handleSameAsShipping = async () => {
     const shouldUseSameAsBilling = !isSameAsBilling;
     setIsSameAsBilling(shouldUseSameAsBilling);
     if (shouldUseSameAsBilling) {
       setTempAddress(billingAddress);
-      handleSetBillingAddress(shippingAddress);
+      await handleSetBillingAddress(shippingAddress);
     } else {
       if (
         tempAddress?.Street1 &&
@@ -38,9 +39,9 @@ const PanelBillingAddress = (): JSX.Element => {
         tempAddress?.Zip &&
         tempAddress?.Country
       ) {
-        handleSetBillingAddress(tempAddress);
+        await handleSetBillingAddress(tempAddress);
       } else {
-        removeBillingAddress();
+        dispatch(removeBillingAddress());
       }
     }
   };
@@ -49,8 +50,10 @@ const PanelBillingAddress = (): JSX.Element => {
     setIsEditing(false);
   };
 
+  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
+
   const sameAsShippingCheckboxId = 'same-as-shipping-checkbox';
-  const sameAsShippingCheckbox = shippingAddress?.ID && (
+  const sameAsShippingCheckbox = isShipOrder && shippingAddress && (
     <div className="same-as-shipping">
       <input
         disabled={loading}
@@ -63,18 +66,26 @@ const PanelBillingAddress = (): JSX.Element => {
     </div>
   );
 
-  const addressDisplay =
-    !isSameAsBilling &&
-    (billingAddress && !isEditing ? (
-      <AddressCard address={billingAddress} editable={true} onEdit={() => setIsEditing(true)} />
-    ) : (
-      <AddressForm
-        address={billingAddress}
-        onSubmit={(address) => handleSetBillingAddress(address)}
-        isEditing={isEditing}
-        onCancelEdit={handleCancelEdit}
-      />
-    ));
+  const getAddressDisplay = () => {
+    if (isSameAsBilling && isShipOrder) {
+      return <div></div>;
+    } else if (isEditing || !billingAddress) {
+      return (
+        <AddressForm
+          address={billingAddress}
+          onSubmit={(address) => handleSetBillingAddress(address)}
+          isEditing={isEditing}
+          onCancelEdit={handleCancelEdit}
+          loading={loading}
+          prefix="billing"
+        />
+      );
+    } else {
+      return (
+        <AddressCard address={billingAddress} editable={true} onEdit={() => setIsEditing(true)} />
+      );
+    }
+  };
 
   return (
     <div className="panel">
@@ -83,7 +94,7 @@ const PanelBillingAddress = (): JSX.Element => {
       </div>
       <div className="panel-body">
         {sameAsShippingCheckbox}
-        {addressDisplay}
+        {getAddressDisplay()}
       </div>
     </div>
   );
