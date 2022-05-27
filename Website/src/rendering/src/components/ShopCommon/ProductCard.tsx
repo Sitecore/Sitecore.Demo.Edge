@@ -37,6 +37,7 @@ const ProductCard = ({
         <Link href={product_url}>
           <a onClick={onClick}>
             <img className="product-image" src={image_url} alt={name} />
+            {/* TODO: Extract JSX logic into a const */}
             <span className={`product-offer ${altTheme ? 'product-offer-orange' : ''}`}>
               Spring Sale!
             </span>

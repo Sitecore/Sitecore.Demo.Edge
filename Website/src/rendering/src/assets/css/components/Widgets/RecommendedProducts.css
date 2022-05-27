@@ -1,9 +1,13 @@
 .recommended-products {
   &-title {
-    @apply mb-2 font-bold;
+    @apply mb-2 ml-4 font-bold;
 
     &::before {
-      @apply content-[''] inline-block w-2 h-2 mr-2 align-middle bg-blue;
+      @apply content-[''] inline-block w-2 h-2 -ml-4 mr-2 align-middle bg-blue;
+    }
+
+    &-orange::before {
+      @apply bg-orange;
     }
   }
 

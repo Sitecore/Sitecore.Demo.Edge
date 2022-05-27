@@ -6,7 +6,7 @@ interface SimilarProductsProps extends RecommendationWidgetProps {
 }
 
 const SimilarProducts = (props: SimilarProductsProps): JSX.Element => (
-  <RecommendedProducts {...props} title="Similar products" />
+  <RecommendedProducts {...props} title="Similar products" altTheme={true} />
 );
 
 export default SimilarProducts;
