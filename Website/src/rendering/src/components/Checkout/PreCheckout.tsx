@@ -13,7 +13,7 @@ const PreCheckout = (): JSX.Element => {
           <FontAwesomeIcon icon={faSignInAlt} className="text-pink" />
           <h6 className="item-title">Already a member?</h6>
           <p>Log in your existing account!</p>
-          <Link href={getLoginUrl('/checkout/checkout')}>
+          <Link href={getLoginUrl('/shop/checkout/checkout')}>
             <a className="btn--main btn--main--round">Log in</a>
           </Link>
         </div>
@@ -21,7 +21,7 @@ const PreCheckout = (): JSX.Element => {
           <FontAwesomeIcon icon={faPlus} className="text-orange" />
           <h6 className="item-title">Want more discounts?</h6>
           <p>Join us for more exclusive deals!</p>
-          <Link href={getLoginUrl('/checkout/checkout')}>
+          <Link href={getLoginUrl('/shop/checkout/checkout')}>
             <a className="btn--main btn--main--round">Sign up</a>
           </Link>
         </div>
