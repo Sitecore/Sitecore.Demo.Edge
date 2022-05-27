@@ -8,43 +8,42 @@ import { Configuration, Tokens } from 'ordercloud-javascript-sdk';
 import { isCommerceEnabled } from '../helpers/CommerceHelper';
 import { useRouter } from 'next/router';
 import { Actions, PageController } from '@sitecore-discover/react';
-import { DMeUser } from '../../src/models/ordercloud/DUser';
+
+// TODO: Look into decoupling OrderCloud, Auth0, and Discover logic to keep this file for OrderCloud code only
 
 Configuration.Set({
   baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
   clientID: process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID,
 });
 
-// TODO: Look into decoupling OrderCloud, Auth0, and Discover logic below to keep this file for OrderCloud code only
-const dispatchDiscoverUserLoginEvent = (user: DMeUser) => {
-  PageController.getDispatcher().dispatch({
-    type: Actions.USER_LOGIN,
-    payload: {
-      email: user.Email,
-      id: user.ID,
-    },
-  });
-};
-
 const OcProvider: FunctionComponent = ({ children }) => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  const dispatchDiscoverUserLoginEvent = async () => {
+    const user = await dispatch(getUser()).unwrap();
+    PageController.getDispatcher().dispatch({
+      type: Actions.USER_LOGIN,
+      payload: {
+        email: user.Email,
+        id: user.ID,
+      },
+    });
+  };
+
   const token = getTokenFromPath(router.asPath);
   if (token) {
     Tokens.SetAccessToken(token);
     delete router.query.oidcToken;
     router.push(router);
+    dispatchDiscoverUserLoginEvent();
   }
-  const dispatch = useAppDispatch();
+
   const { ocAuth, ocUser, ocCurrentCart } = useAppSelector((s) => ({
     ocAuth: s.ocAuth,
     ocUser: s.ocUser,
     ocCurrentCart: s.ocCurrentCart,
   }));
-
-  const getUserForDiscover = async () => {
-    const user = await dispatch(getUser()).unwrap();
-    dispatchDiscoverUserLoginEvent(user);
-  };
 
   useEffect(() => {
     if (isCommerceEnabled) {
@@ -54,14 +53,13 @@ const OcProvider: FunctionComponent = ({ children }) => {
         dispatch(logout());
       } else if (ocAuth.isAuthenticated) {
         if (!ocUser.user && !ocUser.loading) {
-          getUserForDiscover();
+          dispatch(getUser());
         }
         if (!ocCurrentCart.initialized) {
           dispatch(retrieveCart());
         }
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, ocAuth, ocUser, ocCurrentCart]);
 
   return <>{children}</>;
