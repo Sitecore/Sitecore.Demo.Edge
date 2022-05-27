@@ -8,7 +8,7 @@ import { Configuration, Tokens } from 'ordercloud-javascript-sdk';
 import { isCommerceEnabled } from '../helpers/CommerceHelper';
 import { useRouter } from 'next/router';
 import { Actions, PageController } from '@sitecore-discover/react';
-import { DMeUser } from 'src/models/ordercloud/DUser';
+import { DMeUser } from '../../src/models/ordercloud/DUser';
 
 Configuration.Set({
   baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
