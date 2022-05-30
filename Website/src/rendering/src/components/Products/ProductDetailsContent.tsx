@@ -11,6 +11,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import { Actions, PageController } from '@sitecore-discover/react';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Skeleton from 'react-loading-skeleton';
 
@@ -149,6 +150,22 @@ const ProductDetailsContent = ({
     setSpecValues(tempSpecs);
   };
 
+  const dispatchDiscoverAddToCartEvent = (product: BuyerProduct, quantity: number) => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.ADD_TO_CART,
+      payload: {
+        page: 'pdp',
+        // TODO: On product with variants, Product.ID is equal to the Discover product group, not the variant SKU. We must send the variant SKU.
+        sku: product.ID,
+        quantity: quantity,
+        price:
+          product.PriceSchedule.PriceBreaks[0].SalePrice ||
+          product.PriceSchedule.PriceBreaks[0].Price,
+        priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
+      },
+    });
+  };
+
   const handleAddToCart = useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
@@ -160,6 +177,7 @@ const ProductDetailsContent = ({
           Specs: specValues,
         })
       );
+      dispatchDiscoverAddToCartEvent(product, quantity);
       setIsLoading(false);
     },
     [dispatch, product, specValues, quantity]

@@ -15,6 +15,7 @@ type ProductCardProps = {
   price?: string;
   image_url?: string;
   brand?: string;
+  altTheme?: boolean;
 };
 
 const ProductCard = ({
@@ -27,6 +28,7 @@ const ProductCard = ({
   price,
   image_url,
   brand,
+  altTheme,
 }: ProductCardProps): JSX.Element => {
   // TODO: add functionality to offer ribbon
   return (
@@ -35,13 +37,16 @@ const ProductCard = ({
         <Link href={product_url}>
           <a onClick={onClick}>
             <img className="product-image" src={image_url} alt={name} />
-            <span className="product-offer">Spring Sale!</span>
+            {/* TODO: Extract JSX logic into a const */}
+            <span className={`product-offer ${altTheme ? 'product-offer-orange' : ''}`}>
+              Spring Sale!
+            </span>
           </a>
         </Link>
       </div>
       <div className="product-info-container">
         <Link href={product_url}>
-          <a>
+          <a onClick={onClick}>
             <div className="product-name">{name}</div>
             <div className="product-brand">{brand}</div>
           </a>
@@ -51,6 +56,7 @@ const ProductCard = ({
           finalPrice={final_price}
           min={final_price_min_formatted}
           max={final_price_max_formatted}
+          altTheme={altTheme}
         />
       </div>
     </div>
