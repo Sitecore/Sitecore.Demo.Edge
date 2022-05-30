@@ -34,11 +34,14 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             }
 
             var langVersions = new List<Language>();
-            var installedLanguages = LanguageManager.GetLanguages(Sitecore.Context.Database);
-            foreach (var language in installedLanguages)
+            Item tempItem = Sitecore.Context.Item;
+            foreach (var itemLanguage in tempItem.Languages)
             {
-                var item = Sitecore.Context.Item.Database.GetItem(Sitecore.Context.Item.ID, language);
-                langVersions.AddRange(item.Versions.GetVersions().Select(version => version.Language));
+                var item = tempItem.Database.GetItem(tempItem.ID, itemLanguage);
+                if (item.Versions.Count > 0)
+                {
+                    langVersions.AddRange(item.Versions.GetVersions().Select(version => version.Language));
+                }
             }
 
             Item eventItem = args?.RenderedItem?.Database?.GetItem(configItemPath);
