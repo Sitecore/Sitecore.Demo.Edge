@@ -1,12 +1,11 @@
 import { ReactElement } from 'react';
 import Head from 'next/head';
-import { ShopLayout } from '../../../components/Products/Shop';
-import ShopBreadcrumb, { ShopBreadcrumbItem } from 'components/Navigation/ShopBreadcrumb';
-import OrderDetails from '../../../components/Account/OrderDetails';
+import { ShopLayout } from '../../components/Products/Shop';
+import ShopBreadcrumb, { ShopBreadcrumbItem } from '../../components/Navigation/ShopBreadcrumb';
+import OrderHistory from '../../components/Account/OrderHistory';
 
-const OrderPage = (): JSX.Element => {
+const OrderHistoryPage = (): JSX.Element => {
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
-    { urlPath: '/account/orders', displayName: 'Order details' },
     { urlPath: '/account/orders', displayName: 'Order history' },
     { urlPath: '/account', displayName: 'User profile' },
   ];
@@ -19,16 +18,16 @@ const OrderPage = (): JSX.Element => {
         fields={{ items: breadCrumbDefinitions }}
       />
 
-      <OrderDetails />
+      <OrderHistory />
     </>
   );
 };
 
-OrderPage.getLayout = function getLayout(page: ReactElement) {
+OrderHistoryPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - Order Details</title>
+        <title>PLAY! SHOP - Orders history</title>
       </Head>
 
       {page}
@@ -36,4 +35,4 @@ OrderPage.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export default OrderPage;
+export default OrderHistoryPage;

@@ -1,6 +1,7 @@
 // TODO: add story for component
 
 import Skeleton from 'react-loading-skeleton';
+import { formatCurrency } from '../../helpers/CurrencyHelper';
 
 type PriceProps = {
   max?: number;
@@ -17,7 +18,7 @@ const Price = ({ max, min, price, finalPrice, altTheme, sizeL }: PriceProps): JS
     return (
       <div className={`price ${altTheme && 'price-orange'} ${sizeL && 'price-large'}`}>
         <span className="price-base">
-          ${min} - ${max}
+          ${formatCurrency(min)} - ${formatCurrency(max)}
         </span>
       </div>
     );
@@ -77,7 +78,7 @@ export const PriceReact = ({
       // TODO: Extract JSX logic into a const
       <div className={`price ${altTheme && 'price-orange'} ${sizeL && 'price-large'}`}>
         <span className="price-base">
-          $${min} - $${max}
+          ${formatCurrency(min)} - ${formatCurrency(max)}
         </span>
       </div>
     );

@@ -26,11 +26,11 @@
       }
 
       .order-status {
-        @apply absolute top-3 right-0 text-white text-xs px-3 py-[2px];
+        @apply absolute top-3 right-0 text-white text-xs px-3 py-0.5;
       }
 
       .order-id {
-        @apply text-base font-bold mb-2 overflow-hidden text-ellipsis;
+        @apply text-base font-bold mb-2 overflow-hidden text-ellipsis whitespace-nowrap;
       }
 
       .order-view {

@@ -11,7 +11,7 @@
   }
 
   .order-status {
-    @apply relative -right-5 float-right clear-left text-white text-xs px-3 py-[2px];
+    @apply relative -right-5 float-right clear-left text-white text-xs px-3 py-0.5;
     @apply sm:static;
   }
 

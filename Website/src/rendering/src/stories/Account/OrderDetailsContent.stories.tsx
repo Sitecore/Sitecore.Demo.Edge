@@ -1,61 +1,29 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import OrderHistoryDetails from '../../components/Account/OrderHistoryDetails';
-import { ListPage, OrderWorksheet, Payment } from 'ordercloud-javascript-sdk';
+import OrderDetailsContent from '../../components/Account/OrderDetailsContent';
+import { OrderWorksheet } from 'ordercloud-javascript-sdk';
 import { MockSlice, MockStore } from '../mock-store';
 import { authSlice, cartSlice, productCacheSlice } from '../Checkout/CheckoutCommon';
 
 export default {
-  title: 'Components/Account/OrderHistoryDetails',
-  component: OrderHistoryDetails,
-} as ComponentMeta<typeof OrderHistoryDetails>;
-
-const Template: ComponentStory<typeof OrderHistoryDetails> = (args) => (
-  <OrderHistoryDetails {...args} />
-);
+  title: 'Components/Account/OrderDetailsContent',
+  component: OrderDetailsContent,
+} as ComponentMeta<typeof OrderDetailsContent>;
 
 const slices: MockSlice[] = [cartSlice, productCacheSlice, authSlice];
 
-const payment = {
-  Meta: {
-    Page: 1,
-    PageSize: 20,
-    TotalCount: 1,
-    TotalPages: 1,
-    ItemRange: [1, 1],
-    NextPageKey: null,
-  },
-  Items: [
-    {
-      ID: 'g5nkHjZulkKSlD5ubqG_GQ',
-      Type: 'CreditCard',
-      DateCreated: '2022-04-26T20:07:52.683+00:00',
-      CreditCardID: 'hsSPc7HfI0eccFi-FFYZKw',
-      SpendingAccountID: null,
-      Description: null,
-      Currency: null,
-      Amount: 26.74,
-      Accepted: true,
-      OrderReturnID: null,
-      xp: {
-        CreditCard: {
-          ID: 'hsSPc7HfI0eccFi-FFYZKw',
-          Editable: true,
-          Token: '',
-          DateCreated: '2022-04-26T20:07:50.063+00:00',
-          CardType: 'Visa',
-          PartialAccountNumber: '1111',
-          CardholderName: 'John Smith',
-          ExpirationDate: '2024-04-01T05:00:00+00:00',
-          xp: null,
-        },
-        SpendingAccount: null,
-      },
-      Transactions: [],
-    },
-  ],
-} as unknown as ListPage<Payment>;
+const Template: ComponentStory<typeof OrderDetailsContent> = (args) => (
+  <MockStore sliceOrSlices={slices}>
+    <OrderDetailsContent {...args} />
+  </MockStore>
+);
+
+const creditCard = {
+  CardholderName: 'John Smith',
+  PartialAccountNumber: '1111',
+  ExpirationDate: '2024-05-01T04:00:00+00:00',
+};
 
 const orderOne = {
   Order: {
@@ -1371,56 +1339,31 @@ const orderFour = {
 
 export const OrderOne = Template.bind({});
 OrderOne.args = {
-  storyOrder: orderOne,
-  storyPayment: payment,
-  storyOrderId: orderOne.Order.ID,
+  order: orderOne,
+  creditCard,
+  shipMethod: orderOne.ShipEstimateResponse.ShipEstimates[0].ShipMethods[0],
 };
-OrderOne.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={slices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const OrderTwo = Template.bind({});
 OrderTwo.args = {
-  storyOrder: orderTwo,
-  storyPayment: payment,
-  storyOrderId: orderOne.Order.ID,
+  order: orderTwo,
+  creditCard,
+  shipMethod: orderTwo.ShipEstimateResponse.ShipEstimates[0].ShipMethods[0],
 };
-OrderTwo.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={slices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const OrderThree = Template.bind({});
 OrderThree.args = {
-  storyOrder: orderThree,
-  storyPayment: payment,
-  storyOrderId: orderOne.Order.ID,
+  order: orderThree,
+  creditCard,
+  shipMethod: orderThree.ShipEstimateResponse.ShipEstimates[0].ShipMethods[1],
 };
-OrderThree.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={slices}>
-      <Story />
-    </MockStore>
-  ),
-];
 
 export const OrderFour = Template.bind({});
 OrderFour.args = {
-  storyOrder: orderFour,
-  storyPayment: payment,
-  storyOrderId: orderOne.Order.ID,
+  order: orderFour,
+  creditCard,
+  shipMethod: orderFour.ShipEstimateResponse.ShipEstimates[0].ShipMethods[1],
 };
-OrderFour.decorators = [
-  (Story) => (
-    <MockStore sliceOrSlices={slices}>
-      <Story />
-    </MockStore>
-  ),
-];
+
+export const NoOrder = Template.bind({});
+NoOrder.args = {};
