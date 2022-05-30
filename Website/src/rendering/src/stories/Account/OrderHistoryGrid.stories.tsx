@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import MyAccount from '../../components/Account/MyAccount';
+import OrderHistoryGrid from '../../components/Account/OrderHistoryGrid';
 import { ListPage, Order } from 'ordercloud-javascript-sdk';
 
 export default {
-  title: 'Components/Account/MyAccount',
-  component: MyAccount,
-} as ComponentMeta<typeof MyAccount>;
+  title: 'Components/Account/OrderHistoryGrid',
+  component: OrderHistoryGrid,
+} as ComponentMeta<typeof OrderHistoryGrid>;
 
-const Template: ComponentStory<typeof MyAccount> = (args) => <MyAccount {...args} />;
+const Template: ComponentStory<typeof OrderHistoryGrid> = (args) => <OrderHistoryGrid {...args} />;
 
 const storyOrders = {
   Meta: {

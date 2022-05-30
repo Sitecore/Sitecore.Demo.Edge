@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { getOrderDate } from '../../helpers/DateHelper';
 
-interface MyAccountProps {
+interface OrderHistoryGridProps {
   storyOrders?: ListPage<Order>;
 }
 
-const MyAccount = ({ storyOrders }: MyAccountProps): JSX.Element => {
+const OrderHistoryGrid = ({ storyOrders }: OrderHistoryGridProps): JSX.Element => {
   const [orders, setOrders] = useState<Order[]>([]);
   // Add custom functions
   const getMyOrders = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -61,4 +61,4 @@ const MyAccount = ({ storyOrders }: MyAccountProps): JSX.Element => {
   );
 };
 
-export default MyAccount;
+export default OrderHistoryGrid;
