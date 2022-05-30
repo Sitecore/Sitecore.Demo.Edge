@@ -1,24 +1,67 @@
 import Link from 'next/link';
-import ImageNext, { ImageLoader, ImageLoaderProps } from 'next/image';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { Actions, PageController } from '@sitecore-discover/react';
+import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faChevronDown, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import MiniCart from '../Checkout/MiniCart';
+import CartBadge from '../ShopCommon/CartBadge';
 import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
+import { isAuthenticationEnabled } from '../../services/AuthenticationService';
+import ClickOutside from '../ShopCommon/ClickOutside';
+import AccountPopup from './AccountPopup';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
 };
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
-  // TODO update setLocale, setFlagUrl later on when possible to select locale from dropdown
-  const [locale /*, setLocale */] = useState('EN / CAD');
-  const [flagUrl /*, setFlagUrl */] = useState(
-    'https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-canada_1f1e8-1f1e6.png'
+  const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
+  const miniCartRef = useRef(null);
+  const { lineItems } = useOcCurrentCart();
+
+  const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
+  const accountPopupRef = useRef(null);
+
+  // TODO: Remove conditions from JSX
+  const accountMenuItem = isAuthenticationEnabled && (
+    <li
+      className={`shop-navigation-menu-item ${isAccountPopupOpen && 'active'}`}
+      ref={accountPopupRef}
+    >
+      <button onClick={() => setIsAccountPopupOpen(!isAccountPopupOpen)}>
+        <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+      </button>
+      <div className={`account-popup-wrapper ${isAccountPopupOpen && 'open'}`}>
+        <AccountPopup />
+      </div>
+    </li>
   );
 
-  const flagLoader: ImageLoader = ({ src }: ImageLoaderProps): string => {
-    return src;
+  const closeMinicart = () => setIsMiniCartOpen(false);
+  ClickOutside(miniCartRef, closeMinicart);
+
+  ClickOutside(accountPopupRef, () => {
+    setIsAccountPopupOpen(false);
+  });
+
+  // TODO: Try to remove code duplication here and in LineItemList.tsx
+  const dispatchDiscoverCartStatusListActionEvent = () => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.CART_STATUS,
+      payload: {
+        products: mapProductsForDiscover(lineItems),
+      },
+    });
+  };
+
+  const handleCartIconClick = () => {
+    if (!isMiniCartOpen && lineItems?.length !== undefined) {
+      dispatchDiscoverCartStatusListActionEvent();
+    }
+    setIsMiniCartOpen(!isMiniCartOpen);
   };
 
   const previewSearchWidget = props.previewSearchProps ? (
@@ -33,99 +76,29 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
         <div className="logo-container">
           <Link href="/shop">
             <a className="logo-link">
-              <svg
-                id="Group_143"
-                data-name="Group 143"
-                xmlns="http://www.w3.org/2000/svg"
-                width="386.18"
-                height="220"
-                viewBox="0 0 386.18 220"
-              >
-                <g id="Group_34" data-name="Group 34" transform="translate(117.18)">
-                  <text
-                    id="PLAY_SHOP"
-                    data-name="PLAY! SHOP"
-                    transform="translate(0 101)"
-                    fill="#006ef9"
-                    fontSize="89"
-                    fontFamily="Saira-Bold, Saira"
-                    fontWeight="700"
-                  >
-                    <tspan x="0" y="0">
-                      PLAY!
-                    </tspan>
-                    <tspan y="0" fill="#fff">
-                      {' '}
-                    </tspan>
-                    <tspan fill="#fff" fontFamily="Saira-Regular, Saira" fontWeight="400">
-                      <tspan x="0" y="80">
-                        SHOP
-                      </tspan>
-                    </tspan>
-                  </text>
-                </g>
-                <g id="Group_9" data-name="Group 9" transform="translate(0 58.052)">
-                  <path
-                    id="Path_16"
-                    data-name="Path 16"
-                    d="M65.8,171.371,41.68,146.659V67.788L65.8,57.648Z"
-                    transform="translate(-41.68 -56.215)"
-                    fill="#ff1887"
-                  />
-                  <path
-                    id="Path_17"
-                    data-name="Path 17"
-                    d="M158.358,83.266l-10.23,24.181L96.489,54.928h33.533Z"
-                    transform="translate(-67.606 -54.928)"
-                    fill="#1c80ff"
-                  />
-                  <path
-                    id="Path_18"
-                    data-name="Path 18"
-                    d="M95.761,159.873V133.366l33.731-14.078,18.291,18.6Z"
-                    transform="translate(-67.262 -85.371)"
-                    fill="#ff8d00"
-                  />
-                  <path
-                    id="Path_19"
-                    data-name="Path 19"
-                    d="M87.437,57.648l18.291,18.6L87.443,83.927Z"
-                    transform="translate(-63.324 -56.215)"
-                    fill="#ffd41c"
-                  />
-                </g>
-              </svg>
+              <img src="/assets/img/shop/play-shop-logo.svg" alt="PLAY! SHOP" />
             </a>
           </Link>
         </div>
         <div className="items-container">
           <ul>
-            <li className="shop-navigation-menu-item locale-picker">
-              <ImageNext
-                loader={flagLoader}
-                src={flagUrl}
-                alt="flag"
-                width={40}
-                height={35}
-                unoptimized
-              />
-              <span>{locale}</span>
-              <FontAwesomeIcon id="arrow-down-icon" icon={faChevronDown} />
+            {/* TODO: Remove condition from JSX */}
+            <li
+              className={`shop-navigation-menu-item cart-menu-item ${
+                isMiniCartOpen ? 'active' : ''
+              }`}
+              ref={miniCartRef}
+            >
+              <button onClick={handleCartIconClick}>
+                <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
+                <CartBadge />
+              </button>
+              {/* TODO: Remove condition from JSX */}
+              <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
+                <MiniCart onNavigatingAway={closeMinicart} />
+              </div>
             </li>
-            <li className="shop-navigation-menu-item">
-              <Link href="/shop/checkout/cart" passHref>
-                <a>
-                  <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
-                </a>
-              </Link>
-            </li>
-            <li className="shop-navigation-menu-item">
-              <Link href="/account/login" passHref>
-                <a>
-                  <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-                </a>
-              </Link>
-            </li>
+            {accountMenuItem}
           </ul>
         </div>
         <div className="shop-search-input-container">

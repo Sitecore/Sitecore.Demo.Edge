@@ -1,10 +1,10 @@
 import { createSlice, SerializedError } from '@reduxjs/toolkit';
 import { DecodedToken, Tokens } from 'ordercloud-javascript-sdk';
-import parseJwt from '../../helpers/JwtHelper';
+import { parseOrderCloudJwt } from '../../helpers/JwtHelper';
 import login from './login';
 import logout from './logout';
 
-interface OcAuthState {
+export interface OcAuthState {
   isAuthenticated: boolean;
   decodedToken?: DecodedToken;
   isAnonymous: boolean;
@@ -30,7 +30,7 @@ const ocAuthSlice = createSlice({
       let decodedToken;
 
       if (initialAccessToken) {
-        decodedToken = parseJwt(initialAccessToken);
+        decodedToken = parseOrderCloudJwt(initialAccessToken);
         isAnonymous = !!decodedToken.orderid;
       }
 
@@ -50,7 +50,7 @@ const ocAuthSlice = createSlice({
     builder.addCase(login.fulfilled, (state, action) => {
       state.isAnonymous = false;
       state.isAuthenticated = true;
-      state.decodedToken = parseJwt(action.payload.access_token);
+      state.decodedToken = parseOrderCloudJwt(action.payload.access_token);
       state.loading = false;
     });
     builder.addCase(login.rejected, (state, action) => {
@@ -70,7 +70,9 @@ const ocAuthSlice = createSlice({
     builder.addCase(logout.fulfilled, (state, action) => {
       state.isAnonymous = true;
       state.isAuthenticated = true;
-      state.decodedToken = action.payload ? parseJwt(action.payload.access_token) : undefined;
+      state.decodedToken = action.payload
+        ? parseOrderCloudJwt(action.payload.access_token)
+        : undefined;
       state.loading = false;
     });
     builder.addCase(logout.rejected, (state, action) => {

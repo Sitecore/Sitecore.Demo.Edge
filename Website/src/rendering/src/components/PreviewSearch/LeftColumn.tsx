@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
@@ -8,14 +9,16 @@ type PreviewSearchListProps = {
   redirectUrl: string;
   onMouseEnter: (text: string) => void;
   onMouseLeave: () => void;
+  onNavigatingAway: () => void;
 };
 
 const PreviewSearchList = ({
   items,
   title,
-  /* redirectUrl, */
+  redirectUrl,
   onMouseEnter,
   onMouseLeave,
+  onNavigatingAway,
 }: PreviewSearchListProps): JSX.Element => {
   return (
     <div className="list-container">
@@ -23,20 +26,23 @@ const PreviewSearchList = ({
         <div>
           <h2 className="list-container-title">{title}</h2>
           <ul>
-            {items.map(({ text, id /*url*/ }) => (
-              <li
-                className="list-item"
-                id={id}
-                key={id}
-                onMouseEnter={() => onMouseEnter(text)}
-                onMouseLeave={onMouseLeave}
-              >
-                {/* TODO:  - Use this for category pages eventually */}
-                {/* {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>} */}
-                {/* TODO: change for a next/Link component */}
-                <a href={'/shop/products?q=' + text}>{text}</a>
-              </li>
-            ))}
+            {items.map(({ text, id, url }) => {
+              const href = url ? url : `${redirectUrl}${text}`;
+
+              return (
+                <li
+                  className="list-item"
+                  id={id}
+                  key={id}
+                  onMouseEnter={() => onMouseEnter(text)}
+                  onMouseLeave={onMouseLeave}
+                >
+                  <Link href={href}>
+                    <a onClick={onNavigatingAway}>{text}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
@@ -54,6 +60,7 @@ type LeftColumnProps = {
   onTrendingCategoryChanged: (trendingCategory: string) => void;
   onSuggestionChanged: (suggestion: string) => void;
   redirectUrl: string;
+  onNavigatingAway: () => void;
 };
 
 const LeftColumn = ({
@@ -66,6 +73,7 @@ const LeftColumn = ({
   onTrendingCategoryChanged,
   onSuggestionChanged,
   redirectUrl,
+  onNavigatingAway,
 }: LeftColumnProps): JSX.Element => {
   const [lock, setLock] = useState(false);
 
@@ -107,6 +115,7 @@ const LeftColumn = ({
       title="Categories"
       items={categories}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
@@ -117,6 +126,7 @@ const LeftColumn = ({
       title="Trending Categories"
       items={trendingCategories}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
@@ -127,6 +137,7 @@ const LeftColumn = ({
       title="Did you mean?"
       items={suggestions}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 

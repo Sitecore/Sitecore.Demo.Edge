@@ -13,6 +13,20 @@ const Template: ComponentStory<typeof LineItemList> = (args) => <LineItemList {.
 
 const slices: MockSlice[] = [cartSlice, productCacheSlice, authSlice];
 
+export const Loading = Template.bind({});
+const loadingState = {
+  initialized: false,
+};
+Loading.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
+      <div className="cart-details">
+        <Story />
+      </div>
+    </MockStore>
+  ),
+];
+
 export const Editable = Template.bind({});
 Editable.args = {
   editable: true,

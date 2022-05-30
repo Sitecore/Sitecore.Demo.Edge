@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
@@ -9,13 +9,17 @@ const Cart = (): JSX.Element => {
     logViewEvent();
   });
 
+  return <CartDetails />;
+};
+
+Cart.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
         <title>PLAY! SHOP - Cart</title>
       </Head>
 
-      <CartDetails editable={true} />
+      {page}
     </ShopLayout>
   );
 };

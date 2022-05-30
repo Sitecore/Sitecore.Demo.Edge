@@ -1,0 +1,3 @@
+.cart-badge {
+  @apply absolute w-5 h-5 -top-2 -right-2 rounded-full bg-pink text-white text-sm text-center;
+}
