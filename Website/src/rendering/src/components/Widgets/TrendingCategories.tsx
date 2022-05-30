@@ -4,6 +4,7 @@ import debounce from '../../helpers/Debounce';
 import { Action } from '@sitecore-discover/react';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import Link from 'next/link';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 type Category = {
   id: string;
@@ -48,11 +49,16 @@ const TrendingCategories = ({
   return loaded && !loading ? (
     <ul>
       {trendingCategories?.map((category: Category) => {
+        const categoryInformation = getCategoryByUrlPath(category.url);
+        const image = categoryInformation?.image_url
+          ? categoryInformation.image_url
+          : '/assets/img/shop/category-placeholder.png';
+
         return (
           <li key={category.id}>
             <Link href={category.url}>
               <a>
-                <img src="/assets/img/shop/category-placeholder.png" alt={category.text} />
+                <img src={image} alt={category.text} />
                 <h4>{category.text}</h4>
               </a>
             </Link>

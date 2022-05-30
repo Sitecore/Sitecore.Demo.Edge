@@ -78,7 +78,8 @@ const PreviewSearch = ({
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
 
-  ClickOutside(containerRef, () => setOpen(false));
+  const closePopup = () => setOpen(false);
+  ClickOutside(containerRef, closePopup);
 
   const openedPopup = open && (
     <div className="preview-search-modal-container">
@@ -92,12 +93,14 @@ const PreviewSearch = ({
         onTrendingCategoryChanged={changeTrendingCategory}
         onSuggestionChanged={changeSuggestion}
         redirectUrl={redirectUrl}
+        onNavigatingAway={closePopup}
       />
       <RightColumn
         selectedKeyword={keyphrase}
         products={products}
         loading={loading}
         loaded={loaded}
+        onNavigatingAway={closePopup}
       />
     </div>
   );

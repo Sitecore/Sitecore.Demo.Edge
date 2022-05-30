@@ -13,3 +13,9 @@ const Template: ComponentStory<typeof FullPageSearch> = (args) => <FullPageSearc
 
 export const Default = Template.bind({});
 Default.args = mockDiscoverData.fullPageSearchProps;
+
+export const CategoryNotFound = Template.bind({});
+CategoryNotFound.args = {
+  ...mockDiscoverData.fullPageSearchProps,
+  rfkId: 'rfkid_10',
+};
