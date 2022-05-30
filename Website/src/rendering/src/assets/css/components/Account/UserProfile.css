@@ -1,0 +1,36 @@
+.user-profile {
+  h1 {
+    @apply font-bold text-2xl;
+
+    span {
+      @apply text-pink;
+    }
+  }
+
+  &-type {
+    @apply text-black-lightest;
+
+    span {
+      @apply font-bold;
+    }
+  }
+
+  &-grid {
+    @apply grid grid-cols-2 gap-3 mt-3;
+    @apply lg:grid-cols-4;
+  }
+
+  &-card {
+    a {
+      @apply block h-full p-2 pt-4 bg-white text-center;
+    }
+
+    svg {
+      @apply text-5xl mb-2;
+    }
+
+    p {
+      @apply text-sm font-bold;
+    }
+  }
+}

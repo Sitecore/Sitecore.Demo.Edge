@@ -35,6 +35,9 @@
 
 /* 5. Our components */
 
+/* Account */
+@import './components/Account/UserProfile.css';
+
 /* Checkout */
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
@@ -139,4 +142,4 @@
 
 /* 9. Other styles */
 
-@import '../../../node_modules/react-loading-skeleton/dist/skeleton.css'
+@import '../../../node_modules/react-loading-skeleton/dist/skeleton.css';

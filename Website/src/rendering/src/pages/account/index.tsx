@@ -1,3 +1,4 @@
+import UserProfile from '../../components/Account/UserProfile';
 import Head from 'next/head';
 import { ShopLayout } from '../../components/Products/Shop';
 import {
@@ -25,13 +26,15 @@ const Account = (): JSX.Element => {
   );
   /* eslint-enable @next/next/no-html-link-for-pages */
 
+  const userProfile = isLoggedIn && <UserProfile />;
+
   return (
     <ShopLayout>
       <Head>
         <title>PLAY! SHOP - My Account</title>
       </Head>
 
-      <p>My Account</p>
+      {userProfile}
 
       {/* TODO: Move login/logout inside the account popup */}
       {loginMenuItem}
