@@ -1,5 +1,6 @@
 import { faAddressBook, faCreditCard, faList, faReceipt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import useOcUser from '../../hooks/useOcUser';
 
 const UserProfile = (): JSX.Element => {
@@ -26,28 +27,36 @@ const UserProfile = (): JSX.Element => {
       </p>
       <ul className="user-profile-grid">
         <li className="user-profile-card">
-          <a href="#">
-            <FontAwesomeIcon icon={faAddressBook} className="text-blue" />
-            <p>Address book</p>
-          </a>
+          <Link href="#">
+            <a>
+              <FontAwesomeIcon icon={faAddressBook} className="text-blue" />
+              <p>Address book</p>
+            </a>
+          </Link>
         </li>
         <li className="user-profile-card">
-          <a href="#">
-            <FontAwesomeIcon icon={faCreditCard} className="text-yellow" />
-            <p>Payment methods</p>
-          </a>
+          <Link href="#">
+            <a>
+              <FontAwesomeIcon icon={faCreditCard} className="text-yellow" />
+              <p>Payment methods</p>
+            </a>
+          </Link>
         </li>
         <li className="user-profile-card">
-          <a href="#">
-            <FontAwesomeIcon icon={faReceipt} className="text-orange" />
-            <p>Order history</p>
-          </a>
+          <Link href="/account/orders">
+            <a>
+              <FontAwesomeIcon icon={faReceipt} className="text-orange" />
+              <p>Order history</p>
+            </a>
+          </Link>
         </li>
         <li className="user-profile-card">
-          <a href="#">
-            <FontAwesomeIcon icon={faList} className="text-pink" />
-            <p>Saved lists</p>
-          </a>
+          <Link href="#">
+            <a>
+              <FontAwesomeIcon icon={faList} className="text-pink" />
+              <p>Saved lists</p>
+            </a>
+          </Link>
         </li>
       </ul>
     </section>
