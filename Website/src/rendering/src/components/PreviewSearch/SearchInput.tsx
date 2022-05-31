@@ -1,7 +1,7 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
-import { KeyboardEvent, useEffect, useRef } from 'react';
+import { ChangeEvent, KeyboardEvent, useEffect, useRef } from 'react';
 
 // TODO: add story for component
 
@@ -54,7 +54,13 @@ const SearchInput = ({
   };
 
   const redirectToSearchPage = (searchTerm: string) => {
+    setOpen(false);
     router.push(`${redirectUrl}${searchTerm}`);
+  };
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchString(e.target.value || '');
+    setOpen(true);
   };
 
   return (
@@ -69,8 +75,9 @@ const SearchInput = ({
         id="search-input"
         className="shop-search-input"
         ref={ref}
-        onChange={(e) => setSearchString(e.target.value || '')}
+        onChange={handleOnChange}
         onFocus={(e) => onFocus(e.target.value || '')}
+        onClick={() => setOpen(true)}
         placeholder={placeholder}
         onKeyUp={keyListener}
         autoComplete="off"

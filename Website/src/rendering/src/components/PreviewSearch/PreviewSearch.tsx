@@ -106,8 +106,8 @@ const PreviewSearch = ({
   );
 
   return (
-    <>
-      <div className="preview-search-container" ref={containerRef}>
+    <div ref={containerRef}>
+      <div className="preview-search-container">
         <div className="preview-search">{openedPopup}</div>
       </div>
       <SearchInput
@@ -121,7 +121,7 @@ const PreviewSearch = ({
         }}
         setOpen={setOpen}
       />
-    </>
+    </div>
   );
 };
 
