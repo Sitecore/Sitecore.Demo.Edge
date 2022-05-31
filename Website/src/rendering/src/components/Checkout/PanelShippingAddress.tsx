@@ -1,4 +1,3 @@
-import AddressForm from '../Forms/AddressForm';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { saveShippingAddress } from '../../redux/ocCurrentCart';
@@ -8,6 +7,7 @@ import AddressCard from './AddressCard';
 import useOcAuth from '../../hooks/useOcAuth';
 import useOcAddressBook from '../../hooks/useOcAddressBook';
 import AddressList from './AddressList';
+import CheckoutAddressForm from 'components/Forms/CheckoutAddressForm';
 
 const PanelShippingAddress = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -51,7 +51,7 @@ const PanelShippingAddress = (): JSX.Element => {
   const isPickupOrder = order?.xp?.DeliveryType !== 'Ship';
 
   const addressUpdateForm = (
-    <AddressForm
+    <CheckoutAddressForm
       address={shippingAddress}
       onSubmit={(address) => handleSetShippingAddress(address)}
       isEditing={true}
@@ -63,7 +63,7 @@ const PanelShippingAddress = (): JSX.Element => {
   );
 
   const addressCreateForm = (
-    <AddressForm
+    <CheckoutAddressForm
       address={{}}
       onSubmit={(address, saveToAddressBook) =>
         isAnonymous || !saveToAddressBook

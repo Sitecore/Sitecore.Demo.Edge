@@ -1,16 +1,17 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
-import Spinner from '../../components/ShopCommon/Spinner';
 
 type AddressFormProps = {
   address?: DBuyerAddress;
-  onSubmit?: (address: DBuyerAddress, saveToAddressBook: boolean) => void;
-  isEditing?: boolean;
-  onCancelEdit?: () => void;
   loading?: boolean;
-  showSaveToAddressBook?: boolean;
+  onChange: ({ address, isValid }: { address: DBuyerAddress; isValid: boolean }) => void;
   prefix?: string; // needed when more that one form on checkout page
+};
+
+export type OnAddressChangeEvent = {
+  address: DBuyerAddress;
+  isValid: boolean;
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -18,41 +19,32 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
    * TODO:
    * 1. Add better postal code validation based on country selected by using masks (react-input-mask)
    * 2. Add more supported countries, currently only support US & Canada
-   * 3. Disable submit button unless there are actual changes
-   * 4. Add ability to discard changes (this would only be on editing addresses)
-   * 5. Remove mocked address once saved addresses are a thing
    */
+  const formRef = useRef(null);
   const countries = GeographyService.getCountries();
   const [states, setStates] = useState(
     GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code)
   );
-  const [addressName, setAddressName] = useState(props?.address?.AddressName || '');
   const [country, setCountry] = useState(props?.address?.Country || '');
   const [street1, setStreet1] = useState(props.address?.Street1 || '');
   const [street2, setStreet2] = useState(props.address?.Street2 || '');
   const [city, setCity] = useState(props?.address?.City || '');
   const [state, setState] = useState(props?.address?.State || '');
   const [zip, setZip] = useState(props?.address?.Zip || '');
-  const [saveToAddressBook, setSaveToAddressBook] = useState(false);
 
-  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const updatedAddress = {
-      ...(props.address || {}),
-      AddressName: addressName,
-      Country: country,
-      Street1: street1,
-      Street2: street2,
-      City: city,
-      State: state,
-      Zip: zip,
-    };
-
-    if (props.onSubmit) {
-      props.onSubmit(updatedAddress, saveToAddressBook);
-    }
-  };
+  useEffect(() => {
+    props.onChange({
+      address: {
+        Country: country,
+        Street1: street1,
+        Street2: street2,
+        City: city,
+        State: state,
+        Zip: zip,
+      },
+      isValid: formRef?.current?.checkValidity?.() || false,
+    });
+  }, [country, street1, street2, city, state, zip]);
 
   const handleCountryChange = (countryCode: string) => {
     setCountry(countryCode);
@@ -61,40 +53,11 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     setState('');
   };
 
-  const cancelEditButton = props.isEditing && (
-    <button className="cancel-edit" onClick={props.onCancelEdit}>
-      Cancel
-    </button>
-  );
-
-  // TODO: this checkbox needs to be styled
-  const saveToAddressBookInput = props.showSaveToAddressBook && (
-    <div className="floating-label-wrap">
-      <input
-        type="checkbox"
-        id="saveToAddressBook"
-        onChange={() => setSaveToAddressBook(!saveToAddressBook)}
-        checked={saveToAddressBook}
-      />
-      <label htmlFor="saveToAddressBook">Save to address book</label>
-    </div>
-  );
-
   const idPrefix = props.prefix ? `${props.prefix}-` : '';
 
   return (
-    <form onSubmit={handleFormSubmit} className="form">
-      <div>
-        <label htmlFor={`${idPrefix}addressName`}>Address Name (Optional)</label>
-        <input
-          type="text"
-          id={`${idPrefix}addressName`}
-          maxLength={100}
-          onChange={(e) => setAddressName(e.target.value)}
-          value={addressName}
-        />
-      </div>
-      <div>
+    <form className="form" ref={formRef}>
+      <div className="floating-label-wrap">
         <label htmlFor={`${idPrefix}country`}>Country</label>
         <select
           id={`${idPrefix}country`}
@@ -175,13 +138,6 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           onChange={(e) => setZip(e.target.value)}
           value={zip}
         />
-      </div>
-      {saveToAddressBookInput}
-      <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> Save Address
-        </button>
-        {cancelEditButton}
       </div>
     </form>
   );

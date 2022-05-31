@@ -1,4 +1,3 @@
-import AddressForm from '../../components/Forms/AddressForm';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { removeBillingAddress, saveBillingAddress } from '../../redux/ocCurrentCart';
@@ -6,6 +5,7 @@ import { useAppDispatch } from '../../redux/store';
 import { useState } from 'react';
 import AddressCard from './AddressCard';
 import { isSameAddress } from '../../helpers/AddressHelper';
+import CheckoutAddressForm from 'components/Forms/CheckoutAddressForm';
 
 const PanelBillingAddress = (): JSX.Element => {
   // TODO: this component should also allow choosing a saved address
@@ -71,7 +71,7 @@ const PanelBillingAddress = (): JSX.Element => {
       return <div></div>;
     } else if (isEditing || !billingAddress) {
       return (
-        <AddressForm
+        <CheckoutAddressForm
           address={billingAddress}
           onSubmit={(address) => handleSetBillingAddress(address)}
           isEditing={isEditing}
