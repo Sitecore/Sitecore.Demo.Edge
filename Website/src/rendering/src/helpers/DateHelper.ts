@@ -76,3 +76,7 @@ export const getIsoDateFromYearAndMonth = (year: string, month: string): string 
   const dateMonth = Number(month) - 1; // month is 0 - 11 in javascript
   return new Date(dateYear, dateMonth).toISOString();
 };
+
+export const getOrderDate = (date: Date): string => {
+  return date?.toLocaleDateString('en-GB').replace(/\//g, '.');
+};

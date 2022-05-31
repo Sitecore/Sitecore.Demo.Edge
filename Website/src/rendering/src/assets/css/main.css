@@ -37,6 +37,7 @@
 
 /* Account */
 @import './components/Account/AccountLayout.css';
+@import './components/Account/OrderReview.css';
 @import './components/Account/UserProfile.css';
 
 /* Checkout */
