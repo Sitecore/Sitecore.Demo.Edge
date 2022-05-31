@@ -65,7 +65,7 @@ export const getYearFromIsoDateString = (isoDate: string): string => {
     return '';
   }
   const date = new Date(isoDate);
-  return date.getFullYear().toString();
+  return date.getFullYear().toString().slice(2);
 };
 
 export const getIsoDateFromYearAndMonth = (year: string, month: string): string => {
@@ -78,5 +78,18 @@ export const getIsoDateFromYearAndMonth = (year: string, month: string): string 
 };
 
 export const getOrderDate = (date: Date): string => {
-  return date?.toLocaleDateString('en-GB').replace(/\//g, '.');
+  return date.toLocaleDateString('en-GB').replace(/\//g, '.');
+};
+
+export const getCreditCardExpirationDate = (isoDate: string): string => {
+  const month = getMonthFromIsoDateString(isoDate);
+  const year = getYearFromIsoDateString(isoDate);
+
+  return `${month}/${year}`;
+};
+
+export const calculateEstimatedDeliveryDate = (days: number, orderDate?: Date): string => {
+  const eta = orderDate || new Date();
+  eta.setDate(eta.getDate() + days);
+  return getOrderDate(eta);
 };

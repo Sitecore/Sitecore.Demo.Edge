@@ -27,7 +27,7 @@ OrderHistoryPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - Orders history</title>
+        <title>PLAY! SHOP - Order history</title>
       </Head>
 
       {page}
