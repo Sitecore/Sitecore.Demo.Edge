@@ -35,6 +35,11 @@
 
 /* 5. Our components */
 
+/* Account */
+@import './components/Account/AccountLayout.css';
+@import './components/Account/OrderReview.css';
+@import './components/Account/UserProfile.css';
+
 /* Checkout */
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
