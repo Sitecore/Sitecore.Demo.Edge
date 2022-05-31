@@ -14,6 +14,7 @@ const Cart = (): JSX.Element => {
     <>
       <CartDetails />
       <DiscoverWidget rfkId="rfkid_1" />
+      <DiscoverWidget rfkId="rfkid_3" />
     </>
   );
 };
