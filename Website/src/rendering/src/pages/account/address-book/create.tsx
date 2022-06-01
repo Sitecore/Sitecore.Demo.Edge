@@ -3,6 +3,7 @@ import { ReactElement } from 'react';
 import { ShopLayout } from '../../../components/Products/Shop';
 import AddressBookFormSection from '../../../components/Account/AddressBookFormSection';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from '../../../components/Navigation/ShopBreadcrumb';
+import { AccountLayout } from '../../../components/Account/AccountLayout';
 
 const NewAddressPage = (): JSX.Element => {
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
@@ -28,10 +29,10 @@ NewAddressPage.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - My Account</title>
+        <title>PLAY! SHOP - Create a new address</title>
       </Head>
-      {/* TODO: Add Account Layout */}
-      {page}
+
+      <AccountLayout>{page}</AccountLayout>
     </ShopLayout>
   );
 };

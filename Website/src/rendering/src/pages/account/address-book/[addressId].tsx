@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { ShopLayout } from '../../../components/Products/Shop';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from '../../../components/Navigation/ShopBreadcrumb';
 import AddressBookFormSection from '../../../components/Account/AddressBookFormSection';
+import { AccountLayout } from '../../../components/Account/AccountLayout';
 
 const EditAddressPage = (): JSX.Element => {
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
@@ -31,7 +32,7 @@ EditAddressPage.getLayout = function getLayout(page: ReactElement) {
         <title>PLAY! SHOP - Edit Address</title>
       </Head>
 
-      {page}
+      <AccountLayout>{page}</AccountLayout>
     </ShopLayout>
   );
 };
