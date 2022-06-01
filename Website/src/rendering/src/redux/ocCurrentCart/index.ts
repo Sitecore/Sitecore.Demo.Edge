@@ -207,7 +207,30 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
       const orderResponse = await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
       orderId = orderResponse.ID;
     }
-    await LineItems.Create<DLineItem>('All', orderId, request);
+
+    // Determine if the line item is already in the cart
+    const lineItemAlreadyInCart = ocCurrentCart.lineItems.find((lineItem: DLineItem) => {
+      if (
+        lineItem.ProductID != request.ProductID ||
+        lineItem.Specs.length !== request.Specs.length
+      ) {
+        return null;
+      }
+      const allSpecsMatch = lineItem.Specs.every((existingLineItemSpec) => {
+        return request.Specs.some((spec) => {
+          return spec.OptionID === existingLineItemSpec.OptionID;
+        });
+      });
+      return allSpecsMatch || lineItem.Specs.length === 0 ? lineItem : null;
+    });
+
+    if (!lineItemAlreadyInCart) {
+      await LineItems.Create<DLineItem>('All', orderId, request);
+    } else {
+      request.Quantity += lineItemAlreadyInCart.Quantity;
+      await LineItems.Patch<DLineItem>('All', orderId, lineItemAlreadyInCart.ID, request);
+    }
+
     if (ocCurrentCart.promotions?.length) {
       ThunkAPI.dispatch(refreshPromotions(orderId));
     }
