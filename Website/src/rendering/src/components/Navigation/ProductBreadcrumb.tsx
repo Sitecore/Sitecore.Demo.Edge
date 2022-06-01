@@ -23,14 +23,12 @@ const ProductBreadcrumb = (props: ProductBreadcrumbProps): JSX.Element => {
   });
 
   return (
-    <>
-      <ShopBreadcrumb
-        rendering={{ componentName: '' }}
-        params={{}}
-        fields={{ items: shopBreadcrumbs }}
-        additionalCssClass="product-breadcrumb"
-      />
-    </>
+    <ShopBreadcrumb
+      rendering={{ componentName: '' }}
+      params={{}}
+      fields={{ items: shopBreadcrumbs }}
+      additionalCssClass="product-breadcrumb"
+    />
   );
 };
 

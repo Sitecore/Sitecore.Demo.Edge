@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ProductBreadcrumb from '../../components/Navigation/ProductBreadcrumb';
-import { DiscoverService } from '../../services/DiscoverService';
 
 export default {
   title: 'Components/Navigation/ProductBreadcrumb',
@@ -10,14 +9,8 @@ export default {
 } as ComponentMeta<typeof ProductBreadcrumb>;
 
 const Template: ComponentStory<typeof ProductBreadcrumb> = (args) => (
-  <div>
-    <ProductBreadcrumb {...args} />
-  </div>
+  <ProductBreadcrumb {...args} />
 );
-
-DiscoverService({
-  isStorybook: true,
-});
 
 export const RootCategoryProduct = Template.bind({});
 RootCategoryProduct.args = {
