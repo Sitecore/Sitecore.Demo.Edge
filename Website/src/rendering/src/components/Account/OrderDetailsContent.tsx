@@ -1,7 +1,11 @@
 import { Address, BuyerCreditCard, OrderWorksheet, ShipMethod } from 'ordercloud-javascript-sdk';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import LineItemCard from '../Checkout/LineItemCard';
-import { getOrderDate } from '../../helpers/DateHelper';
+import {
+  calculateEstimatedDeliveryDate,
+  getCreditCardExpirationDate,
+  getOrderDate,
+} from '../../helpers/DateHelper';
 import Head from 'next/head';
 
 interface OrderDetailsContentProps {
@@ -37,15 +41,13 @@ const OrderDetailsContent = ({
         <p>
           {order.Order.BillingAddress.FirstName} {order.Order.BillingAddress.LastName}
         </p>
-        <p>{order.Order.BillingAddress.CompanyName}</p>
         <p>{order.Order.BillingAddress.Street1}</p>
         <p>{order.Order.BillingAddress.Street2}</p>
         <p>
-          {order.Order.BillingAddress.City}, {order.Order.BillingAddress.State}
+          {order.Order.BillingAddress.City}, {order.Order.BillingAddress.State},{' '}
+          {order.Order.BillingAddress.Zip}
         </p>
         <p>{order.Order.BillingAddress.Country}</p>
-        <p>{order.Order.BillingAddress.Zip}</p>
-        <p>{order.Order.BillingAddress.Phone}</p>
       </>
     ) : null;
   };
@@ -87,13 +89,6 @@ const OrderDetailsContent = ({
     </div>
   );
 
-  const getCreditCardExpirationDate = (date: Date) => {
-    const month = date.getMonth().toString().padStart(2, '0');
-    const year = date.getFullYear().toString().slice(2);
-
-    return `${month}/${year}`;
-  };
-
   console.log(creditCard.ExpirationDate);
   return (
     <>
@@ -120,7 +115,13 @@ const OrderDetailsContent = ({
               <div className="panel-body">
                 <p>Delivery option: Delivery</p>
                 <p>Delivery type: {shipMethod?.Name}</p>
-                <p>Estimated Delivery: 1st of April 2022</p>
+                <p>
+                  Estimated Delivery:{' '}
+                  {calculateEstimatedDeliveryDate(
+                    shipMethod?.EstimatedTransitDays,
+                    new Date(order.Order.DateSubmitted)
+                  )}
+                </p>
                 {shippingAddress}
               </div>
             </div>
@@ -132,9 +133,7 @@ const OrderDetailsContent = ({
                 <p className="title">Payment method:</p>
                 <p>Name on card: {creditCard.CardholderName}</p>
                 <p>Credit card ending in: : •••• {creditCard.PartialAccountNumber}</p>
-                <p>
-                  Expiration: {getCreditCardExpirationDate(new Date(creditCard.ExpirationDate))}
-                </p>
+                <p>Expiration: {getCreditCardExpirationDate(creditCard.ExpirationDate)}</p>
                 {billingAddress}
               </div>
             </div>
