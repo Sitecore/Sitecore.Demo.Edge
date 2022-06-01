@@ -5,8 +5,12 @@ import { useAppDispatch } from '../../redux/store';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
-import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
-import mapUserForDiscover from '../../../src/helpers/discover/UserMapper';
+import mapProductsForDiscover from '../../helpers/discover/ProductMapper';
+import mapUserForDiscover from '../../helpers/discover/UserMapper';
+import {
+  calculateEstimatedDeliveryDate,
+  getCreditCardExpirationDate,
+} from '../../helpers/DateHelper';
 
 // TODO: Create Storybook story for that component
 const OrderReviewDetails = (): JSX.Element => {
@@ -18,12 +22,6 @@ const OrderReviewDetails = (): JSX.Element => {
   const deliveryMethod = shipEstimate?.ShipMethods?.filter(
     (method) => method.ID === shipEstimate.SelectedShipMethodID
   )?.[0];
-
-  const calculateEstimatedDeliveryDate = (days: number): string => {
-    const eta = new Date();
-    eta.setDate(eta.getDate() + days);
-    return eta.toLocaleDateString();
-  };
 
   const deliveryPanelContent = (
     <>
@@ -37,6 +35,7 @@ const OrderReviewDetails = (): JSX.Element => {
           {shippingAddress?.FirstName} {shippingAddress?.LastName}
         </p>
         <p>{shippingAddress?.Street1}</p>
+        <p>{shippingAddress?.Street2}</p>
         <p>
           {shippingAddress?.City}, {shippingAddress?.State}, {shippingAddress?.Zip}
         </p>
@@ -50,8 +49,10 @@ const OrderReviewDetails = (): JSX.Element => {
       <div>
         <p className="title payment-title">Payment method:</p>
         <p>Name on card: {payments?.[0]?.xp?.CreditCard?.CardholderName}</p>
-        <p>Credit card ending in: {payments?.[0]?.xp?.CreditCard?.ID}</p>
-        <p>Expires on: {payments?.[0]?.xp?.CreditCard?.ExpirationDate}</p>
+        <p>Credit card ending in: •••• {payments?.[0]?.xp?.CreditCard?.PartialAccountNumber}</p>
+        <p>
+          Expires on: {getCreditCardExpirationDate(payments?.[0]?.xp?.CreditCard?.ExpirationDate)}
+        </p>
       </div>
       <div>
         <p className="title">Billing address:</p>
@@ -59,6 +60,7 @@ const OrderReviewDetails = (): JSX.Element => {
           {order?.BillingAddress?.FirstName} {order?.BillingAddress?.LastName}
         </p>
         <p>{order?.BillingAddress?.Street1}</p>
+        <p>{order?.BillingAddress?.Street2}</p>
         <p>
           {order?.BillingAddress?.City}, {order?.BillingAddress?.State},{' '}
           {order?.BillingAddress?.Zip}
@@ -66,6 +68,15 @@ const OrderReviewDetails = (): JSX.Element => {
         <p>{order?.BillingAddress?.Country}</p>
       </div>
     </>
+  );
+
+  const commentsPanelContent = order?.Comments && (
+    <div className="panel">
+      <div className="panel-header">
+        <h2>Additional Comments</h2>
+      </div>
+      <div className="panel-body">{order?.Comments}</div>
+    </div>
   );
 
   const onOrderSubmitSuccess = () => {
@@ -113,12 +124,7 @@ const OrderReviewDetails = (): JSX.Element => {
             </div>
             <div className="panel-body">{paymentPanelContent}</div>
           </div>
-          <div className="panel">
-            <div className="panel-header">
-              <h2>Additional Comments</h2>
-            </div>
-            <div className="panel-body">{order?.Comments}</div>
-          </div>
+          {commentsPanelContent}
           <CheckoutSummary buttonText="Place your order" onClick={handleSubmitOrder} />
         </div>
       </div>

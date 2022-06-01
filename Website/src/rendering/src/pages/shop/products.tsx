@@ -9,7 +9,12 @@ const Products = (): JSX.Element => {
     logViewEvent();
   });
 
-  return <DiscoverWidget rfkId="rfkid_7" />;
+  return (
+    <>
+      <DiscoverWidget rfkId="rfkid_7" />
+      <DiscoverWidget rfkId="rfkid_1" />
+    </>
+  );
 };
 
 Products.getLayout = function getLayout(page: ReactElement) {
