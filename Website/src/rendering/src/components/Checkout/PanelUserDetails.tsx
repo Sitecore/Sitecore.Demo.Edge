@@ -22,6 +22,8 @@ const PanelUserDetails = (): JSX.Element => {
               name="user-email"
               id="user-email"
               type="email"
+              required
+              // TODO: Investigate if we need to disable the "Review order" button while the email is being saved
               onBlur={(event) => handleUpdateEmail(event.target.value)}
             ></input>
           </div>
