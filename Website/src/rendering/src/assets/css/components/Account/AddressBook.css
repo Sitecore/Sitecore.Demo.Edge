@@ -1,7 +1,11 @@
+div.shop-main-container .section.address-book {
+  @apply pt-0;
+}
+
 .address-book {
   &-header {
-    @apply flex flex-col;
-    @apply sm:flex-row sm:justify-between sm:items-end;
+    @apply flex flex-col mb-3;
+    @apply sm:flex-row sm:justify-between sm:items-start;
   }
 
   h1 {

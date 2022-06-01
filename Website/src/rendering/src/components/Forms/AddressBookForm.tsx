@@ -38,8 +38,6 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   const [billing, setBilling] = useState(props?.address?.Billing);
   const [shipping, setShipping] = useState(props?.address?.Shipping);
 
-  // console.log(props);
-
   useEffect(() => {
     setAddressName(props?.address?.AddressName || '');
     setCountry(props?.address?.Country || '');
@@ -92,42 +90,28 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
 
   const idPrefix = props.prefix ? `${props.prefix}-` : '';
 
+  const buttonText = props.isEditing ? 'Save Address' : 'Create address';
+
   return (
     <form onSubmit={handleFormSubmit} className="form">
       <div>
-        <label htmlFor={`${idPrefix}addressName`}>Address Name (Optional)</label>
+        <label htmlFor={`${idPrefix}addressName`}>Address name</label>
         <input
           type="text"
           id={`${idPrefix}addressName`}
+          autoComplete="off"
+          required
           maxLength={100}
           onChange={(e) => setAddressName(e.target.value)}
           value={addressName}
         />
       </div>
       <div>
-        <label htmlFor={`${idPrefix}country`}>Country</label>
-        <select
-          id={`${idPrefix}country`}
-          required
-          onChange={(e) => handleCountryChange(e.target.value)}
-          value={country}
-        >
-          <option key="blank" value="">
-            Select a country
-          </option>
-          {countries.map((country) => (
-            <option key={country.code} value={country.code}>
-              {country.label}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div>
         <label htmlFor={`${idPrefix}firstName`}>First name</label>
         <input
           type="text"
           id={`${idPrefix}firstName`}
-          autoComplete="first-name"
+          autoComplete="given-name"
           required
           maxLength={100}
           onChange={(e) => setFirstName(e.target.value)}
@@ -139,7 +123,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         <input
           type="text"
           id={`${idPrefix}lastName`}
-          autoComplete="last-name"
+          autoComplete="family-name"
           required
           maxLength={100}
           onChange={(e) => setLastName(e.target.value)}
@@ -151,7 +135,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         <input
           type="text"
           id={`${idPrefix}street1`}
-          autoComplete="address-line1"
+          autoComplete="street-address"
           required
           maxLength={100}
           onChange={(e) => setStreet1(e.target.value)}
@@ -181,6 +165,24 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         />
       </div>
       <div>
+        <label htmlFor={`${idPrefix}country`}>Country</label>
+        <select
+          id={`${idPrefix}country`}
+          required
+          onChange={(e) => handleCountryChange(e.target.value)}
+          value={country}
+        >
+          <option key="blank" value="">
+            Select a country
+          </option>
+          {countries.map((country) => (
+            <option key={country.code} value={country.code}>
+              {country.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
         <label htmlFor={`${idPrefix}stateProvince`}>State / Province</label>
         <select
           id={`${idPrefix}stateProvince`}
@@ -199,7 +201,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         </select>
       </div>
       <div>
-        <label htmlFor={`${idPrefix}postalCode`}>Postal Code</label>
+        <label htmlFor={`${idPrefix}postalCode`}>Postal code</label>
         <input
           type="text"
           id={`${idPrefix}postalCode`}
@@ -218,7 +220,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
           onChange={(e) => setBilling(e.target.checked)}
           checked={billing}
         />
-        <label htmlFor={`${idPrefix}billing`}>Select as default billing address</label>
+        <label htmlFor={`${idPrefix}billing`}>Set as default billing address</label>
       </div>
       <div>
         <input
@@ -228,11 +230,11 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
           onChange={(e) => setShipping(e.target.checked)}
           checked={shipping}
         />
-        <label htmlFor={`${idPrefix}shipping`}>Select as default shipping address</label>
+        <label htmlFor={`${idPrefix}shipping`}>Set as default shipping address</label>
       </div>
       <div className="button-area">
         <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> Save Address
+          <Spinner loading={props.loading} /> {buttonText}
         </button>
         {cancelEditButton}
       </div>

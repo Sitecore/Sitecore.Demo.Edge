@@ -14,14 +14,15 @@ const AddressBookFormSection = (): JSX.Element => {
 
   const { addressId } = router.query;
 
-  const getAddress = async () => {
-    const addressToEdit = await Me.GetAddress(String(addressId));
-    setAddress(addressToEdit);
-  };
-
   useEffect(() => {
-    addressId && getAddress();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const getAddress = async () => {
+      const addressToEdit = await Me.GetAddress(String(addressId));
+      setAddress(addressToEdit);
+    };
+
+    if (addressId) {
+      getAddress();
+    }
   }, [addressId]);
 
   const title = addressId ? 'Edit address' : 'Create a new address';

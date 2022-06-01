@@ -1,7 +1,10 @@
+div.shop-main-container .section.order-history {
+  @apply pt-0;
+}
+
 .order-history {
   h1 {
-    @apply text-2xl font-bold mb-3 px-5;
-    @apply sm:px-0;
+    @apply text-2xl font-bold mb-3;
   }
 
   &-grid {

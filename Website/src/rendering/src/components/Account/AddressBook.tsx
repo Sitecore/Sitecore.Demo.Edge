@@ -3,33 +3,38 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import useOcAddressBook from '../../hooks/useOcAddressBook';
+import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 
 const AddressBook = (): JSX.Element => {
   const { addresses, deleteAddress } = useOcAddressBook();
 
-  const addressBookList = addresses.length > 0 && (
+  const editableAddresses = addresses ? addresses.filter((address) => address.Editable) : [];
+
+  const noAddresses = editableAddresses.length === 0 && (
+    <div>You have no addresses yet in your address book.</div>
+  );
+
+  const getDefaultBanner = (address: DBuyerAddress) => {
+    if (address.Billing && address.Shipping) {
+      return <span className="default-banner bg-pink">Default billing and shipping</span>;
+    } else if (address.Billing) {
+      return <span className="default-banner bg-blue">Default billing</span>;
+    } else if (address.Shipping) {
+      return <span className="default-banner bg-orange">Default shipping</span>;
+    } else {
+      return null;
+    }
+  };
+
+  const addressBookList = editableAddresses.length > 0 && (
     <ul>
-      {addresses.map((address) => {
-        if (!address.Editable) {
-          return null;
-        }
-
-        const defaultBanner = address.Billing ? (
-          address.Shipping ? (
-            <span className="default-banner bg-pink">Default Billing and Shipping</span>
-          ) : (
-            <span className="default-banner bg-blue">Default Billing</span>
-          )
-        ) : address.Shipping ? (
-          <span className="default-banner bg-orange">Default Shipping</span>
-        ) : null;
-
+      {editableAddresses.map((address) => {
         return (
           <li key={address.ID}>
             <div className="address-book-item">
               <div className="address-book-item-content">
                 <p className="title">{address.AddressName}</p>
-                {defaultBanner}
+                {getDefaultBanner(address)}
                 <p>
                   {address.FirstName} {address.LastName}
                 </p>
@@ -70,7 +75,10 @@ const AddressBook = (): JSX.Element => {
           <a className="btn--main btn--main--round">Add new address</a>
         </Link>
       </div>
-      <div className="address-book-grid">{addressBookList}</div>
+      <div className="address-book-grid">
+        {noAddresses}
+        {addressBookList}
+      </div>
     </section>
   );
 };
