@@ -1,9 +1,9 @@
-import AddressBook from '../../../components/Account/AddressBook';
+import AddressBook from '../../components/Account/AddressBook';
 import Head from 'next/head';
 import { ReactElement } from 'react';
-import ShopBreadcrumb, { ShopBreadcrumbItem } from '../../../components/Navigation/ShopBreadcrumb';
-import { ShopLayout } from '../../../components/Products/Shop';
-import { AccountLayout } from '../../../components/Account/AccountLayout';
+import ShopBreadcrumb, { ShopBreadcrumbItem } from '../../components/Navigation/ShopBreadcrumb';
+import { ShopLayout } from '../../components/Products/Shop';
+import { AccountLayout } from '../../components/Account/AccountLayout';
 
 const AddressBookPage = (): JSX.Element => {
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [

@@ -9,7 +9,11 @@ import {
   logoutUrl,
 } from '../../services/AuthenticationService';
 
-const AccountPopup = (): JSX.Element => {
+type AccountPopupProps = {
+  onNavigatingAway: () => void;
+};
+
+const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   const router = useRouter();
   const { user } = useOcUser();
   const { isAnonymous, isAuthenticated } = useOcAuth();
@@ -43,6 +47,23 @@ const AccountPopup = (): JSX.Element => {
   const loggedInMenuItems = isUserLoggedIn && (
     <>
       <h3>{getGreeting()}</h3>
+      <ul>
+        <li>
+          <Link href="/account">
+            <a onClick={onNavigatingAway}>User profile</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/account/address-book">
+            <a onClick={onNavigatingAway}>Address book</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/account/orders">
+            <a onClick={onNavigatingAway}>Order history</a>
+          </Link>
+        </li>
+      </ul>
       <Link href={logoutUrl}>
         <a className="btn--main btn--main--round" onClick={clearAuthenticationTokens}>
           Logout
