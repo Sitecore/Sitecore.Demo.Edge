@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
+import useOcAuth from '../../hooks/useOcAuth';
 
 type CheckoutSummaryProps = {
   buttonText: string;
@@ -10,6 +11,8 @@ type CheckoutSummaryProps = {
 const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
+  const { isAnonymous } = useOcAuth();
+
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
@@ -50,6 +53,9 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
       return false;
     }
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
+      return false;
+    }
+    if (isAnonymous && !order?.xp?.GuestUserEmail) {
       return false;
     }
     return true;
