@@ -1,11 +1,15 @@
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DLineItem } from '../../models/ordercloud/DLineItem';
 import Link from 'next/link';
 import MiniCartItem from './MiniCartItem';
 import { getItemsCount } from '../../helpers/LineItemsHelpers';
 
-const MiniCart = (): JSX.Element => {
-  const { lineItems, order } = useOcCurrentOrder();
+type MinicartProps = {
+  onNavigatingAway: () => void;
+};
+
+const MiniCart = ({ onNavigatingAway }: MinicartProps): JSX.Element => {
+  const { lineItems, order } = useOcCurrentCart();
 
   const cartContent =
     lineItems && lineItems.length ? (
@@ -22,12 +26,17 @@ const MiniCart = (): JSX.Element => {
           </p>
           <div className="mini-cart-buttons">
             <Link href="/shop/checkout/cart">
-              <a className="btn--secondary btn--secondary--light btn--secondary--round">
+              <a
+                className="btn--secondary btn--secondary--light btn--secondary--round"
+                onClick={onNavigatingAway}
+              >
                 View full cart
               </a>
             </Link>
             <Link href="/shop/checkout/checkout">
-              <a className="btn--main btn--main--round">Proceed to checkout</a>
+              <a className="btn--main btn--main--round" onClick={onNavigatingAway}>
+                Proceed to checkout
+              </a>
             </Link>
           </div>
         </div>

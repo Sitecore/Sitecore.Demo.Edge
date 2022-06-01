@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
+import { Actions, PageController } from '@sitecore-discover/react';
+import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../Checkout/MiniCart';
@@ -8,6 +11,7 @@ import DiscoverWidget from '../ShopCommon/DiscoverWidget';
 import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
+import AccountPopup from './AccountPopup';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -16,20 +20,49 @@ export type ShopNavigationProps = {
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
+  const { lineItems } = useOcCurrentCart();
 
+  const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
+  const accountPopupRef = useRef(null);
+
+  // TODO: Remove conditions from JSX
   const accountMenuItem = isAuthenticationEnabled && (
-    <li className="shop-navigation-menu-item">
-      <Link href="/account" passHref>
-        <a>
-          <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
-        </a>
-      </Link>
+    <li
+      className={`shop-navigation-menu-item ${isAccountPopupOpen && 'active'}`}
+      ref={accountPopupRef}
+    >
+      <button onClick={() => setIsAccountPopupOpen(!isAccountPopupOpen)}>
+        <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
+      </button>
+      <div className={`account-popup-wrapper ${isAccountPopupOpen && 'open'}`}>
+        <AccountPopup />
+      </div>
     </li>
   );
 
-  ClickOutside(miniCartRef, () => {
-    setIsMiniCartOpen(false);
+  const closeMinicart = () => setIsMiniCartOpen(false);
+  ClickOutside(miniCartRef, closeMinicart);
+
+  ClickOutside(accountPopupRef, () => {
+    setIsAccountPopupOpen(false);
   });
+
+  // TODO: Try to remove code duplication here and in LineItemList.tsx
+  const dispatchDiscoverCartStatusListActionEvent = () => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.CART_STATUS,
+      payload: {
+        products: mapProductsForDiscover(lineItems),
+      },
+    });
+  };
+
+  const handleCartIconClick = () => {
+    if (!isMiniCartOpen && lineItems?.length !== undefined) {
+      dispatchDiscoverCartStatusListActionEvent();
+    }
+    setIsMiniCartOpen(!isMiniCartOpen);
+  };
 
   const previewSearchWidget = props.previewSearchProps ? (
     <PreviewSearch {...props.previewSearchProps} />
@@ -56,13 +89,13 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
               }`}
               ref={miniCartRef}
             >
-              <button onClick={() => setIsMiniCartOpen(!isMiniCartOpen)}>
+              <button onClick={handleCartIconClick}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 <CartBadge />
               </button>
               {/* TODO: Remove condition from JSX */}
               <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
-                <MiniCart />
+                <MiniCart onNavigatingAway={closeMinicart} />
               </div>
             </li>
             {accountMenuItem}

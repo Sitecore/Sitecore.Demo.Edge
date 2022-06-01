@@ -1,41 +1,21 @@
+import UserProfile from '../../components/Account/UserProfile';
 import Head from 'next/head';
+import { ReactElement } from 'react';
 import { ShopLayout } from '../../components/Products/Shop';
-import {
-  clearAuthenticationTokens,
-  isLoggedIn,
-  isAuthenticationEnabled,
-  loginUrl,
-  logoutUrl,
-} from '../../services/AuthenticationService';
+import { AccountLayout } from '../../components/Account/AccountLayout';
 
 const Account = (): JSX.Element => {
-  /* eslint-disable @next/next/no-html-link-for-pages */
-  const loginMenuItem = isAuthenticationEnabled && !isLoggedIn && (
-    <div className="shop-navigation-menu-item">
-      <a href={loginUrl}>Login</a>
-    </div>
-  );
+  return <UserProfile />;
+};
 
-  const logoutMenuItem = isAuthenticationEnabled && isLoggedIn && (
-    <div className="shop-navigation-menu-item">
-      <a href={logoutUrl} onClick={clearAuthenticationTokens}>
-        Logout
-      </a>
-    </div>
-  );
-  /* eslint-enable @next/next/no-html-link-for-pages */
-
+Account.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
         <title>PLAY! SHOP - My Account</title>
       </Head>
 
-      <p>My Account</p>
-
-      {/* TODO: Move login/logout inside the account popup */}
-      {loginMenuItem}
-      {logoutMenuItem}
+      <AccountLayout>{page}</AccountLayout>
     </ShopLayout>
   );
 };

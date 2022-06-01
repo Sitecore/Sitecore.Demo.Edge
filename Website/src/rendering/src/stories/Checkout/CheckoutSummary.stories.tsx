@@ -13,7 +13,9 @@ export default {
 const Template: ComponentStory<typeof CheckoutSummary> = (args) => <CheckoutSummary {...args} />;
 
 export const WithoutShippingOptionSelected = Template.bind({});
-WithoutShippingOptionSelected.args = {};
+WithoutShippingOptionSelected.args = {
+  buttonText: 'Review order',
+};
 
 WithoutShippingOptionSelected.decorators = [
   (Story) => (
@@ -24,7 +26,9 @@ WithoutShippingOptionSelected.decorators = [
 ];
 
 export const WithFreeShippingCost = Template.bind({});
-WithFreeShippingCost.args = {};
+WithFreeShippingCost.args = {
+  buttonText: 'Review order',
+};
 
 const freeShippingState = {
   ...cartState,
@@ -38,6 +42,7 @@ const freeShippingState = {
   order: {
     ShippingCost: 0,
     Subtotal: 123.45,
+    LineItemCount: 3,
   },
 };
 
@@ -50,7 +55,9 @@ WithFreeShippingCost.decorators = [
 ];
 
 export const WithShippingCost = Template.bind({});
-WithShippingCost.args = {};
+WithShippingCost.args = {
+  buttonText: 'Review order',
+};
 
 const paidShippingState = {
   ...cartState,
@@ -64,6 +71,7 @@ const paidShippingState = {
   order: {
     ShippingCost: 12.99,
     Subtotal: 123.45,
+    LineItemCount: 3,
   },
 };
 

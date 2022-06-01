@@ -1,5 +1,5 @@
 import AddressForm from '../Forms/AddressForm';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
 import { saveShippingAddress } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
@@ -9,11 +9,14 @@ import AddressCard from './AddressCard';
 const PanelShippingAddress = (): JSX.Element => {
   // TODO: this component should also allow choosing a saved address
   const dispatch = useAppDispatch();
-  const { shippingAddress } = useOcCurrentOrder();
+  const [loading, setLoading] = useState(false);
+  const { shippingAddress, order } = useOcCurrentCart();
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleSetShippingAddress = (address: Partial<DBuyerAddress>) => {
-    dispatch(saveShippingAddress(address));
+  const handleSetShippingAddress = async (address: Partial<DBuyerAddress>) => {
+    setLoading(true);
+    await dispatch(saveShippingAddress(address));
+    setLoading(false);
     setIsEditing(false);
   };
 
@@ -21,15 +24,23 @@ const PanelShippingAddress = (): JSX.Element => {
     setIsEditing(false);
   };
 
+  const isPickupOrder = order?.xp?.DeliveryType !== 'Ship';
+
   const addressDisplay =
-    shippingAddress && !isEditing ? (
-      <AddressCard address={shippingAddress} editable={true} onEdit={() => setIsEditing(true)} />
-    ) : (
+    !shippingAddress || (isEditing && !isPickupOrder) ? (
       <AddressForm
         address={shippingAddress}
         onSubmit={(address) => handleSetShippingAddress(address)}
         isEditing={isEditing}
         onCancelEdit={handleCancelEdit}
+        loading={loading}
+        prefix="shipping"
+      />
+    ) : (
+      <AddressCard
+        address={shippingAddress}
+        editable={!isPickupOrder}
+        onEdit={() => setIsEditing(true)}
       />
     );
 

@@ -35,6 +35,11 @@
 
 /* 5. Our components */
 
+/* Account */
+@import './components/Account/AccountLayout.css';
+@import './components/Account/OrderReview.css';
+@import './components/Account/UserProfile.css';
+
 /* Checkout */
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
@@ -53,7 +58,9 @@
 @import './components/FullPageSearch/FullPageSearch.css';
 
 /* Navigation */
+@import './components/Navigation/AccountPopup.css';
 @import './components/Navigation/Breadcrumb.css';
+@import './components/Navigation/CategoryBreadcrumb.css';
 @import './components/Navigation/Footer.css';
 @import './components/Navigation/Header.css';
 @import './components/Navigation/MainNavigation.css';
@@ -124,6 +131,9 @@
 /* Sponsors */
 @import './components/Sponsors/SponsorsGrid.css';
 
+/* Widgets */
+@import './components/Widgets/RecommendedProducts.css';
+
 /* 6. Tailwind components */
 
 /* Specifically importing after our components to mimic Tailwind v2 file creation */
@@ -135,3 +145,7 @@
 /* 8. Tailwind utilities */
 
 @import 'tailwindcss/utilities';
+
+/* 9. Other styles */
+
+@import '../../../node_modules/react-loading-skeleton/dist/skeleton.css';

@@ -1,12 +1,15 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
+import Spinner from '../../components/ShopCommon/Spinner';
 
 type AddressFormProps = {
   address?: DBuyerAddress;
   onSubmit?: (address: DBuyerAddress) => void;
   isEditing?: boolean;
   onCancelEdit?: () => void;
+  loading?: boolean;
+  prefix?: string; // needed when more that one form on checkout page
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -22,17 +25,23 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
   const [states, setStates] = useState(
     GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code)
   );
-  const [addressName, setAddressName] = useState(
-    props?.address ? props.address?.AddressName : 'Home'
-  );
-  const [country, setCountry] = useState(props?.address ? props.address?.Country : 'US');
-  const [street1, setStreet1] = useState(
-    props?.address?.ID ? props.address?.Street1 : '6818 Gaines Ferry Road'
-  );
-  const [street2, setStreet2] = useState(props.address?.Street2);
-  const [city, setCity] = useState(props?.address ? props.address?.City : 'Flowery Branch');
-  const [state, setState] = useState(props?.address ? props.address?.State : 'GA');
-  const [zip, setZip] = useState(props?.address ? props.address?.Zip : '30542');
+  const [addressName, setAddressName] = useState(props?.address?.AddressName || '');
+  const [country, setCountry] = useState(props?.address?.Country || '');
+  const [street1, setStreet1] = useState(props.address?.Street1 || '');
+  const [street2, setStreet2] = useState(props.address?.Street2 || '');
+  const [city, setCity] = useState(props?.address?.City || '');
+  const [state, setState] = useState(props?.address?.State || '');
+  const [zip, setZip] = useState(props?.address?.Zip || '');
+
+  useEffect(() => {
+    setAddressName(props?.address?.AddressName || 'Home');
+    setCountry(props?.address?.Country || 'US');
+    setStreet1(props?.address?.Street1 || '6818 Gaines Ferry Road');
+    setStreet2(props?.address?.Street2 || '');
+    setCity(props?.address?.City || 'Flowery Branch');
+    setState(props?.address?.State || 'GA');
+    setZip(props?.address?.Zip || '30542');
+  }, [props.address]);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -66,22 +75,24 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     </button>
   );
 
+  const idPrefix = props.prefix ? `${props.prefix}-` : '';
+
   return (
     <form onSubmit={handleFormSubmit} className="form">
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}addressName`}>Address Name (Optional)</label>
         <input
           type="text"
-          placeholder="Address Name"
-          id="addressName"
+          id={`${idPrefix}addressName`}
           maxLength={100}
           onChange={(e) => setAddressName(e.target.value)}
           value={addressName}
         />
-        <label htmlFor="addressName">Address Name (Optional)</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}country`}>Country</label>
         <select
-          id="country"
+          id={`${idPrefix}country`}
           required
           onChange={(e) => handleCountryChange(e.target.value)}
           value={country}
@@ -95,48 +106,45 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
-        <label htmlFor="country">Country</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}street1`}>Street 1</label>
         <input
           type="text"
-          placeholder="Street 1"
-          id="street1"
+          id={`${idPrefix}street1`}
           autoComplete="address-line1"
           required
           maxLength={100}
           onChange={(e) => setStreet1(e.target.value)}
           value={street1}
         />
-        <label htmlFor="street1">Street 1</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}street2`}>Street 2 (Optional)</label>
         <input
           type="text"
-          placeholder="Street 2"
-          id="street2"
+          id={`${idPrefix}street2`}
           autoComplete="address-line2"
           onChange={(e) => setStreet2(e.target.value)}
           value={street2}
         />
-        <label htmlFor="street2">Street 2 (Optional)</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}city`}>City</label>
         <input
           type="text"
-          placeholder="City"
-          id="city"
+          id={`${idPrefix}city`}
           autoComplete="address-level2"
           required
           maxLength={100}
           onChange={(e) => setCity(e.target.value)}
           value={city}
         />
-        <label htmlFor="city">City</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}stateProvince`}>State / Province</label>
         <select
-          id="stateProvince"
+          id={`${idPrefix}stateProvince`}
           required
           onChange={(e) => setState(e.target.value)}
           value={state}
@@ -150,23 +158,22 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
-        <label htmlFor="stateProvince">State / Province</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}postalCode`}>Postal Code</label>
         <input
           type="text"
-          id="postalCode"
+          id={`${idPrefix}postalCode`}
           autoComplete="postal-code"
           required
           maxLength={100}
           onChange={(e) => setZip(e.target.value)}
           value={zip}
         />
-        <label htmlFor="postalCode">Postal Code</label>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
-          Save Address
+        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
+          <Spinner loading={props.loading} /> Save Address
         </button>
         {cancelEditButton}
       </div>

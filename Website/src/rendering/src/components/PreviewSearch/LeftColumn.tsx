@@ -8,6 +8,7 @@ type PreviewSearchListProps = {
   redirectUrl: string;
   onMouseEnter: (text: string) => void;
   onMouseLeave: () => void;
+  onNavigatingAway: () => void;
 };
 
 const PreviewSearchList = ({
@@ -16,6 +17,7 @@ const PreviewSearchList = ({
   redirectUrl,
   onMouseEnter,
   onMouseLeave,
+  onNavigatingAway,
 }: PreviewSearchListProps): JSX.Element => {
   return (
     <div className="list-container">
@@ -35,7 +37,7 @@ const PreviewSearchList = ({
                   onMouseLeave={onMouseLeave}
                 >
                   <Link href={href}>
-                    <a>{text}</a>
+                    <a onClick={onNavigatingAway}>{text}</a>
                   </Link>
                 </li>
               );
@@ -57,6 +59,7 @@ type LeftColumnProps = {
   onTrendingCategoryChanged: (trendingCategory: string) => void;
   onSuggestionChanged: (suggestion: string) => void;
   redirectUrl: string;
+  onNavigatingAway: () => void;
 };
 
 const LeftColumn = ({
@@ -69,6 +72,7 @@ const LeftColumn = ({
   onTrendingCategoryChanged,
   onSuggestionChanged,
   redirectUrl,
+  onNavigatingAway,
 }: LeftColumnProps): JSX.Element => {
   // TODO Investigate if we can remove lock completely
   let lock = false;
@@ -111,6 +115,7 @@ const LeftColumn = ({
       title="Categories"
       items={categories}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
@@ -121,6 +126,7 @@ const LeftColumn = ({
       title="Trending Categories"
       items={trendingCategories}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
@@ -131,6 +137,7 @@ const LeftColumn = ({
       title="Did you mean?"
       items={suggestions}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
