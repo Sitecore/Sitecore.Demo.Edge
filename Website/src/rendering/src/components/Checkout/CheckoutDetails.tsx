@@ -7,8 +7,10 @@ import PanelShippingEstimates from './PanelShippingEstimates';
 import PanelBillingAddress from './PanelBillingAddress';
 import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
+import PanelUserDetails from './PanelUserDetails';
 import CheckoutSummary from './CheckoutSummary';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
+import useOcAuth from '../../hooks/useOcAuth';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;
@@ -26,14 +28,19 @@ const CheckoutDetailsSkeleton = (): JSX.Element => {
 const CheckoutDetails = (): JSX.Element => {
   const router = useRouter();
   const { order, initialized } = useOcCurrentCart();
+  const { isAnonymous } = useOcAuth();
   const shippingEstimates = order?.xp?.DeliveryType === 'Ship' && <PanelShippingEstimates />;
 
   const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
 
+  const userDetailsPanel = isAnonymous && <PanelUserDetails />;
+  const checkoutTitle = isAnonymous ? 'Guest checkout' : 'Checkout';
+
   const checkoutDetails = (
     <section className="checkout-details shop-container">
-      <h1>Checkout</h1>
+      <h1>{checkoutTitle}</h1>
       <div className="checkout-details-grid">
+        {userDetailsPanel}
         <PanelDeliveryOptions />
         <PanelShippingAddress />
         {shippingEstimates}
