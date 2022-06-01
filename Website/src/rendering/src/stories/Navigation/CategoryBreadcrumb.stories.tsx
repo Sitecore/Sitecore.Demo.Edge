@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import CategoryBreadcrumb from '../../components/Navigation/CategoryBreadcrumb';
-import { DiscoverService } from '../../services/DiscoverService';
 import { categoriesData } from '../../temp/categoriesData';
 
 export default {
@@ -15,10 +14,6 @@ const Template: ComponentStory<typeof CategoryBreadcrumb> = (args) => (
     <CategoryBreadcrumb {...args} />
   </div>
 );
-
-DiscoverService({
-  isStorybook: true,
-});
 
 export const NoCategory = Template.bind({});
 NoCategory.args = {};
