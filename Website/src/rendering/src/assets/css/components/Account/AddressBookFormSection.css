@@ -1,0 +1,9 @@
+.address-book-form-section {
+  h1 {
+    @apply text-2xl font-bold mb-5;
+  }
+
+  .form-wrapper {
+    @apply max-w-[500px] mx-auto;
+  }
+}
