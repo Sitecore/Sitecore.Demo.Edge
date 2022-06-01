@@ -1,12 +1,13 @@
+import { useRef, useState } from 'react';
+import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
+import { Action } from '@sitecore-discover/react';
+import { PreviewSearchActions } from '@sitecore-discover/widgets';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 import debounce from '../../helpers/Debounce';
-import { PreviewSearchActions } from '@sitecore-discover/widgets';
-import { useRef, useState } from 'react';
 import SearchInput from './SearchInput';
-import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
-import { Action } from '@sitecore-discover/react';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 export interface PreviewSearchProps extends PreviewSearchWidgetProps {
   rfkId: string;
@@ -23,7 +24,7 @@ const PreviewSearch = ({
   redirectUrl,
   dispatch,
 }: PreviewSearchProps): JSX.Element => {
-  const [selectedKeyword, setSelectedKeyword] = useState(keyphrase);
+  const [viewAllUrl, setViewAllUrl] = useState(keyphrase);
 
   const changeKeyphrase: (text: string) => void = debounce(
     (text) => {
@@ -32,7 +33,7 @@ const PreviewSearch = ({
         payload: { keyphrase: text || '' },
       };
       dispatch(changeKeyphraseAction);
-      setSelectedKeyword(text || '');
+      setViewAllUrl(`/shop/products/?q=${text || ''}`);
     },
     500,
     null
@@ -43,26 +44,43 @@ const PreviewSearch = ({
   };
 
   const changeCategory = debounce(
-    (category: string) => {
+    (categoryUrl: string) => {
+      const category = getCategoryByUrlPath(categoryUrl);
+      if (!category) {
+        return;
+      }
+
+      // HACK: Clear the keyphrase before changing the category to display all the products of that category
+      const changeKeyphraseAction: Action = {
+        type: PreviewSearchActions.KEYPHRASE_CHANGED,
+        payload: { keyphrase: '' },
+      };
+      dispatch(changeKeyphraseAction);
+
       const changeCategoryAction: Action = {
         type: PreviewSearchActions.CATEGORY_CHANGED,
-        payload: { category },
+        payload: { category: category.name },
       };
       dispatch(changeCategoryAction);
-      setSelectedKeyword(category);
+      setViewAllUrl(category.url_path);
     },
     200,
     null
   );
 
   const changeTrendingCategory = debounce(
-    (trendingCategory: string) => {
+    (categoryUrl: string) => {
+      const category = getCategoryByUrlPath(categoryUrl);
+      if (!category) {
+        return;
+      }
+
+      // TODO: This event does not currently trigger a suggested product fetch call. Set the viewAll URL when it will update the products.
       const changeTrendingCategoryAction: Action = {
         type: PreviewSearchActions.TRENDING_CATEGORY_CHANGED,
-        payload: { trendingCategory },
+        payload: { trendingCategory: category.name },
       };
       dispatch(changeTrendingCategoryAction);
-      setSelectedKeyword(trendingCategory);
     },
     200,
     null
@@ -75,7 +93,7 @@ const PreviewSearch = ({
         payload: { suggestion },
       };
       dispatch(changeSuggestionAction);
-      setSelectedKeyword(suggestion);
+      setViewAllUrl(`/shop/products/?q=${suggestion}`);
     },
     200,
     null
@@ -102,7 +120,7 @@ const PreviewSearch = ({
         onNavigatingAway={closePopup}
       />
       <RightColumn
-        selectedKeyword={selectedKeyword}
+        viewAllUrl={viewAllUrl}
         products={products}
         loading={loading}
         loaded={loaded}
@@ -121,10 +139,7 @@ const PreviewSearch = ({
         keyphrase={keyphrase}
         setSearchString={changeKeyphrase}
         placeholder="I am shopping for..."
-        onFocus={() => {
-          setOpen(true);
-          onFocus(keyphrase);
-        }}
+        onFocus={onFocus}
         setOpen={setOpen}
       />
     </>
