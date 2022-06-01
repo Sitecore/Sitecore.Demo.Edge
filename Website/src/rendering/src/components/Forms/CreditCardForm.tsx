@@ -119,7 +119,7 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
       </div>
       <div className="button-area">
         <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> Save
+          <Spinner loading={props.loading} /> Save payment method
         </button>
       </div>
     </form>
