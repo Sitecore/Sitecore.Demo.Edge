@@ -28,7 +28,7 @@ type VariantRow = {
 
 async function postProducts() {
   const csvStr = fs.readFileSync(
-    path.join(__dirname + '/../../../../discover-feeds/playsummit_product_feed.csv'),
+    path.join(__dirname + '/../../../../../discover-feeds/playsummit_product_feed.csv'),
     {
       encoding: 'utf8',
     }
@@ -263,7 +263,7 @@ const handler: NextApiHandler<unknown> = async (_request, response) => {
       // Something happened in setting up the request that triggered an Error
       console.log('Error', error.message);
     }
-    return response.json(error);
+    return response.status(500).json(error);
   }
 };
 

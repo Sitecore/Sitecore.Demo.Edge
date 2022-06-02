@@ -12,7 +12,7 @@ type Category = {
 
 async function postCategories(catalogID: string) {
   const csvStr = fs.readFileSync(
-    path.join(__dirname + '/../../../../discover-feeds/playsummit_category_feed.csv'),
+    path.join(__dirname + '/../../../../../discover-feeds/playsummit_category_feed.csv'),
     {
       encoding: 'utf8',
     }
@@ -83,7 +83,7 @@ const handler: NextApiHandler<unknown> = async (_request, response) => {
       // Something happened in setting up the request that triggered an Error
       console.log('Error', error.message);
     }
-    return response.json(error);
+    return response.status(500).json(error);
   }
 };
 
