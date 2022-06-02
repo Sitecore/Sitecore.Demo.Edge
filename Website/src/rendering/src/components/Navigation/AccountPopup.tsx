@@ -37,33 +37,44 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   );
 
   const getGreeting = () => {
-    let greeding = 'Greetings';
-    if (user?.FirstName || user?.LastName) {
-      greeding += `, ${user?.FirstName} ${user?.LastName}`;
+    if (!isUserLoggedIn) {
+      return null;
     }
-    return greeding;
+
+    let greeting = <h3>Greetings</h3>;
+    if (user?.FirstName || user?.LastName) {
+      greeting = (
+        <h3>
+          Greetings,{' '}
+          <Link href="/account/user-profile">
+            <a>
+              {user?.FirstName} {user?.LastName}
+            </a>
+          </Link>
+        </h3>
+      );
+    }
+    return greeting;
   };
 
   const loggedInMenuItems = isUserLoggedIn && (
     <>
-      <h3>{getGreeting()}</h3>
-      <ul>
-        <li>
-          <Link href="/account">
-            <a onClick={onNavigatingAway}>User profile</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/account/address-book">
-            <a onClick={onNavigatingAway}>Address book</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/account/orders">
-            <a onClick={onNavigatingAway}>Order history</a>
-          </Link>
-        </li>
-      </ul>
+      <Link href="/account/address-book">
+        <a
+          className="btn--secondary btn--secondary--light btn--secondary--round"
+          onClick={onNavigatingAway}
+        >
+          Address book
+        </a>
+      </Link>
+      <Link href="/account/orders">
+        <a
+          className="btn--secondary btn--secondary--light btn--secondary--round"
+          onClick={onNavigatingAway}
+        >
+          Order history
+        </a>
+      </Link>
       <Link href={logoutUrl}>
         <a className="btn--main btn--main--round" onClick={clearAuthenticationTokens}>
           Logout
@@ -73,7 +84,12 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   );
 
   return (
-    <div className="account-popup">
+    <div
+      className={`account-popup ${
+        isUserLoggedIn ? 'account-popup-logged' : 'account-popup-anonymous'
+      }`}
+    >
+      {getGreeting()}
       <div className="account-popup-buttons">
         {guestMenuItems}
         {loggedInMenuItems}

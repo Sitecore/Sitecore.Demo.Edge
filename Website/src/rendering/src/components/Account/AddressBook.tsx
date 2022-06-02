@@ -15,11 +15,11 @@ const AddressBook = (): JSX.Element => {
   );
 
   const getDefaultBanner = (address: DBuyerAddress) => {
-    if (address.Billing && address.Shipping) {
+    if (address.xp?.DefaultBilling && address.xp?.DefaultShipping) {
       return <span className="default-banner bg-pink">Default billing and shipping</span>;
-    } else if (address.Billing) {
+    } else if (address.xp?.DefaultBilling) {
       return <span className="default-banner bg-blue">Default billing</span>;
-    } else if (address.Shipping) {
+    } else if (address.xp?.DefaultShipping) {
       return <span className="default-banner bg-orange">Default shipping</span>;
     } else {
       return null;

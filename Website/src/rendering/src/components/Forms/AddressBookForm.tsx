@@ -35,10 +35,11 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   const [city, setCity] = useState(props?.address?.City || '');
   const [state, setState] = useState(props?.address?.State || '');
   const [zip, setZip] = useState(props?.address?.Zip || '');
-  const [billing, setBilling] = useState(props?.address?.Billing);
-  const [shipping, setShipping] = useState(props?.address?.Shipping);
+  const [defaultBilling, setDefaultBilling] = useState(props?.address?.xp?.DefaultBilling);
+  const [defaultShipping, setDefaultShipping] = useState(props?.address?.xp?.DefaultShipping);
 
   useEffect(() => {
+    setStates(GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code));
     setAddressName(props?.address?.AddressName || '');
     setCountry(props?.address?.Country || '');
     setFirstName(props?.address?.FirstName || '');
@@ -48,8 +49,9 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
     setCity(props?.address?.City || '');
     setState(props?.address?.State || '');
     setZip(props?.address?.Zip || '');
-    setBilling(props?.address?.Billing);
-    setShipping(props?.address?.Shipping);
+    setDefaultBilling(props?.address?.xp?.DefaultBilling);
+    setDefaultShipping(props?.address?.xp?.DefaultShipping);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.address]);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -66,8 +68,10 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
       City: city,
       State: state,
       Zip: zip,
-      Billing: billing,
-      Shipping: shipping,
+      xp: {
+        DefaultBilling: defaultBilling,
+        DefaultShipping: defaultShipping,
+      },
     };
 
     if (props.onSubmit) {
@@ -217,8 +221,8 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
           type="checkbox"
           id={`${idPrefix}billing`}
           autoComplete="default-billing"
-          onChange={(e) => setBilling(e.target.checked)}
-          checked={billing}
+          onChange={(e) => setDefaultBilling(e.target.checked)}
+          checked={defaultBilling}
         />
         <label htmlFor={`${idPrefix}billing`}>Set as default billing address</label>
       </div>
@@ -227,8 +231,8 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
           type="checkbox"
           id={`${idPrefix}shipping`}
           autoComplete="default-shipping"
-          onChange={(e) => setShipping(e.target.checked)}
-          checked={shipping}
+          onChange={(e) => setDefaultShipping(e.target.checked)}
+          checked={defaultShipping}
         />
         <label htmlFor={`${idPrefix}shipping`}>Set as default shipping address</label>
       </div>

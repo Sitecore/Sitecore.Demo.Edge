@@ -23,7 +23,7 @@ div.shop-main-container .section.address-book {
       @apply p-1 text-sm;
 
       .address-book-item {
-        @apply relative block p-3 bg-white-light transition-colors;
+        @apply relative block h-full p-3 bg-white-light transition-colors;
 
         &-actions {
           @apply space-x-3 text-xl text-black-lightest text-right;
@@ -40,6 +40,10 @@ div.shop-main-container .section.address-book {
 
         &.title {
           @apply text-base font-bold mb-0;
+
+          + p {
+            @apply mt-1;
+          }
         }
       }
 
