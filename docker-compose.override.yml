@@ -410,7 +410,7 @@ services:
         ZohoSettings_OrgID: "${ZohoSettings_OrgID}"
         ZohoSettings_PerformOrderSubmitTasks: "${ZohoSettings_PerformOrderSubmitTasks}"
       depends_on:
-        headstart-cosmos:
+        cosmos:
           condition: service_healthy
       labels:
         - "traefik.enable=true"
@@ -432,7 +432,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.seller.frontend.rule=Host:${SELLER_HOST}"
-  headstart-cosmos:
+  cosmos:
     image: ${REGISTRY}headstart/headstart-cosmos:${OC_HEADSTART_VERSION}-linux
     mem_limit: 3g
     cpu_count: 2
@@ -447,7 +447,7 @@ services:
       - 10253:10253
       - 10254:10254
     healthcheck:
-       test: ["CMD-SHELL", "curl -f -k https://localhost:8081/_explorer/emulator.pem || exit 1"]
+       test: ["CMD-SHELL", "curl -f -k https://127.0.0.1:8081/_explorer/emulator.pem || exit 1"]
   headstart-storage:
     image: mcr.microsoft.com/azure-storage/azurite:${AZUREITE_TAG}
     volumes:
