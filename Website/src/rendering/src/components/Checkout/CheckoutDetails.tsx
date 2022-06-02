@@ -52,7 +52,7 @@ const CheckoutDetails = (): JSX.Element => {
         {shippingEstimates}
         <PanelBillingAddress />
         <PanelPayment />
-        <div>
+        <div className="panel-comments-summary">
           <PanelComments />
           <CheckoutSummary buttonText="Review order" onClick={handleReviewOrderClick} />
         </div>

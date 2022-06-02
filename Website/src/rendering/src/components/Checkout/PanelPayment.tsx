@@ -27,6 +27,10 @@ const PanelPayment = (): JSX.Element => {
   // ordercloud supports multiple payments, for this demo we allow only a single payment per order
   const payment = payments?.length ? payments[0] : null;
 
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+  };
+
   const creditCardDisplay =
     payment?.xp?.CreditCard && !isEditing ? (
       <CreditCardCard
@@ -38,23 +42,18 @@ const PanelPayment = (): JSX.Element => {
       <CreditCardForm
         creditCard={payment?.xp?.CreditCard}
         onSubmit={handleUpdateCreditCardPayment}
+        isEditing={isEditing}
+        onCancelEdit={handleCancelEdit}
         loading={loading}
       />
     );
-
-  const cancelEditButton = isEditing && (
-    <button onClick={() => setIsEditing(false)}>Cancel edit</button>
-  );
 
   return (
     <div className="panel">
       <div className="panel-header">
         <p>Payment</p>
       </div>
-      <div className="panel-body">
-        {creditCardDisplay}
-        {cancelEditButton}
-      </div>
+      <div className="panel-body">{creditCardDisplay}</div>
     </div>
   );
 };
