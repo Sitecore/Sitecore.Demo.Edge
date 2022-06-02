@@ -4,6 +4,6 @@ export type DBuyerAddress = BuyerAddress<DBuyerAddressXp>;
 
 export interface DBuyerAddressXp {
   // add custom xp properties required for this project here
-  DefaultBilling: boolean;
-  DefaultShipping: boolean;
+  DefaultBilling?: boolean;
+  DefaultShipping?: boolean;
 }
