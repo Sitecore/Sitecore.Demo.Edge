@@ -12,7 +12,7 @@ type Category = {
 
 async function postCategories(catalogID: string) {
   const csvStr = fs.readFileSync(
-    path.join(__dirname + '/../../../../../discover-feeds/playsummit_category_feed.csv'),
+    path.join(__dirname + '/../../../../discover-feeds/playsummit_category_feed.csv'),
     {
       encoding: 'utf8',
     }

@@ -28,7 +28,7 @@ type VariantRow = {
 
 async function postProducts() {
   const csvStr = fs.readFileSync(
-    path.join(__dirname + '/../../../../../discover-feeds/playsummit_product_feed.csv'),
+    path.join(__dirname + '/../../../../discover-feeds/playsummit_product_feed.csv'),
     {
       encoding: 'utf8',
     }
