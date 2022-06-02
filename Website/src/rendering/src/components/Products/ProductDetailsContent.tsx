@@ -61,7 +61,7 @@ const ProductDetailsContent = ({
       setSpecValues(lineItem.Specs);
     } else {
       let specVals: OrderCloudSpec[] = [];
-
+      setSpecValues(specVals);
       if (specs) {
         specVals = specs.map((spec) => {
           return {

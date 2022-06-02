@@ -9,6 +9,7 @@ import {
   Payments,
   PartialDeep,
   Tokens,
+  LineItem,
 } from 'ordercloud-javascript-sdk';
 import { DAddress } from 'src/models/ordercloud/DAddress';
 import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
@@ -209,7 +210,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
     }
 
     // Determine if the line item is already in the cart
-    const lineItemAlreadyInCart = ocCurrentCart.lineItems.find((lineItem: DLineItem) => {
+    const lineItemAlreadyInCart = ocCurrentCart.lineItems.find((lineItem: LineItem) => {
       if (
         lineItem.ProductID != request.ProductID ||
         lineItem.Specs.length !== request.Specs.length
