@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckoutDetails from '../../components/Checkout/CheckoutDetails';
 import { MockStore } from '../mock-store';
 import { getMockExpirationDate } from '../utils';
+import { authSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
@@ -21,7 +22,7 @@ const noLineItemsState = {
 };
 NoLineItems.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noLineItemsState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: noLineItemsState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -33,7 +34,7 @@ const loadingState = {
 };
 Loading.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: loadingState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -53,7 +54,7 @@ const noStepsCompleteState = {
 };
 NoStepsComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noStepsCompleteState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: noStepsCompleteState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -125,7 +126,7 @@ const shippingCompleteState = {
 };
 ShippingComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: shippingCompleteState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: shippingCompleteState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -198,7 +199,9 @@ const shippingEstimatesCompleteState = {
 };
 ShippingEstimatesComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: shippingEstimatesCompleteState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: shippingEstimatesCompleteState }, authSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -280,7 +283,9 @@ const billingAddressCompleteState = {
 };
 BillingAddressComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: billingAddressCompleteState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: billingAddressCompleteState }, authSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -380,7 +385,7 @@ const paymentCompleteState = {
 };
 PaymentComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: paymentCompleteState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: paymentCompleteState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -437,7 +442,7 @@ const pickupFromSummitState = {
 };
 PickupFromSummit.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: pickupFromSummitState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: pickupFromSummitState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -493,7 +498,7 @@ const pickupFromStoreState = {
 };
 PickupFromStore.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: pickupFromStoreState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: pickupFromStoreState }, authSlice]}>
       <Story />
     </MockStore>
   ),
