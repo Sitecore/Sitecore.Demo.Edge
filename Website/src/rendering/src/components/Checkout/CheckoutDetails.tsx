@@ -11,6 +11,7 @@ import PanelUserDetails from './PanelUserDetails';
 import CheckoutSummary from './CheckoutSummary';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import useOcAuth from '../../hooks/useOcAuth';
+import { identifyVisitor } from '../../services/CdpService';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;
@@ -31,7 +32,12 @@ const CheckoutDetails = (): JSX.Element => {
   const { isAnonymous } = useOcAuth();
   const shippingEstimates = order?.xp?.DeliveryType === 'Ship' && <PanelShippingEstimates />;
 
-  const handleReviewOrderClick = () => router?.push('/shop/checkout/order-review');
+  const handleReviewOrderClick = () => {
+    if (isAnonymous) {
+      identifyVisitor(order.xp?.GuestUserEmail);
+    }
+    return router?.push('/shop/checkout/order-review');
+  };
 
   const userDetailsPanel = isAnonymous && <PanelUserDetails />;
   const checkoutTitle = isAnonymous ? 'Guest checkout' : 'Checkout';
