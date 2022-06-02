@@ -38,6 +38,8 @@
 /* Account */
 @import './components/Account/AccountLayout.css';
 @import './components/Account/OrderReview.css';
+@import './components/Account/PaymentMethods.css';
+@import './components/Account/PaymentMethodsFormSection.css';
 @import './components/Account/UserProfile.css';
 
 /* Checkout */
@@ -52,6 +54,7 @@
 /* Forms */
 @import './components/Forms/AttendeeForm.css';
 @import './components/Forms/RequestInfoForm.css';
+@import './components/Forms/ShopForms.css';
 
 /* FullPageSearch */
 @import './components/FullPageSearch/FacetList.css';
