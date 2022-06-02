@@ -503,3 +503,31 @@ PickupFromStore.decorators = [
     </MockStore>
   ),
 ];
+
+export const GuestCheckout = Template.bind({});
+const guestCheckoutCartState = {
+  initialized: true,
+  order: {
+    ShippingCost: 0,
+    Subtotal: 123.45,
+    LineItemCount: 1,
+    xp: {
+      DeliveryType: 'Ship',
+    },
+  },
+};
+const guestCheckoutAuthState = {
+  isAnonymous: true,
+};
+GuestCheckout.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: guestCheckoutCartState },
+        { name: 'ocAuth', state: guestCheckoutAuthState },
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
