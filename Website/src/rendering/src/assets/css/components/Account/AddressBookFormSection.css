@@ -8,7 +8,7 @@ div.shop-main-container .section.address-book-form-section {
   }
 
   .form-wrapper {
-    @apply max-w-[500px] mx-auto;
+    @apply max-w-md mx-auto;
 
     .button-area {
       @apply text-right;

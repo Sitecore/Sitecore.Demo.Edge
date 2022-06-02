@@ -46,7 +46,7 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
       greeting = (
         <h3>
           Greetings,{' '}
-          <Link href="/account/user-profile">
+          <Link href="/account">
             <a>
               {user?.FirstName} {user?.LastName}
             </a>
@@ -84,6 +84,7 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   );
 
   return (
+    // TODO: Remove conditions from JSX
     <div
       className={`account-popup ${
         isUserLoggedIn ? 'account-popup-logged' : 'account-popup-anonymous'
