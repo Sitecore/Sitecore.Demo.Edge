@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../redux/store';
 import { patchOrder } from '../../redux/ocCurrentCart';
+import { getGuestProfileEmail } from '../../services/CdpService';
+
 const PanelUserDetails = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const [email, setEmail] = useState('');
+
   const handleUpdateEmail = async (email: string) => {
     await dispatch(patchOrder({ xp: { GuestUserEmail: email } }));
   };
+
+  useEffect(() => {
+    getGuestProfileEmail().then((email) => setEmail(email));
+  }, []);
 
   return (
     <div className="panel">
@@ -22,6 +30,7 @@ const PanelUserDetails = (): JSX.Element => {
               name="user-email"
               id="user-email"
               type="email"
+              defaultValue={email}
               required
               // TODO: Investigate if we need to disable the "Review order" button while the email is being saved
               onBlur={(event) => handleUpdateEmail(event.target.value)}

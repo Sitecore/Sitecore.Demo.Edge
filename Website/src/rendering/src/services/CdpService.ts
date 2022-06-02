@@ -7,6 +7,7 @@ import {
   WelcomeMessage,
   getDynamicWelcomeMessage as boxeverGetDynamicWelcomeMessage,
   isCdpConfigured as boxeverIsCdpConfigured,
+  getGuestProfileResponse as boxeverGetGuestProfileResponse,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
@@ -91,4 +92,9 @@ export function getDynamicWelcomeMessage(
   language: string
 ): Promise<WelcomeMessage> {
   return boxeverGetDynamicWelcomeMessage(ipAddress, language);
+}
+
+export async function getGuestProfileEmail(): Promise<string> {
+  const email = (await boxeverGetGuestProfileResponse())?.data?.email;
+  return email;
 }
