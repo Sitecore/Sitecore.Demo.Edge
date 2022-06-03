@@ -55,7 +55,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
       return false;
     }
-    if (isAnonymous && !order?.xp?.GuestUserEmail) {
+    if (isAnonymous && order?.FromUser?.Email === 'test@test.com') {
       return false;
     }
     return true;
