@@ -7,16 +7,19 @@ import {
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import Spinner from '../../components/ShopCommon/Spinner';
 import { DMeUser } from '../../models/ordercloud/DUser';
+import { Me } from 'ordercloud-javascript-sdk';
+import { useRouter } from 'next/router';
 
 type PaymentMethodsFormProps = {
   creditCard?: DBuyerCreditCard;
   user?: DMeUser;
-  onSubmit?: (payment: DBuyerCreditCard, user: DMeUser) => void;
-  loading?: boolean;
   isEditing?: boolean;
 };
 
 const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
   const [cardholderName, setCardholderName] = useState(props?.creditCard?.CardholderName || '');
   const [cardNumber, setCardNumber] = useState('');
   const [expirationMonth, setExpirationMonth] = useState(
@@ -44,6 +47,7 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
 
     const updatedCreditCard: DBuyerCreditCard = {
       ...(props.creditCard || {}),
@@ -54,11 +58,16 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
       // in a real application we would use a third party payment processor
       // to securely capture, store, and tokenize sensitive credit card details and store only the opaque token
       // it is against the terms of service to store sensitive credit card details on the platform
-      xp: {
-        Default: defaultPaymentMethod,
-      },
       Token: '',
     };
+
+    let newCC;
+
+    if (props.isEditing) {
+      newCC = await Me.SaveCreditCard(String(updatedCreditCard.ID), updatedCreditCard);
+    } else {
+      newCC = await Me.CreateCreditCard(updatedCreditCard);
+    }
 
     let updatedUser: DMeUser = {
       ...(props.user || {}),
@@ -69,7 +78,7 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
         ...updatedUser,
         xp: {
           ...updatedUser.xp,
-          DefaultCreditCardID: updatedCreditCard.ID,
+          DefaultCreditCardID: newCC.ID,
         },
       };
     } else if (
@@ -85,9 +94,10 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
       };
     }
 
-    if (props.onSubmit) {
-      props.onSubmit(updatedCreditCard, updatedUser);
-    }
+    await Me.Patch(updatedUser);
+    setLoading(false);
+
+    router.push('/account/payment-methods');
   };
 
   const cardNumberField = props?.creditCard?.ID ? (
@@ -170,8 +180,8 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
         <label htmlFor="default-payment-method">Set as default payment method</label>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> {submitBtnText}
+        <button className="btn--main btn--main--round" type="submit" disabled={loading}>
+          <Spinner loading={loading} /> {submitBtnText}
         </button>
       </div>
     </form>
