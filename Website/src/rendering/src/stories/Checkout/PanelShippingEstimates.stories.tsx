@@ -12,7 +12,9 @@ export default {
 } as ComponentMeta<typeof PanelShippingEstimates>;
 
 const Template: ComponentStory<typeof PanelShippingEstimates> = (args) => (
-  <PanelShippingEstimates {...args} />
+  <section className="checkout-details shop-container">
+    <PanelShippingEstimates {...args} />
+  </section>
 );
 
 const mockState = {

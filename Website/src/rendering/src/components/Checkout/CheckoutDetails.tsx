@@ -14,7 +14,7 @@ import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import useOcAuth from '../../hooks/useOcAuth';
 import { getGuestEmail, identifyVisitor } from '../../services/CdpService';
 import { useAppDispatch } from '../../redux/store';
-import { updateUser } from 'src/redux/ocUser';
+import { updateUser } from '../../redux/ocUser';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;

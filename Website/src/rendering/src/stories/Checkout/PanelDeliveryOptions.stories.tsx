@@ -10,7 +10,9 @@ export default {
 } as ComponentMeta<typeof PanelDeliveryOptions>;
 
 const Template: ComponentStory<typeof PanelDeliveryOptions> = (args) => (
-  <PanelDeliveryOptions {...args} />
+  <section className="checkout-details shop-container">
+    <PanelDeliveryOptions {...args} />
+  </section>
 );
 
 const mockState = {
