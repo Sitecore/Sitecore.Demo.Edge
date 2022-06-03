@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Skeleton from 'react-loading-skeleton';
@@ -14,7 +14,6 @@ import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import useOcAuth from '../../hooks/useOcAuth';
 import { getGuestEmail, identifyVisitor } from '../../services/CdpService';
 import { useAppDispatch } from '../../redux/store';
-import useOcUser from '../../hooks/useOcUser';
 import { updateUser } from 'src/redux/ocUser';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
@@ -35,35 +34,34 @@ const CheckoutDetails = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { order, initialized } = useOcCurrentCart();
   const { isAnonymous } = useOcAuth();
-  const { user } = useOcUser();
 
-  const setOrderEmail = useCallback(
+  const getOrderFromUserEmail = () =>
+    order?.FromUser?.Email && order.FromUser.Email !== 'test@test.com' ? order.FromUser.Email : '';
+
+  const [userEmail, setUserEmail] = useState(getOrderFromUserEmail());
+
+  const setEmail = useCallback(
     (email: string) => {
       dispatch(updateUser({ Email: email }));
+      setUserEmail(email);
     },
     [dispatch]
   );
 
-  // If the visitor is anonymous and is known in CDP, update the order email
+  // If the visitor is anonymous and is known in CDP, update the user email
   useEffect(() => {
     const getEmail = async () => {
       const email = await getGuestEmail();
       if (email) {
-        setOrderEmail(email);
+        console.log(email);
+        setEmail(email);
       }
     };
 
     if (isAnonymous) {
       getEmail();
     }
-  }, [isAnonymous, setOrderEmail]);
-
-  // If the visitor is logged in or logs in during checkout, update the order email
-  useEffect(() => {
-    if (!isAnonymous && user?.Email) {
-      setOrderEmail(user.Email);
-    }
-  }, [isAnonymous, user, setOrderEmail]);
+  }, [isAnonymous, setEmail]);
 
   const handleReviewOrderClick = () => {
     identifyVisitor(order.FromUser.Email);
@@ -71,10 +69,8 @@ const CheckoutDetails = (): JSX.Element => {
   };
 
   const checkoutTitle = isAnonymous ? 'Guest checkout' : 'Checkout';
-  const userDetailsEmail =
-    order?.FromUser?.Email && order.FromUser.Email !== 'test@test.com' ? order.FromUser.Email : '';
   const userDetailsPanel = isAnonymous && (
-    <PanelUserDetails email={userDetailsEmail} setOrderEmail={setOrderEmail} />
+    <PanelUserDetails email={userEmail} setOrderEmail={setEmail} />
   );
   const shippingEstimates = order?.xp?.DeliveryType === 'Ship' && <PanelShippingEstimates />;
 
