@@ -11,17 +11,22 @@ const PanelPayment = (): JSX.Element => {
   const { order, payments } = useOcCurrentCart();
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fullCardNumber, setFullCardNumber] = useState('');
   useEffect(() => {
     if (order) {
       dispatch(retrievePayments(order.ID));
     }
   }, [order, dispatch]);
 
-  const handleUpdateCreditCardPayment = async (creditCard: DBuyerCreditCard) => {
+  const handleUpdateCreditCardPayment = async (
+    creditCard: DBuyerCreditCard,
+    fullCardNumber: string
+  ) => {
     setLoading(true);
     await dispatch(updateCreditCardPayment(creditCard));
     setLoading(false);
     setIsEditing(false);
+    setFullCardNumber(fullCardNumber);
   };
 
   // ordercloud supports multiple payments, for this demo we allow only a single payment per order
@@ -39,6 +44,7 @@ const PanelPayment = (): JSX.Element => {
         creditCard={payment?.xp?.CreditCard}
         onSubmit={handleUpdateCreditCardPayment}
         loading={loading}
+        fullCardNumber={fullCardNumber}
       />
     );
 
