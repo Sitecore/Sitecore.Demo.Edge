@@ -25,8 +25,6 @@ const AddressBook = (): JSX.Element => {
     <div>You have no addresses yet in your address book.</div>
   );
 
-  console.log(user);
-
   const getDefaultBanner = (addressId: string) => {
     const isDefaultBilling = addressId === user?.xp?.DefaultBillingAddressID;
     const isDefaultShipping = addressId === user?.xp?.DefaultShippingAddressID;
