@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../redux/store';
 import { patchOrder } from '../../redux/ocCurrentCart';
-import { getGuestProfileEmail } from '../../services/CdpService';
+import { getGuestEmail } from '../../services/CdpService';
 
 const PanelUserDetails = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -12,7 +12,7 @@ const PanelUserDetails = (): JSX.Element => {
   };
 
   useEffect(() => {
-    getGuestProfileEmail().then((email) => setEmail(email));
+    getGuestEmail().then((email) => setEmail(email));
   }, []);
 
   return (
