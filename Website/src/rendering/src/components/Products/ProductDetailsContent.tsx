@@ -85,8 +85,9 @@ const ProductDetailsContent = ({
             };
           });
         }
-        setSpecValues(specVals);
       }
+
+      setSpecValues(specVals);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lineItem, specs, variants, variantID]);
