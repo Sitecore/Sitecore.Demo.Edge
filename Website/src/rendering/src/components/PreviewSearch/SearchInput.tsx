@@ -1,7 +1,7 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
-import { ChangeEvent, KeyboardEvent, useEffect, useRef } from 'react';
+import { ChangeEvent, FocusEvent, KeyboardEvent, useEffect, useRef } from 'react';
 
 // TODO: add story for component
 
@@ -63,6 +63,12 @@ const SearchInput = ({
     setOpen(true);
   };
 
+  const handleOnFocus = (e: FocusEvent<HTMLInputElement>) => {
+    const keywords = e.target.value || '';
+    onFocus(keywords);
+    setOpen(true);
+  };
+
   return (
     <>
       <FontAwesomeIcon
@@ -76,7 +82,7 @@ const SearchInput = ({
         className="shop-search-input"
         ref={ref}
         onChange={handleOnChange}
-        onFocus={(e) => onFocus(e.target.value || '')}
+        onFocus={handleOnFocus}
         onClick={() => setOpen(true)}
         placeholder={placeholder}
         onKeyUp={keyListener}

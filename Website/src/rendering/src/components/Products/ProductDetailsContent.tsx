@@ -11,6 +11,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import ProductBreadcrumb from '../Navigation/ProductBreadcrumb';
 import { Actions, PageController } from '@sitecore-discover/react';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Skeleton from 'react-loading-skeleton';
@@ -84,8 +85,9 @@ const ProductDetailsContent = ({
             };
           });
         }
-        setSpecValues(specVals);
       }
+
+      setSpecValues(specVals);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lineItem, specs, variants, variantID]);
@@ -266,16 +268,26 @@ const ProductDetailsContent = ({
     </div>
   );
 
+  const productName = initialLoading ? <Skeleton width={300} /> : product && product.Name;
+
+  const productBreadcrumb = initialLoading ? (
+    <Skeleton width={300} />
+  ) : product ? (
+    <ProductBreadcrumb
+      productName={product.Name}
+      productUrl={product.xp?.ProductUrl}
+      ccid={product.xp?.CCID}
+    />
+  ) : null;
+
   const productDetails =
     loading || product ? (
       <section className="section">
         <div className="shop-container">
           <div className="product-details">
             <div className="product-details-hero">
-              <h2 className="product-name">
-                {/* TODO: Extract JSX logic into a const */}
-                {initialLoading ? <Skeleton width={300} /> : product && product.Name}
-              </h2>
+              <div className="product-breadcrumb">{productBreadcrumb}</div>
+              <h2 className="product-name">{productName}</h2>
               <ProductImage images={productImageProps} loading={initialLoading} />
               <div className="product-description">
                 <form onSubmit={handleAddToCart}>

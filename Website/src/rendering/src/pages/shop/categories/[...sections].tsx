@@ -4,7 +4,12 @@ import { ShopLayout } from '../../../components/Products/Shop';
 import DiscoverWidget from '../../../components/ShopCommon/DiscoverWidget';
 
 const CategoryPage = (): JSX.Element => {
-  return <DiscoverWidget rfkId="rfkid_10" />;
+  return (
+    <>
+      <DiscoverWidget rfkId="rfkid_10" />
+      <DiscoverWidget rfkId="rfkid_3" />
+    </>
+  );
 };
 
 CategoryPage.getLayout = function getLayout(page: ReactElement) {

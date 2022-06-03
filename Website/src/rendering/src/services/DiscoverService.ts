@@ -12,6 +12,8 @@ import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import TrendingCategories from '../components/Widgets/TrendingCategories';
 import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
+import TrendingProducts from '../components/Widgets/TrendingProducts';
+import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -76,8 +78,32 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     },
   });
 
+  setWidget('rfkid_2', {
+    component: TrendingProducts,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
   setWidget('rfkid_1', {
     component: RecommendedForYou,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_3', {
+    component: RecentlyViewedProducts,
     type: WidgetDataType.RECOMMENDATION,
     options: {
       properties: {
