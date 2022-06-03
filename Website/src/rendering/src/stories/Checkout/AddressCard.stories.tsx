@@ -46,7 +46,6 @@ IsActive.args = {
     Zip: '12345',
     Country: 'GB',
   },
-  active: true,
 };
 
 export const WithLeastData = Template.bind({});
