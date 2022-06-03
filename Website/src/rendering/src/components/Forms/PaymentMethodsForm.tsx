@@ -6,10 +6,12 @@ import {
 } from '../../helpers/DateHelper';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import Spinner from '../../components/ShopCommon/Spinner';
+import { DMeUser } from '../../models/ordercloud/DUser';
 
 type PaymentMethodsFormProps = {
   creditCard?: DBuyerCreditCard;
-  onSubmit?: (payment: DBuyerCreditCard) => void;
+  user?: DMeUser;
+  onSubmit?: (payment: DBuyerCreditCard, user: DMeUser) => void;
   loading?: boolean;
   isEditing?: boolean;
 };
@@ -23,14 +25,16 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
   const [expirationYear, setExpirationYear] = useState(
     getYearFromIsoDateString(props?.creditCard?.ExpirationDate)
   );
-  const [defaultPaymentMethod, setDefaultPaymentMethod] = useState(props?.creditCard?.xp?.Default);
+  const [defaultPaymentMethod, setDefaultPaymentMethod] = useState(
+    props?.creditCard?.ID === props?.user?.xp?.DefaultCreditCardID
+  );
 
   useEffect(() => {
     setCardholderName(props?.creditCard?.CardholderName);
     setExpirationMonth(getMonthFromIsoDateString(props?.creditCard?.ExpirationDate));
     setExpirationYear(getYearFromIsoDateString(props?.creditCard?.ExpirationDate));
-    setDefaultPaymentMethod(props?.creditCard?.xp?.Default);
-  }, [props?.creditCard]);
+    setDefaultPaymentMethod(props?.creditCard?.ID === props?.user?.xp?.DefaultCreditCardID);
+  }, [props?.creditCard, props?.user]);
 
   const yearNow = new Date().getFullYear();
   const expirationYearRange = new Array(11).fill('').map((_, index) => yearNow + index);
@@ -56,8 +60,33 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
       Token: '',
     };
 
+    let updatedUser: DMeUser = {
+      ...(props.user || {}),
+    };
+
+    if (defaultPaymentMethod) {
+      updatedUser = {
+        ...updatedUser,
+        xp: {
+          ...updatedUser.xp,
+          DefaultCreditCardID: updatedCreditCard.ID,
+        },
+      };
+    } else if (
+      !defaultPaymentMethod &&
+      props.user?.xp?.DefaultCreditCardID === props.creditCard?.ID
+    ) {
+      updatedUser = {
+        ...updatedUser,
+        xp: {
+          ...updatedUser.xp,
+          DefaultCreditCardID: null,
+        },
+      };
+    }
+
     if (props.onSubmit) {
-      props.onSubmit(updatedCreditCard);
+      props.onSubmit(updatedCreditCard, updatedUser);
     }
   };
 

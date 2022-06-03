@@ -5,9 +5,16 @@ import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { Me } from 'ordercloud-javascript-sdk';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import { getCreditCardExpirationDate } from '../../helpers/DateHelper';
+import { DMeUser } from '../../models/ordercloud/DUser';
 
 const PaymentMethods = (): JSX.Element => {
   const [paymentMethods, setPaymentMethods] = useState<DBuyerCreditCard[]>([]);
+  const [user, setUser] = useState<DMeUser>();
+
+  const getUser = async () => {
+    const me = await Me.Get();
+    setUser(me);
+  };
 
   const getPaymentMethods = async () => {
     const cards = await Me.ListCreditCards();
@@ -15,6 +22,7 @@ const PaymentMethods = (): JSX.Element => {
   };
 
   useEffect(() => {
+    getUser();
     getPaymentMethods();
   }, []);
 
@@ -32,7 +40,7 @@ const PaymentMethods = (): JSX.Element => {
   };
 
   const getDefaultBanner = (card: DBuyerCreditCard) => {
-    const isDefault = card.xp?.Default;
+    const isDefault = card.ID === user?.xp?.DefaultCreditCardID;
     const isExpired = new Date(card.ExpirationDate) < new Date();
 
     if (isDefault && isExpired) {

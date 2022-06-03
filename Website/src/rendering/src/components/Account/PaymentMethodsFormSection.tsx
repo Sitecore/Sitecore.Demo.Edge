@@ -3,13 +3,24 @@ import { Me } from 'ordercloud-javascript-sdk';
 import { useRouter } from 'next/router';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import PaymentMethodsForm from '../Forms/PaymentMethodsForm';
+import { DMeUser } from 'src/models/ordercloud/DUser';
 
 const PaymentMethodsFormSection = (): JSX.Element => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<DBuyerCreditCard>();
+  const [user, setUser] = useState<DMeUser>();
 
   const { paymentMethodId } = router.query;
+
+  const getUser = async () => {
+    const me = await Me.Get();
+    setUser(me);
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   useEffect(() => {
     const getPaymentMethod = async () => {
@@ -24,13 +35,14 @@ const PaymentMethodsFormSection = (): JSX.Element => {
 
   const title = paymentMethodId ? 'Edit payment method' : 'Create a new payment method';
 
-  const handleSubmit = async (paymentMethod: DBuyerCreditCard) => {
+  const handleSubmit = async (paymentMethod: DBuyerCreditCard, user: DMeUser) => {
     setLoading(true);
     if (paymentMethodId) {
       await Me.SaveCreditCard(String(paymentMethodId), paymentMethod);
     } else {
       await Me.CreateCreditCard(paymentMethod);
     }
+    await Me.Patch(user);
     setLoading(false);
     router.push('/account/payment-methods');
   };
@@ -41,6 +53,7 @@ const PaymentMethodsFormSection = (): JSX.Element => {
       <div className="form-wrapper">
         <PaymentMethodsForm
           creditCard={paymentMethod}
+          user={user}
           isEditing={!!paymentMethodId}
           onSubmit={handleSubmit}
           loading={loading}
