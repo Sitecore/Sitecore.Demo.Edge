@@ -1,4 +1,5 @@
 import { NextApiHandler } from 'next';
+import * as PortalSdk from '@ordercloud/portal-javascript-sdk';
 import * as OrderCloudSDK from 'ordercloud-javascript-sdk';
 import * as fs from 'fs';
 import csv from 'csvtojson';
@@ -55,8 +56,16 @@ async function postCategory(
   return await OrderCloudSDK.Categories.Save(catalogID, categoryRequest.ID, categoryRequest);
 }
 
-const handler: NextApiHandler<unknown> = async (_request, response) => {
+const handler: NextApiHandler<unknown> = async (request, response) => {
   try {
+    // First we need to authenticate
+    const req = await PortalSdk.Auth.Login(request.query.username, request.query.password);
+    PortalSdk.Tokens.SetAccessToken(req.access_token);
+
+    // Then we retrieve the marketplace access token in order to set it in the SDK
+    const marketplaceAuth = await PortalSdk.ApiClients.GetToken(request.query.marketplaceID);
+    OrderCloudSDK.Tokens.SetAccessToken(marketplaceAuth.access_token);
+
     OrderCloudSDK.Configuration.Set({
       baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
     });
