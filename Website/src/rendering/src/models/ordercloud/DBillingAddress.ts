@@ -4,6 +4,4 @@ export type DBillingAddress = Address<DBillingAddressXp>;
 
 export interface DBillingAddressXp {
   // add custom xp properties required for this project here
-  DefaultBilling?: boolean;
-  DefaultShipping?: boolean;
 }

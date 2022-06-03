@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import useOcAddressBook from '../../hooks/useOcAddressBook';
-import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
+import { Me } from 'ordercloud-javascript-sdk';
+import { DMeUser } from 'src/models/ordercloud/DUser';
 
 const AddressBook = (): JSX.Element => {
   const { addresses, deleteAddress } = useOcAddressBook();
+  const [user, setUser] = useState<DMeUser>();
+
+  const meUser = async () => {
+    const me = await Me.Get();
+    setUser(me);
+  };
+
+  useEffect(() => {
+    meUser();
+  }, []);
 
   const editableAddresses = addresses ? addresses.filter((address) => address.Editable) : [];
 
@@ -14,12 +25,17 @@ const AddressBook = (): JSX.Element => {
     <div>You have no addresses yet in your address book.</div>
   );
 
-  const getDefaultBanner = (address: DBuyerAddress) => {
-    if (address.xp?.DefaultBilling && address.xp?.DefaultShipping) {
+  console.log(user);
+
+  const getDefaultBanner = (addressId: string) => {
+    const isDefaultBilling = addressId === user?.xp?.DefaultBillingAddressID;
+    const isDefaultShipping = addressId === user?.xp?.DefaultShippingAddressID;
+
+    if (isDefaultBilling && isDefaultShipping) {
       return <span className="default-banner bg-pink">Default billing and shipping</span>;
-    } else if (address.xp?.DefaultBilling) {
+    } else if (isDefaultBilling) {
       return <span className="default-banner bg-blue">Default billing</span>;
-    } else if (address.xp?.DefaultShipping) {
+    } else if (isDefaultShipping) {
       return <span className="default-banner bg-orange">Default shipping</span>;
     } else {
       return null;
@@ -34,7 +50,7 @@ const AddressBook = (): JSX.Element => {
             <div className="address-book-item">
               <div className="address-book-item-content">
                 <p className="title">{address.AddressName}</p>
-                {getDefaultBanner(address)}
+                {getDefaultBanner(address.ID)}
                 <p>
                   {address.FirstName} {address.LastName}
                 </p>

@@ -3,10 +3,12 @@ import { FormEvent, useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Link from 'next/link';
+import { DMeUser } from 'src/models/ordercloud/DUser';
 
 type AddressBookFormProps = {
   address?: DBuyerAddress;
-  onSubmit?: (address: DBuyerAddress) => void;
+  user?: DMeUser;
+  onSubmit?: (address: DBuyerAddress, user: DMeUser) => void;
   isEditing?: boolean;
   onCancelEdit?: () => void;
   loading?: boolean;
@@ -35,8 +37,12 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   const [city, setCity] = useState(props?.address?.City || '');
   const [state, setState] = useState(props?.address?.State || '');
   const [zip, setZip] = useState(props?.address?.Zip || '');
-  const [defaultBilling, setDefaultBilling] = useState(props?.address?.xp?.DefaultBilling);
-  const [defaultShipping, setDefaultShipping] = useState(props?.address?.xp?.DefaultShipping);
+  const [defaultBilling, setDefaultBilling] = useState(
+    props?.address?.ID === props.user?.xp?.DefaultBillingAddressID
+  );
+  const [defaultShipping, setDefaultShipping] = useState(
+    props?.address?.ID === props.user?.xp?.DefaultShippingAddressID
+  );
 
   useEffect(() => {
     setStates(GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code));
@@ -49,10 +55,10 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
     setCity(props?.address?.City || '');
     setState(props?.address?.State || '');
     setZip(props?.address?.Zip || '');
-    setDefaultBilling(props?.address?.xp?.DefaultBilling);
-    setDefaultShipping(props?.address?.xp?.DefaultShipping);
+    setDefaultBilling(props?.address?.ID === props.user?.xp?.DefaultBillingAddressID);
+    setDefaultShipping(props?.address?.ID === props.user?.xp?.DefaultShippingAddressID);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.address]);
+  }, [props.address, props.user]);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,14 +74,50 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
       City: city,
       State: state,
       Zip: zip,
-      xp: {
-        DefaultBilling: defaultBilling,
-        DefaultShipping: defaultShipping,
-      },
     };
 
+    let updatedUser = {
+      ...(props.user || {}),
+    };
+
+    if (defaultBilling) {
+      updatedUser = {
+        ...updatedUser,
+        xp: {
+          ...updatedUser.xp,
+          DefaultBillingAddressID: updatedAddress.ID,
+        },
+      };
+    } else if (!defaultBilling && props.user?.xp?.DefaultBillingAddressID === updatedAddress.ID) {
+      updatedUser = {
+        ...updatedUser,
+        xp: {
+          ...updatedUser.xp,
+          DefaultBillingAddressID: null,
+        },
+      };
+    }
+
+    if (defaultShipping) {
+      updatedUser = {
+        ...updatedUser,
+        xp: {
+          ...updatedUser.xp,
+          DefaultShippingAddressID: updatedAddress.ID,
+        },
+      };
+    } else if (!defaultShipping && props.user?.xp?.DefaultShippingAddressID === updatedAddress.ID) {
+      updatedUser = {
+        ...updatedUser,
+        xp: {
+          ...updatedUser.xp,
+          DefaultShippingAddressID: null,
+        },
+      };
+    }
+
     if (props.onSubmit) {
-      props.onSubmit(updatedAddress);
+      props.onSubmit(updatedAddress, updatedUser);
     }
   };
 

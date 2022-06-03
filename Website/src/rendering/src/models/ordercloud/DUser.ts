@@ -6,4 +6,6 @@ export type DUser = User<DUserXp>;
 
 export interface DUserXp {
   // add custom xp properties required for this project here
+  DefaultShippingAddressID?: string;
+  DefaultBillingAddressID?: string;
 }
