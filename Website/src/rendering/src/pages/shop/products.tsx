@@ -13,6 +13,7 @@ const Products = (): JSX.Element => {
     <>
       <DiscoverWidget rfkId="rfkid_7" />
       <DiscoverWidget rfkId="rfkid_1" />
+      <DiscoverWidget rfkId="rfkid_3" />
     </>
   );
 };
