@@ -59,11 +59,16 @@ async function postCategory(
 const handler: NextApiHandler<unknown> = async (request, response) => {
   try {
     // First we need to authenticate
-    const req = await PortalSdk.Auth.Login(request.query.username, request.query.password);
+    const req = await PortalSdk.Auth.Login(
+      request.query.username as string,
+      request.query.password as string
+    );
     PortalSdk.Tokens.SetAccessToken(req.access_token);
 
     // Then we retrieve the marketplace access token in order to set it in the SDK
-    const marketplaceAuth = await PortalSdk.ApiClients.GetToken(request.query.marketplaceID);
+    const marketplaceAuth = await PortalSdk.ApiClients.GetToken(
+      request.query.marketplaceID as string
+    );
     OrderCloudSDK.Tokens.SetAccessToken(marketplaceAuth.access_token);
 
     OrderCloudSDK.Configuration.Set({
