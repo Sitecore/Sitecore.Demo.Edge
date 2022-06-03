@@ -1,6 +1,9 @@
 import { BuyerAddress } from 'ordercloud-javascript-sdk';
 
 export const isSameAddress = (address1: BuyerAddress, address2: BuyerAddress): boolean => {
+  if (address1?.ID && address2?.ID && address1.ID === address2?.ID) {
+    return true;
+  }
   return (
     address1 &&
     address2 &&

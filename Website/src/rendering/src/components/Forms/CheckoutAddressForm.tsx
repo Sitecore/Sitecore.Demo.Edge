@@ -22,7 +22,8 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (props.onSubmit) {
-      props.onSubmit(address, saveToAddressBook);
+      const fullAddress = { ...address, AddressName: addressName };
+      props.onSubmit(fullAddress, saveToAddressBook);
     }
   };
 
@@ -32,37 +33,40 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
     </button>
   );
 
-  // TODO: this checkbox needs to be styled
+  const idPrefix = props.prefix ? `${props.prefix}-` : '';
+
   const saveToAddressBookInput = props.showSaveToAddressBook && (
-    <div className="floating-label-wrap">
+    <div className="checkbox-field">
       <input
         type="checkbox"
-        id="saveToAddressBook"
+        id={`${idPrefix}saveToAddressBook`}
         onChange={() => setSaveToAddressBook(!saveToAddressBook)}
         checked={saveToAddressBook}
       />
-      <label htmlFor="saveToAddressBook">Save to address book</label>
+      <label htmlFor={`${idPrefix}saveToAddressBook`}>Save to address book</label>
     </div>
   );
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
-    console.log(changes);
     setAddress(changes.address);
     setIsAddressValid(changes.isValid);
   };
 
+  const addressNameLabel = saveToAddressBook ? 'Address Name' : 'Address Name (Optional)';
+
   return (
     <form onSubmit={handleFormSubmit} className="form">
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}addressName`}>{addressNameLabel}</label>
         <input
           type="text"
           placeholder="Address Name"
-          id="addressName"
+          id={`${idPrefix}addressName`}
           maxLength={100}
           onChange={(e) => setAddressName(e.target.value)}
           value={addressName}
+          required={saveToAddressBook}
         />
-        <label htmlFor="addressName">Address Name (Optional)</label>
       </div>
       <AddressForm
         address={props.address}
@@ -74,7 +78,7 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
         <button
           className="btn--main btn--main--round"
           type="submit"
-          disabled={!isAddressValid || props.loading}
+          disabled={!isAddressValid || (!addressName && saveToAddressBook) || props.loading}
         >
           <Spinner loading={props.loading} /> Save Address
         </button>

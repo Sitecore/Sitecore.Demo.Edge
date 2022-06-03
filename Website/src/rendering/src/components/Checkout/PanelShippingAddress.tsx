@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import AddressCard from './AddressCard';
 import useOcAuth from '../../hooks/useOcAuth';
 import useOcAddressBook from '../../hooks/useOcAddressBook';
-import AddressList from './AddressList';
-import CheckoutAddressForm from 'components/Forms/CheckoutAddressForm';
+import CheckoutAddressForm from '../Forms/CheckoutAddressForm';
+import CheckoutAddressList from './CheckoutAddressList';
 
 const PanelShippingAddress = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,11 @@ const PanelShippingAddress = (): JSX.Element => {
     filters: { Editable: true }, // personal addresses
   });
   const [isEditing, setIsEditing] = useState(false);
-  const [isCreating, setIsCreating] = useState(false);
+  let allAddresses = [...addresses];
+  if (shippingAddress && !shippingAddress.ID) {
+    // include one time address
+    allAddresses = [...allAddresses, shippingAddress];
+  }
 
   useEffect(() => {
     setActiveAddressId(shippingAddress?.ID || '');
@@ -32,7 +36,6 @@ const PanelShippingAddress = (): JSX.Element => {
     await dispatch(saveShippingAddress(address));
     setLoading(false);
     setIsEditing(false);
-    setIsCreating(false);
   };
 
   const handleSaveAddress = async (address: Partial<DBuyerAddress>) => {
@@ -45,26 +48,13 @@ const PanelShippingAddress = (): JSX.Element => {
 
   const handleCancelEdit = () => {
     setIsEditing(false);
-    setIsCreating(false);
   };
 
   const isPickupOrder = order?.xp?.DeliveryType !== 'Ship';
 
   const addressUpdateForm = (
     <CheckoutAddressForm
-      address={shippingAddress}
-      onSubmit={(address) => handleSetShippingAddress(address)}
-      isEditing={true}
-      onCancelEdit={handleCancelEdit}
-      showSaveToAddressBook={false}
-      loading={loading}
-      prefix="shipping"
-    />
-  );
-
-  const addressCreateForm = (
-    <CheckoutAddressForm
-      address={{}}
+      address={shippingAddress || {}}
       onSubmit={(address, saveToAddressBook) =>
         isAnonymous || !saveToAddressBook
           ? handleSetShippingAddress(address)
@@ -87,10 +77,18 @@ const PanelShippingAddress = (): JSX.Element => {
   );
 
   const addressList = (
-    <AddressList
-      addresses={addresses}
+    <CheckoutAddressList
+      addresses={allAddresses}
+      prefix="shipping"
       activeAddressId={activeAddressId}
+      loading={loading}
+      showSaveToAddressBook={!isAnonymous}
       onClick={(address) => handleSetShippingAddress(address)}
+      onEdit={(address, saveToAddressBook) =>
+        isAnonymous || !saveToAddressBook
+          ? handleSetShippingAddress(address)
+          : handleSaveAddress(address)
+      }
     />
   );
 
@@ -98,46 +96,37 @@ const PanelShippingAddress = (): JSX.Element => {
     if (isPickupOrder) {
       return shippingAddress ? addressCard : <div></div>;
     }
-    if (isCreating) {
-      return addressCreateForm;
-    }
     if (isEditing) {
       return addressUpdateForm;
     }
+    // anonymous user
     if (isAnonymous) {
       if (!shippingAddress) {
-        return addressCreateForm;
-      }
-      return addressCard;
-    } else {
-      if (!addresses?.length) {
-        if (shippingAddress) {
-          return addressCard;
-        }
-        return addressCreateForm;
-      }
-      if (!shippingAddress) {
-        return addressList;
-      }
-      const savedAddressIds = addresses.map((address) => address.ID);
-      if (savedAddressIds.includes(shippingAddress.ID)) {
-        return addressList;
+        return addressUpdateForm;
       }
       return addressCard;
     }
+    // profiled user
+    if (!addresses?.length) {
+      if (shippingAddress) {
+        return addressCard;
+      }
+      return addressUpdateForm;
+    }
+    if (!shippingAddress) {
+      return addressList;
+    }
+    const savedAddressIds = addresses.map((address) => address.ID);
+    if (savedAddressIds.includes(shippingAddress.ID) || !shippingAddress.ID) {
+      return addressList;
+    }
+    return addressCard;
   };
 
   return (
     <div className="panel">
       <div className="panel-header panel-shipping">
         <h2>Shipping Address</h2>
-        <a
-          onClick={() => {
-            setIsCreating(true);
-          }}
-        >
-          Add a new address
-        </a>
       </div>
       <div className="panel-body">{getAddressDisplay()}</div>
     </div>

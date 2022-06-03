@@ -1,15 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import AddressList from '../../components/Checkout/AddressList';
+import CheckoutAddressList from '../../components/Checkout/CheckoutAddressList';
 import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
 
 export default {
-  title: 'Components/Checkout/AddressList',
-  component: AddressList,
-} as ComponentMeta<typeof AddressList>;
+  title: 'Components/Checkout/CheckoutAddressList',
+  component: CheckoutAddressList,
+} as ComponentMeta<typeof CheckoutAddressList>;
 
-const Template: ComponentStory<typeof AddressList> = (args) => <AddressList {...args} />;
+const Template: ComponentStory<typeof CheckoutAddressList> = (args) => (
+  <CheckoutAddressList {...args} />
+);
 
 const addresses: DBuyerAddress[] = [
   {

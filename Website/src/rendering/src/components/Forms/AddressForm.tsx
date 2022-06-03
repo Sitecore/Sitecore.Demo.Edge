@@ -57,7 +57,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
 
   return (
     <form className="form" ref={formRef}>
-      <div className="floating-label-wrap">
+      <div>
         <label htmlFor={`${idPrefix}country`}>Country</label>
         <select
           id={`${idPrefix}country`}
