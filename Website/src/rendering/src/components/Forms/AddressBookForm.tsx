@@ -3,19 +3,20 @@ import { FormEvent, useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Link from 'next/link';
-import { DMeUser } from 'src/models/ordercloud/DUser';
+import { DMeUser } from '../../models/ordercloud/DUser';
+import { Me } from 'ordercloud-javascript-sdk';
+import { useRouter } from 'next/router';
 
 type AddressBookFormProps = {
   address?: DBuyerAddress;
   user?: DMeUser;
-  onSubmit?: (address: DBuyerAddress, user: DMeUser) => void;
   isEditing?: boolean;
-  onCancelEdit?: () => void;
-  loading?: boolean;
   prefix?: string; // needed when more that one form on checkout page
 };
 
 const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   /**
    * TODO:
    * 1. Add better postal code validation based on country selected by using masks (react-input-mask)
@@ -62,6 +63,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
 
     const updatedAddress = {
       ...(props.address || {}),
@@ -76,6 +78,14 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
       Zip: zip,
     };
 
+    let newAddress = updatedAddress;
+
+    if (props.isEditing) {
+      await Me.PatchAddress(updatedAddress.ID, updatedAddress);
+    } else {
+      newAddress = await Me.CreateAddress(updatedAddress);
+    }
+
     let updatedUser = {
       ...(props.user || {}),
     };
@@ -85,7 +95,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         ...updatedUser,
         xp: {
           ...updatedUser.xp,
-          DefaultBillingAddressID: updatedAddress.ID,
+          DefaultBillingAddressID: newAddress.ID,
         },
       };
     } else if (!defaultBilling && props.user?.xp?.DefaultBillingAddressID === updatedAddress.ID) {
@@ -103,7 +113,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         ...updatedUser,
         xp: {
           ...updatedUser.xp,
-          DefaultShippingAddressID: updatedAddress.ID,
+          DefaultShippingAddressID: newAddress.ID,
         },
       };
     } else if (!defaultShipping && props.user?.xp?.DefaultShippingAddressID === updatedAddress.ID) {
@@ -116,9 +126,11 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
       };
     }
 
-    if (props.onSubmit) {
-      props.onSubmit(updatedAddress, updatedUser);
-    }
+    await Me.Patch(updatedUser);
+
+    setLoading(false);
+
+    router.push('/account/address-book');
   };
 
   const handleCountryChange = (countryCode: string) => {
@@ -279,8 +291,8 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         <label htmlFor={`${idPrefix}shipping`}>Set as default shipping address</label>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> {buttonText}
+        <button className="btn--main btn--main--round" type="submit" disabled={loading}>
+          <Spinner loading={loading} /> {buttonText}
         </button>
         {cancelEditButton}
       </div>
