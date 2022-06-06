@@ -14,8 +14,11 @@ const ThankYouSection = (): JSX.Element => {
           <FontAwesomeIcon icon={faPrint} />
         </span>
         <p>
-          You can visit the <span className="font-medium">&quot;My account&quot;</span> page at any
-          time to check the status of your order or view order history. Or{' '}
+          You can visit the{' '}
+          <span className="font-medium">
+            <Link href="/account/orders">Order history</Link>
+          </span>{' '}
+          page at any time to check the status of your order or view order history. Or{' '}
           <Link href="#">
             <a>click here</a>
           </Link>{' '}
