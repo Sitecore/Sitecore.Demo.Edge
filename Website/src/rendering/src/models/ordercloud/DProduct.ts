@@ -12,4 +12,5 @@ export interface DProductXp {
     Url?: string;
   }[];
   ShortDescription?: string;
+  Brand?: string;
 }

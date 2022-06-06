@@ -10,7 +10,11 @@ export default {
   component: PanelPayment,
 } as ComponentMeta<typeof PanelPayment>;
 
-const Template: ComponentStory<typeof PanelPayment> = (args) => <PanelPayment {...args} />;
+const Template: ComponentStory<typeof PanelPayment> = (args) => (
+  <section className="checkout-details shop-container">
+    <PanelPayment {...args} />
+  </section>
+);
 
 export const WithSavedPayment = Template.bind({});
 WithSavedPayment.args = {};

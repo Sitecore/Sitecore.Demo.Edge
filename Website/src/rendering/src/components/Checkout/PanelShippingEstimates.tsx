@@ -125,11 +125,11 @@ const PanelShippingEstimates = (): JSX.Element => {
   const panelBody = initalizeLoading ? (
     <ShipMethodsSkeleton />
   ) : (
-    <div className="panel-body">
+    <>
       {shipMethodsList}
       {missingShippingAddress}
       {shipEstimateError}
-    </div>
+    </>
   );
 
   return (

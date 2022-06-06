@@ -85,8 +85,9 @@ const ProductDetailsContent = ({
             };
           });
         }
-        setSpecValues(specVals);
       }
+
+      setSpecValues(specVals);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lineItem, specs, variants, variantID]);
@@ -267,7 +268,8 @@ const ProductDetailsContent = ({
     </div>
   );
 
-  const productName = initialLoading ? <Skeleton width={300} /> : product && product.Name;
+  const productName = initialLoading ? <Skeleton width={300} /> : product?.Name;
+  const productBrand = initialLoading ? <Skeleton width={300} /> : product?.xp?.Brand;
 
   const productBreadcrumb = initialLoading ? (
     <Skeleton width={300} />
@@ -287,6 +289,7 @@ const ProductDetailsContent = ({
             <div className="product-details-hero">
               <div className="product-breadcrumb">{productBreadcrumb}</div>
               <h2 className="product-name">{productName}</h2>
+              <h3 className="product-brand">{productBrand}</h3>
               <ProductImage images={productImageProps} loading={initialLoading} />
               <div className="product-description">
                 <form onSubmit={handleAddToCart}>
