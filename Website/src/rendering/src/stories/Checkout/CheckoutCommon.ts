@@ -151,8 +151,14 @@ export const productCacheState = {
   },
 };
 
-export const authState = {
+export const loggedInAuthState = {
   isAuthenticated: true,
+  isAnonymous: false,
+};
+
+export const anonymousAuthState = {
+  isAuthenticated: false,
+  isAnonymous: true,
 };
 
 export const orderState = {
@@ -178,9 +184,14 @@ export const productCacheSlice: MockSlice = {
   state: productCacheState,
 };
 
-export const authSlice: MockSlice = {
+export const loggedInAuthSlice: MockSlice = {
   name: 'ocAuth',
-  state: authState,
+  state: loggedInAuthState,
+};
+
+export const anonymousAuthSlice: MockSlice = {
+  name: 'ocAuth',
+  state: anonymousAuthState,
 };
 
 export const orderSlice: MockSlice = {
