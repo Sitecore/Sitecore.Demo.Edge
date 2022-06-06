@@ -177,6 +177,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
           <a className="product-image">{productImage}</a>
         </Link>
         <div className="product-specs">
+          <p>{props.lineItem.Product.xp?.Brand}</p>
           {getProductSpecs()}
           {staticQuantityBlock}
           {staticUserComment}
