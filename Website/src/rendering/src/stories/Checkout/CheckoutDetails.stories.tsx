@@ -6,6 +6,7 @@ import { MockStore } from '../mock-store';
 import { getMockExpirationDate } from '../utils';
 import { EntityState } from '@reduxjs/toolkit';
 import { DAddress } from 'src/models/ordercloud/DAddress';
+import { authSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
@@ -23,7 +24,7 @@ const noLineItemsState = {
 };
 NoLineItems.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noLineItemsState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: noLineItemsState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -35,7 +36,7 @@ const loadingState = {
 };
 Loading.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: loadingState }, authSlice]}>
       <Story />
     </MockStore>
   ),
@@ -53,9 +54,6 @@ const noStepsCompleteOrderState = {
     },
   },
 };
-const noStepsCompleteAuthState = {
-  isAnonymous: true,
-};
 const noStepsCompleteAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -64,7 +62,7 @@ NoStepsComplete.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: noStepsCompleteOrderState },
-        { name: 'ocAuth', state: noStepsCompleteAuthState },
+        authSlice,
         { name: 'ocAddressBook', state: noStepsCompleteAddressBookState },
       ]}
     >
@@ -137,9 +135,6 @@ const shippingCompleteState = {
     },
   },
 };
-const shippingCompleteAuthState = {
-  isAnonymous: true,
-};
 const shippingCompleteAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -148,7 +143,7 @@ ShippingComplete.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: shippingCompleteState },
-        { name: 'ocAuth', state: shippingCompleteAuthState },
+        authSlice,
         { name: 'ocAddressBook', state: shippingCompleteAddressBookState },
       ]}
     >
@@ -222,9 +217,6 @@ const shippingEstimatesCompleteState = {
     },
   },
 };
-const shippingEstimatesCompleteAuthState = {
-  isAnonymous: true,
-};
 const shippingEstimatesCompleteAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -233,7 +225,7 @@ ShippingEstimatesComplete.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: shippingEstimatesCompleteState },
-        { name: 'ocAuth', state: shippingEstimatesCompleteAuthState },
+        authSlice,
         { name: 'ocAddressBook', state: shippingEstimatesCompleteAddressBookState },
       ]}
     >
@@ -316,9 +308,6 @@ const billingAddressCompleteState = {
     },
   },
 };
-const billingAddressCompleteAuthState = {
-  isAnonymous: true,
-};
 const billingAddressCompleteAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -327,7 +316,7 @@ BillingAddressComplete.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: billingAddressCompleteState },
-        { name: 'ocAuth', state: billingAddressCompleteAuthState },
+        authSlice,
         { name: 'ocAddressBook', state: billingAddressCompleteAddressBookState },
       ]}
     >
@@ -428,9 +417,6 @@ const paymentCompleteState = {
     },
   ],
 };
-const paymentCompleteAuthState = {
-  isAnonymous: true,
-};
 const paymentCompleteAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -439,7 +425,7 @@ PaymentComplete.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: paymentCompleteState },
-        { name: 'ocAuth', state: paymentCompleteAuthState },
+        authSlice,
         { name: 'ocAddressBook', state: paymentCompleteAddressBookState },
       ]}
     >
@@ -497,9 +483,6 @@ const pickupFromSummitState = {
     },
   ],
 };
-const pickupFromSummitAuthState = {
-  isAnonymous: true,
-};
 const pickupFromSummitAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -508,7 +491,7 @@ PickupFromSummit.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: pickupFromSummitState },
-        { name: 'ocAuth', state: pickupFromSummitAuthState },
+        authSlice,
         { name: 'ocAddressBook', state: pickupFromSummitAddressBookState },
       ]}
     >
@@ -565,9 +548,6 @@ const pickupFromStoreState = {
     },
   ],
 };
-const pickupFromStoreAuthState = {
-  isAnonymous: true,
-};
 const pickupFromStoreAddressBookState = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
@@ -576,7 +556,36 @@ PickupFromStore.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: pickupFromStoreState },
-        { name: 'ocAuth', state: pickupFromStoreAuthState },
+        authSlice,
+        { name: 'ocAddressBook', state: pickupFromStoreAddressBookState },
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const GuestCheckout = Template.bind({});
+const guestCheckoutCartState = {
+  initialized: true,
+  order: {
+    ShippingCost: 0,
+    Subtotal: 123.45,
+    LineItemCount: 1,
+    xp: {
+      DeliveryType: 'Ship',
+    },
+  },
+};
+const guestCheckoutAuthState = {
+  isAnonymous: true,
+};
+GuestCheckout.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: guestCheckoutCartState },
+        { name: 'ocAuth', state: guestCheckoutAuthState },
         { name: 'ocAddressBook', state: pickupFromStoreAddressBookState },
       ]}
     >

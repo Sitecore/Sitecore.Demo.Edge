@@ -11,7 +11,9 @@ export default {
 } as ComponentMeta<typeof PanelShippingAddress>;
 
 const Template: ComponentStory<typeof PanelShippingAddress> = (args) => (
-  <PanelShippingAddress {...args} />
+  <section className="checkout-details shop-container">
+    <PanelShippingAddress {...args} />
+  </section>
 );
 
 export const WithSavedAddress = Template.bind({});

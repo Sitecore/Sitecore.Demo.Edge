@@ -13,6 +13,11 @@
         @apply sm:col-span-2;
       }
 
+      &-brand {
+        @apply text-lg font-bold w-full -mt-4;
+        @apply sm:col-span-2;
+      }
+
       &-image {
         @apply lg:row-span-3;
 

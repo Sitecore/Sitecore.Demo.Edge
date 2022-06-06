@@ -44,7 +44,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
       },
       isValid: formRef?.current?.checkValidity?.() || false,
     });
-  }, [country, street1, street2, city, state, zip]);
+  }, [country, street1, street2, city, state, zip, props]);
 
   const handleCountryChange = (countryCode: string) => {
     setCountry(countryCode);

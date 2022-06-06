@@ -75,6 +75,7 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
       />
       {saveToAddressBookInput}
       <div className="button-area">
+        {cancelEditButton}
         <button
           className="btn--main btn--main--round"
           type="submit"
@@ -82,7 +83,6 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
         >
           <Spinner loading={props.loading} /> Save Address
         </button>
-        {cancelEditButton}
       </div>
     </form>
   );
