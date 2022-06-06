@@ -151,8 +151,58 @@ export const productCacheState = {
   },
 };
 
-export const authState = {
+export const loggedInAuthState = {
   isAuthenticated: true,
+  isAnonymous: false,
+};
+
+export const anonymousAuthState = {
+  isAuthenticated: false,
+  isAnonymous: true,
+};
+
+export const addressBookState = {
+  addresses: {
+    ids: ['MPcTM2MNzEWi06gLhfMLvQ', 'dxMIwY-WXkCUUYUfZRt3CA'],
+    entities: {
+      MPcTM2MNzEWi06gLhfMLvQ: {
+        ID: 'MPcTM2MNzEWi06gLhfMLvQ',
+        Shipping: true,
+        Billing: true,
+        Editable: true,
+        DateCreated: '2022-06-01T20:31:44.403+00:00',
+        CompanyName: '',
+        FirstName: 'Marty',
+        LastName: 'Byrde',
+        Street1: '6818 Gaines Ferry Road',
+        Street2: '',
+        City: 'Flowery Branch',
+        State: 'GA',
+        Zip: '30542',
+        Country: 'US',
+        Phone: '',
+        AddressName: 'Home',
+      },
+      'dxMIwY-WXkCUUYUfZRt3CA': {
+        ID: 'dxMIwY-WXkCUUYUfZRt3CA',
+        Shipping: true,
+        Billing: true,
+        Editable: true,
+        DateCreated: '2022-06-02T12:39:46.3+00:00',
+        CompanyName: '',
+        FirstName: 'Marty',
+        LastName: 'Byrde',
+        Street1: '123 other street',
+        Street2: '',
+        City: 'Other City',
+        State: 'QC',
+        Zip: 'A1A1A1',
+        Country: 'CA',
+        Phone: '',
+        AddressName: 'Secondary Home',
+      },
+    },
+  },
 };
 
 export const orderState = {
@@ -178,9 +228,14 @@ export const productCacheSlice: MockSlice = {
   state: productCacheState,
 };
 
-export const authSlice: MockSlice = {
+export const loggedInAuthSlice: MockSlice = {
   name: 'ocAuth',
-  state: authState,
+  state: loggedInAuthState,
+};
+
+export const anonymousAuthSlice: MockSlice = {
+  name: 'ocAuth',
+  state: anonymousAuthState,
 };
 
 export const orderSlice: MockSlice = {
@@ -208,6 +263,18 @@ export const promotionCartSlice: MockSlice = {
       },
     ] as DOrderPromotion[],
   },
+};
+
+export const emptyAddressBookSlice: MockSlice = {
+  name: 'ocAddressBook',
+  state: {
+    addresses: { ids: [], entities: {} },
+  },
+};
+
+export const addressBookSlice: MockSlice = {
+  name: 'ocAddressBook',
+  state: addressBookState,
 };
 
 export const shipMethods = [

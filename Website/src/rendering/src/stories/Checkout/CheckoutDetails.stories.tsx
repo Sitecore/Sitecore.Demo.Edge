@@ -4,9 +4,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckoutDetails from '../../components/Checkout/CheckoutDetails';
 import { MockStore } from '../mock-store';
 import { getMockExpirationDate } from '../utils';
-import { EntityState } from '@reduxjs/toolkit';
-import { DAddress } from 'src/models/ordercloud/DAddress';
-import { authSlice } from './CheckoutCommon';
+import {
+  addressBookSlice,
+  addressBookState,
+  anonymousAuthSlice,
+  emptyAddressBookSlice,
+  loggedInAuthSlice,
+} from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
@@ -24,7 +28,9 @@ const noLineItemsState = {
 };
 NoLineItems.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: noLineItemsState }, authSlice]}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: noLineItemsState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -36,7 +42,7 @@ const loadingState = {
 };
 Loading.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: loadingState }, authSlice]}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: loadingState }, loggedInAuthSlice]}>
       <Story />
     </MockStore>
   ),
@@ -46,24 +52,23 @@ export const NoStepsComplete = Template.bind({});
 const noStepsCompleteOrderState = {
   initialized: true,
   order: {
-    ShippingCost: 0,
+    ID: 'mockid123',
     Subtotal: 123.45,
+    ShippingCost: 0,
+    Total: 123.45,
     LineItemCount: 1,
     xp: {
       DeliveryType: 'Ship',
     },
   },
 };
-const noStepsCompleteAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
-};
 NoStepsComplete.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: noStepsCompleteOrderState },
-        authSlice,
-        { name: 'ocAddressBook', state: noStepsCompleteAddressBookState },
+        loggedInAuthSlice,
+        addressBookSlice,
       ]}
     >
       <Story />
@@ -71,14 +76,77 @@ NoStepsComplete.decorators = [
   ),
 ];
 
-export const ShippingComplete = Template.bind({});
+export const ShippingCompleteSavedAddress = Template.bind({});
 const shippingCompleteState = {
-  initialized: true,
+  ...noStepsCompleteOrderState,
   shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
+    ...addressBookState.addresses.entities['MPcTM2MNzEWi06gLhfMLvQ'],
+  },
+  shipEstimateResponse: {
+    ShipEstimates: [
+      {
+        ID: 'STATIC_SINGLE_SHIPMENT',
+        ShipEstimateItems: [
+          {
+            LineItemID: 'X001',
+            Quantity: 2,
+          },
+        ],
+        ShipMethods: [
+          {
+            ID: 'STANDARD_DELIVERY',
+            Name: 'Standard Delivery',
+            Cost: 0,
+            EstimatedTransitDays: 3,
+            xp: {
+              Description: 'Receive your order at your home in 3-5 business days',
+            },
+          },
+          {
+            ID: 'EXPRESS_DELIVERY',
+            Name: 'Express Delivery',
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home in 1-2 business days',
+            },
+          },
+          {
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home the next business day',
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+ShippingCompleteSavedAddress.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: shippingCompleteState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const ShippingCompleteNewAddress = Template.bind({});
+const shippingCompleteNewAddressState = {
+  ...noStepsCompleteOrderState,
+  shippingAddress: {
+    ID: 'newaddressid',
+    AddressName: 'Company',
+    Street1: '789 another boulevard',
+    City: 'Big City',
     State: 'GA',
     Zip: '30542',
     Country: 'US',
@@ -125,26 +193,14 @@ const shippingCompleteState = {
       },
     ],
   },
-  order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 0,
-    LineItemCount: 1,
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
 };
-const shippingCompleteAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
-};
-ShippingComplete.decorators = [
+ShippingCompleteNewAddress.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
-        { name: 'ocCurrentCart', state: shippingCompleteState },
-        authSlice,
-        { name: 'ocAddressBook', state: shippingCompleteAddressBookState },
+        { name: 'ocCurrentCart', state: shippingCompleteNewAddressState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -154,79 +210,29 @@ ShippingComplete.decorators = [
 
 export const ShippingEstimatesComplete = Template.bind({});
 const shippingEstimatesCompleteState = {
-  initialized: true,
-  shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
-    State: 'GA',
-    Zip: '30542',
-    Country: 'US',
-  },
+  ...shippingCompleteState,
   shipEstimateResponse: {
+    ...shippingCompleteState.shipEstimateResponse,
     ShipEstimates: [
       {
-        ID: 'STATIC_SINGLE_SHIPMENT',
+        ...shippingCompleteState.shipEstimateResponse.ShipEstimates[0],
         SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipEstimateItems: [
-          {
-            LineItemID: 'X001',
-            Quantity: 2,
-          },
-        ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
       },
     ],
   },
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    xp: {
-      DeliveryType: 'Ship',
-    },
+    ...shippingCompleteState.order,
+    ShippingCost: 4.99,
+    Total: 128.44,
   },
-};
-const shippingEstimatesCompleteAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
 ShippingEstimatesComplete.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: shippingEstimatesCompleteState },
-        authSlice,
-        { name: 'ocAddressBook', state: shippingEstimatesCompleteAddressBookState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -236,88 +242,21 @@ ShippingEstimatesComplete.decorators = [
 
 export const BillingAddressComplete = Template.bind({});
 const billingAddressCompleteState = {
-  initialized: true,
-  shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
-    State: 'GA',
-    Zip: '30542',
-    Country: 'US',
-  },
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipEstimateItems: [
-          {
-            LineItemID: 'X001',
-            Quantity: 2,
-          },
-        ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
-      },
-    ],
-  },
+  ...shippingEstimatesCompleteState,
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
+    ...shippingEstimatesCompleteState.order,
     BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
-    xp: {
-      DeliveryType: 'Ship',
+      ...addressBookState.addresses.entities['MPcTM2MNzEWi06gLhfMLvQ'],
     },
   },
-};
-const billingAddressCompleteAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
 BillingAddressComplete.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: billingAddressCompleteState },
-        authSlice,
-        { name: 'ocAddressBook', state: billingAddressCompleteAddressBookState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -327,77 +266,7 @@ BillingAddressComplete.decorators = [
 
 export const PaymentComplete = Template.bind({});
 const paymentCompleteState = {
-  initialized: true,
-  shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
-    State: 'GA',
-    Zip: '30542',
-    Country: 'US',
-  },
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipEstimateItems: [
-          {
-            LineItemID: 'X001',
-            Quantity: 2,
-          },
-        ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
-      },
-    ],
-  },
-  order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
+  ...billingAddressCompleteState,
   payments: [
     {
       ID: 'mockpaymentid',
@@ -417,16 +286,13 @@ const paymentCompleteState = {
     },
   ],
 };
-const paymentCompleteAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
-};
 PaymentComplete.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: paymentCompleteState },
-        authSlice,
-        { name: 'ocAddressBook', state: paymentCompleteAddressBookState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -436,7 +302,7 @@ PaymentComplete.decorators = [
 
 export const PickupFromSummit = Template.bind({});
 const pickupFromSummitState = {
-  initialized: true,
+  ...paymentCompleteState,
   shippingAddress: {
     AddressName: 'Play! Summit',
     Street1: '101 California St',
@@ -447,52 +313,19 @@ const pickupFromSummitState = {
     Zip: '94111',
   },
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
+    ...paymentCompleteState.order,
     xp: {
       DeliveryType: 'PickupFromSummit',
     },
   },
-  payments: [
-    {
-      ID: 'mockpaymentid',
-      Type: 'CreditCard',
-      CreditCardID: 'mock-creditcard-id',
-      Accepted: true,
-      Amount: 100,
-      xp: {
-        CreditCard: {
-          ID: 'mockcreditcardid',
-          CardType: 'Visa',
-          CardholderName: 'Jon Snow',
-          PartialAccountNumber: '6123',
-          ExpirationDate: getMockExpirationDate(),
-        },
-      },
-    },
-  ],
-};
-const pickupFromSummitAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
 PickupFromSummit.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: pickupFromSummitState },
-        authSlice,
-        { name: 'ocAddressBook', state: pickupFromSummitAddressBookState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -502,7 +335,7 @@ PickupFromSummit.decorators = [
 
 export const PickupFromStore = Template.bind({});
 const pickupFromStoreState = {
-  initialized: true,
+  ...paymentCompleteState,
   shippingAddress: {
     AddressName: 'Store #1234',
     Street1: '110 N. 5th St #300',
@@ -512,52 +345,19 @@ const pickupFromStoreState = {
     Zip: '55403',
   },
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
+    ...paymentCompleteState.order,
     xp: {
       DeliveryType: 'PickupInStore',
     },
   },
-  payments: [
-    {
-      ID: 'mockpaymentid',
-      Type: 'CreditCard',
-      CreditCardID: 'mock-creditcard-id',
-      Accepted: true,
-      Amount: 100,
-      xp: {
-        CreditCard: {
-          ID: 'mockcreditcardid',
-          CardType: 'Visa',
-          CardholderName: 'Jon Snow',
-          PartialAccountNumber: '6123',
-          ExpirationDate: getMockExpirationDate(),
-        },
-      },
-    },
-  ],
-};
-const pickupFromStoreAddressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
 PickupFromStore.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: pickupFromStoreState },
-        authSlice,
-        { name: 'ocAddressBook', state: pickupFromStoreAddressBookState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -566,27 +366,13 @@ PickupFromStore.decorators = [
 ];
 
 export const GuestCheckout = Template.bind({});
-const guestCheckoutCartState = {
-  initialized: true,
-  order: {
-    ShippingCost: 0,
-    Subtotal: 123.45,
-    LineItemCount: 1,
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
-};
-const guestCheckoutAuthState = {
-  isAnonymous: true,
-};
 GuestCheckout.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
-        { name: 'ocCurrentCart', state: guestCheckoutCartState },
-        { name: 'ocAuth', state: guestCheckoutAuthState },
-        { name: 'ocAddressBook', state: pickupFromStoreAddressBookState },
+        { name: 'ocCurrentCart', state: noStepsCompleteOrderState },
+        anonymousAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
