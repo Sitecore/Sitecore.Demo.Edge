@@ -4,6 +4,10 @@
     @apply sm:grid-cols-2;
 
     .product {
+      &-breadcrumb {
+        @apply sm:col-span-2;
+      }
+
       &-name {
         @apply text-xl font-bold w-full;
         @apply sm:col-span-2;
