@@ -1,7 +1,7 @@
 import { faEnvelope, faPrint, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { getLoginUrl } from 'src/services/AuthenticationService';
+import { getLoginUrl } from '../../services/AuthenticationService';
 import useOcAuth from '../../hooks/useOcAuth';
 
 const ThankYouSection = (): JSX.Element => {
