@@ -87,6 +87,20 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   );
 }
 
+/**
+ * Logs an ADD (add to cart) event
+ */
+export function logAddToCart(payload: Record<string, unknown>): Promise<unknown> {
+  return logEvent('ADD', payload);
+}
+
+/**
+ * Logs an ORDER_CHECKOUT event
+ */
+export async function logOrderCheckout(payload: Record<string, unknown>): Promise<unknown> {
+  return logEvent('ORDER_CHECKOUT', payload);
+}
+
 export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
