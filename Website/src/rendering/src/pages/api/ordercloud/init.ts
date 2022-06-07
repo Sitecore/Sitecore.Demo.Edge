@@ -85,12 +85,6 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       });
     }
 
-    // Update the buyer client to make it accessible for anonymous shopping
-    await ApiClients.Patch(buyerClient.ID, {
-      IsAnonBuyer: true,
-      DefaultContextUserName: defaultContextUser.Username,
-    });
-
     // Update checkout integration event
     const checkoutIntegrationEvent = await IntegrationEvents.Patch('HeadStartCheckout', {
       CustomImplementationUrl: 'https://edge-shop-website.sitecoredemo.com/api/checkout',
@@ -171,6 +165,12 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     await UserGroups.SaveUserAssignment(publicBuyer.ID, {
       UserGroupID: `${publicBuyer.ID}-${PUBLIC_LOCATION_ID_SUFFIX}`,
       UserID: ANONYMOUS_USER_ID,
+    });
+
+    // Update the buyer client to make it accessible for anonymous shopping
+    await ApiClients.Patch(buyerClient.ID, {
+      IsAnonBuyer: true,
+      DefaultContextUserName: defaultContextUser.Username,
     });
 
     return response.status(200).json('Initialized successfully');
