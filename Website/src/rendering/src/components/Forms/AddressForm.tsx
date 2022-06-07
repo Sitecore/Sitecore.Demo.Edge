@@ -1,11 +1,11 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
 
 type AddressFormProps = {
   address?: DBuyerAddress;
   loading?: boolean;
-  onChange: ({ address, isValid }: { address: DBuyerAddress; isValid: boolean }) => void;
+  onChange: ({ address }: { address: DBuyerAddress }) => void;
   prefix?: string; // needed when more that one form on checkout page
 };
 
@@ -20,31 +20,35 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
    * 1. Add better postal code validation based on country selected by using masks (react-input-mask)
    * 2. Add more supported countries, currently only support US & Canada
    */
-  const formRef = useRef(null);
   const countries = GeographyService.getCountries();
   const [states, setStates] = useState(
     GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code)
   );
-  const [country, setCountry] = useState(props?.address?.Country || '');
+  const [firstName, setFirstName] = useState(props?.address?.FirstName || '');
+  const [lastName, setLastName] = useState(props?.address?.LastName || '');
   const [street1, setStreet1] = useState(props.address?.Street1 || '');
   const [street2, setStreet2] = useState(props.address?.Street2 || '');
   const [city, setCity] = useState(props?.address?.City || '');
+  const [country, setCountry] = useState(props?.address?.Country || '');
   const [state, setState] = useState(props?.address?.State || '');
   const [zip, setZip] = useState(props?.address?.Zip || '');
 
   useEffect(() => {
     props.onChange({
       address: {
-        Country: country,
+        FirstName: firstName,
+        LastName: lastName,
         Street1: street1,
         Street2: street2,
         City: city,
+        Country: country,
         State: state,
         Zip: zip,
       },
-      isValid: formRef?.current?.checkValidity?.() || false,
     });
-  }, [country, street1, street2, city, state, zip, props]);
+    // We do not add 'props' to the useEffect dependencies to avoid a render loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [country, street1, street2, city, state, zip, firstName, lastName]);
 
   const handleCountryChange = (countryCode: string) => {
     setCountry(countryCode);
@@ -56,31 +60,37 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
   const idPrefix = props.prefix ? `${props.prefix}-` : '';
 
   return (
-    <form className="form" ref={formRef}>
+    <>
       <div>
-        <label htmlFor={`${idPrefix}country`}>Country</label>
-        <select
-          id={`${idPrefix}country`}
+        <label htmlFor={`${idPrefix}firstName`}>First name</label>
+        <input
+          type="text"
+          id={`${idPrefix}firstName`}
+          autoComplete="given-name"
           required
-          onChange={(e) => handleCountryChange(e.target.value)}
-          value={country}
-        >
-          <option key="blank" value="">
-            Select a country
-          </option>
-          {countries.map((country) => (
-            <option key={country.code} value={country.code}>
-              {country.label}
-            </option>
-          ))}
-        </select>
+          maxLength={100}
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        />
+      </div>
+      <div>
+        <label htmlFor={`${idPrefix}lastName`}>Last name</label>
+        <input
+          type="text"
+          id={`${idPrefix}lastName`}
+          autoComplete="family-name"
+          required
+          maxLength={100}
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        />
       </div>
       <div>
         <label htmlFor={`${idPrefix}street1`}>Street 1</label>
         <input
           type="text"
           id={`${idPrefix}street1`}
-          autoComplete="address-line1"
+          autoComplete="street-address"
           required
           maxLength={100}
           onChange={(e) => setStreet1(e.target.value)}
@@ -110,6 +120,24 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         />
       </div>
       <div>
+        <label htmlFor={`${idPrefix}country`}>Country</label>
+        <select
+          id={`${idPrefix}country`}
+          required
+          onChange={(e) => handleCountryChange(e.target.value)}
+          value={country}
+        >
+          <option key="blank" value="">
+            Select a country
+          </option>
+          {countries.map((country) => (
+            <option key={country.code} value={country.code}>
+              {country.label}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
         <label htmlFor={`${idPrefix}stateProvince`}>State / Province</label>
         <select
           id={`${idPrefix}stateProvince`}
@@ -128,7 +156,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         </select>
       </div>
       <div>
-        <label htmlFor={`${idPrefix}postalCode`}>Postal Code</label>
+        <label htmlFor={`${idPrefix}postalCode`}>Postal / Zip Code</label>
         <input
           type="text"
           id={`${idPrefix}postalCode`}
@@ -139,7 +167,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
           value={zip}
         />
       </div>
-    </form>
+    </>
   );
 };
 

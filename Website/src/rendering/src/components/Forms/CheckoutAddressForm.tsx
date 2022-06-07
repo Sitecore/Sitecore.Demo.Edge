@@ -1,5 +1,5 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import Spinner from '../../components/ShopCommon/Spinner';
 import AddressForm, { OnAddressChangeEvent } from './AddressForm';
 
@@ -14,6 +14,7 @@ type CheckoutAddressFormProps = {
 };
 
 const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
+  const formRef = useRef(null);
   const [addressName, setAddressName] = useState(props?.address?.AddressName || '');
   const [saveToAddressBook, setSaveToAddressBook] = useState(false);
   const [address, setAddress] = useState(props?.address);
@@ -49,31 +50,30 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
     setAddress(changes.address);
-    setIsAddressValid(changes.isValid);
+    setIsAddressValid(formRef?.current?.checkValidity?.() || false);
   };
 
-  const addressNameLabel = saveToAddressBook ? 'Address Name' : 'Address Name (Optional)';
-
   return (
-    <form onSubmit={handleFormSubmit} className="form">
-      <div>
-        <label htmlFor={`${idPrefix}addressName`}>{addressNameLabel}</label>
-        <input
-          type="text"
-          placeholder="Address Name"
-          id={`${idPrefix}addressName`}
-          maxLength={100}
-          onChange={(e) => setAddressName(e.target.value)}
-          value={addressName}
-          required={saveToAddressBook}
-        />
-      </div>
+    <form onSubmit={handleFormSubmit} className="form" ref={formRef}>
       <AddressForm
         address={props.address}
         loading={props.loading}
         onChange={handleAddressFormChange}
       />
       {saveToAddressBookInput}
+      <div className={`${saveToAddressBook ? '' : 'hidden'}`}>
+        <label htmlFor={`${idPrefix}addressName`}>Address Name</label>
+        <input
+          type="text"
+          placeholder="Address Name"
+          id={`${idPrefix}addressName`}
+          autoComplete="off"
+          maxLength={100}
+          onChange={(e) => setAddressName(e.target.value)}
+          value={addressName}
+          required={saveToAddressBook}
+        />
+      </div>
       <div className="button-area">
         {cancelEditButton}
         <button

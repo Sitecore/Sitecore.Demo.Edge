@@ -10,7 +10,7 @@ export const cartState = {
       ProductID: 'PSPCCCCBC',
       LineSubtotal: 4,
       Product: {
-        Name: 'CenterCycle Carbon Cycling Bottle Cage',
+        Name: 'Carbon Cycling Bottle Cage',
         xp: {
           Images: [
             {
@@ -18,6 +18,8 @@ export const cartState = {
               Url: 'https://m.media-amazon.com/images/I/61LPos5CIaL._AC_SL1500_.jpg',
             },
           ],
+          Brand: 'CenterCycle',
+          ProductUrl: '/shop/products/PSPCCCCBC',
         },
       },
       Specs: [] as Spec[],
@@ -28,7 +30,7 @@ export const cartState = {
       ProductID: 'PSPPSSGB',
       LineSubtotal: 10,
       Product: {
-        Name: 'Pro Staff Sunday Golf Bag',
+        Name: 'Sunday Golf Bag',
         xp: {
           Images: [
             {
@@ -36,6 +38,8 @@ export const cartState = {
               Url: 'https://cdn.shopify.com/s/files/1/0150/9084/products/2020_sl1_white_image1_76540d19-28dd-4284-a57f-518cd2472e7f_x1800.jpg?v=1640023075',
             },
           ],
+          Brand: 'Pro Staff',
+          ProductUrl: '/shop/products/PSPPSSGB',
         },
       },
       Specs: [] as Spec[],
@@ -46,7 +50,7 @@ export const cartState = {
       ProductID: 'PSPRFSAW',
       LineSubtotal: 5,
       Product: {
-        Name: 'Robit Fitness Strengthening Ab Wheel',
+        Name: 'Fitness Strengthening Ab Wheel',
         xp: {
           Images: [
             {
@@ -54,6 +58,8 @@ export const cartState = {
               Url: 'https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1960,b_rgb:f8f8f8/catalog/Conditioning/Speed%20and%20Agility/Core%20and%20Stability/AD0053/AD0053-H_p1yblu.png',
             },
           ],
+          Brand: 'Robit',
+          ProductUrl: '/shop/products/PSPRFSAW',
         },
       },
       Variant: {
@@ -64,6 +70,8 @@ export const cartState = {
               Url: 'https://headstartdemo.blob.core.windows.net/assets/GreenLarge.png',
             },
           ],
+          Brand: 'Robit',
+          ProductUrl: '/shop/products/PSPRFSAW',
         },
       },
       Specs: [
@@ -91,6 +99,8 @@ export const cartState = {
               Url: 'https://static.gotprint.com/tl/en_US/products/business-cards/info/img/desktop/standard.jpg',
             },
           ],
+          Brand: 'Generic',
+          ProductUrl: '/shop/products/BUSINESS_CARDS',
         },
       },
       Specs: [],

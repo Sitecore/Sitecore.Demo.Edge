@@ -12,14 +12,15 @@ import CheckoutAddressList from './CheckoutAddressList';
 const PanelShippingAddress = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
-  const { shippingAddress, order } = useOcCurrentCart();
-  const [activeAddressId, setActiveAddressId] = useState(shippingAddress?.ID || '');
+  const { shippingAddress, order, initialized: cartInitialized } = useOcCurrentCart();
   const { isAnonymous } = useOcAuth();
-  const { addresses, saveAddress } = useOcAddressBook({
+  const { addresses, saveAddress, addressBookLoading } = useOcAddressBook({
     pageSize: 10,
     filters: { Editable: true }, // personal addresses
   });
+  const [activeAddressId, setActiveAddressId] = useState(shippingAddress?.ID || '');
   const [isEditing, setIsEditing] = useState(false);
+
   let allAddresses = [...addresses];
   if (shippingAddress && !shippingAddress.ID) {
     // include one time address
@@ -93,6 +94,9 @@ const PanelShippingAddress = (): JSX.Element => {
   );
 
   const getAddressDisplay = () => {
+    if (addressBookLoading || !cartInitialized) {
+      return null;
+    }
     if (isPickupOrder) {
       return shippingAddress ? addressCard : <div></div>;
     }
