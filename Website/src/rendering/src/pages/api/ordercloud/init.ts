@@ -49,6 +49,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
   if (!hostedBuyerSiteUrl) {
     return response.status(400).json({ Error: 'Missing required parameter HostedBuyerSiteUrl' });
   }
+
   try {
     // First we need to authenticate
     Configuration.Set({
@@ -265,7 +266,7 @@ async function createBuyerLocationResources(
   if (!buyerLocationAddresses.Items.length) {
     await Addresses.Create(buyerID, {
       ID: locationID,
-      AddressName: 'Play! Summit',
+      AddressName: 'PLAY! SHOP',
       Street1: '101 California St',
       Street2: 'St #1600',
       City: 'San Francisco',
@@ -287,7 +288,7 @@ async function createBuyerLocationResources(
       ApprovingGroupID: `${locationID}-OrderApprover`,
       Description:
         'General Approval Rule for Location. Every Order Over a Certain Limit will Require Approval for the designated group of users.',
-      Name: `Play! Summit General Location Approval Rule`,
+      Name: `PLAY! SHOP General Location Approval Rule`,
       RuleExpression: `order.xp.ApprovalNeeded = '${locationID}' & order.Total > 0`,
     });
   }

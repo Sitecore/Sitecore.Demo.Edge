@@ -35,6 +35,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       .status(400)
       .json({ Error: 'Missing required parameter MiddlewareClientSecret' });
   }
+
   try {
     // First we need to authenticate
     Configuration.Set({

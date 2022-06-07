@@ -9,6 +9,7 @@ import { PROFILED_BUYER_NAME, PUBLIC_BUYER_NAME } from 'src/constants/seeding';
 const handler: NextApiHandler<unknown> = async (request, response) => {
   const middlewareClientID = request.query?.MiddlewareClientID as string;
   const middlewareClientSecret = request.query?.MiddlewareClientSecret as string;
+
   if (!middlewareClientID) {
     return response.status(400).json({ Error: 'Missing required parameter MiddlewareClientID' });
   }
@@ -17,6 +18,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       .status(400)
       .json({ Error: 'Missing required parameter MiddlewareClientSecret' });
   }
+
   try {
     // First we need to authenticate
     OrderCloudSDK.Configuration.Set({

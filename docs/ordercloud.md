@@ -2,6 +2,42 @@
 
 ## Configuring
 
+### Headstart Seeding
+
+Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https://github.com/ordercloud-api/headstart#seeding-ordercloud-data) with one modification. For your [seed request](https://github.com/ordercloud-api/headstart/blob/951c3927b276f2bf23524cc3c375147f172403b7/src/Middleware/src/Headstart.Common/Assets/SeedTemplate.json) add the property "Buyers" with value of `PUBLIC_BUYER_NAME` and `PROFILED_BUYER_NAME` from the [seeding constants](../../../constants/seeding.ts):
+
+```json
+[
+  {
+    "Name": "Play! Summit - Public Storefront"
+  },
+  {
+    "Name": "Play! Summit - Profiled Storefront"
+  }
+]
+```
+
+This will initialize the marketplace and seed data with some of the fundamental entities required by headstart. Then, the endpoints here will seed data that is specific to the PLAY! SHOP demo.
+
+You will need the following information after seeding:
+
+- MiddlewareClientID
+- MiddlewareClientSecret
+
+You will also need the following:
+
+- HostedBuyerSiteUrl - URL to your hosted buyer site
+
+### PLAY! SHOP Seeding
+
+After completing all of the above steps, we are ready to call the endpoints below. These routes are used to initialize data required by PLAY! SHOP, as well as sync categories and products between Sitecore Discover and Sitecore OrderCloud. The inputs to products and categories are the CSV files located in /Website/src/rendering/discover-feeds.
+
+1. Visit `https://www.edge.localhost/api/ordercloud/init?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>&HostedBuyerSiteUrl=<YOUR_HOSTED_BUYER_SITE_URL>` in the browser to initialize the public buyer, and single sign on configuration.
+2. Visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the categories.
+3. Visit `https://www.edge.localhost/api/ordercloud/syncproducts?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the products.
+
+Now we are ready to explore our marketplace on [https://portal.ordercloud.io/marketplaces](https://portal.ordercloud.io/marketplaces) and use the demo.
+
 ## Running the application locally
 
 ### Configuring Checkout Integration Events
