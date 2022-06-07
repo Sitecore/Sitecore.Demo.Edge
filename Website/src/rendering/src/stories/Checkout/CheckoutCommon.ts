@@ -172,6 +172,7 @@ export const anonymousAuthState = {
 };
 
 export const addressBookState = {
+  addressBookLoading: false,
   addresses: {
     ids: ['MPcTM2MNzEWi06gLhfMLvQ', 'dxMIwY-WXkCUUYUfZRt3CA'],
     entities: {
@@ -278,6 +279,7 @@ export const promotionCartSlice: MockSlice = {
 export const emptyAddressBookSlice: MockSlice = {
   name: 'ocAddressBook',
   state: {
+    addressBookLoading: false,
     addresses: { ids: [], entities: {} },
   },
 };

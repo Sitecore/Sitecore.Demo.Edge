@@ -4,6 +4,12 @@ import { MockStore } from '../mock-store';
 import PanelShippingAddress from '../../components/Checkout/PanelShippingAddress';
 import { EntityState } from '@reduxjs/toolkit';
 import { DAddress } from 'src/models/ordercloud/DAddress';
+import {
+  addressBookSlice,
+  anonymousAuthSlice,
+  emptyAddressBookSlice,
+  loggedInAuthSlice,
+} from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/PanelShippingAddress',
@@ -21,9 +27,16 @@ WithSavedAddress.args = {};
 
 const mockState = {
   initialized: true,
+  order: {
+    xp: {
+      DeliveryType: 'Ship',
+    },
+  },
   shippingAddress: {
-    ID: 'mockaddressid',
+    ID: '',
     AddressName: 'Marty Byrde Home',
+    FirstName: 'Marty',
+    LastName: 'Byrde',
     Street1: '6818 Gaines Ferry Road',
     City: 'Flowery Branch',
     State: 'GA',
@@ -31,20 +44,14 @@ const mockState = {
     Country: 'US',
   },
 };
-const authState = {
-  isAnonymous: true,
-};
-const addressBookState = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
-};
 
 WithSavedAddress.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: mockState },
-        { name: 'ocAuth', state: authState },
-        { name: 'ocAddressBook', state: addressBookState },
+        loggedInAuthSlice,
+        addressBookSlice,
       ]}
     >
       <Story />
@@ -63,20 +70,13 @@ const mockState2 = {
     },
   },
 };
-const authState2 = {
-  isAnonymous: true,
-};
-const addressBookState2 = {
-  addresses: { ids: [], entities: {} } as EntityState<DAddress>,
-};
-
 CreatingNewAddress.decorators = [
   (Story) => (
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: mockState2 },
-        { name: 'ocAuth', state: authState2 },
-        { name: 'ocAddressBook', state: addressBookState2 },
+        anonymousAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -94,9 +94,6 @@ const mockState3 = {
       DeliveryType: 'Ship',
     },
   },
-};
-const authState3 = {
-  isAnonymous: false,
 };
 const addressBookState3 = {
   addresses: {
@@ -140,7 +137,7 @@ WithSavedAddressesNoneSelected.decorators = [
     <MockStore
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: mockState3 },
-        { name: 'ocAuth', state: authState3 },
+        loggedInAuthSlice,
         { name: 'ocAddressBook', state: addressBookState3 },
       ]}
     >
