@@ -38,12 +38,10 @@ We will also need the following:
 
 ## Play! Summit Seeding
 
-After completing all of the above steps, we are ready to call the endpoints below to seed our Play! Summit specific data including products and categories.
+After completing all of the above steps, we are ready to call the endpoints below to seed our PLAY! SHOP specific data including products and categories.
 
-First visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>&HostedBuyerSiteUrl=<YOUR_HOSTED_BUYER_SITE_URL>` to initialize the public buyer, and single sign on configuration required by play summit.
-
-Then, Visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the categories.
-
-Finally, visit `https://www.edge.localhost/api/ordercloud/syncproducts?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the products.
+1. Visit `https://www.edge.localhost/api/ordercloud/init?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>&HostedBuyerSiteUrl=<YOUR_HOSTED_BUYER_SITE_URL>` in the browser to initialize the public buyer, and single sign on configuration.
+2. Visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the categories.
+3. Visit `https://www.edge.localhost/api/ordercloud/syncproducts?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the products.
 
 Now we are ready to explore our marketplace on [https://portal.ordercloud.io/marketplaces](https://portal.ordercloud.io/marketplaces).
