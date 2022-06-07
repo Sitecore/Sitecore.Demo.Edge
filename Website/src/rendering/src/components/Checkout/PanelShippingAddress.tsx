@@ -66,15 +66,20 @@ const PanelShippingAddress = (): JSX.Element => {
       showSaveToAddressBook={!isAnonymous}
       loading={loading}
       prefix="shipping"
+      showCancelWhenEmpty={false}
     />
   );
 
   const addressCard = (
-    <AddressCard
-      address={shippingAddress}
-      editable={!isPickupOrder}
-      onEdit={() => setIsEditing(true)}
-    />
+    <div className="address-list">
+      <div className="info-card info-card-active">
+        <AddressCard
+          address={shippingAddress}
+          editable={!isPickupOrder}
+          onEdit={() => setIsEditing(true)}
+        />
+      </div>
+    </div>
   );
 
   const addressList = (

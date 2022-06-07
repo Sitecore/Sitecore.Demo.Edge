@@ -19,16 +19,21 @@ const AddressCard = (props: AddressCardProps): JSX.Element => {
   );
 
   return (
-    <div>
+    <>
       {editButton}
-      <h6 className="card-name">{props.address.AddressName}</h6>
-      <p>{props.address.Street1}</p>
-      {street2}
-      <p>
-        {props.address.City}, {props.address.State} {props.address.Zip}
-      </p>
-      <p>{props.address.Country}</p>
-    </div>
+      <div>
+        <h6 className="card-name">{props.address.AddressName}</h6>
+        <p>
+          {props.address.FirstName} {props.address.LastName}
+        </p>
+        <p>{props.address.Street1}</p>
+        <p>{street2}</p>
+        <p>
+          {props.address.City}, {props.address.State}, {props.address.Zip}
+        </p>
+        <p>{props.address.Country}</p>
+      </div>
+    </>
   );
 };
 

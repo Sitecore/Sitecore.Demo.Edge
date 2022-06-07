@@ -41,6 +41,7 @@ const CheckoutNewAddressCard = (props: CheckoutNewAddressCardProps): JSX.Element
       showSaveToAddressBook={props.showSaveToAddressBook}
       loading={props.loading}
       prefix={props.prefix}
+      showCancelWhenEmpty={true}
     />
   );
 

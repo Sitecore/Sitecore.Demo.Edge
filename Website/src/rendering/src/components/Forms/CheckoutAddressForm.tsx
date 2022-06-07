@@ -10,7 +10,8 @@ type CheckoutAddressFormProps = {
   onCancelEdit?: () => void;
   loading?: boolean;
   showSaveToAddressBook?: boolean;
-  prefix?: string; // needed when more that one form on checkout page
+  prefix?: string; // needed when more than one form on checkout page
+  showCancelWhenEmpty: boolean;
 };
 
 const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
@@ -28,11 +29,12 @@ const CheckoutAddressForm = (props: CheckoutAddressFormProps): JSX.Element => {
     }
   };
 
-  const cancelEditButton = props.isEditing && (
-    <button className="cancel-edit" onClick={props.onCancelEdit}>
-      Cancel
-    </button>
-  );
+  const cancelEditButton = props.isEditing &&
+    (props.showCancelWhenEmpty || props.address?.FirstName) && (
+      <button className="cancel-edit" onClick={props.onCancelEdit}>
+        Cancel
+      </button>
+    );
 
   const idPrefix = props.prefix ? `${props.prefix}-` : '';
 

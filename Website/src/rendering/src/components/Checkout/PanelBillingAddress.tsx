@@ -10,23 +10,25 @@ import CheckoutAddressList from './CheckoutAddressList';
 
 const PanelBillingAddress = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(false);
+  const { isAnonymous } = useOcAuth();
   const { order, shippingAddress } = useOcCurrentCart();
+
   const billingAddress = order?.BillingAddress;
+
   const [isSameAsBilling, setIsSameAsBilling] = useState(
     Boolean(billingAddress && shippingAddress && isSameAddress(billingAddress, shippingAddress))
   );
   const [activeAddressId, setActiveAddressId] = useState(
     billingAddress?.ID && !isSameAsBilling ? billingAddress.ID : ''
   );
-  const [loading, setLoading] = useState(false);
-  const { isAnonymous } = useOcAuth();
-
   const [tempAddress, setTempAddress] = useState({} as DBuyerAddress); // saves address prior to unchecking "same as billing" so we can revert to last saved address if necessary
-  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
   const { saveAddress, addresses } = useOcAddressBook({
     pageSize: 10,
     filters: { Editable: true }, // personal addresses
   });
+
+  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
 
   useEffect(() => {
     setIsSameAsBilling(
