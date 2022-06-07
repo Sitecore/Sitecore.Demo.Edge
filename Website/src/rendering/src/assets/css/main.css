@@ -46,6 +46,7 @@
 @import './components/Checkout/CheckoutSummary.css';
 @import './components/Checkout/MiniCart.css';
 @import './components/Checkout/OrderReviewDetails.css';
+@import './components/Checkout/PreCheckout.css';
 @import './components/Checkout/ThankYouHero.css';
 @import './components/Checkout/ThankYouSection.css';
 
