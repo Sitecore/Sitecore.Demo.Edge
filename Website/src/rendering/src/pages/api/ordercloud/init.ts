@@ -17,16 +17,15 @@ import {
 } from 'ordercloud-javascript-sdk';
 import {
   ANONYMOUS_USER_ID,
-  PUBLIC_BUYER_NAME,
   PUBLIC_LOCATION_ID_SUFFIX,
   PROFILED_LOCATION_ID_SUFFIX,
   PROFILED_HEADSTART_CATALOG_ID,
   PUBLIC_HEADSTART_CATALOG_ID,
-  PROFILED_BUYER_NAME,
   PROFILED_HEADSTART_CATALOG_NAME,
   PROFILED_LOCATION_NAME,
   PUBLIC_HEADSTART_CATALOG_NAME,
   PUBLIC_LOCATION_NAME,
+  PUBLIC_BUYER_ID,
 } from '../../../constants/seeding';
 
 const handler: NextApiHandler<unknown> = async (request, response) => {
@@ -53,26 +52,10 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     Tokens.SetAccessToken(authResponse.access_token);
 
     // Ensure profiled buyer exists - for logged in users
-    const profiledBuyers = await Buyers.List({
-      filters: { Name: PROFILED_BUYER_NAME },
-    });
-    const profiledBuyer = profiledBuyers.Items[0];
-    if (!profiledBuyer) {
-      return response.status(400).json({
-        Error: `The buyer "${PROFILED_BUYER_NAME}" does not exist. This buyer must be created in the headstart seeding process prior to calling this endpoint. Please review the documentation in this project.`,
-      });
-    }
+    const profiledBuyer = await Buyers.Get(process.env.ORDERCLOUD_PROFILED_BUYER_ID);
 
     // Ensure public buyer exists
-    const publicBuyers = await Buyers.List({
-      filters: { Name: PUBLIC_BUYER_NAME },
-    });
-    const publicBuyer = publicBuyers.Items[0];
-    if (!publicBuyer) {
-      return response.status(400).json({
-        Error: `The buyer "${PUBLIC_BUYER_NAME}" does not exist. This buyer must be created in the headstart seeding process prior to calling this endpoint. Please review the documentation in this project.`,
-      });
-    }
+    const publicBuyer = await Buyers.Get(PUBLIC_BUYER_ID);
 
     // Ensure buyer client exists
     const buyerClients = await ApiClients.List({
