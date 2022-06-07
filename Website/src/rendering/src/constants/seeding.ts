@@ -1,6 +1,7 @@
 // Variables for public storefront - for anonymous user
 export const ANONYMOUS_USER_ID = 'playshop-anonymous-shopping-context';
 export const PUBLIC_BUYER_NAME = 'PLAY! SHOP - Public Storefront';
+export const PUBLIC_BUYER_ID = 'PlayShopPublic';
 export const PUBLIC_LOCATION_ID_SUFFIX = 'PlayShopPublic';
 export const PUBLIC_LOCATION_NAME = 'PLAY! SHOP - Public Location';
 export const PUBLIC_HEADSTART_CATALOG_ID = 'PlayShopPublic';

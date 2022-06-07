@@ -4,17 +4,21 @@
 
 ### Headstart Seeding
 
-Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https://github.com/ordercloud-api/headstart#seeding-ordercloud-data) with one modification. For your [seed request](https://github.com/ordercloud-api/headstart/blob/951c3927b276f2bf23524cc3c375147f172403b7/src/Middleware/src/Headstart.Common/Assets/SeedTemplate.json) add the property "Buyers" with value of `PUBLIC_BUYER_NAME` and `PROFILED_BUYER_NAME` from the [seeding constants](../../../constants/seeding.ts):
+Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https://github.com/ordercloud-api/headstart#seeding-ordercloud-data) with one modification. For your [seed request](https://github.com/ordercloud-api/headstart/blob/951c3927b276f2bf23524cc3c375147f172403b7/src/Middleware/src/Headstart.Common/Assets/SeedTemplate.json) add the property "Buyers" and substitute the values with those found in the [seeding constants](../Website/src/rendering/src/constants/seeding.ts). `process.env.PUBLIC_BUYER_ID` is an [environment variable](../.env)
 
 ```json
-[
-  {
-    "Name": "PLAY! SHOP - Public Storefront"
-  },
-  {
-    "Name": "PLAY! SHOP - Profiled Storefront"
-  }
-]
+{
+  "Buyers": [
+    {
+      "ID": "{process.env.PUBLIC_BUYER_ID}",
+      "Name": "{PUBLIC_BUYER_NAME}"
+    },
+    {
+      "ID": "{PUBLIC_BUYER_ID}",
+      "Name": "{PUBLIC_BUYER_NAME}"
+    }
+  ]
+}
 ```
 
 This will initialize the marketplace and seed data with some of the fundamental entities required by headstart. Then, the endpoints here will seed data that is specific to the PLAY! SHOP demo.
