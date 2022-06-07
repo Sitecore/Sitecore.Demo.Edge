@@ -121,27 +121,6 @@ namespace Sitecore.Demo.Init.Jobs
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
 
-            // Discover
-            var discoverCustomerKey = Environment.GetEnvironmentVariable("DISCOVER_CUSTOMER_KEY");
-            var discoverApiKey = Environment.GetEnvironmentVariable("DISCOVER_API_KEY");
-
-            // OrderCloud
-            var orderCloudBuyerClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_BUYER_CLIENT_ID");
-            var orderCloudBaseApiUrl = Environment.GetEnvironmentVariable("ORDERCLOUD_BASE_API_URL");
-            var orderCloudMiddlewareClientId = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_ID");
-            var orderCloudMiddlewareClientSecret = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET");
-            var orderCloudMiddlewareAllowedClientIds = Environment.GetEnvironmentVariable("ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS");
-            var orderCloudWebhookHashKey = Environment.GetEnvironmentVariable("ORDERCLOUD_WEBHOOK_HASH_KEY");
-            var orderCloudProfiledBuyerId = Environment.GetEnvironmentVariable("ORDERCLOUD_PROFILED_BUYER_ID");
-            var orderCloudOpenIdConnectId = Environment.GetEnvironmentVariable("ORDERCLOUD_OPENID_CONNECT_ID");
-
-            // Auth0
-            var auth0Secret = Environment.GetEnvironmentVariable("AUTH0_SECRET");
-            var auth0IssuerBaseUrl = Environment.GetEnvironmentVariable("AUTH0_ISSUER_BASE_URL");
-            var auth0ClientId = Environment.GetEnvironmentVariable("AUTH0_CLIENT_ID");
-            var auth0ClientSecret = Environment.GetEnvironmentVariable("AUTH0_CLIENT_SECRET");
-            var auth0Enabled = Environment.GetEnvironmentVariable("AUTH0_ENABLED");
-
             // .npmrc file
             var npmrcFileContents = Environment.GetEnvironmentVariable("NPMRC");
 
@@ -179,44 +158,6 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{cdpApiTargetEndpoint}\" | vercel env add NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{cdpProxyUrl}\" | vercel env add NEXT_PUBLIC_CDP_PROXY_URL production --token {token} --scope {scope}");
-
-            // Discover
-            cmd.Run(
-                $"echo | set /p=\"{discoverCustomerKey}\" | vercel env add NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{discoverApiKey}\" | vercel env add NEXT_PUBLIC_DISCOVER_API_KEY production --token {token} --scope {scope}");
-
-            // OrderCloud
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudBuyerClientId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudBaseApiUrl}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudProfiledBuyerId}\" | vercel env add ORDERCLOUD_PROFILED_BUYER_ID production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudOpenIdConnectId}\" | vercel env add NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudMiddlewareClientId}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_ID production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudMiddlewareClientSecret}\" | vercel env add ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudMiddlewareAllowedClientIds}\" | vercel env add OC_API_CLIENTS_WITH_ACCESS production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{orderCloudWebhookHashKey}\" | vercel env add OC_WEBHOOK_HASH_KEY production --token {token} --scope {scope}");
-
-            // Auth0
-            cmd.Run(
-                $"echo | set /p=\"https://{ns}-website.sitecoredemo.com\" | vercel env add AUTH0_BASE_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0Secret}\" | vercel env add AUTH0_SECRET production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0IssuerBaseUrl}\" | vercel env add AUTH0_ISSUER_BASE_URL production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0ClientId}\" | vercel env add AUTH0_CLIENT_ID production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0ClientSecret}\" | vercel env add AUTH0_CLIENT_SECRET production --token {token} --scope {scope}");
-            cmd.Run(
-                $"echo | set /p=\"{auth0Enabled}\" | vercel env add AUTH0_ENABLED production --token {token} --scope {scope}");
 
             // Configure special NPM_RC environment variable for the internal NPM registries. https://vercel.com/support/articles/using-private-dependencies-with-vercel
             cmd.Run(

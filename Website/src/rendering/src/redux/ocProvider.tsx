@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { initializeAuth } from './ocAuth';
 import logout from './ocAuth/logout';
 import { retrieveCart } from './ocCurrentCart';
@@ -17,37 +17,43 @@ Configuration.Set({
 });
 
 const OcProvider: FunctionComponent = ({ children }) => {
+  const [hasCheckedForToken, setHasCheckedForToken] = useState(false);
   const router = useRouter();
   const dispatch = useAppDispatch();
 
-  const dispatchDiscoverUserLoginEvent = async () => {
-    const user = await dispatch(getUser()).unwrap();
-    PageController.getDispatcher().dispatch({
-      type: Actions.USER_LOGIN,
-      payload: {
-        email: user.Email,
-        id: user.ID,
-      },
-    });
-  };
+  useEffect(() => {
+    if (!router.isReady) {
+      return;
+    }
+    const token = router.query.oidcToken as string;
+    if (token) {
+      Tokens.SetAccessToken(token);
 
-  const token = getTokenFromPath(router.asPath);
-  if (token) {
-    Tokens.SetAccessToken(token);
-
-    // Remove the query string arguments from the URL without reloading the page
-    delete router.query.oidcToken;
-    delete router.query.idpToken;
-    router.replace(
-      {
-        pathname: router.pathname,
-        query: router.query,
-      },
-      undefined,
-      { shallow: true }
-    );
-    dispatchDiscoverUserLoginEvent();
-  }
+      // Remove the query string arguments from the URL without reloading the page
+      delete router.query.oidcToken;
+      delete router.query.idpToken;
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: router.query,
+        },
+        undefined,
+        { shallow: true }
+      );
+      const dispatchDiscoverUserLoginEvent = async () => {
+        const user = await dispatch(getUser()).unwrap();
+        PageController.getDispatcher().dispatch({
+          type: Actions.USER_LOGIN,
+          payload: {
+            email: user.Email,
+            id: user.ID,
+          },
+        });
+      };
+      dispatchDiscoverUserLoginEvent();
+    }
+    setHasCheckedForToken(true);
+  }, [dispatch, router]);
 
   const { ocAuth, ocUser, ocCurrentCart } = useAppSelector((s) => ({
     ocAuth: s.ocAuth,
@@ -56,7 +62,7 @@ const OcProvider: FunctionComponent = ({ children }) => {
   }));
 
   useEffect(() => {
-    if (isCommerceEnabled) {
+    if (isCommerceEnabled && hasCheckedForToken) {
       if (!ocAuth.initialized) {
         dispatch(initializeAuth());
       } else if (ocAuth.isAnonymous && !ocAuth.isAuthenticated) {
@@ -70,23 +76,9 @@ const OcProvider: FunctionComponent = ({ children }) => {
         }
       }
     }
-  }, [dispatch, ocAuth, ocUser, ocCurrentCart]);
+  }, [dispatch, ocAuth, ocUser, ocCurrentCart, hasCheckedForToken]);
 
   return <>{children}</>;
 };
-
-function getTokenFromPath(path?: string): string {
-  // router has a query parameter but it isn't accessible on
-  // first page load which is too late for our use case
-  if (!path) {
-    return null;
-  }
-  if (!path.includes('?')) {
-    return null;
-  }
-  const queryString = path.split('?')[1];
-  const query = new URLSearchParams(queryString);
-  return query.get('oidcToken');
-}
 
 export default OcProvider;

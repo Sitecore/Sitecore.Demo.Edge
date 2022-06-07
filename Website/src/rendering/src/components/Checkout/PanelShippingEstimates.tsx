@@ -125,11 +125,11 @@ const PanelShippingEstimates = (): JSX.Element => {
   const panelBody = initalizeLoading ? (
     <ShipMethodsSkeleton />
   ) : (
-    <div className="panel-body">
+    <>
       {shipMethodsList}
       {missingShippingAddress}
       {shipEstimateError}
-    </div>
+    </>
   );
 
   return (
@@ -137,7 +137,7 @@ const PanelShippingEstimates = (): JSX.Element => {
       <div className="panel-header">
         <h2>Delivery Type</h2>
       </div>
-      <div className="panel-body">{panelBody}</div>
+      {panelBody}
     </div>
   );
 };

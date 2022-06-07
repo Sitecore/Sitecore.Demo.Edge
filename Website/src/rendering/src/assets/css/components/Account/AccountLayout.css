@@ -1,0 +1,30 @@
+.account-layout {
+  h1 {
+    @apply text-2xl font-bold;
+
+    + p {
+      @apply text-black-lightest mb-4;
+    }
+  }
+
+  &-grid {
+    @apply grid grid-cols-1 gap-4 -mx-5;
+    @apply sm:grid-cols-2 sm:mx-0;
+
+    &-item {
+      @apply bg-white px-2 py-4 text-center text-sm;
+
+      svg {
+        @apply text-[50px] mb-2;
+      }
+
+      .item-title {
+        @apply font-bold;
+      }
+
+      a {
+        @apply text-xl mt-2;
+      }
+    }
+  }
+}

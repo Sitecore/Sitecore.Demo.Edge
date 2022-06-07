@@ -18,7 +18,7 @@ const PanelComments = (): JSX.Element => {
       <div className="panel-body">
         <form className="form">
           <div>
-            <label htmlFor="order-comments">Leave your comment for us here...</label>
+            <label htmlFor="order-comments">Your comment (optional)</label>
             <textarea
               name="order-comments"
               id="order-comments"

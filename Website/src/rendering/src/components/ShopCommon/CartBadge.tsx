@@ -3,8 +3,9 @@ import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 const CartBadge = (): JSX.Element => {
   const { lineItems } = useOcCurrentCart();
+  const badgeCount = lineItems ? getItemsCount(lineItems) : 0;
 
-  return lineItems ? <div className="cart-badge">{getItemsCount(lineItems)}</div> : <></>;
+  return <div className="cart-badge">{badgeCount}</div>;
 };
 
 export default CartBadge;

@@ -11,6 +11,8 @@ import Spinner from '../../components/ShopCommon/Spinner';
 type CreditCardFormProps = {
   creditCard?: DBuyerCreditCard;
   onSubmit?: (payment: DBuyerCreditCard) => void;
+  isEditing?: boolean;
+  onCancelEdit?: () => void;
   loading?: boolean;
 };
 
@@ -55,6 +57,12 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
       props.onSubmit(updatedCreditCard);
     }
   };
+
+  const cancelEditButton = props.isEditing && (
+    <button className="cancel-edit" onClick={props.onCancelEdit}>
+      Cancel
+    </button>
+  );
 
   return (
     <form onSubmit={handleFormSubmit} className="form creditcard-form">
@@ -118,8 +126,9 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
         </div>
       </div>
       <div className="button-area">
+        {cancelEditButton}
         <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> Save
+          <Spinner loading={props.loading} /> Save payment method
         </button>
       </div>
     </form>

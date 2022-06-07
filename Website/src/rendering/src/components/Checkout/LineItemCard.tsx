@@ -13,6 +13,7 @@ import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
 import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
 import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import Link from 'next/link';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -185,9 +186,16 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const lineItemCard = (
     <div className="line-item-card">
       <div className="line-item-card-details">
-        <h4 className="product-name">{props.lineItem.Product.Name}</h4>
-        {productImage}
+        <Link href={props.lineItem.Product.xp?.ProductUrl}>
+          <a className="product-name">
+            <h4>{props.lineItem.Product.Name}</h4>
+          </a>
+        </Link>
+        <Link href={props.lineItem.Product.xp?.ProductUrl}>
+          <a className="product-image">{productImage}</a>
+        </Link>
         <div className="product-specs">
+          <p>{props.lineItem.Product.xp?.Brand}</p>
           {getProductSpecs()}
           {staticQuantityBlock}
           {staticUserComment}
