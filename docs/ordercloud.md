@@ -9,10 +9,10 @@ Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https:
 ```json
 [
   {
-    "Name": "Play! Summit - Public Storefront"
+    "Name": "PLAY! SHOP - Public Storefront"
   },
   {
-    "Name": "Play! Summit - Profiled Storefront"
+    "Name": "PLAY! SHOP - Profiled Storefront"
   }
 ]
 ```
