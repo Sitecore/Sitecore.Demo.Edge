@@ -11,11 +11,13 @@ Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https:
   "Buyers": [
     {
       "ID": "{process.env.ORDERCLOUD_PROFILED_BUYER_ID}",
-      "Name": "{PROFILED_BUYER_NAME}"
+      "Name": "{PROFILED_BUYER_NAME}",
+      "Active": true
     },
     {
       "ID": "{PUBLIC_BUYER_ID}",
-      "Name": "{PUBLIC_BUYER_NAME}"
+      "Name": "{PUBLIC_BUYER_NAME}",
+      "Active": true
     }
   ]
 }
