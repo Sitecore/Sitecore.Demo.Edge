@@ -1,57 +1,49 @@
 # OrderCloud API Routes
 
-Currently there are two OrderCloud API routes:
+Currently there are three OrderCloud API routes:
 
+- /api/ordercloud/init
 - /api/ordercloud/synccategories
 - /api/ordercloud/syncproducts
 
-These routes are used to sync categories and products between Sitecore Discover and Sitecore OrderCloud. Their inputs are the CSV files located in /Website/src/rendering/discover-feeds.
+These routes are used to initialize data required by play summit, as well as sync categories and products between Sitecore Discover and Sitecore OrderCloud. The inputs to products and categories are the CSV files located in /Website/src/rendering/discover-feeds.
 
-## Initial setup
+## Headstart Seeding
 
-The first step would be to create an account on <https://portal.ordercloud.io/register>.
+Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https://github.com/ordercloud-api/headstart#seeding-ordercloud-data) with one modification:
 
-From that point on, a script is needed in order to create a marketplace, a buyer, a catalog etc.
+For your [seed request](https://github.com/ordercloud-api/headstart/blob/951c3927b276f2bf23524cc3c375147f172403b7/src/Middleware/src/Headstart.Common/Assets/SeedTemplate.json) add the property "Buyers" with a value of [PLAY_SUMMIT_PUBLIC_STOREFRONT_NAME](../../../constants/seeding.ts)
 
-### Creating a marketplace
-
-If you do not have an existing marketplace ID, you can create one using this code snippet:
-
-```javascript
-const marketplace = {
-  Id: "<YOUR_DESIRED_MARKETPLACE_ID>",
-  Name: "<YOUR_DESIRED_MARKETPLACE_NAME>",
-  Environment: "Sandbox",
-  Region: {
-    AzureRegion: "westus",
-    Id: "usw",
-    Name: "Us-West",
+```json
+[
+  {
+    "Name": "Play! Summit - Public Storefront"
+  },
+   {
+    "Name": "Play! Summit - Profiled Storefront"
   }
-};
-await PortalSdk.Save(id, marketplace);
+]
 ```
 
-Note, that, the **marketplace id** must be unique across your account.
+This will initialize the marketplace and seed data with some of the fundamental entities required by headstart. Then, the endpoints here will seed data that is specific to the Play! Summit demo
 
-### Creating a buyer
+You will need the following information after seeding:
 
-Now we are ready to create a buyer
+- MiddlewareClientID
+- MiddlewareClientSecret
 
-```javascript
-await OrderCloudSDK.Buyers.Create({
-  Name: 'Default Buyer',
-  Active: true,
-});
-```
+We will also need the following:
 
-Note, that, a default catalog for this buyer will automatically be created because we did not specify an ID for the buyer object.
+- HostedBuyerSiteUrl - URL to your hosted buyer site
 
-## Syncing Discover categories and products to OrderCloud
+## Play! Summit Seeding
 
-After completing all of the above steps, we are ready to call the endpoints and enjoy our new categories and products on OrderCloud.
+After completing all of the above steps, we are ready to call the endpoints below to seed our Play! Summit specific data including products and categories.
 
-Visit `https://www.edge.localhost/api/ordercloud/synccategories?username=<YOUR_ORDERCLOUD_PORTAL_USERNAME>&password=<YOUR_ORDERCLOUD_PORTAL_PASSWORD>&marketplaceID=<YOUR_ORDERCLOUD_MARKETPLACE_ID>` in the browser to sync the categories.
+First visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>&HostedBuyerSiteUrl=<YOUR_HOSTED_BUYER_SITE_URL>` to initialize the public buyer, and single sign on configuration required by play summit.
 
-Then, visit `https://www.edge.localhost/api/ordercloud/syncproducts?username=<YOUR_ORDERCLOUD_PORTAL_USERNAME>&password=<YOUR_ORDERCLOUD_PORTAL_PASSWORD>&marketplaceID=<YOUR_ORDERCLOUD_MARKETPLACE_ID>` in the browser to sync the products.
+Then, Visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the categories.
+
+Finally, visit `https://www.edge.localhost/api/ordercloud/syncproducts?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the products.
 
 Now we are ready to explore our marketplace on [https://portal.ordercloud.io/marketplaces](https://portal.ordercloud.io/marketplaces).

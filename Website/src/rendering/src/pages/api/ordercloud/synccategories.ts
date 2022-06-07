@@ -1,9 +1,62 @@
 import { NextApiHandler } from 'next';
-import * as PortalSdk from '@ordercloud/portal-javascript-sdk';
 import * as OrderCloudSDK from 'ordercloud-javascript-sdk';
 import * as fs from 'fs';
 import csv from 'csvtojson';
 import path from 'path';
+import { Auth, Buyers, Tokens } from 'ordercloud-javascript-sdk';
+import { PROFILED_BUYER_NAME, PUBLIC_BUYER_NAME } from 'src/constants/seeding';
+
+const handler: NextApiHandler<unknown> = async (request, response) => {
+  const middlewareClientID = request.query?.MiddlewareClientID as string;
+  const middlewareClientSecret = request.query?.MiddlewareClientSecret as string;
+  if (!middlewareClientID) {
+    return response.status(400).json({ Error: 'Missing required parameter MiddlewareClientID' });
+  }
+  if (!middlewareClientSecret) {
+    return response
+      .status(400)
+      .json({ Error: 'Missing required parameter MiddlewareClientSecret' });
+  }
+  try {
+    // First we need to authenticate
+    OrderCloudSDK.Configuration.Set({
+      baseApiUrl:
+        process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL || 'https://sandboxapi.ordercloud.io',
+    });
+    const authResponse = await Auth.ClientCredentials(middlewareClientSecret, middlewareClientID, [
+      'FullAccess',
+    ]);
+    Tokens.SetAccessToken(authResponse.access_token);
+
+    const buyersList = await Buyers.List({
+      filters: { Name: `${PUBLIC_BUYER_NAME}|${PROFILED_BUYER_NAME}` },
+    });
+    const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
+    await postCategories(profiledBuyer.DefaultCatalogID);
+
+    const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
+    await postCategories(publicBuyer.DefaultCatalogID);
+
+    return response.status(200).json('Categories synced successfully');
+    /* eslint-disable-next-line */
+  } catch (error: any) {
+    if (error.isOrderCloudError) {
+      // the request was made and the API responded with a status code
+      // that falls outside of the range of 2xx, the error will be of type OrderCloudError
+      // https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/orderclouderror
+      console.log(error.message);
+      console.log(JSON.stringify(error.errors, null, 4));
+    } else if (error.request) {
+      // the request was made but no response received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message);
+    }
+    return response.status(500).json(error);
+  }
+};
 
 type Category = {
   ccid: string;
@@ -55,50 +108,5 @@ async function postCategory(
   };
   return await OrderCloudSDK.Categories.Save(catalogID, categoryRequest.ID, categoryRequest);
 }
-
-const handler: NextApiHandler<unknown> = async (request, response) => {
-  try {
-    // First we need to authenticate
-    const req = await PortalSdk.Auth.Login(
-      request.query.username as string,
-      request.query.password as string
-    );
-    PortalSdk.Tokens.SetAccessToken(req.access_token);
-
-    // Then we retrieve the marketplace access token in order to set it in the SDK
-    const marketplaceAuth = await PortalSdk.ApiClients.GetToken(
-      request.query.marketplaceID as string
-    );
-    OrderCloudSDK.Tokens.SetAccessToken(marketplaceAuth.access_token);
-
-    OrderCloudSDK.Configuration.Set({
-      baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
-    });
-
-    const catalogList = await OrderCloudSDK.Catalogs.List();
-    const catalogID = catalogList.Items[0].ID;
-
-    await postCategories(catalogID);
-
-    return response.status(200).json('Categories synced successfully');
-    /* eslint-disable-next-line */
-  } catch (error: any) {
-    if (error.isOrderCloudError) {
-      // the request was made and the API responded with a status code
-      // that falls outside of the range of 2xx, the error will be of type OrderCloudError
-      // https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/orderclouderror
-      console.log(error.message);
-      console.log(JSON.stringify(error.errors, null, 4));
-    } else if (error.request) {
-      // the request was made but no response received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
-      console.log(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', error.message);
-    }
-    return response.status(500).json(error);
-  }
-};
 
 export default handler;

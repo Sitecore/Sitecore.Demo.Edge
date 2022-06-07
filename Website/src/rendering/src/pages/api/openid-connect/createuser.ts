@@ -4,11 +4,13 @@ import {
   Configuration,
   OpenIdConnectPayload,
   OpenIdConnectResponse,
+  UserGroups,
   Users,
 } from 'ordercloud-javascript-sdk';
 import { parseJwt } from '../../../helpers/JwtHelper';
 import { isOrderCloudError } from '../../../helpers/TypeGuards';
 import { Auth0Claims } from '../../../interfaces/Auth0';
+import { PROFILED_LOCATION_ID_SUFFIX } from 'src/constants/seeding';
 
 Configuration.Set({ baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL });
 
@@ -63,6 +65,10 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
       // access token has been granted elevated role BuyerUserAdmin required to create users
       { accessToken: payload.OrderCloudAccessToken }
     );
+    await UserGroups.SaveUserAssignment(process.env.ORDERCLOUD_PROFILED_BUYER_ID, {
+      UserGroupID: `${process.env.ORDERCLOUD_PROFILED_BUYER_ID}-${PROFILED_LOCATION_ID_SUFFIX}`,
+      UserID: newUser.ID,
+    });
     return response.status(200).json({
       Username: newUser.Username,
       ErrorMessage: '',
