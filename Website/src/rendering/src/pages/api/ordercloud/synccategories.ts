@@ -21,7 +21,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     // First we need to authenticate
     OrderCloudSDK.Configuration.Set({
       baseApiUrl:
-        process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL || 'https://sandboxapi.ordercloud.io',
+        process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
     });
     const authResponse = await Auth.ClientCredentials(middlewareClientSecret, middlewareClientID, [
       'FullAccess',
