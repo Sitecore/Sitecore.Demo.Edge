@@ -103,7 +103,7 @@ const RequestInfoForm = (): JSX.Element => {
       </div>
       <div className="footnote">
         <p>
-          Already have an account? <Link href="/account/login">Log in.</Link>
+          Already have an account? <Link href="#">Log in.</Link>
         </p>
         <p>
           To find out more about how we are using this information you are giving up, please our{' '}
