@@ -32,7 +32,6 @@ import {
 const handler: NextApiHandler<unknown> = async (request, response) => {
   const middlewareClientID = request.query?.MiddlewareClientID as string;
   const middlewareClientSecret = request.query?.MiddlewareClientSecret as string;
-  const hostedBuyerSiteUrl = request.query?.HostedBuyerSiteUrl as string;
 
   if (!middlewareClientID) {
     return response.status(400).json({ Error: 'Missing required parameter MiddlewareClientID' });
@@ -41,9 +40,6 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     return response
       .status(400)
       .json({ Error: 'Missing required parameter MiddlewareClientSecret' });
-  }
-  if (!hostedBuyerSiteUrl) {
-    return response.status(400).json({ Error: 'Missing required parameter HostedBuyerSiteUrl' });
   }
 
   try {
@@ -147,7 +143,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       OrderCloudApiClientID: buyerClient.ID,
       ConnectClientID: process.env.AUTH0_CLIENT_ID,
       ConnectClientSecret: process.env.AUTH0_CLIENT_SECRET,
-      AppStartUrl: `${hostedBuyerSiteUrl}{2}?oidcToken={0}&idpToken={1}`,
+      AppStartUrl: `${process.env.PUBLIC_URL}{2}?oidcToken={0}&idpToken={1}`,
       AuthorizationEndpoint: `${process.env.AUTH0_ISSUER_BASE_URL}/authorize`,
       TokenEndpoint: `${process.env.AUTH0_ISSUER_BASE_URL}/oauth/token`,
       UrlEncoded: true,

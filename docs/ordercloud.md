@@ -28,15 +28,11 @@ You will need the following information after seeding:
 - MiddlewareClientID
 - MiddlewareClientSecret
 
-You will also need the following:
-
-- HostedBuyerSiteUrl - URL to your hosted buyer site
-
 ### PLAY! SHOP Seeding
 
 After completing all of the above steps, we are ready to call the endpoints below. These routes are used to initialize data required by PLAY! SHOP, as well as sync categories and products between Sitecore Discover and Sitecore OrderCloud. The inputs to products and categories are the CSV files located in /Website/src/rendering/discover-feeds.
 
-1. Visit `https://www.edge.localhost/api/ordercloud/init?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>&HostedBuyerSiteUrl=<YOUR_HOSTED_BUYER_SITE_URL>` in the browser to initialize the public buyer, and single sign on configuration.
+1. Visit `https://www.edge.localhost/api/ordercloud/init?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to initialize the public buyer, and single sign on configuration.
 2. Visit `https://www.edge.localhost/api/ordercloud/synccategories?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the categories.
 3. Visit `https://www.edge.localhost/api/ordercloud/syncproducts?MiddlewareClientID=<YOUR_MIDDLEWARE_CLIENT_ID>&MiddlewareClientSecret=<YOUR_MIDDLEWARE_CLIENT_SECRET>` in the browser to sync the products.
 
