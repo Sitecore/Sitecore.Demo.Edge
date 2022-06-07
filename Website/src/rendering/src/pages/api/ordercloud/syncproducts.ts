@@ -16,8 +16,8 @@ import {
 import {
   PUBLIC_BUYER_NAME,
   PROFILED_BUYER_NAME,
-  PROFILED_LOCATION_ID_SUFFIX,
-  PUBLIC_LOCATION_ID_SUFFIX,
+  PROFILED_HEADSTART_CATALOG_ID,
+  PUBLIC_HEADSTART_CATALOG_ID,
 } from 'src/constants/seeding';
 
 // TODO: the part that creates products and the part that assigns them are coupled
@@ -52,12 +52,12 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
 
     // Create products for profiled buyer
     const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
-    const profiledLocationID = `${profiledBuyer.ID}-${PROFILED_LOCATION_ID_SUFFIX}`;
+    const profiledLocationID = PROFILED_HEADSTART_CATALOG_ID;
     await postProducts(profiledBuyer.DefaultCatalogID, profiledBuyer.ID, profiledLocationID);
 
     // Create products for public buyer
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
-    const publicLocationID = `${publicBuyer.ID}-${PUBLIC_LOCATION_ID_SUFFIX}`;
+    const publicLocationID = PUBLIC_HEADSTART_CATALOG_ID;
     await postProducts(publicBuyer.DefaultCatalogID, publicBuyer.ID, publicLocationID);
 
     return response.status(200).json('Products synced successfully');
