@@ -17,15 +17,18 @@ import {
 } from 'ordercloud-javascript-sdk';
 import {
   ANONYMOUS_USER_ID,
-  PUBLIC_LOCATION_ID_SUFFIX,
-  PROFILED_LOCATION_ID_SUFFIX,
-  PROFILED_HEADSTART_CATALOG_ID,
-  PUBLIC_HEADSTART_CATALOG_ID,
-  PROFILED_HEADSTART_CATALOG_NAME,
-  PROFILED_LOCATION_NAME,
-  PUBLIC_HEADSTART_CATALOG_NAME,
-  PUBLIC_LOCATION_NAME,
   PUBLIC_BUYER_ID,
+  PUBLIC_LOCATION_ID_SUFFIX,
+  PUBLIC_LOCATION_NAME,
+  PUBLIC_HEADSTART_CATALOG_ID,
+  PUBLIC_HEADSTART_CATALOG_NAME,
+  PROFILED_BUYER_ID,
+  PROFILED_LOCATION_ID_SUFFIX,
+  PROFILED_LOCATION_NAME,
+  PROFILED_HEADSTART_CATALOG_ID,
+  PROFILED_HEADSTART_CATALOG_NAME,
+  PRODUCTION_OPENID_CONNECT_ID,
+  DEVELOPMENT_OPENID_CONNECT_ID,
 } from '../../../constants/seeding';
 
 const handler: NextApiHandler<unknown> = async (request, response) => {
@@ -52,7 +55,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     Tokens.SetAccessToken(authResponse.access_token);
 
     // Ensure profiled buyer exists - for logged in users
-    const profiledBuyer = await Buyers.Get(process.env.ORDERCLOUD_PROFILED_BUYER_ID);
+    const profiledBuyer = await Buyers.Get(PROFILED_BUYER_ID);
 
     // Ensure public buyer exists
     const publicBuyer = await Buyers.Get(PUBLIC_BUYER_ID);
@@ -85,9 +88,14 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       });
     }
 
+    const integrationEventCustomImplementationUrlHost =
+      process.env.PUBLIC_URL === 'https://www.edge.localhost'
+        ? 'https://edge-shop-website.sitecoredemo.com'
+        : process.env.PUBLIC_URL;
+
     // Update checkout integration event
     const checkoutIntegrationEvent = await IntegrationEvents.Patch('HeadStartCheckout', {
-      CustomImplementationUrl: 'https://edge-shop-website.sitecoredemo.com/api/checkout',
+      CustomImplementationUrl: `${integrationEventCustomImplementationUrlHost}/api/checkout`,
     });
 
     // Create the single sign on integration events
@@ -99,7 +107,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       ElevatedRoles: ['BuyerUserAdmin'],
       ID: 'SingleSignOn',
       EventType: 'OpenIDConnect',
-      CustomImplementationUrl: 'https://edge-shop-website.sitecoredemo.com/api/openid-connect',
+      CustomImplementationUrl: `${integrationEventCustomImplementationUrlHost}/api/openid-connect`,
       Name: 'SingleSignOn',
       HashKey: checkoutIntegrationEvent.HashKey,
     };
@@ -116,7 +124,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       (integrationEvent) => integrationEvent.ID
     );
     const openIdConnect: OpenIdConnect = {
-      ID: 'Auth0Connection',
+      ID: PRODUCTION_OPENID_CONNECT_ID,
       OrderCloudApiClientID: buyerClient.ID,
       ConnectClientID: process.env.AUTH0_CLIENT_ID,
       ConnectClientSecret: process.env.AUTH0_CLIENT_SECRET,
@@ -131,19 +139,19 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     };
 
     // Create OpenID connect for auth0
-    if (!openIdConnectListIds.includes('Auth0Connection')) {
+    if (!openIdConnectListIds.includes(PRODUCTION_OPENID_CONNECT_ID)) {
       await OpenIdConnects.Create(openIdConnect);
     } else {
-      await OpenIdConnects.Patch('Auth0Connection', openIdConnect);
+      await OpenIdConnects.Patch(PRODUCTION_OPENID_CONNECT_ID, openIdConnect);
     }
 
     // Create OpenID connect for auth0 (local development)
-    openIdConnect.ID = 'Auth0ConnectionLocal';
+    openIdConnect.ID = DEVELOPMENT_OPENID_CONNECT_ID;
     openIdConnect.AppStartUrl = 'https://www.edge.localhost{2}?oidcToken={0}&idpToken={1}';
-    if (!openIdConnectListIds.includes('Auth0ConnectionLocal')) {
+    if (!openIdConnectListIds.includes(DEVELOPMENT_OPENID_CONNECT_ID)) {
       await OpenIdConnects.Create(openIdConnect);
     } else {
-      await OpenIdConnects.Patch('Auth0ConnectionLocal', openIdConnect);
+      await OpenIdConnects.Patch(DEVELOPMENT_OPENID_CONNECT_ID, openIdConnect);
     }
 
     await createBuyerLocationResources(

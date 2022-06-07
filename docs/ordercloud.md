@@ -4,13 +4,13 @@
 
 ### Headstart Seeding
 
-Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https://github.com/ordercloud-api/headstart#seeding-ordercloud-data) with one modification. For your [seed request](https://github.com/ordercloud-api/headstart/blob/951c3927b276f2bf23524cc3c375147f172403b7/src/Middleware/src/Headstart.Common/Assets/SeedTemplate.json) add the property "Buyers" and substitute the values with those found in the [seeding constants](../Website/src/rendering/src/constants/seeding.ts). `process.env.ORDERCLOUD_PROFILED_BUYER_ID` is an [environment variable](../.env)
+Please follow the instruction on ["Seeding OrderCloud Data" on headstart](https://github.com/ordercloud-api/headstart#seeding-ordercloud-data) with one modification. For your [seed request](https://github.com/ordercloud-api/headstart/blob/951c3927b276f2bf23524cc3c375147f172403b7/src/Middleware/src/Headstart.Common/Assets/SeedTemplate.json) add the property "Buyers" and substitute the values with those found in the [seeding constants](../Website/src/rendering/src/constants/seeding.ts).
 
 ```json
 {
   "Buyers": [
     {
-      "ID": "{process.env.ORDERCLOUD_PROFILED_BUYER_ID}",
+      "ID": "{PROFILED_BUYER_ID}",
       "Name": "{PROFILED_BUYER_NAME}",
       "Active": true
     },
@@ -48,58 +48,36 @@ During checkout we make use of OrderCloud's [checkout integration events](https:
 
 To enable this functionality, you will need to follow these steps:
 
-1. Install [ngrok](https://ngrok.com/) and then run the command `ngrok http 8099`. This will give your locally running nexjts application [which will be exposed on port 8099](../docker-compose.override.yml#L43) a publicly accessible url.
-2. Create a **new** [Integration Event](https://ordercloud.io/api-reference/seller/integration-events/create). It should be the same as the hosted one except for `CustomImplementationUrl` which should now use the ngrok url from the previous step and will be in the format: `{ngrokUrl}/api/checkout`
-3. Create a **new** [API client](https://ordercloud.io/api-reference/seller/api-clients/create), it should be the same as your public buyer except for `OrderCheckoutIntegrationEventID` which should now be set the ID of the integration event created in the previous step.
-4. Update `ORDERCLOUD_BUYER_CLIENT_ID` to the ID of the API client from the previous step.
-5. Start your project as usual
-6. Clear the cookies in your browser session. You want to make sure you get a new token from the API client we just configured.
-7. You can now go through the checkout process and when calculating taxes or retrieving shipping estimates your local endpoints will be hit instead of the hosted ones.
+1. Install [ngrok](https://ngrok.com/)
+2. Run the command `ngrok http 8099`.
+   1. This will give your locally running nexjts application [which will be exposed on port 8099](../docker-compose.override.yml#L43) a publicly accessible url.
+3. Create a **new** [Integration Event](https://ordercloud.io/api-reference/seller/integration-events/create). It should be the same as the hosted one except for `CustomImplementationUrl` which should now use the ngrok url from the previous step and will be in the format: `{ngrokUrl}/api/checkout`
+4. Create a **new** [API client](https://ordercloud.io/api-reference/seller/api-clients/create), it should be the same as your public buyer except for `OrderCheckoutIntegrationEventID` which should now be set the ID of the integration event created in the previous step.
+5. Update `ORDERCLOUD_BUYER_CLIENT_ID` to the ID of the API client from the previous step.
+6. Start your project as usual
+7. Clear the cookies in your browser session. You want to make sure you get a new token from the API client we just configured.
+8. You can now go through the checkout process and when calculating taxes or retrieving shipping estimates your local endpoints will be hit instead of the hosted ones.
 
 ### Configuring Single Sign On
 
-The OpenID Connect integration event is responsible for enabling single sign on via auth0. Enabling this allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. To do that you must have [configured commerce](../docs/projects/website.md#optional-commerce-configuration) and [profiled user](../docs/projects//website.md#optional-profiled-user-configuration)
+The OpenID Connect integration event is responsible for enabling single sign on via auth0. Enabling this allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. To do that you must have [configured commerce](../docs/projects/website.md#optional-commerce-configuration) and [custom Auth0](../docs/projects/website.md#optional-custom-auth0-configuration)
 
 Unlike the checkout integration events, we can't have a general use publicly available endpoint that handles this logic for you because it needs to be configured for your own auth0 tenant.
 
 After you've hosted your own application then you can simply set IntegrationEvent.CustomImplementationUrl to {your_application_url}/api/openid-connect to use that hosted version even for local development.
 
-If you haven't yet hosted your application and want to enable single sign on while developing locally then you'll need to take a similar strategy as we did for configuring checkout integration events and use ngrok:
+If you haven't yet hosted your application and want to enable single sign on while developing locally then you'll need to take a similar strategy as we did for configuring checkout integration events and use ngrok. Ensure that your OrderCloud marketplace is not used by other people that yourself.
 
-1. Install [ngrok](https://ngrok.com/) and then run the command `ngrok http 8099`. This will give your locally running nexjts application [which will be exposed on port 8099](../docker-compose.override.yml#L43) a publicly accessible url.
-2. Update or create an [Integration Event](https://ordercloud.io/api-reference/seller/integration-events/create)
+1. Install [ngrok](https://ngrok.com/)
+2. Run the command `ngrok http 8099`
+   1. This will give your locally running nexjts application [which will be exposed on port 8099](../docker-compose.override.yml#L43) a publicly accessible url.
+3. Patch the `SingleSignOn` OrderCloud [Integration Event](https://ordercloud.io/api-reference/seller/integration-events/create) `CustomImplementationUrl`.
 
     ```json
     {
-        "ElevatedRoles": [
-            "BuyerUserAdmin"
-        ],
         "ID": "SingleSignOn",
-        "ConfigData": null,
-        "EventType": "OpenIDConnect",
         "CustomImplementationUrl": "https://your-ngrok-url/api/openid-connect",
-        "Name": "SingleSignOn",
-        "HashKey": "ORDERCLOUD_WEBHOOK_HASHKEY" // defined in .env file
     }
     ```
 
-3. Update or create an [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) for local development.
-
-    ```json
-    {
-        "ID": "ORDERCLOUD_OPENID_CONNECT_ID", // defined in .env file
-        "OrderCloudApiClientID": "ORDERCLOUD_BUYER_CLIENT_ID", // defined in .env file
-        "ConnectClientID": "AUTH0_CLIENT_ID", // defined in .env file
-        "ConnectClientSecret": "AUTH0_CLIENT_SECRET", // defined in .env file
-        "AppStartUrl": "https://www.edge.localhost/shop?oidcToken={0}",
-        "AuthorizationEndpoint": "", // In Auth0 under Application > Settings > Advanced Settings > Endpoints > OAuth Authorization URL
-        "TokenEndpoint": "", // In Auth0 under Application > Settings > Advanced Settings > Endpoints > OAuth Token URL
-        "UrlEncoded": true,
-        "IntegrationEventID": "SingleSignOn",
-        "CallSyncUserIntegrationEvent": true,
-        "AdditionalIdpScopes": null
-    }
-    ```
-
-4. Set `ORDERCLOUD_OPENID_CONNECT_ID` to the ID in step 3
-5. Make sure all of the environment variables defined in [profiled user configuration](../docs/projects/website.md#optional-profiled-user-configuration) are filled out.
+4. Make sure all of the environment variables defined in [custom Auth0 configuration](../docs/projects/website.md#optional-custom-auth0-configuration) are filled out.

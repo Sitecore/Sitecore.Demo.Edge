@@ -15,10 +15,10 @@ import {
 } from 'ordercloud-javascript-sdk';
 import {
   PUBLIC_BUYER_NAME,
+  PUBLIC_HEADSTART_CATALOG_ID,
   PROFILED_BUYER_NAME,
   PROFILED_HEADSTART_CATALOG_ID,
-  PUBLIC_HEADSTART_CATALOG_ID,
-} from 'src/constants/seeding';
+} from '../../../constants/seeding';
 
 // TODO: the part that creates products and the part that assigns them are coupled
 // it would be ideal to only create products once, and then assign the created products to
@@ -52,13 +52,21 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
 
     // Create products for profiled buyer
     const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
-    const profiledLocationID = PROFILED_HEADSTART_CATALOG_ID;
-    await postProducts(profiledBuyer.DefaultCatalogID, profiledBuyer.ID, profiledLocationID);
+    const profiledBuyerPromise = postProducts(
+      profiledBuyer.DefaultCatalogID,
+      profiledBuyer.ID,
+      PROFILED_HEADSTART_CATALOG_ID
+    );
 
     // Create products for public buyer
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
-    const publicLocationID = PUBLIC_HEADSTART_CATALOG_ID;
-    await postProducts(publicBuyer.DefaultCatalogID, publicBuyer.ID, publicLocationID);
+    const publicBuyerPromise = postProducts(
+      publicBuyer.DefaultCatalogID,
+      publicBuyer.ID,
+      PUBLIC_HEADSTART_CATALOG_ID
+    );
+
+    await Promise.allSettled([profiledBuyerPromise, publicBuyerPromise]);
 
     return response.status(200).json('Products synced successfully');
     /* eslint-disable-next-line */

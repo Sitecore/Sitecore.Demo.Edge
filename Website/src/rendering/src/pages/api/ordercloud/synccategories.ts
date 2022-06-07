@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import csv from 'csvtojson';
 import path from 'path';
 import { Auth, Buyers, Tokens } from 'ordercloud-javascript-sdk';
-import { PROFILED_BUYER_NAME, PUBLIC_BUYER_NAME } from 'src/constants/seeding';
+import { PROFILED_BUYER_NAME, PUBLIC_BUYER_NAME } from '../../../constants/seeding';
 
 const handler: NextApiHandler<unknown> = async (request, response) => {
   const middlewareClientID = request.query?.MiddlewareClientID as string;
@@ -33,10 +33,12 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       filters: { Name: `${PUBLIC_BUYER_NAME}|${PROFILED_BUYER_NAME}` },
     });
     const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
-    await postCategories(profiledBuyer.DefaultCatalogID);
+    const profiledBuyerPromise = postCategories(profiledBuyer.DefaultCatalogID);
 
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
-    await postCategories(publicBuyer.DefaultCatalogID);
+    const publicBuyerPromise = postCategories(publicBuyer.DefaultCatalogID);
+
+    await Promise.allSettled([profiledBuyerPromise, publicBuyerPromise]);
 
     return response.status(200).json('Categories synced successfully');
     /* eslint-disable-next-line */
