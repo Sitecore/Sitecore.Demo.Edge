@@ -100,13 +100,16 @@ const OrderReviewDetails = (): JSX.Element => {
     });
   };
 
+  // TODO: Move building the event payload to CdpService, maybe using a mapper.
   const dispatchCdpOrderCheckoutEvent = () => {
     const orderItems: OrderItem[] = [];
     lineItems.forEach((lineItem) => {
       orderItems.push({
-        type: 'LINEITEM',
+        type: lineItem.Product.Name,
         referenceId: lineItem.ID,
-        orderedAt: lineItem.DateAdded,
+        orderedAt: new Date(lineItem.DateAdded).toISOString(),
+        status: 'PURCHASED',
+        currencyCode: 'USD',
         price: lineItem.UnitPrice,
         name: lineItem.Product.Name,
         productId: lineItem.ProductID,
@@ -118,15 +121,15 @@ const OrderReviewDetails = (): JSX.Element => {
       order: {
         orderItems,
         referenceId: order.ID,
-        orderedAt: order.DateSubmitted || order.LastUpdated,
-        status: order.Status.toUpperCase(),
+        orderedAt: new Date(order.DateSubmitted || order.LastUpdated).toISOString(),
+        status: 'PURCHASED',
         currencyCode: 'USD',
-        price: order.Total,
-        paymentType: payments[0].Type,
+        price: order.Total, // BUG: The price does not seem to include taxes and shipping
+        paymentType: 'Card',
         cardType: payments[0].xp?.CreditCard?.CardType,
       },
     };
-    logOrderCheckout(order.FromUser.Email, orderCheckoutPayload);
+    logOrderCheckout(orderCheckoutPayload);
   };
 
   const handleSubmitOrder = async () => dispatch(submitOrder(onOrderSubmitSuccess));

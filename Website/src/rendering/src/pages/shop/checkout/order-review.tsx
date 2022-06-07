@@ -1,15 +1,10 @@
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 import Head from 'next/head';
-import { logViewEvent } from 'src/services/CdpService';
 import { ShopLayout } from 'components/Products/Shop';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from 'components/Navigation/ShopBreadcrumb';
 import OrderReviewDetails from 'components/Checkout/OrderReviewDetails';
 
 const OrderReview = (): JSX.Element => {
-  useEffect(() => {
-    logViewEvent();
-  });
-
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
     { urlPath: '/shop/checkout/order-review', displayName: 'Order review' },
     { urlPath: '/shop/checkout/checkout', displayName: 'Checkout' },

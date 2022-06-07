@@ -15,7 +15,12 @@ DiscoverService();
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   useEffect(() => {
-    logViewEvent();
+    // Log a CDP page view on route change
+    const pushState = history.pushState;
+    history.pushState = (...rest) => {
+      pushState.apply(history, rest);
+      logViewEvent();
+    };
   }, []);
 
   const footerProps = {

@@ -185,6 +185,7 @@ const ProductDetailsContent = ({
 
       dispatchDiscoverAddToCartEvent(product, quantity);
 
+      // TODO: Move building the event payload to CdpService, maybe using a mapper.
       // Retrieve the lineitem that was just created
       const resPayload: { LineItems?: LineItem[] } = response?.payload;
       const sameProductLineItems = resPayload?.LineItems.filter(
@@ -197,7 +198,7 @@ const ProductDetailsContent = ({
           item_id: lineItem.Variant?.ID || lineItem.ProductID,
           name: lineItem.Product.Name,
           orderedAt: new Date().toISOString(),
-          quantity: lineItem.Quantity,
+          quantity: quantity,
           price: lineItem.UnitPrice,
           productId: lineItem.ProductID,
           currency: 'USD',

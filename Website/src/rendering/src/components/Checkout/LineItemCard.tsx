@@ -43,6 +43,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const handleRemoveLineItem = useCallback(async () => {
     setRemoveLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
+    // TODO: Log CDP add to cart with a negative quantity equal to the quantity of product removed
   }, [dispatch, props.lineItem]);
 
   const handleUpdateQuantity = useCallback(
@@ -56,6 +57,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       );
       setUpdateLoading(false);
 
+      // TODO: Move building the event payload to CdpService, maybe using a mapper.
       const lineItem = props.lineItem;
       const addToCartPayload: AddToCartPayload = {
         product: {
