@@ -147,7 +147,7 @@ The shop section of the demo comes with a default Auth0 configuration that works
 
    # Auth0 Variables
    AUTH0_SECRET=use [openssl rand -hex 32] to generate a 32 bytes value
-   AUTH0_BASE_URL=https://www.edge.localhost
+   AUTH0_BASE_URL=https://www.edge.localhost/shop
    AUTH0_ISSUER_BASE_URL=https://YOUR_DOMAIN
    AUTH0_CLIENT_ID=YOUR_CLIENT_ID
    AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
@@ -159,7 +159,7 @@ The shop section of the demo comes with a default Auth0 configuration that works
 | Variable                        | Description                                                                                                                                                                                |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AUTH0_SECRET`                  | A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line                                                  |
-| `AUTH0_BASE_URL`                | The base URL of your application.                                                                                                                                                          |
+| `AUTH0_BASE_URL`                | The base URL of your application. Used to redirect the user after logout.                                                                                                                  |
 | `AUTH0_ISSUER_BASE_URL`         | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
 | `AUTH0_CLIENT_ID`               | Your Auth0 application's Client ID                                                                                                                                                         |
 | `AUTH0_CLIENT_SECRET`           | Your Auth0 application's Client Secret                                                                                                                                                     |
