@@ -93,10 +93,14 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       });
     }
 
+    // We're not storing a base url so instead are modifying AUTH0_BASE_URL for this purpose
+    // Its a bit of a hack but we don't expect AUTH0_BASE_URL to change so it should be OK
+    const appBaseUrl = process.env.AUTH0_BASE_URL.replace('/shop', '');
+
     const integrationEventCustomImplementationUrlHost =
-      process.env.PUBLIC_URL === 'https://www.edge.localhost'
+      appBaseUrl === 'https://www.edge.localhost'
         ? 'https://edge-shop-website.sitecoredemo.com'
-        : process.env.PUBLIC_URL;
+        : appBaseUrl;
 
     // Update checkout integration event
     console.log('Updating checkout integration event');
@@ -140,7 +144,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       OrderCloudApiClientID: buyerClient.ID,
       ConnectClientID: process.env.AUTH0_CLIENT_ID,
       ConnectClientSecret: process.env.AUTH0_CLIENT_SECRET,
-      AppStartUrl: `${process.env.PUBLIC_URL}{2}?oidcToken={0}&idpToken={1}`,
+      AppStartUrl: `${appBaseUrl}{2}?oidcToken={0}&idpToken={1}`,
       AuthorizationEndpoint: `${process.env.AUTH0_ISSUER_BASE_URL}/authorize`,
       TokenEndpoint: `${process.env.AUTH0_ISSUER_BASE_URL}/oauth/token`,
       UrlEncoded: true,
