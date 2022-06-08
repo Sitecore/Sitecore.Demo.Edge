@@ -10,7 +10,11 @@ import {
 import { parseJwt } from '../../../helpers/JwtHelper';
 import { isOrderCloudError } from '../../../helpers/TypeGuards';
 import { Auth0Claims } from '../../../interfaces/Auth0';
-import { PROFILED_BUYER_ID, PROFILED_HEADSTART_CATALOG_ID, PROFILED_LOCATION_ID_SUFFIX } from '../../../constants/seeding';
+import {
+  PROFILED_BUYER_ID,
+  PROFILED_HEADSTART_CATALOG_ID,
+  PROFILED_LOCATION_ID_SUFFIX,
+} from '../../../constants/seeding';
 
 Configuration.Set({ baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL });
 
