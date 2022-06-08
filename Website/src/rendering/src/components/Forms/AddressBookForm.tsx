@@ -291,10 +291,10 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
         <label htmlFor={`${idPrefix}shipping`}>Set as default shipping address</label>
       </div>
       <div className="button-area">
+        {cancelEditButton}
         <button className="btn--main btn--main--round" type="submit" disabled={loading}>
           <Spinner loading={loading} /> {buttonText}
         </button>
-        {cancelEditButton}
       </div>
     </form>
   );

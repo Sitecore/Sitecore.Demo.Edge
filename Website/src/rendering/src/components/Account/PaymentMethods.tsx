@@ -11,7 +11,7 @@ const PaymentMethods = (): JSX.Element => {
   const [paymentMethods, setPaymentMethods] = useState<DBuyerCreditCard[]>([]);
   const [user, setUser] = useState<DMeUser>();
 
-  const getUser = async () => {
+  const meUser = async () => {
     const me = await Me.Get();
     setUser(me);
   };
@@ -22,7 +22,7 @@ const PaymentMethods = (): JSX.Element => {
   };
 
   useEffect(() => {
-    getUser();
+    meUser();
     getPaymentMethods();
   }, []);
 
@@ -64,7 +64,7 @@ const PaymentMethods = (): JSX.Element => {
                 <p className="title">{paymentMethod.CardType}</p>
                 {getDefaultBanner(paymentMethod)}
                 <p>{paymentMethod.CardholderName}</p>
-                <p>Credit card ending in: **** {paymentMethod.PartialAccountNumber}</p>
+                <p>Credit card ending in: •••• {paymentMethod.PartialAccountNumber}</p>
                 <p>Expires on: {getCreditCardExpirationDate(paymentMethod.ExpirationDate)}</p>
               </div>
               <div className="payment-methods-item-actions">
@@ -92,7 +92,7 @@ const PaymentMethods = (): JSX.Element => {
   return (
     <section className="payment-methods shop-container section">
       <div className="payment-methods-header">
-        <h1>Payment Methods</h1>
+        <h1>Payment methods</h1>
         <Link href="/account/payment-methods/create">
           <a className="btn--main btn--main--round">Add new payment method</a>
         </Link>

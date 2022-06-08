@@ -67,6 +67,14 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
           Address book
         </a>
       </Link>
+      <Link href="/account/payment-methods">
+        <a
+          className="btn--secondary btn--secondary--light btn--secondary--round"
+          onClick={onNavigatingAway}
+        >
+          Payment methods
+        </a>
+      </Link>
       <Link href="/account/orders">
         <a
           className="btn--secondary btn--secondary--light btn--secondary--round"

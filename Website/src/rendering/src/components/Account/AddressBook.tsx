@@ -84,7 +84,7 @@ const AddressBook = (): JSX.Element => {
   return (
     <section className="address-book shop-container section">
       <div className="address-book-header">
-        <h1>Address Book</h1>
+        <h1>Address book</h1>
         <Link href="/account/address-book/create">
           <a className="btn--main btn--main--round">Add new address</a>
         </Link>

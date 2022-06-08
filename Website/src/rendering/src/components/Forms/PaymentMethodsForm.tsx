@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react';
+import Link from 'next/link';
 import {
   getIsoDateFromYearAndMonth,
   getMonthFromIsoDateString,
@@ -101,7 +102,7 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
   };
 
   const cardNumberField = props?.creditCard?.ID ? (
-    <p>Credit card ending in: ****{props.creditCard?.PartialAccountNumber}</p>
+    <p>Credit card ending in: •••• {props.creditCard?.PartialAccountNumber}</p>
   ) : (
     <div>
       <label htmlFor="cardNumber">Card Number</label>
@@ -114,6 +115,12 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
         onChange={(e) => setCardNumber(e.target.value)}
       />
     </div>
+  );
+
+  const cancelEditButton = props.isEditing && (
+    <Link href="/account/payment-methods">
+      <a className="cancel-edit">Cancel</a>
+    </Link>
   );
 
   const submitBtnText = props?.creditCard?.ID ? 'Apply changes' : 'Create payment method';
@@ -180,6 +187,7 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
         <label htmlFor="default-payment-method">Set as default payment method</label>
       </div>
       <div className="button-area">
+        {cancelEditButton}
         <button className="btn--main btn--main--round" type="submit" disabled={loading}>
           <Spinner loading={loading} /> {submitBtnText}
         </button>

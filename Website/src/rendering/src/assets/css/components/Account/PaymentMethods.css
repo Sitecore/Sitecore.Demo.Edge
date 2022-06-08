@@ -5,7 +5,7 @@ div.shop-main-container .section.payment-methods {
 .payment-methods {
   &-header {
     @apply flex flex-col mb-3;
-    @apply sm:flex-row sm:justify-between sm:items-end;
+    @apply sm:flex-row sm:justify-between sm:items-start;
   }
 
   h1 {
