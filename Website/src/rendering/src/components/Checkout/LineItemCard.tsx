@@ -9,8 +9,11 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
+import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
 import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import Link from 'next/link';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -40,6 +43,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const handleRemoveLineItem = useCallback(async () => {
     setRemoveLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
+    // TODO: Log CDP add to cart with a negative quantity equal to the quantity of product removed
   }, [dispatch, props.lineItem]);
 
   const handleUpdateQuantity = useCallback(
@@ -52,6 +56,23 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         })
       );
       setUpdateLoading(false);
+
+      // TODO: Move building the event payload to CdpService, maybe using a mapper.
+      const lineItem = props.lineItem;
+      const addToCartPayload: AddToCartPayload = {
+        product: {
+          type: lineItem.Product.xp.ProductType.toUpperCase(),
+          item_id: lineItem.Variant?.ID || lineItem.ProductID,
+          name: lineItem.Product.Name,
+          orderedAt: new Date().toISOString(),
+          quantity: quantity - lineItem.Quantity,
+          price: lineItem.UnitPrice,
+          productId: lineItem.ProductID,
+          currency: 'USD',
+          referenceId: lineItem.ID,
+        },
+      };
+      logAddToCart(addToCartPayload);
     },
     [dispatch, props.lineItem]
   );
@@ -167,9 +188,16 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const lineItemCard = (
     <div className="line-item-card">
       <div className="line-item-card-details">
-        <h4 className="product-name">{props.lineItem.Product.Name}</h4>
-        {productImage}
+        <Link href={props.lineItem.Product.xp?.ProductUrl}>
+          <a className="product-name">
+            <h4>{props.lineItem.Product.Name}</h4>
+          </a>
+        </Link>
+        <Link href={props.lineItem.Product.xp?.ProductUrl}>
+          <a className="product-image">{productImage}</a>
+        </Link>
         <div className="product-specs">
+          <p>{props.lineItem.Product.xp?.Brand}</p>
           {getProductSpecs()}
           {staticQuantityBlock}
           {staticUserComment}

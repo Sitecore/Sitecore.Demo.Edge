@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import CheckoutSummary from '../../components/Checkout/CheckoutSummary';
 import { MockStore } from '../mock-store';
-import { cartSlice, cartState } from './CheckoutCommon';
+import { cartSlice, cartState, loggedInAuthSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutSummary',
@@ -19,7 +19,7 @@ WithoutShippingOptionSelected.args = {
 
 WithoutShippingOptionSelected.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={cartSlice}>
+    <MockStore sliceOrSlices={[cartSlice, loggedInAuthSlice]}>
       <Story />
     </MockStore>
   ),
@@ -48,7 +48,9 @@ const freeShippingState = {
 
 WithFreeShippingCost.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: freeShippingState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: freeShippingState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -77,7 +79,9 @@ const paidShippingState = {
 
 WithShippingCost.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: paidShippingState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: paidShippingState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),

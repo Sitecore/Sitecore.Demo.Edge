@@ -29,7 +29,7 @@ const UserProfile = ({ user }: UserProfileContentProps): JSX.Element => {
       </p>
       <ul className="user-profile-grid">
         <li className="user-profile-card">
-          <Link href="#">
+          <Link href="/account/address-book">
             <a>
               <FontAwesomeIcon icon={faAddressBook} className="text-blue" />
               <p>Address book</p>
@@ -37,7 +37,7 @@ const UserProfile = ({ user }: UserProfileContentProps): JSX.Element => {
           </Link>
         </li>
         <li className="user-profile-card">
-          <Link href="#">
+          <Link href="/account/payment-methods">
             <a>
               <FontAwesomeIcon icon={faCreditCard} className="text-yellow" />
               <p>Payment methods</p>
