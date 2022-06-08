@@ -63,13 +63,8 @@ export const updateCreditCardPayment = createOcAsyncThunk<
   RequiredDeep<DPayment>[],
   DBuyerCreditCard
 >('ocCurrentCart/updateCreditCardPayment', async (creditCard, ThunkAPI) => {
-  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
+  const { ocCurrentCart } = ThunkAPI.getState();
   const order = ocCurrentCart.order;
-  if (!ocAuth.isAnonymous) {
-    creditCard = creditCard.ID
-      ? await Me.SaveCreditCard(creditCard.ID, creditCard)
-      : await Me.CreateCreditCard(creditCard);
-  }
   const payment: DPayment = {
     Type: 'CreditCard',
     CreditCardID: creditCard?.ID,

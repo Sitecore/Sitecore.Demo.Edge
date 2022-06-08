@@ -12,6 +12,8 @@ const PanelPayment = (): JSX.Element => {
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fullCardNumber, setFullCardNumber] = useState('');
+  const [editedCreditCard, setEditedCreditCard] = useState();
+
   useEffect(() => {
     if (order) {
       dispatch(retrievePayments(order.ID));
@@ -24,6 +26,7 @@ const PanelPayment = (): JSX.Element => {
   ) => {
     setLoading(true);
     await dispatch(updateCreditCardPayment(creditCard));
+    setEditedCreditCard(creditCard);
     setLoading(false);
     setIsEditing(false);
     setFullCardNumber(fullCardNumber);
@@ -36,16 +39,17 @@ const PanelPayment = (): JSX.Element => {
     setIsEditing(false);
   };
 
+  const creditCardToDisplay = editedCreditCard || payment?.xp?.CreditCard;
   const creditCardDisplay =
-    payment?.xp?.CreditCard && !isEditing ? (
+    creditCardToDisplay && !isEditing ? (
       <CreditCardCard
-        creditCard={payment?.xp?.CreditCard}
+        creditCard={creditCardToDisplay}
         editable={true}
         onEdit={() => setIsEditing(true)}
       />
     ) : (
       <CreditCardForm
-        creditCard={payment?.xp?.CreditCard}
+        creditCard={creditCardToDisplay}
         onSubmit={handleUpdateCreditCardPayment}
         isEditing={isEditing}
         onCancelEdit={handleCancelEdit}
