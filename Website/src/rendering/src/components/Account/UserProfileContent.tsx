@@ -29,7 +29,7 @@ const UserProfile = ({ user }: UserProfileContentProps): JSX.Element => {
       </p>
       <ul className="user-profile-grid">
         <li className="user-profile-card">
-          <Link href="#">
+          <Link href="/account/address-book">
             <a>
               <FontAwesomeIcon icon={faAddressBook} className="text-blue" />
               <p>Address book</p>

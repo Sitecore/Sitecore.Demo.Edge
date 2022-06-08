@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CartDetails from '../../components/Checkout/CartDetails';
 import { MockSlice, MockStore } from '../mock-store';
 import {
-  authSlice,
+  loggedInAuthSlice,
   cartSlice,
   notInitializedCartSlice,
   productCacheSlice,
@@ -17,9 +17,9 @@ export default {
 
 const Template: ComponentStory<typeof CartDetails> = (args) => <CartDetails {...args} />;
 
-const slices: MockSlice[] = [cartSlice, productCacheSlice, authSlice];
-const promoSlices: MockSlice[] = [promotionCartSlice, productCacheSlice, authSlice];
-const loadingSlices: MockSlice[] = [notInitializedCartSlice, productCacheSlice, authSlice];
+const slices: MockSlice[] = [cartSlice, productCacheSlice, loggedInAuthSlice];
+const promoSlices: MockSlice[] = [promotionCartSlice, productCacheSlice, loggedInAuthSlice];
+const loadingSlices: MockSlice[] = [notInitializedCartSlice, productCacheSlice, loggedInAuthSlice];
 
 export const Editable = Template.bind({});
 Editable.args = {};

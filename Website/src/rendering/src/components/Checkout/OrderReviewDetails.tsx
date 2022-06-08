@@ -5,6 +5,8 @@ import { useAppDispatch } from '../../redux/store';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
+import { logOrderCheckout } from '../../services/CdpService';
+import { OrderItem, OrderCheckoutPayload } from '../../models/cdp/OrderCheckoutPayload';
 import mapProductsForDiscover from '../../helpers/discover/ProductMapper';
 import mapUserForDiscover from '../../helpers/discover/UserMapper';
 import {
@@ -81,6 +83,7 @@ const OrderReviewDetails = (): JSX.Element => {
 
   const onOrderSubmitSuccess = () => {
     dispatchDiscoverOrderConfirmEvent();
+    dispatchCdpOrderCheckoutEvent();
     router?.push(`/shop/checkout/order-summary`);
   };
 
@@ -95,6 +98,38 @@ const OrderReviewDetails = (): JSX.Element => {
         subtotal: order.Subtotal,
       },
     });
+  };
+
+  // TODO: Move building the event payload to CdpService, maybe using a mapper.
+  const dispatchCdpOrderCheckoutEvent = () => {
+    const orderItems: OrderItem[] = [];
+    lineItems.forEach((lineItem) => {
+      orderItems.push({
+        type: lineItem.Product.Name,
+        referenceId: lineItem.ID,
+        orderedAt: new Date(lineItem.DateAdded).toISOString(),
+        status: 'PURCHASED',
+        currencyCode: 'USD',
+        price: lineItem.UnitPrice,
+        name: lineItem.Product.Name,
+        productId: lineItem.ProductID,
+        quantity: lineItem.Quantity,
+      });
+    });
+
+    const orderCheckoutPayload: OrderCheckoutPayload = {
+      order: {
+        orderItems,
+        referenceId: order.ID,
+        orderedAt: new Date(order.DateSubmitted || order.LastUpdated).toISOString(),
+        status: 'PURCHASED',
+        currencyCode: 'USD',
+        price: order.Total, // BUG: The price does not seem to include taxes and shipping
+        paymentType: 'Card',
+        cardType: payments[0].xp?.CreditCard?.CardType,
+      },
+    };
+    logOrderCheckout(orderCheckoutPayload);
   };
 
   const handleSubmitOrder = async () => dispatch(submitOrder(onOrderSubmitSuccess));

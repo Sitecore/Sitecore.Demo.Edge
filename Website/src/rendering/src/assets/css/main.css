@@ -37,6 +37,9 @@
 
 /* Account */
 @import './components/Account/AccountLayout.css';
+@import './components/Account/AddressBook.css';
+@import './components/Account/AddressBookFormSection.css';
+@import './components/Account/OrderHistory.css';
 @import './components/Account/OrderReview.css';
 @import './components/Account/PaymentMethods.css';
 @import './components/Account/PaymentMethodsFormSection.css';
@@ -48,6 +51,7 @@
 @import './components/Checkout/CheckoutSummary.css';
 @import './components/Checkout/MiniCart.css';
 @import './components/Checkout/OrderReviewDetails.css';
+@import './components/Checkout/PreCheckout.css';
 @import './components/Checkout/ThankYouHero.css';
 @import './components/Checkout/ThankYouSection.css';
 
