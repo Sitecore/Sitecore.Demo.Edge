@@ -23,12 +23,12 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
   const closeMinicart = () => setIsMiniCartOpen(false);
-  ClickOutside(miniCartRef, closeMinicart);
+  ClickOutside([miniCartRef], closeMinicart);
 
   const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
   const accountPopupRef = useRef(null);
   const closeAccountPopup = () => setIsAccountPopupOpen(false);
-  ClickOutside(accountPopupRef, closeAccountPopup);
+  ClickOutside([accountPopupRef], closeAccountPopup);
 
   // TODO: Remove conditions from JSX
   const accountMenuItem = isAuthenticationEnabled && (

@@ -1,14 +1,21 @@
 import { useEffect } from 'react';
 import { DiscoverReference } from '../../services/DiscoverService';
 
-const ClickOutside = (ref: DiscoverReference, handler: () => void): void => {
+const ClickOutside = (references: DiscoverReference[], handler: () => void): void => {
   useEffect(() => {
     const listener = (event: Event) => {
-      // Do nothing if clicking ref's element or descendent elements
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
+      let clickWasOnAReference = false;
+
+      // Do nothing if clicking any of the reference element or descendent elements
+      references.forEach((reference) => {
+        if (!reference.current || reference.current.contains(event.target)) {
+          clickWasOnAReference = true;
+        }
+      });
+
+      if (!clickWasOnAReference) {
+        handler();
       }
-      handler();
     };
 
     if (window.PointerEvent) {
@@ -26,7 +33,7 @@ const ClickOutside = (ref: DiscoverReference, handler: () => void): void => {
         document.removeEventListener('touchstart', listener);
       }
     };
-  }, [ref, handler]);
+  }, [references, handler]);
 };
 
 export default ClickOutside;
