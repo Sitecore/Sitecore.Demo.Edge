@@ -2,11 +2,10 @@ import { ReactElement } from 'react';
 import Head from 'next/head';
 import { ShopLayout } from 'components/Products/Shop';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from 'components/Navigation/ShopBreadcrumb';
-import OrderReviewDetails from 'components/Checkout/OrderReviewDetails';
+import PreCheckout from 'components/Checkout/PreCheckout';
 
-const OrderReview = (): JSX.Element => {
+const Anonymous = (): JSX.Element => {
   const breadCrumbDefinitions: ShopBreadcrumbItem[] = [
-    { urlPath: '/shop/checkout/order-review', displayName: 'Order review' },
     { urlPath: '/shop/checkout/checkout', displayName: 'Checkout' },
     { urlPath: '/shop/checkout/cart', displayName: 'Cart' },
   ];
@@ -18,17 +17,16 @@ const OrderReview = (): JSX.Element => {
         params={{}}
         fields={{ items: breadCrumbDefinitions }}
       />
-
-      <OrderReviewDetails />
+      <PreCheckout />
     </>
   );
 };
 
-OrderReview.getLayout = function getLayout(page: ReactElement) {
+Anonymous.getLayout = function getLayout(page: ReactElement) {
   return (
     <ShopLayout>
       <Head>
-        <title>PLAY! SHOP - Order Review</title>
+        <title>PLAY! SHOP - Checkout</title>
       </Head>
 
       {page}
@@ -36,4 +34,4 @@ OrderReview.getLayout = function getLayout(page: ReactElement) {
   );
 };
 
-export default OrderReview;
+export default Anonymous;

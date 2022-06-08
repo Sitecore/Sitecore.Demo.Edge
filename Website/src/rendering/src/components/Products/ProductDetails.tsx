@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
-import { logViewEvent } from '../../services/CdpService';
 import ProductDetailsContent from './ProductDetailsContent';
 
 const ProductDetails = (): JSX.Element => {
@@ -14,12 +12,6 @@ const ProductDetails = (): JSX.Element => {
   const variantID = router?.query?.sections?.length > 2 ? router.query.sections[2] : undefined;
 
   const { product, loading, specs, variants } = useOcProductDetail(sku?.toString());
-
-  useEffect(() => {
-    if (sku) {
-      logViewEvent();
-    }
-  }, [sku]);
 
   return (
     <ProductDetailsContent

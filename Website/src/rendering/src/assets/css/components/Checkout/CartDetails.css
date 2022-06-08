@@ -129,7 +129,7 @@
     &-details {
       @apply grid gap-x-4 grid-cols-[auto_1fr];
 
-      img {
+      .product-image {
         @apply row-span-3;
       }
 

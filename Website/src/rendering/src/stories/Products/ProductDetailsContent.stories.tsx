@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MockSlice, MockStore } from '../mock-store';
-import { authSlice, cartSlice } from '../Checkout/CheckoutCommon';
+import { loggedInAuthSlice, cartSlice } from '../Checkout/CheckoutCommon';
 import { product, specs, variants } from './ProductsCommon';
 import ProductDetailsContent from '../../components/Products/ProductDetailsContent';
 
@@ -10,7 +10,7 @@ export default {
   component: ProductDetailsContent,
 } as ComponentMeta<typeof ProductDetailsContent>;
 
-const productSlices: MockSlice[] = [cartSlice, authSlice];
+const productSlices: MockSlice[] = [cartSlice, loggedInAuthSlice];
 
 const Template: ComponentStory<typeof ProductDetailsContent> = (args) => (
   <MockStore sliceOrSlices={productSlices}>
