@@ -12,7 +12,8 @@ const PanelPayment = (): JSX.Element => {
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fullCardNumber, setFullCardNumber] = useState('');
-  const [editedCreditCard, setEditedCreditCard] = useState();
+  const defaultButerCreditCard: DBuyerCreditCard = undefined;
+  const [editedCreditCard, setEditedCreditCard] = useState(defaultButerCreditCard);
 
   useEffect(() => {
     if (order) {
