@@ -99,7 +99,7 @@ const PanelShippingEstimates = (): JSX.Element => {
     setChangeLoading(false);
   };
 
-  const shipMethodsList = shipMethods && (
+  const shipMethodsList = shipMethods && shippingAddress && (
     <ShipMethodsList
       shipEstimateId={shipEstimate?.ID}
       shipMethods={shipMethods}
@@ -125,11 +125,11 @@ const PanelShippingEstimates = (): JSX.Element => {
   const panelBody = initalizeLoading ? (
     <ShipMethodsSkeleton />
   ) : (
-    <>
+    <div className="panel-body">
       {shipMethodsList}
       {missingShippingAddress}
       {shipEstimateError}
-    </>
+    </div>
   );
 
   return (
