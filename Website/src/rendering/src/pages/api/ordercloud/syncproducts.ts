@@ -52,7 +52,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
 
     // Create products for profiled buyer
     const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
-    const profiledBuyerPromise = postProducts(
+    await postProducts(
       profiledBuyer.DefaultCatalogID,
       profiledBuyer.ID,
       PROFILED_HEADSTART_CATALOG_ID
@@ -60,13 +60,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
 
     // Create products for public buyer
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
-    const publicBuyerPromise = postProducts(
-      publicBuyer.DefaultCatalogID,
-      publicBuyer.ID,
-      PUBLIC_HEADSTART_CATALOG_ID
-    );
-
-    await Promise.allSettled([profiledBuyerPromise, publicBuyerPromise]);
+    await postProducts(publicBuyer.DefaultCatalogID, publicBuyer.ID, PUBLIC_HEADSTART_CATALOG_ID);
 
     return response.status(200).json('Products synced successfully');
     /* eslint-disable-next-line */
@@ -75,17 +69,33 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       // the request was made and the API responded with a status code
       // that falls outside of the range of 2xx, the error will be of type OrderCloudError
       // https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/orderclouderror
-      console.log(error.message);
-      console.log(JSON.stringify(error.errors, null, 4));
+      const message = error.message;
+      const errors = JSON.stringify(error.errors, null, 4);
+      const requestUrl = `${error.request.method} ${process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL}${error.request.path}`;
+      console.log('-------ERROR-------');
+      console.log(requestUrl);
+      console.log(message);
+      console.log(errors);
+      console.log('-----END ERROR-----');
+      return response.status(500).json({
+        RequestUrl: requestUrl,
+        Message: message,
+        Errors: errors,
+      });
     } else if (error.request) {
       // the request was made but no response received
       // `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
       console.log(error.request);
+      return response.status(500).json({
+        Message: `An unknown error occurred (no response) while making a request to ${error.request.url}`,
+      });
     } else {
       // Something happened in setting up the request that triggered an Error
       console.log('Error', error.message);
+      return response.status(500).json({
+        Message: `An error occurred wile setting up an http request that triggered an error. ${error.message}`,
+      });
     }
-    return response.status(500).json(error);
   }
 };
 
@@ -111,7 +121,7 @@ type VariantRow = {
   size: string;
 };
 
-async function postProducts(catalogID: string, buyerID: string, locationID: string) {
+async function postProducts(catalogID: string, buyerID: string, headstartCatalogID: string) {
   const csvStr = fs.readFileSync(
     path.join(__dirname + '/../../../../../discover-feeds/playsummit_product_feed.csv'),
     {
@@ -131,7 +141,7 @@ async function postProducts(catalogID: string, buyerID: string, locationID: stri
     if (row.product_group !== row.sku) {
       // First time we encounter a variant of that product so we process it
       if (!productIdToVariantRowsMap.has(row.product_group)) {
-        await processSingleProduct(row, catalogID, buyerID, locationID);
+        await processSingleProduct(row, catalogID, buyerID, headstartCatalogID);
 
         // Initialize the map entry
         productIdToVariantRowsMap.set(row.product_group, []);
@@ -144,7 +154,7 @@ async function postProducts(catalogID: string, buyerID: string, locationID: stri
       ]);
     } else {
       // Normal product without variants
-      productPromises.push(() => processSingleProduct(row, catalogID, buyerID, locationID));
+      productPromises.push(() => processSingleProduct(row, catalogID, buyerID, headstartCatalogID));
     }
   }
 
@@ -157,14 +167,14 @@ async function postProducts(catalogID: string, buyerID: string, locationID: stri
   // Update the variants (IDs, imageUrls)
   await updateVariants(productIdToVariantRowsMap);
 
-  return await Promise.allSettled(productPromises.map((productPromise) => productPromise()));
+  return await Promise.all(productPromises.map((productPromise) => productPromise()));
 }
 
 async function processSingleProduct(
   row: ProductRow,
   catalogID: string,
   buyerID: string,
-  locationID: string
+  headstartCatalogID: string
 ) {
   // Post price schedule
   const priceScheduleRequest = {
@@ -177,6 +187,7 @@ async function processSingleProduct(
       },
     ],
   };
+  console.log(`Creating price schedule for ${row.product_group}`);
   await PriceSchedules.Save(priceScheduleRequest.ID, priceScheduleRequest);
 
   const additionalImageUrls: { Url: string; ThumbnailUrl: string }[] =
@@ -213,15 +224,18 @@ async function processSingleProduct(
       CCID: row.ccids.split('|')?.[0],
     },
   };
+  console.log(`Creating product schedule for ${row.product_group}`);
   const createdProduct = await Products.Save(productRequest.ID, productRequest);
+  console.log(`Assigning product ${row.product_group} to catalog ${catalogID}`);
   await Catalogs.SaveProductAssignment({
     CatalogID: catalogID,
     ProductID: createdProduct.ID,
   });
+  console.log(`Assigning product ${row.product_group} to headstart catalog ${headstartCatalogID}`);
   await Products.SaveAssignment({
     ProductID: createdProduct.ID,
     BuyerID: buyerID,
-    UserGroupID: locationID,
+    UserGroupID: headstartCatalogID,
   });
 }
 
@@ -236,8 +250,10 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>)
       let specOptionListOrder = 1;
 
       if (productIdToVariantRowsMap.get(productId)[0][specName.toLowerCase() as keyof VariantRow]) {
+        const specID = `${productId}-${specName}`;
+        console.log(`Creating spec with ID ${specID}`);
         await Specs.Save(`${productId}-${specName}`, {
-          ID: `${productId}-${specName}`,
+          ID: specID,
           Name: specName,
           Required: true,
           DefinesVariant: true,
@@ -277,6 +293,7 @@ async function createSpecOption(
   variantRow: VariantRow,
   listOrder: number
 ) {
+  console.log(`Saving spec option ${`${productId}-${specName}`} to product ${productId}`);
   await Specs.SaveOption(
     `${productId}-${specName}`,
     `${productId}-${specName}-${variantRow[specName.toLowerCase() as keyof typeof variantRow]}`,
@@ -291,8 +308,10 @@ async function createSpecOption(
 }
 
 async function createSpecProductAssignment(productId: string, specName: string) {
+  const specID = `${productId}-${specName}`;
+  console.log(`Assigning spec ${specID} to ${productId}`);
   await Specs.SaveProductAssignment({
-    SpecID: `${productId}-${specName}`,
+    SpecID: specID,
     ProductID: productId,
   });
 }
@@ -301,6 +320,7 @@ async function generateVariants(productIdToVariantRowsMap: Map<string, VariantRo
   const productIds = productIdToVariantRowsMap.keys();
   for (const productId of productIds) {
     // Generate the variants for this specific product
+    console.log(`Generating variants for ${productId}`);
     await Products.GenerateVariants(productId, { overwriteExisting: true });
   }
 }
@@ -324,6 +344,7 @@ async function updateVariants(productIdToVariantRowsMap: Map<string, VariantRow[
             }))
           : [];
 
+      console.log(`Updating variant ${variant.ID} for product ${productId}`);
       await Products.PatchVariant(productId, variant.ID, {
         ID: variantRow.sku,
         xp: {

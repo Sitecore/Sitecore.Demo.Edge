@@ -29,6 +29,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     ]);
     Tokens.SetAccessToken(authResponse.access_token);
 
+    console.log('Retrieving buyers');
     const buyersList = await Buyers.List({
       filters: { Name: `${PUBLIC_BUYER_NAME}|${PROFILED_BUYER_NAME}` },
     });
@@ -38,7 +39,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
     const publicBuyerPromise = postCategories(publicBuyer.DefaultCatalogID);
 
-    await Promise.allSettled([profiledBuyerPromise, publicBuyerPromise]);
+    await Promise.all([profiledBuyerPromise, publicBuyerPromise]);
 
     return response.status(200).json('Categories synced successfully');
     /* eslint-disable-next-line */
@@ -47,17 +48,33 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       // the request was made and the API responded with a status code
       // that falls outside of the range of 2xx, the error will be of type OrderCloudError
       // https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/orderclouderror
-      console.log(error.message);
-      console.log(JSON.stringify(error.errors, null, 4));
+      const message = error.message;
+      const errors = JSON.stringify(error.errors, null, 4);
+      const requestUrl = `${error.request.method} ${process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL}${error.request.path}`;
+      console.log('-------ERROR-------');
+      console.log(requestUrl);
+      console.log(message);
+      console.log(errors);
+      console.log('-----END ERROR-----');
+      return response.status(500).json({
+        RequestUrl: requestUrl,
+        Message: message,
+        Errors: errors,
+      });
     } else if (error.request) {
       // the request was made but no response received
       // `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
       console.log(error.request);
+      return response.status(500).json({
+        Message: `An unknown error occurred (no response) while making a request to ${error.request.url}`,
+      });
     } else {
       // Something happened in setting up the request that triggered an Error
       console.log('Error', error.message);
+      return response.status(500).json({
+        Message: `An error occurred wile setting up an http request that triggered an error. ${error.message}`,
+      });
     }
-    return response.status(500).json(error);
   }
 };
 
@@ -91,10 +108,8 @@ async function postCategories(catalogID: string) {
 
   // First run the category promises without the parent ccids in parallel and then update them
   // with the parent ccids (for faster execution)
-  await Promise.allSettled(categoryPromises.map((categoryPromise) => categoryPromise()));
-  return await Promise.allSettled(
-    categoryPromisesWithParents.map((categoryPromise) => categoryPromise())
-  );
+  await Promise.all(categoryPromises.map((categoryPromise) => categoryPromise()));
+  return await Promise.all(categoryPromisesWithParents.map((categoryPromise) => categoryPromise()));
 }
 
 async function postCategory(
@@ -103,6 +118,7 @@ async function postCategory(
   parentCategoryID: string,
   catalogID: string
 ) {
+  console.log(`Creating category ${categoryID} in catalog ${catalogID}`);
   const categoryRequest = {
     ID: categoryID,
     Active: true,
