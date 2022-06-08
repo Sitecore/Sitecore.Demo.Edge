@@ -164,7 +164,6 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         type="text"
         className="user-comment"
         defaultValue={props.lineItem.xp?.Comment}
-        // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
         onBlur={(event) => handleUpdateComment(event.target.value)}
       />
     </>
