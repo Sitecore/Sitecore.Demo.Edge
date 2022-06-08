@@ -22,7 +22,7 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
     props?.creditCard?.ID ? props?.creditCard?.CardholderName || '' : 'John Smith' // TODO: remove mocked data once we have saved credit cards
   );
   const [cardNumber, setCardNumber] = useState(
-    props?.fullCardNumber ? props.fullCardNumber : '4111111111111111'
+    props?.fullCardNumber ? props.fullCardNumber : props.creditCard ? '' : '4111111111111111'
   ); // TODO: remove mocked data once we have saved credit cards
   const [expirationMonth, setExpirationMonth] = useState(
     getMonthFromIsoDateString(
