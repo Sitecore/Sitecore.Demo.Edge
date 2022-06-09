@@ -1,7 +1,8 @@
 import React from 'react';
 import { SitecoreContextReactContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import "../src/assets/css/abstracts/mixins.css"
-import "../src/assets/css/main.css"
+import "../src/assets/css/abstracts/mixins.css";
+import "../src/assets/css/main.css";
+import * as nextImage from 'next/image';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -24,8 +25,6 @@ export const parameters = {
     debounceTimeout: 200,
   },
 }
-
-import * as nextImage from 'next/image';
 
 Object.defineProperty(nextImage, 'default', {
   configurable: true,

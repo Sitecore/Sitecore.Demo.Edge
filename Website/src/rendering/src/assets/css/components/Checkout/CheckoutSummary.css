@@ -1,0 +1,25 @@
+.checkout-summary {
+  @apply flex flex-col mt-4;
+
+  .summary-line {
+    @apply flex justify-between px-3 text-sm;
+
+    &.has-discount {
+      @apply text-pink;
+    }
+  }
+
+  .shipping-line {
+    .line-amount {
+      @apply text-blue;
+    }
+  }
+
+  .total-line {
+    @apply bg-white font-bold mt-4 py-1 text-base;
+  }
+
+  button {
+    @apply mt-4 ml-auto;
+  }
+}

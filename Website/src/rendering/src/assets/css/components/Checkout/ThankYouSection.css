@@ -1,0 +1,29 @@
+.thank-you-section {
+  @apply shop-container my-8;
+  @apply lg:my-12;
+
+  ul {
+    @apply max-w-xl mx-auto space-y-8;
+    @apply lg:space-y-12;
+  }
+
+  li {
+    @apply flex items-center;
+
+    .item-icon {
+      @apply w-11 flex-shrink-0 mr-8;
+    }
+
+    svg.svg-inline--fa {
+      @apply w-full text-5xl text-blue-lightest;
+    }
+
+    p {
+      @apply text-sm;
+    }
+
+    a {
+      @apply text-blue underline;
+    }
+  }
+}

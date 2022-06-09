@@ -17,6 +17,7 @@
     "skipLibCheck": true,
     "strict": true,
     "strictFunctionTypes": false,
+    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
     "noEmit": true,
@@ -29,7 +30,8 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

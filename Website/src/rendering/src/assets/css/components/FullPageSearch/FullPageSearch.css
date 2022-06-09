@@ -1,0 +1,97 @@
+.shop-main-container {
+  position: relative;
+  overflow: hidden;
+}
+
+body.shop-facet-panel-open {
+  overflow: hidden;
+
+  .full-page-search-left {
+    @apply translate-x-0;
+  }
+
+  .facet-panel-mask {
+    @apply absolute block top-0 bottom-0 right-0 left-0 bg-black opacity-40 z-10;
+    @apply lg:hidden;
+  }
+}
+
+.full-page-search {
+  @apply shop-container;
+
+  .facet-panel-mask {
+    @apply hidden transition-colors;
+  }
+
+  &-container {
+    @apply flex;
+  }
+
+  &-left {
+    @apply absolute top-0 right-0 bottom-0 w-full max-h-[calc(100vh-110px)] bg-white;
+    @apply translate-x-[100%] transition-transform overflow-y-auto overflow-x-hidden z-20;
+    @apply sm:w-1/2;
+    @apply lg:static lg:w-1/4 lg:max-h-[none] lg:bg-transparent lg:mr-3 lg:translate-x-0;
+
+    &.open {
+      /* @apply translate-x-0; */
+    }
+
+    .button-container {
+      @apply sticky bottom-0 left-0 right-0 bg-blue-lightest p-4;
+      @apply lg:hidden;
+
+      button {
+        @apply w-full text-xl;
+      }
+    }
+  }
+
+  &-right {
+    @apply w-full;
+    @apply lg:w-3/4;
+  }
+
+  &-controls {
+    @apply flex justify-between items-center text-sm space-x-2;
+
+    .control-sort {
+      @apply hidden;
+      @apply lg:block;
+    }
+
+    label {
+      @apply mr-3;
+    }
+
+    select {
+      @apply appearance-none bg-white py-1 pl-3 pr-8 bg-select-arrow bg-no-repeat;
+
+      background-position: calc(100% - 0.5rem), center;
+    }
+  }
+
+  &-header {
+    @apply flex items-center justify-between mb-3 space-x-4;
+    @apply sm:justify-end;
+    @apply lg:block;
+  }
+
+  .items-num {
+    @apply text-black-lightest;
+  }
+
+  .category-search {
+    &-container {
+      @apply relative mb-2;
+    }
+
+    &-input {
+      @apply w-full py-1 px-2 pr-6 text-sm border-2 border-black-lightest;
+    }
+
+    &-icon {
+      @apply absolute right-2 top-2 text-base;
+    }
+  }
+}

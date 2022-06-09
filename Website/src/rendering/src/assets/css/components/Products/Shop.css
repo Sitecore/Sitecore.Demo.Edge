@@ -1,4 +1,8 @@
-div.shop-container {
+.shop-container {
+  @apply w-full px-5 mx-auto max-w-screen-2xl;
+}
+
+div.shop-main-container {
   /* Featured products */
 
   .section {
@@ -190,4 +194,12 @@ li.dropdown-item span {
 ul.dropdown-items.expanded {
   height: fit-content;
   transition: height 0.3s;
+}
+
+p.shop-integration-error {
+  @apply text-center text-yellow font-bold;
+}
+
+.continue-shopping-btn {
+  @apply my-3;
 }

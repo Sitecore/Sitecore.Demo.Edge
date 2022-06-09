@@ -3,25 +3,52 @@ import { ComponentProps } from 'lib/component-props';
 
 import Link from 'next/link';
 
-export type HeaderProps = ComponentProps;
+export type HeaderProps = ComponentProps & {
+  fields: {
+    data: {
+      item: {
+        children: {
+          results: [
+            {
+              displayName: string;
+              field: {
+                jsonValue: {
+                  value: {
+                    anchor: string;
+                    href: string;
+                    linktype: string;
+                    target: string;
+                    text: string;
+                    url: string;
+                  };
+                };
+              };
+            }
+          ];
+        };
+      };
+    };
+  };
+};
 
-const Header = (props: HeaderProps): JSX.Element => (
-  <>
-    <div className="header-eyebrow">
-      <div className="content">
-        <Link href="#" prefetch={false}>
-          <a>EN</a>
-        </Link>
-        <Link href="/account/login" prefetch={false}>
-          <a>Login</a>
-        </Link>
-        <Link href="/cart" prefetch={false}>
-          <a>Cart</a>
-        </Link>
+const Header = (props: HeaderProps): JSX.Element => {
+  return (
+    <>
+      <div className="header-eyebrow">
+        <div className="content">
+          <Link href="#" prefetch={false}>
+            <a>EN</a>
+          </Link>
+          {props.fields?.data?.item?.children?.results?.map((item, index) => (
+            <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
+              <a>{item.displayName}</a>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
-    <Placeholder name="jss-header-content" rendering={props.rendering} />
-  </>
-);
+      <Placeholder name="jss-header-content" rendering={props.rendering} />
+    </>
+  );
+};
 
 export default Header;

@@ -1,0 +1,3 @@
+// workaround for issue when upgrading nextjs v11 to v12
+// https://nextjs.org/docs/messages/failed-loading-swc#possible-ways-to-fix-it
+{"presets": ["next/babel"]}

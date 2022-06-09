@@ -117,8 +117,10 @@ namespace Sitecore.Demo.Init.Jobs
         private static void DeployWebsite(string ns, string cdpClientKey, string cdpApiTargetEndpoint,
             string cdpProxyUrl, string token, string scope, string region)
         {
+            // General
             var cm = Environment.GetEnvironmentVariable("PUBLIC_HOST_CM");
             var js = Environment.GetEnvironmentVariable("SITECORE_JSS_EDITING_SECRET");
+
             var sourceDirectory = "C:\\app\\rendering";
             var targetDirectory = $"C:\\app\\{ns}-website";
 
@@ -135,6 +137,8 @@ namespace Sitecore.Demo.Init.Jobs
             var productionUrl = $"https://{ns}-website-{scope}.vercel.app";
 
             // Configure env. variables
+
+            // General
             cmd.Run(
                 $"echo | set /p=\"{productionUrl}\" | vercel env add PUBLIC_URL production --token {token} --scope {scope}");
             cmd.Run(
@@ -143,6 +147,8 @@ namespace Sitecore.Demo.Init.Jobs
                 $"echo | set /p=\"{SitecoreApiKey}\" | vercel env add SITECORE_API_KEY production --token {token} --scope {scope}");
             cmd.Run(
                 $"echo | set /p=\"{js}\" | vercel env add JSS_EDITING_SECRET production --token {token} --scope {scope}");
+
+            // CDP
             cmd.Run(
                 $"echo | set /p=\"{cdpClientKey}\" | vercel env add NEXT_PUBLIC_CDP_CLIENT_KEY production --token {token} --scope {scope}");
             cmd.Run(

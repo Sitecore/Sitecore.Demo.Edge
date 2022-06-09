@@ -1,0 +1,53 @@
+.price {
+  @apply flex flex-wrap justify-end text-right;
+
+  &-base {
+    @apply text-sm text-blue font-bold w-full;
+  }
+
+  &.price-orange {
+    .price-base {
+      @apply text-orange;
+    }
+  }
+
+  &.price-large {
+    .price-base {
+      @apply text-xl;
+    }
+  }
+
+  &.price-discounted {
+    .price-base {
+      @apply text-xs line-through text-black-lightest font-normal w-auto;
+    }
+
+    .price-discount {
+      @apply text-xs text-pink ml-1;
+    }
+
+    .price-final {
+      @apply text-sm text-blue font-bold w-full;
+    }
+
+    &.price-orange {
+      .price-final {
+        @apply text-orange;
+      }
+    }
+
+    &.price-large {
+      .price-base {
+        @apply text-sm;
+      }
+
+      .price-discount {
+        @apply text-sm;
+      }
+
+      .price-final {
+        @apply text-xl;
+      }
+    }
+  }
+}

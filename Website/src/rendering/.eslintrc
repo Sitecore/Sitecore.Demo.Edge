@@ -20,6 +20,7 @@
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "@typescript-eslint/no-empty-interface": "off" // empty interfaces intentionally used to provide scaffolding for custom ordercloud models
   }
 }

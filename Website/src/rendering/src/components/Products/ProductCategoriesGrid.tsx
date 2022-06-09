@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Text, Field, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { ProductCategory } from 'src/types/productCategory';
+import { ProductCategory } from '../../types/productCategory';
 
 type ProductCategoriesProps = ComponentProps & {
   fields: {
