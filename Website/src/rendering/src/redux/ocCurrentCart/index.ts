@@ -224,6 +224,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
       await LineItems.Create<DLineItem>('All', orderId, request);
     } else {
       request.Quantity += lineItemAlreadyInCart.Quantity;
+      request.xp.StatusByQuantity.Submitted += lineItemAlreadyInCart.Quantity;
       await LineItems.Patch<DLineItem>('All', orderId, lineItemAlreadyInCart.ID, request);
     }
 

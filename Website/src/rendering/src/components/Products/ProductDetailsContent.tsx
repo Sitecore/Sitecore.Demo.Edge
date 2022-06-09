@@ -179,6 +179,20 @@ const ProductDetailsContent = ({
           ProductID: product.ID,
           Quantity: quantity,
           Specs: specValues,
+          xp: {
+            StatusByQuantity: {
+              Submitted: quantity,
+              Open: 0,
+              Backordered: 0,
+              Canceled: 0,
+              CancelRequested: 0,
+              CancelDenied: 0,
+              Returned: 0,
+              ReturnRequested: 0,
+              ReturnDenied: 0,
+              Complete: 0,
+            },
+          },
         })
       );
       setIsLoading(false);
