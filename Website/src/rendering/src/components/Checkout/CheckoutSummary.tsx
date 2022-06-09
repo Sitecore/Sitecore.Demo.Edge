@@ -6,6 +6,7 @@ import useOcAuth from '../../hooks/useOcAuth';
 type CheckoutSummaryProps = {
   buttonText: string;
   onClick: () => Promise<unknown>;
+  guestUserEmail?: string;
 };
 
 const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
@@ -55,7 +56,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
       return false;
     }
-    if (isAnonymous && order?.FromUser?.Email === 'test@test.com') {
+    if (isAnonymous && !props.guestUserEmail) {
       return false;
     }
     return true;
