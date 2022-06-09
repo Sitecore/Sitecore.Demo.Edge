@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import {
   BuyerCreditCard,
   IntegrationEvents,
-  Me,
   OrderWorksheet,
   Payments,
   ShipMethod,
