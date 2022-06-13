@@ -1,4 +1,5 @@
-import { ComponentProps } from 'lib/component-props';
+import { LayoutServicePageState, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { GraphQLSession } from 'src/types/session';
 import SessionItem from './SessionItem';
 
@@ -15,16 +16,34 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasSessions = !!props.fields?.data?.item;
+
+  !hasSessions && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasSessions && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
+
   const sessions =
     props.fields.data?.item?.children?.results &&
     props.fields.data.item.children.results.map((session, index) => (
       <SessionItem key={index} session={session} />
     ));
 
-  return (
+  const sessionsGrid = hasSessions && (
     <div className="item-grid sessions-grid">
       <div className="grid-content">{sessions}</div>
     </div>
+  );
+
+  return (
+    <>
+      {sessionsGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 
