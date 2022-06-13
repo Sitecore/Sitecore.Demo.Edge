@@ -9,7 +9,9 @@ SharedFields:
   Value: Office/32x32/window_dialog.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
-  Value: "{B36BA9FD-0DC0-49C8-BEA2-E55D70E6AF28}"
+  Value: |
+    {B36BA9FD-0DC0-49C8-BEA2-E55D70E6AF28}
+    {A50DD6C4-35D6-45AA-A3D6-F3A3244EA0E1}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 500
@@ -34,11 +36,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ff94a117-5b88-4d05-90bf-55e3d761e603"
+      Value: "7c874a4c-ab52-4e50-804b-cb6ffb001133"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T154445Z
+      Value: 20220613T160951Z

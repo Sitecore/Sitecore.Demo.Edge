@@ -67,7 +67,7 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\JssImport
-    - ID: "569d9c31-59c8-457c-a78c-d51e52a17122"
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: $name
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
@@ -76,14 +76,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "58a47004-f216-426d-8e2e-10253911c7d4"
+      Value: "e4da2123-816b-4326-ad34-1b0de7f09281"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T153236Z
+      Value: 20220613T161019Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -97,11 +97,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "413d726b-40b1-4826-872b-4ebf6c8d6421"
+      Value: "7f401a42-0037-4018-8986-de794ab676a2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220406T211750Z
+      Value: 20220613T161105Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: $name

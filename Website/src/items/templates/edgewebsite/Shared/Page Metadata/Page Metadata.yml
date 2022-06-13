@@ -1,8 +1,8 @@
 ﻿---
-ID: "4a641615-a2f0-44b1-bdbf-d6fb8499e7c3"
-Parent: "077d35d0-1c1e-44f6-9cef-4a1738e27cb4"
+ID: "2d6cb898-4b5d-5e9f-9180-e2a86018a7b9"
+Parent: "a50dd6c4-35d6-45aa-a3d6-f3a3244ea0e1"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Project/edgewebsite/Landing Page/Page Metadata
+Path: /sitecore/templates/Project/edgewebsite/Shared/Page Metadata/Page Metadata
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder

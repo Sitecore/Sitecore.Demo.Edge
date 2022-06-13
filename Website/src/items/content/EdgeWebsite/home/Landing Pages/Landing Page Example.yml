@@ -29,7 +29,7 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\superuser
-    - ID: "569d9c31-59c8-457c-a78c-d51e52a17122"
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Landing Page Example
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
@@ -38,11 +38,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "17b85d2b-1772-4765-b548-e2ab1f5b08af"
+      Value: "3cefdfff-9bcf-4696-93ae-825eb7244b8c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T155538Z
+      Value: 20220613T161457Z
