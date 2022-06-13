@@ -11,6 +11,7 @@ SharedFields:
   Hint: Allowed Controls
   Value: |
     {780D897C-7065-585F-8585-28118565FA00}
+    {3C4CC858-7C6A-42B4-9FB3-7107FB4141EB}
     {C1E45B3A-429D-53FE-9640-1581E24A1447}
     {2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}
     {18D56CF9-81D3-50C2-A8C3-19349D36074D}
@@ -64,11 +65,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4497e727-2204-4011-9181-0e649922dd3e"
+      Value: "ff7ae039-8318-4295-94a6-38d957bae81b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T181018Z
+      Value: 20220613T193057Z

@@ -83,6 +83,7 @@
 @import './components/NonSitecore/InformationPageHero.css';
 
 /* PageContent */
+@import './components/PageContent/CtaSection.css';
 @import './components/PageContent/DynamicWelcomeMessage.css';
 @import './components/PageContent/FeaturedEvent.css';
 @import './components/PageContent/FullImageSection.css';

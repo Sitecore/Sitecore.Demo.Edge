@@ -1,0 +1,7 @@
+.cta-section {
+  @apply py-4;
+
+  .section__content {
+    @apply items-start;
+  }
+}
