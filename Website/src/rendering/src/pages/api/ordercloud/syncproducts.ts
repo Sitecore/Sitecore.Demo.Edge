@@ -18,6 +18,7 @@ import {
   PUBLIC_HEADSTART_CATALOG_ID,
   PROFILED_BUYER_NAME,
   PROFILED_HEADSTART_CATALOG_ID,
+  ADMIN_ADDRESS_ID,
 } from '../../../constants/seeding';
 
 // TODO: the part that creates products and the part that assigns them are coupled
@@ -204,6 +205,7 @@ async function processSingleProduct(
     Active: true,
     Description: row.description,
     DefaultPriceScheduleID: row.product_group,
+    ShipFromAddressID: ADMIN_ADDRESS_ID,
     xp: {
       Images: [
         {

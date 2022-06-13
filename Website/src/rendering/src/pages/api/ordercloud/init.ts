@@ -1,6 +1,7 @@
 import { NextApiHandler } from 'next';
 import {
   Addresses,
+  AdminAddresses,
   ApiClients,
   ApprovalRules,
   Auth,
@@ -29,6 +30,7 @@ import {
   PROFILED_HEADSTART_CATALOG_NAME,
   PRODUCTION_OPENID_CONNECT_ID,
   DEVELOPMENT_OPENID_CONNECT_ID,
+  ADMIN_ADDRESS_ID,
 } from '../../../constants/seeding';
 
 const handler: NextApiHandler<unknown> = async (request, response) => {
@@ -92,6 +94,20 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
         Email: 'test@test.com',
       });
     }
+
+    // Create or update the admin address to be used on MPO owned products
+    console.log(`Creating or updating the admin address`);
+    const adminAddress = {
+      ID: ADMIN_ADDRESS_ID,
+      AddressName: 'Play! Summit',
+      Street1: '101 California St',
+      Street2: 'St #1600',
+      City: 'San Francisco',
+      State: 'CA',
+      Country: 'US',
+      Zip: '94111',
+    };
+    await AdminAddresses.Save(ADMIN_ADDRESS_ID, adminAddress);
 
     // We're not storing a base url so instead are modifying AUTH0_BASE_URL for this purpose
     // Its a bit of a hack but we don't expect AUTH0_BASE_URL to change so it should be OK
