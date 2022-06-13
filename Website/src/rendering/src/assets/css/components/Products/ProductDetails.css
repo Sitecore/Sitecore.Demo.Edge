@@ -4,8 +4,17 @@
     @apply sm:grid-cols-2;
 
     .product {
+      &-breadcrumb {
+        @apply sm:col-span-2;
+      }
+
       &-name {
         @apply text-xl font-bold w-full;
+        @apply sm:col-span-2;
+      }
+
+      &-brand {
+        @apply text-lg font-bold w-full -mt-4;
         @apply sm:col-span-2;
       }
 
@@ -17,7 +26,8 @@
             @apply relative pt-[100%] -mx-5;
             @apply sm:mx-0;
 
-            img {
+            img,
+            .react-loading-skeleton {
               @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
             }
 
@@ -155,6 +165,14 @@
           @apply ml-3 text-pink;
         }
       }
+    }
+  }
+}
+
+.product-details-skeleton {
+  .product-image {
+    .react-loading-skeleton {
+      padding-top: 100%;
     }
   }
 }

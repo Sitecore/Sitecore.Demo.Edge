@@ -1,9 +1,9 @@
 import { createSlice, SerializedError } from '@reduxjs/toolkit';
-import { Me, RequiredDeep } from 'ordercloud-javascript-sdk';
+import { Me, PartialDeep, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { DMeUser } from 'src/models/ordercloud/DUser';
 import { createOcAsyncThunk, OcThrottle } from '../ocReduxHelpers';
 
-interface ocUserState {
+export interface ocUserState {
   user?: DMeUser;
   loading: boolean;
   error?: SerializedError;
@@ -26,7 +26,7 @@ export const getUser = createOcAsyncThunk<RequiredDeep<DMeUser>, undefined>(
   userThrottle
 );
 
-export const updateUser = createOcAsyncThunk<Partial<DMeUser>, RequiredDeep<DMeUser>>(
+export const updateUser = createOcAsyncThunk<RequiredDeep<DMeUser>, PartialDeep<DMeUser>>(
   'ocUser/update',
   async (data) => {
     return Me.Patch<DMeUser>(data);

@@ -35,18 +35,15 @@ stages:
             key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/tv/package-lock.json'
             path: '$(Build.SourcesDirectory)/tv/node_modules'
             cacheHitVar: 'CacheRestored'
-
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: tv
           condition: ne(variables['CacheRestored'],'true')
-
         - script: |
             npm run lint
           displayName: 'npm run lint'
           workingDirectory: tv
-
         - script: |
             npm run build
           displayName: 'npm run build'
@@ -79,7 +76,6 @@ stages:
             npm run lint
           displayName: 'npm run lint'
           workingDirectory: kiosk
-
         - script: |
             npm run build
           displayName: 'npm run build'
@@ -97,10 +93,6 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-        - script: |
-            npm config set @sitecore-discover:registry $(INTERNAL_SITECORE_DISCOVER_NPM_REGISTRY)
-          displayName: 'Add @sitecore-discover internal NPM registry'
-          workingDirectory: Website/src/rendering
         - task: Cache@2
           displayName: "Cache npm packages"
           inputs:
@@ -116,7 +108,6 @@ stages:
             npm run lint
           displayName: 'npm run lint'
           workingDirectory: Website/src/rendering
-
         - script: |
             npm run build:local
           displayName: 'npm run build:local'
@@ -134,10 +125,6 @@ stages:
           inputs:
             versionSpec: '14.x'
           displayName: 'Install Node.js'
-        - script: |
-            npm config set @sitecore-discover:registry $(INTERNAL_SITECORE_DISCOVER_NPM_REGISTRY)
-          displayName: 'Add @sitecore-discover internal NPM registry'
-          workingDirectory: Website/src/rendering
         - task: Cache@2
           displayName: "Cache npm packages"
           inputs:
@@ -149,20 +136,17 @@ stages:
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
           condition: ne(variables['CacheRestored'],'true')
-
         - script: |
             npm run build-storybook
           displayName: 'npm run build-storybook'
           workingDirectory: Website/src/rendering
-
         - task: PublishPipelineArtifact@1
           inputs:
             targetPath: "Website/src/rendering/storybook-static"
             artifact: "Storybook"
             publishLocation: "pipeline"
-        # TODO: Remove --exit-once-uploaded when Sitecore Discover NPM SDK is integrated and Discover component stories are mocked and not throwing errors
         - script: |
-            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes --exit-once-uploaded
+            npx chromatic --project-token $(chromatic.project.token) --auto-accept-changes
           displayName: 'Push to Chromatic'
           workingDirectory: Website/src/rendering
 
@@ -362,6 +346,8 @@ stages:
               Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=nightly" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=1" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=5" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=3" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
 
 - stage: Update_DEV_Portal_Databases_Stable
   displayName: "Update 'stable' version in the DEV portal database"
@@ -387,6 +373,7 @@ stages:
             script: |
               Invoke-RestMethod -Uri "$(DEV_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(DEV_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=2" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(DEV_PORTAL_V2_UPDATE_DEFINITION)&definitionId=8" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
 
 - stage: Update_PROD_Portal_Database_Stable
   displayName: "Update 'stable' version in the PROD portal database"
@@ -412,6 +399,7 @@ stages:
             script: |
               Invoke-RestMethod -Uri "$(PROD_PORTAL)/api/UpdateDefinition?demoType=edge-xm0&sitecoreVersion=$(SITECORE_VERSION)&channel=stable" -Method POST -Body "{ apiKey: '$(PROD_PORTAL_API_KEY)', tag: '$(GitVersion.SemVer)' }" -ContentType "application/json"
               Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=2" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
+              Invoke-RestMethod -Uri "$(PROD_PORTAL_V2_UPDATE_DEFINITION)&definitionId=4" -Method POST -Body "{ tag: '$(GitVersion.SemVer)', revision: '$(GitVersion.Sha)' }" -ContentType "application/json"
     - deployment: Update_Production_Database_Deployment
       displayName: "Update Production Database Deployment"
       environment: Production Portal Database

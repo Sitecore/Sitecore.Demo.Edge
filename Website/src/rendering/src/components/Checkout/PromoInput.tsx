@@ -1,7 +1,7 @@
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { addPromotion, removePromotion } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 
@@ -9,7 +9,7 @@ const PromoInput = (): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const [promoCode, setPromoCode] = useState('');
   const dispatch = useAppDispatch();
-  const { promotions } = useOcCurrentOrder();
+  const { promotions } = useOcCurrentCart();
 
   const handlePromoCodeChange = async (event: ChangeEvent<HTMLInputElement>) => {
     setPromoCode(event.target.value);
@@ -57,10 +57,11 @@ const PromoInput = (): JSX.Element => {
 
   return (
     <div className="promo-input">
+      <label htmlFor="promoInput">Add promo or coupon code...</label>
       <input
+        id="promoInput"
         type="text"
         disabled={!promotions}
-        placeholder="Add promo or coupon code..."
         value={promoCode}
         onKeyDown={handlePromoCodeKeyDown}
         onChange={handlePromoCodeChange}

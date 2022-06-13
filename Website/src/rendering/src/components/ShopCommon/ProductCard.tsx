@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Price from './Price';
 
 // TODO: add story for component
@@ -14,6 +15,7 @@ type ProductCardProps = {
   price?: string;
   image_url?: string;
   brand?: string;
+  altTheme?: boolean;
 };
 
 const ProductCard = ({
@@ -26,28 +28,35 @@ const ProductCard = ({
   price,
   image_url,
   brand,
+  altTheme,
 }: ProductCardProps): JSX.Element => {
   // TODO: add functionality to offer ribbon
   return (
     <div className="product-card">
       <div className="product-image-container">
-        {/* TODO: change for a next/Link component */}
-        <a href={product_url} onClick={onClick}>
-          <img className="product-image" src={image_url} alt={name} />
-          <span className="product-offer">Spring Sale!</span>
-        </a>
+        <Link href={product_url}>
+          <a onClick={onClick}>
+            <img className="product-image" src={image_url} alt={name} />
+            {/* TODO: Extract JSX logic into a const */}
+            <span className={`product-offer ${altTheme ? 'product-offer-orange' : ''}`}>
+              Spring Sale!
+            </span>
+          </a>
+        </Link>
       </div>
       <div className="product-info-container">
-        {/* TODO: change for a next/Link component */}
-        <a href={product_url}>
-          <div className="product-name">{name}</div>
-          <div className="product-brand">{brand}</div>
-        </a>
+        <Link href={product_url}>
+          <a onClick={onClick}>
+            <div className="product-name">{name}</div>
+            <div className="product-brand">{brand}</div>
+          </a>
+        </Link>
         <Price
           price={price}
           finalPrice={final_price}
           min={final_price_min_formatted}
           max={final_price_max_formatted}
+          altTheme={altTheme}
         />
       </div>
     </div>

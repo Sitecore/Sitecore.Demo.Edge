@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   LineItems,
   Me,
@@ -9,6 +9,7 @@ import {
   Payments,
   PartialDeep,
   Tokens,
+  LineItem,
 } from 'ordercloud-javascript-sdk';
 import { DAddress } from 'src/models/ordercloud/DAddress';
 import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
@@ -30,6 +31,7 @@ export interface RecentOrder {
 
 export interface OcCurrentOrderState {
   initialized: boolean;
+  orderTotalLoading: boolean; // true if any action occurs that may affect the cost of the order
   order?: RequiredDeep<DOrder>;
   lineItems?: RequiredDeep<DLineItem>[];
   payments?: RequiredDeep<DPayment>[];
@@ -40,6 +42,7 @@ export interface OcCurrentOrderState {
 
 const initialState: OcCurrentOrderState = {
   initialized: false,
+  orderTotalLoading: false,
 };
 
 export const removeAllPayments = createOcAsyncThunk<undefined, undefined>(
@@ -60,13 +63,8 @@ export const updateCreditCardPayment = createOcAsyncThunk<
   RequiredDeep<DPayment>[],
   DBuyerCreditCard
 >('ocCurrentCart/updateCreditCardPayment', async (creditCard, ThunkAPI) => {
-  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
+  const { ocCurrentCart } = ThunkAPI.getState();
   const order = ocCurrentCart.order;
-  if (!ocAuth.isAnonymous) {
-    creditCard = creditCard.ID
-      ? await Me.SaveCreditCard(creditCard.ID, creditCard)
-      : await Me.CreateCreditCard(creditCard);
-  }
   const payment: DPayment = {
     Type: 'CreditCard',
     CreditCardID: creditCard?.ID,
@@ -202,10 +200,34 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
 
     // initialize the order if it doesn't exist already
     if (!orderId) {
-      const orderResponse = await Orders.Create<DOrder>('All', {});
+      const orderResponse = await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
       orderId = orderResponse.ID;
     }
-    await LineItems.Create<DLineItem>('All', orderId, request);
+
+    // Determine if the line item is already in the cart
+    const lineItemAlreadyInCart = ocCurrentCart.lineItems?.find((lineItem: LineItem) => {
+      if (
+        lineItem.ProductID != request.ProductID ||
+        lineItem.Specs.length !== request.Specs.length
+      ) {
+        return null;
+      }
+      const allSpecsMatch = lineItem.Specs.every((existingLineItemSpec) => {
+        return request.Specs.some((spec) => {
+          return spec.OptionID === existingLineItemSpec.OptionID;
+        });
+      });
+      return allSpecsMatch || lineItem.Specs.length === 0 ? lineItem : null;
+    });
+
+    if (!lineItemAlreadyInCart) {
+      await LineItems.Create<DLineItem>('All', orderId, request);
+    } else {
+      request.Quantity += lineItemAlreadyInCart.Quantity;
+      request.xp.StatusByQuantity.Submitted += lineItemAlreadyInCart.Quantity;
+      await LineItems.Patch<DLineItem>('All', orderId, lineItemAlreadyInCart.ID, request);
+    }
+
     if (ocCurrentCart.promotions?.length) {
       ThunkAPI.dispatch(refreshPromotions(orderId));
     }
@@ -279,6 +301,22 @@ export const saveShippingAddress = createOcAsyncThunk<
 
   return IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', orderId);
 });
+
+export const removeShippingAddress = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, undefined>(
+  'ocCurrentCart/removeShippingAddress',
+  async (_, ThunkAPI) => {
+    const { ocCurrentCart } = ThunkAPI.getState();
+    const { order } = ocCurrentCart;
+
+    if (!order?.ID) {
+      throw new Error('No order ID');
+    }
+
+    await Orders.Patch<DOrder>('All', order.ID, { ShippingAddressID: null });
+
+    return IntegrationEvents.Calculate<DOrderWorksheet>('All', order.ID);
+  }
+);
 
 export const saveBillingAddress = createOcAsyncThunk<
   RequiredDeep<DOrderWorksheet>,
@@ -367,6 +405,31 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
   }
 );
 
+const thunksThatAffectOrderTotal = [
+  removeAllPayments,
+  refreshPromotions,
+  createLineItem,
+  updateLineItem,
+  patchLineItem,
+  removeLineItem,
+  saveBillingAddress,
+  removeBillingAddress,
+  selectShipMethods,
+];
+const pendingThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map((thunk) => thunk.pending);
+const fulfilledThunksThatAffectOrderTotal = thunksThatAffectOrderTotal.map(
+  (thunk) => thunk.fulfilled
+);
+
+const isOrderTotalLoading = isAnyOf(
+  pendingThunksThatAffectOrderTotal[0],
+  ...pendingThunksThatAffectOrderTotal
+);
+const isOrderTotalNotLoading = isAnyOf(
+  fulfilledThunksThatAffectOrderTotal[0],
+  ...fulfilledThunksThatAffectOrderTotal
+);
+
 const ocCurrentCartSlice = createSlice({
   name: 'ocCurrentCart',
   initialState,
@@ -381,15 +444,15 @@ const ocCurrentCartSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(retrieveCart.pending, (state) => {
-      state.initialized = true;
-    });
     builder.addCase(retrieveCart.fulfilled, (state, action) => {
       if (action.payload) {
         state.order = action.payload.Order;
         state.lineItems = action.payload.LineItems;
         state.shippingAddress = state.lineItems?.length ? state.lineItems[0].ShippingAddress : null;
         state.shipEstimateResponse = action.payload.ShipEstimateResponse;
+        state.initialized = true;
+      } else {
+        state.initialized = true;
       }
     });
     builder.addCase(patchOrder.fulfilled, (state, action) => {
@@ -455,6 +518,12 @@ const ocCurrentCartSlice = createSlice({
       state.lineItems = action.payload.LineItems;
       state.shipEstimateResponse = action.payload.ShipEstimateResponse;
     });
+    builder.addCase(removeShippingAddress.fulfilled, (state, action) => {
+      state.order = action.payload.Order;
+      state.lineItems = action.payload.LineItems;
+      state.shippingAddress = null;
+      state.shipEstimateResponse = action.payload.ShipEstimateResponse;
+    });
     builder.addCase(estimateShipping.fulfilled, (state, action) => {
       state.order = action.payload.Order;
       state.lineItems = action.payload.LineItems;
@@ -476,6 +545,14 @@ const ocCurrentCartSlice = createSlice({
     });
     builder.addCase(submitOrder.fulfilled, (_, action) => {
       action.meta.arg(action.payload.order.ID);
+    });
+
+    // Matchers must come last after all cases
+    builder.addMatcher(isOrderTotalLoading, (state) => {
+      state.orderTotalLoading = true;
+    });
+    builder.addMatcher(isOrderTotalNotLoading, (state) => {
+      state.orderTotalLoading = false;
     });
   },
 });

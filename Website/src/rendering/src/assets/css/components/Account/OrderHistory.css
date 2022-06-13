@@ -1,0 +1,44 @@
+div.shop-main-container .section.order-history {
+  @apply pt-0;
+}
+
+.order-history {
+  h1 {
+    @apply text-2xl font-bold mb-3;
+  }
+
+  &-grid {
+    ul {
+      @apply grid grid-cols-1 bg-white p-2 -mx-5;
+      @apply sm:grid-cols-2 lg:mx-0;
+    }
+
+    li {
+      @apply p-1 text-sm;
+
+      a {
+        @apply relative block p-3 bg-white-light transition-colors;
+      }
+
+      p {
+        @apply mb-1;
+      }
+
+      div {
+        @apply mr-16;
+      }
+
+      .order-status {
+        @apply absolute top-3 right-0 text-white text-xs px-3 py-0.5;
+      }
+
+      .order-id {
+        @apply text-base font-bold mb-2 overflow-hidden text-ellipsis whitespace-nowrap;
+      }
+
+      .order-view {
+        @apply absolute bottom-3 right-3 text-black-lightest text-2xl;
+      }
+    }
+  }
+}

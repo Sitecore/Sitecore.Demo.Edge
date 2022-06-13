@@ -17,7 +17,7 @@
 
   &-actions {
     @apply mb-3;
-    @apply lg:w-1/3 lg:max-w-xs lg:relative lg:mb-0;
+    @apply lg:w-2/5 lg:relative lg:mb-0;
 
     &-wrapper {
       @apply lg:sticky lg:top-[calc(100px+1rem)];
@@ -33,10 +33,14 @@
   }
 
   .cart-summary {
-    @apply px-6 bg-white-dark;
+    @apply px-2 bg-white-dark;
 
     &:not(:empty) {
-      @apply pb-1;
+      @apply py-1;
+    }
+
+    p {
+      @apply flex items-center justify-between;
     }
 
     span {
@@ -58,7 +62,12 @@
 
   .promo-input {
     input {
-      @apply italic px-6 py-1 border-2 border-gray w-full;
+      @apply italic px-2 py-1 mt-1 border-2 border-black-lightest w-full;
+
+      &:focus,
+      &:active {
+        @apply rounded-none outline-none;
+      }
     }
 
     .promotion-list {
@@ -120,7 +129,7 @@
     &-details {
       @apply grid gap-x-4 grid-cols-[auto_1fr];
 
-      img {
+      .product-image {
         @apply row-span-3;
       }
 
@@ -147,8 +156,17 @@
     }
 
     .user-comment {
-      @apply w-full border-2 border-gray p-3 italic text-sm text-black;
+      @apply w-full border-2 border-black-lightest px-2 py-1 mt-1 italic text-sm text-black;
       @apply placeholder:text-black;
+
+      &:focus,
+      &:active {
+        @apply rounded-none outline-none;
+      }
+
+      &-label {
+        @apply text-sm;
+      }
     }
 
     .quantity-alert {
