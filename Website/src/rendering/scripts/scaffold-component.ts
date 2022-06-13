@@ -19,9 +19,11 @@ import path from 'path';
 import chalk from 'chalk';
 import generateComponentSrc from './templates/component-src';
 import generateStorySrc from './templates/story-src'; // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
+import generateCssSrc from './templates/css-src'; // DEMO TEAM CUSTOMIZATION - Add CSS file scaffolding
 
 const componentRootPath = 'src/components';
 const storyRootPath = 'src/stories'; // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding
+const cssRootPath = 'src/assets/css/components'; // DEMO TEAM CUSTOMIZATION - Add CSS file scaffolding
 
 // Matches component names that start with a capital letter, and contain only letters, number,
 // underscores, or dashes. Optionally, the component name can be preceded by a relative path
@@ -63,6 +65,12 @@ const storyOutputPath = scaffoldFile(
 );
 // END CUSTOMIZATION
 
+// DEMO TEAM CUSTOMIZATION - Add CSS file scaffolding
+const cssFilename = `${componentName}.css`;
+
+const cssOutputPath = scaffoldFile(cssRootPath, generateCssSrc(componentName), cssFilename);
+// END CUSTOMIZATION
+
 console.log(
   chalk.green(`
 Scaffolding of ${componentName} complete.
@@ -74,6 +82,13 @@ console.log(`* Implement the React component in ${chalk.green(componentOutputPat
 if (storyOutputPath) {
   console.log(`* Test the component in Storybook by running ${chalk.green('jss storybook')}.`);
   console.log(`* Add mock data as needed in the ${chalk.green(storyOutputPath)} Storybook story.`);
+}
+if (cssOutputPath) {
+  console.log(
+    `* Add ${chalk.green(
+      cssOutputPath
+    )} to main.css to add styles for this component or delete the CSS file.`
+  );
 }
 console.log(`* Manually create the rendering item and datasource template in Sitecore.`);
 console.log(`* Add the component to a route using Sitecore Experience Editor, and test it.`);

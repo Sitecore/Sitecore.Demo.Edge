@@ -2,6 +2,7 @@
 /**
  * Generates Storybook story boilerplate for a component under `src/stories`
  * @param componentName - the component name
+ * @param componentPath - the component path
  * @returns component story boilerplate as a string
  */
 function generateStorySrc(componentName: string, componentPath: string): string {
