@@ -1,0 +1,7 @@
+.section.page-title-section {
+  @apply py-4;
+
+  .section__content {
+    @apply items-start;
+  }
+}
