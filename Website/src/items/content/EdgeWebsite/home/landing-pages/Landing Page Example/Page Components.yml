@@ -1,9 +1,9 @@
 ﻿---
-ID: "ca7905dd-a750-471a-ba02-4aaa86bee2ce"
-Parent: "698fd3a0-a00c-459d-ae36-2e944022ec16"
+ID: "747e1ffd-0882-457b-95da-c04e6c2f1541"
+Parent: "aed163b5-1f7c-4d00-892f-443863d2caf5"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/home/Landing Pages/Session Landing Page Example/Page Components
-BranchID: "7f6cf538-49c2-44d7-b826-56dfb9f959c7"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page Example/Page Components"
+BranchID: "f97c8089-8e9b-4e2a-8063-ca2b479572ed"
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -16,7 +16,7 @@ SharedFields:
   Value: 100
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{D2731E0A-3756-4AA0-A6CD-3BE0FBA44E85}"
+  Value: "{B3EBA192-1C26-4054-8AD7-068475247376}"
 Languages:
 - Language: en
   Versions:
@@ -24,7 +24,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220613T155524Z
+      Value: 20220613T155517Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -35,11 +35,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9e2daa0d-5190-4ab9-b891-2cc410b5c3e5"
+      Value: "3587c777-7022-4652-a91b-b40d217fd62c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T155524Z
+      Value: 20220613T155517Z

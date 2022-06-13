@@ -1,19 +1,16 @@
 ﻿---
-ID: "698fd3a0-a00c-459d-ae36-2e944022ec16"
+ID: "aed163b5-1f7c-4d00-892f-443863d2caf5"
 Parent: "609e8318-928a-4e99-90e6-cd88876e2e10"
 Template: "077d35d0-1c1e-44f6-9cef-4a1738e27cb4"
-Path: /sitecore/content/EdgeWebsite/home/Landing Pages/Session Landing Page Example
-BranchID: "7f6cf538-49c2-44d7-b826-56dfb9f959c7"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page Example"
+BranchID: "f97c8089-8e9b-4e2a-8063-ca2b479572ed"
 SharedFields:
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: Office/32x32/window_earth.png
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{202A58E4-0022-4901-89B8-3799FB30932F}"
+  Value: "{334381C6-5E46-4C2E-9A7C-85341D11293D}"
 Languages:
 - Language: en
   Versions:
@@ -24,7 +21,7 @@ Languages:
       Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220613T155524Z
+      Value: 20220613T155517Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
@@ -32,20 +29,20 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\superuser
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
-      Value: Session Landing Page Example
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5fe754da-0c3d-49c8-b042-be1e8bfbe69e"
+      Value: "3cefdfff-9bcf-4696-93ae-825eb7244b8c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T161503Z
+      Value: 20220613T161457Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Landing Page Example

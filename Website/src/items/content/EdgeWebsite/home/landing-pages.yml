@@ -1,18 +1,26 @@
 ﻿---
-ID: "aed163b5-1f7c-4d00-892f-443863d2caf5"
-Parent: "609e8318-928a-4e99-90e6-cd88876e2e10"
-Template: "077d35d0-1c1e-44f6-9cef-4a1738e27cb4"
-Path: /sitecore/content/EdgeWebsite/home/Landing Pages/Landing Page Example
-BranchID: "f97c8089-8e9b-4e2a-8063-ca2b479572ed"
+ID: "609e8318-928a-4e99-90e6-cd88876e2e10"
+Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages"
 SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {F97C8089-8E9B-4E2A-8063-CA2B479572ED}
+    {7F6CF538-49C2-44D7-B826-56DFB9F959C7}
 - ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
   Hint: __Workflow
   Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
-- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
-  Hint: __Originator
-  Value: "{334381C6-5E46-4C2E-9A7C-85341D11293D}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 1062
 Languages:
 - Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Landing Pages
   Versions:
   - Version: 1
     Fields:
@@ -21,7 +29,7 @@ Languages:
       Value: <r />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220613T155517Z
+      Value: 20220613T152605Z
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
@@ -29,20 +37,20 @@ Languages:
       Hint: __Owner
       Value: |
         sitecore\superuser
-    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
-      Hint: pageTitle
-      Value: Landing Page Example
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3cefdfff-9bcf-4696-93ae-825eb7244b8c"
+      Value: "ab582e1c-9841-42ff-be3d-b7f654d9c432"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T161457Z
+      Value: 20220613T181858Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Landing Pages
