@@ -10,33 +10,32 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.btn--main {
+.btn-base {
   @apply font-medium text-center inline-block;
 
   padding: 0.5em 1.55em;
   transition: all 0.2s ease-in-out;
 }
 
-.btn--main--round {
+.btn-main {
+  @apply btn-base;
   @apply bg-yellow text-black rounded-md;
   @apply hover:bg-yellow-dark hover:text-white;
   @apply disabled:bg-yellow-dark disabled:cursor-not-allowed;
 }
 
-.btn--main--square {
-  @apply bg-white-light text-blue px-24 text-xl;
-  @apply hover:bg-white;
-  @apply disabled:bg-white disabled:cursor-not-allowed;
+.btn-square {
+  @apply btn-base;
+  @apply bg-white-light text-blue rounded-none px-24 text-xl;
+  @apply hover:bg-white hover:text-blue;
+  @apply disabled:bg-white disabled:text-gray-dark disabled:cursor-not-allowed;
 }
 
-.btn--secondary {
+.btn-secondary {
   @apply text-xl py-1 px-4 border-2 border-black rounded-[4px];
+}
 
-  &--light {
-    @apply border-white text-white;
-  }
-
-  &--round {
-    @apply text-base font-medium rounded-md;
-  }
+.btn-secondary-light {
+  @apply btn-secondary;
+  @apply border-white text-white text-base font-medium rounded-md;
 }

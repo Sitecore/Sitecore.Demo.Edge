@@ -24,7 +24,7 @@ const FullImageSection = ({ fields }: FullImageSectionProps): JSX.Element => {
   const positionCssClasses = `section__content section__full-image__content section__full-image__content--${fields.position.value} container`;
 
   const callToAction = fields.callToActionLink && (
-    <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
+    <Link field={fields.callToActionLink} className="btn-main" />
   );
 
   return (
