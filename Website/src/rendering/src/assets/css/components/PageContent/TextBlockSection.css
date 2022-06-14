@@ -1,0 +1,12 @@
+.text-block-section {
+  @apply py-4;
+
+  .section__content {
+    @apply items-start;
+
+    .text-block {
+      /* For Horizon when there is no text in the field */
+      @apply min-w-full;
+    }
+  }
+}
