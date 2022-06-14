@@ -122,6 +122,7 @@
 /* Sessions */
 @import './components/Sessions/SessionsGrid.css';
 @import './components/Sessions/SessionList.css';
+@import './components/Sessions/SessionPromo.css';
 @import './components/Sessions/SessionsFilters.css';
 @import './components/Sessions/SessionInformationPageHero.css';
 
