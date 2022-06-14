@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
+import { BuyerProduct, LineItem, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
@@ -11,6 +11,9 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import { logAddToCart } from '../../services/CdpService';
+import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
+import ProductBreadcrumb from '../Navigation/ProductBreadcrumb';
 import { Actions, PageController } from '@sitecore-discover/react';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Skeleton from 'react-loading-skeleton';
@@ -84,8 +87,9 @@ const ProductDetailsContent = ({
             };
           });
         }
-        setSpecValues(specVals);
       }
+
+      setSpecValues(specVals);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lineItem, specs, variants, variantID]);
@@ -170,15 +174,52 @@ const ProductDetailsContent = ({
     async (e: FormEvent) => {
       e.preventDefault();
       setIsLoading(true);
-      await dispatch(
+      const response = await dispatch(
         createLineItem({
           ProductID: product.ID,
           Quantity: quantity,
           Specs: specValues,
+          xp: {
+            StatusByQuantity: {
+              Submitted: quantity,
+              Open: 0,
+              Backordered: 0,
+              Canceled: 0,
+              CancelRequested: 0,
+              CancelDenied: 0,
+              Returned: 0,
+              ReturnRequested: 0,
+              ReturnDenied: 0,
+              Complete: 0,
+            },
+          },
         })
       );
-      dispatchDiscoverAddToCartEvent(product, quantity);
       setIsLoading(false);
+
+      dispatchDiscoverAddToCartEvent(product, quantity);
+
+      // TODO: Move building the event payload to CdpService, maybe using a mapper.
+      // Retrieve the lineitem that was just created
+      const resPayload: { LineItems?: LineItem[] } = response?.payload;
+      const sameProductLineItems = resPayload?.LineItems.filter(
+        (item) => item.ProductID === product.ID
+      );
+      const lineItem = sameProductLineItems[sameProductLineItems.length - 1];
+      const addToCartPayload: AddToCartPayload = {
+        product: {
+          type: lineItem.Product.xp.ProductType.toUpperCase(),
+          item_id: lineItem.Variant?.ID || lineItem.ProductID,
+          name: lineItem.Product.Name,
+          orderedAt: new Date().toISOString(),
+          quantity: quantity,
+          price: lineItem.UnitPrice,
+          productId: lineItem.ProductID,
+          currency: 'USD',
+          referenceId: lineItem.ID,
+        },
+      };
+      logAddToCart(addToCartPayload);
     },
     [dispatch, product, specValues, quantity]
   );
@@ -266,16 +307,28 @@ const ProductDetailsContent = ({
     </div>
   );
 
+  const productName = initialLoading ? <Skeleton width={300} /> : product?.Name;
+  const productBrand = initialLoading ? <Skeleton width={300} /> : product?.xp?.Brand;
+
+  const productBreadcrumb = initialLoading ? (
+    <Skeleton width={300} />
+  ) : product ? (
+    <ProductBreadcrumb
+      productName={product.Name}
+      productUrl={product.xp?.ProductUrl}
+      ccid={product.xp?.CCID}
+    />
+  ) : null;
+
   const productDetails =
     loading || product ? (
       <section className="section">
         <div className="shop-container">
           <div className="product-details">
             <div className="product-details-hero">
-              <h2 className="product-name">
-                {/* TODO: Extract JSX logic into a const */}
-                {initialLoading ? <Skeleton width={300} /> : product && product.Name}
-              </h2>
+              <div className="product-breadcrumb">{productBreadcrumb}</div>
+              <h2 className="product-name">{productName}</h2>
+              <h3 className="product-brand">{productBrand}</h3>
               <ProductImage images={productImageProps} loading={initialLoading} />
               <div className="product-description">
                 <form onSubmit={handleAddToCart}>

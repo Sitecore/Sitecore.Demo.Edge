@@ -1,0 +1,17 @@
+div.shop-main-container .section.payment-methods-form-section {
+  @apply pt-0;
+}
+
+.payment-methods-form-section {
+  h1 {
+    @apply text-2xl font-bold mb-5;
+  }
+
+  .form-wrapper {
+    @apply max-w-[440px] mx-auto;
+
+    .button-area {
+      @apply text-right;
+    }
+  }
+}

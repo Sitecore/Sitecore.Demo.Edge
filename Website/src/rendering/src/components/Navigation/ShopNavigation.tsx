@@ -18,12 +18,17 @@ export type ShopNavigationProps = {
 };
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
+  const { lineItems } = useOcCurrentCart();
+
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
-  const { lineItems } = useOcCurrentCart();
+  const closeMinicart = () => setIsMiniCartOpen(false);
+  ClickOutside([miniCartRef], closeMinicart);
 
   const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
   const accountPopupRef = useRef(null);
+  const closeAccountPopup = () => setIsAccountPopupOpen(false);
+  ClickOutside([accountPopupRef], closeAccountPopup);
 
   // TODO: Remove conditions from JSX
   const accountMenuItem = isAuthenticationEnabled && (
@@ -35,17 +40,10 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
         <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
       </button>
       <div className={`account-popup-wrapper ${isAccountPopupOpen && 'open'}`}>
-        <AccountPopup />
+        <AccountPopup onNavigatingAway={closeAccountPopup} />
       </div>
     </li>
   );
-
-  const closeMinicart = () => setIsMiniCartOpen(false);
-  ClickOutside(miniCartRef, closeMinicart);
-
-  ClickOutside(accountPopupRef, () => {
-    setIsAccountPopupOpen(false);
-  });
 
   // TODO: Try to remove code duplication here and in LineItemList.tsx
   const dispatchDiscoverCartStatusListActionEvent = () => {

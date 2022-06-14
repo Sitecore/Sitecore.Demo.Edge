@@ -1,19 +1,23 @@
 .order-review-details {
   @apply mb-5;
 
-  &.shop-container {
-    @apply px-0;
-    @apply sm:px-5;
-  }
-
   h1 {
-    @apply text-2xl font-bold mb-3 px-5;
+    @apply text-2xl font-bold overflow-hidden text-ellipsis;
     @apply sm:px-0;
   }
 
+  .order-date {
+    @apply text-black-lightest;
+  }
+
+  .order-status {
+    @apply relative -right-5 float-right clear-left text-white text-xs px-3 py-0.5;
+    @apply sm:static;
+  }
+
   .grid-container {
-    @apply grid grid-cols-1 gap-4;
-    @apply sm:grid-cols-2;
+    @apply grid grid-cols-1 gap-4 mt-3 -mx-5;
+    @apply sm:grid-cols-2 sm:mx-0;
 
     .panel {
       @apply bg-white h-[max-content];

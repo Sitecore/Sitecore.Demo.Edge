@@ -10,15 +10,20 @@ import Spinner from '../../components/ShopCommon/Spinner';
 
 type CreditCardFormProps = {
   creditCard?: DBuyerCreditCard;
-  onSubmit?: (payment: DBuyerCreditCard) => void;
+  onSubmit?: (payment: DBuyerCreditCard, fullCardNumber: string) => void;
+  isEditing?: boolean;
+  onCancelEdit?: () => void;
   loading?: boolean;
+  fullCardNumber?: string;
 };
 
 const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
   const [cardholderName, setCardholderName] = useState(
     props?.creditCard?.ID ? props?.creditCard?.CardholderName || '' : 'John Smith' // TODO: remove mocked data once we have saved credit cards
   );
-  const [cardNumber, setCardNumber] = useState(props?.creditCard?.ID ? '' : '4111111111111111'); // TODO: remove mocked data once we have saved credit cards
+  const [cardNumber, setCardNumber] = useState(
+    props?.fullCardNumber ? props.fullCardNumber : props.creditCard ? '' : '4111111111111111'
+  ); // TODO: remove mocked data once we have saved credit cards
   const [expirationMonth, setExpirationMonth] = useState(
     getMonthFromIsoDateString(
       props?.creditCard?.ID ? props?.creditCard?.ExpirationDate : getMockExpirationDate() // TODO: remove mocked data once we have saved credit cards
@@ -52,9 +57,15 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
     };
 
     if (props.onSubmit) {
-      props.onSubmit(updatedCreditCard);
+      props.onSubmit(updatedCreditCard, cardNumber);
     }
   };
+
+  const cancelEditButton = props.isEditing && (
+    <button className="cancel-edit" onClick={props.onCancelEdit}>
+      Cancel
+    </button>
+  );
 
   return (
     <form onSubmit={handleFormSubmit} className="form creditcard-form">
@@ -118,8 +129,9 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
         </div>
       </div>
       <div className="button-area">
+        {cancelEditButton}
         <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
-          <Spinner loading={props.loading} /> Save
+          <Spinner loading={props.loading} /> Save payment method
         </button>
       </div>
     </form>

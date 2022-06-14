@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { trackPDPViewEvent } from '@sitecore-discover/react';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
-import { logViewEvent } from '../../services/CdpService';
 import ProductDetailsContent from './ProductDetailsContent';
 
 const ProductDetails = (): JSX.Element => {
@@ -16,10 +16,13 @@ const ProductDetails = (): JSX.Element => {
   const { product, loading, specs, variants } = useOcProductDetail(sku?.toString());
 
   useEffect(() => {
-    if (sku) {
-      logViewEvent();
+    const productSku = variantID || sku;
+    if (!productSku) {
+      return;
     }
-  }, [sku]);
+
+    trackPDPViewEvent(productSku);
+  }, [sku, variantID]);
 
   return (
     <ProductDetailsContent

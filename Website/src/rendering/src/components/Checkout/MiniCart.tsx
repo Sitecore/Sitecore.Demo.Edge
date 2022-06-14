@@ -3,6 +3,7 @@ import { DLineItem } from '../../models/ordercloud/DLineItem';
 import Link from 'next/link';
 import MiniCartItem from './MiniCartItem';
 import { getItemsCount } from '../../helpers/LineItemsHelpers';
+import useOcAuth from '../../hooks/useOcAuth';
 
 type MinicartProps = {
   onNavigatingAway: () => void;
@@ -10,6 +11,10 @@ type MinicartProps = {
 
 const MiniCart = ({ onNavigatingAway }: MinicartProps): JSX.Element => {
   const { lineItems, order } = useOcCurrentCart();
+  const { isAnonymous, isAuthenticated } = useOcAuth();
+
+  const nextStepLink =
+    !isAnonymous && isAuthenticated ? '/shop/checkout/checkout' : '/shop/checkout/anonymous';
 
   const cartContent =
     lineItems && lineItems.length ? (
@@ -33,7 +38,7 @@ const MiniCart = ({ onNavigatingAway }: MinicartProps): JSX.Element => {
                 View full cart
               </a>
             </Link>
-            <Link href="/shop/checkout/checkout">
+            <Link href={nextStepLink}>
               <a className="btn--main btn--main--round" onClick={onNavigatingAway}>
                 Proceed to checkout
               </a>

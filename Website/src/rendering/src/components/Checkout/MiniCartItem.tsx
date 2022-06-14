@@ -58,13 +58,12 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
   return (
     <li>
       {btnRemove}
-      <Link href="#">
-        {/* TODO: get url from ordercloud data once implemented */}
+      <Link href={props.lineItem.Product.xp?.ProductUrl}>
         <a className="mini-cart-list-item">
           <div className="item-image">{productImage}</div>
           <div className="item-details">
             <h4 className="item-name">{props.lineItem.Product.Name}</h4>
-            <p>Brand</p> {/* TODO: get brand from ordercloud data once implemented */}
+            <p>{props.lineItem.Product.xp?.Brand}</p>
             {getProductSpecs()}
             <p>Quantity: {props.lineItem.Quantity}</p>
             <p className="item-price">${props.lineItem.LineSubtotal}</p>
