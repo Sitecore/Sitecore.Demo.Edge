@@ -1,4 +1,12 @@
 # Build Sitecoredemo Docker images
+schedules:
+  - cron: "0 0 * * *"
+    displayName: "Nightly build of develop"
+    branches:
+     include:
+       - develop
+    always: true
+
 trigger:
   branches:
     include:
