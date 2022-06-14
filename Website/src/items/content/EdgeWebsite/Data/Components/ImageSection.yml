@@ -1,8 +1,8 @@
 ﻿---
-ID: "d1ab9838-2505-488f-acf9-d30ec4a60144"
+ID: "ce3ddd1a-7b21-4d21-9633-978a7da279c4"
 Parent: "58a24f8c-f3f1-58b9-b895-2cb0007929e2"
 Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/Data/Components/TextBlockSection
+Path: /sitecore/content/EdgeWebsite/Data/Components/ImageSection
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
@@ -11,7 +11,7 @@ SharedFields:
   Hint: __Masters
   Value: |
     {A87A00B1-E6DB-45AB-8B54-636FEC3B5523}
-    {7A31FD2F-1CB7-49B7-B4CB-45CA53CAF498}
+    {03FC0B9E-760D-421B-91AE-CF0C1EFCC0D1}
 Languages:
 - Language: en
   Versions:
@@ -30,11 +30,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f01addd6-d5a4-4cd9-83ed-7d31cf49108a"
+      Value: "ff352c3b-a82c-4873-931f-0bdd7db84695"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220614T135704Z
+      Value: 20220614T135642Z
