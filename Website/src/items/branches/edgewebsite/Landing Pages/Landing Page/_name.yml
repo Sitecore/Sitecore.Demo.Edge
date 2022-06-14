@@ -3,6 +3,43 @@ ID: "334381c6-5e46-4c2e-9a7c-85341d11293d"
 Parent: "f97c8089-8e9b-4e2a-8063-ca2b479572ed"
 Template: "077d35d0-1c1e-44f6-9cef-4a1738e27cb4"
 Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Pages/Landing Page/$name
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{40EDE4AF-30BC-47F7-AE0D-6AFCDC080123}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:ds="{AB4AA98A-E32E-4648-B368-E88A8AC0760A}"
+          s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{E21AF64C-41F3-433B-AAD2-036F863CCA83}"
+          p:after="r[@uid='{40EDE4AF-30BC-47F7-AE0D-6AFCDC080123}']"
+          s:ds="{C9C9160A-218C-4D2A-9652-F6415D7C8393}"
+          s:id="{D50F4443-1EC3-432E-9AF0-15B668E096F0}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{EB972DC5-4BE3-434D-9D3B-85BA469D9596}"
+          p:after="r[@uid='{E21AF64C-41F3-433B-AAD2-036F863CCA83}']"
+          s:ds="{4E43B950-D66E-48AA-A9D4-461855FA6FE2}"
+          s:id="{3C4CC858-7C6A-42B4-9FB3-7107FB4141EB}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}"
+          p:after="*[1=2]" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -21,11 +58,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4693c963-fe46-4f95-a50e-4ced33e476ef"
+      Value: "8bcc7630-5d6f-4d2a-811b-4760fba84bde"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T154937Z
+      Value: 20220614T151640Z

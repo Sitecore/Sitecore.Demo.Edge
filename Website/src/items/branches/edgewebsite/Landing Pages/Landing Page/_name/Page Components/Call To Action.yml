@@ -1,0 +1,35 @@
+﻿---
+ID: "4e43b950-d66e-48aa-a9d4-461855fa6fe2"
+Parent: "b3eba192-1c26-4054-8ad7-068475247376"
+Template: "b89185d8-ce03-4e87-8e86-a1fb9885a8e7"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Pages/Landing Page/$name/Page Components/Call To Action
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220614T151521Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "874fc5ec-d677-4ab0-8c32-01683556f571"
+      Hint: CallToAction
+      Value: |
+        <link text="Learn more" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "574bab05-1aca-48b6-a9c8-945378171a9b"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220614T151826Z

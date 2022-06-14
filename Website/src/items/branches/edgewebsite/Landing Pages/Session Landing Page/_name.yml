@@ -7,6 +7,44 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: Office/32x32/window_earth.png
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{89CCC433-352C-4507-AB74-0A659ED821D5}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:ds="{B0E6C90B-A491-477E-9C5F-FA6D3D327FE5}"
+          s:id="{722F323F-2610-4448-B7E1-1ABFAB9239AA}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{2B2CF7DD-9A2B-4EA7-9A01-D2C996B4B8FD}"
+          p:after="r[@uid='{89CCC433-352C-4507-AB74-0A659ED821D5}']"
+          s:id="{4BD997F5-322C-4F2D-B44B-B6689A8A79BD}"
+          s:ph="/jss-main" />
+        <r
+          uid="{655803BC-320F-47CD-B50E-B6C5B8BA4581}"
+          p:after="r[@uid='{2B2CF7DD-9A2B-4EA7-9A01-D2C996B4B8FD}']"
+          s:ds="{AF22EB43-1187-4B91-B229-9FF67EF21B7B}"
+          s:id="{D50F4443-1EC3-432E-9AF0-15B668E096F0}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{C059B54C-A8DE-4EDF-AA2E-9C218EA304E8}"
+          p:after="r[@uid='{655803BC-320F-47CD-B50E-B6C5B8BA4581}']"
+          s:id="{C0690F97-3F4F-4536-9AE7-C5F701403D64}"
+          s:ph="/jss-main" />
+        <r
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}"
+          p:after="*[1=2]" />
+      </d>
+    </r>
 Languages:
 - Language: en
   Versions:
@@ -25,11 +63,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9254b65a-efa8-4b1f-b895-86305ad560e9"
+      Value: "185cac6c-d3f7-4e0a-8588-199192593eee"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220613T155434Z
+      Value: 20220614T152207Z

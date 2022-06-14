@@ -1,0 +1,31 @@
+﻿---
+ID: "b0e6c90b-a491-477e-9c5f-fa6d3d327fe5"
+Parent: "d2731e0a-3756-4aa0-a6cd-3be0fba44e85"
+Template: "03fc0b9e-760d-421b-91ae-cf0c1efcc0d1"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Pages/Session Landing Page/$name/Page Components/Image
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220614T152116Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "69ab36ee-6d62-4cfe-b738-036f9b11888f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220614T152116Z
