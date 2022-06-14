@@ -1,6 +1,6 @@
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { removeBillingAddress, saveBillingAddress } from '../../redux/ocCurrentCart';
+import { saveBillingAddress } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 import { useEffect, useState } from 'react';
 import { isSameAddress } from '../../helpers/AddressHelper';
@@ -22,7 +22,6 @@ const PanelBillingAddress = (): JSX.Element => {
   const [activeAddressId, setActiveAddressId] = useState(
     billingAddress?.ID && !isSameAsBilling ? billingAddress.ID : ''
   );
-  const [tempAddress, setTempAddress] = useState({} as DBuyerAddress); // saves address prior to unchecking "same as billing" so we can revert to last saved address if necessary
   const { saveAddress, addresses } = useOcAddressBook({
     pageSize: 10,
     filters: { Editable: true }, // personal addresses
@@ -31,16 +30,18 @@ const PanelBillingAddress = (): JSX.Element => {
   const isShipOrder = order?.xp?.DeliveryType === 'Ship';
 
   useEffect(() => {
-    setIsSameAsBilling(
-      Boolean(billingAddress && shippingAddress && isSameAddress(billingAddress, shippingAddress))
-    );
+    const updatedIsSameAsBilling = isSameAddress(billingAddress, shippingAddress);
+    setIsSameAsBilling(updatedIsSameAsBilling);
+    setActiveAddressId(updatedIsSameAsBilling ? '' : billingAddress?.ID);
   }, [billingAddress, shippingAddress]);
 
-  useEffect(() => {
-    setActiveAddressId(billingAddress?.ID && !isSameAsBilling ? billingAddress.ID : '');
-  }, [billingAddress, isSameAsBilling]);
-
-  let allAddresses = [...addresses];
+  let allAddresses = [...addresses].filter((address) => {
+    // if "Same as billing" is selected, then hide the associated billing address from the list
+    if (!isSameAsBilling) {
+      return true;
+    }
+    return address?.ID !== shippingAddress?.ID;
+  });
   if (billingAddress && !billingAddress.ID) {
     // include one time address
     allAddresses = [...allAddresses, billingAddress];
@@ -48,7 +49,9 @@ const PanelBillingAddress = (): JSX.Element => {
 
   const handleSetBillingAddress = async (address: DBuyerAddress) => {
     setLoading(true);
-    setActiveAddressId(address?.ID);
+    const updatedIsSameAsBilling = isSameAddress(address, shippingAddress);
+    setIsSameAsBilling(updatedIsSameAsBilling);
+    setActiveAddressId(updatedIsSameAsBilling ? '' : address?.ID);
     await dispatch(saveBillingAddress(address));
     setLoading(false);
   };
@@ -62,24 +65,7 @@ const PanelBillingAddress = (): JSX.Element => {
   };
 
   const handleSameAsShipping = async () => {
-    const shouldUseSameAsBilling = !isSameAsBilling;
-    setIsSameAsBilling(shouldUseSameAsBilling);
-    if (shouldUseSameAsBilling) {
-      setTempAddress(billingAddress);
-      await handleSetBillingAddress(shippingAddress);
-    } else {
-      if (
-        tempAddress?.Street1 &&
-        tempAddress?.City &&
-        tempAddress?.State &&
-        tempAddress?.Zip &&
-        tempAddress?.Country
-      ) {
-        await handleSetBillingAddress(tempAddress);
-      } else {
-        dispatch(removeBillingAddress());
-      }
-    }
+    await handleSetBillingAddress(shippingAddress);
   };
 
   const sameAsShippingClasses = ['info-card'];
