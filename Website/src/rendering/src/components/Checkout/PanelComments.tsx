@@ -24,7 +24,6 @@ const PanelComments = (): JSX.Element => {
               id="order-comments"
               rows={3}
               defaultValue={order?.Comments}
-              // TODO: Investigate if we need to disable the "Review order" button while the comment is being saved
               onBlur={(event) => updateComments(event.target.value)}
             ></textarea>
           </div>

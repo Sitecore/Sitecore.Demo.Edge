@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import Head from 'next/head';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import ShopNavigation from '../Navigation/ShopNavigation';
@@ -9,10 +9,20 @@ import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
 import { DiscoverService } from '../../services/DiscoverService';
+import { logViewEvent } from '../../services/CdpService';
 
 DiscoverService();
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  useEffect(() => {
+    // Log a CDP page view on route change
+    const pushState = history.pushState;
+    history.pushState = (...rest) => {
+      pushState.apply(history, rest);
+      logViewEvent();
+    };
+  }, []);
+
   const footerProps = {
     fields: {
       data: {

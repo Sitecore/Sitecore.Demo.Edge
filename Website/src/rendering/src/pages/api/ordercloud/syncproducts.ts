@@ -1,8 +1,103 @@
 import { NextApiHandler } from 'next';
-import * as OrderCloudSDK from 'ordercloud-javascript-sdk';
 import * as fs from 'fs';
 import csv from 'csvtojson';
 import path from 'path';
+import {
+  Auth,
+  Buyers,
+  Catalogs,
+  Configuration,
+  PriceSchedules,
+  Products,
+  Specs,
+  Tokens,
+  Variant,
+} from 'ordercloud-javascript-sdk';
+import {
+  PUBLIC_BUYER_NAME,
+  PUBLIC_HEADSTART_CATALOG_ID,
+  PROFILED_BUYER_NAME,
+  PROFILED_HEADSTART_CATALOG_ID,
+} from '../../../constants/seeding';
+
+// TODO: the part that creates products and the part that assigns them are coupled
+// it would be ideal to only create products once, and then assign the created products to
+// profiled and public buyer separately
+const handler: NextApiHandler<unknown> = async (request, response) => {
+  const middlewareClientID = request.query?.MiddlewareClientID as string;
+  const middlewareClientSecret = request.query?.MiddlewareClientSecret as string;
+
+  if (!middlewareClientID) {
+    return response.status(400).json({ Error: 'Missing required parameter MiddlewareClientID' });
+  }
+  if (!middlewareClientSecret) {
+    return response
+      .status(400)
+      .json({ Error: 'Missing required parameter MiddlewareClientSecret' });
+  }
+
+  try {
+    // First we need to authenticate
+    Configuration.Set({
+      baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
+    });
+    const authResponse = await Auth.ClientCredentials(middlewareClientSecret, middlewareClientID, [
+      'FullAccess',
+    ]);
+    Tokens.SetAccessToken(authResponse.access_token);
+
+    const buyersList = await Buyers.List({
+      filters: { Name: `${PUBLIC_BUYER_NAME}|${PROFILED_BUYER_NAME}` },
+    });
+
+    // Create products for profiled buyer
+    const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
+    await postProducts(
+      profiledBuyer.DefaultCatalogID,
+      profiledBuyer.ID,
+      PROFILED_HEADSTART_CATALOG_ID
+    );
+
+    // Create products for public buyer
+    const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
+    await postProducts(publicBuyer.DefaultCatalogID, publicBuyer.ID, PUBLIC_HEADSTART_CATALOG_ID);
+
+    return response.status(200).json('Products synced successfully');
+    /* eslint-disable-next-line */
+  } catch (error: any) {
+    if (error.isOrderCloudError) {
+      // the request was made and the API responded with a status code
+      // that falls outside of the range of 2xx, the error will be of type OrderCloudError
+      // https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/orderclouderror
+      const message = error.message;
+      const errors = JSON.stringify(error.errors, null, 4);
+      const requestUrl = `${error.request.method} ${process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL}${error.request.path}`;
+      console.log('-------ERROR-------');
+      console.log(requestUrl);
+      console.log(message);
+      console.log(errors);
+      console.log('-----END ERROR-----');
+      return response.status(500).json({
+        RequestUrl: requestUrl,
+        Message: message,
+        Errors: errors,
+      });
+    } else if (error.request) {
+      // the request was made but no response received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
+      console.log(error.request);
+      return response.status(500).json({
+        Message: `An unknown error occurred (no response) while making a request to ${error.request.url}`,
+      });
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message);
+      return response.status(500).json({
+        Message: `An error occurred wile setting up an http request that triggered an error. ${error.message}`,
+      });
+    }
+  }
+};
 
 type ProductRow = {
   product_group: string;
@@ -26,7 +121,7 @@ type VariantRow = {
   size: string;
 };
 
-async function postProducts() {
+async function postProducts(catalogID: string, buyerID: string, headstartCatalogID: string) {
   const csvStr = fs.readFileSync(
     path.join(__dirname + '/../../../../../discover-feeds/playsummit_product_feed.csv'),
     {
@@ -46,7 +141,7 @@ async function postProducts() {
     if (row.product_group !== row.sku) {
       // First time we encounter a variant of that product so we process it
       if (!productIdToVariantRowsMap.has(row.product_group)) {
-        await processSingleProduct(row);
+        await processSingleProduct(row, catalogID, buyerID, headstartCatalogID);
 
         // Initialize the map entry
         productIdToVariantRowsMap.set(row.product_group, []);
@@ -59,7 +154,7 @@ async function postProducts() {
       ]);
     } else {
       // Normal product without variants
-      productPromises.push(() => processSingleProduct(row));
+      productPromises.push(() => processSingleProduct(row, catalogID, buyerID, headstartCatalogID));
     }
   }
 
@@ -72,10 +167,15 @@ async function postProducts() {
   // Update the variants (IDs, imageUrls)
   await updateVariants(productIdToVariantRowsMap);
 
-  return await Promise.allSettled(productPromises.map((productPromise) => productPromise()));
+  return await Promise.all(productPromises.map((productPromise) => productPromise()));
 }
 
-async function processSingleProduct(row: ProductRow) {
+async function processSingleProduct(
+  row: ProductRow,
+  catalogID: string,
+  buyerID: string,
+  headstartCatalogID: string
+) {
   // Post price schedule
   const priceScheduleRequest = {
     ID: row.product_group,
@@ -87,7 +187,8 @@ async function processSingleProduct(row: ProductRow) {
       },
     ],
   };
-  await OrderCloudSDK.PriceSchedules.Save(priceScheduleRequest.ID, priceScheduleRequest);
+  console.log(`Creating price schedule for ${row.product_group}`);
+  await PriceSchedules.Save(priceScheduleRequest.ID, priceScheduleRequest);
 
   const additionalImageUrls: { Url: string; ThumbnailUrl: string }[] =
     row.additional_image_urls.length > 0
@@ -123,7 +224,19 @@ async function processSingleProduct(row: ProductRow) {
       CCID: row.ccids.split('|')?.[0],
     },
   };
-  await OrderCloudSDK.Products.Save(productRequest.ID, productRequest);
+  console.log(`Creating product schedule for ${row.product_group}`);
+  const createdProduct = await Products.Save(productRequest.ID, productRequest);
+  console.log(`Assigning product ${row.product_group} to catalog ${catalogID}`);
+  await Catalogs.SaveProductAssignment({
+    CatalogID: catalogID,
+    ProductID: createdProduct.ID,
+  });
+  console.log(`Assigning product ${row.product_group} to headstart catalog ${headstartCatalogID}`);
+  await Products.SaveAssignment({
+    ProductID: createdProduct.ID,
+    BuyerID: buyerID,
+    UserGroupID: headstartCatalogID,
+  });
 }
 
 async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
@@ -137,8 +250,10 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>)
       let specOptionListOrder = 1;
 
       if (productIdToVariantRowsMap.get(productId)[0][specName.toLowerCase() as keyof VariantRow]) {
-        await OrderCloudSDK.Specs.Save(`${productId}-${specName}`, {
-          ID: `${productId}-${specName}`,
+        const specID = `${productId}-${specName}`;
+        console.log(`Creating spec with ID ${specID}`);
+        await Specs.Save(`${productId}-${specName}`, {
+          ID: specID,
           Name: specName,
           Required: true,
           DefinesVariant: true,
@@ -178,7 +293,8 @@ async function createSpecOption(
   variantRow: VariantRow,
   listOrder: number
 ) {
-  await OrderCloudSDK.Specs.SaveOption(
+  console.log(`Saving spec option ${`${productId}-${specName}`} to product ${productId}`);
+  await Specs.SaveOption(
     `${productId}-${specName}`,
     `${productId}-${specName}-${variantRow[specName.toLowerCase() as keyof typeof variantRow]}`,
     {
@@ -192,8 +308,10 @@ async function createSpecOption(
 }
 
 async function createSpecProductAssignment(productId: string, specName: string) {
-  await OrderCloudSDK.Specs.SaveProductAssignment({
-    SpecID: `${productId}-${specName}`,
+  const specID = `${productId}-${specName}`;
+  console.log(`Assigning spec ${specID} to ${productId}`);
+  await Specs.SaveProductAssignment({
+    SpecID: specID,
     ProductID: productId,
   });
 }
@@ -202,7 +320,8 @@ async function generateVariants(productIdToVariantRowsMap: Map<string, VariantRo
   const productIds = productIdToVariantRowsMap.keys();
   for (const productId of productIds) {
     // Generate the variants for this specific product
-    await OrderCloudSDK.Products.GenerateVariants(productId, { overwriteExisting: true });
+    console.log(`Generating variants for ${productId}`);
+    await Products.GenerateVariants(productId, { overwriteExisting: true });
   }
 }
 
@@ -210,9 +329,9 @@ async function updateVariants(productIdToVariantRowsMap: Map<string, VariantRow[
   const productIds = productIdToVariantRowsMap.keys();
   for (const productId of productIds) {
     // Retrieve the variants for this specific product
-    let productVariants: OrderCloudSDK.Variant[] = [];
+    let productVariants: Variant[] = [];
     // Variants are returned in reverse order than the one that appears in the product feed
-    productVariants = (await OrderCloudSDK.Products.ListVariants(productId))?.Items;
+    productVariants = (await Products.ListVariants(productId))?.Items;
 
     // Update the variants (IDs, imageUrls) of this specific product
     for (const variant of productVariants) {
@@ -225,7 +344,8 @@ async function updateVariants(productIdToVariantRowsMap: Map<string, VariantRow[
             }))
           : [];
 
-      await OrderCloudSDK.Products.PatchVariant(productId, variant.ID, {
+      console.log(`Updating variant ${variant.ID} for product ${productId}`);
+      await Products.PatchVariant(productId, variant.ID, {
         ID: variantRow.sku,
         xp: {
           Images: [
@@ -241,30 +361,5 @@ async function updateVariants(productIdToVariantRowsMap: Map<string, VariantRow[
     }
   }
 }
-
-const handler: NextApiHandler<unknown> = async (_request, response) => {
-  try {
-    await postProducts();
-
-    return response.status(200).json('Products synced successfully');
-    /* eslint-disable-next-line */
-  } catch (error: any) {
-    if (error.isOrderCloudError) {
-      // the request was made and the API responded with a status code
-      // that falls outside of the range of 2xx, the error will be of type OrderCloudError
-      // https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/orderclouderror
-      console.log(error.message);
-      console.log(JSON.stringify(error.errors, null, 4));
-    } else if (error.request) {
-      // the request was made but no response received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of http.ClientRequest in node.js
-      console.log(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.log('Error', error.message);
-    }
-    return response.status(500).json(error);
-  }
-};
 
 export default handler;

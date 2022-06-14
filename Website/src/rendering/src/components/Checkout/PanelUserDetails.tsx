@@ -21,7 +21,6 @@ const PanelUserDetails = (props: guestEmailProps): JSX.Element => {
               type="email"
               defaultValue={props.email ? props.email : ''}
               required
-              // TODO: Investigate if we need to disable the "Review order" button while the email is being saved
               onBlur={(event) => props.setOrderEmail(event.target.value)}
             ></input>
           </div>

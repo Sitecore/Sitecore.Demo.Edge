@@ -20,7 +20,7 @@ export interface OcAddressListOptions {
 }
 
 const useOcAddressBook = (
-  listOptions: OcAddressListOptions
+  listOptions?: OcAddressListOptions
 ): {
   addressBookLoading: boolean;
   addresses: DBuyerAddress[];

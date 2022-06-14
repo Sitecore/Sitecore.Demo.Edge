@@ -63,13 +63,8 @@ export const updateCreditCardPayment = createOcAsyncThunk<
   RequiredDeep<DPayment>[],
   DBuyerCreditCard
 >('ocCurrentCart/updateCreditCardPayment', async (creditCard, ThunkAPI) => {
-  const { ocCurrentCart, ocAuth } = ThunkAPI.getState();
+  const { ocCurrentCart } = ThunkAPI.getState();
   const order = ocCurrentCart.order;
-  if (!ocAuth.isAnonymous) {
-    creditCard = creditCard.ID
-      ? await Me.SaveCreditCard(creditCard.ID, creditCard)
-      : await Me.CreateCreditCard(creditCard);
-  }
   const payment: DPayment = {
     Type: 'CreditCard',
     CreditCardID: creditCard?.ID,
@@ -212,7 +207,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
     }
 
     // Determine if the line item is already in the cart
-    const lineItemAlreadyInCart = ocCurrentCart.lineItems.find((lineItem: LineItem) => {
+    const lineItemAlreadyInCart = ocCurrentCart.lineItems?.find((lineItem: LineItem) => {
       if (
         lineItem.ProductID != request.ProductID ||
         lineItem.Specs.length !== request.Specs.length
@@ -231,6 +226,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
       await LineItems.Create<DLineItem>('All', orderId, request);
     } else {
       request.Quantity += lineItemAlreadyInCart.Quantity;
+      request.xp.StatusByQuantity.Submitted += lineItemAlreadyInCart.Quantity;
       await LineItems.Patch<DLineItem>('All', orderId, lineItemAlreadyInCart.ID, request);
     }
 
