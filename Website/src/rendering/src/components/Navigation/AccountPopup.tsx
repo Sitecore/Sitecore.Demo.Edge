@@ -5,9 +5,9 @@ import useOcAuth from '../../hooks/useOcAuth';
 import {
   clearAuthenticationTokens,
   isAuthenticationEnabled,
-  getLoginUrl,
   logoutUrl,
 } from '../../services/AuthenticationService';
+import OrderCloudLoginLink from '../ShopCommon/OrderCloudLoginLink';
 
 type AccountPopupProps = {
   onNavigatingAway: () => void;
@@ -26,13 +26,19 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
 
   const guestMenuItems = !isUserLoggedIn && (
     <>
-      <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn--secondary btn--secondary--light btn--secondary--round">Login</a>
-      </Link>
+      <OrderCloudLoginLink
+        className="btn--secondary btn--secondary--light btn--secondary--round"
+        redirectToPathOnLogin={router.asPath}
+      >
+        Login
+      </OrderCloudLoginLink>
       {/* TODO: Replace with signup url when available */}
-      <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn--main btn--main--round">Register</a>
-      </Link>
+      <OrderCloudLoginLink
+        className="btn--main btn--main--round"
+        redirectToPathOnLogin={router.asPath}
+      >
+        Register
+      </OrderCloudLoginLink>
     </>
   );
 

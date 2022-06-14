@@ -5,7 +5,7 @@ import ShopNavigation from '../../components/Navigation/ShopNavigation';
 import { DiscoverService } from '../../services/DiscoverService';
 import { mockDiscoverData } from '../mock-discover-data';
 import { MockStore } from '../mock-store';
-import { cartSlice } from '../Checkout/CheckoutCommon';
+import { anonymousAuthSlice, cartSlice } from '../Checkout/CheckoutCommon';
 
 export default {
   title: 'Components/Navigation/ShopNavigation',
@@ -24,7 +24,7 @@ Default.args = {
 };
 Default.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={cartSlice}>
+    <MockStore sliceOrSlices={[cartSlice, anonymousAuthSlice]}>
       <Story />
     </MockStore>
   ),
