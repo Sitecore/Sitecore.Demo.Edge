@@ -1,6 +1,4 @@
 .footer__content {
-  @include content;
-
   a {
     @apply text-gray-lighter;
     @apply hover:text-yellow;
