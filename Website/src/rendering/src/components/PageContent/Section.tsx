@@ -20,19 +20,19 @@ type SectionProps = ComponentWithChildrenProps & {
 
 const Section = (props: SectionProps): JSX.Element => {
   const brighnessCssClass = props.fields?.brightness?.value
-    ? `section--${props.fields.brightness.value}`
+    ? `section-${props.fields.brightness.value}`
     : '';
   const customCssClass = props.fields?.cssClass?.value ? props.fields.cssClass.value : '';
   const customContentCssClass = customCssClass ? `${customCssClass}__content` : '';
 
   const sectionCssClasses = `section ${brighnessCssClass} ${customCssClass}`;
-  const sectionContentCssClasses = `section__content ${customContentCssClass} container`;
+  const sectionContentCssClasses = `section-content ${customContentCssClass} container`;
 
   const titleAndContent = props.fields && (
     <>
-      <Text tag="h2" field={props.fields.title} className="section__content__title" />
+      <Text tag="h2" field={props.fields.title} className="section-content-title" />
       {props.fields.content && (
-        <RichText tag="div" field={props.fields.content} className="section__content__p" />
+        <RichText tag="div" field={props.fields.content} className="section-content-p" />
       )}
     </>
   );

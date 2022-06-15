@@ -28,11 +28,11 @@ export type ThreeColumnsSectionProps = ComponentProps & {
 const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element => {
   return (
     <section className="section section--3-col">
-      <div className="section__content section--3-col__content container">
-        <h2 className="section__content__title">
+      <div className="section-content section--3-col__content container">
+        <h2 className="section-content-title">
           <Text field={fields.Title} />
         </h2>
-        <p className="section__content__p">
+        <p className="section-content-p">
           <Text field={fields.Subtitle} />
         </p>
         <div className="section--3-col__content__items">

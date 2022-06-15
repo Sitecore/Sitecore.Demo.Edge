@@ -21,6 +21,6 @@
   }
 }
 
-.section--dark .featured-speakers.item-grid .grid-content .grid-item .item-details {
+.section-dark .featured-speakers.item-grid .grid-content .grid-item .item-details {
   @apply text-white;
 }

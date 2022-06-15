@@ -129,7 +129,7 @@ export const DarkPatternBackground = Template.bind({});
 DarkPatternBackground.args = {
   fields: {
     cssClass: {
-      value: 'section--dark-pattern',
+      value: 'section-dark-pattern',
     },
     brightness: {
       value: 'dark',
@@ -153,7 +153,7 @@ export const LightPatternBackground = Template.bind({});
 LightPatternBackground.args = {
   fields: {
     cssClass: {
-      value: 'section--light-pattern',
+      value: 'section-light-pattern',
     },
     brightness: {
       value: 'light',
