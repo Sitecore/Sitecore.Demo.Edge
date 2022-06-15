@@ -14,6 +14,9 @@ import { TICKETS } from '../models/mock-tickets';
 import { SessionPageFields } from '../types/session';
 import { DLineItem } from '../models/ordercloud/DLineItem';
 import { AddToCartPayload } from '../models/cdp/AddToCartPayload';
+import { OrderCheckoutPayload, OrderItem } from '../models/cdp/OrderCheckoutPayload';
+import { DOrder } from '../models/ordercloud/DOrder';
+import { DPayment } from '../models/ordercloud/DPayment';
 
 export const isCdpConfigured = boxeverIsCdpConfigured;
 
@@ -113,8 +116,39 @@ export function logAddToCart(lineItem: DLineItem, quantity: number): Promise<unk
 /**
  * Logs an ORDER_CHECKOUT event
  */
-export async function logOrderCheckout(payload: Record<string, unknown>): Promise<unknown> {
-  return logEvent('ORDER_CHECKOUT', payload);
+export function logOrderCheckout(
+  order: DOrder,
+  lineItems: DLineItem[],
+  payments: DPayment[]
+): Promise<unknown> {
+  const orderItems: OrderItem[] = [];
+  lineItems.forEach((lineItem) => {
+    orderItems.push({
+      type: lineItem.Product.Name,
+      referenceId: lineItem.ID,
+      orderedAt: new Date(lineItem.DateAdded).toISOString(),
+      status: 'PURCHASED',
+      currencyCode: 'USD',
+      price: lineItem.UnitPrice,
+      name: lineItem.Product.Name,
+      productId: lineItem.ProductID,
+      quantity: lineItem.Quantity,
+    });
+  });
+
+  const orderCheckoutPayload: OrderCheckoutPayload = {
+    order: {
+      orderItems,
+      referenceId: order.ID,
+      orderedAt: new Date(order.DateSubmitted || order.LastUpdated).toISOString(),
+      status: 'PURCHASED',
+      currencyCode: 'USD',
+      price: order.Total, // BUG: The price does not seem to include taxes and shipping
+      paymentType: 'Card',
+      cardType: payments[0].xp?.CreditCard?.CardType,
+    },
+  };
+  return logEvent('ORDER_CHECKOUT', orderCheckoutPayload);
 }
 
 export function getDynamicWelcomeMessage(
