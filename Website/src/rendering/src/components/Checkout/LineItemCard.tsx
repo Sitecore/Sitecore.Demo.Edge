@@ -9,7 +9,6 @@ import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
 import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
 import { getImageUrl } from '../../helpers/LineItemsHelpers';
@@ -57,22 +56,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       );
       setUpdateLoading(false);
 
-      // TODO: Move building the event payload to CdpService, maybe using a mapper.
-      const lineItem = props.lineItem;
-      const addToCartPayload: AddToCartPayload = {
-        product: {
-          type: lineItem.Product.xp.ProductType.toUpperCase(),
-          item_id: lineItem.Variant?.ID || lineItem.ProductID,
-          name: lineItem.Product.Name,
-          orderedAt: new Date().toISOString(),
-          quantity: quantity - lineItem.Quantity,
-          price: lineItem.UnitPrice,
-          productId: lineItem.ProductID,
-          currency: 'USD',
-          referenceId: lineItem.ID,
-        },
-      };
-      logAddToCart(addToCartPayload);
+      logAddToCart(props.lineItem, quantity - props.lineItem.Quantity);
     },
     [dispatch, props.lineItem]
   );
