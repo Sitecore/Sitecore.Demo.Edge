@@ -42,7 +42,8 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const handleRemoveLineItem = useCallback(async () => {
     setRemoveLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
-    // TODO: Log CDP add to cart with a negative quantity equal to the quantity of product removed
+
+    logAddToCart(props.lineItem, -props.lineItem.Quantity);
   }, [dispatch, props.lineItem]);
 
   const handleUpdateQuantity = useCallback(
