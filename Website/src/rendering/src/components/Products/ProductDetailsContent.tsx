@@ -12,7 +12,6 @@ import { PriceReact } from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { logAddToCart } from '../../services/CdpService';
-import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
 import ProductBreadcrumb from '../Navigation/ProductBreadcrumb';
 import { Actions, PageController } from '@sitecore-discover/react';
 import Spinner from '../../components/ShopCommon/Spinner';
@@ -199,27 +198,11 @@ const ProductDetailsContent = ({
 
       dispatchDiscoverAddToCartEvent(product, quantity);
 
-      // TODO: Move building the event payload to CdpService, maybe using a mapper.
       // Retrieve the lineitem that was just created
       const resPayload: { LineItems?: LineItem[] } = response?.payload;
-      const sameProductLineItems = resPayload?.LineItems.filter(
-        (item) => item.ProductID === product.ID
-      );
-      const lineItem = sameProductLineItems[sameProductLineItems.length - 1];
-      const addToCartPayload: AddToCartPayload = {
-        product: {
-          type: lineItem.Product.xp.ProductType.toUpperCase(),
-          item_id: lineItem.Variant?.ID || lineItem.ProductID,
-          name: lineItem.Product.Name,
-          orderedAt: new Date().toISOString(),
-          quantity: quantity,
-          price: lineItem.UnitPrice,
-          productId: lineItem.ProductID,
-          currency: 'USD',
-          referenceId: lineItem.ID,
-        },
-      };
-      logAddToCart(addToCartPayload);
+      const lineItem = resPayload?.LineItems.find((item) => item.ProductID === product.ID);
+
+      logAddToCart(lineItem, quantity);
     },
     [dispatch, product, specValues, quantity]
   );

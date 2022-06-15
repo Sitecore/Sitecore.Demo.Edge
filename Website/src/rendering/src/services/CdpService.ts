@@ -12,6 +12,8 @@ import {
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
 import { SessionPageFields } from '../types/session';
+import { DLineItem } from '../models/ordercloud/DLineItem';
+import { AddToCartPayload } from '../models/cdp/AddToCartPayload';
 
 export const isCdpConfigured = boxeverIsCdpConfigured;
 
@@ -90,8 +92,22 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
 /**
  * Logs an ADD (add to cart) event
  */
-export function logAddToCart(payload: Record<string, unknown>): Promise<unknown> {
-  return logEvent('ADD', payload);
+export function logAddToCart(lineItem: DLineItem, quantity: number): Promise<unknown> {
+  const addToCartPayload: AddToCartPayload = {
+    product: {
+      type: lineItem.Product.xp.ProductType.toUpperCase(),
+      item_id: lineItem.Variant?.ID || lineItem.ProductID,
+      name: lineItem.Product.Name,
+      orderedAt: new Date().toISOString(),
+      quantity: quantity,
+      price: lineItem.UnitPrice,
+      productId: lineItem.ProductID,
+      currency: 'USD',
+      referenceId: lineItem.ID,
+    },
+  };
+
+  return logEvent('ADD', addToCartPayload);
 }
 
 /**
