@@ -143,7 +143,7 @@ export function logOrderCheckout(
       orderedAt: new Date(order.DateSubmitted || order.LastUpdated).toISOString(),
       status: 'PURCHASED',
       currencyCode: 'USD',
-      price: order.Total, // BUG: The price does not seem to include taxes and shipping
+      price: order.Total,
       paymentType: 'Card',
       cardType: payments[0].xp?.CreditCard?.CardType,
     },
