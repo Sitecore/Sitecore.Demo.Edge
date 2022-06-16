@@ -75,7 +75,7 @@ COPY --from=solution /artifacts/src/items/ ./src/items
 
 COPY ./sitecore.json .
 
-RUN dotnet new manifest
+RUN dotnet new tool-manifest
 RUN dotnet nuget add source https://sitecore.myget.org/F/sc-packages/api/v3/index.json --name "Sitecore-Public-Nuget-Feed"
 RUN dotnet tool install --add-source=https://sitecore.myget.org/F/sc-packages/api/v3/index.json sitecore.cli
 
