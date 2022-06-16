@@ -12,6 +12,7 @@ export type SelectedSponsorsGridProps = ComponentProps & {
 const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => {
   const sponsors =
     props?.fields?.Sponsors &&
+    Array.isArray(props.fields.Sponsors) &&
     props.fields.Sponsors.map((sponsor, index) => (
       <Link key={index} href={sponsor.url} passHref>
         <a className="section__sponsors__grid__sponsor">
