@@ -1,4 +1,4 @@
-.btn__area {
+.btn-area {
   @apply flex items-center justify-start bg-[url(../img/btn-background.webp)] bg-cover bg-bottom p-[6%] shadow-[0_0_20px_rgba(0,0,0,0.3)];
 }
 

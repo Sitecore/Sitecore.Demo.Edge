@@ -36,7 +36,7 @@ const TicketGrid = (): JSX.Element => {
       </div>
     ));
 
-  return <section className="container section__tickets">{tickets}</section>;
+  return <section className="container ticket-grid">{tickets}</section>;
 };
 
 export default TicketGrid;

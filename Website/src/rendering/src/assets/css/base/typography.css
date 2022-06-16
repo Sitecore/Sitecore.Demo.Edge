@@ -8,7 +8,7 @@ body {
 /* Large devices (desktops, 62em and up) */
 
 @media (min-width: 62em) {
-  /* @screen lg { - would go from to 1024px */
+  /* @screen lg { - would go from 992 to 1024px */
   html,
   body {
     font-size: 18px;

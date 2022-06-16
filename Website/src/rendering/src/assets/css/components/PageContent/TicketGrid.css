@@ -1,4 +1,4 @@
-.section__tickets {
+.ticket-grid {
   @apply grid grid-cols-1 gap-14 py-14;
   @apply md:grid-cols-2;
   @apply xl:grid-cols-3;

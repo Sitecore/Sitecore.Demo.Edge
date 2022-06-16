@@ -135,7 +135,7 @@
 @import './components/Speakers/SpeakersGrid.css';
 
 /* Sponsors */
-@import './components/Sponsors/SponsorsGrid.css';
+@import './components/Sponsors/SelectedSponsorsGrid.css';
 
 /* Widgets */
 @import './components/Widgets/RecommendedProducts.css';

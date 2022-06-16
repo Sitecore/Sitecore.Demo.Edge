@@ -57,7 +57,7 @@ export const LightSpeakers = Template.bind({});
 LightSpeakers.args = {
   fields: {
     cssClass: {
-      value: 'section__speakers',
+      value: 'section-speakers',
     },
     brightness: {
       value: 'light',
@@ -177,7 +177,7 @@ export const DarkNews = Template.bind({});
 DarkNews.args = {
   fields: {
     cssClass: {
-      value: 'section__news',
+      value: 'section-news',
     },
     brightness: {
       value: 'dark',
