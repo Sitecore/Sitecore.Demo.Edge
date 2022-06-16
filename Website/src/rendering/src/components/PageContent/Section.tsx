@@ -23,7 +23,7 @@ const Section = (props: SectionProps): JSX.Element => {
     ? `section-${props.fields.brightness.value}`
     : '';
   const customCssClass = props.fields?.cssClass?.value ? props.fields.cssClass.value : '';
-  const customContentCssClass = customCssClass ? `${customCssClass}__content` : '';
+  const customContentCssClass = customCssClass ? `${customCssClass}-content` : '';
 
   const sectionCssClasses = `section ${brighnessCssClass} ${customCssClass}`;
   const sectionContentCssClasses = `section-content ${customContentCssClass} container`;

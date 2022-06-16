@@ -58,7 +58,7 @@
       }
     }
 
-    &--pink {
+    &-pink {
       .slanted-spacer {
         @apply bg-pink;
       }
@@ -70,7 +70,7 @@
       }
     }
 
-    &--orange {
+    &-orange {
       .slanted-spacer {
         @apply bg-orange;
       }
@@ -82,7 +82,7 @@
       }
     }
 
-    &--blue {
+    &-blue {
       .slanted-spacer {
         @apply bg-blue;
       }

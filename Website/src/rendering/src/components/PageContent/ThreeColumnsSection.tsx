@@ -27,30 +27,30 @@ export type ThreeColumnsSectionProps = ComponentProps & {
 
 const ThreeColumnsSection = ({ fields }: ThreeColumnsSectionProps): JSX.Element => {
   return (
-    <section className="section section--3-col">
-      <div className="section-content section--3-col__content container">
+    <section className="section three-col-section">
+      <div className="section-content col-content container">
         <h2 className="section-content-title">
           <Text field={fields.Title} />
         </h2>
         <p className="section-content-p">
           <Text field={fields.Subtitle} />
         </p>
-        <div className="section--3-col__content__items">
-          <div className="item item--1">
+        <div className="col-items">
+          <div className="item item-1">
             <Image field={fields.LeftLogo} alt={fields.LeftTitle.value} loading="lazy" />
             <p>
               <Text field={fields.LeftTitle} />
             </p>
             <Link field={fields.LeftLink} />
           </div>
-          <div className="item item--2">
+          <div className="item item-2">
             <Image field={fields.MiddleLogo} alt={fields.MiddleTitle.value} loading="lazy" />
             <p>
               <Text field={fields.MiddleTitle} />
             </p>
             <Link field={fields.MiddleLink} />
           </div>
-          <div className="item item--3">
+          <div className="item item-3">
             <Image field={fields.RightLogo} alt={fields.RightTitle.value} loading="lazy" />
             <p>
               <Text field={fields.RightTitle} />

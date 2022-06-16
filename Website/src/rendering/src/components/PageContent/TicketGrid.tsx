@@ -10,7 +10,7 @@ const TicketGrid = (): JSX.Element => {
     ticketsToDisplay &&
     ticketsToDisplay.length > 0 &&
     ticketsToDisplay.map((ticket, ticketIndex) => (
-      <div className={`ticket-grid-block ticket-grid-block--${ticket.color}`} key={ticketIndex}>
+      <div className={`ticket-grid-block ticket-grid-block-${ticket.color}`} key={ticketIndex}>
         <div className="ticket-content">
           <div className="slanted-spacer"></div>
           <h2 className="ticket-name">{ticket.name}</h2>

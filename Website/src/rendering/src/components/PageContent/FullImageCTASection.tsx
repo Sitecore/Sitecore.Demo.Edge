@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 const FullImageCTASection = (): JSX.Element => (
-  <section className="section section__full-image section__full-image--map">
-    <div className="section-content section__full-image__content section__full-image__content--center">
+  <section className="section full-image-section full-image-section-map">
+    <div className="section-content full-image-section-content full-image-section-content--center">
       <Link href="/map">
         <a className="btn-square">Venue Map</a>
       </Link>
