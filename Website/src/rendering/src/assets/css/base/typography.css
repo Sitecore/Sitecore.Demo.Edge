@@ -1,24 +1,16 @@
-/* TODO: Try to remove most of these style to use Tailwind defaults and utilities */
-
 html,
 body {
   font-size: 16px;
 }
 
-/* Large devices (desktops, 62em and up) */
-
-@media (min-width: 62em) {
-  /* @screen lg { - would go from 992 to 1024px */
+@screen lg {
   html,
   body {
     font-size: 18px;
   }
 }
 
-/* Extra large devices (large desktops, 75em and up) */
-
-@media (min-width: 75em) {
-  /* @screen xl { - would go from 1200px to 1280px  */
+@screen xl {
   html,
   body {
     font-size: 20px;

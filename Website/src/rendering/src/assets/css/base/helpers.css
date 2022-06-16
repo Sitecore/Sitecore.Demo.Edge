@@ -5,12 +5,5 @@
 * 3. Leave some space on the edges, especially valuable on small screens
 */
 .container {
-  @apply max-w-[1180px] mx-auto w-full;
-
-  /*
-  * If this gets changed to px-5 there is a slight change in multiple components
-  * Seems acceptable but let's confirm
-  */
-  padding-left: 20px;
-  padding-right: 20px;
+  @apply max-w-[1180px] mx-auto px-5 w-full;
 }

@@ -1,15 +1,17 @@
-.btn-area {
+/* keeping .btn__area and .btn--main classes for Sitecore Personalize */
+
+.btn-area,
+.btn__area {
   @apply flex items-center justify-start bg-[url(../img/btn-background.webp)] bg-cover bg-bottom p-[6%] shadow-[0_0_20px_rgba(0,0,0,0.3)];
 }
 
 .btn-base {
   @apply font-medium text-center inline-block;
-  @apply py-[0.5em] px-[1.55em] transition-all;
-
-  /* Using py-2 px-6 results in a very slight difference which seems acceptable */
+  @apply py-2 px-6 transition-all;
 }
 
-.btn-main {
+.btn-main,
+.btn--main {
   @apply btn-base;
   @apply bg-yellow text-black rounded-md;
   @apply hover:bg-yellow-dark hover:text-white;
