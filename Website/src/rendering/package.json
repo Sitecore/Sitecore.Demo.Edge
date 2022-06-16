@@ -42,7 +42,6 @@
     "@ordercloud/portal-javascript-sdk": "0.0.1-beta.19",
     "@reduxjs/toolkit": "^1.7.2",
     "@sitecore-jss/sitecore-jss-nextjs": "^20.0.0",
-    "@sitecore-jss/sitecore-jss-tracking": "^20.0.0",
     "@sitecore-discover/react": "^0.2.1",
     "auth0": "^2.37.0",
     "csvtojson": "^2.0.10",

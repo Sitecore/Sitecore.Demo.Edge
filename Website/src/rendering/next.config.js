@@ -188,12 +188,6 @@ const nextConfig = {
       },
     ];
   },
-
-  webpack: (config, options) => {
-    applyGraphQLCodeGenerationLoaders(config, options);
-
-    return config;
-  },
 };
 
 module.exports = () => {
