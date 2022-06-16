@@ -1,18 +1,27 @@
 ﻿---
-ID: "4ba4af1a-1170-421c-b345-28b0ea55a8b5"
-Parent: "3d1c809e-598d-5bd9-8104-ff05f7ca6011"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/content/EdgeWebsite/home/privacy/Page Components
+ID: "4ed99969-3260-4bb5-9c6c-6ec0cc33523e"
+Parent: "64c4f646-a3fa-4205-b98e-4de2c609b60f"
+Template: "f68f13a6-3395-426a-b9a1-fa2dc60d94eb"
+Path: "/sitecore/system/Languages/fr-CA"
 SharedFields:
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: Office/32x32/box_into.png
-- ID: "a791f095-2521-4b4d-bef9-21dda221f608"
-  Hint: __Style
-  Value: "font-style:italic; font-size:0.85em; color: gray;"
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 0
+- ID: "0620f810-9294-4f14-af9f-f5772efca0b2"
+  Hint: Regional Iso Code
+  Value: "fr-CA"
+- ID: "49e5e8f3-ed4a-4a06-abe1-b9408951dee9"
+  Hint: Charset
+  Value: "iso-8859-1"
+- ID: "8728d8ff-66d9-40c2-8b34-c4fc1466942e"
+  Hint: Encoding
+  Value: "utf-8"
+- ID: "892975ac-496f-4ac9-8826-087095c68e1d"
+  Hint: Fallback Language
+  Value: en
+- ID: "990596ce-0024-43f3-bf4c-a991bfa69b45"
+  Hint: Code page
+  Value: 65001
+- ID: "c437e416-8948-427d-a982-8ed37ae3f553"
+  Hint: Iso
+  Value: fr
 Languages:
 - Language: en
   Versions:
@@ -20,32 +29,32 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20210625T201833Z
+      Value: 20220406T204156Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d75d39f0-b69f-48a2-9c17-7eca934cf880"
+      Value: "c713b4c9-3c8c-4e0c-a591-5292dac92ff5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201833Z
+      Value: 20220406T212506Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220519T114130Z
+      Value: 20220406T204853Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -56,11 +65,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "32756e9f-a404-44b9-8a64-044a7750412f"
+      Value: "74532d19-5a6d-44a7-86ca-a8befd1ca0ce"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220519T114130Z
+      Value: 20220406T204901Z
