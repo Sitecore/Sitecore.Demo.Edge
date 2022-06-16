@@ -7,13 +7,17 @@
     @apply xl:h-6;
 
     a {
-      @apply text-base;
+      @apply text-base ml-2 leading-5;
       @apply lg:text-sm;
       @apply xl:text-xs;
     }
 
-    a + a {
-      @apply ml-2;
+    .languagePicker {
+      @apply bg-black-lightest  text-right w-fit text-xs;
+
+      .languageItem {
+        @apply bg-black-lightest  p-3;
+      }
     }
   }
 }
