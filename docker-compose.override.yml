@@ -105,8 +105,8 @@ services:
     build:
       context: .\docker\build\init
       args:
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
-        BASE_IMAGE: mcr.microsoft.com/dotnet/sdk:3.1-nanoserver-${NANOSERVER_VERSION}
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-${NANOSERVER_VERSION}
+        BASE_IMAGE: mcr.microsoft.com/dotnet/sdk:6.0-nanoserver-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         NODEJS_VERSION: ${NODEJS_VERSION}
     environment:
