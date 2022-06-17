@@ -17,7 +17,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query ($datasource : String!, $language: String!) {
-      item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: $language) {
+      item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: "en") {
         id
         path
         ... on SiteConfiguration {   
@@ -27,7 +27,7 @@ SharedFields:
           }
         }
       }
-      links : item(path: "{ECDD5437-0848-47BE-ACCD-04BB1D631C94}", language: $language) {
+      links : item(path: $datasource, language: $language) {
         displayName
         children {
           results {
@@ -76,11 +76,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d7fee9bf-5cc2-432e-8cc5-4f3305bec7b8"
+      Value: "e2338844-e3c1-4fc7-8e4f-c5e3776623be"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220617T174443Z
+      Value: 20220617T205609Z

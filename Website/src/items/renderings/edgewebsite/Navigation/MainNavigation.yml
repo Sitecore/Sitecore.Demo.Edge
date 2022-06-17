@@ -17,30 +17,30 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query ($datasource : String!, $language: String!) {
-      item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: $language) {
-        id
-        path
-        ... on SiteConfiguration {
-          headerLogo {
-            jsonValue
-            alt
-          }
-        }
-      }
-      links : item(path: "{842934E4-186D-4A9D-92F2-D3A01EF0CBA9}", language: $language) {
-        displayName
-        children {
-          results {
-            displayName
-            field(name: "Link") {
-              ... on LinkField {
+          item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: "en") {
+            id
+            path
+            ... on SiteConfiguration {
+              headerLogo {
                 jsonValue
+                alt
+              }
+            }
+          }
+          links : item(path: $datasource, language: $language) {
+            displayName
+            children {
+              results {
+                displayName
+                field(name: "Link") {
+                  ... on LinkField {
+                    jsonValue
+                  }
+                }
               }
             }
           }
         }
-      }
-    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -73,3 +73,29 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20220617T174418Z
+  - Version: 2
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220617T204402Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "849a8b79-3aaa-436b-998e-dbdd879ef03d"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
+      Hint: __Valid from
+      Value: 20220617T204402Z
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220617T205907Z
