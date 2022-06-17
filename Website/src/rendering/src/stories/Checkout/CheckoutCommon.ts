@@ -14,13 +14,15 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://m.media-amazon.com/images/I/61LPos5CIaL._AC_SL1500_.jpg',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/carbon-cycling-bottle-cage-product?v=312458fb',
             },
           ],
+          ProductUrl: '/shop/products/PSPCCCCBC/centercycle-carbon-cycling-bottle-cage',
+          Brand: 'CenterCycle',
         },
       },
       Specs: [] as Spec[],
+      UnitPrice: 34.99,
     },
     {
       ID: 'lineitem2',
@@ -32,13 +34,15 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://cdn.shopify.com/s/files/1/0150/9084/products/2020_sl1_white_image1_76540d19-28dd-4284-a57f-518cd2472e7f_x1800.jpg?v=1640023075',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/sunday-golf-bag-product?v=23b29a0c',
             },
           ],
+          ProductUrl: 'shop/products/PSPPSSGB/pro-staff-sunday-golf-bag',
+          Brand: 'Pro Staff',
         },
       },
       Specs: [] as Spec[],
+      UnitPrice: 1000,
     },
     {
       ID: 'lineitem3',
@@ -50,18 +54,18 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1960,b_rgb:f8f8f8/catalog/Conditioning/Speed%20and%20Agility/Core%20and%20Stability/AD0053/AD0053-H_p1yblu.png',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/abb-wheel-1-product?v=9dbb093f',
             },
           ],
+          ProductUrl: 'shop/products/PSPRFSAW/robin-fitness-strengthening-ab-wheel',
+          Brand: 'Robit Fitness',
         },
       },
       Variant: {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://headstartdemo.blob.core.windows.net/assets/GreenLarge.png',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/abb-wheel-1-product?v=9dbb093f',
             },
           ],
         },
@@ -76,6 +80,7 @@ export const cartState = {
           Value: 'Large',
         },
       ],
+      UnitPrice: 15,
     },
     {
       ID: 'lineitem4',
@@ -91,9 +96,12 @@ export const cartState = {
               Url: 'https://static.gotprint.com/tl/en_US/products/business-cards/info/img/desktop/standard.jpg',
             },
           ],
+          ProductUrl: '',
+          Brand: 'BusinessCards Ltd',
         },
       },
-      Specs: [],
+      Specs: [] as Spec[],
+      UnitPrice: 19.99,
     },
   ],
   promotions: [] as unknown,
