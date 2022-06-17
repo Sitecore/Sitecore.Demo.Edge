@@ -1,0 +1,16 @@
+{
+    "namespace": "HeadlessSxaWebsite-Content",
+    "references": [ "HeadlessSxaWebsite" ],
+    "items": {
+        "includes": [
+            {
+                "name": "sxa-content",
+                "path": "/sitecore/content/PLAY Summit"
+            },
+            {
+                "name": "sxa-media",
+                "path": "/sitecore/media library/Project/PLAY Summit"
+            }
+        ]
+    }
+}

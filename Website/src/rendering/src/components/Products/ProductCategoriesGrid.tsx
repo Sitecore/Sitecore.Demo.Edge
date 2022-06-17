@@ -14,6 +14,7 @@ type ProductCategoriesProps = ComponentProps & {
 const ProductCategoriesGrid = (props: ProductCategoriesProps): JSX.Element => {
   const categories =
     props.fields.Categories &&
+    Array.isArray(props.fields.Categories) &&
     props.fields.Categories.map((category, index) => (
       <div key={index} className="section__products__grid__product">
         <Link href="/shop/products">

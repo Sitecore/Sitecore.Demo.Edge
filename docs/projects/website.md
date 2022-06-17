@@ -16,9 +16,10 @@ Main PLAY! Summit website built with:
 
 The `\Website` folder has:
 
+- A Docker environment files.
 - A Visual Studio solution.
 - Sitecore CLI configuration.
-- A `\deploy` folder that is volume mounted to the CM container. It is used to deploy from Visual Studio to the running container.
+- A `\docker\deploy` folder that is volume mounted to the CM container. It is used to deploy from Visual Studio to the running container.
 
 The `\src` subfolder has the Sitecore Content Serialization (SCS) configuration and 3 subfolders:
 
@@ -50,7 +51,7 @@ This Visual Studio / MSBuild project is used to deploy code and configuration to
 
 ### Rendering Next.js Project
 
-The `\rendering` folder contains the main website JSS Next.js project. The content of this folder is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
+The `\rendering` folder contains the main website JSS Next.js project. The content of this folder is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.xmcloudcm.localhost](https://www.xmcloudcm.localhost).
 
 You can also run the Next.js application directly using `npm` commands within `src\rendering`. It is not recommended to run both the rendering Docker container and the npm commands at the same time as both use the same output folder. Stop the rendering Docker container if you want to run the Next.js application using `npm` commands.
 
@@ -79,19 +80,14 @@ If you want the website to use Sitecore CDP and Personalize, you must follow the
 
 If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
-1. Edit the `.\.env` file.
+1. Edit the `.\Website\.env` file.
 2. Fill the following values:
-
-   ```shell
-   # Content Hub Connector
-   CMP_ContentHub=ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;
-   CMP_ServiceBusEntityPathIn=Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID
-   CMP_ServiceBusSubscription=hub_out_subscription
-   CMP_ServiceBusEntityPathOut=Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID
-   DAM_ContentHub=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud
-   DAM_SearchPage=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets
-   ```
-
+   - **CMP_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;`
+   - **CMP_ServiceBusEntityPathIn**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID`
+   - **CMP_ServiceBusSubscription**: `hub_out_subscription`
+   - **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
+   - **DAM_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud;`
+   - **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
 3. Save the file.
 
 ### Optional: Commerce Configuration
@@ -202,7 +198,7 @@ In order to be able to use the icons as rendering icons they need to be in a `.z
 
 #### Quick Deploy and Test Icons
 
-To test your new zip you can upload it to `Sitecore.Demo.Edge\Website\deploy\sitecore\shell\Themes\Standard`. It will automatically deploy them to your local cm container and you will be able to use and test them immediately.
+To test your new zip you can upload it to `Sitecore.Demo.Edge\Website\docker\deploy\sitecore\shell\Themes\Standard`. It will automatically deploy them to your local cm container and you will be able to use and test them immediately.
 
 #### Choosing a Rendering Icon
 
@@ -230,7 +226,7 @@ To debug, you can attach to the `w3wp` process within the `cm` container from Vi
 
 #### Deploying the Rendering Next.js Project
 
-The content of the project is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
+The content of the project is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.xmcloudcm.localhost](https://www.xmcloudcm.localhost).
 
 #### Debugging the Rendering Next.js Project
 

@@ -1,0 +1,13 @@
+{
+    "namespace": "HotfixItems",
+    "items" : {
+        "includes": [
+            {
+                "name": "dam-hotfix",
+                "path": "/sitecore/system/Field types/Simple Types/Image",
+                "database": "core",
+                "scope": "SingleItem"
+            }
+        ]
+    }
+}

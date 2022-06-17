@@ -25,9 +25,9 @@
 # Log files
 *.log*
 
-# sitecore
-scjssconfig.json
-*.deploysecret.config
 
 # vercel
 .vercel
+
+# DEMO TEAM CUSTOMIZATION - npmrc
+.npmrc

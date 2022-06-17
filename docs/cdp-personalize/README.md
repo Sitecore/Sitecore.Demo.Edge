@@ -28,7 +28,7 @@ If you want to use this integration, you must:
 
 ### CDP Proxy and Website
 
-1. Open the root `.env` file.
+1. Open the `Website\.env` file.
 2. For `CDP_API_TARGET_ENDPOINT`, take the URL of your CDP/Personalize dashboard and use the follwing mapping:
    - For `https://app.boxever.com`, the API target endpoint is `https://api.boxever.com`
    - For `https://app-us.boxever.com`, the API target endpoint is `https://api-us.boxever.com`
@@ -40,7 +40,6 @@ Example configuration:
 
 ```text
 # CDP
-CDP_PROXY_HOST=cdp.edge.localhost
 CDP_API_TARGET_ENDPOINT=https://api.boxever.com
 CDP_CLIENT_KEY=6dabaf8bae914e3881cf1f725a70acea
 CDP_API_TOKEN=0f081fffc159400c93188df1f5faa52d
@@ -60,7 +59,7 @@ Example configuration:
 
 ```text
 # CDP
-NEXT_PUBLIC_CDP_PROXY_URL=https://cdp.edge.localhost
+NEXT_PUBLIC_CDP_PROXY_URL=https://cdp.xmcloudcm.localhost
 NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT=https://api.boxever.com/v1.2
 NEXT_PUBLIC_CDP_CLIENT_KEY=6dabaf8bae914e3881cf1f725a70acea
 ```

@@ -1,8 +1,0 @@
-/data/cm/*
-!/data/cm/.gitkeep
-/data/cd/*
-!/data/cd/.gitkeep
-/data/sql/*
-!/data/sql/.gitkeep
-/data/solr/*
-!/data/solr/.gitkeep

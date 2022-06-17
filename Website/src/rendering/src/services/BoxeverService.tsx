@@ -117,7 +117,7 @@ type GuestProfileResponse = GuestProfile | undefined;
 const POINT_OF_SALE = 'PLAY! Summit';
 const CURRENCY = 'USD';
 
-const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
+const CDP_PROXY_URL = '/api/cdp';
 const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
 const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
 export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
@@ -132,7 +132,7 @@ export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
       _boxever_settings = {
         client_key: '${CDP_CLIENT_KEY}',
         target: '${CDP_API_TARGET_ENDPOINT}',
-        cookie_domain: '.edge.localhost',
+        cookie_domain: '.xmcloudcm.localhost',
         pointOfSale: '${POINT_OF_SALE}',
         web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',
       };`}</Script>
@@ -425,7 +425,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 }
 
 function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Cdp${action}`;
+  const url = `${CDP_PROXY_URL}/${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'POST',
@@ -441,7 +441,7 @@ function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPr
 }
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Cdp${action}`;
+  const url = `${CDP_PROXY_URL}/${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'GET',

@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/CMP Entities/Vendor/Data/ActivityT
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/EdgeWebsite/Data/CMP Data/Activity Type
+  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/CMP Data/Activity Type
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
   Value: CmpMultiList
@@ -31,11 +31,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a5683820-6004-4e3a-bb0f-1a9232ec5d78"
+      Value: "69a1b56e-fe5a-40b8-a15e-ffc413cd61a1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\superuser
+        sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210922T182552Z
+      Value: 20220513T164357Z

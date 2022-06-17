@@ -1,3 +1,3 @@
 .\compare-synced-files.ps1
-.\serpull.ps1
-.\update-graphql.ps1
+.\Website\serpull.ps1
+.\Website\update-graphql.ps1
