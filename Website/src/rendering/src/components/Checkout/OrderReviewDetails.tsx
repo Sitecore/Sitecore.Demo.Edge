@@ -14,7 +14,6 @@ import {
   getCreditCardExpirationDate,
 } from '../../helpers/DateHelper';
 
-// TODO: Create Storybook story for that component
 const OrderReviewDetails = (): JSX.Element => {
   const router = useRouter();
   const dispatch = useAppDispatch();
