@@ -27,7 +27,7 @@ SharedFields:
           }
         }
       }
-      links : item(path: "{ECDD5437-0848-47BE-ACCD-04BB1D631C94}", language: $language) {
+      links : item(path: $datasource, language: $language) {
         displayName
         children {
           results {
@@ -76,11 +76,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "65e63d26-6d40-4d99-92d4-42ea5aff3e59"
+      Value: "38cdd566-c1e5-483f-b29d-9a81b195f4e4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220519T113218Z
+      Value: 20220617T165635Z

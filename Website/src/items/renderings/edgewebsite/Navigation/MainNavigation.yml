@@ -38,20 +38,9 @@ SharedFields:
               }
             }
           }
-          links : item(path: "{842934E4-186D-4A9D-92F2-D3A01EF0CBA9}", language: $language) {
-            displayName
-            children {
-              results {
-                displayName
-                field(name: "Link") {
-                  ... on LinkField {
-                    jsonValue
-                  }
-                }
-              }
-            }
-          }
         }
+      }
+    }
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -76,11 +65,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b60cb051-2cff-4fb8-808d-1b530f9e0291"
+      Value: "8e8fae52-e2c6-40dd-b600-3a5522f26674"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220519T113223Z
+      Value: 20220617T165546Z
