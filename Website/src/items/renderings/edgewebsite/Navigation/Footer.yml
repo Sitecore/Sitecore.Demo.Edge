@@ -27,7 +27,7 @@ SharedFields:
           }
         }
       }
-      links : item(path: $datasource, language: $language) {
+      links : item(path: "{ECDD5437-0848-47BE-ACCD-04BB1D631C94}", language: $language) {
         displayName
         children {
           results {
