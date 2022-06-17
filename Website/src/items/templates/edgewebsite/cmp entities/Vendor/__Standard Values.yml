@@ -116,10 +116,10 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0acb8562-abd5-4ce4-bbb7-0db7c9611a6c"
+      Value: "ee922d9f-1858-4a93-81e3-122f4c9f0086"
     - ID: "a73286b1-7c15-46cf-b3c1-af1dc7e43afe"
       Hint: LogoTransformation
-      Value: banner
+      Value: medium
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -129,7 +129,7 @@ Languages:
       Value: $name
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220512T132326Z
+      Value: 20220617T171500Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: $name

@@ -98,7 +98,7 @@ Languages:
       Value: 20190614T161122Z
     - ID: "30bbae2d-1801-410c-8895-bd219d4de497"
       Hint: PictureTransformation
-      Value: banner
+      Value: profile
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
@@ -112,14 +112,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6e0db3fb-fdd5-40a2-9376-da61754c4d54"
+      Value: "d2c0c945-7d65-40ea-a9af-a65fcad90569"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220512T132326Z
+      Value: 20220617T171358Z
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: $name

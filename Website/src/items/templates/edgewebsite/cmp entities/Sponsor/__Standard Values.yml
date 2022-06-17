@@ -102,7 +102,7 @@ Languages:
     Fields:
     - ID: "1f1be085-d547-46cc-a0ab-85d5c9456ac6"
       Hint: LogoTransformation
-      Value: banner
+      Value: medium
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20190614T161122Z
@@ -122,11 +122,11 @@ Languages:
       Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4fa0eb9f-cb45-4cdb-bee5-393585435880"
+      Value: "d099bedd-3af7-42a3-8eef-1f56592a0c5d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220512T132327Z
+      Value: 20220617T171451Z
