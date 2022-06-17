@@ -8,6 +8,12 @@ SharedFields:
 - ID: "1ee576af-ba8e-4312-9fbd-2ccf8395baa1"
   Hint: StartItem
   Value: "{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}"
+- ID: "6e6da5b0-8d01-4514-b7dd-1940aff3e8cd"
+  Hint: FieldLanguageFallback
+  Value: 1
+- ID: "8c436235-b85d-4097-89cf-d5a4fa70cc0a"
+  Hint: ItemLanguageFallback
+  Value: 1
 - ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
   Hint: HostName
   Value: *
@@ -38,11 +44,11 @@ Languages:
         sitecore\sitecoredemo@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fb655d95-9c3c-4ece-af57-f135294f2a57"
+      Value: "0c5db32b-e8bd-4058-a34d-ecc046e0a013"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\sitecoredemo@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220513T161112Z
+      Value: 20220617T173838Z
