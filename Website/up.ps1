@@ -41,6 +41,7 @@ Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.EdgeWeb
 $envCheckVariable = "HOST_LICENSE_FOLDER"
 $envCheck = $envContent | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
+    # DEMO TEAM CUSTOMIZATION - Auto run init.ps1 if not run.
     if (Test-Path "C:\License") {
         Write-Host "Initializing environment using default values" -ForegroundColor Yellow
         & .\init.ps1 -InitEnv -AdminPassword b -LicenseXmlPath C:\License\license.xml
@@ -54,6 +55,7 @@ if (-not $envCheck) {
     else {
         throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
     }
+    # END CUSTOMIZATION
 }
 
 Write-Host "Keeping XM Cloud base image up to date" -ForegroundColor Green
@@ -68,6 +70,7 @@ if (-not $SkipBuild) {
         Write-Error "Container build failed, see errors above."
     }
 }
+# END CUSTOMIZATION
 
 # Start the Sitecore instance
 Write-Host "Starting Sitecore environment..." -ForegroundColor Green

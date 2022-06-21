@@ -102,6 +102,7 @@ Add-HostsEntry "cm.xmcloudcm.localhost"
 Add-HostsEntry "www.xmcloudcm.localhost"
 
 # DEMO TEAM CUSTOMIZATION - Move the scjssconfig, api key, and JSS editing secret inside the if ($InitEnv) block.
+# DEMO TEAM CUSTOMIZATION - Remove scjssconfig file generation as ours is already in source control.
 # DEMO TEAM CUSTOMIZATION - Remove generation of the Sitecore API key. We want a fixed key.
 
 ###############################
@@ -152,7 +153,7 @@ if ($InitEnv) {
     ###############################
 
     $xmCloudBuild = Get-Content "xmcloud.build.json" | ConvertFrom-Json
-    # DEMO TEAM CUSTOMIZATION - Remove scjssconfig file generation as ours is already in source control
+    # DEMO TEAM CUSTOMIZATION - Remove scjssconfig file generation as ours is already in source control.
 
     # DEMO TEAM CUSTOMIZATION - Custom environment variable name. Custom rendering host name.
     Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_EdgeWebsite" -Value $xmCloudBuild.renderingHosts.EdgeWebsite.jssDeploymentSecret

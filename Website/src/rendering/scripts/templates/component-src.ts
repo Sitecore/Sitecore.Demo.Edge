@@ -1,4 +1,4 @@
-// DEMO TEAM CUSTOMIZATION - Change type name in template to remove styleguide references. Change field name. Change component content.
+// DEMO TEAM CUSTOMIZATION - Change field name. Change component content.
 /**
  * Generates React boilerplate for a component under `src/components`
  * @param componentName - the component name
