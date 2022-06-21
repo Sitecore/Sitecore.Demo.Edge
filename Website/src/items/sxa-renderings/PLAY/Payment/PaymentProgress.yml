@@ -12,13 +12,13 @@ SharedFields:
   Value: "edgeicons/32x32/payment-status.png"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/PaymentProgress
+  Value: /sitecore/templates/Project/PLAY/Legacy/PaymentProgress
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{3DF775BF-3F56-446F-9D81-43DE64DA4DDA}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/Components/PaymentProgress
+  Value: /sitecore/content/PLAY/PLAY Website/Data/Components/PaymentProgress
 Languages:
 - Language: en
   Versions:

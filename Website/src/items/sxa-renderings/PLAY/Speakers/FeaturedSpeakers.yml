@@ -25,7 +25,7 @@ SharedFields:
           value
         }
       }
-      item(path: "/sitecore/content/PLAY Summit/PLAY Website/home/speakers", language: $language) {
+      item(path: "/sitecore/content/PLAY/PLAY Website/home/speakers", language: $language) {
         children(hasLayout: true, first: 50) {
           results {
             ... on Speaker {
@@ -53,7 +53,7 @@ SharedFields:
     
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/FeaturedSpeakers
+  Value: /sitecore/templates/Project/PLAY/Legacy/FeaturedSpeakers
 - ID: "308e88f5-cd6e-4f8f-bafe-95a47dedefdc"
   Hint: Editable
   Value: 1
@@ -68,7 +68,7 @@ SharedFields:
   Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/PLAY Summit/PLAY Website/Data/Components/FeaturedSpeakers
+  Value: ./Page Components|/sitecore/content/PLAY/PLAY Website/Data/Components/FeaturedSpeakers
 Languages:
 - Language: en
   Versions:

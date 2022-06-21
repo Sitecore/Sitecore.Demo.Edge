@@ -32,12 +32,12 @@
                 "path": "/sitecore/system/Workflows/Demo Workflow"
             },
             {
-                "name": "branches",
-                "path": "/sitecore/templates/Branches/Project/PLAY"
-            },
-            {
                 "name": "templates",
                 "path": "/sitecore/templates/Project/PLAY"
+            },
+            {
+                "name": "branches",
+                "path": "/sitecore/templates/Branches/Project/PLAY"
             },
             {
                 "name": "standard-template-fallback",

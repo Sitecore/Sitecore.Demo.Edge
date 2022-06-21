@@ -17,7 +17,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query ($datasource : String!, $language: String!) {
-          item(path: "/sitecore/content/PLAY Summit/PLAY Website/Data/Config" language: "en") {
+          item(path: "/sitecore/content/PLAY/PLAY Website/Data/Config" language: "en") {
             id
             path
             ... on SiteConfiguration {

@@ -17,7 +17,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query($language: String!) {
-      item(path: "/sitecore/content/PLAY Summit/PLAY Website/home/speakers", language: $language) {
+      item(path: "/sitecore/content/PLAY/PLAY Website/home/speakers", language: $language) {
         children(hasLayout: true, first: 22) {
           total
           results {

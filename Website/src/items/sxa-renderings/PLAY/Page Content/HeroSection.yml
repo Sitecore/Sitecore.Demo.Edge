@@ -15,10 +15,10 @@ SharedFields:
   Value: "edgeicons/32x32/hero-section.png"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Project/edgewebsite/CMP Entities/Advertisement
+  Value: /sitecore/templates/Project/PLAY/Legacy/CMP Entities/Advertisement
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: ./Page Components|/sitecore/content/PLAY Summit/PLAY Website/Data/CMP Data/Advertisements
+  Value: ./Page Components|/sitecore/content/PLAY/PLAY Website/Data/CMP Data/Advertisements
 Languages:
 - Language: en
   Versions:

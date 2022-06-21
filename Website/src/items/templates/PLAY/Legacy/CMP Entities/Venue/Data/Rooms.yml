@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/PLAY/Legacy/CMP Entities/Venue/Data/Rooms
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: /sitecore/content/PLAY Summit/PLAY Website/Data/CMP Data/Rooms
+  Value: /sitecore/content/PLAY/PLAY Website/Data/CMP Data/Rooms
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
   Value: 1
