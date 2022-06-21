@@ -7,13 +7,7 @@ param (
 
 $ErrorActionPreference = "Stop"
 
-$XmCloudVersion = (get-content sitecore.json | ConvertFrom-Json).plugins -match 'Sitecore.DevEx.Extensibility.XMCloud' 
-if ($XmCloudVersion -eq '' -or $LASTEXITCODE -ne 0) {
-    Write-Error "Unable to find version of XM Cloud Plugin"
-}
-$XmCloudVersion = ($XmCloudVersion -split '@')[1]
-$pluginJsonFile = Get-Item -path "$PSScriptRoot\.sitecore\package-cache\nuget\Sitecore.DevEx.Extensibility.XMCloud.$($XmCloudVersion)\plugin\plugin.json"
-$XmCloudDeployApi = (Get-Content $pluginJsonFile | ConvertFrom-Json).xmCloudDeployEndpoint
+$XmCloudDeployApi = (Get-Content "$PSScriptRoot\.sitecore\user.json" | ConvertFrom-Json).endpoints.xmCloud.host
 $XmCloudDeployAccessToken = (Get-Content "$PSScriptRoot\.sitecore\user.json" | ConvertFrom-Json).endpoints.xmCloud.accessToken
 
 $Headers = @{"Authorization" = "Bearer $XmCloudDeployAccessToken" }

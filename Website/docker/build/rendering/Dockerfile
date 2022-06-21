@@ -12,4 +12,3 @@ WORKDIR /app
 
 EXPOSE 3000
 ENTRYPOINT "npm install && npm run start:connected"
-#ENTRYPOINT "npm install && npm run start"

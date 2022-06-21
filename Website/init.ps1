@@ -41,6 +41,7 @@ Import-Module PowerShellGet
 $SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
 if (-not $SitecoreGallery) {
     Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
+    Unregister-PSRepository -Name SitecoreGallery -ErrorAction SilentlyContinue
     Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
     $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
@@ -76,6 +77,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
+    # DEMO TEAM CUSTOMIZATION - Remove the xmcloudpreview.localhost certificate
     & $mkcert "*.xmcloudcm.localhost"
 
     # stash CAROOT path for messaging at the end of the script
@@ -95,9 +97,12 @@ finally {
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
+# DEMO TEAM CUSTOMIZATION - Custom host names. "xmcloudcm.localhost" is required as it is the only valid value in XM Cloud.
 Add-HostsEntry "cm.xmcloudcm.localhost"
 Add-HostsEntry "www.xmcloudcm.localhost"
 
+# DEMO TEAM CUSTOMIZATION - Move the scjssconfig, api key, and JSS editing secret inside the if ($InitEnv) block.
+# DEMO TEAM CUSTOMIZATION - Remove generation of the Sitecore API key. We want a fixed key.
 
 ###############################
 # Populate the environment file
@@ -111,9 +116,11 @@ if ($InitEnv) {
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
     # CM_HOST
+    # DEMO TEAM CUSTOMIZATION - Custom host name
     Set-EnvFileVariable "CM_HOST" -Value "cm.xmcloudcm.localhost"
 
     # RENDERING_HOST
+    # DEMO TEAM CUSTOMIZATION - Custom host name
     Set-EnvFileVariable "RENDERING_HOST" -Value "www.xmcloudcm.localhost"
 
     # REPORTING_API_KEY = random 64-128 chars
@@ -138,12 +145,25 @@ if ($InitEnv) {
     # SITECORE_ADMIN_PASSWORD
     Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
 
-    # JSS_EDITING_SECRET
-    # Populate it for the Next.js local environment as well
+    # DEMO TEAM CUSTOMIZATION - Moved the following sections from above the if ($InitEnv) block.
+
+    ###############################
+    # Generate scjssconfig
+    ###############################
+
+    $xmCloudBuild = Get-Content "xmcloud.build.json" | ConvertFrom-Json
+    # DEMO TEAM CUSTOMIZATION - Remove scjssconfig file generation as ours is already in source control
+
+    # DEMO TEAM CUSTOMIZATION - Custom environment variable name. Custom rendering host name.
+    Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_EdgeWebsite" -Value $xmCloudBuild.renderingHosts.EdgeWebsite.jssDeploymentSecret
+
+    # DEMO TEAM CUSTOMIZATION - Remove generation of the Sitecore API key. We want a fixed key.
+
+    ################################
+    # Generate JSS_EDITING_SECRET
+    ################################
     $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
     Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
-    # DEMO TEAM CUSTOMIZATION - Maybe not needed
-    # Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path .\src\rendering\.env
 }
 
 Write-Host "Done!" -ForegroundColor Green
