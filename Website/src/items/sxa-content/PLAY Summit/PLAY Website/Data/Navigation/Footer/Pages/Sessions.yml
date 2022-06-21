@@ -21,15 +21,15 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fd5c61f3-b86f-41b2-9157-7f65701b531a"
+      Value: "b7e19823-29db-4e38-b550-8a32976da893"
     - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
       Hint: Link
       Value: |
-        <link class="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" querystring="" anchor="" target="" title="" linktype="internal" text="" url="/PLAY Summit/PLAY Website/home/sessions" />
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\sitecoredemo@sitecore.com
+        sitecore\jel@sitecore.net
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220512T132558Z
+      Value: 20220621T195151Z

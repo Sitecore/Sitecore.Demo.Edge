@@ -8,7 +8,6 @@
     "Sitecore.DevEx.Extensibility.Publishing@5.0.16",
     "Sitecore.DevEx.Extensibility.Indexing@5.0.16",
     "Sitecore.DevEx.Extensibility.ResourcePackage@5.0.16",
-    "Sitecore.DevEx.Extensibility.Database@5.0.16",
     "Sitecore.DevEx.Extensibility.XMCloud@1.0.1"
   ],
   "serialization": {
