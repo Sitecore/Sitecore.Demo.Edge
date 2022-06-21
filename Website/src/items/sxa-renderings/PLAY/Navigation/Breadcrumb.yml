@@ -1,0 +1,74 @@
+﻿---
+ID: "780d897c-7065-585f-8585-28118565fa00"
+Parent: "75c438f6-65fd-4e65-95bb-7a12ce6ea229"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Project/PLAY/Navigation/Breadcrumb
+SharedFields:
+- ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
+  Hint: componentName
+  Value: Breadcrumb
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: edgeicons/32x32/breadcrumb.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query($contextItem: String!, $language: String!) {
+      # Assume item id is available on page
+      item(path: $contextItem , language: $language) {
+        url {
+          path
+        }
+        name
+        displayName
+        title: field(name: "Title") {
+          value
+        }
+        pageTitle: field(name: "pageTitle") {
+          value
+        }
+        ancestors(
+          hasLayout: true
+          includeTemplateIDs: "6DB09CEF64A852A3A98038408109C4D7"
+        ) {
+          url {
+            path
+          }
+          name
+          displayName
+          title: field(name: "Title") {
+            value
+          }
+          pageTitle: field(name: "pageTitle") {
+            value
+          }
+        }
+      }
+    }
+    
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T050737Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\JssImport
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "47b22f96-9871-4376-bf4e-fd22f7904538"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220221T085744Z

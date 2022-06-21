@@ -1,0 +1,125 @@
+﻿---
+ID: "af957a58-3207-454d-a6b7-e64e35129069"
+Parent: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/templates/Project/PLAY/Legacy/CMP Entities/Speaker/__Standard Values
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: 
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "c9283d9e-7c29-4419-9c28-5a5c8ff53e84"
+  Hint: __Bucketable
+  Value: 1
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          key="jss-header-content"
+          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          key="jss-section-content"
+          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        <r
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{2C75508C-1C34-584F-9B69-3496D386DACE}" />
+        <r
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{2C75508C-1C34-584F-9B69-3496D386DACE}-0"
+          uid="{CB853DDF-47A0-5691-8998-BE9CCB913526}" />
+        <r
+          rname="SpeakerInformationPageHero"
+          id="{84040441-931E-48AD-AC7F-FD0145ADEB09}"
+          par=""
+          ph="/jss-main"
+          uid="{99503209-8F2B-563A-B886-A5131C9C4131}" />
+        <r
+          rname="SpeakerInformation"
+          ds=""
+          id="{3767674F-4DB9-5DF7-A52A-0FE34F8453CC}"
+          par=""
+          ph="/jss-main"
+          uid="{C188AF30-3FE2-5450-AFE3-B207EFCEDFB1}"
+          ccb="Clear on publish" />
+        <r
+          rname="Section"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{CE0BBF2E-C5DB-595E-AAA2-B665A639AA41}" />
+        <r
+          rname="SelectedSponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          par=""
+          ph="/jss-main/jss-section-content-{CE0BBF2E-C5DB-595E-AAA2-B665A639AA41}-0"
+          uid="{6CEE4FC1-F123-5AAE-B9A7-813367ACAF6B}" />
+        <r
+          rname="Footer"
+          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          par=""
+          ph="/jss-footer"
+          uid="{53F26F19-1A27-5DFB-A710-1B89E28030C8}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20190614T161122Z
+    - ID: "30bbae2d-1801-410c-8895-bd219d4de497"
+      Hint: PictureTransformation
+      Value: profile
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d2c0c945-7d65-40ea-a9af-a65fcad90569"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220617T171358Z
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: Name
+      Value: $name
