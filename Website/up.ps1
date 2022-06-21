@@ -128,7 +128,7 @@ if ($LASTEXITCODE -ne 0) {
 # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode. Moved publish to a later stage.
 # JSS sample has already been deployed and serialized, push the serialized items
 Write-Host "Pushing items to Sitecore..." -ForegroundColor Green
-dotnet sitecore ser pushh # --publish
+dotnet sitecore ser push # --publish
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Serialization push failed, see errors above."
 }
