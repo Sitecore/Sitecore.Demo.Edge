@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/PLAY/Speakers/SpeakersGrid
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY/PLAY Website/home/speakers
+  Value: /sitecore/content/PLAY/playwebsite/home/speakers
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: SpeakersGrid
@@ -17,7 +17,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query($language: String!) {
-      item(path: "/sitecore/content/PLAY/PLAY Website/home/speakers", language: $language) {
+      item(path: "/sitecore/content/PLAY/playwebsite/home/speakers", language: $language) {
         children(hasLayout: true, first: 22) {
           total
           results {

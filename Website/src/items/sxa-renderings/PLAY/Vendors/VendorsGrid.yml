@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/PLAY/Vendors/VendorsGrid
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY/PLAY Website/home/vendors
+  Value: /sitecore/content/PLAY/playwebsite/home/vendors
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: VendorsGrid

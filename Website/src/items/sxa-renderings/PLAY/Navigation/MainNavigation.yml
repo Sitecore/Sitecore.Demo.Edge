@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/PLAY/Navigation/MainNavigation
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/PLAY/PLAY Website/Data/Navigation/Header/Main Navigation
+  Value: /sitecore/content/PLAY/playwebsite/Data/Navigation/Header/Main Navigation
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: MainNavigation
@@ -17,7 +17,7 @@ SharedFields:
   Hint: ComponentQuery
   Value: |
     query ($datasource : String!, $language: String!) {
-          item(path: "/sitecore/content/PLAY/PLAY Website/Data/Config" language: "en") {
+          item(path: "/sitecore/content/PLAY/playwebsite/Data/Config" language: "en") {
             id
             path
             ... on SiteConfiguration {
