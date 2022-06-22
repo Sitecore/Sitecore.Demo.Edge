@@ -1,0 +1,77 @@
+﻿---
+ID: "57011604-34af-40b5-8892-5a194f76eebe"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/PLAY/playwebsite/home/sessions/Ask an expert Nutrition
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: cmjgKDnnZUSj__DypKiE9A
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Ask an expert: nutrition"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025df6a5-2001-449f-8f76-02be5353905c"
+      Hint: Audience
+      Value: "{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{E67E1029-D58F-45E7-B85F-0E7E0086099E}"
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>The Internet is still the wild west when it comes to finding nutrition information that is credible and stands up to serious scientific scrutiny. That&rsquo;s why it&rsquo;s so hard to find reliable information&mdash;how can you be sure that what you are reading is accurate&nbsp;<em>and</em>&nbsp;unbiased?</p>
+        
+        <p>Join a leading online expert who embraces the latest scientific evidence to craft personalized nutrition advice for people just like you.</p>
+               
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210921T182429Z
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
+      Hint: Speakers
+      Value: "{87223FA1-B672-4201-BE61-0011EE4A7A09}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38513" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38513/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/c87e9c1c087b485289784fe4c5bc445b?v=4b519f23" mediaid="" stylelabs-content-type="Image" alt="Nutrition expert" height="3456" width="5184" />
+    - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
+      Hint: Day
+      Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
+      Hint: Timeslots
+      Value: "{3C8054D9-EE77-47CB-8142-5541A557260D}|{81801E88-1D20-4B32-A344-772504C234EA}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Session
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: "Ask an expert: nutrition"
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: "{421831DC-EE86-4E05-B974-8C0AE7A21D0E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5ad2ab3d-17a6-48bd-a48d-6c5ddd36bc41"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220114T224927Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Ask an expert: nutrition"

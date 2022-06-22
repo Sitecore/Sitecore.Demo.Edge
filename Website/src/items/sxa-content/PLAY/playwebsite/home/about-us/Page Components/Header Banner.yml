@@ -1,0 +1,48 @@
+﻿---
+ID: "d7afb185-3fde-54e1-a990-0dc6d7294a4b"
+Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
+Template: "22bf2a41-d79e-5e64-9497-6e52752f85dd"
+Path: "/sitecore/content/PLAY/playwebsite/home/about-us/Page Components/Header Banner"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152613Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e25a20e1-b70c-4386-bc66-9681dcb66deb"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
+      Hint: title
+      Value: The World's Largest sports & Recreation expo
+    - ID: "d2f0af85-24ce-5ea3-94c0-690d8c774a6d"
+      Hint: eyebrow
+      Value: "READY | STEADY | PLAY!"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210722T012406Z
+    - ID: "e85a8061-ab10-54ce-b74a-6a9d2e71b554"
+      Hint: subtitle
+      Value: "an action-packed agenda of workshops, keynotes, product demos, and exclusive content"
+    - ID: "f6156be8-e8d4-5d94-8118-22f7a7540f69"
+      Hint: backgroundImage
+      Value: |
+        <image mediaid="{A214FBBE-F1CD-5911-AA4E-CD2C71EBA3C2}" alt="Sample Image" />

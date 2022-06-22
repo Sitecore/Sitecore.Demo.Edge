@@ -26,7 +26,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link class="" querystring="" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" anchor="" target="" title="" linktype="internal" text="Action Link" url="/PLAY/PLAY Website/home" />
+        <link class="" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" querystring="" anchor="" target="" title="" linktype="internal" text="Action Link" url="/PLAY/playwebsite/home" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -37,7 +37,7 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0ba328ff-8d76-48f7-8567-3d9c3fe64165"
+      Value: "4b49e911-d0db-4a8d-9ffd-cd1b9d2d81b2"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
@@ -50,4 +50,4 @@ Languages:
       Value: light
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220621T105837Z
+      Value: 20220622T144710Z

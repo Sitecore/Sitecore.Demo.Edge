@@ -1,0 +1,74 @@
+﻿---
+ID: "32c9cada-a708-49db-a42c-220443bd3c59"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/PLAY/playwebsite/home/speakers/Ryan Benton
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: XvkuMwioqkec6hRWsXGnFg
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Ryan Benton
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "2256955c-26ab-41b5-8e7a-fc504ea1a307"
+      Hint: Sponsors
+      Value: "{8418E88D-2B0E-491D-9E8C-3243B7BC02FD}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T175428Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Los Angeles, California
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{63F36064-9C90-48E1-B776-99A1FCCD9866}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "759cf247-ce98-449f-943c-2c0719020cc9"
+    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
+      Hint: Company
+      Value: Redsand
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: Description
+      Value: |
+        <p>Ryan has always had creativity flowing through his veins. Just ask Ryan&#39;s parents and teachers who wanted him to focus more on school work than extracurricular creative outlets.</p>
+        
+        <p>&quot;I always knew I would turn my love for creative arts into a career, even though it wasn&#39;t immediately obvious how.&quot;, says Ryan. Now the&nbsp;Artistic Director for a major action sports brand, Redsand,&nbsp;it is &quot;clear as day&quot;. Ryan spends most days focused on running a large team of creative people&nbsp;and finding time to personally test various Redsand products outside the office walls.</p>
+                   
+    - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
+      Hint: JobTitle
+      Value: Artistic Director
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150830Z
+    - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
+      Hint: Role
+      Value: Sales Guru
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: Name
+      Value: Ryan Benton
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Ryan Benton
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="49474" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49474/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/ccc946a0a0044535943f1254374dc182?v=922bf504" mediaid="" stylelabs-content-type="Image" alt="Ryan Benton - No background" height="5694" width="5693" />

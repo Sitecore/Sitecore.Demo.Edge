@@ -1,0 +1,102 @@
+﻿---
+ID: "a2fca80d-4c97-4378-91ab-77df77be546a"
+Parent: "0e4a63da-7496-557e-bf80-5bd52255e431"
+Template: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
+Path: /sitecore/content/PLAY/playwebsite/home/news/Get two year access to a top fitness app
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: SwBTLQFuCEyE7fVsvc5owg
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Get two-year access to a top fitness app"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210922T135309Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{4D758CED-1AD4-46C7-8E72-B42BE54A08E8}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "Get two-year access to a top fitness app"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1d9bd254-f7c3-4c6e-a745-e644d9e8d8d8"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: "20211030T040000:637711632000000000Z"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T170614Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: "Start getting into a better fitness routine with a bundle of fitness apps available for PLAY! Summit attendees."
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Get two-year access to a top fitness app"
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30896" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30896/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a2bb5300531b4cddbb2c97f2fa198a90?v=1fa6de83" mediaid="" stylelabs-content-type="Image" alt="Smartwatch" height="3264" width="4896" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: "<p>Everybody wants to find a competitive advantage. Well, one of the best tricks is also very achievable. Getting into a great exercise routine can help you improve your focus and make you more productive. Of course, jumping into a rigorous routine isn't without challenges of its own. From finding the workouts to do to dealing with the soreness and pain after working out, getting into shape is hard.</p><p>Fortunately, this deal on the Openfit Fitness App: 2-Year Subscription + DynaMini Massage Gun can help you in both regards. Valued at $141, this bundle is on sale for just $49.&nbsp;With this two-for-one deal, you'll get a two-year subscription to Openfit, one of the top fitness apps on the web, as well as a DynaMini Massage Gun from LifePro Fitness.</p><p>Openfit has earned 4.9 stars on the App Store and 4.6 stars on the Google Play Store, because it makes healthy living more achievable by integrating fitness, nutrition, and wellness into a single app. You can choose from structured programs, monthly challenges, as well as hundreds of live and on-demand workouts covering barre, cardio, strength training, and much more. Plus, with the app, you can create a customized meal plan, track your calories and macros, and access thousands of tasty recipes to ensure you have the right diet to meet all of your health goals. It's compatible with virtually all devices and will help you see results fast.</p>      "
+- Language: "en-US"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210923T004639Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{7810C5C0-FF3C-45A1-92F6-10D42BCD57F7}|{131A827D-0E0A-48BA-9D52-753FFB135BA9}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "Get two-year access to a top fitness app"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ff0ac006-ea44-49d2-b9b0-32abe91dc77c"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210923T025447Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: "Start getting into a better fitness routine with a bundle of fitness apps available for PLAY! Summit attendees."
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30896" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/30896/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/a2bb5300531b4cddbb2c97f2fa198a90?v=1fa6de83" mediaid="" stylelabs-content-type="Image" alt="smartwatch-828786.jpg" height="3264" width="4896" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: "<p>Everybody wants to find a competitive advantage. Well, one of the best tricks is also very achievable. Getting into a great exercise routine can help you improve your focus and make you more productive. Of course, jumping into a rigorous routine isn't without challenges of its own. From finding the workouts to do to dealing with the soreness and pain after working out, getting into shape is hard.</p><p>Fortunately, this deal on the Openfit Fitness App: 2-Year Subscription + DynaMini Massage Gun can help you in both regards. Valued at $141, this bundle is on sale for just $49.&nbsp;With this two-for-one deal, you'll get a two-year subscription to Openfit, one of the top fitness apps on the web, as well as a DynaMini Massage Gun from LifePro Fitness.</p><p>Openfit has earned 4.9 stars on the App Store and 4.6 stars on the Google Play Store, because it makes healthy living more achievable by integrating fitness, nutrition, and wellness into a single app. You can choose from structured programs, monthly challenges, as well as hundreds of live and on-demand workouts covering barre, cardio, strength training, and much more. Plus, with the app, you can create a customized meal plan, track your calories and macros, and access thousands of tasty recipes to ensure you have the right diet to meet all of your health goals. It's compatible with virtually all devices and will help you see results fast.</p>      "

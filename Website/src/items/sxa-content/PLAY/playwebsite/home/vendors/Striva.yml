@@ -1,0 +1,78 @@
+﻿---
+ID: "01e09652-abd7-4bb0-ad96-e609966330bd"
+Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
+Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
+Path: /sitecore/content/PLAY/playwebsite/home/vendors/Striva
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: 7WUse__XL02AQWuNFVA9tQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Striva
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
+      Hint: TwitterProfileLink
+      Value: "https://twitter.com/#"
+    - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
+      Hint: ActivityType
+      Value: "{39C8070A-3BF0-4BB7-BB36-88AEC20A2A30}|{252CE747-6A8F-478B-B59A-70DBE713E6E2}|{8EA1589B-71BD-4831-A8CC-45D7FACF4B6D}|{BA1091E3-0AA8-4C76-B952-140E1621AE27}|{3A566E97-7A2C-45BE-8FB3-E391F70C8BFD}|{76A47D9E-95C8-4EDD-8A15-F4A465B1B2C6}|{B3F1EB80-9AF4-4700-B17B-31A675E5488E}|{32FF5798-2D6A-458E-8A83-3CA57029EAC9}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T163119Z
+    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
+      Hint: InstagramProfileLink
+      Value: "https://www.instagram.com/#"
+    - ID: "36288362-9494-4174-a8a2-d846d958149d"
+      Hint: Level
+      Value: Platinum
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{04013CFE-C1DD-4D16-BBC1-AD0B548FCD7F}|{209A438A-C1E2-4E02-BC8E-568235F16D1D}|{5F107763-694B-4E24-B7C7-308180ABABAD}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="57878" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/57878/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/0568eb4ee9a241579b786d1a21e41554?v=fdec6fcb" mediaid="" stylelabs-content-type="Image" alt="Striva.png" height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{76B1D64B-C80D-4FE8-8FF2-7FF22360E341}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}|{DB5BFBE7-B584-4BBE-94C5-A67F20F1BB81}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0c6949c2-b5c2-4865-9fd1-e1ea9adc083e"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+    - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
+      Hint: Name
+      Value: Striva
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150003Z
+    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
+      Hint: FacebookProfileLink
+      Value: "https://www.facebook.com/#"
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Striva
+    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
+      Hint: LinkedinProfileLink
+      Value: "https://www.linkedin.com/#"

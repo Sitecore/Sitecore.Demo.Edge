@@ -1,0 +1,79 @@
+﻿---
+ID: "a39f9fbc-da18-473d-bd74-47429b695614"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/PLAY/playwebsite/home/sessions/Navigating the outdoors with kids
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: jshF0zSN9kC5kVQ5wvezHQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Navigating the outdoors with kids
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025df6a5-2001-449f-8f76-02be5353905c"
+      Hint: Audience
+      Value: "{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "1fae2494-f83e-4b6b-bd34-d1c42304211f"
+      Hint: Vendors
+      Value: "{4A95D3FB-A669-47E7-8454-119476231CB7}"
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>Getting outdoors with your kids isn&rsquo;t always easy. How do you start to turn the experience from a chore to a pleasure?</p>
+        
+        <p>No tricks, it all comes down to planning. Of course nothing will go to plan with kids but putting some structure in place will encourage accountability and get you out more often.</p>
+        
+        <p>Pro tip: Make sure to include the children&nbsp;in the planning process for improved results!</p>
+        
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20211124T140359Z
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
+      Hint: Speakers
+      Value: "{92BBBDC4-23AE-480D-964A-19E005E9EDAA}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="53269" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/53269/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/3db5cea1caaf4cc6b4e6596ef5e1fb52?v=c16aa6d2" mediaid="" stylelabs-content-type="Image" alt="Get Outdoors - Kids" height="2240" width="3360" />
+    - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
+      Hint: Day
+      Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
+      Hint: Timeslots
+      Value: "{E8DBA284-C3EF-4AB6-8A4D-64A193AE62E2}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Session
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: Navigating the outdoors with kids
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: "{F14EF887-2C62-474E-A61E-F8EBEF6173CC}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0c149e6b-dcab-459e-9f03-087d0d0cd0b3"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220114T230109Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Navigating the outdoors with kids

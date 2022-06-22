@@ -1,0 +1,130 @@
+﻿---
+ID: "337f8439-2b2e-497b-a91e-a5b840d66769"
+Parent: "0e4a63da-7496-557e-bf80-5bd52255e431"
+Template: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
+Path: /sitecore/content/PLAY/playwebsite/home/news/PLAY Summit to build new mountain bike park
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "6lGh6lTGAEyNkcUnX7yl-g"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "PLAY! Summit to build new mountain bike park"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210922T135437Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}|{6AB3A378-547F-4B38-8BE4-7538313020B2}|{D7E74E60-9708-48B2-9D37-C34D165BEC43}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "PLAY! Summit to build new mountain biking park"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bdff2a13-f131-4a83-acd7-602bb63e7ced"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: "20211110T050000:637721172000000000Z"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T170715Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: "Around 50 acres of undeveloped land connecting Des Moines and Pleasant Hill will be turned into a new mountain bike park, according to PLAY! Summit director Rich Ronald."
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "PLAY! Summit to build new mountain bike park"
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38142" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="Mountain biking 3" height="2832" width="4256" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: |
+        <p><strong>Why it matters</strong>: Recreational advocates say the metro is in need of another public park, as evidenced by a 40% jump in trail usage last year.</p>
+        
+        <p>Polk County recently purchased the land &mdash; which is near a flood plain and connects to the Gay Lea Wilson Trail just off East University Ave. &mdash; for $300K.</p>
+        
+        <p>Lemons to lemonade: While traditional development flunked, the property is ideal for a mountain bike park because its bumpy surface can be used as jumps, Leopold said.</p>
+        
+        <p>Details: The county&#39;s drafted plans call for 4.5 miles of dirt tracks oriented for mountain biking, fat biking and hiking.</p>
+        
+        <p>A pump track and skills area would include rocks and other native landscaping features for bikers.</p>
+        
+        <p>A wetland area would help filter water from Copper Creek before it enters the adjacent Fourmile Creek.</p>
+        
+        <p>The project is scheduled to be completed in 2025. PLAY! Summit is still looking for partners to assist with maintenance and care after when the park is operational.</p>
+              
+- Language: "en-US"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210923T004645Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{231F8A06-82A1-4FDE-8132-3789475050BD}|{5F1F2CD4-4E7C-4524-B169-BAFB39FED36D}|{786B4DC5-1E6E-4DBF-9AF4-79BB3DEEF78F}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "PLAY! Summit to build new mountain biking park"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8fd07d12-88ae-46cc-b1e4-f7a211e15472"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210923T025453Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: "Around 50 acres of undeveloped land connecting Des Moines and Pleasant Hill will be turned into a new mountain bike park, according to PLAY! Summit director Rich Ronald."
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38142" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="mountain-biking-3.jpg" height="2832" width="4256" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: |
+        <p><strong>Why it matters</strong>: Recreational advocates say the metro is in need of another public park, as evidenced by a 40% jump in trail usage last year.</p>
+        
+        <p>Polk County recently purchased the land &mdash; which is near a flood plain and connects to the Gay Lea Wilson Trail just off East University Ave. &mdash; for $300K.</p>
+        
+        <p>Lemons to lemonade: While traditional development flunked, the property is ideal for a mountain bike park because its bumpy surface can be used as jumps, Leopold said.</p>
+        
+        <p>Details: The county&#39;s drafted plans call for 4.5 miles of dirt tracks oriented for mountain biking, fat biking and hiking.</p>
+        
+        <p>A pump track and skills area would include rocks and other native landscaping features for bikers.</p>
+        
+        <p>A wetland area would help filter water from Copper Creek before it enters the adjacent Fourmile Creek.</p>
+        
+        <p>The project is scheduled to be completed in 2025. PLAY! Summit is still looking for partners to assist with maintenance and care after when the park is operational.</p>
+              

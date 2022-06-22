@@ -1,0 +1,80 @@
+﻿---
+ID: "0960f9c7-9cb8-49ca-9607-5099767c7128"
+Parent: "774e44e8-0f30-5879-b847-ad233ffb41aa"
+Template: "adf8983f-d751-4af2-804f-c9e3888f4219"
+Path: /sitecore/content/PLAY/playwebsite/home/vendors/Dwell
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: GpMhCj3gdkOzATy1_JRcHQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Dwell
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025898a9-3beb-4afa-b37a-e45e00f2ff2f"
+      Hint: TwitterProfileLink
+      Value: "https://twitter.com/#"
+    - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
+      Hint: ActivityType
+      Value: "{484D4D44-0165-43B6-B4B5-3812FA33EAEA}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T162933Z
+    - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
+      Hint: InstagramProfileLink
+      Value: "https://www.instagram.com/#"
+    - ID: "36288362-9494-4174-a8a2-d846d958149d"
+      Hint: Level
+      Value: Gold
+    - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
+      Hint: Speakers
+      Value: "{87223FA1-B672-4201-BE61-0011EE4A7A09}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="33940" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670" mediaid="" stylelabs-content-type="Image" alt="Dwell Logo" height="1001" width="1001" />
+    - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
+      Hint: Sessions
+      Value: "{349CE17E-AB72-4C9B-BF43-8DE819D2E8B2}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4c296240-d0a2-4333-b18a-e32085459a1a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
+      Hint: Description
+      Value: |
+        <p>We&#39;re cruising down every single slope going left and right, having so much fun. And even if the snow comes down we&#39;ll go for another run.</p>
+        
+        <p>For the final run we&#39;re coming down. Dwell is one big family and wants to help you come and play.</p>
+                    
+    - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
+      Hint: Name
+      Value: Dwell
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T145720Z
+    - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
+      Hint: FacebookProfileLink
+      Value: "https://www.facebook.com/#"
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Dwell
+    - ID: "fd7bc390-6104-4990-8271-9bd50cd4115e"
+      Hint: LinkedinProfileLink
+      Value: "https://www.linkedin.com/#"

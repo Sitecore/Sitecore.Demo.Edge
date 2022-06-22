@@ -1,0 +1,88 @@
+﻿---
+ID: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/PLAY/playwebsite/home/speakers
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{819C5F1D-58E0-432F-BD5A-A523BA8AEBCE}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{29786341-D265-43F5-9022-C763D84CB968}"
+          p:after="p[@uid='{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}']"
+          s:id="{7AB4158F-135B-5E9B-8106-C4A898F2F02D}"
+          s:ph="/jss-main/jss-section-content-{B0711419-B8EC-4463-866A-DFCDCAC04EFF}-0" />
+        <r
+          uid="{DC97D398-D7B5-5407-B2B2-B28516EB743F}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:rname="HeroImage"
+          s:ds="{BA4DBF52-149C-4A1C-81B2-EA5B022ADD09}"
+          s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{52A298F9-9A10-4DEE-9052-F3A39747B25A}"
+          p:after="r[@uid='{DC97D398-D7B5-5407-B2B2-B28516EB743F}']"
+          s:ds="{BDC4D967-405D-4035-86D5-E136095BBE96}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:ph="jss-main" />
+        <r
+          uid="{B0711419-B8EC-4463-866A-DFCDCAC04EFF}"
+          p:after="r[@uid='{52A298F9-9A10-4DEE-9052-F3A39747B25A}']"
+          s:ds="{54128E66-C795-4816-9A7A-59CEB06DEA90}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:ph="jss-main" />
+        <r
+          uid="{90A85FE8-3DBC-4FD1-95BC-CD2E776F9685}"
+          p:after="*[1=2]"
+          s:ds="{BE567ACA-7EE4-5063-B7F1-29EAD100BA3A}"
+          s:id="{2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}"
+          s:par=""
+          s:ph="/jss-main/jss-section-content-{52A298F9-9A10-4DEE-9052-F3A39747B25A}-0"
+          s:ccb="Clear on publish" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Speakers
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201840Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "33ead278-26ca-46c3-9802-0b10faed58b5"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220310T153502Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Speakers
