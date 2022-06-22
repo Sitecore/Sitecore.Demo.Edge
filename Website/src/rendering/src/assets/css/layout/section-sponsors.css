@@ -1,5 +1,5 @@
 .section__sponsors {
-  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-color;
 
   display: -webkit-flex;
   display: flex;
