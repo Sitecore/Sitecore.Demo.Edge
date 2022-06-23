@@ -13,8 +13,8 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query {
-      item(path: "/sitecore/content/EdgeWebsite/home/sessions", language: "en") {
+    query($language: String!) {
+      item(path: "/sitecore/content/EdgeWebsite/home/sessions", language: $language) {
         children(hasLayout: true, first: 200) {
           total
           results {
