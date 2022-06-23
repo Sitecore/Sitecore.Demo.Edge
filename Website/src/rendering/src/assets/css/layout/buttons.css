@@ -17,6 +17,7 @@
   transition: all 0.2s ease-in-out;
 }
 
+.btn--main,
 .btn-main {
   @apply btn-base;
   @apply bg-yellow text-black rounded-md;
