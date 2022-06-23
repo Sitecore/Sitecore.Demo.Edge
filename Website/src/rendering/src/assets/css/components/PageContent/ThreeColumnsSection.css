@@ -1,5 +1,5 @@
 .three-col-section {
-  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-color;
 
   .col-content {
     @include flex--center--column;

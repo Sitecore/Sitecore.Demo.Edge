@@ -1,5 +1,5 @@
 .section-news {
-  @apply flex items-center justify-center flex-col bg-cover bg-center bg-no-repeat bg-pattern-dark;
+  @apply flex items-center justify-center flex-col bg-cover bg-center bg-no-repeat bg-pattern-gray;
 
   .section-content-p {
     @apply hidden;

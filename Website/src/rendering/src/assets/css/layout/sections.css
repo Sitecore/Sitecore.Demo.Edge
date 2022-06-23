@@ -78,11 +78,11 @@
   }
 
   &-dark-pattern {
-    @apply bg-pattern-dark;
+    @apply bg-pattern-gray;
   }
 
   &-light-pattern {
-    @apply bg-pattern-light;
+    @apply bg-pattern-color;
   }
 }
 

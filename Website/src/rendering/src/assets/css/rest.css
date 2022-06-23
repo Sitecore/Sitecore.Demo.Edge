@@ -1,5 +1,5 @@
 .section-products {
-  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-color;
 }
 
 .section-products-content {

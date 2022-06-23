@@ -40,7 +40,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (loading) {
       return false;
     }
-    if (!order?.ID) {
+    if (!order?.ID || order?.LineItemCount === 0) {
       return false;
     }
     if (isShipOrder && !selectedShipMethodId) {
