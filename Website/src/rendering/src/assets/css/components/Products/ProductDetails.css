@@ -57,7 +57,7 @@
       &-add-to-cart {
         @apply flex;
 
-        .btn--main {
+        .btn-main {
           @apply mr-auto;
           @apply sm:mr-0;
         }

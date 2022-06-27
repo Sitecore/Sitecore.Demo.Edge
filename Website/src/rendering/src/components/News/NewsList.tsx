@@ -30,7 +30,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
         </div>
         <div className="button-container">
           <Link href={news.url}>
-            <a className="btn--main btn--main--round">Read&nbsp;More</a>
+            <a className="btn-main">Read&nbsp;More</a>
           </Link>
         </div>
       </div>

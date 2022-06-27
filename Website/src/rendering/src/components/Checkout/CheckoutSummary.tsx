@@ -82,11 +82,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
         <span className="line-name">Total:</span>
         <span className="line-amount">{formatCurrency(order.Total)}</span>
       </p>
-      <button
-        className="btn--main btn--main--round"
-        disabled={!canSubmitOrder()}
-        onClick={handleButtonClick}
-      >
+      <button className="btn-main" disabled={!canSubmitOrder()} onClick={handleButtonClick}>
         {props.buttonText}
       </button>
     </>
