@@ -57,7 +57,7 @@ export const LightSpeakers = Template.bind({});
 LightSpeakers.args = {
   fields: {
     cssClass: {
-      value: 'section__speakers',
+      value: 'section-speakers',
     },
     brightness: {
       value: 'light',
@@ -129,7 +129,7 @@ export const DarkPatternBackground = Template.bind({});
 DarkPatternBackground.args = {
   fields: {
     cssClass: {
-      value: 'section--dark-pattern',
+      value: 'section-dark-pattern',
     },
     brightness: {
       value: 'dark',
@@ -153,7 +153,7 @@ export const LightPatternBackground = Template.bind({});
 LightPatternBackground.args = {
   fields: {
     cssClass: {
-      value: 'section--light-pattern',
+      value: 'section-light-pattern',
     },
     brightness: {
       value: 'light',
@@ -177,7 +177,7 @@ export const DarkNews = Template.bind({});
 DarkNews.args = {
   fields: {
     cssClass: {
-      value: 'section__news',
+      value: 'section-news',
     },
     brightness: {
       value: 'dark',

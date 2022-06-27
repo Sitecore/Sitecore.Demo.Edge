@@ -1,11 +1,11 @@
-.section__sponsors__grid {
+.selected-sponsors-grid {
   @include flex--center-w;
 
   @apply max-w-full;
 
   margin: 0 auto 1em;
 
-  &__sponsor &__sponsor__imagecontainer {
+  .sponsor .sponsor-image {
     @apply m-3 w-32 h-32;
 
     img:hover {

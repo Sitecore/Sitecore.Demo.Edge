@@ -51,7 +51,7 @@ export const cartState = {
       ProductID: 'PSPRFSAW',
       LineSubtotal: 5,
       Product: {
-        Name: 'Robit Fitness Strengthening Ab Wheel',
+        Name: 'Robin Fitness Strengthening Ab Wheel',
         xp: {
           Images: [
             {
@@ -59,7 +59,7 @@ export const cartState = {
             },
           ],
           ProductUrl: 'shop/products/PSPRFSAW/robin-fitness-strengthening-ab-wheel',
-          Brand: 'Robit Fitness',
+          Brand: 'Robin Fitness',
         },
       },
       Variant: {
@@ -69,6 +69,8 @@ export const cartState = {
               Url: 'https://ch.sitecoredemo.com/api/public/content/abb-wheel-1-product?v=9dbb093f',
             },
           ],
+          ProductUrl: '#',
+          Brand: 'Robin Fitness',
         },
       },
       Specs: [
@@ -97,8 +99,8 @@ export const cartState = {
               Url: 'https://static.gotprint.com/tl/en_US/products/business-cards/info/img/desktop/standard.jpg',
             },
           ],
-          ProductUrl: '',
-          Brand: 'BusinessCards Ltd',
+          ProductUrl: '#',
+          Brand: 'Mania Print',
         },
       },
       Specs: [] as Spec[],

@@ -62,6 +62,7 @@ export const product: RequiredDeep<BuyerProduct> = {
     ],
     Breadcrumbs: [{}],
     ShortDescription: 'Made for: strengthening arms, core, and back.',
+    CCID: 'PSAFE',
   },
 };
 
