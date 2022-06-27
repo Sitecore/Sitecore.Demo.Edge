@@ -37,7 +37,7 @@ const NewsList = (props: NewsListProps): JSX.Element => {
     ));
 
   return (
-    <section className="section section__news--list">
+    <section className="section section-news-list">
       <div className="container">
         <div className="content">{newsCards}</div>
       </div>

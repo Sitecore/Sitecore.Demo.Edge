@@ -1,13 +1,7 @@
-.section__news {
-  @apply bg-cover bg-center bg-no-repeat bg-pattern-gray;
+.section-news {
+  @apply flex items-center justify-center flex-col bg-cover bg-center bg-no-repeat bg-pattern-gray;
 
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  .section__content__p {
+  .section-content-p {
     @apply hidden;
   }
 }

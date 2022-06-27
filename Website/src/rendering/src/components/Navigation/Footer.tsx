@@ -64,8 +64,8 @@ const Footer = (props: FooterProps): JSX.Element => {
   const newDate = new Date();
 
   return (
-    <div className="footer__content container">
-      <div className="footer__content__banner">
+    <div className="footer container">
+      <div className="footer-banner">
         <Link href="/">
           <a>
             <Image
@@ -76,9 +76,9 @@ const Footer = (props: FooterProps): JSX.Element => {
           </a>
         </Link>
       </div>
-      <footer className="footer__content__footer">
+      <footer className="footer-content">
         {props.fields?.data?.links?.children?.results?.map((item, index) => (
-          <ul key={index} className="footer__content__footer__col">
+          <ul key={index} className="footer-content-col">
             <li>{item.displayName}</li>
             {item.children.results.map((footerLink, footerLinkIndex) => (
               <li key={footerLinkIndex}>
@@ -95,8 +95,8 @@ const Footer = (props: FooterProps): JSX.Element => {
           </ul>
         ))}
       </footer>
-      <div className="footer__content__legal">
-        <div className="footer__content__legal__links">
+      <div className="footer-legal">
+        <div className="footer-legal-links">
           <div>
             <p>Copyright © 2014-{newDate.getFullYear()} PLAY! Summit</p>
           </div>
