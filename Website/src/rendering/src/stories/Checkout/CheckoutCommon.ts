@@ -1,6 +1,7 @@
 import { Spec } from 'ordercloud-javascript-sdk';
 import { DOrderPromotion } from 'src/models/ordercloud/DOrderPromotion';
 import { MockSlice } from '../mock-store';
+import { getMockExpirationDate } from '../utils';
 
 export const cartState = {
   lineItems: [
@@ -107,9 +108,46 @@ export const cartState = {
   promotions: [] as unknown,
   initialized: true,
   order: {
+    ID: 'mockorderid',
     LineItemCount: 4,
     Subtotal: 24,
+    BillingAddress: {
+      ID: 'mockaddressid',
+      AddressName: 'Marty Byrde Home',
+      Street1: '6818 Gaines Ferry Road',
+      City: 'Flowery Branch',
+      State: 'GA',
+      Zip: '30542',
+      Country: 'US',
+    },
   },
+  shippingAddress: {
+    ID: 'mockaddressid',
+    AddressName: 'Marty Byrde Home',
+    Street1: '6818 Gaines Ferry Road',
+    City: 'Flowery Branch',
+    State: 'GA',
+    Zip: '30542',
+    Country: 'US',
+  },
+  payments: [
+    {
+      ID: 'mockpaymentid',
+      Type: 'CreditCard',
+      CreditCardID: 'mock-creditcard-id',
+      Accepted: true,
+      Amount: 100,
+      xp: {
+        CreditCard: {
+          ID: 'mockcreditcardid',
+          CardType: 'Visa',
+          CardholderName: 'Jon Snow',
+          PartialAccountNumber: '6123',
+          ExpirationDate: getMockExpirationDate(),
+        },
+      },
+    },
+  ],
 };
 
 export const productCacheState = {
