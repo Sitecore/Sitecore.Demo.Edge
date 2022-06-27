@@ -1,10 +1,6 @@
 .section {
   @apply py-20 px-0;
 
-  &_top-spacer {
-    @apply pb-0;
-  }
-
   .section-content {
     @include flex--center--column;
 
