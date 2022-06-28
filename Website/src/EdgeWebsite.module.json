@@ -28,6 +28,10 @@
                 "path": "/sitecore/templates/Project/edgewebsite"
             },
             {
+                "name": "standard-template-fallback",
+                "path": "/sitecore/templates/System/Templates/Standard template"
+            },
+            {
                 "name": "branches",
                 "path": "/sitecore/templates/Branches/Project/edgewebsite"
             },

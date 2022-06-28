@@ -1,4 +1,4 @@
-.section__news--detail {
+.news-detail {
   .container {
     @apply grid grid-cols-1 gap-10;
     @apply md:grid-cols-4;

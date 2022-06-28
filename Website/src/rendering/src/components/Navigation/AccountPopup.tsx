@@ -27,11 +27,11 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   const guestMenuItems = !isUserLoggedIn && (
     <>
       <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn--secondary btn--secondary--light btn--secondary--round">Login</a>
+        <a className="btn-secondary-light">Login</a>
       </Link>
       {/* TODO: Replace with signup url when available */}
       <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn--main btn--main--round">Register</a>
+        <a className="btn-main">Register</a>
       </Link>
     </>
   );
@@ -60,31 +60,22 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   const loggedInMenuItems = isUserLoggedIn && (
     <>
       <Link href="/account/address-book">
-        <a
-          className="btn--secondary btn--secondary--light btn--secondary--round"
-          onClick={onNavigatingAway}
-        >
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
           Address book
         </a>
       </Link>
       <Link href="/account/payment-methods">
-        <a
-          className="btn--secondary btn--secondary--light btn--secondary--round"
-          onClick={onNavigatingAway}
-        >
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
           Payment methods
         </a>
       </Link>
       <Link href="/account/orders">
-        <a
-          className="btn--secondary btn--secondary--light btn--secondary--round"
-          onClick={onNavigatingAway}
-        >
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
           Order history
         </a>
       </Link>
       <Link href={logoutUrl}>
-        <a className="btn--main btn--main--round" onClick={clearAuthenticationTokens}>
+        <a className="btn-main" onClick={clearAuthenticationTokens}>
           Logout
         </a>
       </Link>

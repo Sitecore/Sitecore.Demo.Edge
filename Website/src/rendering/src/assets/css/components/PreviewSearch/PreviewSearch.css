@@ -3,20 +3,15 @@
   @apply lg:top-[100px];
 
   .preview-search {
-    @screen lg {
-      @include shop-container;
-    }
+    @apply shop-container;
+    @apply px-0; /* overrides only when on new line */
+    @apply lg:px-5;
 
     .preview-search-modal-container {
-      min-height: 300px;
-      height: calc(100vh - 7rem);
-
-      @screen lg {
-        height: calc(100vh - 100px);
-      }
-
+      @apply min-h-[300px] h-[calc(100vh-7rem)];
       @apply bg-gray-light w-full flex flex-row flex-wrap border border-solid border-gray p-3 overflow-y-auto;
       @apply sm:p-5;
+      @apply lg:h-[calc(100vh-100px)];
       @apply lg:flex-initial lg:py-5 lg:px-4;
     }
   }
