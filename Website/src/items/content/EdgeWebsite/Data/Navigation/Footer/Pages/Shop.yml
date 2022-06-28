@@ -1,22 +1,20 @@
 ﻿---
-ID: "54128e66-c795-4816-9a7a-59ceb06dea90"
-Parent: "81347f0c-a6f8-4a09-8d0a-0600485d5894"
-Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
-Path: /sitecore/content/EdgeWebsite/home/speakers/Page Components/All speakers Section
+ID: "09d74ef9-532e-4190-bf70-4b49653c2143"
+Parent: "233cc3ab-ef68-4167-adaa-391c3ff1e907"
+Template: "ce8e28f6-c530-4bd5-9ca5-00d7d42c26c0"
+Path: /sitecore/content/EdgeWebsite/Data/Navigation/Footer/Pages/Shop
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 300
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
-    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
-      Hint: __Lock
-      Value: <r />
-    - ID: "05607296-e17f-567f-898f-46bb9665d619"
-      Hint: title
-      Value: Other event speakers
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211213T233050Z
+      Value: 20220407T231223Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -27,14 +25,15 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "68826d2c-e34f-47de-b435-592d373f0fbb"
+      Value: "dc02648d-08ce-477a-aa77-0cbee7c481f3"
+    - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
+      Hint: Link
+      Value: |
+        <link text="shop" linktype="external" url="/shop" anchor="" target="" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
-    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
-      Hint: cssClass
-      Value: "section-light"
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220616T071323Z
+      Value: 20220408T234716Z

@@ -173,7 +173,7 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
       </div>
       <div className="button-area">
         {cancelEditButton}
-        <button className="btn--main btn--main--round" type="submit" disabled={props.loading}>
+        <button className="btn-main" type="submit" disabled={props.loading}>
           <Spinner loading={props.loading} /> Save Address
         </button>
       </div>

@@ -26,17 +26,11 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
 
   const guestMenuItems = !isUserLoggedIn && (
     <>
-      <OrderCloudLoginLink
-        className="btn--secondary btn--secondary--light btn--secondary--round"
-        redirectToPathOnLogin={router.asPath}
-      >
+      <OrderCloudLoginLink className="btn-secondary-light" redirectToPathOnLogin={router.asPath}>
         Login
       </OrderCloudLoginLink>
       {/* TODO: Replace with signup url when available */}
-      <OrderCloudLoginLink
-        className="btn--main btn--main--round"
-        redirectToPathOnLogin={router.asPath}
-      >
+      <OrderCloudLoginLink className="btn--main" redirectToPathOnLogin={router.asPath}>
         Register
       </OrderCloudLoginLink>
     </>
@@ -66,31 +60,22 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   const loggedInMenuItems = isUserLoggedIn && (
     <>
       <Link href="/account/address-book">
-        <a
-          className="btn--secondary btn--secondary--light btn--secondary--round"
-          onClick={onNavigatingAway}
-        >
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
           Address book
         </a>
       </Link>
       <Link href="/account/payment-methods">
-        <a
-          className="btn--secondary btn--secondary--light btn--secondary--round"
-          onClick={onNavigatingAway}
-        >
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
           Payment methods
         </a>
       </Link>
       <Link href="/account/orders">
-        <a
-          className="btn--secondary btn--secondary--light btn--secondary--round"
-          onClick={onNavigatingAway}
-        >
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
           Order history
         </a>
       </Link>
       <Link href={logoutUrl}>
-        <a className="btn--main btn--main--round" onClick={clearAuthenticationTokens}>
+        <a className="btn-main" onClick={clearAuthenticationTokens}>
           Logout
         </a>
       </Link>

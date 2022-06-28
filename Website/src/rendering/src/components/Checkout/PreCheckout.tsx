@@ -15,7 +15,7 @@ const PreCheckout = (): JSX.Element => {
           <p>Log in your existing account!</p>
           <OrderCloudLoginLink
             redirectToPathOnLogin="/shop/checkout/checkout"
-            className="btn--main btn--main--round"
+            className="btn--main"
           >
             Log in
           </OrderCloudLoginLink>
@@ -26,7 +26,7 @@ const PreCheckout = (): JSX.Element => {
           <p>Join us for more exclusive deals!</p>
           <OrderCloudLoginLink
             redirectToPathOnLogin="/shop/checkout/checkout"
-            className="btn--main btn--main--round"
+            className="btn--main"
           >
             Sign up
           </OrderCloudLoginLink>
@@ -36,7 +36,7 @@ const PreCheckout = (): JSX.Element => {
           <h6 className="item-title">It will be a single purchase?</h6>
           <p>Continue to our guest option!</p>
           <Link href="/shop/checkout/checkout">
-            <a className="btn--main btn--main--round">Continue</a>
+            <a className="btn-main">Continue</a>
           </Link>
         </div>
       </div>

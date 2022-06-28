@@ -1,5 +1,9 @@
-﻿using Sitecore.Data.Items;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Sitecore.Data.Items;
+using Sitecore.Data.Managers;
 using Sitecore.Diagnostics;
+using Sitecore.Globalization;
 using Sitecore.JavaScriptServices.Configuration;
 using Sitecore.LayoutService.ItemRendering.Pipelines.GetLayoutServiceContext;
 
@@ -29,6 +33,17 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                 Assert.IsNotNull(configItemPath, "No config item path or field names in parameter");
             }
 
+            var langVersions = new List<Language>();
+            Item tempItem = Sitecore.Context.Item;
+            foreach (var itemLanguage in tempItem.Languages)
+            {
+                var item = tempItem.Database.GetItem(tempItem.ID, itemLanguage);
+                if (item.Versions.Count > 0)
+                {
+                    langVersions.AddRange(item.Versions.GetVersions().Select(version => version.Language));
+                }
+            }
+
             Item eventItem = args?.RenderedItem?.Database?.GetItem(configItemPath);
             
             if (eventItem == null) return;
@@ -38,6 +53,9 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
                 StartDate = eventItem?.Fields[startDateFieldName]?.Value,
                 TitlePrefix = eventItem?.Fields[pageTitleFIeldName]?.Value
             });
+
+            args.ContextData.Add("Languages", langVersions);
+
         }
     }
 }
