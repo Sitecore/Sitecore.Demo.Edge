@@ -6,9 +6,10 @@ import {
   OpenIdConnectResponse,
   Users,
 } from 'ordercloud-javascript-sdk';
-import { parseJwt } from 'src/helpers/JwtHelper';
+import { parseJwt } from '../../../helpers/JwtHelper';
 import { Auth0Claims } from '../../../interfaces/Auth0';
-import { isOrderCloudError } from 'src/helpers/TypeGuards';
+import { isOrderCloudError } from '../../../helpers/TypeGuards';
+import { PROFILED_BUYER_ID } from '../../../constants/seeding';
 
 Configuration.Set({ baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL });
 
@@ -50,14 +51,16 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
 
   try {
     const updatedUser = await Users.Patch(
-      process.env.ORDERCLOUD_PROFILED_BUYER_ID,
+      PROFILED_BUYER_ID,
       existingUser.ID,
       {
         Username: claims.email || 'NOT_AVAILABLE',
         Email: claims.email || 'NOT_AVAILABLE',
         FirstName: claims.given_name || 'NOT_AVAILABLE',
         LastName: claims.family_name || 'NOT_AVAILABLE',
-      }
+      },
+      // access token has been granted elevated role BuyerUserAdmin required to patch users
+      { accessToken: payload.OrderCloudAccessToken }
     );
     return response.status(200).json({
       Username: updatedUser.Username,

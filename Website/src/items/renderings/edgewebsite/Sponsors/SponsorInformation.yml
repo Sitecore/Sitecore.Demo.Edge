@@ -13,8 +13,8 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query SponsorInformationQuery($contextItem: String!) {
-      contextItem: item(path: $contextItem, language: "en") {
+    query SponsorInformationQuery($contextItem: String!, $language: String!) {
+      contextItem: item(path: $contextItem, language: $language) {
         ... on Sponsor {
           description {
             value

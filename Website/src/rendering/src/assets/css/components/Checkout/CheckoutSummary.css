@@ -20,6 +20,6 @@
   }
 
   button {
-    @apply mt-4 mx-auto;
+    @apply mt-4 ml-auto;
   }
 }

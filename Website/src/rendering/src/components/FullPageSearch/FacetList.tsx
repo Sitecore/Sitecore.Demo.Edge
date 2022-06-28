@@ -273,7 +273,7 @@ const FacetList = ({
         acumIndex = acumIndex + values.length;
         return componentHtml;
       })}
-      <button className="btn--secondary" onClick={onClear}>
+      <button className="btn-secondary" onClick={onClear}>
         Clear All
       </button>
     </div>
@@ -286,7 +286,7 @@ const FacetList = ({
   // TODO: Implement and style range filters (e.g. min - max price)
   return (
     <div className="facet-container">
-      <button className="btn--secondary facet-container-toggle" onClick={onToggleClick}>
+      <button className="btn-secondary facet-container-toggle" onClick={onToggleClick}>
         Filter
       </button>
       {searchInput}

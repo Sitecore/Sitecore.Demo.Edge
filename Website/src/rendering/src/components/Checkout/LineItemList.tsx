@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { Actions, PageController } from '@sitecore-discover/react';
+import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import LineItemCard from './LineItemCard';
 import Skeleton from 'react-loading-skeleton';
@@ -10,6 +13,23 @@ type LineItemListProps = {
 const LineItemList = (props: LineItemListProps): JSX.Element => {
   const { lineItems, initialized } = useOcCurrentCart();
   const skeletonCount = 2;
+
+  // TODO: Try to remove code duplication here and in ShopNavigation.tsx
+  const dispatchDiscoverCartStatusListActionEvent = () => {
+    PageController.getDispatcher().dispatch({
+      type: Actions.CART_STATUS,
+      payload: {
+        products: mapProductsForDiscover(lineItems),
+      },
+    });
+  };
+
+  useEffect(() => {
+    if (lineItems?.length !== undefined) {
+      dispatchDiscoverCartStatusListActionEvent();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lineItems]);
 
   const getContent = () => {
     if (!initialized) {
@@ -44,7 +64,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
           <p>It doesn&apos;t look like you have any items in your cart</p>
           <p>
             <Link href="/shop">
-              <a className="btn--main btn--main--round continue-shopping-btn">Continue Shopping</a>
+              <a className="btn-main continue-shopping-btn">Continue Shopping</a>
             </Link>
           </p>
         </>

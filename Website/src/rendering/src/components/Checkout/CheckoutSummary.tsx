@@ -5,11 +5,13 @@ import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 type CheckoutSummaryProps = {
   buttonText: string;
   onClick: () => Promise<unknown>;
+  shouldEnableButton?: () => boolean;
 };
 
 const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const { order, shipEstimateResponse, shippingAddress, payments } = useOcCurrentCart();
+
   const shipEstimate = shipEstimateResponse?.ShipEstimates?.length
     ? shipEstimateResponse.ShipEstimates[0]
     : null;
@@ -37,7 +39,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     if (loading) {
       return false;
     }
-    if (!order?.ID) {
+    if (!order?.ID || order?.LineItemCount === 0) {
       return false;
     }
     if (isShipOrder && !selectedShipMethodId) {
@@ -51,6 +53,9 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     }
     if (!payments?.length || !payments[0] || !payments[0].ID || !payments[0].Accepted) {
       return false;
+    }
+    if (props.shouldEnableButton) {
+      return props.shouldEnableButton();
     }
     return true;
   };
@@ -77,11 +82,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
         <span className="line-name">Total:</span>
         <span className="line-amount">{formatCurrency(order.Total)}</span>
       </p>
-      <button
-        className="btn--main btn--main--round"
-        disabled={!canSubmitOrder()}
-        onClick={handleButtonClick}
-      >
+      <button className="btn-main" disabled={!canSubmitOrder()} onClick={handleButtonClick}>
         {props.buttonText}
       </button>
     </>

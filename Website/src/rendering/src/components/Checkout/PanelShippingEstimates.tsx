@@ -99,7 +99,7 @@ const PanelShippingEstimates = (): JSX.Element => {
     setChangeLoading(false);
   };
 
-  const shipMethodsList = shipMethods && (
+  const shipMethodsList = shipMethods && shippingAddress && (
     <ShipMethodsList
       shipEstimateId={shipEstimate?.ID}
       shipMethods={shipMethods}
@@ -137,7 +137,7 @@ const PanelShippingEstimates = (): JSX.Element => {
       <div className="panel-header">
         <h2>Delivery Type</h2>
       </div>
-      <div className="panel-body">{panelBody}</div>
+      {panelBody}
     </div>
   );
 };

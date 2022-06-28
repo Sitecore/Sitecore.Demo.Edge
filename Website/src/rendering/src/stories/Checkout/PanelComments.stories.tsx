@@ -9,7 +9,11 @@ export default {
   component: PanelComments,
 } as ComponentMeta<typeof PanelComments>;
 
-const Template: ComponentStory<typeof PanelComments> = (args) => <PanelComments {...args} />;
+const Template: ComponentStory<typeof PanelComments> = (args) => (
+  <section className="checkout-details shop-container">
+    <PanelComments {...args} />
+  </section>
+);
 
 // TODO: Fix stories or component. They do not show existing comment.
 

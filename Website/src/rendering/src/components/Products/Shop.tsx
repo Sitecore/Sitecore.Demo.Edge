@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import Head from 'next/head';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import ShopNavigation from '../Navigation/ShopNavigation';
@@ -9,24 +9,25 @@ import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
 import { DiscoverService } from '../../services/DiscoverService';
+import { logViewEvent } from '../../services/CdpService';
 
 DiscoverService();
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  useEffect(() => {
+    // Log a CDP page view on route change
+    const pushState = history.pushState;
+    history.pushState = (...rest) => {
+      pushState.apply(history, rest);
+      logViewEvent();
+    };
+  }, []);
+
   const footerProps = {
     fields: {
       data: {
         item: {
-          footerLogo: {
-            jsonValue: {
-              value: {
-                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
-                width: '413',
-                height: '113',
-              },
-            },
-            alt: 'PLAY! Summit long light grey',
-          },
+          footerLogo: {},
         },
         links: {
           displayName: 'Footer',
@@ -80,9 +81,29 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
                 },
               },
               {
-                displayName: 'Pages',
+                displayName: 'PLAY! Summit',
                 children: {
                   results: [
+                    {
+                      displayName: 'Home',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}',
+                          },
+                        },
+                      },
+                    },
                     {
                       displayName: 'Sessions',
                       icon: { value: '' },
@@ -199,23 +220,6 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
                             target: '',
                             querystring: '',
                             id: '{0E4A63DA-7496-557E-BF80-5BD52255E431}',
-                          },
-                        },
-                      },
-                    },
-                    {
-                      displayName: 'Shop',
-                      icon: { value: '' },
-                      title: { value: '' },
-                      field: {
-                        jsonValue: {
-                          value: {
-                            href: '/shop',
-                            text: 'shop',
-                            linktype: 'external',
-                            url: '/shop',
-                            anchor: '',
-                            target: '',
                           },
                         },
                       },

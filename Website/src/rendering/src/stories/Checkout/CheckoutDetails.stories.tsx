@@ -4,6 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckoutDetails from '../../components/Checkout/CheckoutDetails';
 import { MockStore } from '../mock-store';
 import { getMockExpirationDate } from '../utils';
+import { loggedInAuthSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
@@ -21,7 +22,9 @@ const noLineItemsState = {
 };
 NoLineItems.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noLineItemsState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: noLineItemsState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -33,7 +36,7 @@ const loadingState = {
 };
 Loading.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
+    <MockStore sliceOrSlices={[{ name: 'ocCurrentCart', state: loadingState }, loggedInAuthSlice]}>
       <Story />
     </MockStore>
   ),
@@ -53,7 +56,9 @@ const noStepsCompleteState = {
 };
 NoStepsComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: noStepsCompleteState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: noStepsCompleteState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -125,7 +130,9 @@ const shippingCompleteState = {
 };
 ShippingComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: shippingCompleteState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: shippingCompleteState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -198,7 +205,12 @@ const shippingEstimatesCompleteState = {
 };
 ShippingEstimatesComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: shippingEstimatesCompleteState }}>
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: shippingEstimatesCompleteState },
+        loggedInAuthSlice,
+      ]}
+    >
       <Story />
     </MockStore>
   ),
@@ -280,7 +292,12 @@ const billingAddressCompleteState = {
 };
 BillingAddressComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: billingAddressCompleteState }}>
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: billingAddressCompleteState },
+        loggedInAuthSlice,
+      ]}
+    >
       <Story />
     </MockStore>
   ),
@@ -380,7 +397,9 @@ const paymentCompleteState = {
 };
 PaymentComplete.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: paymentCompleteState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: paymentCompleteState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -437,7 +456,9 @@ const pickupFromSummitState = {
 };
 PickupFromSummit.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: pickupFromSummitState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: pickupFromSummitState }, loggedInAuthSlice]}
+    >
       <Story />
     </MockStore>
   ),
@@ -493,7 +514,37 @@ const pickupFromStoreState = {
 };
 PickupFromStore.decorators = [
   (Story) => (
-    <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: pickupFromStoreState }}>
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: pickupFromStoreState }, loggedInAuthSlice]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const GuestCheckout = Template.bind({});
+const guestCheckoutCartState = {
+  initialized: true,
+  order: {
+    ShippingCost: 0,
+    Subtotal: 123.45,
+    LineItemCount: 1,
+    xp: {
+      DeliveryType: 'Ship',
+    },
+  },
+};
+const guestCheckoutAuthState = {
+  isAnonymous: true,
+};
+GuestCheckout.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: guestCheckoutCartState },
+        { name: 'ocAuth', state: guestCheckoutAuthState },
+      ]}
+    >
       <Story />
     </MockStore>
   ),

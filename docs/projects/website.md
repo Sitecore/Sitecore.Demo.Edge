@@ -96,10 +96,11 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
 ### Optional: Commerce Configuration
 
-If you want the website to use Commerce, you must configure both Sitecore OrderCloud and Sitecore Discover. To do that you must:
+If you want the website to use Commerce, you must configure Sitecore OrderCloud, Sitecore Discover, and Auth0. To do that you must:
 
-1. Edit the `.\.env` file.
-2. Fill the following values (see table below for description)
+1. [Seed a Headstart OrderCloud marketplace](../ordercloud.md#headstart-seeding).
+2. Edit the `.\.env` file.
+3. Fill the following values (see table below for description)
 
    ```shell
    # Discover
@@ -113,9 +114,12 @@ If you want the website to use Commerce, you must configure both Sitecore OrderC
    ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET=YOUR_MIDDLEWARE_CLIENT_SECRET
    ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS=YOUR_ALLOWED_CLIENT_IDS
    ORDERCLOUD_WEBHOOK_HASH_KEY=YOUR_WEBHOOK_HASH_KEY
+
+   # Auth0 Variables
+   AUTH0_ENABLED=true
    ```
 
-3. Save the file.
+4. Save the file.
 
 | Variable                                  | Description                                                                                                                                                                                        |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -127,23 +131,23 @@ If you want the website to use Commerce, you must configure both Sitecore OrderC
 | `ORDERCLOUD_WEBHOOK_HASH_KEY`             | A long secret value used to encrypt and validate webhook requests. You can generate a suitable string using openssl rand -hex 32 on the command line                                               |
 | `DISCOVER_CUSTOMER_KEY`                   | Your Discover Customer Key. In the Discover CEC under Developer Resources > API Access                                                                                                             |
 | `DISCOVER_API_KEY`                        | Your Discover API Key. In the Discover CEC under Developer Resources > API Access                                                                                                                  |
+| `AUTH0_ENABLED`                           | `true` to enable Auth0 authentication                                                                                                                                                              |
 
-### Optional: Profiled User Configuration
+### Optional: Custom Auth0 Configuration
 
-Enabling this allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. To do that you must have configured commerce and have access to an [auth0](https://auth0.com) instance.
+The shop section of the demo comes with a default Auth0 configuration that works for development. It allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. If you wish to use your own Auth0 account, you must have configured commerce and have access to an [auth0](https://auth0.com) instance.
 
-1. Follow [instructions here](../ordercloud.md#) to configure OrderCloud for single sign on
-2. Edit the `.\.env` file
-3. Fill the following values (see table below for description and checkout Configuring OpenID Connect Integration)
+1. Follow [instructions here](../ordercloud.md#) to configure OrderCloud for single sign on.
+2. Edit the `.\.env` file.
+3. Fill the following values (see table below for description and checkout Configuring OpenID Connect Integration).
 
    ```shell
    # OrderCloud
-   ORDERCLOUD_PROFILED_BUYER_ID=YOUR_BUYER_ID_FOR_PROFILED_USERS
    ORDERCLOUD_OPENID_CONNECT_ID=YOUR_OPENID_CONNECT_ID
 
    # Auth0 Variables
    AUTH0_SECRET=use [openssl rand -hex 32] to generate a 32 bytes value
-   AUTH0_BASE_URL=https://www.edge.localhost
+   AUTH0_BASE_URL=https://www.edge.localhost/shop
    AUTH0_ISSUER_BASE_URL=https://YOUR_DOMAIN
    AUTH0_CLIENT_ID=YOUR_CLIENT_ID
    AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
@@ -155,19 +159,20 @@ Enabling this allows your users to log in via single sign on (Auth0) as well as 
 | Variable                        | Description                                                                                                                                                                                |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `AUTH0_SECRET`                  | A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line                                                  |
-| `AUTH0_BASE_URL`                | The base URL of your application.                                                                                                                                                          |
+| `AUTH0_BASE_URL`                | The base URL of your application. Used to redirect the user after logout.                                                                                                                  |
 | `AUTH0_ISSUER_BASE_URL`         | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
 | `AUTH0_CLIENT_ID`               | Your Auth0 application's Client ID                                                                                                                                                         |
 | `AUTH0_CLIENT_SECRET`           | Your Auth0 application's Client Secret                                                                                                                                                     |
 | `AUTH0_ENABLED`                 | `true` or `false` indicating whether or not auth0 is configured, must be true for profiled user features to appear                                                                         |
-| `ORDERCLOUD_OPENID_CONNECT_ID`  | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |                                                                                                                                        |
-| `ORDERCLOUD_PROFILED_BUYER_ID`  | The ID of the buyer organization where profiled users should be created under                                                                                                              |                                                                                                                                        |
+| `ORDERCLOUD_OPENID_CONNECT_ID`  | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |
 
 ## Running the Website
 
 1. Ensure you have run the [prerequisites](#Prerequisites) above.
 2. [Start the containers](../docker.md#Starting-the-Containers) and follow the login directions.
 3. Wait for the startup script to open browser tabs for the rendered site and Sitecore Launchpad.
+4. If you [enabled commerce](#optional-commerce-configuration) before running the website:
+   1. [Configure the Headstart OrderCloud marketplace for PLAY! SHOP](../ordercloud.md#play-shop-seeding).
 
 ## Stopping the Website
 

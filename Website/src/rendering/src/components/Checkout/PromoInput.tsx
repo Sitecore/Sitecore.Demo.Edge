@@ -57,10 +57,11 @@ const PromoInput = (): JSX.Element => {
 
   return (
     <div className="promo-input">
+      <label htmlFor="promoInput">Add promo or coupon code...</label>
       <input
+        id="promoInput"
         type="text"
         disabled={!promotions}
-        placeholder="Add promo or coupon code..."
         value={promoCode}
         onKeyDown={handlePromoCodeKeyDown}
         onChange={handlePromoCodeChange}

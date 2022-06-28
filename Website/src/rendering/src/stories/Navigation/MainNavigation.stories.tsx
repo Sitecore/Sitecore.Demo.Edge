@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import MainNavigation, { MainNavigationProps } from '../../components/Navigation/MainNavigation';
+import { mockMainNavigationFields } from '../Pages/PageStoriesCommon';
 
 export default {
   title: 'Components/Navigation/MainNavigation',
@@ -12,18 +13,5 @@ const Template: ComponentStory<typeof MainNavigation> = (args) => <MainNavigatio
 
 export const Default = Template.bind({});
 Default.args = {
-  fields: {
-    data: {
-      item: {
-        headerLogo: {
-          jsonValue: {
-            value: {
-              src: 'https://demoedge.sitecoresandbox.cloud/api/public/content/f9e7e50f21ce4f718e7967ac61633807?v=fc7a13bd',
-            },
-          },
-          alt: '',
-        },
-      },
-    },
-  },
-} as MainNavigationProps;
+  fields: mockMainNavigationFields,
+} as unknown as MainNavigationProps;

@@ -13,9 +13,9 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query($contextItem: String!) {
+    query($contextItem: String!, $language: String!) {
       # Assume item id is available on page
-      item(path: $contextItem , language: "en") {
+      item(path: $contextItem , language: $language) {
         url {
           path
         }
