@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LineItemCard from '../../components/Checkout/LineItemCard';
 import { MockStore } from '../mock-store';
-import { DLineItem } from 'src/models/ordercloud/DLineItem';
+import { DLineItem } from '../../models/ordercloud/DLineItem';
 import { loggedInAuthSlice, cartState, orderSlice, productCacheSlice } from './CheckoutCommon';
 
 export default {
@@ -13,8 +13,6 @@ export default {
 const Template: ComponentStory<typeof LineItemCard> = (args) => <LineItemCard {...args} />;
 
 const slices = [orderSlice, loggedInAuthSlice, productCacheSlice];
-
-// TODO: Fix stories or component. Prices are not displayed.
 
 export const Default = Template.bind({});
 Default.args = {

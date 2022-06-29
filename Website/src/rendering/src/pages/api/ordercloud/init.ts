@@ -116,7 +116,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     );
     console.log(`Found integration event IDs: ${integrationEventIds.join(',')}`);
     const integrationEventBody: IntegrationEvent = {
-      ElevatedRoles: ['BuyerUserAdmin'],
+      ElevatedRoles: ['BuyerUserAdmin', 'UserGroupAdmin'],
       ID: 'SingleSignOn',
       EventType: 'OpenIDConnect',
       CustomImplementationUrl: `${integrationEventCustomImplementationUrlHost}/api/openid-connect`,

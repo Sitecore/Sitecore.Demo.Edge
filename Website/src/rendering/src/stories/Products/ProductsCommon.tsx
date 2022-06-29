@@ -28,6 +28,7 @@ export const product: RequiredDeep<BuyerProduct> = {
   Name: 'Robit Fitness Strengthening Ab Wheel',
   Description:
     'An ab wheel makes it easy for you to target your arms, back, and core comfortably with a large wheel width for extra stability and beveled edges for smooth directional transitions. The wheel also has a raised, non-slip handle texture that provides you with a superior grip so you can focus on your body and movement. Each ab wheel comes with an exercise guide to help you get started &mdash; or continue on &mdash; your journey to feeling and being your best self.\n',
+  Returnable: false,
   QuantityMultiplier: 1,
   ShipWeight: 0,
   ShipHeight: 0,

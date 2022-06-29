@@ -29,20 +29,6 @@ FROM build AS publish
 
 RUN dotnet publish "Sitecore.Demo.Init.csproj" -c Release -o /app/publish
 
-FROM ${BUILD_IMAGE} AS downloadnodejs
-
-ARG NODEJS_VERSION
-ENV NODEJS_VERSION=${NODEJS_VERSION}
-RUN echo %NODEJS_VERSION%
-
-SHELL ["pwsh", "-Command", "$ErrorActionPreference = 'Stop';$ProgressPreference='silentlyContinue';"]
-
-ADD https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-win-x64.zip C:\\nodejs.zip
-
-RUN Expand-Archive nodejs.zip -DestinationPath C:\;
-
-RUN Rename-Item "C:\node-v$($env:NODEJS_VERSION)-win-x64" c:\nodejs
-
 FROM base AS final
 
 USER ContainerAdministrator
@@ -57,16 +43,7 @@ ENV ADMIN_PASSWORD=placeholder
 
 WORKDIR /app
 
-COPY --from=downloadnodejs /nodejs /nodejs
-
-ENV PATH="C:\Windows\system32;C:\Windows;;C:\Program Files\dotnet;C:\nodejs"
-
-RUN npm i -g vercel
-
 COPY --from=publish /app/publish .
-COPY --from=solution /artifacts/src/rendering/ ./rendering
-COPY --from=solution /artifacts/src/tv ./tv
-COPY --from=solution /artifacts/src/kiosk ./kiosk
 COPY --from=solution /artifacts/src/EdgeWebsite.module.json ./src/
 COPY --from=solution /artifacts/src/EdgeWebsite-Content.module.json ./src/
 COPY --from=solution /artifacts/src/InitItems.module.json ./src/
