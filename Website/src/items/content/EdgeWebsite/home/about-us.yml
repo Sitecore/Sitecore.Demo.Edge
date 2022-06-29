@@ -4,6 +4,9 @@ Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
 Path: "/sitecore/content/EdgeWebsite/home/about-us"
 SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 600

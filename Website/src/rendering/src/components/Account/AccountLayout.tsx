@@ -28,7 +28,7 @@ export const AccountLayout = (props: PropsWithChildren<unknown>): JSX.Element =>
             <h6 className="item-title">Already a member?</h6>
             <p>Log in your existing account!</p>
             <Link href={getLoginUrl(router.asPath)}>
-              <a className="btn--main btn--main--round">Log in</a>
+              <a className="btn-main">Log in</a>
             </Link>
           </div>
           <div className="account-layout-grid-item">
@@ -37,7 +37,7 @@ export const AccountLayout = (props: PropsWithChildren<unknown>): JSX.Element =>
             <p>Join us for more exclusive deals!</p>
             {/* TODO: Replace with signup url when available */}
             <Link href={getLoginUrl(router.asPath)}>
-              <a className="btn--main btn--main--round">Sign up</a>
+              <a className="btn-main">Sign up</a>
             </Link>
           </div>
         </div>

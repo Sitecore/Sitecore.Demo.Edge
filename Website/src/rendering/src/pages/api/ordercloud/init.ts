@@ -118,7 +118,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     // Create or update single sign on integration event
     console.log(`Creating or updating SingleSignOn integration event`);
     await IntegrationEvents.Save('SingleSignOn', {
-      ElevatedRoles: ['BuyerUserAdmin'],
+      ElevatedRoles: ['BuyerUserAdmin', 'UserGroupAdmin'],
       ID: 'SingleSignOn',
       EventType: 'OpenIDConnect',
       CustomImplementationUrl: `${integrationEventCustomImplementationUrlHost}/api/openid-connect`,

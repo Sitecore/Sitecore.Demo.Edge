@@ -39,10 +39,10 @@ const TestimonyList = (props: TestimonyListProps): JSX.Element => {
     ));
 
   return (
-    <section className="section section__testimonies">
-      <div className="section__content container">
-        <Text tag="h2" className="section__content__title" field={props.fields.Title} />
-        <Text tag="p" className="section__content__p" field={props.fields.Subtitle} />
+    <section className="section section-testimonies">
+      <div className="section-content container">
+        <Text tag="h2" className="section-content-title" field={props.fields.Title} />
+        <Text tag="p" className="section-content-p" field={props.fields.Subtitle} />
         <div className="testimonies-list">{testimonies}</div>
       </div>
     </section>

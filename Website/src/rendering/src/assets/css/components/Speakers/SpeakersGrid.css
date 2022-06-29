@@ -1,27 +1,27 @@
 .speakers-grid {
-  @apply mx-auto grid grid-cols-1 gap-5 mt-5 mb-10;
-  @apply sm:grid-cols-2;
-  @apply md:grid-cols-3;
-  @apply lg:grid-cols-4;
-  @apply xl:grid-cols-5 xl:gap-10;
+  &.container {
+    @apply max-w-none w-auto;
+  }
+
+  @apply mx-auto grid grid-cols-2 gap-x-12 gap-y-3 mt-5 mb-10 px-0;
+  @apply md:grid-cols-2 md:gap-x-9 md:gap-y-5;
+  @apply lg:grid-cols-3 lg:gap-x-16 lg:gap-y-5;
+  @apply xl:grid-cols-4 xl:gap-x-7 xl:gap-y-4;
+  @apply 2xl:gap-x-24 2xl:gap-y-3;
 
   &-speaker {
-    @apply box-border col-span-1 relative text-left text-black mx-auto;
+    @apply box-border max-w-[265px] col-span-1 relative text-left text-black mx-auto;
 
     &:hover img {
       box-shadow: 0 0 10px rgba(23, 23, 23, 0.45);
     }
 
-    img {
-      max-width: 265px;
-    }
-
     .speaker-image {
-      @apply w-full bg-element bg-no-repeat bg-cover bg-blue;
+      @apply w-full bg-element bg-no-repeat bg-left-bottom bg-contain bg-blue;
     }
 
     .speaker-name {
-      @apply font-bold my-1;
+      @apply whitespace-nowrap text-ellipsis overflow-hidden font-bold text-2xl mt-2;
     }
   }
 }

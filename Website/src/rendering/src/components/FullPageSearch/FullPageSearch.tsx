@@ -136,7 +136,7 @@ const FullPageSearch = ({
               onSearchInputChange={handleSearchInputChange}
             />
             <div className="button-container">
-              <button className="btn--main btn--main--round" onClick={handleToggleClick}>
+              <button className="btn-main" onClick={handleToggleClick}>
                 Show {totalItems} results
               </button>
             </div>
@@ -156,10 +156,7 @@ const FullPageSearch = ({
                     onSortChange={handleSortChange}
                   />
                 </div>
-                <button
-                  className="btn--main btn--main--round facet-container-toggle"
-                  onClick={handleToggleClick}
-                >
+                <button className="btn-main facet-container-toggle" onClick={handleToggleClick}>
                   Filter
                 </button>
               </div>
