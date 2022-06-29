@@ -3,7 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import OrderReviewDetails from '../../components/Checkout/OrderReviewDetails';
 import { MockStore } from '../mock-store';
-import { cartState, productCacheSlice, loggedInAuthSlice, shipMethods } from './CheckoutCommon';
+import {
+  cartState,
+  productCacheSlice,
+  loggedInAuthSlice,
+  shipEstimateResponse,
+} from './CheckoutCommon';
 import { LineItem } from 'ordercloud-javascript-sdk';
 
 export default {
@@ -16,26 +21,7 @@ const Template: ComponentStory<typeof OrderReviewDetails> = () => <OrderReviewDe
 export const Default = Template.bind({});
 const defaultCartState = {
   ...cartState,
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipMethods: shipMethods,
-      },
-    ],
-  },
-  order: {
-    ...cartState.order,
-    Subtotal: 1069.98,
-    ShippingCost: 4.99,
-    TaxCost: 256.79,
-    Total: 1331.76,
-    LineItemCount: 4,
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
+  shipEstimateResponse,
 };
 Default.decorators = [
   (Story) => (
@@ -55,25 +41,13 @@ export const NoLineItems = Template.bind({});
 const noLineItemsState = {
   ...cartState,
   lineItems: [] as LineItem[],
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipMethods: shipMethods,
-      },
-    ],
-  },
+  shipEstimateResponse,
   order: {
     ...cartState.order,
     Subtotal: 0,
-    ShippingCost: 4.99,
     TaxCost: 0,
     Total: 4.99,
     LineItemCount: 0,
-    xp: {
-      DeliveryType: 'Ship',
-    },
   },
 };
 NoLineItems.decorators = [
@@ -89,25 +63,9 @@ NoLineItems.decorators = [
 export const WithAdditionalComments = Template.bind({});
 const withAdditionalCommentsState = {
   ...cartState,
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipMethods: shipMethods,
-      },
-    ],
-  },
+  shipEstimateResponse,
   order: {
     ...cartState.order,
-    Subtotal: 1069.98,
-    ShippingCost: 4.99,
-    TaxCost: 256.79,
-    Total: 1331.76,
-    LineItemCount: 4,
-    xp: {
-      DeliveryType: 'Ship',
-    },
     Comments: 'Please deliver it after 15h',
   },
 };

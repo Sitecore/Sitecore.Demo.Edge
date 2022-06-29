@@ -111,8 +111,6 @@ export const cartState = {
   initialized: true,
   order: {
     ID: 'mockorderid',
-    LineItemCount: 4,
-    Subtotal: 24,
     BillingAddress: {
       ID: 'mockaddressid',
       AddressName: 'Marty Byrde Home',
@@ -121,6 +119,14 @@ export const cartState = {
       State: 'GA',
       Zip: '30542',
       Country: 'US',
+    },
+    Subtotal: 1069.98,
+    ShippingCost: 4.99,
+    TaxCost: 256.79,
+    Total: 1331.76,
+    LineItemCount: 4,
+    xp: {
+      DeliveryType: 'Ship',
     },
   },
   shippingAddress: {
@@ -298,3 +304,13 @@ export const shipMethods = [
     },
   },
 ];
+
+export const shipEstimateResponse = {
+  ShipEstimates: [
+    {
+      ID: 'STATIC_SINGLE_SHIPMENT',
+      SelectedShipMethodID: 'EXPRESS_DELIVERY',
+      ShipMethods: shipMethods,
+    },
+  ],
+};
