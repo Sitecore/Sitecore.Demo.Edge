@@ -1,6 +1,7 @@
 import { Spec } from 'ordercloud-javascript-sdk';
 import { DOrderPromotion } from 'src/models/ordercloud/DOrderPromotion';
 import { MockSlice } from '../mock-store';
+import { getMockExpirationDate } from '../utils';
 
 export const cartState = {
   lineItems: [
@@ -14,15 +15,15 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://m.media-amazon.com/images/I/61LPos5CIaL._AC_SL1500_.jpg',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/carbon-cycling-bottle-cage-product?v=312458fb',
             },
           ],
-          ProductUrl: '#',
+          ProductUrl: '/shop/products/PSPCCCCBC/centercycle-carbon-cycling-bottle-cage',
           Brand: 'CenterCycle',
         },
       },
       Specs: [] as Spec[],
+      UnitPrice: 34.99,
     },
     {
       ID: 'lineitem2',
@@ -34,15 +35,15 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://cdn.shopify.com/s/files/1/0150/9084/products/2020_sl1_white_image1_76540d19-28dd-4284-a57f-518cd2472e7f_x1800.jpg?v=1640023075',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/sunday-golf-bag-product?v=23b29a0c',
             },
           ],
-          ProductUrl: '#',
+          ProductUrl: 'shop/products/PSPPSSGB/pro-staff-sunday-golf-bag',
           Brand: 'Pro Staff',
         },
       },
       Specs: [] as Spec[],
+      UnitPrice: 1000,
     },
     {
       ID: 'lineitem3',
@@ -54,11 +55,10 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://assets.roguefitness.com/f_auto,q_auto,c_limit,w_1960,b_rgb:f8f8f8/catalog/Conditioning/Speed%20and%20Agility/Core%20and%20Stability/AD0053/AD0053-H_p1yblu.png',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/abb-wheel-1-product?v=9dbb093f',
             },
           ],
-          ProductUrl: '#',
+          ProductUrl: 'shop/products/PSPRFSAW/robin-fitness-strengthening-ab-wheel',
           Brand: 'Robin Fitness',
         },
       },
@@ -66,8 +66,7 @@ export const cartState = {
         xp: {
           Images: [
             {
-              // TODO: replace with our own hosted images once fixed
-              Url: 'https://headstartdemo.blob.core.windows.net/assets/GreenLarge.png',
+              Url: 'https://ch.sitecoredemo.com/api/public/content/abb-wheel-1-product?v=9dbb093f',
             },
           ],
           ProductUrl: '#',
@@ -84,6 +83,7 @@ export const cartState = {
           Value: 'Large',
         },
       ],
+      UnitPrice: 15,
     },
     {
       ID: 'lineitem4',
@@ -103,15 +103,59 @@ export const cartState = {
           Brand: 'Mania Print',
         },
       },
-      Specs: [],
+      Specs: [] as Spec[],
+      UnitPrice: 19.99,
     },
   ],
   promotions: [] as unknown,
   initialized: true,
   order: {
+    ID: 'mockorderid',
+    BillingAddress: {
+      ID: 'mockaddressid',
+      AddressName: 'Marty Byrde Home',
+      Street1: '6818 Gaines Ferry Road',
+      City: 'Flowery Branch',
+      State: 'GA',
+      Zip: '30542',
+      Country: 'US',
+    },
+    Subtotal: 1069.98,
+    ShippingCost: 4.99,
+    TaxCost: 256.79,
+    Total: 1331.76,
     LineItemCount: 4,
-    Subtotal: 24,
+    xp: {
+      DeliveryType: 'Ship',
+    },
   },
+  shippingAddress: {
+    ID: 'mockaddressid',
+    AddressName: 'Marty Byrde Home',
+    Street1: '6818 Gaines Ferry Road',
+    City: 'Flowery Branch',
+    State: 'GA',
+    Zip: '30542',
+    Country: 'US',
+  },
+  payments: [
+    {
+      ID: 'mockpaymentid',
+      Type: 'CreditCard',
+      CreditCardID: 'mock-creditcard-id',
+      Accepted: true,
+      Amount: 100,
+      xp: {
+        CreditCard: {
+          ID: 'mockcreditcardid',
+          CardType: 'Visa',
+          CardholderName: 'Jon Snow',
+          PartialAccountNumber: '6123',
+          ExpirationDate: getMockExpirationDate(),
+        },
+      },
+    },
+  ],
 };
 
 export const productCacheState = {
@@ -260,3 +304,13 @@ export const shipMethods = [
     },
   },
 ];
+
+export const shipEstimateResponse = {
+  ShipEstimates: [
+    {
+      ID: 'STATIC_SINGLE_SHIPMENT',
+      SelectedShipMethodID: 'EXPRESS_DELIVERY',
+      ShipMethods: shipMethods,
+    },
+  ],
+};
