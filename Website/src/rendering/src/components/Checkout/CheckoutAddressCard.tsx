@@ -34,7 +34,7 @@ const CheckoutAddressCard = (props: CheckoutAddressCardProps): JSX.Element => {
   }
 
   const compactAddressCard = (
-    <div>
+    <div className="info-card-address">
       <h6 className="card-name">{props.address.AddressName}</h6>
       <p>{props.address.Street1}</p>
     </div>

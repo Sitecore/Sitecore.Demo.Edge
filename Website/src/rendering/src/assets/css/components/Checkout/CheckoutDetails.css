@@ -167,6 +167,10 @@
 
     .info-card {
       @apply flex flex-row-reverse justify-between items-start grow-0 shrink-0 basis-full;
+
+      .info-card-address {
+        @apply w-full;
+      }
     }
 
     .new-address {

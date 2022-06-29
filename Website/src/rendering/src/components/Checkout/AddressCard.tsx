@@ -21,13 +21,13 @@ const AddressCard = (props: AddressCardProps): JSX.Element => {
   return (
     <>
       {editButton}
-      <div>
+      <div className="info-card-address">
         <h6 className="card-name">{props.address.AddressName}</h6>
         <p>
           {props.address.FirstName} {props.address.LastName}
         </p>
         <p>{props.address.Street1}</p>
-        <p>{street2}</p>
+        {street2}
         <p>
           {props.address.City}, {props.address.State}, {props.address.Zip}
         </p>
