@@ -5,8 +5,8 @@ export const isSameAddress = (address1: BuyerAddress, address2: BuyerAddress): b
     return true;
   }
   return (
-    address1 &&
-    address2 &&
+    !!address1 &&
+    !!address2 &&
     address1.AddressName === address2.AddressName &&
     address1.Street1 === address2.Street1 &&
     address1.Street2 === address2.Street2 &&
