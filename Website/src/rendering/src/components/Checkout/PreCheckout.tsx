@@ -13,10 +13,7 @@ const PreCheckout = (): JSX.Element => {
           <FontAwesomeIcon icon={faSignInAlt} className="text-pink" />
           <h6 className="item-title">Already a member?</h6>
           <p>Log in your existing account!</p>
-          <OrderCloudLoginLink
-            redirectToPathOnLogin="/shop/checkout/checkout"
-            className="btn--main"
-          >
+          <OrderCloudLoginLink redirectToPathOnLogin="/shop/checkout/checkout" className="btn-main">
             Log in
           </OrderCloudLoginLink>
         </div>
@@ -24,10 +21,7 @@ const PreCheckout = (): JSX.Element => {
           <FontAwesomeIcon icon={faPlus} className="text-orange" />
           <h6 className="item-title">Want more discounts?</h6>
           <p>Join us for more exclusive deals!</p>
-          <OrderCloudLoginLink
-            redirectToPathOnLogin="/shop/checkout/checkout"
-            className="btn--main"
-          >
+          <OrderCloudLoginLink redirectToPathOnLogin="/shop/checkout/checkout" className="btn-main">
             Sign up
           </OrderCloudLoginLink>
         </div>

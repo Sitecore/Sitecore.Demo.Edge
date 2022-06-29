@@ -10,23 +10,27 @@ type OrderCloudLoginLinkProps = {
   redirectToPathOnLogin?: string;
   className?: string;
 };
+
 const OrderCloudLoginLink = (props: OrderCloudLoginLinkProps): JSX.Element => {
   const { isAnonymous } = useOcAuth();
   const { order } = useOcCurrentCart();
 
+  const { redirectToPathOnLogin, ...otherProps } = props;
+
   const handleClick = () => {
     if (isAnonymous && order?.LineItemCount > 0) {
-      // store anon order details so we can transfer when user logs in
+      // store anonymous order details so we can transfer when user logs in
       const expireCookiesAfterMinutes = 5;
       setCookie(COOKIES_ANON_USER_TOKEN, Tokens.GetAccessToken(), expireCookiesAfterMinutes);
       setCookie(COOKIES_ANON_ORDER_ID, order.ID, expireCookiesAfterMinutes);
     }
     // redirect programatically to avoid race conditions if we were to define
     // both a click handler and an href
-    location.href = getLoginUrl(props.redirectToPathOnLogin);
+    location.href = getLoginUrl(redirectToPathOnLogin);
   };
+
   return (
-    <a onClick={handleClick} {...props}>
+    <a href="#" onClick={handleClick} {...otherProps}>
       {props.children}
     </a>
   );

@@ -27,7 +27,7 @@ export const AccountLayout = (props: PropsWithChildren<unknown>): JSX.Element =>
             <FontAwesomeIcon icon={faSignInAlt} className="text-pink" />
             <h6 className="item-title">Already a member?</h6>
             <p>Log in your existing account!</p>
-            <OrderCloudLoginLink redirectToPathOnLogin={router.asPath} className="btn--main">
+            <OrderCloudLoginLink redirectToPathOnLogin={router.asPath} className="btn-main">
               Log in
             </OrderCloudLoginLink>
           </div>
@@ -36,7 +36,7 @@ export const AccountLayout = (props: PropsWithChildren<unknown>): JSX.Element =>
             <h6 className="item-title">Want more discounts?</h6>
             <p>Join us for more exclusive deals!</p>
             {/* TODO: Replace with signup url when available */}
-            <OrderCloudLoginLink redirectToPathOnLogin={router.asPath} className="btn--main">
+            <OrderCloudLoginLink redirectToPathOnLogin={router.asPath} className="btn-main">
               Sign up
             </OrderCloudLoginLink>
           </div>

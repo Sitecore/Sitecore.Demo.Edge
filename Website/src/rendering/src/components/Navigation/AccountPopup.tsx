@@ -30,7 +30,7 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
         Login
       </OrderCloudLoginLink>
       {/* TODO: Replace with signup url when available */}
-      <OrderCloudLoginLink className="btn--main" redirectToPathOnLogin={router.asPath}>
+      <OrderCloudLoginLink className="btn-main" redirectToPathOnLogin={router.asPath}>
         Register
       </OrderCloudLoginLink>
     </>
