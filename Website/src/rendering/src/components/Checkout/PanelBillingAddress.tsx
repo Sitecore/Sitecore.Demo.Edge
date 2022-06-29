@@ -16,11 +16,11 @@ const PanelBillingAddress = (): JSX.Element => {
 
   const billingAddress = order?.BillingAddress;
 
-  const [isSameAsBilling, setIsSameAsBilling] = useState(
+  const [isSameAsShipping, setIsSameAsShipping] = useState(
     Boolean(billingAddress && shippingAddress && isSameAddress(billingAddress, shippingAddress))
   );
   const [activeAddressId, setActiveAddressId] = useState(
-    billingAddress?.ID && !isSameAsBilling ? billingAddress.ID : ''
+    billingAddress?.ID && !isSameAsShipping ? billingAddress.ID : ''
   );
   const { saveAddress, addresses } = useOcAddressBook({
     pageSize: 10,
@@ -30,19 +30,19 @@ const PanelBillingAddress = (): JSX.Element => {
   const isShipOrder = order?.xp?.DeliveryType === 'Ship';
 
   useEffect(() => {
-    const updatedIsSameAsBilling = isSameAddress(billingAddress, shippingAddress);
-    setIsSameAsBilling(updatedIsSameAsBilling);
-    setActiveAddressId(updatedIsSameAsBilling ? '' : billingAddress?.ID);
+    const updatedIsSameAsShipping = isSameAddress(billingAddress, shippingAddress);
+    setIsSameAsShipping(updatedIsSameAsShipping);
+    setActiveAddressId(updatedIsSameAsShipping ? '' : billingAddress?.ID);
   }, [billingAddress, shippingAddress]);
 
   let allAddresses = [...addresses].filter((address) => {
-    // if "Same as billing" is selected, then hide the associated billing address from the list
-    if (!isSameAsBilling) {
+    // if "Same as shipping" is selected, then hide the associated billing address from the list
+    if (!isSameAsShipping) {
       return true;
     }
     return address?.ID !== shippingAddress?.ID;
   });
-  if (billingAddress && !billingAddress.ID) {
+  if (billingAddress && !billingAddress.ID && !isSameAsShipping) {
     // include one time address
     allAddresses = [...allAddresses, billingAddress];
   }
@@ -50,7 +50,7 @@ const PanelBillingAddress = (): JSX.Element => {
   const handleSetBillingAddress = async (address: DBuyerAddress) => {
     setLoading(true);
     const updatedIsSameAsBilling = isSameAddress(address, shippingAddress);
-    setIsSameAsBilling(updatedIsSameAsBilling);
+    setIsSameAsShipping(updatedIsSameAsBilling);
     setActiveAddressId(updatedIsSameAsBilling ? '' : address?.ID);
     await dispatch(saveBillingAddress(address));
     setLoading(false);
@@ -69,14 +69,16 @@ const PanelBillingAddress = (): JSX.Element => {
   };
 
   const sameAsShippingClasses = ['info-card'];
-  if (isSameAsBilling) {
+  if (isSameAsShipping) {
     sameAsShippingClasses.push('info-card-active');
   }
   const sameAsShippingCard = isShipOrder && (
     <div className={sameAsShippingClasses.join(' ')} onClick={handleSameAsShipping}>
       {/* TODO: style to match mockup: https://xd.adobe.com/view/09adc8d4-cef8-43a7-84a5-84904880dc54-5cfe/ */}
-      <input type="radio" checked={isSameAsBilling} readOnly />
-      <h6 className="card-name">Same as shipping</h6>
+      <input type="radio" checked={isSameAsShipping} readOnly />
+      <div className="info-card-address">
+        <h6 className="card-name">Same as shipping</h6>
+      </div>
     </div>
   );
 
