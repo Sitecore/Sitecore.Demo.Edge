@@ -67,7 +67,7 @@ const CheckoutDetails = (): JSX.Element => {
     return router?.push('/shop/checkout/order-review');
   };
 
-  const shouldEnableButton = () => isAnonymous && !!userEmail;
+  const shouldEnableButton = () => !isAnonymous || !!userEmail;
 
   const checkoutTitle = isAnonymous ? 'Guest checkout' : 'Checkout';
   const userDetailsPanel = isAnonymous && (
