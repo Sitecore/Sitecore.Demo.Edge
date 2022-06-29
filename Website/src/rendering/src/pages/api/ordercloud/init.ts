@@ -90,7 +90,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     console.log(`Creating or updating the admin address`);
     const adminAddress = {
       ID: ADMIN_ADDRESS_ID,
-      AddressName: 'Play! Summit',
+      AddressName: 'PLAY! SHOP',
       Street1: '101 California St',
       Street2: 'St #1600',
       City: 'San Francisco',
@@ -116,7 +116,7 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     });
 
     // Create or update single sign on integration event
-    console.log(`Createing or updating SingleSignOn integration event`);
+    console.log(`Creating or updating SingleSignOn integration event`);
     await IntegrationEvents.Save('SingleSignOn', {
       ElevatedRoles: ['BuyerUserAdmin'],
       ID: 'SingleSignOn',
