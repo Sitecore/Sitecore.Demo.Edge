@@ -4,7 +4,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CheckoutDetails from '../../components/Checkout/CheckoutDetails';
 import { MockStore } from '../mock-store';
 import { getMockExpirationDate } from '../utils';
-import { loggedInAuthSlice } from './CheckoutCommon';
+import {
+  addressBookSlice,
+  addressBookState,
+  anonymousAuthSlice,
+  emptyAddressBookSlice,
+  loggedInAuthSlice,
+} from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
@@ -42,36 +48,74 @@ Loading.decorators = [
   ),
 ];
 
-export const NoStepsComplete = Template.bind({});
-const noStepsCompleteState = {
+const noStepsCompleteOrderState = {
   initialized: true,
   order: {
-    ShippingCost: 0,
+    ID: 'mockid123',
     Subtotal: 123.45,
+    ShippingCost: 0,
+    Total: 123.45,
     LineItemCount: 1,
     xp: {
       DeliveryType: 'Ship',
     },
   },
 };
-NoStepsComplete.decorators = [
+
+export const NoStepsCompleteAsGuest = Template.bind({});
+NoStepsCompleteAsGuest.decorators = [
   (Story) => (
     <MockStore
-      sliceOrSlices={[{ name: 'ocCurrentCart', state: noStepsCompleteState }, loggedInAuthSlice]}
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: noStepsCompleteOrderState },
+        anonymousAuthSlice,
+        emptyAddressBookSlice,
+      ]}
     >
       <Story />
     </MockStore>
   ),
 ];
 
-export const ShippingComplete = Template.bind({});
-const shippingCompleteState = {
-  initialized: true,
+export const NoStepsCompleteWithoutSavedAddresses = Template.bind({});
+NoStepsCompleteWithoutSavedAddresses.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: noStepsCompleteOrderState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const NoStepsCompleteWithSavedAddresses = Template.bind({});
+NoStepsCompleteWithSavedAddresses.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: noStepsCompleteOrderState },
+        loggedInAuthSlice,
+        addressBookSlice,
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const ShippingCompleteAsGuest = Template.bind({});
+const shippingCompleteAsGuestState = {
+  ...noStepsCompleteOrderState,
   shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
+    ID: '',
+    FirstName: 'Marty',
+    LastName: 'Byrde',
+    Street1: '789 another boulevard',
+    City: 'Big City',
     State: 'GA',
     Zip: '30542',
     Country: 'US',
@@ -118,20 +162,218 @@ const shippingCompleteState = {
       },
     ],
   },
-  order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 0,
-    LineItemCount: 1,
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
 };
-ShippingComplete.decorators = [
+ShippingCompleteAsGuest.decorators = [
   (Story) => (
     <MockStore
-      sliceOrSlices={[{ name: 'ocCurrentCart', state: shippingCompleteState }, loggedInAuthSlice]}
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: shippingCompleteAsGuestState },
+        anonymousAuthSlice,
+        emptyAddressBookSlice,
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const ShippingCompleteWithoutSavedAddresses = Template.bind({});
+const shippingCompleteWithoutSavedAddressState = {
+  ...noStepsCompleteOrderState,
+  shippingAddress: {
+    ID: '',
+    FirstName: 'Marty',
+    LastName: 'Byrde',
+    Street1: '789 another boulevard',
+    City: 'Big City',
+    State: 'GA',
+    Zip: '30542',
+    Country: 'US',
+  },
+  shipEstimateResponse: {
+    ShipEstimates: [
+      {
+        ID: 'STATIC_SINGLE_SHIPMENT',
+        ShipEstimateItems: [
+          {
+            LineItemID: 'X001',
+            Quantity: 2,
+          },
+        ],
+        ShipMethods: [
+          {
+            ID: 'STANDARD_DELIVERY',
+            Name: 'Standard Delivery',
+            Cost: 0,
+            EstimatedTransitDays: 3,
+            xp: {
+              Description: 'Receive your order at your home in 3-5 business days',
+            },
+          },
+          {
+            ID: 'EXPRESS_DELIVERY',
+            Name: 'Express Delivery',
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home in 1-2 business days',
+            },
+          },
+          {
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home the next business day',
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+ShippingCompleteWithoutSavedAddresses.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: shippingCompleteWithoutSavedAddressState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const ShippingCompleteWithSavedAddressSelected = Template.bind({});
+const shippingCompleteWithSavedAddressSelectedState = {
+  ...noStepsCompleteOrderState,
+  shippingAddress: {
+    ...addressBookState.addresses.entities['MPcTM2MNzEWi06gLhfMLvQ'],
+  },
+  shipEstimateResponse: {
+    ShipEstimates: [
+      {
+        ID: 'STATIC_SINGLE_SHIPMENT',
+        ShipEstimateItems: [
+          {
+            LineItemID: 'X001',
+            Quantity: 2,
+          },
+        ],
+        ShipMethods: [
+          {
+            ID: 'STANDARD_DELIVERY',
+            Name: 'Standard Delivery',
+            Cost: 0,
+            EstimatedTransitDays: 3,
+            xp: {
+              Description: 'Receive your order at your home in 3-5 business days',
+            },
+          },
+          {
+            ID: 'EXPRESS_DELIVERY',
+            Name: 'Express Delivery',
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home in 1-2 business days',
+            },
+          },
+          {
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home the next business day',
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+ShippingCompleteWithSavedAddressSelected.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: shippingCompleteWithSavedAddressSelectedState },
+        loggedInAuthSlice,
+        addressBookSlice,
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
+
+export const ShippingCompleteWithSavedAddressNewAddressSelected = Template.bind({});
+const shippingCompleteWithSavedAddressNewAddressSelectedState = {
+  ...noStepsCompleteOrderState,
+  shippingAddress: {
+    ID: '',
+    FirstName: 'Marty',
+    LastName: 'Byrde',
+    Street1: '789 another boulevard',
+    City: 'Big City',
+    State: 'GA',
+    Zip: '30542',
+    Country: 'US',
+  },
+  shipEstimateResponse: {
+    ShipEstimates: [
+      {
+        ID: 'STATIC_SINGLE_SHIPMENT',
+        ShipEstimateItems: [
+          {
+            LineItemID: 'X001',
+            Quantity: 2,
+          },
+        ],
+        ShipMethods: [
+          {
+            ID: 'STANDARD_DELIVERY',
+            Name: 'Standard Delivery',
+            Cost: 0,
+            EstimatedTransitDays: 3,
+            xp: {
+              Description: 'Receive your order at your home in 3-5 business days',
+            },
+          },
+          {
+            ID: 'EXPRESS_DELIVERY',
+            Name: 'Express Delivery',
+            Cost: 4.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home in 1-2 business days',
+            },
+          },
+          {
+            ID: 'ONEDAY_DELIVERY',
+            Name: 'One day delivery',
+            Cost: 9.99,
+            EstimatedTransitDays: 2,
+            xp: {
+              Description: 'Receive your order at your home the next business day',
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+ShippingCompleteWithSavedAddressNewAddressSelected.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: shippingCompleteWithSavedAddressNewAddressSelectedState },
+        loggedInAuthSlice,
+        addressBookSlice,
+      ]}
     >
       <Story />
     </MockStore>
@@ -140,67 +382,20 @@ ShippingComplete.decorators = [
 
 export const ShippingEstimatesComplete = Template.bind({});
 const shippingEstimatesCompleteState = {
-  initialized: true,
-  shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
-    State: 'GA',
-    Zip: '30542',
-    Country: 'US',
-  },
+  ...shippingCompleteWithSavedAddressSelectedState,
   shipEstimateResponse: {
+    ...shippingCompleteWithSavedAddressSelectedState.shipEstimateResponse,
     ShipEstimates: [
       {
-        ID: 'STATIC_SINGLE_SHIPMENT',
+        ...shippingCompleteWithSavedAddressSelectedState.shipEstimateResponse.ShipEstimates[0],
         SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipEstimateItems: [
-          {
-            LineItemID: 'X001',
-            Quantity: 2,
-          },
-        ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
       },
     ],
   },
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    xp: {
-      DeliveryType: 'Ship',
-    },
+    ...shippingCompleteWithSavedAddressSelectedState.order,
+    ShippingCost: 4.99,
+    Total: 128.44,
   },
 };
 ShippingEstimatesComplete.decorators = [
@@ -209,6 +404,7 @@ ShippingEstimatesComplete.decorators = [
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: shippingEstimatesCompleteState },
         loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -218,75 +414,11 @@ ShippingEstimatesComplete.decorators = [
 
 export const BillingAddressComplete = Template.bind({});
 const billingAddressCompleteState = {
-  initialized: true,
-  shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
-    State: 'GA',
-    Zip: '30542',
-    Country: 'US',
-  },
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipEstimateItems: [
-          {
-            LineItemID: 'X001',
-            Quantity: 2,
-          },
-        ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
-      },
-    ],
-  },
+  ...shippingEstimatesCompleteState,
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
+    ...shippingEstimatesCompleteState.order,
     BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
-    xp: {
-      DeliveryType: 'Ship',
+      ...addressBookState.addresses.entities['MPcTM2MNzEWi06gLhfMLvQ'],
     },
   },
 };
@@ -296,6 +428,7 @@ BillingAddressComplete.decorators = [
       sliceOrSlices={[
         { name: 'ocCurrentCart', state: billingAddressCompleteState },
         loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />
@@ -305,77 +438,7 @@ BillingAddressComplete.decorators = [
 
 export const PaymentComplete = Template.bind({});
 const paymentCompleteState = {
-  initialized: true,
-  shippingAddress: {
-    ID: 'mockaddressid',
-    AddressName: 'Marty Byrde Home',
-    Street1: '6818 Gaines Ferry Road',
-    City: 'Flowery Branch',
-    State: 'GA',
-    Zip: '30542',
-    Country: 'US',
-  },
-  shipEstimateResponse: {
-    ShipEstimates: [
-      {
-        ID: 'STATIC_SINGLE_SHIPMENT',
-        SelectedShipMethodID: 'EXPRESS_DELIVERY',
-        ShipEstimateItems: [
-          {
-            LineItemID: 'X001',
-            Quantity: 2,
-          },
-        ],
-        ShipMethods: [
-          {
-            ID: 'STANDARD_DELIVERY',
-            Name: 'Standard Delivery',
-            Cost: 0,
-            EstimatedTransitDays: 3,
-            xp: {
-              Description: 'Receive your order at your home in 3-5 business days',
-            },
-          },
-          {
-            ID: 'EXPRESS_DELIVERY',
-            Name: 'Express Delivery',
-            Cost: 4.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home in 1-2 business days',
-            },
-          },
-          {
-            ID: 'ONEDAY_DELIVERY',
-            Name: 'One day delivery',
-            Cost: 9.99,
-            EstimatedTransitDays: 2,
-            xp: {
-              Description: 'Receive your order at your home the next business day',
-            },
-          },
-        ],
-      },
-    ],
-  },
-  order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
+  ...billingAddressCompleteState,
   payments: [
     {
       ID: 'mockpaymentid',
@@ -398,7 +461,11 @@ const paymentCompleteState = {
 PaymentComplete.decorators = [
   (Story) => (
     <MockStore
-      sliceOrSlices={[{ name: 'ocCurrentCart', state: paymentCompleteState }, loggedInAuthSlice]}
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: paymentCompleteState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
+      ]}
     >
       <Story />
     </MockStore>
@@ -407,7 +474,7 @@ PaymentComplete.decorators = [
 
 export const PickupFromSummit = Template.bind({});
 const pickupFromSummitState = {
-  initialized: true,
+  ...paymentCompleteState,
   shippingAddress: {
     AddressName: 'Play! Summit',
     Street1: '101 California St',
@@ -418,46 +485,20 @@ const pickupFromSummitState = {
     Zip: '94111',
   },
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
+    ...paymentCompleteState.order,
     xp: {
       DeliveryType: 'PickupFromSummit',
     },
   },
-  payments: [
-    {
-      ID: 'mockpaymentid',
-      Type: 'CreditCard',
-      CreditCardID: 'mock-creditcard-id',
-      Accepted: true,
-      Amount: 100,
-      xp: {
-        CreditCard: {
-          ID: 'mockcreditcardid',
-          CardType: 'Visa',
-          CardholderName: 'Jon Snow',
-          PartialAccountNumber: '6123',
-          ExpirationDate: getMockExpirationDate(),
-        },
-      },
-    },
-  ],
 };
 PickupFromSummit.decorators = [
   (Story) => (
     <MockStore
-      sliceOrSlices={[{ name: 'ocCurrentCart', state: pickupFromSummitState }, loggedInAuthSlice]}
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: pickupFromSummitState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
+      ]}
     >
       <Story />
     </MockStore>
@@ -466,7 +507,7 @@ PickupFromSummit.decorators = [
 
 export const PickupFromStore = Template.bind({});
 const pickupFromStoreState = {
-  initialized: true,
+  ...paymentCompleteState,
   shippingAddress: {
     AddressName: 'Store #1234',
     Street1: '110 N. 5th St #300',
@@ -476,73 +517,19 @@ const pickupFromStoreState = {
     Zip: '55403',
   },
   order: {
-    ID: 'mockid123',
-    Subtotal: 123.45,
-    ShippingCost: 19.99,
-    LineItemCount: 1,
-    BillingAddress: {
-      ID: 'mockaddressid',
-      AddressName: 'Marty Byrde Home',
-      Street1: '6818 Gaines Ferry Road',
-      City: 'Flowery Branch',
-      State: 'GA',
-      Zip: '30542',
-      Country: 'US',
-    },
+    ...paymentCompleteState.order,
     xp: {
       DeliveryType: 'PickupInStore',
     },
   },
-  payments: [
-    {
-      ID: 'mockpaymentid',
-      Type: 'CreditCard',
-      CreditCardID: 'mock-creditcard-id',
-      Accepted: true,
-      Amount: 100,
-      xp: {
-        CreditCard: {
-          ID: 'mockcreditcardid',
-          CardType: 'Visa',
-          CardholderName: 'Jon Snow',
-          PartialAccountNumber: '6123',
-          ExpirationDate: getMockExpirationDate(),
-        },
-      },
-    },
-  ],
 };
 PickupFromStore.decorators = [
   (Story) => (
     <MockStore
-      sliceOrSlices={[{ name: 'ocCurrentCart', state: pickupFromStoreState }, loggedInAuthSlice]}
-    >
-      <Story />
-    </MockStore>
-  ),
-];
-
-export const GuestCheckout = Template.bind({});
-const guestCheckoutCartState = {
-  initialized: true,
-  order: {
-    ShippingCost: 0,
-    Subtotal: 123.45,
-    LineItemCount: 1,
-    xp: {
-      DeliveryType: 'Ship',
-    },
-  },
-};
-const guestCheckoutAuthState = {
-  isAnonymous: true,
-};
-GuestCheckout.decorators = [
-  (Story) => (
-    <MockStore
       sliceOrSlices={[
-        { name: 'ocCurrentCart', state: guestCheckoutCartState },
-        { name: 'ocAuth', state: guestCheckoutAuthState },
+        { name: 'ocCurrentCart', state: pickupFromStoreState },
+        loggedInAuthSlice,
+        emptyAddressBookSlice,
       ]}
     >
       <Story />

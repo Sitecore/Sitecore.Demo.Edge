@@ -9,7 +9,8 @@ module.exports = {
   safelist: [
     'scChromeData',
     'scpm',
-    'bg-blue' // For CategoryBreadcrumb.stories.tsx
+    'bg-blue', // For CategoryBreadcrumb.stories.tsx
+    'hidden'
   ],
   theme: {
     screens: {

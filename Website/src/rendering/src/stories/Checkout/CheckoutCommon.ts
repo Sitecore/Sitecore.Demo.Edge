@@ -11,7 +11,7 @@ export const cartState = {
       ProductID: 'PSPCCCCBC',
       LineSubtotal: 4,
       Product: {
-        Name: 'CenterCycle Carbon Cycling Bottle Cage',
+        Name: 'Carbon Cycling Bottle Cage',
         xp: {
           Images: [
             {
@@ -31,7 +31,7 @@ export const cartState = {
       ProductID: 'PSPPSSGB',
       LineSubtotal: 10,
       Product: {
-        Name: 'Pro Staff Sunday Golf Bag',
+        Name: 'Sunday Golf Bag',
         xp: {
           Images: [
             {
@@ -215,6 +215,51 @@ export const anonymousAuthState = {
   isAnonymous: true,
 };
 
+export const addressBookState = {
+  addressBookLoading: false,
+  addresses: {
+    ids: ['MPcTM2MNzEWi06gLhfMLvQ', 'dxMIwY-WXkCUUYUfZRt3CA'],
+    entities: {
+      MPcTM2MNzEWi06gLhfMLvQ: {
+        ID: 'MPcTM2MNzEWi06gLhfMLvQ',
+        Shipping: true,
+        Billing: true,
+        Editable: true,
+        DateCreated: '2022-06-01T20:31:44.403+00:00',
+        CompanyName: '',
+        FirstName: 'Marty',
+        LastName: 'Byrde',
+        Street1: '6818 Gaines Ferry Road',
+        Street2: '',
+        City: 'Flowery Branch',
+        State: 'GA',
+        Zip: '30542',
+        Country: 'US',
+        Phone: '',
+        AddressName: 'Home',
+      },
+      'dxMIwY-WXkCUUYUfZRt3CA': {
+        ID: 'dxMIwY-WXkCUUYUfZRt3CA',
+        Shipping: true,
+        Billing: true,
+        Editable: true,
+        DateCreated: '2022-06-02T12:39:46.3+00:00',
+        CompanyName: '',
+        FirstName: 'Marty',
+        LastName: 'Byrde',
+        Street1: '123 other street',
+        Street2: '',
+        City: 'Other City',
+        State: 'QC',
+        Zip: 'A1A1A1',
+        Country: 'CA',
+        Phone: '',
+        AddressName: 'Secondary Home',
+      },
+    },
+  },
+};
+
 export const orderState = {
   initialized: true,
 };
@@ -273,6 +318,19 @@ export const promotionCartSlice: MockSlice = {
       },
     ] as DOrderPromotion[],
   },
+};
+
+export const emptyAddressBookSlice: MockSlice = {
+  name: 'ocAddressBook',
+  state: {
+    addressBookLoading: false,
+    addresses: { ids: [], entities: {} },
+  },
+};
+
+export const addressBookSlice: MockSlice = {
+  name: 'ocAddressBook',
+  state: addressBookState,
 };
 
 export const shipMethods = [
