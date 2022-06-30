@@ -35,9 +35,9 @@ namespace Sitecore.Demo.Init.Services
                 await new WaitForSitecoreToStart(initContext).Run();
                 await new PopulateManagedSchema(initContext).Run();
                 await stateService.SetState(InstanceState.WarmingUp);
-                await new UpdateDamUri(initContext).Run();
-                await new PushSerialized(initContext).Run();
-                await new ClearAllCaches(initContext).Run();
+                // await new UpdateDamUri(initContext).Run();
+                // await new PushSerialized(initContext).Run();
+                // await new ClearAllCaches(initContext).Run();
                 await new WarmupCM(initContext).Run();
                 await stateService.SetState(InstanceState.Ready);
             }
