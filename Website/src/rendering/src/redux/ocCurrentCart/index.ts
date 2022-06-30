@@ -143,9 +143,6 @@ export const refreshPromotions = createOcAsyncThunk<RequiredDeep<DOrderPromotion
 const mergeAnonOrder = async (
   existingOrder: RequiredDeep<DOrder>
 ): Promise<RequiredDeep<DOrder>> => {
-  const profiledWorksheet = await IntegrationEvents.GetWorksheet('All', existingOrder.ID);
-  const profiledLineItems = profiledWorksheet.LineItems;
-  const profiledProductIDs = profiledLineItems.map((lineItem) => lineItem.ProductID);
   const anonOrderID = getCookie(COOKIES_ANON_ORDER_ID);
   const anonUserToken = getCookie(COOKIES_ANON_USER_TOKEN);
   deleteCookie(COOKIES_ANON_ORDER_ID);
@@ -153,14 +150,20 @@ const mergeAnonOrder = async (
   if (!anonOrderID || !anonUserToken) {
     return undefined;
   }
+
+  if (!existingOrder) {
+    existingOrder = await createInitialOrder();
+  }
+
+  const profiledWorksheet = await IntegrationEvents.GetWorksheet('All', existingOrder.ID);
+  const profiledLineItems = profiledWorksheet.LineItems;
+  const profiledProductIDs = profiledLineItems.map((lineItem) => lineItem.ProductID);
+
   // user started addding items to their cart anonymously and then signed in
   // we must merge those anonymous line items into their profiled cart
   // we're purposely not using the transfer order endpoint because it doesn't handle a merge
   // scenario it only transfers the order as a whole so we would still need to perform the same API calls here
   // plus the transfer and then delete of the transferred order so it isn't really doesn't make sense
-  if (!existingOrder) {
-    existingOrder = await createInitialOrder();
-  }
   const anonLineItems = await LineItems.List(
     'All',
     anonOrderID,
