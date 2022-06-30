@@ -61,6 +61,8 @@ RUN dotnet sitecore itemres create -o ".\slnitems"
 
 RUN New-Item -Path /artifacts/sitecore/app_data/items/core -Type Directory
 RUN New-Item -Path /artifacts/sitecore/app_data/items/master -Type Directory
+RUN New-Item -Path /artifacts/sitecore/app_data/items/web -Type Directory
 
 RUN Copy-Item /itemres/items.core.slnitems.dat /artifacts/sitecore/app_data/items/core -Recurse
 RUN Copy-Item /itemres/items.master.slnitems.dat /artifacts/sitecore/app_data/items/master -Recurse
+RUN Copy-Item /itemres/items.master.slnitems.dat /artifacts/sitecore/app_data/items/web -Recurse
