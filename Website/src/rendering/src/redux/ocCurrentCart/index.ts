@@ -47,6 +47,10 @@ const initialState: OcCurrentOrderState = {
   orderTotalLoading: false,
 };
 
+async function createInitialOrder(): Promise<RequiredDeep<DOrder>> {
+  return await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
+}
+
 export const removeAllPayments = createOcAsyncThunk<undefined, undefined>(
   'ocCurrentCart/removeAllPayments',
   async (_, ThunkAPI) => {
@@ -136,7 +140,9 @@ export const refreshPromotions = createOcAsyncThunk<RequiredDeep<DOrderPromotion
   }
 );
 
-const mergeAnonOrder = async (existingOrder: DOrder): Promise<boolean> => {
+const mergeAnonOrder = async (
+  existingOrder: RequiredDeep<DOrder>
+): Promise<RequiredDeep<DOrder>> => {
   const profiledWorksheet = await IntegrationEvents.GetWorksheet('All', existingOrder.ID);
   const profiledLineItems = profiledWorksheet.LineItems;
   const profiledProductIDs = profiledLineItems.map((lineItem) => lineItem.ProductID);
@@ -145,13 +151,16 @@ const mergeAnonOrder = async (existingOrder: DOrder): Promise<boolean> => {
   deleteCookie(COOKIES_ANON_ORDER_ID);
   deleteCookie(COOKIES_ANON_USER_TOKEN);
   if (!anonOrderID || !anonUserToken) {
-    return false;
+    return undefined;
   }
   // user started addding items to their cart anonymously and then signed in
   // we must merge those anonymous line items into their profiled cart
   // we're purposely not using the transfer order endpoint because it doesn't handle a merge
   // scenario it only transfers the order as a whole so we would still need to perform the same API calls here
   // plus the transfer and then delete of the transferred order so it isn't really doesn't make sense
+  if (!existingOrder) {
+    existingOrder = await createInitialOrder();
+  }
   const anonLineItems = await LineItems.List(
     'All',
     anonOrderID,
@@ -189,7 +198,7 @@ const mergeAnonOrder = async (existingOrder: DOrder): Promise<boolean> => {
     }
   });
   await Promise.all([...lineItemCreateRequests, ...lineItemUpdateRequests]);
-  return true;
+  return existingOrder;
 };
 
 export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | undefined, void>(
@@ -199,9 +208,12 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
       sortBy: ['DateCreated'],
       filters: { Status: 'Unsubmitted' },
     });
-    const existingOrder = response.Items[0];
+    let existingOrder = response.Items[0];
 
-    const didMergeOrder = await mergeAnonOrder(existingOrder);
+    const mergedAnonOrder = await mergeAnonOrder(existingOrder);
+    if (mergedAnonOrder) {
+      existingOrder = mergedAnonOrder;
+    }
 
     if (existingOrder) {
       const worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>(
@@ -219,7 +231,7 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
         ThunkAPI.dispatch(retrievePayments(existingOrder.ID));
       }
       ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
-      if (didMergeOrder) {
+      if (mergedAnonOrder) {
         // This is a bit of a hack but since we're updating the cart right before we get the worksheet
         // there can be a race condition where the order worksheet is stale so anytime we merge an order
         // get the order worksheet once more
@@ -272,7 +284,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
 
     // initialize the order if it doesn't exist already
     if (!orderId) {
-      const orderResponse = await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
+      const orderResponse = await createInitialOrder();
       orderId = orderResponse.ID;
     }
 
