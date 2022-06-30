@@ -35,12 +35,14 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
 
             var langVersions = new List<Language>();
             Item tempItem = Sitecore.Context.Item;
+            Sitecore.Diagnostics.Log.Info("SCM test: " + tempItem.Languages.Count(), "SCM Test");
             foreach (var itemLanguage in tempItem.Languages)
             {
                 var item = tempItem.Database.GetItem(tempItem.ID, itemLanguage);
-                if (item.Versions.Count > 0)
+                Sitecore.Diagnostics.Log.Info("SCM test: " + item.IsFallback.ToString(), "SCM Test");
+                if (item.Versions.Count > 0 || item.IsFallback)
                 {
-                    langVersions.AddRange(item.Versions.GetVersions().Select(version => version.Language));
+                    langVersions.Add(itemLanguage);
                 }
             }
 

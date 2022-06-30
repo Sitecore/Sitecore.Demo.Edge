@@ -40,7 +40,7 @@ const HeaderContent = (props: HeaderContentProps): JSX.Element => {
       <div className="header-eyebrow">
         <div className="content">
           <select
-            onClick={(e) => changeLanguage(e.currentTarget.value)}
+            onChange={(e) => changeLanguage(e.currentTarget.value)}
             className="languagePicker"
             defaultValue={sitecoreContext.language}
           >
