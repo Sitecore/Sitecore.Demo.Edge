@@ -20,8 +20,8 @@ type NewsDetailProps = ComponentProps & {
 };
 
 const NewsDetail = (props: NewsDetailProps): JSX.Element => (
-  <section className="section section__news--detail">
-    <div className="section__content left__content">
+  <section className="section news-detail">
+    <div className="section-content left-content">
       <div className="container">
         <div className="left-column">
           <Image field={props.fields?.Image} alt={props.fields?.Title.value} />

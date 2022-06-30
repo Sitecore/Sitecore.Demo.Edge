@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const FeaturedEvent = (): JSX.Element => (
-  <section className="section__featured__event">
+  <section className="featured-event">
     <div className="content">
       <div className="triangle-area">
         <div className="text-area">
@@ -10,9 +10,9 @@ const FeaturedEvent = (): JSX.Element => (
           <p className="section-title">Chris Williams</p>
           <p className="event-subtitle">Professional Cyclist</p>
         </div>
-        <div className="btn__area">
+        <div className="btn-area">
           <Link href="/tickets">
-            <a className="btn--main btn--main--round">Book Tickets</a>
+            <a className="btn-main">Book Tickets</a>
           </Link>
         </div>
       </div>

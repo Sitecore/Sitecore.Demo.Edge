@@ -32,7 +32,7 @@ const SponsorInformation = (props: SponsorInformationProps): JSX.Element => {
 
   return (
     <section className="section information-section">
-      <div className="section__content container">
+      <div className="section-content container">
         <div className="information-grid">
           <div className="main-col">
             <div className="column-title">Sponsor history:</div>

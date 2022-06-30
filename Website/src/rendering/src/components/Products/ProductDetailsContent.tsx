@@ -291,9 +291,9 @@ const ProductDetailsContent = ({
   };
 
   const btnAddToCart = initialLoading ? (
-    <Skeleton className="btn--main" width={168} />
+    <Skeleton className="btn-main" width={168} />
   ) : (
-    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
+    <button type="submit" className="btn-main" disabled={loading}>
       {/* TODO: Extract JSX logic into a const */}
       <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
     </button>

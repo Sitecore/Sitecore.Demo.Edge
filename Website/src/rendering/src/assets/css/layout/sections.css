@@ -1,24 +1,21 @@
 .section {
   @apply py-20 px-0;
 
-  &__top-spacer {
-    @apply pb-0;
-  }
-
-  .section__content {
-    @include content;
+  .section-content {
     @include flex--center--column;
 
-    .section__content__title {
+    @apply w-full my-0 mx-auto box-border max-w-[1440px];
+
+    .section-content-title {
       @apply text-2xl font-bold pb-5 m-0 text-blue-light normal-case;
       @apply md:text-5xl;
     }
 
-    .section__content__subtitle--center {
+    .section-content-subtitle {
       @apply text-center;
     }
 
-    .section__content__p {
+    .section-content-p {
       @apply pb-8 text-center text-black sm:w-full md:w-2/3 lg:w-1/2 leading-normal;
 
       p {
@@ -26,61 +23,61 @@
       }
     }
 
-    &--left {
+    &-left {
       @apply items-start justify-start;
       @apply sm:pl-10 sm:w-full;
       @apply md:w-3/5 md:ml-0;
     }
 
-    &.left__content {
-      .section__content__p {
+    &.left-content {
+      .section-content-p {
         @apply text-left;
       }
     }
 
-    &.full__content {
+    &.full-content {
       @apply w-full bg-cover bg-center bg-no-repeat;
 
-      .section__content__p {
+      .section-content-p {
         @apply w-full text-left;
       }
     }
 
-    &.left-full__content {
+    &.left-full-content {
       max-width: 50em;
       margin: 0 auto;
       align-items: start;
       justify-content: left;
 
-      .section__content__p {
+      .section-content-p {
         @apply w-full text-left;
       }
     }
   }
 
-  &--dark {
+  &-dark {
     @apply bg-black;
 
-    .section__content {
-      .section__content__p {
+    .section-content {
+      .section-content-p {
         @apply text-white;
       }
 
-      .section__content__title {
+      .section-content-title {
         @apply text-orange;
       }
     }
   }
 
-  &--light {
+  &-light {
     @apply bg-white;
   }
 
-  &--dark-pattern {
+  &-dark-pattern {
     @apply bg-pattern-gray;
   }
 
-  &--light-pattern {
+  &-light-pattern {
     @apply bg-pattern-color;
   }
 }

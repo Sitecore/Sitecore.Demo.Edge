@@ -1,4 +1,4 @@
-.section__featured__event {
+.featured-event {
   @apply bg-black bg-left bg-no-repeat bg-cover relative;
 
   background-image: url('../img/featured-event-background.jpg');
@@ -47,7 +47,7 @@
         }
       }
 
-      .btn__area {
+      .btn-area {
         @apply px-14;
       }
     }

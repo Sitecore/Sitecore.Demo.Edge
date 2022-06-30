@@ -166,7 +166,9 @@ export const patchOrder = createOcAsyncThunk<RequiredDeep<DOrder>, PartialDeep<D
   async (partialOrder, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
     const orderID = ocCurrentCart.order.ID;
-
+    if (partialOrder?.xp?.DeliveryType === 'Ship') {
+      await ThunkAPI.dispatch(removeShippingAddress());
+    }
     return await Orders.Patch('All', orderID, partialOrder);
   }
 );

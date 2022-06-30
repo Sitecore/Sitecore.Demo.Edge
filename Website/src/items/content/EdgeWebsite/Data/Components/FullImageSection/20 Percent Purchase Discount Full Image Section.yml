@@ -28,20 +28,20 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "93826cab-e645-43c2-8d80-f94550ff182b"
+      Value: "0b32b835-9d8b-4592-b0d2-68f7c6196d89"
     - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
       Hint: content
       Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
     - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
       Hint: cssClass
-      Value: "section__full-image--offer"
+      Value: "full-image-section-offer"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211210T150004Z
+      Value: 20220616T073801Z
     - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
       Hint: title
       Value: "PLAY! Summit Exclusive Offer"
