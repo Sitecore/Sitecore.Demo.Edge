@@ -1,5 +1,5 @@
 ﻿---
-ID: "48ad973b-241b-4a18-aeda-d80250cc1aa1"
+ID: "e13edf8f-5cf7-4166-a931-6e0340d8adfd"
 Parent: "1930bbeb-7805-471a-a3be-4858ac7cf696"
 Template: "1930bbeb-7805-471a-a3be-4858ac7cf696"
 Path: /sitecore/templates/System/Templates/Standard template/__Standard Values
@@ -14,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20220519T145247Z
+      Value: 20220630T194226Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,11 +25,11 @@ Languages:
         sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6601696b-d6a8-441f-9241-8363774eb797"
+      Value: "30bfae2e-1cfa-4fcf-aa31-dfc9cbc11f31"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220519T145251Z
+      Value: 20220630T194230Z
