@@ -31,3 +31,7 @@ export const getCategoryChain = (ccid: string): Category[] => {
 
   return results;
 };
+
+export const getCategoryChildrenByCcid = (ccid: string): Category[] => {
+  return categoriesData.filter((category) => category.parent_ccid === ccid);
+};
