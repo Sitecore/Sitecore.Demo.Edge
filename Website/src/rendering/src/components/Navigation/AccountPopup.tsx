@@ -82,13 +82,10 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
     </>
   );
 
+  const loggedInClass = isUserLoggedIn ? 'account-popup-logged' : '';
+
   return (
-    // TODO: Remove conditions from JSX
-    <div
-      className={`account-popup ${
-        isUserLoggedIn ? 'account-popup-logged' : 'account-popup-anonymous'
-      }`}
-    >
+    <div className={`account-popup ${loggedInClass}`}>
       {getGreeting()}
       <div className="account-popup-buttons">
         {guestMenuItems}
