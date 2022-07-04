@@ -81,6 +81,7 @@
 
 /* NonSitecore */
 @import './components/NonSitecore/InformationPageHero.css';
+@import './components/NonSitecore/Accordion.css';
 
 /* PageContent */
 @import './components/PageContent/DynamicWelcomeMessage.css';
@@ -112,7 +113,6 @@
 @import './components/Products/CategoriesList.css';
 @import './components/Products/CategoryHero.css';
 @import './components/Products/ProductDetails.css';
-@import './components/Products/ProductOverview.css';
 @import './components/Products/Shop.css';
 
 /* Sessions */
