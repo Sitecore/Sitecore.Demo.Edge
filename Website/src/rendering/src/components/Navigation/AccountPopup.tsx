@@ -5,9 +5,9 @@ import useOcAuth from '../../hooks/useOcAuth';
 import {
   clearAuthenticationTokens,
   isAuthenticationEnabled,
-  getLoginUrl,
   logoutUrl,
 } from '../../services/AuthenticationService';
+import OrderCloudLoginLink from '../ShopCommon/OrderCloudLoginLink';
 
 type AccountPopupProps = {
   onNavigatingAway: () => void;
@@ -26,13 +26,13 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
 
   const guestMenuItems = !isUserLoggedIn && (
     <>
-      <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn-secondary-light">Login</a>
-      </Link>
+      <OrderCloudLoginLink className="btn-secondary-light" redirectToPathOnLogin={router.asPath}>
+        Login
+      </OrderCloudLoginLink>
       {/* TODO: Replace with signup url when available */}
-      <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn-main">Register</a>
-      </Link>
+      <OrderCloudLoginLink className="btn-main" redirectToPathOnLogin={router.asPath}>
+        Register
+      </OrderCloudLoginLink>
     </>
   );
 
@@ -82,13 +82,10 @@ const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
     </>
   );
 
+  const loggedInClass = isUserLoggedIn ? 'account-popup-logged' : '';
+
   return (
-    // TODO: Remove conditions from JSX
-    <div
-      className={`account-popup ${
-        isUserLoggedIn ? 'account-popup-logged' : 'account-popup-anonymous'
-      }`}
-    >
+    <div className={`account-popup ${loggedInClass}`}>
       {getGreeting()}
       <div className="account-popup-buttons">
         {guestMenuItems}
