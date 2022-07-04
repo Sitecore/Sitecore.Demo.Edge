@@ -52,6 +52,7 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
               <div className="item-details">
                 <Text tag="p" className="item-title" field={speaker.name} />
                 <Text tag="p" field={speaker.jobTitle} />
+                <div>Hello World!</div>
               </div>
             </div>
           </a>
