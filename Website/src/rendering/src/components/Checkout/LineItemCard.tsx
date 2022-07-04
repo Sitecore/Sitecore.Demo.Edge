@@ -3,7 +3,7 @@ import { DLineItem } from 'src/models/ordercloud/DLineItem';
 import useOcProduct from '../../hooks/useOcProduct';
 import { patchLineItem, removeLineItem } from '../../redux/ocCurrentCart';
 import QuantityInput from '../ShopCommon/QuantityInput';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import GiftCheckboxLineItem from './GiftCheckboxLineItem';
 import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -174,9 +174,8 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   // TODO: add functionality to field
   const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
-  // TODO: specs to return base and final price
   const priceBlock = (
-    <PriceReact
+    <Price
       price={props.lineItem.UnitPrice}
       finalPrice={props.lineItem.UnitPrice}
       altTheme={true}

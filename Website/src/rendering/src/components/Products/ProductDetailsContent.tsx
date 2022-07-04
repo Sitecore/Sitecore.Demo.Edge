@@ -8,7 +8,7 @@ import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { logAddToCart } from '../../services/CdpService';
@@ -347,7 +347,7 @@ const ProductDetailsContent = ({
                     />
                     {quantityAlert}
                   </div>
-                  <PriceReact {...priceProps} altTheme sizeL loading={initialLoading} />
+                  <Price {...priceProps} altTheme sizeL loading={initialLoading} />
                   {productAddToCart}
                 </form>
               </div>
