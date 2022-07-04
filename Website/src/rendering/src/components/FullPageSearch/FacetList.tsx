@@ -1,4 +1,4 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faSearch, faSlidersH, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, useState } from 'react';
 
@@ -103,6 +103,7 @@ const Facet = ({ name, values, index, acumIndex, type, onFacetClick }: FacetProp
     <div className={cssClass} data-type={type}>
       <div className="facet-title" onClick={handleTitleClick}>
         <span>{name}</span>
+        <FontAwesomeIcon icon={faChevronDown} />
       </div>
       <FacetValues
         values={values}
@@ -175,6 +176,7 @@ const ActiveFacetValues = ({
             <span>
               {name} - {text}
             </span>
+            <FontAwesomeIcon icon={faTimes} />
           </label>
         </li>
       ) : null;
@@ -256,6 +258,7 @@ const FacetList = ({
   ) && (
     <div className="facet-list-active">
       <div className="facet-list-title">
+        <FontAwesomeIcon icon={faSlidersH} />
         <span>Active filters</span>
       </div>
       {facets?.map(({ facetType, values, display_name }, tindex) => {
@@ -287,6 +290,7 @@ const FacetList = ({
   return (
     <div className="facet-container">
       <button className="btn-secondary facet-container-toggle" onClick={onToggleClick}>
+        <FontAwesomeIcon icon={faSlidersH} />
         Filter
       </button>
       {searchInput}

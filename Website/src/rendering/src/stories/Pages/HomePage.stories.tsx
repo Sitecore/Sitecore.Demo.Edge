@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header from '../../components/Navigation/Header';
+import HeaderContent from '../../components/Navigation/HeaderContent';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import HeroSection, { HeroProps } from '../../components/PageContent/HeroSection';
 import ThreeColumnsSection, {
@@ -14,6 +14,7 @@ import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
+import { mockSitecoreContext } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Home Page',
@@ -183,9 +184,9 @@ const threeColProps = {
 
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
-    <SitecoreContext componentFactory={mockComponentFactory}>
+    <SitecoreContext context={mockSitecoreContext.context} componentFactory={mockComponentFactory}>
       <header>
-        <Header {...mockHeaderProps} />
+        <HeaderContent {...mockHeaderProps} />
       </header>
       <main>
         <HeaderCdpMessageBar />

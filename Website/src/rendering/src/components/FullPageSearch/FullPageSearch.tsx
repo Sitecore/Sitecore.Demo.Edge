@@ -13,6 +13,8 @@ import {
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 import CategoryHero from '../Products/CategoryHero';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 
 interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -157,6 +159,7 @@ const FullPageSearch = ({
                   />
                 </div>
                 <button className="btn-main facet-container-toggle" onClick={handleToggleClick}>
+                  <FontAwesomeIcon icon={faSlidersH} />
                   Filter
                 </button>
               </div>
