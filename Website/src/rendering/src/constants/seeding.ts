@@ -18,3 +18,5 @@ export const PROFILED_HEADSTART_CATALOG_NAME = 'PLAY! SHOP - Profiled Catalog';
 // Variables for OpenID connect
 export const PRODUCTION_OPENID_CONNECT_ID = 'Auth0Connection';
 export const DEVELOPMENT_OPENID_CONNECT_ID = 'Auth0ConnectionLocal';
+
+export const ADMIN_ADDRESS_ID = 'PlayShopAddress';

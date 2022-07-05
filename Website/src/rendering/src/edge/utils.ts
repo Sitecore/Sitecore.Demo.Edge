@@ -1,15 +1,16 @@
 import { NextApiRequest } from 'next';
 import { Auth, Configuration, Tokens } from 'ordercloud-javascript-sdk';
+import { isTokenExpired } from 'src/helpers/JwtHelper';
 
 export async function initializeOrderCloudMiddlewareClient(): Promise<void> {
   const token = Tokens.GetAccessToken();
-  if (token) {
+  if (token && !isTokenExpired(token)) {
     // already initialized
     return;
   }
   Configuration.Set({
     baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL,
-    clientID: process.env.NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID,
+    clientID: process.env.ORDERCLOUD_MIDDLEWARE_CLIENT_ID,
   });
   const authResponse = await Auth.ClientCredentials(
     process.env.ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET,

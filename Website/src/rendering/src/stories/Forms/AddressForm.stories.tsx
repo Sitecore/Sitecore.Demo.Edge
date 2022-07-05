@@ -16,11 +16,7 @@ Loading.args = {
 };
 
 export const Default = Template.bind({});
-Default.args = {
-  onSubmit: (address) => {
-    alert(`Address submitted successfully:\n${JSON.stringify(address, null, 4)}`);
-  },
-};
+Default.args = {};
 
 export const WithAddress = Template.bind({});
 WithAddress.args = {
@@ -31,8 +27,5 @@ WithAddress.args = {
     State: 'GA',
     Zip: '30542',
     Country: 'US',
-  },
-  onSubmit: (address) => {
-    alert(`Address submitted successfully:\n${JSON.stringify(address, null, 4)}`);
   },
 };

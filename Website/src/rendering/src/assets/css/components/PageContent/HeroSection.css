@@ -29,7 +29,7 @@
         box-shadow: 0 0 20px #232323;
       }
 
-      .btn__area {
+      .btn-area {
         @apply p-6;
         @apply md:px-12;
       }

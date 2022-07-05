@@ -1,4 +1,4 @@
-.section__news--list .container {
+.section-news-list .container {
   @apply max-w-screen-2xl mx-auto box-border overflow-hidden;
 
   .content {

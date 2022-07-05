@@ -57,7 +57,7 @@
       &-add-to-cart {
         @apply flex;
 
-        .btn--main {
+        .btn-main {
           @apply mr-auto;
           @apply sm:mr-0;
         }
@@ -172,7 +172,7 @@
 .product-details-skeleton {
   .product-image {
     .react-loading-skeleton {
-      padding-top: 100%;
+      @apply pt-[100%];
     }
   }
 }

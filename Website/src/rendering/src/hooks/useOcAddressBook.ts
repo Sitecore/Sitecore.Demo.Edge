@@ -1,5 +1,5 @@
 import { isEqual } from 'lodash';
-import { Filters, Searchable, Sortable } from 'ordercloud-javascript-sdk';
+import { Filters, RequiredDeep, Searchable, Sortable } from 'ordercloud-javascript-sdk';
 import { useEffect } from 'react';
 import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
 import {
@@ -22,15 +22,17 @@ export interface OcAddressListOptions {
 const useOcAddressBook = (
   listOptions?: OcAddressListOptions
 ): {
+  addressBookLoading: boolean;
   addresses: DBuyerAddress[];
-  saveAddress: (address: Partial<DBuyerAddress>) => void;
-  deleteAddress: (addressId: string) => void;
+  saveAddress: (address: Partial<DBuyerAddress>) => Promise<RequiredDeep<DBuyerAddress>>;
+  deleteAddress: (addressId: string) => Promise<void>;
 } => {
   const dispatch = useAppDispatch();
-  const { addresses, options, isAuthenticated } = useAppSelector((s) => ({
+  const { addresses, options, isAuthenticated, loading } = useAppSelector((s) => ({
     isAuthenticated: s.ocAuth.isAuthenticated,
     addresses: ocAddressBookSelectors.selectAll(s),
     options: s.ocAddressBook.options,
+    loading: s.ocAddressBook.loading,
   }));
 
   useEffect(() => {
@@ -40,12 +42,13 @@ const useOcAddressBook = (
   }, [isAuthenticated, listOptions, options, dispatch]);
 
   return {
+    addressBookLoading: loading,
     addresses,
-    saveAddress: (address: Partial<DBuyerAddress>) => {
-      dispatch(saveAddress(address));
+    saveAddress: async (address: Partial<DBuyerAddress>) => {
+      return await dispatch(saveAddress(address)).unwrap();
     },
-    deleteAddress: (addressId: string) => {
-      dispatch(deleteAddress(addressId));
+    deleteAddress: async (addressId: string) => {
+      await dispatch(deleteAddress(addressId));
     },
   };
 };

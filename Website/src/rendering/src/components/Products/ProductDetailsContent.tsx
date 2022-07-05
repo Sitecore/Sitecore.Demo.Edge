@@ -8,7 +8,7 @@ import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { logAddToCart } from '../../services/CdpService';
@@ -274,9 +274,9 @@ const ProductDetailsContent = ({
   };
 
   const btnAddToCart = initialLoading ? (
-    <Skeleton className="btn--main" width={168} />
+    <Skeleton className="btn-main" width={168} />
   ) : (
-    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
+    <button type="submit" className="btn-main" disabled={loading}>
       {/* TODO: Extract JSX logic into a const */}
       <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
     </button>
@@ -330,7 +330,7 @@ const ProductDetailsContent = ({
                     />
                     {quantityAlert}
                   </div>
-                  <PriceReact {...priceProps} altTheme sizeL loading={initialLoading} />
+                  <Price {...priceProps} altTheme sizeL loading={initialLoading} />
                   {productAddToCart}
                 </form>
               </div>
