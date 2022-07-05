@@ -1,0 +1,199 @@
+﻿---
+ID: "2717574c-48a0-5469-85a8-a332df71f1e4"
+Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: "/sitecore/content/PLAY/playwebsite/home/about-us"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 600
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          key="jss-header-content"
+          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          key="jss-section-content"
+          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        <r
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{E8AB98B8-1116-5688-AE73-34007180AE68}" />
+        <r
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{E8AB98B8-1116-5688-AE73-34007180AE68}-0"
+          uid="{A6605F66-C45A-5874-AE8B-06D8163F6E99}" />
+        <r
+          rname="HeaderBanner"
+          ds="{D7AFB185-3FDE-54E1-A990-0DC6D7294A4B}"
+          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          par=""
+          ph="/jss-main"
+          uid="{D0AEC7E7-7E64-5C7E-97EF-6C36273BBFC2}" />
+        <r
+          rname="Section"
+          ds="{6E850146-8A03-5747-9A7C-B1C8F6AC9295}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{816710CB-9F03-5860-8E7C-5938120B08F3}" />
+        <r
+          rname="FullImageCTASection"
+          id="{D7333FEF-77BD-56D2-B76A-EA936D0A1001}"
+          par=""
+          ph="/jss-main"
+          uid="{DE75C067-CF50-599C-97E7-A02BB1E3712A}" />
+        <r
+          rname="ThreeColumnCta"
+          ds="{23CB91FD-DAF7-5715-B5A4-1B806B3031C5}"
+          id="{4BE56F57-7867-5E91-8991-37464315D86B}"
+          par=""
+          ph="/jss-main"
+          uid="{467625EA-A518-59FE-8DA7-39EE5833A223}" />
+        <r
+          rname="Section"
+          ds="{F1F5E547-7884-548C-9EF5-6C122EA327F9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{EACCECDD-63DE-525D-ACD9-17943F70386E}" />
+        <r
+          rname="SummitFeatures"
+          id="{D7018D1C-2C83-5661-8377-5376506B551B}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0"
+          uid="{0329B5A3-6404-5286-BB63-8670949781D0}" />
+        <r
+          ds="{7BF516EE-0CF9-40C8-B24D-C385C79E5C3B}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{CD75CF06-B5EA-41EE-9898-9F537F0EDFE4}"
+          ccb="Clear on publish" />
+        <r
+          ds="{F12CA29E-0BFD-4D1B-8532-BB25984A64FE}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{42771771-1673-4FB9-B6D5-E42F346161A2}"
+          ccb="Clear on publish" />
+        <r
+          ds="{C22C3613-E654-4D91-9104-8C38F066730E}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{272BABAA-458E-405A-80F5-A3633E57F61D}"
+          ccb="Clear on publish" />
+        <r
+          ds="{F7193E23-EFC3-4043-A57A-C4C045D4F67B}"
+          id="{42ED34A8-7B82-4BD1-839F-B0AF1639900E}"
+          par=""
+          ph="/jss-main/jss-section-content-{EACCECDD-63DE-525D-ACD9-17943F70386E}-0/jss-summit-features-content-{0329B5A3-6404-5286-BB63-8670949781D0}-0"
+          uid="{5688FA28-557B-41B0-8A4D-FB15AFE0D573}"
+          ccb="Clear on publish" />
+        <r
+          rname="Section"
+          ds="{049289A3-D30D-5C40-8D66-F9B263C924C7}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{D42B2686-19A9-5C64-B74B-423A08BDA2D7}" />
+        <r
+          rname="RequestInfoForm"
+          id="{89A5B1C7-993A-58EF-BE4C-C3A171979277}"
+          par=""
+          ph="/jss-main/jss-section-content-{D42B2686-19A9-5C64-B74B-423A08BDA2D7}-0"
+          uid="{711722BD-8C6B-5F9E-A7A4-63E3EE0F5487}" />
+        <r
+          rname="Section"
+          ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{727B4F4E-23EC-5D06-BEB1-02F109428B59}" />
+        <r
+          rname="NewsGrid"
+          ds="{0E4A63DA-7496-557E-BF80-5BD52255E431}"
+          id="{82A8BF89-B0DD-59EE-BC00-B1EF4525A6FD}"
+          par=""
+          ph="/jss-main/jss-section-content-{727B4F4E-23EC-5D06-BEB1-02F109428B59}-0"
+          uid="{AE8648B9-305E-535C-97C0-F348FFDA8327}" />
+        <r
+          rname="Section"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{34975D6F-360C-5BFB-AF61-D080A42B22D1}" />
+        <r
+          rname="SelectedSponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          par=""
+          ph="/jss-main/jss-section-content-{34975D6F-360C-5BFB-AF61-D080A42B22D1}-0"
+          uid="{1C690C7D-5706-59D9-8068-1D7D17174674}"
+          ccb="Clear on publish" />
+        <r
+          rname="Footer"
+          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          par=""
+          ph="/jss-footer"
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: About Us
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201829Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0ee4cd98-1ab2-43d3-a3b0-5f87a53aa97f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220621T105837Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: About Us

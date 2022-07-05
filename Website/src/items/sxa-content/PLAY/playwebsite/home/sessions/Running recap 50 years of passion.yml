@@ -1,0 +1,75 @@
+﻿---
+ID: "b1b2c334-1a91-4b57-b68e-43b96133ecaa"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/PLAY/playwebsite/home/sessions/Running recap 50 years of passion
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: mQwdSixIAkWsO_Bkx2NvVg
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Running recap: 50 years of passion"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025df6a5-2001-449f-8f76-02be5353905c"
+      Hint: Audience
+      Value: "{4D758CED-1AD4-46C7-8E72-B42BE54A08E8}|{6AB3A378-547F-4B38-8BE4-7538313020B2}"
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>Our history is rich and we&rsquo;re proud to celebrate 50 years running.&nbsp;The rise and fall of the great US running movement has been a roller coaster of emotions, and in the end, there were no easy choices. You&rsquo;ll remember the highs and lows of the past, but you&rsquo;ll also know that we put our heart and soul into every run, every day, and every year. We&rsquo;ve been involved in running since 1971, and we&rsquo;ve been passionate about running since the day we picked up the first running shoes.</p>
+                       
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210920T224229Z
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
+      Hint: Speakers
+      Value: "{04013CFE-C1DD-4D16-BBC1-AD0B548FCD7F}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38091" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38091/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d84f82556a61431296d3e4d067c9d786?v=c9484b17" mediaid="" stylelabs-content-type="Image" alt="Running shoes" height="4000" width="6000" />
+    - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
+      Hint: Day
+      Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
+      Hint: Timeslots
+      Value: "{B11718D1-F1A7-4B3A-9EAB-D9D22FA58BED}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Session
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: "Running recap: 50 years of passion"
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: "{A5673B41-FABE-450B-9037-14132FA734DA}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d18f3980-2933-43d1-9134-b92ae4a11460"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{55F9B5A9-9EB9-43CD-8D4E-647D57D18EFE}"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220114T230231Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Running recap: 50 years of passion"

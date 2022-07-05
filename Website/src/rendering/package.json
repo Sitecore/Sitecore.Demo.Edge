@@ -1,10 +1,10 @@
 {
-  "name": "edgewebsite",
+  "name": "playwebsite",
   "description": "PLAY! Summit and PLAY! SHOP websites",
   "version": "1.0.0",
   "private": true,
   "config": {
-    "appName": "edgewebsite",
+    "appName": "playwebsite",
     "rootPlaceholders": [
       "jss-header",
       "jss-main",

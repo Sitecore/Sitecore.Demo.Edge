@@ -1,0 +1,55 @@
+﻿---
+ID: "4790380a-3f0c-443a-a954-269ecb2d5566"
+Parent: "44864379-85fa-46df-a102-35a8bc2391b5"
+Template: "3e506d21-1b3b-433b-af8e-d8cc1613f620"
+Path: /sitecore/content/PLAY/playwebsite/Data/Config
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 725
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210831T220933Z
+    - ID: "32c00ea7-b305-40e4-b9be-e03a92b05ae3"
+      Hint: HeaderLogo
+      Value: |
+        <image mediaid="" stylelabs-content-id="30940" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30940/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/83a458a1cb54401cab2308488bbd1031?v=bdb6447b" stylelabs-content-type="Image" alt="PLAY! Summit logo - stacked light grey" height="113" width="274" />
+    - ID: "3971a645-b079-4bc3-9971-bf655b7713fa"
+      Hint: Startdate
+      Value: 20210909T060000Z
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{FCA998C5-0CC3-4F91-94D8-0A4E6CAECE88}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "177df05d-5687-4d6a-b417-045aa9056ce5"
+    - ID: "af909783-3a24-4708-b431-192e9b0c98b6"
+      Hint: FooterLogo
+      Value: |
+        <image mediaid="" stylelabs-content-id="30936" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30936/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949" stylelabs-content-type="Image" alt="PLAY! Summit long light grey" height="113" width="413" />
+    - ID: "b43d2551-9059-413a-92be-74ea74142c22"
+      Hint: SiteBrowserTitle
+      Value: "Play! Summit"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220512T132346Z
