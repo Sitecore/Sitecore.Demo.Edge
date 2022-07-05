@@ -21,25 +21,11 @@
     @apply lg:mt-0;
 
     ul {
-      @apply grid gap-2 text-center justify-center grid-rows-2 grid-cols-[71px_71px_71px_71px];
-      @apply md:grid-rows-1 md:grid-cols-[71px_71px_71px_71px_71px_71px];
+      @apply flex flex-wrap gap-2 text-center justify-center;
       @apply lg:justify-end;
 
       li {
-        @apply w-[150px] col-span-2;
-
-        &:nth-child(1) {
-          @apply col-start-1;
-        }
-
-        &:nth-child(2) {
-          @apply col-start-3;
-        }
-
-        &:nth-child(3) {
-          @apply row-start-2 col-start-2;
-          @apply md:row-start-1 md:col-start-5;
-        }
+        @apply w-[150px];
 
         img {
           @apply mb-1;
