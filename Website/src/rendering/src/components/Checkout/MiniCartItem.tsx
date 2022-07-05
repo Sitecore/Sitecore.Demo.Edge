@@ -6,6 +6,7 @@ import { removeLineItem } from '../../redux/ocCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import { logAddToCart } from '../../services/CdpService';
 
 type MiniCartItemProps = {
   lineItem: DLineItem;
@@ -20,6 +21,8 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
   const handleRemoveItem = useCallback(async () => {
     setLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
+
+    logAddToCart(props.lineItem, -props.lineItem.Quantity);
   }, [dispatch, props.lineItem]);
 
   const btnRemove = (
