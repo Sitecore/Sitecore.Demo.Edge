@@ -5,11 +5,11 @@
         "includes": [
             {
                 "name": "sxa-content",
-                "path": "/sitecore/content/PLAY Summit"
+                "path": "/sitecore/content/PLAY"
             },
             {
                 "name": "sxa-media",
-                "path": "/sitecore/media library/Project/PLAY Summit"
+                "path": "/sitecore/media library/Project/PLAY"
             }
         ]
     }

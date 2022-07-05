@@ -1,0 +1,71 @@
+﻿---
+ID: "b514a206-cc4d-4815-989a-5b4da2641d7f"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/PLAY/playwebsite/home/speakers/Sophia Taylor
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "B-4WIrYfBEKTqrbgQzdkPg"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Sophia Taylor
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T175334Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Dublin, Ireland
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3c7c10cd-18e7-4177-a0f9-3fc81f3b69c1"
+    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
+      Hint: Company
+      Value: ACE
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{A7AE2427-A5B1-484B-AEFC-152A92BE434C}"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+    - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
+      Hint: JobTitle
+      Value: Public Relations Manager
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T151047Z
+    - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
+      Hint: Role
+      Value: Sales Guru
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: Name
+      Value: Sophia Taylor
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Sophia Taylor
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="49241" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49241/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/2ff534ff94604f7ca26688b1b8952f38?v=1ca08199" mediaid="" stylelabs-content-type="Image" alt="Sophia Taylor - No background" height="3923" width="3923" />

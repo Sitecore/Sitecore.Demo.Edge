@@ -1,0 +1,40 @@
+﻿---
+ID: "4678636c-7152-5bf3-933c-f163a5e09b9d"
+Parent: "e6d901f8-8f14-573c-a3e5-c39f6cd05801"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: /sitecore/content/PLAY/playwebsite/home/tickets/payment/Page Components/Credit or Debit Card Section
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Credit / Debit Card
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T135726Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4deea739-c79e-44dd-abbe-17e5332836ab"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\JssImport
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: section__news
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: dark
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210708T135726Z

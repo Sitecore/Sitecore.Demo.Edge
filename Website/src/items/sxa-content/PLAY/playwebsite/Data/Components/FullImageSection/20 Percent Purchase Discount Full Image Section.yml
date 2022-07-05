@@ -1,0 +1,47 @@
+﻿---
+ID: "bd8b0390-574a-57f3-b801-1c3a4f42b3d6"
+Parent: "d683a83e-24b9-5c38-b7f7-4108b7c8c3ba"
+Template: "5954b01b-2adb-53d6-85ee-e8408d2cc2a4"
+Path: /sitecore/content/PLAY/playwebsite/Data/Components/FullImageSection/20 Percent Purchase Discount Full Image Section
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f531c03-8501-5776-be06-03ac387d1076"
+      Hint: callToActionLink
+      Value: |
+        <link text="Get Discount Code" linktype="external" url="/shop" anchor="" target="" />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T213917Z
+    - ID: "46dd92a7-c1e9-566c-99e7-1b63c9eeafcf"
+      Hint: position
+      Value: left
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "93826cab-e645-43c2-8d80-f94550ff182b"
+    - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
+      Hint: content
+      Value: "We’re partnering with over 2000 brands to offer PLAY! Summit attendees a <strong>20% discount</strong> on all online and in-person purchases made during this year’s event."
+    - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
+      Hint: cssClass
+      Value: "section__full-image--offer"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211210T150004Z
+    - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
+      Hint: title
+      Value: "PLAY! Summit Exclusive Offer"

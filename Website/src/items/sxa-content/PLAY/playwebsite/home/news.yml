@@ -1,0 +1,118 @@
+﻿---
+ID: "0e4a63da-7496-557e-bf80-5bd52255e431"
+Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/PLAY/playwebsite/home/news
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: "{4B8F13A2-EF1A-4A41-857D-A2191FD7C1E7}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 900
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          key="jss-header-content"
+          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          key="jss-section-content"
+          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        <r
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}" />
+        <r
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{BF2F21D9-8B61-5FC8-8082-7881B1E01C44}-0"
+          uid="{3BB48511-620A-50E4-A1E4-1FD6141CF80D}" />
+        <r
+          ds="{214B0B3D-DACF-467E-BE2F-78AA60827854}"
+          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          ph="jss-main"
+          uid="{A9CB7EF0-73B3-4349-B4FE-98730640ED07}" />
+        <r
+          id="{BE6E4210-8CF4-5BD5-B968-103626DBCC1B}"
+          ph="/jss-main"
+          uid="{66B83838-1A45-459C-BCF7-B05333715F9D}" />
+        <r
+          rname="Section"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}" />
+        <r
+          rname="SelectedSponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          par=""
+          ph="/jss-main/jss-section-content-{4A5BDDB5-7D0B-5EC5-9CB6-8F19DD974A55}-0"
+          uid="{7526C199-8C9C-5826-B88F-B88FFE081145}" />
+        <r
+          rname="Footer"
+          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          par=""
+          ph="/jss-footer"
+          uid="{17691DC3-1792-503C-8D68-B49915755961}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: News
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201835Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "95387ff2-e11c-422e-ad20-445fa3270052"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220310T153610Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: News

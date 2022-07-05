@@ -1,0 +1,166 @@
+﻿---
+ID: "4a3e83ca-824e-5f3b-8a33-c6ea5c9c8091"
+Parent: "8d9013bc-618f-5ef1-bbe6-4fdb3a41e913"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/PLAY/playwebsite/home/tickets/payment/confirmed
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <p
+          uid="{ED118F1D-A09D-4C65-9C17-C78B9AF7D3A1}">
+          <p:d />
+        </p>
+        <r
+          uid="{1CB49545-D7F4-538D-9748-FAAD4753D3CB}">
+          <p:d />
+        </r>
+        <r
+          uid="{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}">
+          <p:d />
+        </r>
+        <r
+          uid="{02AD34D4-C2B4-55FA-8854-F6BFEC2A8C0F}">
+          <p:d />
+        </r>
+        <r
+          uid="{0761E527-92C1-596B-914B-DD9C282DA709}">
+          <p:d />
+        </r>
+        <r
+          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}">
+          <p:d />
+        </r>
+        <r
+          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}">
+          <p:d />
+        </r>
+        <r
+          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}">
+          <p:d />
+        </r>
+        <r
+          uid="{49649979-09D8-545A-AF70-2E50E065D19F}">
+          <p:d />
+        </r>
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          p:after="p[@uid='{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}']" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          p:after="p[@uid='{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}']" />
+        <r
+          uid="{6EDB31A2-5AF7-5D7A-BBCA-FF23654E2C88}"
+          p:after="p[@uid='{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}']"
+          s:rname="Header"
+          s:id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          s:par=""
+          s:ph="/jss-header" />
+        <r
+          uid="{CAF7A494-424F-5FD7-9CBF-C57E4DC7F960}"
+          p:after="r[@uid='{6EDB31A2-5AF7-5D7A-BBCA-FF23654E2C88}']"
+          s:rname="MainNavigation"
+          s:id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          s:par=""
+          s:ph="/jss-header/jss-header-content-{6EDB31A2-5AF7-5D7A-BBCA-FF23654E2C88}-0" />
+        <r
+          uid="{E0626D73-FB56-55FA-A243-28F346FA84A1}"
+          p:after="r[@uid='{CAF7A494-424F-5FD7-9CBF-C57E4DC7F960}']"
+          s:rname="HeaderBanner"
+          s:ds="{5D0B4957-862A-5712-B292-8E6910C175FA}"
+          s:id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          s:par=""
+          s:ph="/jss-main" />
+        <r
+          uid="{748A61CF-32EF-56DD-9EAC-4BEC7E82087E}"
+          p:after="r[@uid='{4C7FE30D-D831-5755-AAE7-D3C587FAE7B4}']"
+          s:rname="Section"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:par=""
+          s:ph="/jss-main" />
+        <r
+          uid="{00FA2B39-4A40-40B4-95D9-18591F5C56F7}"
+          p:after="r[@uid='{748A61CF-32EF-56DD-9EAC-4BEC7E82087E}']"
+          s:ds="{90DC024A-FC95-4D98-BEB7-744039E3CDA0}"
+          s:id="{118A1550-728A-5324-8DF3-9AF7D252E89B}"
+          s:ph="/jss-main/jss-section-content-{748A61CF-32EF-56DD-9EAC-4BEC7E82087E}-0" />
+        <r
+          uid="{B990ED4E-133F-5882-85D9-029C3FC927A5}"
+          p:after="r[@uid='{00FA2B39-4A40-40B4-95D9-18591F5C56F7}']"
+          s:rname="PaymentConfirmed"
+          s:id="{7828DB2C-6882-5044-95E3-8D2A542E7116}"
+          s:par=""
+          s:ph="/jss-main/jss-section-content-{748A61CF-32EF-56DD-9EAC-4BEC7E82087E}-0" />
+        <r
+          uid="{C7E7C2C7-EA54-5F17-BFF1-D4E624B9AD9E}"
+          p:after="r[@uid='{B990ED4E-133F-5882-85D9-029C3FC927A5}']"
+          s:rname="FullImageSection"
+          s:ds="{BD8B0390-574A-57F3-B801-1C3A4F42B3D6}"
+          s:id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+          s:par=""
+          s:ph="/jss-main" />
+        <r
+          uid="{FC631CCF-A3F7-597E-A43B-40D711F20F27}"
+          p:after="r[@uid='{C7E7C2C7-EA54-5F17-BFF1-D4E624B9AD9E}']"
+          s:rname="Section"
+          s:ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:par=""
+          s:ph="/jss-main" />
+        <r
+          uid="{EB28F8FA-1618-5EEE-BBB0-AEE319AF10F3}"
+          p:after="r[@uid='{FC631CCF-A3F7-597E-A43B-40D711F20F27}']"
+          s:rname="SelectedSponsorsGrid"
+          s:ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          s:id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          s:par=""
+          s:ph="/jss-main/jss-section-content-{FC631CCF-A3F7-597E-A43B-40D711F20F27}-0" />
+        <r
+          uid="{75863DD3-388E-53BB-80AE-331FC542C2A3}"
+          p:after="*[1=2]"
+          s:rname="Footer"
+          s:id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          s:par=""
+          s:ph="/jss-footer" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Confirmed
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: 
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210707T152624Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "65c70523-8486-4d5f-acad-04b329eca3a4"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210928T172724Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Payment Confirmed

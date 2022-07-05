@@ -1,0 +1,48 @@
+﻿---
+ID: "f12ca29e-0bfd-4d1b-8532-bb25984a64fe"
+Parent: "70c51cbf-2b03-5575-b36f-ef6a97040a90"
+Template: "ccf76f8e-4780-450a-b330-69f8502b140f"
+Path: "/sitecore/content/PLAY/playwebsite/home/about-us/Page Components/Leading brands"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210827T182233Z
+    - ID: "48454055-754f-4b2f-87a3-b840e3eada73"
+      Hint: Description
+      Value: "Avail of exclusive discounts or road-test the latest sports equipment in our Exhibition Hall, where you can explore 300 + leading sports brands."
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "72ca6c7d-0588-4bea-b47d-6067bdd5a7e9"
+      Hint: Logo
+      Value: |
+        <image mediaid="{7B39EDAF-30C1-4655-B02A-CB8F1660056A}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "626f8ed6-d0ba-4d78-96b1-9d24e1106980"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "c63db4c4-d678-45cd-9d0d-4994b571eb7d"
+      Hint: Link
+      Value: |
+        <link class="" id="{774E44E8-0F30-5879-B847-AD233FFB41AA}" querystring="" anchor="" target="" title="" linktype="internal" text="" url="/PLAY/playwebsite/home/vendors" />
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220622T144710Z
+    - ID: "f395eb06-1e1d-4705-baba-b1f92a9aa780"
+      Hint: Title
+      Value: Leading brands

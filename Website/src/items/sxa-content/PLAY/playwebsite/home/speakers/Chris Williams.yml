@@ -1,0 +1,74 @@
+﻿---
+ID: "d5033fba-96eb-47f3-b239-c8f7094464fd"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/PLAY/playwebsite/home/speakers/Chris Williams
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: 9Xfs1oR2gkCqau_X6uX8JQ
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Chris Williams
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "087528fd-b211-4715-aca0-cbe90275951b"
+      Hint: Featured
+      Value: 1
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T175355Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Switzerland
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{5EE51C40-8986-44C0-B44A-D030D4482A43}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "11544ad2-8607-42d6-89d9-f4d0e07292ff"
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{F378DF03-E5E2-4D77-B0F6-FA59C64BAECB}|{39226DC6-0A62-459B-9299-54EC88AF6935}|{A789A9C9-E3E8-45A5-9B0C-621B760C7D32}"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+    - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
+      Hint: JobTitle
+      Value: Professional Cyclist
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150619Z
+    - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
+      Hint: Role
+      Value: Athlete
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: Name
+      Value: Chris Williams
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Chris Williams
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="49399" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49399/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/62319d1c1f084b888c2bab8d898ea71c?v=c2d61917" mediaid="" stylelabs-content-type="Image" alt="Chris Williams - No background" height="3785" width="3785" />

@@ -1,0 +1,77 @@
+﻿---
+ID: "6b4a88ed-0cd7-4c84-bf7b-8bbc3ef3ea49"
+Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
+Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
+Path: /sitecore/content/PLAY/playwebsite/home/sessions/Real talk balancing it all is a challenge
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: yV0m5GQR5UaUpOlPi29kmA
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Real talk: balancing it all is a challenge"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "025df6a5-2001-449f-8f76-02be5353905c"
+      Hint: Audience
+      Value: "{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "21df785e-14dd-4c8d-abff-5ae00b693e5e"
+      Hint: Description
+      Value: |
+        <p>I am a&nbsp;certified personal trainer, yoga instructor, and a mom of three.&nbsp;What&#39;s a girl supposed to do these days to balance it all?</p>
+        
+        <p>I am passionate about making a difference in people&#39;s lives - both physically as well as mental health and wellness. I love working with clients and&nbsp;helping people reach their full potential. I&#39;ve worked with&nbsp;some of the best athletes in the country&nbsp;and even trained a few Olympic athletes.</p>
+                       
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210920T225041Z
+    - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
+      Hint: Speakers
+      Value: "{465AEE87-D244-403F-B913-A979FE00F7A4}"
+    - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="38304" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38304/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/98aae63e186c44a1984c8793057b98a2?v=3b92b398" mediaid="" stylelabs-content-type="Image" alt="Crossfit resting" height="3639" width="5458" />
+    - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
+      Hint: Day
+      Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
+      Hint: Timeslots
+      Value: "{7E340507-E14C-4AF5-99F5-27CD67B1A72F}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
+      Hint: Type
+      Value: Session
+    - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
+      Hint: Name
+      Value: "Real talk: balancing it all is a challenge"
+    - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
+      Hint: Rooms
+      Value: "{10BCB0AB-E716-4B05-8576-0732151460D9}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2cbcc1f0-d5ec-4765-bc1d-138475d0fd21"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
+      Hint: Sponsors
+      Value: "{DCFB9DD8-7307-475E-8BD9-FEF7852DFEF8}"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220114T230142Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Real talk: balancing it all is a challenge"

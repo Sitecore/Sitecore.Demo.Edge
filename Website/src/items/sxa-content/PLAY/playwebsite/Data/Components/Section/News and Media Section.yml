@@ -1,0 +1,96 @@
+﻿---
+ID: "23c00813-f14b-5e8d-9102-eb409b5e1878"
+Parent: "6c003c60-1b9a-5e5a-a5bf-93cc18b8c6b9"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: /sitecore/content/PLAY/playwebsite/Data/Components/Section/News and Media Section
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Latest news and media
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210615T142052Z
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: 
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: |
+        <link id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" linktype="internal" text="View All News" querystring="" url="/PLAY/playwebsite/home/news" />
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d6d99935-7411-4578-bcaf-feafa5971df6"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: section__news
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: dark
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220622T144711Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Intimité
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220519T114133Z
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: |
+        <p>Nous ne vendrons pas vos informations personnelles que vous nous fournissez, y compris votre e-mail, et ne les utiliserons qu&rsquo;&agrave; des fins internes.</p>
+        <p>Nous pla&ccedil;ons divers cookies sur votre navigateur pour comprendre comment vous utilisez Play! Site Web du Sommet et comment nous pouvons ensuite vous fournir des exp&eacute;riences et des offres qui correspondent &agrave; vos besoins. Certains des cookies sont destin&eacute;s &agrave; des tiers qui nous aident &agrave; faire de la publicit&eacute; et &agrave; mesurer l&rsquo;impact de notre publicit&eacute;, ce qui nous permet de d&eacute;penser notre argent marketing de mani&egrave;re r&eacute;fl&eacute;chie. Si vous n&rsquo;aimez pas les cookies, veuillez ne pas parcourir le Play! Site Web du Sommet.</p>
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "39a396da-d4df-443f-9a81-e3aa691a4b1a"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: "left-full"
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: light
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220519T121256Z

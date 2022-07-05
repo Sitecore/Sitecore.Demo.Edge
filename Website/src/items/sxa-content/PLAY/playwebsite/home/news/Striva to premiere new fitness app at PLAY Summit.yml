@@ -1,0 +1,107 @@
+﻿---
+ID: "8b66023d-6f02-4440-98f2-2eec696e7ef3"
+Parent: "0e4a63da-7496-557e-bf80-5bd52255e431"
+Template: "4b8f13a2-ef1a-4a41-857d-a2191fd7c1e7"
+Path: /sitecore/content/PLAY/playwebsite/home/news/Striva to premiere new fitness app at PLAY Summit
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: yQ7zuE_0aU6H5jV2Fhot7Q
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Striva to premiere new fitness app at PLAY! Summit"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210922T135250Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{4D758CED-1AD4-46C7-8E72-B42BE54A08E8}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "Striva to premiere new fitness app at PLAY! Summit"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ecfd889b-4a84-4fb2-842d-3e567d5ae8f9"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: "20210807T182227:637639573470370000Z"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T153307Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: Ut et suscipit justo. Fusce sit amet sollicitudin arcu. Curabitur et elit ut sapien varius faucibus a volutpat felis. Duis congue consectetur vehicula. Vestibulum diam erat, varius a facilisis eget, mollis a ligula. Quisque dictum convallis odio, ac condimentum lacus maximus eget. Cras id mattis diam.
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: "Striva to premiere new fitness app at PLAY! Summit"
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30841" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/30841/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/fb61d88ba91147109496119795169279?v=7127f275" mediaid="" stylelabs-content-type="Image" alt="Striva Habitat5 Fitness Tracker" height="625" width="770" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: |
+        <p style="text-align:justify;">Ut vitae enim nec enim pretium dapibus at consequat mi. In sapien lorem, vehicula sit amet lectus vitae, mattis ornare libero. Vestibulum rhoncus justo ultrices metus imperdiet tempus. Aenean non consequat ante, vel molestie elit. Curabitur ac lobortis odio, nec posuere quam. Donec eget euismod risus. Maecenas eget aliquet ipsum. Praesent vehicula volutpat quam, dignissim tincidunt ante interdum sed. Pellentesque pellentesque non velit ut dictum. Nulla facilisi. Morbi pellentesque, orci ac bibendum porttitor, urna ipsum suscipit libero, a efficitur enim dolor at nulla. Praesent auctor enim quis mattis venenatis. Mauris consequat semper arcu, in vestibulum enim volutpat in. Aliquam mollis sagittis sem, sed elementum metus fermentum a. Nulla quis odio tortor. Pellentesque interdum quis tortor vitae fringilla.</p><p style="text-align:justify;">Suspendisse lorem metus, congue sed lectus pharetra, aliquet sagittis augue. Integer quis ultricies erat. Nulla sagittis auctor tincidunt. Nam eget massa ante. Aenean lectus purus, eleifend in ex lacinia, pellentesque blandit orci. Donec lectus felis, hendrerit fringilla varius sit amet, sagittis quis orci. Suspendisse tempor aliquam eros a fermentum. Donec venenatis ligula eget turpis finibus, commodo hendrerit urna sagittis. Fusce scelerisque nulla ut est venenatis, molestie molestie turpis dictum. In hac habitasse platea dictumst. Donec sollicitudin nulla vestibulum, rhoncus magna et, interdum diam. Quisque tincidunt tellus eros, ut ullamcorper augue dictum id. Vivamus justo lectus, ornare et placerat a, venenatis ut odio. In feugiat ex augue, a scelerisque mauris viverra id. Mauris ullamcorper turpis non magna lacinia, vel facilisis diam sodales. Integer quis metus eu tellus cursus convallis ut in sapien.</p>      
+- Language: "en-US"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210923T004533Z
+    - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
+      Hint: Audience
+      Value: "{7810C5C0-FF3C-45A1-92F6-10D42BCD57F7}|{131A827D-0E0A-48BA-9D52-753FFB135BA9}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
+      Hint: Title
+      Value: "Striva to premiere new fitness app at PLAY! Summit"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "a8b9afe1-a1e0-4a7d-851a-3e7b121ba751"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
+      Hint: PublishDate
+      Value: "20210807T182227:637639573470370000Z"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210923T025251Z
+    - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
+      Hint: Excerpt
+      Value: Ut et suscipit justo. Fusce sit amet sollicitudin arcu. Curabitur et elit ut sapien varius faucibus a volutpat felis. Duis congue consectetur vehicula. Vestibulum diam erat, varius a facilisis eget, mollis a ligula. Quisque dictum convallis odio, ac condimentum lacus maximus eget. Cras id mattis diam.
+    - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
+      Hint: Image
+      Value: |
+        <image stylelabs-content-id="30841" thumbnailsrc="https://demoedge.sitecoresandbox.cloud/api/gateway/30841/thumbnail" src="https://demoedge.sitecoresandbox.cloud/api/public/content/fb61d88ba91147109496119795169279?v=7127f275" mediaid="" stylelabs-content-type="Image" alt="prod-habitat-striva5.jpeg" height="625" width="770" />
+    - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
+      Hint: Content
+      Value: |
+        <p style="text-align:justify;">Ut vitae enim nec enim pretium dapibus at consequat mi. In sapien lorem, vehicula sit amet lectus vitae, mattis ornare libero. Vestibulum rhoncus justo ultrices metus imperdiet tempus. Aenean non consequat ante, vel molestie elit. Curabitur ac lobortis odio, nec posuere quam. Donec eget euismod risus. Maecenas eget aliquet ipsum. Praesent vehicula volutpat quam, dignissim tincidunt ante interdum sed. Pellentesque pellentesque non velit ut dictum. Nulla facilisi. Morbi pellentesque, orci ac bibendum porttitor, urna ipsum suscipit libero, a efficitur enim dolor at nulla. Praesent auctor enim quis mattis venenatis. Mauris consequat semper arcu, in vestibulum enim volutpat in. Aliquam mollis sagittis sem, sed elementum metus fermentum a. Nulla quis odio tortor. Pellentesque interdum quis tortor vitae fringilla.</p><p style="text-align:justify;">Suspendisse lorem metus, congue sed lectus pharetra, aliquet sagittis augue. Integer quis ultricies erat. Nulla sagittis auctor tincidunt. Nam eget massa ante. Aenean lectus purus, eleifend in ex lacinia, pellentesque blandit orci. Donec lectus felis, hendrerit fringilla varius sit amet, sagittis quis orci. Suspendisse tempor aliquam eros a fermentum. Donec venenatis ligula eget turpis finibus, commodo hendrerit urna sagittis. Fusce scelerisque nulla ut est venenatis, molestie molestie turpis dictum. In hac habitasse platea dictumst. Donec sollicitudin nulla vestibulum, rhoncus magna et, interdum diam. Quisque tincidunt tellus eros, ut ullamcorper augue dictum id. Vivamus justo lectus, ornare et placerat a, venenatis ut odio. In feugiat ex augue, a scelerisque mauris viverra id. Mauris ullamcorper turpis non magna lacinia, vel facilisis diam sodales. Integer quis metus eu tellus cursus convallis ut in sapien.</p>      

@@ -1,0 +1,50 @@
+﻿---
+ID: "3fdc9247-f940-5de3-bb56-9242835dd87b"
+Parent: "d683a83e-24b9-5c38-b7f7-4108b7c8c3ba"
+Template: "5954b01b-2adb-53d6-85ee-e8408d2cc2a4"
+Path: /sitecore/content/PLAY/playwebsite/Data/Components/FullImageSection/Chris Williams Q and A Full Image Section
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f531c03-8501-5776-be06-03ac387d1076"
+      Hint: callToActionLink
+      Value: |
+        <link id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" linktype="internal" text="Book your seat" querystring="" url="/PLAY/playwebsite/home/tickets" />
+    - ID: "229909da-5f0b-55fc-8e0e-4f5a70f90913"
+      Hint: subtitle
+      Value: Guest Speaker
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210615T142052Z
+    - ID: "46dd92a7-c1e9-566c-99e7-1b63c9eeafcf"
+      Hint: position
+      Value: right
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f47fd943-bc6f-4e87-9a2c-51139946b29e"
+    - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
+      Hint: content
+      Value: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
+    - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
+      Hint: cssClass
+      Value: "section__full-image--speaker"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\sitecoredemo@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220622T144711Z
+    - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
+      Hint: title
+      Value: Chris Williams

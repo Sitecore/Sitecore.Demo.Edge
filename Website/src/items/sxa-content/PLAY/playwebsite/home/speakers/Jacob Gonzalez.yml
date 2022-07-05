@@ -1,0 +1,77 @@
+﻿---
+ID: "209a438a-c1e2-4e02-bc8e-568235f16d1d"
+Parent: "1f4b781b-f2a5-5647-99df-c0c369162c4d"
+Template: "819c5f1d-58e0-432f-bd5a-a523ba8aebce"
+Path: /sitecore/content/PLAY/playwebsite/home/speakers/Jacob Gonzalez
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "_CwJC-t78EuxAF0eqTm_mQ"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Jacob Gonzalez
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "2256955c-26ab-41b5-8e7a-fc504ea1a307"
+      Hint: Sponsors
+      Value: "{C5CEF7C2-8DC6-4B8A-9AD4-D04DEB7B5DAB}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T175310Z
+    - ID: "44a57340-61f8-48a2-84a8-bc5d16929a3d"
+      Hint: Location
+      Value: Tampa Bay, Florida
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
+      Hint: Vendors
+      Value: "{01E09652-ABD7-4BB0-AD96-E609966330BD}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "418eb838-c96b-489d-8206-2b0479efd65c"
+    - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
+      Hint: Company
+      Value: Striva
+    - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
+      Hint: Sessions
+      Value: "{39226DC6-0A62-459B-9299-54EC88AF6935}|{E35FD211-A2CD-49D4-87CC-4DD07BC14B8C}"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d0b11041-4e9d-4066-b833-2fb20c0cc47d"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+    - ID: "d410c57e-fdc1-43f4-b028-8b313217b6f9"
+      Hint: JobTitle
+      Value: Product Speacialist
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T150809Z
+    - ID: "e2b817f9-16ac-4691-9add-ad6590d757b8"
+      Hint: Role
+      Value: Sales Guru
+    - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
+      Hint: Name
+      Value: Jacob Gonzalez
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Jacob Gonzalez
+    - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
+      Hint: Picture
+      Value: |
+        <image stylelabs-content-id="49433" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49433/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/c5c75df2222345b890e87bb91872cbc4?v=a2d9223f" mediaid="" stylelabs-content-type="Image" alt="Jacob Gonzalez - No background" height="3077" width="3077" />

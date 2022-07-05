@@ -1,6 +1,6 @@
 {
     "namespace": "InitItems",
-    "items" : {
+    "items": {
         "includes": [
             {
                 "name": "content-root",
@@ -10,12 +10,12 @@
             },
             {
                 "name": "api-key",
-                "path": "/sitecore/system/Settings/Services/API Keys/EdgeWebsite",
+                "path": "/sitecore/system/Settings/Services/API Keys/PLAY",
                 "scope": "singleItem"
             },
             {
                 "name": "core-fields",
-                "path": "/sitecore/system/Field types/EdgeWebsite Types",
+                "path": "/sitecore/system/Field types/PLAY Types",
                 "database": "core"
             },
             {

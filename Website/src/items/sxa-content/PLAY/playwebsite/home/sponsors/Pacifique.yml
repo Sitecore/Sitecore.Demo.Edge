@@ -1,0 +1,66 @@
+﻿---
+ID: "a512c4fc-301e-4191-ade1-e618f4f6895b"
+Parent: "66c99e47-7bbf-52d1-b1d7-4662b850744a"
+Template: "3b884b30-54c1-464c-aadd-f8bd94e7c38e"
+Path: /sitecore/content/PLAY/playwebsite/home/sponsors/Pacifique
+SharedFields:
+- ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
+  Hint: EntityIdentifier
+  Value: "M-CUtA41XEKtL6Rtl2esUQ"
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Pacifique
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
+      Hint: Logo
+      Value: |
+        <image stylelabs-content-id="36849" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/36849/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d341a690eae94de5a57546bd4a1c9c94?v=a85fc07c" mediaid="" stylelabs-content-type="Image" alt="Pacifique logo" height="1200" width="1200" ></image>
+    - ID: "12c0fdc3-9c18-41c4-aeda-8dcca687eb59"
+      Hint: Sessions
+      Value: "{6C7ADAD2-B0AD-44FC-881A-2CA48EA8C9A8}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T162510Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5a1f6707-d155-4618-b051-966216449b1c"
+      Hint: Description
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
+        
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
+    - ID: "752f4b39-259c-42b8-a100-fb6123faed7f"
+      Hint: Speakers
+      Value: "{465AEE87-D244-403F-B913-A979FE00F7A4}"
+    - ID: "88a0fe68-7edf-4726-b53a-8bf622268a63"
+      Hint: Name
+      Value: Pacifique
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4d444382-503f-468b-9c5b-e38e751881fc"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "cf42c29f-ee3a-4f06-92ac-10fc51a42099"
+      Hint: Level
+      Value: Gold
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220107T165652Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Pacifique

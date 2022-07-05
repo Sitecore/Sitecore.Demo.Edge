@@ -1,0 +1,139 @@
+﻿---
+ID: "a7bdfbda-d5cc-5388-a039-f262bc768721"
+Parent: "2d1d7aca-9597-5ca6-85b2-9b04907e4298"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/content/PLAY/playwebsite/home/tickets
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 800
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
+        <p
+          uid="{A1C3B825-8C7A-5D67-85AF-D877DA0A1816}"
+          key="jss-header"
+          md="{2BDBF7A5-2830-586D-BADB-95A33FA429A3}" />
+        <p
+          uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
+          key="jss-main"
+          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+        <p
+          uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
+          key="jss-footer"
+          md="{CC2CF2D1-033E-5D27-BA34-254D30F146CD}" />
+        <p
+          uid="{163E0283-B986-57A3-BEB9-0FDA01E0FCD2}"
+          key="jss-header-content"
+          md="{B0B0F437-11AB-50B9-93D7-9D73EA3C3BD0}" />
+        <p
+          uid="{C679C0A2-921C-5D4C-B3CB-946E0484E6F9}"
+          key="jss-section-content"
+          md="{3ACD7D8D-E5D3-5AF6-BA34-BB869657E602}" />
+        <r
+          rname="Header"
+          id="{0FC536D1-7D7C-579C-953B-454A308B4390}"
+          par=""
+          ph="/jss-header"
+          uid="{B58E2596-FC6C-5603-936D-5C77E49AD894}" />
+        <r
+          rname="MainNavigation"
+          id="{09516A66-F92F-5638-B073-8F9A79765778}"
+          par=""
+          ph="/jss-header/jss-header-content-{B58E2596-FC6C-5603-936D-5C77E49AD894}-0"
+          uid="{8FFC5644-37BE-53CC-B873-846140CBC71F}" />
+        <r
+          rname="HeaderBanner"
+          ds="{AD579DAD-71C9-5584-B027-CB82EC546E5C}"
+          id="{FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}"
+          par=""
+          ph="/jss-main"
+          uid="{CE55D9B7-A8A2-5B44-AE6D-818E96BAB379}" />
+        <r
+          rname="TextCta"
+          ds="{2B4D4FE1-EC28-59DA-8ACA-C0ADADF00E21}"
+          id="{CC9984B5-432C-5A1A-9ED0-E8F88E26E5A2}"
+          par=""
+          ph="/jss-main"
+          uid="{83FBFB26-33B4-584A-BA89-B102C8E69527}" />
+        <r
+          rname="TicketGrid"
+          id="{298D16E7-CFB2-5BE9-8B8C-BBC10A72597F}"
+          par=""
+          ph="/jss-main"
+          uid="{7B4BD8CF-E172-562E-A156-BEC3B399E3D0}" />
+        <r
+          rname="FullImageSection"
+          ds="{BD8B0390-574A-57F3-B801-1C3A4F42B3D6}"
+          id="{0E094D67-EC7C-50AF-A8F2-24CF724F4B77}"
+          par=""
+          ph="/jss-main"
+          uid="{34CDA3FD-BFC5-583D-8720-100D5EE194D7}" />
+        <r
+          rname="TestimonyList"
+          ds="{B103F115-DB4E-4D12-A6F1-0D058B98CFC4}"
+          id="{CB6FAEE6-2A59-5114-B898-1147AA0FE82F}"
+          par=""
+          ph="/jss-main"
+          uid="{7CE7FF1B-EE7C-5885-B4C6-9560F0828013}"
+          ccb="Clear on publish" />
+        <r
+          rname="Section"
+          ds="{174A7AFC-D923-58F3-BEF8-AD8CAAD8C5B9}"
+          id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          par=""
+          ph="/jss-main"
+          uid="{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}" />
+        <r
+          rname="SelectedSponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
+          id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
+          par=""
+          ph="/jss-main/jss-section-content-{D10BAD2C-051B-53D9-A640-C6ADDD1AD6F9}-0"
+          uid="{D8261F40-D92C-58BB-AC19-F819CC4E4E7F}"
+          ccb="Clear on publish" />
+        <r
+          rname="Footer"
+          id="{ADBF0452-8883-5D03-877B-9F5C2E89725C}"
+          par=""
+          ph="/jss-footer"
+          uid="{D93E4738-4E44-593B-A2EF-7CD131ED6072}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Tickets
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210625T201849Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "73f4c63f-f978-466e-95bd-7093c234fa98"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20210907T161137Z
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Tickets
