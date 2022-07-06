@@ -25,7 +25,7 @@ SharedFields:
           value
         }
       }
-      item(path: "/sitecore/content/PLAY/playwebsite/home/speakers", language: $language) {
+      item(path: "{1F4B781B-F2A5-5647-99DF-C0C369162C4D}", language: $language) {
         children(hasLayout: true, first: 50) {
           results {
             ... on Speaker {
