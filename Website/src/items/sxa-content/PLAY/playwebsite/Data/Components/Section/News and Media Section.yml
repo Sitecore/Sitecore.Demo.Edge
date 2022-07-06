@@ -24,7 +24,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" linktype="internal" text="View All News" url="/PLAY/playwebsite/home/news" />
+        <link id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" linktype="internal" text="View All News" querystring="" url="/PLAY/playwebsite/home/news" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |

@@ -11,7 +11,7 @@ Languages:
     - ID: "0f531c03-8501-5776-be06-03ac387d1076"
       Hint: callToActionLink
       Value: |
-        <link text="Get Discount Code" linktype="external" url="/shop/product" anchor="" target="" />
+        <link text="Get Discount Code" linktype="external" url="/shop" anchor="" target="" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210708T213917Z

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Text, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
@@ -23,13 +23,14 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
       .map((speaker, index) => (
         <Link key={index} href={speaker.url.path} passHref>
           <a className="speakers-grid-speaker">
-            <Image
-              className="speaker-image"
-              field={speaker.picture.jsonValue}
-              alt={speaker.name.value}
-              width={265}
-              height={265}
-            />
+            <div className="speaker-image">
+              <Image
+                field={speaker.picture.jsonValue}
+                alt={speaker.name.value}
+                width={265}
+                height={265}
+              />
+            </div>
             <Text className="speaker-name" tag="p" field={speaker.name} />
             <Text tag="p" field={speaker.jobTitle} />
           </a>
@@ -39,4 +40,4 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   return <div className="speakers-grid container">{speakers}</div>;
 };
 
-export default withDatasourceCheck()<SpeakersGridProps>(SpeakersGrid);
+export default SpeakersGrid;

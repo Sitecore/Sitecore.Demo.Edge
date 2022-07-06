@@ -31,7 +31,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" linktype="internal" text="Vendor Registration" url="/PLAY/playwebsite/home" />
+        <link id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" linktype="internal" text="Vendor Registration" querystring="" url="/PLAY/playwebsite/home" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |

@@ -4,9 +4,6 @@ Parent: "75c438f6-65fd-4e65-95bb-7a12ce6ea229"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: /sitecore/layout/Renderings/Project/PLAY/Navigation/MainNavigation
 SharedFields:
-- ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
-  Hint: Data source
-  Value: /sitecore/content/PLAY/playwebsite/Data/Navigation/Header/Main Navigation
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: MainNavigation
@@ -16,8 +13,8 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query ($datasource : String!, $language: String!) {
-          item(path: "/sitecore/content/PLAY/playwebsite/Data/Config" language: "en") {
+    query ($language: String!) {
+          item(path: "{4790380A-3F0C-443A-A954-269ECB2D5566}" language: "en") {
             id
             path
             ... on SiteConfiguration {
@@ -27,7 +24,7 @@ SharedFields:
               }
             }
           }
-          links : item(path: $datasource, language: $language) {
+          links : item(path: "{842934E4-186D-4A9D-92F2-D3A01EF0CBA9}", language: $language) {
             displayName
             children {
               results {
@@ -41,12 +38,6 @@ SharedFields:
             }
           }
         }
-- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
-  Hint: Datasource Template
-  Value: 
-- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
-  Hint: Datasource Location
-  Value: 
 Languages:
 - Language: en
   Versions:
@@ -73,29 +64,3 @@ Languages:
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20220617T174418Z
-  - Version: 2
-    Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20220617T204402Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\sitecoredemo@sitecore.com
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\sitecoredemo@sitecore.com
-    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
-      Hint: __Revision
-      Value: "a1fbb5a7-935e-4750-aebb-2a661bfa9756"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\sitecoredemo@sitecore.com
-    - ID: "c8f93afe-bfd4-4e8f-9c61-152559854661"
-      Hint: __Valid from
-      Value: 20220617T204402Z
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20220621T110420Z

@@ -20,7 +20,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" linktype="internal" text="View All Speakers" url="/PLAY/playwebsite/home/speakers" />
+        <link id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" linktype="internal" text="View All Speakers" querystring="" url="/PLAY/playwebsite/home/speakers" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |

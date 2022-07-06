@@ -11,7 +11,7 @@ Languages:
     - ID: "0f531c03-8501-5776-be06-03ac387d1076"
       Hint: callToActionLink
       Value: |
-        <link id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" linktype="internal" text="Book your seat" url="/PLAY/playwebsite/home/tickets" />
+        <link id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" linktype="internal" text="Book your seat" querystring="" url="/PLAY/playwebsite/home/tickets" />
     - ID: "229909da-5f0b-55fc-8e0e-4f5a70f90913"
       Hint: subtitle
       Value: Guest Speaker

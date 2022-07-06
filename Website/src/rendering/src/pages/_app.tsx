@@ -1,3 +1,4 @@
+import type { AppProps } from 'next/app';
 import Router from 'next/router';
 import { I18nProvider } from 'next-localization';
 import NProgress from 'nprogress';
@@ -37,7 +38,7 @@ Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
 
-// DEMO TEAM CUSTOMIZATION (next line) - Different prop type, Add router prop
+// DEMO TEAM CUSTOMIZATION (next line) - Different prop type, add router prop
 function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element {
   // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links. Also register a key press handler to close CDP sessions and forget CDP guests.
   useEffect(() => {
