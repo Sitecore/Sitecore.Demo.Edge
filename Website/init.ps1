@@ -156,7 +156,7 @@ if ($InitEnv) {
     # DEMO TEAM CUSTOMIZATION - Remove scjssconfig file generation as ours is already in source control.
 
     # DEMO TEAM CUSTOMIZATION - Custom environment variable name. Custom rendering host name.
-    Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_EdgeWebsite" -Value $xmCloudBuild.renderingHosts.EdgeWebsite.jssDeploymentSecret
+    Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_PlayWebsite" -Value $xmCloudBuild.renderingHosts.PlayWebsite.jssDeploymentSecret
 
     # DEMO TEAM CUSTOMIZATION - Remove generation of the Sitecore API key. We want a fixed key.
 

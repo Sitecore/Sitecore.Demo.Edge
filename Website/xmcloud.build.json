@@ -1,6 +1,6 @@
 {
     "renderingHosts": {
-        "EdgeWebsite": {
+        "PlayWebsite": {
             "path": "./src/rendering",
             "nodeVersion": "14.17.0",
             "jssDeploymentSecret":"511cdfab92b7440db866ac0fb817b490",

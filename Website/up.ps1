@@ -35,7 +35,7 @@ if ($ClientCredentialsLogin -eq "true") {
 #set nuget version
 $xmCloudBuild = Get-Content "xmcloud.build.json" | ConvertFrom-Json
 # DEMO TEAM CUSTOMIZATION - Custom rendering host name.
-Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.EdgeWebsite.nodeVersion
+Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.PlayWebsite.nodeVersion
 
 # Double check whether init has been run
 $envCheckVariable = "HOST_LICENSE_FOLDER"
