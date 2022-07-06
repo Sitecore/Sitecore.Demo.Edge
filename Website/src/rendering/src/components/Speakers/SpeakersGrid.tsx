@@ -23,13 +23,14 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
       .map((speaker, index) => (
         <Link key={index} href={speaker.url.path} passHref>
           <a className="speakers-grid-speaker">
-            <Image
-              className="speaker-image"
-              field={speaker.picture.jsonValue}
-              alt={speaker.name.value}
-              width={265}
-              height={265}
-            />
+            <div className="speaker-image">
+              <Image
+                field={speaker.picture.jsonValue}
+                alt={speaker.name.value}
+                width={265}
+                height={265}
+              />
+            </div>
             <Text className="speaker-name" tag="p" field={speaker.name} />
             <Text tag="p" field={speaker.jobTitle} />
           </a>
