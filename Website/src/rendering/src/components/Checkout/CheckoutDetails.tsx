@@ -1,5 +1,4 @@
 import { useEffect, useCallback, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Skeleton from 'react-loading-skeleton';
 import PanelDeliveryOptions from './PanelDeliveryOptions';
@@ -10,6 +9,7 @@ import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
 import PanelUserDetails from './PanelUserDetails';
 import CheckoutSummary from './CheckoutSummary';
+import NoItemsInCartMessage from '../ShopCommon/NoItemsInCartMessage';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import useOcAuth from '../../hooks/useOcAuth';
 import { getGuestEmail, identifyVisitor } from '../../services/CdpService';
@@ -103,12 +103,7 @@ const CheckoutDetails = (): JSX.Element => {
     } else if (!order?.LineItemCount) {
       return (
         <section className="shop-container section">
-          <p>It doesn&apos;t look like you have any items in your cart</p>
-          <p>
-            <Link href="/shop">
-              <a className="btn-main continue-shopping-btn">Continue Shopping</a>
-            </Link>
-          </p>
+          <NoItemsInCartMessage />
         </section>
       );
     } else {
