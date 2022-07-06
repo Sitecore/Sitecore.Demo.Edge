@@ -18,17 +18,14 @@ const RecommendedProducts = (props: RecommendedProductsProps): JSX.Element => {
   // TODO: Remove this when the Discover SDK allows us to configure a maximum number of products it returns.
   const firstFourProucts = products?.slice(0, 4);
 
+  const themeClass = `recommended-products-title ${
+    altTheme ? 'recommended-products-title-orange' : ''
+  }`;
+
   const recommendedProducts = products?.length ? (
     <section className="section recommended-products">
       <div className="shop-container">
-        {/* TODO: Extract JSX logic into a const */}
-        <h3
-          className={`recommended-products-title ${
-            altTheme ? 'recommended-products-title-orange' : ''
-          }`}
-        >
-          {title}
-        </h3>
+        <h3 className={themeClass}>{title}</h3>
         <ProductList
           products={firstFourProucts}
           loaded={loaded}

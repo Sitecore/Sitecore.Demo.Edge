@@ -1,8 +1,6 @@
 import { Product } from '../../models/discover/Product';
 import ProductCard from './ProductCard';
 
-// TODO: add story for component
-
 type ProductListProps = {
   products: Product[];
   onProductClick?: (product: Product) => void;
