@@ -48,6 +48,7 @@
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
 @import './components/Checkout/CheckoutSummary.css';
+@import './components/Checkout/LineItemCard.css';
 @import './components/Checkout/MiniCart.css';
 @import './components/Checkout/OrderReviewDetails.css';
 @import './components/Checkout/PreCheckout.css';

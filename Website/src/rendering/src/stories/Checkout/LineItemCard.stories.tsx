@@ -22,9 +22,7 @@ Default.args = {
 Default.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -37,9 +35,7 @@ NonEditable.args = {
 NonEditable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -52,9 +48,7 @@ WithSpecs.args = {
 WithSpecs.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -67,9 +61,7 @@ WithRestrictedQuantities.args = {
 WithRestrictedQuantities.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
