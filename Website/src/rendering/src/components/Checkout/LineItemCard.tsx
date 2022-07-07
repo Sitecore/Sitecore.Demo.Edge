@@ -11,7 +11,7 @@ import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
-import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import { getImageUrl, getProductSpecs } from '../../helpers/LineItemsHelpers';
 import Link from 'next/link';
 
 type LineItemCardProps = {
@@ -25,19 +25,6 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   const [removeLoading, setRemoveLoading] = useState(false);
 
   const product = useOcProduct(props.lineItem.ProductID);
-
-  const getProductSpecs = () => {
-    const lineItem = props.lineItem;
-    if (!lineItem.Specs?.length) {
-      return '';
-    }
-    const specValues = lineItem.Specs.map((spec) => (
-      <p key={spec.Value}>
-        {spec.Name}: {spec.Value}
-      </p>
-    ));
-    return <>{specValues}</>;
-  };
 
   const handleRemoveLineItem = useCallback(async () => {
     setRemoveLoading(true);
@@ -168,6 +155,11 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     />
   );
 
+  const productSpecs = getProductSpecs(props.lineItem).map((obj) => {
+    const [key, value] = Object.entries(obj)[0];
+    return <p key={key}>{value}</p>;
+  });
+
   const lineItemCard = (
     <div className="line-item-card">
       <div className="line-item-card-details">
@@ -181,7 +173,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         </Link>
         <div className="product-specs">
           <p>{props.lineItem.Product.xp?.Brand}</p>
-          {getProductSpecs()}
+          {productSpecs}
           {staticQuantityBlock}
           {staticUserComment}
         </div>
