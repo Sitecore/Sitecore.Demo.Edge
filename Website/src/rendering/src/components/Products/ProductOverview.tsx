@@ -1,14 +1,7 @@
-import Accordion from '../NonSitecore/Accordion';
+import Accordion, { AccordionItemProps } from '../NonSitecore/Accordion';
 
 type ProductOverviewProps = {
-  items: ProductOverviewItemProps[];
-  loading?: boolean;
-};
-
-type ProductOverviewItemProps = {
-  heading: string;
-  description: string;
-  disabled: boolean;
+  items: AccordionItemProps[];
   loading?: boolean;
 };
 

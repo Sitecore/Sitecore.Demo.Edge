@@ -10,7 +10,7 @@ type AccordionProps = {
   loading?: boolean;
 };
 
-type AccordionItemProps = {
+export type AccordionItemProps = {
   heading: string;
   description: string;
   disabled?: boolean;
@@ -22,14 +22,14 @@ const Accordion = (props: AccordionProps): JSX.Element => {
   const loadingClass = props.loading ? 'loading' : '';
   const additionalClasses = props.additionalClasses ? props.additionalClasses : '';
 
+  const items = props.items.map((item, i) => {
+    return <AccordionItem {...item} key={i} loading={props.loading} />;
+  });
+
   return (
     <div className={`accordion ${loadingClass} ${additionalClasses}`}>
       <div className="accordion-heading">{heading}</div>
-      <div className="accordion-body">
-        {props.items.map((item, i) => {
-          return <AccordionItem {...item} key={i} loading={props.loading} />;
-        })}
-      </div>
+      <div className="accordion-body">{items}</div>
     </div>
   );
 };
