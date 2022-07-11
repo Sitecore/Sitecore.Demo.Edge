@@ -1,8 +1,8 @@
 ﻿---
-ID: "83f8ccff-edaa-516b-bd68-71a16a354f42"
-Parent: "dc861650-fb23-5bb6-b07d-b9db7e1c33bc"
+ID: "2bbdf7b1-d8df-4064-96d9-b033470cb8d3"
+Parent: "d6a35771-7105-41d7-9d17-b6b12877dba5"
 Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
-Path: "/sitecore/layout/Placeholder Settings/Project/edgewebsite/jss-main"
+Path: "/sitecore/layout/Placeholder Settings/Project/edgewebsite/Sponsors/jss-main-news"
 SharedFields:
 - ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
   Hint: Placeholder Key
@@ -27,6 +27,8 @@ SharedFields:
     {AFA8D2EB-B612-5293-8BB8-F73F99004331}
     {1059A458-3C21-5A98-ABD0-A65629F4DE1A}
     {7AB4158F-135B-5E9B-8106-C4A898F2F02D}
+    {FFC3C7F5-A23A-45C9-99F7-48EEB7CD97DF}
+    {DC5B6248-AD97-440A-AFBD-CC6392F76D9F}
     {98F79B86-92EF-4699-A2F0-D9ECF79A70EF}
     {CB6FAEE6-2A59-5114-B898-1147AA0FE82F}
     {CC9984B5-432C-5A1A-9ED0-E8F88E26E5A2}
@@ -56,11 +58,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0b66422a-dd00-4c80-aaac-ac03c383af54"
+      Value: "4f435f91-df96-4d6c-a521-1cc819c1561c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220711T110341Z
+      Value: 20220711T075257Z
