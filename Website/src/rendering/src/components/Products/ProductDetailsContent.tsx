@@ -38,6 +38,8 @@ const ProductDetailsContent = ({
   const [variant, setVariant] = useState<Variant>(undefined);
   const loading = initialLoading || isLoading;
 
+  const pageTitle = loading ? 'loading...' : product ? product.Name : 'Product not found';
+
   // Handle LineItem edits
   const lineItemId = '';
   const lineItem = useAppSelector((slice) =>
@@ -134,9 +136,12 @@ const ProductDetailsContent = ({
           break;
         }
       }
+    } else {
+      setVariant(undefined);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [specValues]);
+  }, [specValues, variants]);
 
   const handleSpecFieldChange = (values: OrderCloudSpec) => {
     const tempSpecs: OrderCloudSpec[] = specValues.map((spec) => {
@@ -153,21 +158,25 @@ const ProductDetailsContent = ({
     setSpecValues(tempSpecs);
   };
 
-  const dispatchDiscoverAddToCartEvent = (product: BuyerProduct, quantity: number) => {
-    PageController.getDispatcher().dispatch({
-      type: Actions.ADD_TO_CART,
-      payload: {
-        page: 'pdp',
-        // TODO: On product with variants, Product.ID is equal to the Discover product group, not the variant SKU. We must send the variant SKU.
-        sku: product.ID,
-        quantity: quantity,
-        price:
-          product.PriceSchedule.PriceBreaks[0].SalePrice ||
-          product.PriceSchedule.PriceBreaks[0].Price,
-        priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
-      },
-    });
-  };
+  const dispatchDiscoverAddToCartEvent = useCallback(
+    (product: BuyerProduct, quantity: number) => {
+      const sku = !!variant ? variant.ID : product.ID;
+
+      PageController.getDispatcher().dispatch({
+        type: Actions.ADD_TO_CART,
+        payload: {
+          page: 'pdp',
+          sku: sku,
+          quantity: quantity,
+          price:
+            product.PriceSchedule.PriceBreaks[0].SalePrice ||
+            product.PriceSchedule.PriceBreaks[0].Price,
+          priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
+        },
+      });
+    },
+    [variant]
+  );
 
   const handleAddToCart = useCallback(
     async (e: FormEvent) => {
@@ -204,7 +213,7 @@ const ProductDetailsContent = ({
 
       logAddToCart(lineItem, quantity);
     },
-    [dispatch, product, specValues, quantity]
+    [dispatch, product, specValues, quantity, dispatchDiscoverAddToCartEvent]
   );
 
   const productImageProps =
@@ -273,12 +282,14 @@ const ProductDetailsContent = ({
     ],
   };
 
+  const btnText = `${lineItem ? 'Update' : 'Add To'} Cart`;
+
   const btnAddToCart = initialLoading ? (
     <Skeleton className="btn-main" width={168} />
   ) : (
     <button type="submit" className="btn-main" disabled={loading}>
-      {/* TODO: Extract JSX logic into a const */}
-      <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
+      <Spinner loading={loading} />
+      {btnText}
     </button>
   );
 
@@ -346,10 +357,7 @@ const ProductDetailsContent = ({
   return (
     <>
       <Head>
-        <title>
-          {/* TODO: Extract JSX logic into a const */}
-          PLAY! SHOP - {loading ? 'loading...' : product ? product.Name : 'Product not found'}
-        </title>
+        <title>PLAY! SHOP - {pageTitle}</title>
       </Head>
       {productDetails}
     </>
