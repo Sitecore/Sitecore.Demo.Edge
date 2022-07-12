@@ -190,4 +190,19 @@ export const mockDiscoverData = {
     keyphrase: '',
     selectedKeyword: '',
   },
+
+  searchInputProps: {
+    keyphrase: 'fitness equipment',
+    setSearchString: (): void => {
+      return null;
+    },
+    onFocus: (): void => {
+      return null;
+    },
+    placeholder: 'I am shopping for...',
+    redirectUrl: '/shop/products?q=',
+    setOpen: (): void => {
+      return null;
+    },
+  },
 };
