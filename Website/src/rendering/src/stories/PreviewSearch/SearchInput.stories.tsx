@@ -13,9 +13,31 @@ const Template: ComponentStory<typeof SearchInput> = (args) => <SearchInput {...
 
 export const Default = Template.bind({});
 Default.args = mockDiscoverData.searchInputProps;
+Default.decorators = [
+  (Story) => (
+    <div className="shop-navigation">
+      <div className="shop-navigation-content">
+        <div className="shop-search-input-container">
+          <Story />
+        </div>
+      </div>
+    </div>
+  ),
+];
 
 export const WithoutPlaceholder = Template.bind({});
 WithoutPlaceholder.args = {
   ...mockDiscoverData.searchInputProps,
   placeholder: '',
 };
+WithoutPlaceholder.decorators = [
+  (Story) => (
+    <div className="shop-navigation">
+      <div className="shop-navigation-content">
+        <div className="shop-search-input-container">
+          <Story />
+        </div>
+      </div>
+    </div>
+  ),
+];
