@@ -1,6 +1,6 @@
 import { NextApiRequest } from 'next';
 import { Auth, Configuration, Tokens } from 'ordercloud-javascript-sdk';
-import { isTokenExpired } from 'src/helpers/JwtHelper';
+import { isTokenExpired } from 'src/helpers/OrderCloudJwtHelper';
 
 export async function initializeOrderCloudMiddlewareClient(): Promise<void> {
   const token = Tokens.GetAccessToken();
