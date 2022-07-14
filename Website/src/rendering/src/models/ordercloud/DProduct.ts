@@ -14,4 +14,5 @@ export interface DProductXp {
   }[];
   ShortDescription?: string;
   Brand?: string;
+  CCID?: string;
 }
