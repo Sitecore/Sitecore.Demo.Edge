@@ -8,3 +8,9 @@ export interface DOrderXp {
   // TODO: Export these magic strings as constants and use the constants in the code that use this property.
   DeliveryType?: 'PickupFromSummit' | 'PickupInStore' | 'Ship';
 }
+
+export const DELIVERY_TYPES = {
+  pickupFromSummit: 'PickupFromSummit',
+  pickupInStore: 'PickupInStore',
+  ship: 'Ship',
+};

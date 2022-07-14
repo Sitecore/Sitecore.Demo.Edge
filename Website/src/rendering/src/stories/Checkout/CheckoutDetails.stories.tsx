@@ -11,13 +11,14 @@ import {
   emptyAddressBookSlice,
   loggedInAuthSlice,
 } from './CheckoutCommon';
+import { DELIVERY_TYPES } from '../../models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
   component: CheckoutDetails,
 } as ComponentMeta<typeof CheckoutDetails>;
 
-const Template: ComponentStory<typeof CheckoutDetails> = (args) => <CheckoutDetails {...args} />;
+const Template: ComponentStory<typeof CheckoutDetails> = () => <CheckoutDetails />;
 
 export const NoLineItems = Template.bind({});
 const noLineItemsState = {
@@ -57,7 +58,7 @@ const noStepsCompleteOrderState = {
     Total: 123.45,
     LineItemCount: 1,
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DELIVERY_TYPES.ship,
     },
   },
 };
@@ -487,7 +488,7 @@ const pickupFromSummitState = {
   order: {
     ...paymentCompleteState.order,
     xp: {
-      DeliveryType: 'PickupFromSummit',
+      DeliveryType: DELIVERY_TYPES.pickupFromSummit,
     },
   },
 };
@@ -519,7 +520,7 @@ const pickupFromStoreState = {
   order: {
     ...paymentCompleteState.order,
     xp: {
-      DeliveryType: 'PickupInStore',
+      DeliveryType: DELIVERY_TYPES.pickupInStore,
     },
   },
 };
