@@ -4,12 +4,12 @@ import { UserProvider } from '@auth0/nextjs-auth0';
 import ShopNavigation from '../Navigation/ShopNavigation';
 import Footer, { FooterProps } from '../Navigation/Footer';
 import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
-import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
 import { DiscoverService } from '../../services/DiscoverService';
 import { logViewEvent } from '../../services/CdpService';
+import { isOrderCloudEnabled } from 'src/helpers/OrderCloudHelper';
 
 DiscoverService();
 
@@ -288,8 +288,8 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
     },
   } as unknown as FooterProps;
 
-  // Show shop content if commerce is enabled, otherwise show error message
-  const shopContent = isCommerceEnabled ? (
+  // Show shop content if ordercloud is enabled, otherwise show error message
+  const shopContent = isOrderCloudEnabled ? (
     <UserProvider>
       <Provider store={reduxStore}>
         <OcProvider>
@@ -305,7 +305,7 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
     </UserProvider>
   ) : (
     <p className="shop-integration-error">
-      Shop pages are currently disabled because the commerce integration is not configured
+      Shop pages are currently disabled because the OrderCloud integration is not configured
     </p>
   );
 

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { isCommerceEnabled } from '../../helpers/CommerceHelper';
+import { isOrderCloudEnabled } from 'src/helpers/OrderCloudHelper';
 
 export type MainNavigationProps = ComponentProps & {
   fields: {
@@ -40,7 +40,7 @@ export type MainNavigationProps = ComponentProps & {
 
 const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const shopLink = isCommerceEnabled && (
+  const shopLink = isOrderCloudEnabled && (
     <li className="text-menu-item">
       <Link href="/shop">
         <a>Shop</a>
