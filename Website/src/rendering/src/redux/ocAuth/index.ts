@@ -1,6 +1,6 @@
 import { createSlice, SerializedError } from '@reduxjs/toolkit';
 import { DecodedToken, Tokens } from 'ordercloud-javascript-sdk';
-import { parseOrderCloudJwt } from '../../helpers/JwtHelper';
+import { parseOrderCloudJwt } from '../../helpers/OrderCloudJwtHelper';
 import login from './login';
 import logout from './logout';
 
