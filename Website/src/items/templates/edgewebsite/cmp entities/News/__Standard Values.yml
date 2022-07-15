@@ -24,7 +24,7 @@ SharedFields:
         <p
           uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
           key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+          md="{700D7684-F8B5-4745-82AF-DB299D89C28B}" />
         <p
           uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
           key="jss-footer"
@@ -100,7 +100,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e063800f-b2f9-4730-9bac-14432521e12e"
+      Value: "76de6bc9-2a69-473e-a193-134d439d5b4b"
     - ID: "a186dea1-d336-4aa4-8448-fbdd419c31fe"
       Hint: ImageTransformation
       Value: postcard
@@ -110,4 +110,4 @@ Languages:
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211116T174823Z
+      Value: 20220711T073153Z

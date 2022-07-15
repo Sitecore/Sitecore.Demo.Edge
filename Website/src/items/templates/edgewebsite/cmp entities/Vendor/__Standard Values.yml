@@ -27,7 +27,7 @@ SharedFields:
         <p
           uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
           key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+          md="{83F3E656-57E4-416B-8FC3-E1F2A44AA9D2}" />
         <p
           uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
           key="jss-footer"
@@ -81,11 +81,11 @@ SharedFields:
           ccb="Clear on publish" />
         <r
           rname="SelectedSponsorsGrid"
+          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           id="{4C6CFD83-311B-5EA6-8F55-AA03251D5232}"
           par=""
           ph="/jss-main/jss-section-content-{CB0223C1-28B6-5F72-9FDC-50A7E3F4390F}-0"
           uid="{7F6D3984-3875-54C9-A6A6-7AFC7E9D3C6D}"
-          ds="{F8952B14-1095-45FB-B7D9-6AE55AB2934D}"
           ccb="Clear on publish" />
         <r
           rname="Footer"
@@ -116,7 +116,7 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0679cbcf-33f0-4dc1-a189-bb378ed864a1"
+      Value: "88f3ba6d-d689-43d7-857d-80ca3464fc51"
     - ID: "a73286b1-7c15-46cf-b3c1-af1dc7e43afe"
       Hint: LogoTransformation
       Value: medium
@@ -129,7 +129,7 @@ Languages:
       Value: $name
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211122T184713Z
+      Value: 20220711T075534Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: $name

@@ -13,7 +13,7 @@ SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
-    <r>
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
         l="{B103F257-71EF-5392-B6CD-EC8062F68C1C}">
@@ -24,7 +24,7 @@ SharedFields:
         <p
           uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
           key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+          md="{D8EAE613-B7BD-4418-B697-7316581145F8}" />
         <p
           uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
           key="jss-footer"
@@ -117,11 +117,11 @@ Languages:
       Value: $name
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9633d568-356f-4bb1-a16e-bc2934f6e99e"
+      Value: "938d9d11-4d96-4c9a-aa4a-952be0e16c1e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211116T174838Z
+      Value: 20220711T075416Z
