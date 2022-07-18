@@ -141,6 +141,21 @@ export const mockDiscoverData = {
           },
         ],
       },
+      {
+        display_name: 'Final price',
+        facetType: 'final_price',
+        number_of_products: 3,
+        values: [
+          {
+            count: 2,
+            id: 'facet_ideyJtYXgiOjE1LCJtaW4iOjV9',
+            in_content: 'product',
+            max: 15,
+            min: 5,
+            text: '5 - 15',
+          },
+        ],
+      },
     ],
     page: 1,
     sortChoices: [
