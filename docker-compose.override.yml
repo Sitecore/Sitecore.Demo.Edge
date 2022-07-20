@@ -120,6 +120,7 @@ services:
       PUBLIC_HOST_CM: ${PUBLIC_HOST_CM}
       PUBLIC_HOST_ID: ${PUBLIC_HOST_ID}
       DAM_URL: ${DAM_ContentHub}
+      SITECORECLI_VERSION: ${SITECORECLI_VERSION}
     depends_on:
       mssql:
         condition: service_healthy
