@@ -38,9 +38,9 @@ namespace Sitecore.Demo.Edge.Website.Pipelines
             foreach (var itemLanguage in tempItem.Languages)
             {
                 var item = tempItem.Database.GetItem(tempItem.ID, itemLanguage);
-                if (item.Versions.Count > 0)
+                if (item.Versions.Count > 0 || item.IsFallback)
                 {
-                    langVersions.AddRange(item.Versions.GetVersions().Select(version => version.Language));
+                    langVersions.Add(itemLanguage);
                 }
             }
 

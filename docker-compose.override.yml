@@ -264,8 +264,8 @@ services:
       Sitecore_ExperienceEdge_DeliveryEndpoint_CircuitBreakerDurationOfBreak: "00:15:00"
       Sitecore_ExperienceEdge_DeliveryEndpoint_TransientFailureRetryCount: "3"
       Sitecore_ExperienceEdge_DeliveryEndpoint_TransientFailureSleepTime: "00:00:10"
-      Sitecore_ExperienceEdge_EnableItemLanguageFallback: "false"
-      Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "false"
+      Sitecore_ExperienceEdge_EnableItemLanguageFallback: "true"
+      Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "true"
       ## Disable Edge Publishing until Edge provisioning is implemented
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""
