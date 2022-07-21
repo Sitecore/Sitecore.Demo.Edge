@@ -52,23 +52,33 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     // Create the products
     const createdProducts = await postProducts();
 
-    // Assign the created products to profiled buyer
+    const productPromises = [];
     const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
-    await createProductAssignments(
-      createdProducts,
-      profiledBuyer.DefaultCatalogID,
-      profiledBuyer.ID,
-      PROFILED_HEADSTART_CATALOG_ID
-    );
-
-    // Assign the created products to public buyer
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
-    await createProductAssignments(
-      createdProducts,
-      publicBuyer.DefaultCatalogID,
-      publicBuyer.ID,
-      PUBLIC_HEADSTART_CATALOG_ID
-    );
+
+    for (const createdProduct of createdProducts) {
+      // Assign the created products to profiled buyer
+      productPromises.push(() =>
+        createProductAssignments(
+          createdProduct,
+          profiledBuyer.DefaultCatalogID,
+          profiledBuyer.ID,
+          PROFILED_HEADSTART_CATALOG_ID
+        )
+      );
+
+      // Assign the created products to public buyer
+      productPromises.push(() =>
+        createProductAssignments(
+          createdProduct,
+          publicBuyer.DefaultCatalogID,
+          publicBuyer.ID,
+          PUBLIC_HEADSTART_CATALOG_ID
+        )
+      );
+    }
+
+    await Promise.all(productPromises.map((productPromise) => productPromise()));
 
     return response.status(200).json('Products synced successfully');
     /* eslint-disable-next-line */
@@ -244,27 +254,23 @@ async function processSingleProduct(row: ProductRow) {
 }
 
 async function createProductAssignments(
-  createdProducts: Product[],
+  product: Product,
   catalogID: string,
   buyerID: string,
   headstartCatalogID: string
 ) {
-  for (const createdProduct of createdProducts) {
-    console.log(`Assigning product ${createdProduct.ID} to catalog ${catalogID}`);
-    await Catalogs.SaveProductAssignment({
-      CatalogID: catalogID,
-      ProductID: createdProduct.ID,
-    });
+  console.log(`Assigning product ${product.ID} to catalog ${catalogID}`);
+  await Catalogs.SaveProductAssignment({
+    CatalogID: catalogID,
+    ProductID: product.ID,
+  });
 
-    console.log(
-      `Assigning product ${createdProduct.ID} to headstart catalog ${headstartCatalogID}`
-    );
-    await Products.SaveAssignment({
-      ProductID: createdProduct.ID,
-      BuyerID: buyerID,
-      UserGroupID: headstartCatalogID,
-    });
-  }
+  console.log(`Assigning product ${product.ID} to headstart catalog ${headstartCatalogID}`);
+  await Products.SaveAssignment({
+    ProductID: product.ID,
+    BuyerID: buyerID,
+    UserGroupID: headstartCatalogID,
+  });
 }
 
 async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
