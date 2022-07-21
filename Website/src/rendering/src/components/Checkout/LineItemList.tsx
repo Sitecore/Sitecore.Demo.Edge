@@ -3,8 +3,8 @@ import { Actions, PageController } from '@sitecore-discover/react';
 import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import LineItemCard from './LineItemCard';
+import NoItemsInCartMessage from '../ShopCommon/NoItemsInCartMessage';
 import Skeleton from 'react-loading-skeleton';
-import Link from 'next/link';
 
 type LineItemListProps = {
   editable?: boolean;
@@ -58,17 +58,7 @@ const LineItemList = (props: LineItemListProps): JSX.Element => {
         </ol>
       );
     } else {
-      return (
-        // TODO: Extract into a NoItemsInCartMessage.tsx that can also be used in CheckoutDetails.tsx
-        <>
-          <p>It doesn&apos;t look like you have any items in your cart</p>
-          <p>
-            <Link href="/shop">
-              <a className="btn--main btn--main--round continue-shopping-btn">Continue Shopping</a>
-            </Link>
-          </p>
-        </>
-      );
+      return <NoItemsInCartMessage />;
     }
   };
 

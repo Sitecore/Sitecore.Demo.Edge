@@ -1,6 +1,7 @@
 import React from 'react';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from './ShopBreadcrumb';
-import { Category, getCategoryChain } from '../../helpers/CategoriesDataHelper';
+import { getCategoryChain } from '../../helpers/CategoriesDataHelper';
+import { Category } from '../../models/Category';
 
 type CategoryBreadcrumbProps = {
   category: Category;

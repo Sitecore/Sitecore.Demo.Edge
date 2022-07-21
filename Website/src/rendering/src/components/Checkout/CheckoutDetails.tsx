@@ -1,5 +1,4 @@
 import { useEffect, useCallback, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Skeleton from 'react-loading-skeleton';
 import PanelDeliveryOptions from './PanelDeliveryOptions';
@@ -10,11 +9,13 @@ import PanelPayment from './PanelPayment';
 import PanelComments from './PanelComments';
 import PanelUserDetails from './PanelUserDetails';
 import CheckoutSummary from './CheckoutSummary';
+import NoItemsInCartMessage from '../ShopCommon/NoItemsInCartMessage';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import useOcAuth from '../../hooks/useOcAuth';
 import { getGuestEmail, identifyVisitor } from '../../services/CdpService';
 import { useAppDispatch } from '../../redux/store';
 import { updateUser } from '../../redux/ocUser';
+import { patchOrder } from '../../redux/ocCurrentCart';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;
@@ -35,14 +36,13 @@ const CheckoutDetails = (): JSX.Element => {
   const { order, initialized } = useOcCurrentCart();
   const { isAnonymous } = useOcAuth();
 
-  const getOrderFromUserEmail = () =>
-    order?.FromUser?.Email && order.FromUser.Email !== 'test@test.com' ? order.FromUser.Email : '';
-
-  const [userEmail, setUserEmail] = useState(getOrderFromUserEmail());
+  const [userEmail, setUserEmail] = useState('');
 
   const setEmail = useCallback(
     (email: string) => {
+      // Update the user email and patch the order
       dispatch(updateUser({ Email: email }));
+      dispatch(patchOrder({ FromUser: { Email: email } }));
       setUserEmail(email);
     },
     [dispatch]
@@ -53,7 +53,6 @@ const CheckoutDetails = (): JSX.Element => {
     const getEmail = async () => {
       const email = await getGuestEmail();
       if (email) {
-        console.log(email);
         setEmail(email);
       }
     };
@@ -64,9 +63,11 @@ const CheckoutDetails = (): JSX.Element => {
   }, [isAnonymous, setEmail]);
 
   const handleReviewOrderClick = () => {
-    identifyVisitor(order.FromUser.Email);
+    identifyVisitor(isAnonymous ? userEmail : order.FromUser.Email);
     return router?.push('/shop/checkout/order-review');
   };
+
+  const shouldEnableButton = () => !isAnonymous || !!userEmail;
 
   const checkoutTitle = isAnonymous ? 'Guest checkout' : 'Checkout';
   const userDetailsPanel = isAnonymous && (
@@ -86,7 +87,11 @@ const CheckoutDetails = (): JSX.Element => {
         <PanelPayment />
         <div className="panel-comments-summary">
           <PanelComments />
-          <CheckoutSummary buttonText="Review order" onClick={handleReviewOrderClick} />
+          <CheckoutSummary
+            buttonText="Review order"
+            onClick={handleReviewOrderClick}
+            shouldEnableButton={shouldEnableButton}
+          />
         </div>
       </div>
     </section>
@@ -98,12 +103,7 @@ const CheckoutDetails = (): JSX.Element => {
     } else if (!order?.LineItemCount) {
       return (
         <section className="shop-container section">
-          <p>It doesn&apos;t look like you have any items in your cart</p>
-          <p>
-            <Link href="/shop">
-              <a className="btn--main btn--main--round continue-shopping-btn">Continue Shopping</a>
-            </Link>
-          </p>
+          <NoItemsInCartMessage />
         </section>
       );
     } else {

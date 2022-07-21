@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Header from '../../components/Navigation/Header';
+import HeaderContent from '../../components/Navigation/HeaderContent';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
 import SpeakerInformationPageHero from '../../components/Speakers/SpeakerInformationPageHero';
 import Footer from '../../components/Navigation/Footer';
@@ -11,6 +11,7 @@ import SessionInformation, {
 import { Speaker } from 'src/types/speaker';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { mockSitecoreContext } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Session Information Page',
@@ -191,9 +192,9 @@ const sessionInformationProps = {
 
 const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
-    <SitecoreContext componentFactory={mockComponentFactory}>
+    <SitecoreContext context={mockSitecoreContext.context} componentFactory={mockComponentFactory}>
       <header>
-        <Header {...mockHeaderProps} />
+        <HeaderContent {...mockHeaderProps} />
       </header>
       <main>
         <HeaderCdpMessageBar />

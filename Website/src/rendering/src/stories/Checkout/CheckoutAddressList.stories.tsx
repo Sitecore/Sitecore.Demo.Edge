@@ -1,18 +1,21 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import AddressList from '../../components/Checkout/AddressList';
+import CheckoutAddressList from '../../components/Checkout/CheckoutAddressList';
 import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
 
 export default {
-  title: 'Components/Checkout/AddressList',
-  component: AddressList,
-} as ComponentMeta<typeof AddressList>;
+  title: 'Components/Checkout/CheckoutAddressList',
+  component: CheckoutAddressList,
+} as ComponentMeta<typeof CheckoutAddressList>;
 
-const Template: ComponentStory<typeof AddressList> = (args) => <AddressList {...args} />;
+const Template: ComponentStory<typeof CheckoutAddressList> = (args) => (
+  <CheckoutAddressList {...args} />
+);
 
 const addresses: DBuyerAddress[] = [
   {
+    ID: 'address1',
     AddressName: 'Mr. H Potter',
     Street1: 'The Cupboard under the Stairs',
     Street2: '4 Privet Drive',
@@ -22,6 +25,7 @@ const addresses: DBuyerAddress[] = [
     Country: 'GB',
   },
   {
+    ID: 'address2',
     AddressName: 'Marty Byrde Home',
     Street1: '6818 Gaines Ferry Road',
     City: 'Flowery Branch',
@@ -30,6 +34,7 @@ const addresses: DBuyerAddress[] = [
     Country: 'US',
   },
   {
+    ID: 'address3',
     AddressName: 'Sitecore US HQ',
     Street1: '101 California St',
     Street2: '#1600',
@@ -38,6 +43,7 @@ const addresses: DBuyerAddress[] = [
     Country: 'US',
   },
   {
+    ID: 'address4',
     Street1: '1514 East 18th St',
     Street2: 'Apt #104',
     City: 'Minneapolis',

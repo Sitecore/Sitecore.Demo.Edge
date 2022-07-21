@@ -23,13 +23,13 @@
     ul {
       @apply flex flex-wrap gap-2 text-center justify-center;
       @apply lg:justify-end;
-    }
 
-    li {
-      @apply w-[150px];
+      li {
+        @apply w-[150px];
 
-      img {
-        @apply mb-1;
+        img {
+          @apply mb-1;
+        }
       }
     }
   }

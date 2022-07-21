@@ -49,6 +49,9 @@ namespace Sitecore.Demo.Init.Jobs
             Console.WriteLine(cmd.Run($"dotnet sitecore ser push"));
             Console.WriteLine(cmd.Run($"dotnet sitecore publish"));
 
+            // Publish twice to ensure all items are published correctly. There's been a few cases when API key did not get published.
+            Console.WriteLine(cmd.Run($"dotnet sitecore publish"));
+
             await Complete();
 		}
 	}

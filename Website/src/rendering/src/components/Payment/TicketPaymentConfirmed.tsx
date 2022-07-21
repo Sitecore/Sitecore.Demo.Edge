@@ -10,12 +10,12 @@ const TicketPaymentConfirmed = (): JSX.Element => (
     <img className="qr-code" src="/assets/img/payment/qr.png" alt="confirmed" />
     <div>
       <Link href="/tickets">
-        <a className="btn--main btn--main--round btn-block">Download Ticket</a>
+        <a className="btn-main btn-block">Download Ticket</a>
       </Link>
     </div>
     <div>
       <Link href="/sessions">
-        <a className="btn--main btn--main--round btn-block">Browse Sessions</a>
+        <a className="btn-main btn-block">Browse Sessions</a>
       </Link>
     </div>
   </div>

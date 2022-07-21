@@ -33,7 +33,7 @@ const CartDetails = (): JSX.Element => {
             <CartSummary />
             <PromoInput />
             <Link href={nextStepLink}>
-              <a className="btn--main btn--main--round" onClick={() => setLoading(true)}>
+              <a className="btn-main" onClick={() => setLoading(true)}>
                 <Spinner loading={loading} /> Proceed to Checkout
               </a>
             </Link>

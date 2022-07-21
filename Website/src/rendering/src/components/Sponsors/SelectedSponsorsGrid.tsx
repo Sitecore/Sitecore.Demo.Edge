@@ -14,8 +14,8 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
     props?.fields?.Sponsors &&
     props.fields.Sponsors.map((sponsor, index) => (
       <Link key={index} href={sponsor.url} passHref>
-        <a className="section__sponsors__grid__sponsor">
-          <div className="section__sponsors__grid__sponsor__imagecontainer">
+        <a className="sponsor">
+          <div className="sponsor-image">
             <Image
               field={sponsor.fields.Logo}
               alt={sponsor.fields.Name.value}
@@ -28,7 +28,7 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
       </Link>
     ));
 
-  return <div className="section__sponsors__grid">{sponsors}</div>;
+  return <div className="selected-sponsors-grid">{sponsors}</div>;
 };
 
 export default withDatasourceCheck()<SelectedSponsorsGridProps>(SelectedSponsorsGrid);
