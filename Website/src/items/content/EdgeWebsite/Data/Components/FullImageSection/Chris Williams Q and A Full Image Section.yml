@@ -31,20 +31,20 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "36ad0532-c7e9-4610-b36a-99b7058aec88"
+      Value: "197bcc55-df58-4061-ac19-ae9422832e1a"
     - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
       Hint: content
       Value: Join <strong>Tour de France</strong> champion Chris Williams for an exclusive Q & A in which he’ll discuss his professional journey and highlights from his career.
     - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
       Hint: cssClass
-      Value: "section__full-image--speaker"
+      Value: "full-image-section-speaker"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\JssImport
+        sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210625T201829Z
+      Value: 20220616T073848Z
     - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
       Hint: title
       Value: Chris Williams

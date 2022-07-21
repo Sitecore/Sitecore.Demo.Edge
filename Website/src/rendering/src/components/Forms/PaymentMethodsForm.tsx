@@ -188,7 +188,7 @@ const PaymentMethodsForm = (props: PaymentMethodsFormProps): JSX.Element => {
       </div>
       <div className="button-area">
         {cancelEditButton}
-        <button className="btn--main btn--main--round" type="submit" disabled={loading}>
+        <button className="btn-main" type="submit" disabled={loading}>
           <Spinner loading={loading} /> {submitBtnText}
         </button>
       </div>

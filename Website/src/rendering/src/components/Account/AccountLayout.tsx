@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react';
 import useOcAuth from '../../hooks/useOcAuth';
-import Link from 'next/link';
-import { getLoginUrl, isAuthenticationEnabled } from '../../services/AuthenticationService';
+import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import OrderCloudLoginLink from '../ShopCommon/OrderCloudLoginLink';
 
 export const AccountLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   const router = useRouter();
@@ -27,18 +27,18 @@ export const AccountLayout = (props: PropsWithChildren<unknown>): JSX.Element =>
             <FontAwesomeIcon icon={faSignInAlt} className="text-pink" />
             <h6 className="item-title">Already a member?</h6>
             <p>Log in your existing account!</p>
-            <Link href={getLoginUrl(router.asPath)}>
-              <a className="btn--main btn--main--round">Log in</a>
-            </Link>
+            <OrderCloudLoginLink redirectToPathOnLogin={router.asPath} className="btn-main">
+              Log in
+            </OrderCloudLoginLink>
           </div>
           <div className="account-layout-grid-item">
             <FontAwesomeIcon icon={faPlus} className="text-orange" />
             <h6 className="item-title">Want more discounts?</h6>
             <p>Join us for more exclusive deals!</p>
             {/* TODO: Replace with signup url when available */}
-            <Link href={getLoginUrl(router.asPath)}>
-              <a className="btn--main btn--main--round">Sign up</a>
-            </Link>
+            <OrderCloudLoginLink redirectToPathOnLogin={router.asPath} className="btn-main">
+              Sign up
+            </OrderCloudLoginLink>
           </div>
         </div>
       </section>

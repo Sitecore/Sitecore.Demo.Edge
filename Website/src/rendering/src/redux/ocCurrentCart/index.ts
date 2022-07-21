@@ -11,17 +11,19 @@ import {
   Tokens,
   LineItem,
 } from 'ordercloud-javascript-sdk';
-import { DAddress } from 'src/models/ordercloud/DAddress';
-import { DBuyerAddress } from 'src/models/ordercloud/DBuyerAddress';
-import { DLineItem } from 'src/models/ordercloud/DLineItem';
-import { DOrder } from 'src/models/ordercloud/DOrder';
-import { DOrderWorksheet } from 'src/models/ordercloud/DOrderWorksheet';
-import { DPayment } from 'src/models/ordercloud/DPayment';
-import { DOrderPromotion } from 'src/models/ordercloud/DOrderPromotion';
-import { DShipEstimateResponse } from 'src/models/ordercloud/DShipEstimateResponse';
+import { DAddress } from '../../models/ordercloud/DAddress';
+import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
+import { DLineItem } from '../../models/ordercloud/DLineItem';
+import { DOrder } from '../../models/ordercloud/DOrder';
+import { DOrderWorksheet } from '../../models/ordercloud/DOrderWorksheet';
+import { DPayment } from '../../models/ordercloud/DPayment';
+import { DOrderPromotion } from '../../models/ordercloud/DOrderPromotion';
+import { DShipEstimateResponse } from '../../models/ordercloud/DShipEstimateResponse';
 import { createOcAsyncThunk } from '../ocReduxHelpers';
-import { DBuyerCreditCard } from 'src/models/ordercloud/DCreditCard';
+import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import axios from 'axios';
+import { deleteCookie, getCookie } from '../../services/CookieService';
+import { COOKIES_ANON_ORDER_ID, COOKIES_ANON_USER_TOKEN } from '../../constants/cookies';
 
 export interface RecentOrder {
   order: RequiredDeep<DOrder>;
@@ -44,6 +46,10 @@ const initialState: OcCurrentOrderState = {
   initialized: false,
   orderTotalLoading: false,
 };
+
+async function createInitialOrder(): Promise<RequiredDeep<DOrder>> {
+  return await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
+}
 
 export const removeAllPayments = createOcAsyncThunk<undefined, undefined>(
   'ocCurrentCart/removeAllPayments',
@@ -134,6 +140,70 @@ export const refreshPromotions = createOcAsyncThunk<RequiredDeep<DOrderPromotion
   }
 );
 
+const mergeAnonOrder = async (
+  existingOrder: RequiredDeep<DOrder>
+): Promise<RequiredDeep<DOrder>> => {
+  const anonOrderID = getCookie(COOKIES_ANON_ORDER_ID);
+  const anonUserToken = getCookie(COOKIES_ANON_USER_TOKEN);
+  deleteCookie(COOKIES_ANON_ORDER_ID);
+  deleteCookie(COOKIES_ANON_USER_TOKEN);
+  if (!anonOrderID || !anonUserToken) {
+    return undefined;
+  }
+
+  if (!existingOrder) {
+    existingOrder = await createInitialOrder();
+  }
+
+  const profiledWorksheet = await IntegrationEvents.GetWorksheet('All', existingOrder.ID);
+  const profiledLineItems = profiledWorksheet.LineItems;
+  const profiledProductIDs = profiledLineItems.map((lineItem) => lineItem.ProductID);
+
+  // user started addding items to their cart anonymously and then signed in
+  // we must merge those anonymous line items into their profiled cart
+  // we're purposely not using the transfer order endpoint because it doesn't handle a merge
+  // scenario it only transfers the order as a whole so we would still need to perform the same API calls here
+  // plus the transfer and then delete of the transferred order so it isn't really doesn't make sense
+  const anonLineItems = await LineItems.List(
+    'All',
+    anonOrderID,
+    { pageSize: 100 },
+    { accessToken: anonUserToken }
+  );
+  const lineItemCreateRequests = anonLineItems.Items.filter(
+    (lineItem) => !profiledProductIDs.includes(lineItem.ProductID)
+  ).map((anonLineItem) => {
+    try {
+      LineItems.Create('All', existingOrder.ID, {
+        ProductID: anonLineItem.ProductID,
+        Quantity: anonLineItem.Quantity,
+      });
+    } catch {
+      // swallow error, an error here doesn't have much recourse and isn't fatal
+      // additionally it may be a legitimate error if for example the profiled user does not have access
+      // to a product that the public user does
+    }
+  });
+  const lineItemUpdateRequests = anonLineItems.Items.filter((lineItem) =>
+    profiledProductIDs.includes(lineItem.ProductID)
+  ).map((anonLineItem) => {
+    const profiledLineItem = profiledLineItems.find(
+      (lineItem) => lineItem.ProductID === anonLineItem.ProductID
+    );
+    try {
+      LineItems.Patch('All', existingOrder.ID, profiledLineItem.ID, {
+        Quantity: profiledLineItem.Quantity + anonLineItem.Quantity,
+      });
+    } catch {
+      // swallow error, an error here doesn't have much recourse and isn't fatal
+      // additionally it may be a legitimate error if for example the profiled user does not have access
+      // to a product that the public user does
+    }
+  });
+  await Promise.all([...lineItemCreateRequests, ...lineItemUpdateRequests]);
+  return existingOrder;
+};
+
 export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | undefined, void>(
   'ocCurrentCart/retrieveCart',
   async (_, ThunkAPI) => {
@@ -141,9 +211,18 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
       sortBy: ['DateCreated'],
       filters: { Status: 'Unsubmitted' },
     });
-    const firstOrder = response.Items[0];
-    if (firstOrder) {
-      const worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', firstOrder.ID);
+    let existingOrder = response.Items[0];
+
+    const mergedAnonOrder = await mergeAnonOrder(existingOrder);
+    if (mergedAnonOrder) {
+      existingOrder = mergedAnonOrder;
+    }
+
+    if (existingOrder) {
+      const worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>(
+        'All',
+        existingOrder.ID
+      );
       if (
         worksheet.Order.BillingAddress &&
         worksheet.ShipEstimateResponse &&
@@ -152,9 +231,15 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
         worksheet.ShipEstimateResponse.ShipEstimates.filter((se) => !se.SelectedShipMethodID)
           .length === 0
       ) {
-        ThunkAPI.dispatch(retrievePayments(firstOrder.ID));
+        ThunkAPI.dispatch(retrievePayments(existingOrder.ID));
       }
-      ThunkAPI.dispatch(retrievePromotions(firstOrder.ID));
+      ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
+      if (mergedAnonOrder) {
+        // This is a bit of a hack but since we're updating the cart right before we get the worksheet
+        // there can be a race condition where the order worksheet is stale so anytime we merge an order
+        // get the order worksheet once more
+        return IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
+      }
       return worksheet;
     }
     return undefined;
@@ -166,7 +251,9 @@ export const patchOrder = createOcAsyncThunk<RequiredDeep<DOrder>, PartialDeep<D
   async (partialOrder, ThunkAPI) => {
     const { ocCurrentCart } = ThunkAPI.getState();
     const orderID = ocCurrentCart.order.ID;
-
+    if (partialOrder?.xp?.DeliveryType === 'Ship') {
+      await ThunkAPI.dispatch(removeShippingAddress());
+    }
     return await Orders.Patch('All', orderID, partialOrder);
   }
 );
@@ -200,7 +287,7 @@ export const createLineItem = createOcAsyncThunk<RequiredDeep<DOrderWorksheet>, 
 
     // initialize the order if it doesn't exist already
     if (!orderId) {
-      const orderResponse = await Orders.Create<DOrder>('All', { xp: { DeliveryType: 'Ship' } });
+      const orderResponse = await createInitialOrder();
       orderId = orderResponse.ID;
     }
 

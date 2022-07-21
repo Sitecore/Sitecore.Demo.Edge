@@ -30,16 +30,14 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const closeAccountPopup = () => setIsAccountPopupOpen(false);
   ClickOutside([accountPopupRef], closeAccountPopup);
 
-  // TODO: Remove conditions from JSX
+  const accountPopupActiveClass = isAccountPopupOpen ? 'active' : '';
+  const accountPopupOpenClass = isAccountPopupOpen ? 'open' : '';
   const accountMenuItem = isAuthenticationEnabled && (
-    <li
-      className={`shop-navigation-menu-item ${isAccountPopupOpen && 'active'}`}
-      ref={accountPopupRef}
-    >
+    <li className={`shop-navigation-menu-item ${accountPopupActiveClass}`} ref={accountPopupRef}>
       <button onClick={() => setIsAccountPopupOpen(!isAccountPopupOpen)}>
         <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
       </button>
-      <div className={`account-popup-wrapper ${isAccountPopupOpen && 'open'}`}>
+      <div className={`account-popup-wrapper ${accountPopupOpenClass}`}>
         <AccountPopup onNavigatingAway={closeAccountPopup} />
       </div>
     </li>
@@ -68,6 +66,9 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     <DiscoverWidget rfkId="rfkid_6" />
   );
 
+  const miniCartActiveClass = isMiniCartOpen ? 'active' : '';
+  const miniCartOpenClass = isMiniCartOpen ? 'open' : '';
+
   return (
     <nav className="shop-navigation">
       <div className="shop-container shop-navigation-content">
@@ -80,19 +81,15 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
         </div>
         <div className="items-container">
           <ul>
-            {/* TODO: Remove condition from JSX */}
             <li
-              className={`shop-navigation-menu-item cart-menu-item ${
-                isMiniCartOpen ? 'active' : ''
-              }`}
+              className={`shop-navigation-menu-item cart-menu-item ${miniCartActiveClass}`}
               ref={miniCartRef}
             >
               <button onClick={handleCartIconClick}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 <CartBadge />
               </button>
-              {/* TODO: Remove condition from JSX */}
-              <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
+              <div className={`mini-cart-wrapper ${miniCartOpenClass}`}>
                 <MiniCart onNavigatingAway={closeMinicart} />
               </div>
             </li>

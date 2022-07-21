@@ -14,7 +14,7 @@ export const Left = Template.bind({});
 Left.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--offer',
+      value: 'full-image-section-offer',
     },
     callToActionLink: {
       value: {
@@ -46,7 +46,7 @@ export const Right = Template.bind({});
 Right.args = {
   fields: {
     cssClass: {
-      value: 'section__full-image--speaker',
+      value: 'full-image-section-speaker',
     },
     callToActionLink: {
       value: {
