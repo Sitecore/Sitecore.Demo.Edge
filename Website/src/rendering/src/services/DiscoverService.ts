@@ -25,9 +25,10 @@ type DiscoverServiceOptions = {
 };
 
 export const DiscoverService = (options?: DiscoverServiceOptions): void => {
-  if (!isDiscoverEnabled) {
-    return;
-  }
+  // TODO: add this back in once full refactor for splitting up ordercloud/discover is complete
+  // if (!isDiscoverEnabled) {
+  //   return;
+  // }
   const DISCOVER_CUSTOMER_KEY = options?.isStorybook
     ? '0-0'
     : process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
