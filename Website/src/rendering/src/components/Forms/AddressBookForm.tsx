@@ -106,7 +106,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   const buttonText = props.isEditing ? 'Save Address' : 'Create address';
 
   return (
-    <form onSubmit={handleFormSubmit} className="form">
+    <form onSubmit={handleFormSubmit} className="form" ref={formRef}>
       <div>
         <label htmlFor={`${idPrefix}addressName`}>Address name</label>
         <input
