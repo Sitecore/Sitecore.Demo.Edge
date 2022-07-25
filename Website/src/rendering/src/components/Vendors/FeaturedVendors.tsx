@@ -47,11 +47,7 @@ const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
     <section className="section section-light">
       <div className="section-content container">
         <Text className="section-content-title" tag="h1" field={props.fields?.Title} />
-        <Text
-          className="section-content-subtitle-center"
-          tag="p"
-          field={props.fields?.Subtitle}
-        />
+        <Text className="section-content-subtitle-center" tag="p" field={props.fields?.Subtitle} />
 
         <div className="item-grid">
           <div className="grid-content">{vendors}</div>
