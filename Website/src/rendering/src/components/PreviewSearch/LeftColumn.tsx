@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import Link from 'next/link';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
 
@@ -8,14 +9,16 @@ type PreviewSearchListProps = {
   redirectUrl: string;
   onMouseEnter: (text: string) => void;
   onMouseLeave: () => void;
+  onNavigatingAway: () => void;
 };
 
 const PreviewSearchList = ({
   items,
   title,
-  /* redirectUrl, */
+  redirectUrl,
   onMouseEnter,
   onMouseLeave,
+  onNavigatingAway,
 }: PreviewSearchListProps): JSX.Element => {
   return (
     <div className="list-container">
@@ -23,20 +26,23 @@ const PreviewSearchList = ({
         <div>
           <h2 className="list-container-title">{title}</h2>
           <ul>
-            {items.map(({ text, id /*url*/ }) => (
-              <li
-                className="list-item"
-                id={id}
-                key={id}
-                onMouseEnter={() => onMouseEnter(text)}
-                onMouseLeave={onMouseLeave}
-              >
-                {/* TODO:  - Use this for category pages eventually */}
-                {/* {url ? <a href={url}>{text}</a> : <a href={redirectUrl + text}>{text}</a>} */}
-                {/* TODO: change for a next/Link component */}
-                <a href={'/shop/products?q=' + text}>{text}</a>
-              </li>
-            ))}
+            {items.map(({ text, id, url }) => {
+              const href = url ? url : `${redirectUrl}${text}`;
+
+              return (
+                <li
+                  className="list-item"
+                  id={id}
+                  key={id}
+                  onMouseEnter={() => onMouseEnter(url ? url : text)}
+                  onMouseLeave={onMouseLeave}
+                >
+                  <Link href={href}>
+                    <a onClick={onNavigatingAway}>{text}</a>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
@@ -54,6 +60,7 @@ type LeftColumnProps = {
   onTrendingCategoryChanged: (trendingCategory: string) => void;
   onSuggestionChanged: (suggestion: string) => void;
   redirectUrl: string;
+  onNavigatingAway: () => void;
 };
 
 const LeftColumn = ({
@@ -66,32 +73,34 @@ const LeftColumn = ({
   onTrendingCategoryChanged,
   onSuggestionChanged,
   redirectUrl,
+  onNavigatingAway,
 }: LeftColumnProps): JSX.Element => {
-  const [lock, setLock] = useState(false);
+  // TODO Investigate if we can remove lock completely
+  let lock = false;
 
   const onCategoryEnter = (category: string) => {
     if (!lock) {
       onCategoryChanged(category);
     }
-    setLock(true);
+    lock = true;
   };
 
   const onTrendingCategoryEnter = (trendingCategory: string) => {
     if (!lock) {
       onTrendingCategoryChanged(trendingCategory);
     }
-    setLock(true);
+    lock = true;
   };
 
   const onSuggestionEnter = (suggestion: string) => {
     if (!lock) {
       onSuggestionChanged(suggestion);
     }
-    setLock(true);
+    lock = true;
   };
 
   const onMouseLeave = () => {
-    setLock(false);
+    lock = false;
   };
 
   const isLoaded = loaded && !loading;
@@ -100,13 +109,31 @@ const LeftColumn = ({
     isLoaded && !shouldShowSuggestedCategories && trendingCategories?.length > 0;
   const shouldShowDidYouMean = isLoaded && suggestions?.length > 0;
 
+  // HACK: We receive all lowercase category names from Discover. Sending back these lowercase category names in events leads to no results. We must send the correctly capitalized category names as they are set in our catalog. Workaround: Update category names with the correct casing.
+  const transformCategoryToDisplay = (categorySuggestion: Category): Category => {
+    const category = getCategoryByUrlPath(categorySuggestion.url);
+    const text = category?.name ? category.name : categorySuggestion.text;
+
+    return {
+      ...categorySuggestion,
+      text,
+    };
+  };
+  const categoriesToDisplay = shouldShowSuggestedCategories
+    ? categories.map((categorySuggestion) => transformCategoryToDisplay(categorySuggestion))
+    : [];
+  const trendingCategoriesToDisplay = shouldShowTrendingCategories
+    ? trendingCategories.map((categorySuggestion) => transformCategoryToDisplay(categorySuggestion))
+    : [];
+
   const suggestedCategoriesList = shouldShowSuggestedCategories && (
     <PreviewSearchList
       onMouseEnter={onCategoryEnter}
       onMouseLeave={onMouseLeave}
       title="Categories"
-      items={categories}
+      items={categoriesToDisplay}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
@@ -115,8 +142,9 @@ const LeftColumn = ({
       onMouseEnter={onTrendingCategoryEnter}
       onMouseLeave={onMouseLeave}
       title="Trending Categories"
-      items={trendingCategories}
+      items={trendingCategoriesToDisplay}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 
@@ -127,6 +155,7 @@ const LeftColumn = ({
       title="Did you mean?"
       items={suggestions}
       redirectUrl={redirectUrl}
+      onNavigatingAway={onNavigatingAway}
     />
   );
 

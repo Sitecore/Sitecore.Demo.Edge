@@ -1,0 +1,36 @@
+.category-hero {
+  @apply py-4 bg-blue text-white text-sm;
+
+  &-container {
+    @apply shop-container flex flex-wrap items-center;
+
+    > div {
+      @apply basis-full;
+      @apply lg:basis-1/2;
+    }
+  }
+
+  &-content {
+    h1 {
+      @apply text-4xl font-bold;
+    }
+  }
+
+  &-sub {
+    @apply mt-4;
+    @apply lg:mt-0;
+
+    ul {
+      @apply flex flex-wrap gap-2 text-center justify-center;
+      @apply lg:justify-end;
+
+      li {
+        @apply w-[150px];
+
+        img {
+          @apply mb-1;
+        }
+      }
+    }
+  }
+}

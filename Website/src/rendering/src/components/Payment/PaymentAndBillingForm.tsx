@@ -120,7 +120,7 @@ const PaymentAndBillingForm = (): JSX.Element => {
         </p>
       </div>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
+        <button className="btn-main" type="submit">
           Confirm Purchase
         </button>
       </div>

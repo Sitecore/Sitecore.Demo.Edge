@@ -20,13 +20,13 @@ $syncFilesMappings = @(
     @(
         ".\kiosk\.prettierrc",
         ".\tv\.prettierrc",
-        ".\Website\src\rendering\.prettierrc"
+        ".\Website\src\rendering\.prettierrc",
         ".\demo\experience\cdp\guestDataGenerator\.prettierrc"
     ),
     @(
         ".\kiosk\.vscode\settings.json",
         ".\tv\.vscode\settings.json",
-        ".\Website\src\rendering\.vscode\settings.json"
+        ".\Website\src\rendering\.vscode\settings.json",
         ".\demo\experience\cdp\guestDataGenerator\.vscode\settings.json"
     )
 )

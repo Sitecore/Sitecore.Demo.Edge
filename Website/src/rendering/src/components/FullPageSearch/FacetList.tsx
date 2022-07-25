@@ -1,3 +1,5 @@
+import { faChevronDown, faSearch, faSlidersH, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, useState } from 'react';
 
 type FacetValueProps = {
@@ -21,12 +23,18 @@ type FacetProps = {
   onFacetClick: (...args: unknown[]) => void;
 };
 
+type SearchInputProps = {
+  onSearchInputChange: (...args: unknown[]) => void;
+};
+
 type FacetListProps = {
   facets: unknown[];
   onFacetClick: (...args: unknown[]) => void;
   onClear: (...args: unknown[]) => void;
   sortFacetProps: SortFacetProps;
   onToggleClick: (...args: unknown[]) => void;
+  isCategoryProductListingPage?: boolean;
+  onSearchInputChange?: (...args: unknown[]) => void;
 };
 
 type SortFacetProps = {
@@ -95,6 +103,7 @@ const Facet = ({ name, values, index, acumIndex, type, onFacetClick }: FacetProp
     <div className={cssClass} data-type={type}>
       <div className="facet-title" onClick={handleTitleClick}>
         <span>{name}</span>
+        <FontAwesomeIcon icon={faChevronDown} />
       </div>
       <FacetValues
         values={values}
@@ -167,6 +176,7 @@ const ActiveFacetValues = ({
             <span>
               {name} - {text}
             </span>
+            <FontAwesomeIcon icon={faTimes} />
           </label>
         </li>
       ) : null;
@@ -219,12 +229,27 @@ const SortFacet = ({
   );
 };
 
+const SearchInput = ({ onSearchInputChange }: SearchInputProps): JSX.Element => (
+  <div className="category-search-container">
+    <FontAwesomeIcon className="category-search-icon" icon={faSearch} />
+    <input
+      id="category-search-input"
+      className="category-search-input"
+      onChange={onSearchInputChange}
+      placeholder="Search within the list"
+      autoComplete="off"
+    />
+  </div>
+);
+
 const FacetList = ({
   facets,
   onFacetClick,
   onClear,
   sortFacetProps,
   onToggleClick,
+  isCategoryProductListingPage,
+  onSearchInputChange,
 }: FacetListProps): JSX.Element => {
   let acumIndex = 0;
 
@@ -233,6 +258,7 @@ const FacetList = ({
   ) && (
     <div className="facet-list-active">
       <div className="facet-list-title">
+        <FontAwesomeIcon icon={faSlidersH} />
         <span>Active filters</span>
       </div>
       {facets?.map(({ facetType, values, display_name }, tindex) => {
@@ -250,18 +276,24 @@ const FacetList = ({
         acumIndex = acumIndex + values.length;
         return componentHtml;
       })}
-      <button className="btn--secondary" onClick={onClear}>
+      <button className="btn-secondary" onClick={onClear}>
         Clear All
       </button>
     </div>
   );
 
+  const searchInput = isCategoryProductListingPage && (
+    <SearchInput onSearchInputChange={onSearchInputChange} />
+  );
+
   // TODO: Implement and style range filters (e.g. min - max price)
   return (
     <div className="facet-container">
-      <button className="btn--secondary facet-container-toggle" onClick={onToggleClick}>
+      <button className="btn-secondary facet-container-toggle" onClick={onToggleClick}>
+        <FontAwesomeIcon icon={faSlidersH} />
         Filter
       </button>
+      {searchInput}
       {activeFilters}
       <div className="facet-list">
         <SortFacet {...sortFacetProps} />

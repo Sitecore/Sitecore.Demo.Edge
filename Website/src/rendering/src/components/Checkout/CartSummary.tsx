@@ -1,15 +1,23 @@
+import Skeleton from 'react-loading-skeleton';
+import { getItemsCount } from '../../helpers/LineItemsHelpers';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
 const CartSummary = (): JSX.Element => {
-  const { order } = useOcCurrentOrder();
+  const { lineItems, order, orderTotalLoading } = useOcCurrentCart();
   const subtotal = order?.LineItemCount && (
     <p>
-      Subtotal ({order.LineItemCount} items): <span>{formatCurrency(order.Subtotal)}</span>
+      Subtotal ({getItemsCount(lineItems)} items): <span>{formatCurrency(order.Subtotal)}</span>
     </p>
   );
 
-  return <div className="cart-summary">{subtotal}</div>;
+  const content = orderTotalLoading ? (
+    <Skeleton containerClassName="skeleton-container" height={45} />
+  ) : (
+    <div className="cart-summary">{subtotal}</div>
+  );
+
+  return content;
 };
 
 export default CartSummary;

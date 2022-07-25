@@ -1,8 +1,19 @@
-import { init, setWidget, setCredentials, WidgetDataType } from '@sitecore-discover/react';
-import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+import {
+  init,
+  setWidget,
+  setCredentials,
+  WidgetDataType,
+  PageController,
+  trackPageViewEvent,
+} from '@sitecore-discover/react';
+import CustomersAlsoBought from '../components/Widgets/CustomersAlsoBought';
 import FullPageSearch from '../components/FullPageSearch/FullPageSearch';
 import PreviewSearch from '../components/PreviewSearch/PreviewSearch';
 import TrendingCategories from '../components/Widgets/TrendingCategories';
+import SimilarProducts from '../components/Widgets/SimilarProducts';
+import RecommendedForYou from '../components/Widgets/RecommendedForYou';
+import TrendingProducts from '../components/Widgets/TrendingProducts';
+import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -20,7 +31,7 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     ? '0-0-0'
     : process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
 
-  if (!DISCOVER_CUSTOMER_KEY || !DISCOVER_API_KEY) {
+  if (typeof window === 'undefined' || !DISCOVER_CUSTOMER_KEY || !DISCOVER_API_KEY) {
     return;
   }
 
@@ -32,6 +43,11 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   });
 
   setWidget('rfkid_7', {
+    component: FullPageSearch,
+    type: WidgetDataType.SEARCH_RESULTS,
+  });
+
+  setWidget('rfkid_10', {
     component: FullPageSearch,
     type: WidgetDataType.SEARCH_RESULTS,
   });
@@ -50,15 +66,86 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     },
   });
 
-  setWidget('rfkid_11', {
+  setWidget('rfkid_31', {
+    component: SimilarProducts,
     type: WidgetDataType.RECOMMENDATION,
-    component: FrequentlyPurchasedTogether,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_2', {
+    component: TrendingProducts,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_1', {
+    component: RecommendedForYou,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_3', {
+    component: RecentlyViewedProducts,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_33', {
+    component: CustomersAlsoBought,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
   });
 
   setWidget('ps_trending_categories', {
-    type: WidgetDataType.PREVIEW_SEARCH,
     component: TrendingCategories,
+    type: WidgetDataType.PREVIEW_SEARCH,
   });
 
   init();
+
+  // Update the context page URI on route change
+  const pushState = history.pushState;
+  history.pushState = (...rest) => {
+    pushState.apply(history, rest);
+    const context = PageController.getContext();
+    context.setPageUri(window.location.pathname);
+    trackPageViewEvent({
+      page: {
+        uri: context.getPageUri(),
+      },
+      user: {
+        uuid: context.getUserUuid(),
+      },
+    });
+  };
 };

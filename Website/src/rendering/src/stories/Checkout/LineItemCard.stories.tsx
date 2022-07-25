@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LineItemCard from '../../components/Checkout/LineItemCard';
 import { MockStore } from '../mock-store';
-import { DLineItem } from 'src/models/ordercloud/DLineItem';
-import { authSlice, cartState, orderSlice, productCacheSlice } from './CheckoutCommon';
+import { DLineItem } from '../../models/ordercloud/DLineItem';
+import { loggedInAuthSlice, cartState, orderSlice, productCacheSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/LineItemCard',
@@ -12,7 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof LineItemCard> = (args) => <LineItemCard {...args} />;
 
-const slices = [orderSlice, authSlice, productCacheSlice];
+const slices = [orderSlice, loggedInAuthSlice, productCacheSlice];
 
 export const Default = Template.bind({});
 Default.args = {
@@ -22,9 +22,7 @@ Default.args = {
 Default.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -37,9 +35,7 @@ NonEditable.args = {
 NonEditable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -52,9 +48,7 @@ WithSpecs.args = {
 WithSpecs.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -67,9 +61,7 @@ WithRestrictedQuantities.args = {
 WithRestrictedQuantities.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];

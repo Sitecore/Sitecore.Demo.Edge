@@ -1,0 +1,31 @@
+.account-popup {
+  @apply relative bg-black text-base text-white p-6;
+  @apply sm:w-72;
+
+  &-logged {
+    h3 a {
+      @apply text-yellow underline;
+    }
+
+    .account-popup-buttons {
+      @apply gap-2 mt-3;
+    }
+  }
+
+  &-wrapper {
+    @apply absolute top-[50%] right-0 translate-x-[100%] transition-all z-50 w-full;
+    @apply sm:w-auto sm:top-[100%];
+
+    &.open {
+      @apply translate-x-0;
+    }
+  }
+
+  &-buttons {
+    @apply flex flex-col justify-between gap-6;
+
+    > * {
+      @apply flex items-center justify-center flex-1 p-1;
+    }
+  }
+}

@@ -16,16 +16,16 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query($datasource:String!) {
+    query($datasource:String!, $language: String!) {
       source: item(
         path: $datasource
-        language: "en"
+        language: $language
       ) {
         numberOfSpeakers: field(name: "NumberOfSpeakers") {
           value
         }
       }
-      item(path: "{1F4B781B-F2A5-5647-99DF-C0C369162C4D}", language: "en") {
+      item(path: "{1F4B781B-F2A5-5647-99DF-C0C369162C4D}", language: $language) {
         children(hasLayout: true, first: 50) {
           results {
             ... on Speaker {

@@ -1,5 +1,5 @@
 import { RequiredDeep, Spec } from 'ordercloud-javascript-sdk';
-import { ChangeEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 
 interface OrderCloudSpecFieldProps {
   spec: RequiredDeep<Spec>;
@@ -58,10 +58,9 @@ const ProductSpecField = ({
         spec.Options.map((option) => {
           const labelText = specType === 'size' ? option.Value.substring(0, 1) : option.Value;
           return (
-            <>
+            <React.Fragment key={option.ID}>
               <input
                 type="radio"
-                key={`i${option.ID}`}
                 id={option.ID}
                 name={spec.ID}
                 value={option.ID}
@@ -70,10 +69,10 @@ const ProductSpecField = ({
                 className={specType === 'color' ? option.Value.toLowerCase() : ''}
                 title={labelText}
               />
-              <label htmlFor={option.ID} key={`l${option.ID}`}>
+              <label htmlFor={option.ID}>
                 <span>{labelText}</span>
               </label>
-            </>
+            </React.Fragment>
           );
         })
       )}

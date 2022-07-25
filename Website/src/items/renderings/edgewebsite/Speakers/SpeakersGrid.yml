@@ -16,8 +16,8 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query($datasource:String!) {
-      item(path: $datasource, language: "en") {
+    query($language: String!, $datasource:String!) {
+      item(path: $datasource, language: $language) {
         children(hasLayout: true, first: 22) {
           total
           results {

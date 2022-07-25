@@ -1,14 +1,13 @@
 import { Product } from '../../models/discover/Product';
 import ProductCard from './ProductCard';
 
-// TODO: add story for component
-
 type ProductListProps = {
   products: Product[];
-  onProductClick?: () => void;
+  onProductClick?: (product: Product) => void;
   onDiscoverStyleOpen?: () => void;
   loaded: boolean;
   loading: boolean;
+  altTheme?: boolean; // makes offer ribbon and price orange
 };
 
 const ProductList = ({
@@ -16,6 +15,7 @@ const ProductList = ({
   loading,
   products,
   onProductClick,
+  altTheme,
 }: ProductListProps): JSX.Element => {
   const ready = loaded && !loading;
 
@@ -25,7 +25,11 @@ const ProductList = ({
       {ready &&
         products.map((product) => (
           <li key={product.sku} className="product-list-item">
-            <ProductCard {...product} onClick={onProductClick} />
+            <ProductCard
+              {...product}
+              onClick={() => !!onProductClick && onProductClick(product)}
+              altTheme={altTheme}
+            />
           </li>
         ))}
     </ul>

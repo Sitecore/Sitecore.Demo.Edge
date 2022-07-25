@@ -1,12 +1,17 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GeographyService } from '../../services/GeographyService';
 
 type AddressFormProps = {
   address?: DBuyerAddress;
-  onSubmit?: (address: DBuyerAddress) => void;
-  isEditing?: boolean;
-  onCancelEdit?: () => void;
+  loading?: boolean;
+  onChange: ({ address }: { address: DBuyerAddress }) => void;
+  prefix?: string; // needed when more that one form on checkout page
+};
+
+export type OnAddressChangeEvent = {
+  address: DBuyerAddress;
+  isValid: boolean;
 };
 
 const AddressForm = (props: AddressFormProps): JSX.Element => {
@@ -14,44 +19,36 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
    * TODO:
    * 1. Add better postal code validation based on country selected by using masks (react-input-mask)
    * 2. Add more supported countries, currently only support US & Canada
-   * 3. Disable submit button unless there are actual changes
-   * 4. Add ability to discard changes (this would only be on editing addresses)
-   * 5. Remove mocked address once saved addresses are a thing
    */
   const countries = GeographyService.getCountries();
   const [states, setStates] = useState(
     GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code)
   );
-  const [addressName, setAddressName] = useState(
-    props?.address ? props.address?.AddressName : 'Home'
-  );
-  const [country, setCountry] = useState(props?.address ? props.address?.Country : 'US');
-  const [street1, setStreet1] = useState(
-    props?.address?.ID ? props.address?.Street1 : '6818 Gaines Ferry Road'
-  );
-  const [street2, setStreet2] = useState(props.address?.Street2);
-  const [city, setCity] = useState(props?.address ? props.address?.City : 'Flowery Branch');
-  const [state, setState] = useState(props?.address ? props.address?.State : 'GA');
-  const [zip, setZip] = useState(props?.address ? props.address?.Zip : '30542');
+  const [firstName, setFirstName] = useState(props?.address?.FirstName || '');
+  const [lastName, setLastName] = useState(props?.address?.LastName || '');
+  const [street1, setStreet1] = useState(props.address?.Street1 || '');
+  const [street2, setStreet2] = useState(props.address?.Street2 || '');
+  const [city, setCity] = useState(props?.address?.City || '');
+  const [country, setCountry] = useState(props?.address?.Country || '');
+  const [state, setState] = useState(props?.address?.State || '');
+  const [zip, setZip] = useState(props?.address?.Zip || '');
 
-  const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const updatedAddress = {
-      ...(props.address || {}),
-      AddressName: addressName,
-      Country: country,
-      Street1: street1,
-      Street2: street2,
-      City: city,
-      State: state,
-      Zip: zip,
-    };
-
-    if (props.onSubmit) {
-      props.onSubmit(updatedAddress);
-    }
-  };
+  useEffect(() => {
+    props.onChange({
+      address: {
+        FirstName: firstName,
+        LastName: lastName,
+        Street1: street1,
+        Street2: street2,
+        City: city,
+        Country: country,
+        State: state,
+        Zip: zip,
+      },
+    });
+    // We do not add 'props' to the useEffect dependencies to avoid a render loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [country, street1, street2, city, state, zip, firstName, lastName]);
 
   const handleCountryChange = (countryCode: string) => {
     setCountry(countryCode);
@@ -60,28 +57,72 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
     setState('');
   };
 
-  const cancelEditButton = props.isEditing && (
-    <button className="cancel-edit" onClick={props.onCancelEdit}>
-      Cancel
-    </button>
-  );
+  const idPrefix = props.prefix ? `${props.prefix}-` : '';
 
   return (
-    <form onSubmit={handleFormSubmit} className="form">
-      <div className="floating-label-wrap">
+    <>
+      <div>
+        <label htmlFor={`${idPrefix}firstName`}>First name</label>
         <input
           type="text"
-          placeholder="Address Name"
-          id="addressName"
+          id={`${idPrefix}firstName`}
+          autoComplete="given-name"
+          required
           maxLength={100}
-          onChange={(e) => setAddressName(e.target.value)}
-          value={addressName}
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
         />
-        <label htmlFor="addressName">Address Name (Optional)</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}lastName`}>Last name</label>
+        <input
+          type="text"
+          id={`${idPrefix}lastName`}
+          autoComplete="family-name"
+          required
+          maxLength={100}
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        />
+      </div>
+      <div>
+        <label htmlFor={`${idPrefix}street1`}>Street 1</label>
+        <input
+          type="text"
+          id={`${idPrefix}street1`}
+          autoComplete="street-address"
+          required
+          maxLength={100}
+          onChange={(e) => setStreet1(e.target.value)}
+          value={street1}
+        />
+      </div>
+      <div>
+        <label htmlFor={`${idPrefix}street2`}>Street 2 (Optional)</label>
+        <input
+          type="text"
+          id={`${idPrefix}street2`}
+          autoComplete="address-line2"
+          onChange={(e) => setStreet2(e.target.value)}
+          value={street2}
+        />
+      </div>
+      <div>
+        <label htmlFor={`${idPrefix}city`}>City</label>
+        <input
+          type="text"
+          id={`${idPrefix}city`}
+          autoComplete="address-level2"
+          required
+          maxLength={100}
+          onChange={(e) => setCity(e.target.value)}
+          value={city}
+        />
+      </div>
+      <div>
+        <label htmlFor={`${idPrefix}country`}>Country</label>
         <select
-          id="country"
+          id={`${idPrefix}country`}
           required
           onChange={(e) => handleCountryChange(e.target.value)}
           value={country}
@@ -95,48 +136,11 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
-        <label htmlFor="country">Country</label>
       </div>
-      <div className="floating-label-wrap">
-        <input
-          type="text"
-          placeholder="Street 1"
-          id="street1"
-          autoComplete="address-line1"
-          required
-          maxLength={100}
-          onChange={(e) => setStreet1(e.target.value)}
-          value={street1}
-        />
-        <label htmlFor="street1">Street 1</label>
-      </div>
-      <div className="floating-label-wrap">
-        <input
-          type="text"
-          placeholder="Street 2"
-          id="street2"
-          autoComplete="address-line2"
-          onChange={(e) => setStreet2(e.target.value)}
-          value={street2}
-        />
-        <label htmlFor="street2">Street 2 (Optional)</label>
-      </div>
-      <div className="floating-label-wrap">
-        <input
-          type="text"
-          placeholder="City"
-          id="city"
-          autoComplete="address-level2"
-          required
-          maxLength={100}
-          onChange={(e) => setCity(e.target.value)}
-          value={city}
-        />
-        <label htmlFor="city">City</label>
-      </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}stateProvince`}>State / Province</label>
         <select
-          id="stateProvince"
+          id={`${idPrefix}stateProvince`}
           required
           onChange={(e) => setState(e.target.value)}
           value={state}
@@ -150,27 +154,20 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
             </option>
           ))}
         </select>
-        <label htmlFor="stateProvince">State / Province</label>
       </div>
-      <div className="floating-label-wrap">
+      <div>
+        <label htmlFor={`${idPrefix}postalCode`}>Postal / Zip Code</label>
         <input
           type="text"
-          id="postalCode"
+          id={`${idPrefix}postalCode`}
           autoComplete="postal-code"
           required
           maxLength={100}
           onChange={(e) => setZip(e.target.value)}
           value={zip}
         />
-        <label htmlFor="postalCode">Postal Code</label>
       </div>
-      <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
-          Save Address
-        </button>
-        {cancelEditButton}
-      </div>
-    </form>
+    </>
   );
 };
 

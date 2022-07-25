@@ -9,11 +9,13 @@ export default {
   component: PanelComments,
 } as ComponentMeta<typeof PanelComments>;
 
-const Template: ComponentStory<typeof PanelComments> = (args) => <PanelComments {...args} />;
+const Template: ComponentStory<typeof PanelComments> = () => (
+  <section className="checkout-details shop-container">
+    <PanelComments />
+  </section>
+);
 
 export const WithExistingComment = Template.bind({});
-WithExistingComment.args = {};
-
 const mockstate = {
   initialized: true,
   order: {
@@ -31,8 +33,6 @@ WithExistingComment.decorators = [
 ];
 
 export const WithoutExistingComment = Template.bind({});
-WithoutExistingComment.args = {};
-
 const mockstate2 = {
   initialized: true,
   order: {
@@ -49,8 +49,6 @@ WithoutExistingComment.decorators = [
 ];
 
 export const WithLongComment = Template.bind({});
-WithLongComment.args = {};
-
 const mockstate3 = {
   initialized: true,
   order: {

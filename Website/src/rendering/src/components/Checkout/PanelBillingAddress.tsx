@@ -1,80 +1,102 @@
-import AddressForm from '../../components/Forms/AddressForm';
-import useOcCurrentOrder from '../../hooks/useOcCurrentOrder';
+import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { removeBillingAddress, saveBillingAddress } from '../../redux/ocCurrentCart';
+import { saveBillingAddress } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
-import { useState } from 'react';
-import AddressCard from './AddressCard';
+import { useEffect, useState } from 'react';
+import { isSameAddress } from '../../helpers/AddressHelper';
+import useOcAddressBook from '../../hooks/useOcAddressBook';
+import useOcAuth from '../../hooks/useOcAuth';
+import CheckoutAddressList from './CheckoutAddressList';
 
 const PanelBillingAddress = (): JSX.Element => {
-  // TODO: this component should also allow choosing a saved address
   const dispatch = useAppDispatch();
-  const { order, shippingAddress } = useOcCurrentOrder();
-  const billingAddress = order?.BillingAddress;
-  const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [isSameAsBilling, setIsSameAsBilling] = useState(
-    billingAddress?.ID && shippingAddress?.ID && billingAddress?.ID === shippingAddress?.ID
-  );
-  const [tempAddress, setTempAddress] = useState({} as DBuyerAddress); // saves address prior to unchecking "same as billing" so we can revert if necessary
+  const { isAnonymous } = useOcAuth();
+  const { order, shippingAddress } = useOcCurrentCart();
 
-  const handleSetBillingAddress = async (address: Partial<DBuyerAddress>) => {
+  const billingAddress = order?.BillingAddress;
+
+  const [isSameAsShipping, setIsSameAsShipping] = useState(
+    Boolean(billingAddress && shippingAddress && isSameAddress(billingAddress, shippingAddress))
+  );
+  const [activeAddressId, setActiveAddressId] = useState(
+    billingAddress?.ID && !isSameAsShipping ? billingAddress.ID : ''
+  );
+  const { saveAddress, addresses } = useOcAddressBook({
+    pageSize: 10,
+    filters: { Editable: true }, // personal addresses
+  });
+
+  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
+
+  useEffect(() => {
+    const updatedIsSameAsShipping = isSameAddress(billingAddress, shippingAddress);
+    setIsSameAsShipping(updatedIsSameAsShipping);
+    setActiveAddressId(updatedIsSameAsShipping ? '' : billingAddress?.ID);
+  }, [billingAddress, shippingAddress]);
+
+  let allAddresses = [...addresses].filter((address) => {
+    // if "Same as shipping" is selected, then hide the associated billing address from the list
+    if (!isSameAsShipping) {
+      return true;
+    }
+    return address?.ID !== shippingAddress?.ID;
+  });
+  if (billingAddress && !billingAddress.ID && !isSameAsShipping) {
+    // include one time address
+    allAddresses = [...allAddresses, billingAddress];
+  }
+
+  const handleSetBillingAddress = async (address: DBuyerAddress) => {
     setLoading(true);
+    const updatedIsSameAsBilling = isSameAddress(address, shippingAddress);
+    setIsSameAsShipping(updatedIsSameAsBilling);
+    setActiveAddressId(updatedIsSameAsBilling ? '' : address?.ID);
     await dispatch(saveBillingAddress(address));
     setLoading(false);
   };
 
-  const handleSameAsShipping = () => {
-    const shouldUseSameAsBilling = !isSameAsBilling;
-    setIsSameAsBilling(shouldUseSameAsBilling);
-    if (shouldUseSameAsBilling) {
-      setTempAddress(billingAddress);
-      handleSetBillingAddress(shippingAddress);
-    } else {
-      if (
-        tempAddress?.Street1 &&
-        tempAddress?.City &&
-        tempAddress?.State &&
-        tempAddress?.Zip &&
-        tempAddress?.Country
-      ) {
-        handleSetBillingAddress(tempAddress);
-      } else {
-        removeBillingAddress();
-      }
-    }
+  const handleSaveAddress = async (address: DBuyerAddress) => {
+    address.Shipping = true;
+    address.Billing = true;
+    setLoading(true);
+    const updatedAddress = await saveAddress(address);
+    await handleSetBillingAddress(updatedAddress);
   };
 
-  const handleCancelEdit = () => {
-    setIsEditing(false);
+  const handleSameAsShipping = async () => {
+    await handleSetBillingAddress(shippingAddress);
   };
 
-  const sameAsShippingCheckboxId = 'same-as-shipping-checkbox';
-  const sameAsShippingCheckbox = shippingAddress?.ID && (
-    <div className="same-as-shipping">
-      <input
-        disabled={loading}
-        id={sameAsShippingCheckboxId}
-        type="checkbox"
-        onChange={handleSameAsShipping}
-        checked={isSameAsBilling}
-      />
-      <label htmlFor={sameAsShippingCheckboxId}>Same as Shipping</label>
+  const sameAsShippingClasses = ['info-card'];
+  if (isSameAsShipping) {
+    sameAsShippingClasses.push('info-card-active');
+  }
+  const sameAsShippingCard = isShipOrder && (
+    <div className={sameAsShippingClasses.join(' ')} onClick={handleSameAsShipping}>
+      {/* TODO: style to match mockup: https://xd.adobe.com/view/09adc8d4-cef8-43a7-84a5-84904880dc54-5cfe/ */}
+      <input type="radio" checked={isSameAsShipping} readOnly />
+      <div className="info-card-address">
+        <h6 className="card-name">Same as shipping</h6>
+      </div>
     </div>
   );
 
-  const addressDisplay =
-    !isSameAsBilling &&
-    (billingAddress && !isEditing ? (
-      <AddressCard address={billingAddress} editable={true} onEdit={() => setIsEditing(true)} />
-    ) : (
-      <AddressForm
-        address={billingAddress}
-        onSubmit={(address) => handleSetBillingAddress(address)}
-        isEditing={isEditing}
-        onCancelEdit={handleCancelEdit}
-      />
-    ));
+  const addressList = (
+    <CheckoutAddressList
+      addresses={allAddresses}
+      prefix="billing"
+      activeAddressId={activeAddressId}
+      loading={loading}
+      showSaveToAddressBook={!isAnonymous}
+      onClick={(address) => handleSetBillingAddress(address)}
+      onEdit={(address, saveToAddressBook) =>
+        isAnonymous || !saveToAddressBook
+          ? handleSetBillingAddress(address)
+          : handleSaveAddress(address)
+      }
+    />
+  );
 
   return (
     <div className="panel">
@@ -82,8 +104,10 @@ const PanelBillingAddress = (): JSX.Element => {
         <h2>Billing Address</h2>
       </div>
       <div className="panel-body">
-        {sameAsShippingCheckbox}
-        {addressDisplay}
+        <div className="address-list">
+          {sameAsShippingCard}
+          {addressList}
+        </div>
       </div>
     </div>
   );
