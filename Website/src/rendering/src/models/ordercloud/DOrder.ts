@@ -9,8 +9,8 @@ export interface DOrderXp {
   DeliveryType?: 'PickupFromSummit' | 'PickupInStore' | 'Ship';
 }
 
-export const DELIVERY_TYPES = {
-  pickupFromSummit: 'PickupFromSummit',
-  pickupInStore: 'PickupInStore',
-  ship: 'Ship',
-};
+export enum DeliveryTypes {
+  PickupFromSummit = 'PickupFromSummit',
+  PickupInStore = 'PickupInStore',
+  Ship = 'Ship',
+}

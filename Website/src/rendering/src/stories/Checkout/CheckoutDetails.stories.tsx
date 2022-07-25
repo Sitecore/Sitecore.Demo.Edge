@@ -11,7 +11,7 @@ import {
   emptyAddressBookSlice,
   loggedInAuthSlice,
 } from './CheckoutCommon';
-import { DELIVERY_TYPES } from '../../models/ordercloud/DOrder';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/CheckoutDetails',
@@ -58,7 +58,7 @@ const noStepsCompleteOrderState = {
     Total: 123.45,
     LineItemCount: 1,
     xp: {
-      DeliveryType: DELIVERY_TYPES.ship,
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
 };
@@ -488,7 +488,7 @@ const pickupFromSummitState = {
   order: {
     ...paymentCompleteState.order,
     xp: {
-      DeliveryType: DELIVERY_TYPES.pickupFromSummit,
+      DeliveryType: DeliveryTypes.PickupFromSummit,
     },
   },
 };
@@ -520,7 +520,7 @@ const pickupFromStoreState = {
   order: {
     ...paymentCompleteState.order,
     xp: {
-      DeliveryType: DELIVERY_TYPES.pickupInStore,
+      DeliveryType: DeliveryTypes.PickupInStore,
     },
   },
 };
