@@ -7,7 +7,7 @@ import { getUser } from './ocUser';
 import { Configuration, Tokens } from 'ordercloud-javascript-sdk';
 import { useRouter } from 'next/router';
 import { Actions, PageController } from '@sitecore-discover/react';
-import { isOrderCloudEnabled } from 'src/helpers/OrderCloudHelper';
+import { isOrderCloudEnabled } from '../helpers/OrderCloudHelper';
 
 // TODO: Look into decoupling OrderCloud, Auth0, and Discover logic to keep this file for OrderCloud code only
 

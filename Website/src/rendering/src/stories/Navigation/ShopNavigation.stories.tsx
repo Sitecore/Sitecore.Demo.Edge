@@ -20,7 +20,7 @@ DiscoverService({
 
 export const Default = Template.bind({});
 Default.args = {
-  previewSearchProps: mockDiscoverData.previewSearchProps,
+  storyBookPreviewSearchProps: mockDiscoverData.previewSearchProps,
 };
 Default.decorators = [
   (Story) => (

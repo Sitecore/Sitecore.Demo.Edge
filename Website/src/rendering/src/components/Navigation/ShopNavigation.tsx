@@ -12,13 +12,30 @@ import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearc
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import AccountPopup from './AccountPopup';
+import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import useOcPreviewSearch from '../../hooks/useOcPreviewSearch';
+import { useAppDispatch } from '../../redux/store';
+import { keyphraseChanged, categoryChanged } from '../../redux/ocPreviewSearch';
 
 export type ShopNavigationProps = {
-  previewSearchProps?: PreviewSearchProps; // For Storybook support
+  storyBookPreviewSearchProps?: PreviewSearchProps; // For Storybook support
 };
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const { lineItems } = useOcCurrentCart();
+  const previewSearchState = useOcPreviewSearch();
+  const dispatch = useAppDispatch();
+
+  const previewSearchProps = props.storyBookPreviewSearchProps
+    ? props.storyBookPreviewSearchProps
+    : isDiscoverEnabled
+    ? null // if props are not provided then the discover widget is rendered
+    : ({
+        ...previewSearchState,
+        dispatch: dispatch,
+        orderCloudChangeKeyPhraseAction: keyphraseChanged,
+        orderCloudChangeCategoryAction: categoryChanged,
+      } as unknown as PreviewSearchProps);
 
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
@@ -60,8 +77,8 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     setIsMiniCartOpen(!isMiniCartOpen);
   };
 
-  const previewSearchWidget = props.previewSearchProps ? (
-    <PreviewSearch {...props.previewSearchProps} />
+  const previewSearchWidget = previewSearchProps ? (
+    <PreviewSearch {...previewSearchProps} />
   ) : (
     <DiscoverWidget rfkId="rfkid_6" />
   );

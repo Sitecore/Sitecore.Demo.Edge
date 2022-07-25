@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
@@ -75,6 +76,7 @@ const LeftColumn = ({
   redirectUrl,
   onNavigatingAway,
 }: LeftColumnProps): JSX.Element => {
+  const useOrderCloud = !isDiscoverEnabled;
   // TODO Investigate if we can remove lock completely
   let lock = false;
 
@@ -109,15 +111,20 @@ const LeftColumn = ({
     isLoaded && !shouldShowSuggestedCategories && trendingCategories?.length > 0;
   const shouldShowDidYouMean = isLoaded && suggestions?.length > 0;
 
-  // HACK: We receive all lowercase category names from Discover. Sending back these lowercase category names in events leads to no results. We must send the correctly capitalized category names as they are set in our catalog. Workaround: Update category names with the correct casing.
   const transformCategoryToDisplay = (categorySuggestion: Category): Category => {
-    const category = getCategoryByUrlPath(categorySuggestion.url);
-    const text = category?.name ? category.name : categorySuggestion.text;
+    if (useOrderCloud) {
+      // There is no casing issue as there is with Discover so in OrderCloud we can just return the category unmodified
+      return categorySuggestion;
+    } else {
+      // HACK: We receive all lowercase category names from Discover. Sending back these lowercase category names in events leads to no results. We must send the correctly capitalized category names as they are set in our catalog. Workaround: Update category names with the correct casing.
+      const category = getCategoryByUrlPath(categorySuggestion.url);
+      const text = category?.name ? category.name : categorySuggestion.text;
 
-    return {
-      ...categorySuggestion,
-      text,
-    };
+      return {
+        ...categorySuggestion,
+        text,
+      };
+    }
   };
   const categoriesToDisplay = shouldShowSuggestedCategories
     ? categories.map((categorySuggestion) => transformCategoryToDisplay(categorySuggestion))

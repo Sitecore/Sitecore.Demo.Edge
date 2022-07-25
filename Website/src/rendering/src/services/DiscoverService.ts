@@ -14,7 +14,7 @@ import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
-import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
+// import { isDiscoverEnabled } from '../helpers/DiscoverHelper'; TODO: add this back in once full refactor for splitting up ordercloud/discover is complete
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };

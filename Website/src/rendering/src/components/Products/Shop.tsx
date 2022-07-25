@@ -9,7 +9,7 @@ import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
 import { DiscoverService } from '../../services/DiscoverService';
 import { logViewEvent } from '../../services/CdpService';
-import { isOrderCloudEnabled } from 'src/helpers/OrderCloudHelper';
+import { isOrderCloudEnabled } from '../../helpers/OrderCloudHelper';
 
 DiscoverService();
 

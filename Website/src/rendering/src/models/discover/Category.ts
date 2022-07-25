@@ -3,4 +3,5 @@ export type Category = {
   in_content: string;
   text: string;
   url: string;
+  freq?: number;
 };

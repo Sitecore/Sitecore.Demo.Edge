@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { isOrderCloudEnabled } from 'src/helpers/OrderCloudHelper';
+import { isOrderCloudEnabled } from '../../helpers/OrderCloudHelper';
 
 export type MainNavigationProps = ComponentProps & {
   fields: {

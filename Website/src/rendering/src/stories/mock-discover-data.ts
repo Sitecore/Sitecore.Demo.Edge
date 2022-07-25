@@ -6,7 +6,9 @@ import { Suggestion } from '../models/discover/Suggestion';
 const commonProps = {
   loaded: true,
   loading: false,
-  dispatch: (): Promise<void> => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+  dispatch: (action: any): any => {
+    console.log(action);
     return null;
   },
 };
