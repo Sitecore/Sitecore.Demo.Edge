@@ -162,9 +162,10 @@ const nextConfig = {
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
     defaultLocale: packageConfig.language,
+    // DEMO TEAM CUSTOMIZATION - Add localeDetection
     localeDetection: false,
   },
-
+  
   // Enable React Strict Mode
   reactStrictMode: true,
 
@@ -194,5 +195,4 @@ module.exports = () => {
   // Run the base config through any configured plugins
   // DEMO TEAM CUSTOMIZATION - Add Next bundle analyzer
   return withBundleAnalyzer(Object.values(plugins).reduce((acc, plugin) => plugin(acc), nextConfig));
-  // END CUSTOMIZATION
 }

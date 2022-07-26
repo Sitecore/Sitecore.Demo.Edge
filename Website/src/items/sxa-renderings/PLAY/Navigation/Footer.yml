@@ -4,9 +4,6 @@ Parent: "75c438f6-65fd-4e65-95bb-7a12ce6ea229"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: /sitecore/layout/Renderings/Project/PLAY/Navigation/Footer
 SharedFields:
-- ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
-  Hint: Data source
-  Value: /sitecore/content/PLAY/playwebsite/Data/Navigation/Footer
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: Footer
@@ -16,18 +13,18 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query ($datasource : String!, $language: String!) {
-      item(path: "/sitecore/content/PLAY/playwebsite/Data/Config" language: "en") {
+    query ($language: String!) {
+      item(path: "{4790380A-3F0C-443A-A954-269ECB2D5566}" language: "en") {
         id
         path
-        ... on SiteConfiguration {   
+        ... on SiteConfiguration {
           footerLogo {
             jsonValue
             alt
           }
         }
       }
-      links : item(path: $datasource, language: $language) {
+      links : item(path: "{ECDD5437-0848-47BE-ACCD-04BB1D631C94}", language: $language) {
         displayName
         children {
           results {
@@ -52,12 +49,6 @@ SharedFields:
         }
       }
     }
-- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
-  Hint: Datasource Template
-  Value: 
-- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
-  Hint: Datasource Location
-  Value: 
 Languages:
 - Language: en
   Versions:

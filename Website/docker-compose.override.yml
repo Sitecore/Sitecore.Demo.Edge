@@ -45,8 +45,8 @@ services:
       NEXTJS_DIST_DIR: ".next-container"
       PUBLIC_URL: "https://${RENDERING_HOST}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      GRAPH_QL_ENDPOINT: "${GRAPH_QL_ENDPOINT}"
-      SITECORE_API_KEY: "${SITECORE_API_KEY}"
+      SITECORE_API_KEY: "${SITECORE_API_KEY_PlayWebsite}"
+      # DEMO TEAM CUSTOMIZATION - Custom integrations
       NEXT_PUBLIC_CDP_CLIENT_KEY: ${CDP_CLIENT_KEY}
       NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT: ${CDP_API_TARGET_ENDPOINT}/v1.2
       CDP_API_TOKEN: ${CDP_API_TOKEN}
@@ -126,14 +126,20 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
+      RENDERING_HOST_INTERNAL_URI: "http://rendering:3000"
+      # DEMO TEAM CUSTOMIZATION - Custom deployment secret environment variable name
+      JSS_PlayWebsite_DEPLOYMENT_SECRET: ${JSS_DEPLOYMENT_SECRET_PlayWebsite}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      ## Custom variable to allow override in AKS
-      RENDERING_HOST_ENDPOINT_URI: "http://rendering:3000/api/editing/render"
-      RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
+      SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST}"
+      SITECORE_Pages_Client_Host: ${SITECORE_Pages_Client_Host}
+      SITECORE_Pages_CORS_Allowed_Origins: ${SITECORE_Pages_CORS_Allowed_Origins}
       ## Development Environment Optimizations
-      SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff,RobotDetectionOff
+      SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff
       Sitecore_AppSettings_exmEnabled:define: "no" # remove to turn on EXM
+      # DEMO TEAM CUSTOMIZATION - Custom variables to allow override in AKS
+      RENDERING_HOST_ENDPOINT_URI: "${RENDERING_HOST_INTERNAL_URI}/api/editing/render"
+      RENDERING_HOST_PUBLIC_URI: "https://${RENDERING_HOST}"
+      # DEMO TEAM CUSTOMIZATION - Custom integrations
       Sitecore_ConnectionStrings_CMP.ContentHub: ${CMP_ContentHub}
       Sitecore_ConnectionStrings_CMP.ServiceBusEntityPathIn: ${CMP_ServiceBusEntityPathIn}
       Sitecore_ConnectionStrings_CMP.ServiceBusSubscription: ${CMP_ServiceBusSubscription}

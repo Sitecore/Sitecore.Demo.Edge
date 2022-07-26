@@ -28,6 +28,4 @@
 
 # vercel
 .vercel
-
-# DEMO TEAM CUSTOMIZATION - npmrc
-.npmrc
+# DEMO TEAM CUSTOMIZATION - Keep scjssconfig.json under source control

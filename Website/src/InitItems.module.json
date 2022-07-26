@@ -1,34 +1,34 @@
 {
-  "namespace": "InitItems",
-  "items": {
-    "includes": [
-      {
-        "name": "content-root",
-        "path": "/sitecore/content",
-        "scope": "singleItem",
-        "allowedPushOperations": "createAndUpdate"
-      },
-      {
-        "name": "api-key",
-        "path": "/sitecore/system/Settings/Services/API Keys/PLAY",
-        "scope": "singleItem"
-      },
-      {
-        "name": "core-fields",
-        "path": "/sitecore/system/Field types/PLAY Types",
-        "database": "core"
-      },
-      {
-        "name": "languages",
-        "path": "/sitecore/system/Languages",
-        "scope": "descendantsOnly",
-        "rules": [
-          {
-            "path": "/en",
-            "scope": "ignored"
-          }
+    "namespace": "InitItems",
+    "items": {
+        "includes": [
+            {
+                "name": "content-root",
+                "path": "/sitecore/content",
+                "scope": "singleItem",
+                "allowedPushOperations": "createAndUpdate"
+            },
+            {
+                "name": "api-key",
+                "path": "/sitecore/system/Settings/Services/API Keys/PLAY",
+                "scope": "singleItem"
+            },
+            {
+                "name": "core-fields",
+                "path": "/sitecore/system/Field types/PLAY Types",
+                "database": "core"
+            },
+            {
+                "name": "languages",
+                "path": "/sitecore/system/Languages",
+                "scope": "descendantsOnly",
+                "rules": [
+                    {
+                        "path": "/en",
+                        "scope": "ignored"
+                    }
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 }
