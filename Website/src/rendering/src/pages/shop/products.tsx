@@ -6,9 +6,9 @@ import DiscoverWidget from '../../components/ShopCommon/DiscoverWidget';
 const Products = (): JSX.Element => {
   return (
     <>
-      <DiscoverWidget rfkId="rfkid_7" />
-      <DiscoverWidget rfkId="rfkid_1" />
-      <DiscoverWidget rfkId="rfkid_3" />
+      <DiscoverWidget rfkId="rfkid_7" /> {/* FullPageSearch */}
+      <DiscoverWidget rfkId="rfkid_1" /> {/* RecommendedForYou */}
+      <DiscoverWidget rfkId="rfkid_3" /> {/* RecentlyViewedProducts */}
     </>
   );
 };

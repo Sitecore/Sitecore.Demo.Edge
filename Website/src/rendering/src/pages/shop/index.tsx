@@ -12,9 +12,9 @@ const Shop = (): JSX.Element => {
         subtitle="Shop Trending Categories:"
         theme="orange"
       />
-      <DiscoverWidget rfkId="rfkid_2" />
-      <DiscoverWidget rfkId="rfkid_1" />
-      <DiscoverWidget rfkId="rfkid_3" />
+      <DiscoverWidget rfkId="rfkid_2" /> {/* TrendingProducts */}
+      <DiscoverWidget rfkId="rfkid_1" /> {/* RecommendedForYou */}
+      <DiscoverWidget rfkId="rfkid_3" /> {/* RecentlyViewedProducts */}
     </>
   );
 };

@@ -8,8 +8,8 @@ const Cart = (): JSX.Element => {
   return (
     <>
       <CartDetails />
-      <DiscoverWidget rfkId="rfkid_1" />
-      <DiscoverWidget rfkId="rfkid_3" />
+      <DiscoverWidget rfkId="rfkid_1" /> {/* RecommendedForYou */}
+      <DiscoverWidget rfkId="rfkid_3" /> {/* RecentlyViewedProducts */}
     </>
   );
 };

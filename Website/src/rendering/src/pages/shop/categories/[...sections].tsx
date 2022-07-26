@@ -6,8 +6,8 @@ import DiscoverWidget from '../../../components/ShopCommon/DiscoverWidget';
 const CategoryPage = (): JSX.Element => {
   return (
     <>
-      <DiscoverWidget rfkId="rfkid_10" />
-      <DiscoverWidget rfkId="rfkid_3" />
+      <DiscoverWidget rfkId="rfkid_10" /> {/* FullPageSearch */}
+      <DiscoverWidget rfkId="rfkid_3" /> {/* RecentlyViewedProducts */}
     </>
   );
 };

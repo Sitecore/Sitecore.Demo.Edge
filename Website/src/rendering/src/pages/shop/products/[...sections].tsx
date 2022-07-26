@@ -8,9 +8,9 @@ const ProductPage = (): JSX.Element => {
   return (
     <>
       <ProductDetails />
-      <DiscoverWidget rfkId="rfkid_33" />
-      <DiscoverWidget rfkId="rfkid_31" />
-      <DiscoverWidget rfkId="rfkid_3" />
+      <DiscoverWidget rfkId="rfkid_33" /> {/* SimilarProducts */}
+      <DiscoverWidget rfkId="rfkid_31" /> {/* RecentlyViewedProducts */}
+      <DiscoverWidget rfkId="rfkid_3" /> {/* RecentlyViewedProducts */}
     </>
   );
 };

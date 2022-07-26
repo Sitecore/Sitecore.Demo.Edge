@@ -80,7 +80,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const previewSearchWidget = previewSearchProps ? (
     <PreviewSearch {...previewSearchProps} />
   ) : (
-    <DiscoverWidget rfkId="rfkid_6" />
+    <DiscoverWidget rfkId="rfkid_6" /> // PreviewSearch
   );
 
   const miniCartActiveClass = isMiniCartOpen ? 'active' : '';

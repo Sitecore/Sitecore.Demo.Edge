@@ -95,7 +95,7 @@ export const mockDiscoverData = {
     ...commonProps,
     ...previewSearchCommonProps,
     ...productsProps,
-    rfkId: 'rfkid_6',
+    rfkId: 'rfkid_6', // PreviewSearch
     categories: [
       {
         id: 'suggestion_idZXF1aXBtZW50',
@@ -122,7 +122,7 @@ export const mockDiscoverData = {
   fullPageSearchProps: {
     ...commonProps,
     ...productsProps,
-    rfkId: 'rfkid_7',
+    rfkId: 'rfkid_7', // FullPageSearch
     error: '',
     keyphrase: 'pump',
     totalItems: 3,

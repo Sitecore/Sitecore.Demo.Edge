@@ -17,5 +17,5 @@ Default.args = mockDiscoverData.fullPageSearchProps;
 export const CategoryNotFound = Template.bind({});
 CategoryNotFound.args = {
   ...mockDiscoverData.fullPageSearchProps,
-  rfkId: 'rfkid_10',
+  rfkId: 'rfkid_10', //FullPageSearch
 };
