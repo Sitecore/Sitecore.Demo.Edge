@@ -5,15 +5,16 @@ import PanelBillingAddress from '../../components/Checkout/PanelBillingAddress';
 import { MockStore } from '../mock-store';
 import { EntityState } from '@reduxjs/toolkit';
 import { DAddress } from 'src/models/ordercloud/DAddress';
+import { DeliveryTypes } from 'src/models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/PanelBillingAddress',
   component: PanelBillingAddress,
 } as ComponentMeta<typeof PanelBillingAddress>;
 
-const Template: ComponentStory<typeof PanelBillingAddress> = (args) => (
+const Template: ComponentStory<typeof PanelBillingAddress> = () => (
   <section className="checkout-details shop-container">
-    <PanelBillingAddress {...args} />
+    <PanelBillingAddress />
   </section>
 );
 
@@ -33,7 +34,7 @@ const mockState = {
       Country: 'US',
     },
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
   shippingAddress: {
@@ -109,7 +110,7 @@ const mockState2 = {
   initialized: true,
   order: {
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
   shippingAddress: {
@@ -161,7 +162,7 @@ const mockState3 = {
       Country: 'GB',
     },
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
   shippingAddress: {

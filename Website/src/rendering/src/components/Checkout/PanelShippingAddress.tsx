@@ -8,6 +8,7 @@ import useOcAuth from '../../hooks/useOcAuth';
 import useOcAddressBook from '../../hooks/useOcAddressBook';
 import CheckoutAddressForm from '../Forms/CheckoutAddressForm';
 import CheckoutAddressList from './CheckoutAddressList';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 const PanelShippingAddress = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -51,7 +52,7 @@ const PanelShippingAddress = (): JSX.Element => {
     setIsEditing(false);
   };
 
-  const isPickupOrder = order?.xp?.DeliveryType !== 'Ship';
+  const isPickupOrder = order?.xp?.DeliveryType !== DeliveryTypes.Ship;
 
   const addressUpdateForm = (
     <CheckoutAddressForm

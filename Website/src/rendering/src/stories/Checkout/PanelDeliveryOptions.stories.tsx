@@ -3,22 +3,23 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import PanelDeliveryOptions from '../../components/Checkout/PanelDeliveryOptions';
 import { MockStore } from '../mock-store';
+import { DeliveryTypes } from 'src/models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/PanelDeliveryOptions',
   component: PanelDeliveryOptions,
 } as ComponentMeta<typeof PanelDeliveryOptions>;
 
-const Template: ComponentStory<typeof PanelDeliveryOptions> = (args) => (
+const Template: ComponentStory<typeof PanelDeliveryOptions> = () => (
   <section className="checkout-details shop-container">
-    <PanelDeliveryOptions {...args} />
+    <PanelDeliveryOptions />
   </section>
 );
 
 const mockState = {
   order: {
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
 };
