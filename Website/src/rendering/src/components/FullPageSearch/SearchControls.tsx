@@ -1,18 +1,20 @@
+import { SortOrder } from '@sitecore-discover/react';
 import { ChangeEvent } from 'react';
+import { SortChoice } from 'src/models/discover/Facet';
 
 type SearchControlsProps = {
   totalPages: number;
   page: number;
-  sortChoices: unknown[];
-  sortType: unknown;
-  sortDirection: unknown;
+  sortChoices: SortChoice[];
+  sortType: string;
+  sortDirection: string;
   onPageNumberChange: (text: string) => void;
   onSortChange: (change: SortChangeRequest) => void;
 };
 
 type SortChangeRequest = {
-  sortType: unknown;
-  sortDirection: unknown;
+  sortType: string;
+  sortDirection: SortOrder;
 };
 
 const SearchControls = ({
@@ -27,7 +29,7 @@ const SearchControls = ({
 
   const handleSortChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
     const sort = (target as HTMLSelectElement).value.split('#');
-    onSortChange({ sortType: sort[0], sortDirection: sort[1] });
+    onSortChange({ sortType: sort[0], sortDirection: sort[1] as SortOrder });
   };
 
   const pagination = totalPages > 1 && (

@@ -1,52 +1,55 @@
 import { faChevronDown, faSearch, faSlidersH, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, useState } from 'react';
+import { Facet, FacetValue, SortChoice } from 'src/models/discover/Facet';
+import { SearchResultsFacetClickedChangedActionPayload } from '@sitecore-discover/widgets';
+import { SortOrder } from '@sitecore-discover/react';
 
 type FacetValueProps = {
-  values: unknown[];
-  tindex: unknown;
+  values: FacetValue[];
+  tindex: number;
   acumIndex: number;
-  facetType: unknown;
-  onFacetClick: (...args: unknown[]) => void;
+  facetType: string;
+  onFacetClick: (payload: SearchResultsFacetClickedChangedActionPayload) => void;
 };
 
 type ActiveFacetValueProps = FacetValueProps & {
-  name: unknown;
+  name: string;
 };
 
 type FacetProps = {
-  name: unknown;
-  values: unknown[];
+  name: string;
+  values: FacetValue[];
   index: number;
   acumIndex: number;
-  type: unknown;
-  onFacetClick: (...args: unknown[]) => void;
+  type: string;
+  onFacetClick: (payload: SearchResultsFacetClickedChangedActionPayload) => void;
 };
 
 type SearchInputProps = {
-  onSearchInputChange: (...args: unknown[]) => void;
+  onSearchInputChange: (searchTerm: string) => void;
 };
 
 type FacetListProps = {
-  facets: unknown[];
-  onFacetClick: (...args: unknown[]) => void;
-  onClear: (...args: unknown[]) => void;
+  facets: Facet[];
+  onFacetClick: (payload: SearchResultsFacetClickedChangedActionPayload) => void;
+  onClear: () => void;
   sortFacetProps: SortFacetProps;
-  onToggleClick: (...args: unknown[]) => void;
+  onToggleClick: () => void;
   isCategoryProductListingPage?: boolean;
-  onSearchInputChange?: (...args: unknown[]) => void;
+  onSearchInputChange?: (searchTerm: string) => void;
 };
 
 type SortFacetProps = {
-  sortChoices: unknown[];
-  sortType: unknown;
-  sortDirection: unknown;
+  sortChoices: SortChoice[];
+  sortType: string;
+  sortDirection: SortOrder;
   onSortChange: (change: SortChangeRequest) => void;
 };
 
 type SortChangeRequest = {
-  sortType: unknown;
-  sortDirection: unknown;
+  sortType: string;
+  sortDirection: SortOrder;
 };
 
 const FacetValues = ({
@@ -60,6 +63,7 @@ const FacetValues = ({
     {values.map(({ index: facetValueIndex, text, selected, id }, index) => {
       const handleValueClick = ({ target }: ChangeEvent<HTMLInputElement>) => {
         onFacetClick({
+          rfkId: '',
           facetType,
           facetValue: text,
           facetValueIndex,
@@ -149,6 +153,7 @@ const ActiveFacetValues = ({
     {values.map(({ index: facetValueIndex, text, selected, id }, index) => {
       const handleValueClick = ({ target }: ChangeEvent<HTMLInputElement>) => {
         onFacetClick({
+          rfkId: '',
           facetType,
           facetValue: text,
           facetValueIndex,
@@ -196,7 +201,7 @@ const SortFacet = ({
 
   const handleSortChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     const sort = (target as HTMLInputElement).value.split('#');
-    onSortChange({ sortType: sort[0], sortDirection: sort[1] });
+    onSortChange({ sortType: sort[0], sortDirection: sort[1] as SortOrder });
   };
 
   const cssClass = toggle ? 'expanded facet' : 'facet';
@@ -235,7 +240,7 @@ const SearchInput = ({ onSearchInputChange }: SearchInputProps): JSX.Element => 
     <input
       id="category-search-input"
       className="category-search-input"
-      onChange={onSearchInputChange}
+      onChange={(event) => onSearchInputChange(event.target.value)}
       placeholder="Search within the list"
       autoComplete="off"
     />

@@ -3,9 +3,8 @@ import debounce from '../../../src/helpers/Debounce';
 import FacetList from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
-  SearchResultsActions,
   SearchResultsPageNumberChangedActionPayload,
   SearchResultsFacetClickedChangedActionPayload,
   SearchResultsSortChangedActionPayload,
@@ -16,7 +15,7 @@ import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 
-interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
+interface FullPageSearchResultsProps extends Partial<SearchResultsWidgetProps> {
   rfkId: string;
 }
 
@@ -34,19 +33,18 @@ const FullPageSearch = ({
   sortChoices,
   products,
   facets,
-  dispatch,
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
   onSortChange,
+  onKeyphraseChange,
 }: FullPageSearchResultsProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
 
   const [toggle, setToggle] = useState(false);
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
-    (keyphrase) =>
-      dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
+    (keyphrase) => onKeyphraseChange({ rfkId: '', keyphrase }),
     500,
     false
   );
@@ -91,8 +89,8 @@ const FullPageSearch = ({
     document.body.classList.toggle('shop-facet-panel-open', isVisible);
   };
 
-  const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setKeyphrase(e.target.value || '');
+  const handleSearchInputChange = (searchTerm: string) => {
+    setKeyphrase(searchTerm || '');
   };
 
   const numberOfResults = !loading && totalPages > 0 && (
