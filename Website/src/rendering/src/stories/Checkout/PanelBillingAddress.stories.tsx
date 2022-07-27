@@ -4,8 +4,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import PanelBillingAddress from '../../components/Checkout/PanelBillingAddress';
 import { MockStore } from '../mock-store';
 import { EntityState } from '@reduxjs/toolkit';
-import { DAddress } from 'src/models/ordercloud/DAddress';
-import { DeliveryTypes } from 'src/models/ordercloud/DOrder';
+import { DAddress } from '../../models/ordercloud/DAddress';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/PanelBillingAddress',

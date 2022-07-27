@@ -1,6 +1,6 @@
 import { Spec } from 'ordercloud-javascript-sdk';
-import { DeliveryTypes } from 'src/models/ordercloud/DOrder';
-import { DOrderPromotion } from 'src/models/ordercloud/DOrderPromotion';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
+import { DOrderPromotion } from '../../models/ordercloud/DOrderPromotion';
 import { MockSlice } from '../mock-store';
 import { getMockExpirationDate } from '../utils';
 

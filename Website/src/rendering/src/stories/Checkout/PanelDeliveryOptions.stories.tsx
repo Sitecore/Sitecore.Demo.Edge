@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import PanelDeliveryOptions from '../../components/Checkout/PanelDeliveryOptions';
 import { MockStore } from '../mock-store';
-import { DeliveryTypes } from 'src/models/ordercloud/DOrder';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/PanelDeliveryOptions',

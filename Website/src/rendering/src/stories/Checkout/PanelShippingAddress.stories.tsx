@@ -3,14 +3,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MockStore } from '../mock-store';
 import PanelShippingAddress from '../../components/Checkout/PanelShippingAddress';
 import { EntityState } from '@reduxjs/toolkit';
-import { DAddress } from 'src/models/ordercloud/DAddress';
+import { DAddress } from '../../models/ordercloud/DAddress';
 import {
   addressBookSlice,
   anonymousAuthSlice,
   emptyAddressBookSlice,
   loggedInAuthSlice,
 } from './CheckoutCommon';
-import { DeliveryTypes } from 'src/models/ordercloud/DOrder';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/PanelShippingAddress',
