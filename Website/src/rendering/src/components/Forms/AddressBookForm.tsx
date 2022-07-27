@@ -34,7 +34,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   }, [props.address]);
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
-    setAddress(changes.address);
+    setAddress({ ...address, ...changes.address });
     setIsAddressValid(formRef?.current?.checkValidity?.() || false);
   };
 
