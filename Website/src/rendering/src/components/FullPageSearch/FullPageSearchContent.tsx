@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import debounce from '../../../src/helpers/Debounce';
 import FacetList from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
-  SearchResultsActions,
   SearchResultsPageNumberChangedActionPayload,
   SearchResultsFacetClickedChangedActionPayload,
   SearchResultsSortChangedActionPayload,
@@ -18,6 +16,7 @@ import { FullPageSearchResultsProps } from './FullPageSearch';
 
 type FullPageSearchContentProps = Partial<FullPageSearchResultsProps> & {
   urlPath: string;
+  onSearchInputChange: (s: string) => void;
 };
 
 const FullPageSearchContent = ({
@@ -26,7 +25,6 @@ const FullPageSearchContent = ({
   loaded,
   loading,
   page,
-  keyphrase,
   totalPages,
   totalItems,
   sortType,
@@ -34,33 +32,16 @@ const FullPageSearchContent = ({
   sortChoices,
   products,
   facets,
-  dispatch,
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
   onSortChange,
+  onSearchInputChange,
   urlPath,
 }: FullPageSearchContentProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
 
   const [toggle, setToggle] = useState(false);
-
-  const setKeyphrase: (keyphrase: string) => void = debounce(
-    (keyphrase) =>
-      dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
-    500,
-    false
-  );
-
-  useEffect(() => {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlSearchParams.get('q');
-    const keyphraseToUse = keyphrase ?? searchQuery;
-    if (keyphraseToUse) {
-      setKeyphrase(keyphraseToUse);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   if (error) {
     return <div>Response error</div>;
@@ -93,7 +74,7 @@ const FullPageSearchContent = ({
   };
 
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setKeyphrase(e.target.value || '');
+    onSearchInputChange(e.target.value || '');
   };
 
   const numberOfResults = !loading && totalPages > 0 && (
