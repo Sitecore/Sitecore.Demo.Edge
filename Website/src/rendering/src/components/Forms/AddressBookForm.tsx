@@ -23,23 +23,32 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   const [address, setAddress] = useState(props?.address);
   const [isAddressValid, setIsAddressValid] = useState(false);
   const [defaultBilling, setDefaultBilling] = useState(
-    props?.address?.ID === props.user?.xp?.DefaultBillingAddressID
+    !!props.user?.xp?.DefaultBillingAddressID &&
+      props?.address?.ID === props.user?.xp?.DefaultBillingAddressID
   );
   const [defaultShipping, setDefaultShipping] = useState(
-    props?.address?.ID === props.user?.xp?.DefaultShippingAddressID
+    !!props.user?.xp?.DefaultShippingAddressID &&
+      props?.address?.ID === props.user?.xp?.DefaultShippingAddressID
   );
 
   useEffect(() => {
     setAddressName(props?.address?.AddressName || '');
     setAddress(props?.address);
-    setDefaultBilling(props?.address?.ID === props.user?.xp?.DefaultBillingAddressID);
-    setDefaultShipping(props?.address?.ID === props.user?.xp?.DefaultShippingAddressID);
+    setDefaultBilling(
+      !!props.user?.xp?.DefaultBillingAddressID &&
+        props?.address?.ID === props.user?.xp?.DefaultBillingAddressID
+    );
+    setDefaultShipping(
+      !!props.user?.xp?.DefaultShippingAddressID &&
+        props?.address?.ID === props.user?.xp?.DefaultShippingAddressID
+    );
+    console.log(props.address.AddressName);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.address]);
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
-    setAddress({ ...address, ...changes.address });
+    setAddress(changes.address);
     setIsAddressValid(formRef?.current?.checkValidity?.() || false);
   };
 

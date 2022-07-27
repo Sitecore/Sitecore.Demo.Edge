@@ -44,6 +44,8 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         Country: country,
         State: state,
         Zip: zip,
+        Shipping: true,
+        Billing: true,
       },
     });
     // We do not add 'props' to the useEffect dependencies to avoid a render loop
