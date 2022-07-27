@@ -16,6 +16,7 @@ import { getGuestEmail, identifyVisitor } from '../../services/CdpService';
 import { useAppDispatch } from '../../redux/store';
 import { updateUser } from '../../redux/ocUser';
 import { patchOrder } from '../../redux/ocCurrentCart';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;
@@ -73,7 +74,9 @@ const CheckoutDetails = (): JSX.Element => {
   const userDetailsPanel = isAnonymous && (
     <PanelUserDetails email={userEmail} setOrderEmail={setEmail} />
   );
-  const shippingEstimates = order?.xp?.DeliveryType === 'Ship' && <PanelShippingEstimates />;
+  const shippingEstimates = order?.xp?.DeliveryType === DeliveryTypes.Ship && (
+    <PanelShippingEstimates />
+  );
 
   const checkoutDetails = (
     <section className="checkout-details shop-container">

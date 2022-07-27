@@ -3,22 +3,23 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MockStore } from '../mock-store';
 import PanelShippingAddress from '../../components/Checkout/PanelShippingAddress';
 import { EntityState } from '@reduxjs/toolkit';
-import { DAddress } from 'src/models/ordercloud/DAddress';
+import { DAddress } from '../../models/ordercloud/DAddress';
 import {
   addressBookSlice,
   anonymousAuthSlice,
   emptyAddressBookSlice,
   loggedInAuthSlice,
 } from './CheckoutCommon';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 export default {
   title: 'Components/Checkout/PanelShippingAddress',
   component: PanelShippingAddress,
 } as ComponentMeta<typeof PanelShippingAddress>;
 
-const Template: ComponentStory<typeof PanelShippingAddress> = (args) => (
+const Template: ComponentStory<typeof PanelShippingAddress> = () => (
   <section className="checkout-details shop-container">
-    <PanelShippingAddress {...args} />
+    <PanelShippingAddress />
   </section>
 );
 
@@ -29,7 +30,7 @@ const mockState = {
   initialized: true,
   order: {
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
   shippingAddress: {
@@ -66,7 +67,7 @@ const mockState2 = {
   initialized: true,
   order: {
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
 };
@@ -91,7 +92,7 @@ const mockState3 = {
   initialized: true,
   order: {
     xp: {
-      DeliveryType: 'Ship',
+      DeliveryType: DeliveryTypes.Ship,
     },
   },
 };

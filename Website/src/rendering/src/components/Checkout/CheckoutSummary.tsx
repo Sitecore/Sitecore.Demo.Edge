@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 
@@ -33,7 +34,7 @@ const CheckoutSummary = (props: CheckoutSummaryProps): JSX.Element => {
     }
   };
 
-  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
+  const isShipOrder = order?.xp?.DeliveryType === DeliveryTypes.Ship;
 
   const canSubmitOrder = (): boolean => {
     if (loading) {
