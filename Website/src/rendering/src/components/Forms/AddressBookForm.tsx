@@ -1,5 +1,5 @@
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Link from 'next/link';
 import { DMeUser } from '../../models/ordercloud/DUser';
@@ -28,6 +28,10 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   const [defaultShipping, setDefaultShipping] = useState(
     props?.address?.ID === props.user?.xp?.DefaultShippingAddressID
   );
+
+  useEffect(() => {
+    setAddress(props?.address);
+  }, [props.address]);
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
     setAddress(changes.address);
