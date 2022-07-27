@@ -30,7 +30,12 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
   );
 
   useEffect(() => {
+    setAddressName(props?.address?.AddressName || '');
     setAddress(props?.address);
+    setDefaultBilling(props?.address?.ID === props.user?.xp?.DefaultBillingAddressID);
+    setDefaultShipping(props?.address?.ID === props.user?.xp?.DefaultShippingAddressID);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.address]);
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
