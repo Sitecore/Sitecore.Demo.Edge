@@ -8,35 +8,20 @@ import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
 import DiscoverWidget from '../ShopCommon/DiscoverWidget';
-import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
+import PreviewSearch from '../PreviewSearch/PreviewSearch';
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import AccountPopup from './AccountPopup';
 import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
-import useOcPreviewSearch from '../../hooks/useOcPreviewSearch';
-import { useAppDispatch } from '../../redux/store';
-import { keyphraseChanged, categoryChanged } from '../../redux/ocPreviewSearch';
+import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
+import OrderCloudPreviewSearch from 'components/PreviewSearch/OrderCloudPreviewSearch';
 
 export type ShopNavigationProps = {
-  storyBookPreviewSearchProps?: PreviewSearchProps; // For Storybook support
+  storyBookPreviewSearchProps?: PreviewSearchWidgetProps; // For Storybook support
 };
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const { lineItems } = useOcCurrentCart();
-  const previewSearchState = useOcPreviewSearch();
-  const dispatch = useAppDispatch();
-
-  const previewSearchProps = props.storyBookPreviewSearchProps
-    ? props.storyBookPreviewSearchProps
-    : isDiscoverEnabled
-    ? null // if props are not provided then the discover widget is rendered
-    : ({
-        ...previewSearchState,
-        dispatch: dispatch,
-        redirectUrl: '/shop/products?q=',
-        orderCloudChangeKeyPhraseAction: keyphraseChanged,
-        orderCloudChangeCategoryAction: categoryChanged,
-      } as unknown as PreviewSearchProps);
 
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const miniCartRef = useRef(null);
@@ -78,10 +63,12 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     setIsMiniCartOpen(!isMiniCartOpen);
   };
 
-  const previewSearchWidget = previewSearchProps ? (
-    <PreviewSearch {...previewSearchProps} />
-  ) : (
+  const previewSearchWidget = props.storyBookPreviewSearchProps ? (
+    <PreviewSearch {...props.storyBookPreviewSearchProps} />
+  ) : isDiscoverEnabled ? (
     <DiscoverWidget rfkId="rfkid_6" /> // PreviewSearch
+  ) : (
+    <OrderCloudPreviewSearch />
   );
 
   const miniCartActiveClass = isMiniCartOpen ? 'active' : '';
