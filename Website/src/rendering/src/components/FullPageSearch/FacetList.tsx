@@ -96,7 +96,14 @@ const FacetValues = ({
   </ul>
 );
 
-const Facet = ({ name, values, index, acumIndex, type, onFacetClick }: FacetProps): JSX.Element => {
+const FacetItem = ({
+  name,
+  values,
+  index,
+  acumIndex,
+  type,
+  onFacetClick,
+}: FacetProps): JSX.Element => {
   const [toggle, setToggle] = useState(false);
 
   const handleTitleClick = () => setToggle(!toggle);
@@ -304,7 +311,7 @@ const FacetList = ({
         <SortFacet {...sortFacetProps} />
         {facets?.map(({ facetType, values, display_name }, tindex) => {
           const componentHtml = (
-            <Facet
+            <FacetItem
               name={display_name}
               index={tindex}
               acumIndex={acumIndex}

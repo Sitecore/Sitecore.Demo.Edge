@@ -107,7 +107,10 @@ const FullPageSearch = ({
   };
 
   // TODO: Extract this whole component except this line that gets the URL path into a FullPageSearchContent.tsx component that will accept an extra prop for the urlPath. Then rename the FullPageSearch.stories.tsx to FullPageSearchContent.stories.tsx and test the sub component. Create test cases when the urlPath is for a non-existing category, an existing category, etc.
-  const category = getCategoryByUrlPath(window.location.pathname);
+  const category =
+    isCategoryProductListingPage && typeof window !== 'undefined'
+      ? getCategoryByUrlPath(window.location.pathname)
+      : null;
 
   const pageTitle = isCategoryProductListingPage && category ? category.name : 'Products';
 
