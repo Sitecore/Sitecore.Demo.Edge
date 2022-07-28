@@ -1,11 +1,12 @@
 import { createSlice, SerializedError } from '@reduxjs/toolkit';
+import { SortOrder } from '@sitecore-discover/react';
+import { Filters, ListPageWithFacets, Me } from 'ordercloud-javascript-sdk';
 import {
-  Filters,
-  ListPageWithFacets,
-  Me,
-  MetaWithFacets,
-  RequiredDeep,
-} from 'ordercloud-javascript-sdk';
+  mapOrderCloudProductToDiscoverProduct,
+  mapOrderderCloudFacetToDiscoverFacet,
+} from 'src/helpers/OrderCloudHelper';
+import { Facet, SortChoice } from 'src/models/discover/Facet';
+import { Product } from 'src/models/discover/Product';
 import { DBuyerProduct } from 'src/models/ordercloud/DBuyerProduct';
 import { cacheProducts } from '../ocProductCache';
 import { createOcAsyncThunk, OcThrottle } from '../ocReduxHelpers';
@@ -22,16 +23,48 @@ export interface OcProductListOptions {
   filters?: Filters;
 }
 
-interface OcProductListState {
-  loading: boolean;
+export interface OcProductListState {
   error?: SerializedError;
-  options?: OcProductListOptions;
-  items?: RequiredDeep<DBuyerProduct>[];
-  meta?: MetaWithFacets;
+  loaded?: boolean;
+  loading?: boolean;
+  page?: number;
+  keyphrase?: string;
+  totalPages?: number;
+  totalItems?: number;
+  sortType?: string;
+  sortDirection?: SortOrder;
+  sortChoices?: SortChoice[];
+  products?: Product[];
+  facets?: Facet[];
 }
 
 const initialState: OcProductListState = {
+  error: null,
+  loaded: false,
   loading: false,
+  sortChoices: [
+    {
+      order: 'asc',
+      name: 'Name',
+      label: 'Name: A-Z',
+    },
+    {
+      order: 'desc',
+      name: 'Name',
+      label: 'Name: Z-A',
+    },
+    {
+      order: 'asc',
+      name: 'xp.Price',
+      label: 'Price: Low to High',
+    },
+    {
+      order: 'desc',
+      name: 'xp.Price',
+      label: 'Price: High to Low',
+    },
+    // not sure what the feature sorting is on discover, but we could enable it by adding it to xp in the same way we did for price
+  ],
 };
 
 interface SetListOptionsResult {
@@ -44,8 +77,8 @@ const productListThrottle: OcThrottle = {
   property: 'loading',
 };
 
-export const setListOptions = createOcAsyncThunk<SetListOptionsResult, OcProductListOptions>(
-  'ocProductList/setOptions',
+export const listProducts = createOcAsyncThunk<SetListOptionsResult, OcProductListOptions>(
+  'ocProductList/listProducts',
   async (options, ThunkAPI) => {
     const response = await Me.ListProducts<DBuyerProduct>(options);
     ThunkAPI.dispatch(cacheProducts(response.Items));
@@ -60,33 +93,39 @@ export const setListOptions = createOcAsyncThunk<SetListOptionsResult, OcProduct
 const ocProductListSlice = createSlice({
   name: 'ocProductList',
   initialState,
-  reducers: {
-    clearProductList: (state) => {
-      state.loading = false;
-      state.options = undefined;
-      state.error = undefined;
-      state.items = undefined;
-      state.meta = undefined;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(setListOptions.pending, (state) => {
+    builder.addCase(listProducts.pending, (state) => {
       state.loading = true;
+      state.loaded = false;
       state.error = undefined;
     });
-    builder.addCase(setListOptions.fulfilled, (state, action) => {
-      state.items = action.payload.response.Items as RequiredDeep<DBuyerProduct>[];
-      state.meta = action.payload.response.Meta;
-      state.options = action.payload.options;
+    builder.addCase(listProducts.fulfilled, (state, action) => {
       state.loading = false;
+      state.loaded = true;
+      state.page = action.payload.response.Meta.Page;
+      state.keyphrase = action.payload.options.search;
+      state.totalPages = action.payload.response.Meta.TotalPages;
+      state.totalItems = action.payload.response.Meta.TotalCount;
+      state.products = action.payload.response.Items.map(mapOrderCloudProductToDiscoverProduct);
+      const facets = action.payload.response.Meta.Facets.map((facet) => {
+        return mapOrderderCloudFacetToDiscoverFacet(facet, action.payload.options.filters);
+      });
+      state.facets = facets;
+      if (action.payload.options.sortBy?.length) {
+        const sortBy = action.payload.options.sortBy[0];
+        state.sortDirection = sortBy.includes('!') ? 'desc' : 'asc';
+        state.sortType = sortBy.replace('!', '');
+      } else {
+        state.sortType = null;
+        state.sortDirection = null;
+      }
     });
-    builder.addCase(setListOptions.rejected, (state, action) => {
+    builder.addCase(listProducts.rejected, (state, action) => {
       state.error = action.error;
       state.loading = false;
     });
   },
 });
-
-export const { clearProductList } = ocProductListSlice.actions;
 
 export default ocProductListSlice.reducer;

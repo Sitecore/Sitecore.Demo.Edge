@@ -1,4 +1,6 @@
+import { ListFacet } from 'ordercloud-javascript-sdk';
 import { Category } from 'src/models/discover/Category';
+import { Facet } from 'src/models/discover/Facet';
 import { Product } from 'src/models/discover/Product';
 import { DBuyerProduct } from 'src/models/ordercloud/DBuyerProduct';
 import { DCategory } from 'src/models/ordercloud/DCategory';
@@ -9,6 +11,7 @@ export const isOrderCloudEnabled =
 
 export const mapOrderCloudProductToDiscoverProduct = (product: DBuyerProduct): Product => {
   return {
+    sku: product.ID,
     product_group: product.ID,
     name: product.Name,
     description: product.Description,
@@ -30,5 +33,22 @@ export const mapOrderCloudCategoryToDiscoverCategory = (category: DCategory): Ca
     in_content: '',
     text: category.Name,
     url: `/shop/categories/${category.ID}`,
+  };
+};
+
+export const mapOrderderCloudFacetToDiscoverFacet = (facet: ListFacet, filters: any): Facet => {
+  const selectedFacet = filters && filters[`xp.${facet.XpPath}`];
+  return {
+    number_of_products: facet.Values.length,
+    display_name: facet.Name,
+    facetType: facet.XpPath,
+    values: facet.Values.map((facetValue) => {
+      return {
+        count: facetValue.Count,
+        text: facetValue.Value,
+        id: facetValue.Value,
+        selected: selectedFacet && selectedFacet.includes(facetValue?.Value),
+      };
+    }),
   };
 };
