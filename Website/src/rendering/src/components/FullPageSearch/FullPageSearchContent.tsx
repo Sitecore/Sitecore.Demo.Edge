@@ -56,14 +56,6 @@ const FullPageSearchContent = ({
     onClearFilters();
   };
 
-  const handlePageNumberChange = (pageNumber: string) => {
-    const pageNo: SearchResultsPageNumberChangedActionPayload = {
-      rfkId,
-      page: Number(pageNumber),
-    };
-    onPageNumberChange(pageNo);
-  };
-
   const handleSortChange = (payload: SearchResultsSortChangedActionPayload) => {
     onSortChange(payload);
   };
@@ -141,12 +133,9 @@ const FullPageSearchContent = ({
                 <div className="full-page-search-controls">
                   {numberOfResults}
                   <SearchControls
-                    totalPages={totalPages}
-                    page={page}
                     sortChoices={sortChoices}
                     sortType={sortType}
                     sortDirection={sortDirection}
-                    onPageNumberChange={handlePageNumberChange}
                     onSortChange={handleSortChange}
                   />
                 </div>
