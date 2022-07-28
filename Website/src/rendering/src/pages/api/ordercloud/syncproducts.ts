@@ -8,6 +8,7 @@ import {
   Catalogs,
   Configuration,
   PriceSchedules,
+  ProductFacets,
   Products,
   Specs,
   Tokens,
@@ -20,6 +21,7 @@ import {
   PROFILED_HEADSTART_CATALOG_ID,
   ADMIN_ADDRESS_ID,
 } from '../../../constants/seeding';
+import { uniq } from 'lodash';
 
 // TODO: the part that creates products and the part that assigns them are coupled
 // it would be ideal to only create products once, and then assign the created products to
@@ -50,6 +52,9 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
     const buyersList = await Buyers.List({
       filters: { Name: `${PUBLIC_BUYER_NAME}|${PROFILED_BUYER_NAME}` },
     });
+
+    // Create or update product facets
+    await postFacets();
 
     // Create products for profiled buyer
     const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
@@ -111,6 +116,8 @@ type ProductRow = {
   product_url: string;
   ccids: string;
   sku: string;
+  color: string;
+  size: string;
 };
 
 type VariantRow = {
@@ -121,6 +128,42 @@ type VariantRow = {
   color: string;
   size: string;
 };
+
+async function postFacets() {
+  await Promise.all([
+    ProductFacets.Save('color', {
+      ID: 'color',
+      Name: 'Color',
+      XpPath: 'Facets.color',
+      MinCount: 1,
+      xp: {
+        Options: [
+          'Red',
+          'Orange',
+          'Yellow',
+          'Green',
+          'Blue',
+          'Purple',
+          'Grey',
+          'Black',
+          'White',
+          'Brown',
+          'Pink',
+          'Neutral',
+        ],
+      },
+    }),
+    ProductFacets.Save('size', {
+      ID: 'size',
+      Name: 'Size',
+      XpPath: 'Facets.size',
+      MinCount: 1,
+      xp: {
+        Options: ['S', 'M', 'L'],
+      },
+    }),
+  ]);
+}
 
 async function postProducts(catalogID: string, buyerID: string, headstartCatalogID: string) {
   const csvStr = fs.readFileSync(
@@ -158,6 +201,9 @@ async function postProducts(catalogID: string, buyerID: string, headstartCatalog
       productPromises.push(() => processSingleProduct(row, catalogID, buyerID, headstartCatalogID));
     }
   }
+
+  // Update facets for any product with variants to include all possible options
+  await patchProductWithVariantFacets(productIdToVariantRowsMap);
 
   // Create the specs for all the products with variants
   await createSpecs(productIdToVariantRowsMap);
@@ -224,6 +270,12 @@ async function processSingleProduct(
       Brand: row.brand,
       ProductUrl: row.product_url,
       CCID: row.ccids.split('|')?.[0],
+      Price: Number(row.final_price), // using b2c retail price as basis for sorting, may not match real price user sees
+      Facets: {
+        // avoid setting to empty string else will be indexed but not have a value so will appear empty
+        color: row.color ? row.color : null,
+        size: row.size ? row.size : null,
+      },
     },
   };
   console.log(`Creating product schedule for ${row.product_group}`);
@@ -239,6 +291,28 @@ async function processSingleProduct(
     BuyerID: buyerID,
     UserGroupID: headstartCatalogID,
   });
+}
+
+async function patchProductWithVariantFacets(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
+  // if a product has variants then then we want to make all of those facet options available for querying
+  const productIds = productIdToVariantRowsMap.keys();
+  for (const productId of productIds) {
+    const variants = productIdToVariantRowsMap.get(productId);
+    if (variants?.length) {
+      const colorFacets = uniq(variants.map((variant) => variant.color));
+      const sizeFacets = uniq(variants.map((variant) => variant.size));
+      if (colorFacets?.length || sizeFacets?.length) {
+        await Products.Patch(productId, {
+          xp: {
+            Facets: {
+              color: colorFacets,
+              size: sizeFacets,
+            },
+          },
+        });
+      }
+    }
+  }
 }
 
 async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
