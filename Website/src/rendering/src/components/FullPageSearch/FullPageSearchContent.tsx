@@ -9,14 +9,14 @@ import {
   SearchResultsSortChangedActionPayload,
 } from '@sitecore-discover/widgets';
 import CategoryHero from '../Products/CategoryHero';
-import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FullPageSearchResultsProps } from './FullPageSearch';
+import { Category } from '../../models/Category';
 
 type FullPageSearchContentProps = Partial<FullPageSearchResultsProps> & {
-  urlPath: string;
   onSearchInputChange: (s: string) => void;
+  category: Category;
 };
 
 const FullPageSearchContent = ({
@@ -37,7 +37,7 @@ const FullPageSearchContent = ({
   onPageNumberChange,
   onSortChange,
   onSearchInputChange,
-  urlPath,
+  category,
 }: FullPageSearchContentProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
 
@@ -89,8 +89,6 @@ const FullPageSearchContent = ({
     sortDirection,
     onSortChange: handleSortChange,
   };
-
-  const category = getCategoryByUrlPath(urlPath);
 
   const pageTitle = isCategoryProductListingPage && category ? category.name : 'Products';
 

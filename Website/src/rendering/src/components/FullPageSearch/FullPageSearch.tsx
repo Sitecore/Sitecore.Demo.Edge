@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import debounce from '../../../src/helpers/Debounce';
 import { SearchResultsActions } from '@sitecore-discover/widgets';
 import FullPageSearchContent from './FullPageSearchContent';
+import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -49,6 +50,8 @@ const FullPageSearch = ({
     setKeyphrase(keyphrase);
   };
 
+  const category = getCategoryByUrlPath(window.location.pathname);
+
   return (
     <FullPageSearchContent
       rfkId={rfkId}
@@ -69,7 +72,7 @@ const FullPageSearch = ({
       onPageNumberChange={onPageNumberChange}
       onSortChange={onSortChange}
       onSearchInputChange={onSearchInputChange}
-      urlPath={window.location.pathname}
+      category={category}
     />
   );
 };
