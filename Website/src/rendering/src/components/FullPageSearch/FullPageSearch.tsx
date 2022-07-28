@@ -29,6 +29,7 @@ const FullPageSearch = ({
   onPageNumberChange,
   onSortChange,
 }: FullPageSearchResultsProps): JSX.Element => {
+  const category = getCategoryByUrlPath(window.location.pathname);
   const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
       dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
@@ -36,6 +37,9 @@ const FullPageSearch = ({
     false
   );
 
+  const onSearchInputChange = (keyphrase: string) => {
+    setKeyphrase(keyphrase);
+  };
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const searchQuery = urlSearchParams.get('q');
