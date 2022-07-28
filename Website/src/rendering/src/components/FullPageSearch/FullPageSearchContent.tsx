@@ -32,6 +32,7 @@ const FullPageSearchContent = ({
   sortChoices,
   products,
   facets,
+  numberOfItems,
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
@@ -76,6 +77,18 @@ const FullPageSearchContent = ({
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onSearchInputChange(e.target.value || '');
   };
+
+  const handleViewMoreClick = () => {
+    const pageNumber = products.length / numberOfItems + 1;
+    const payload: SearchResultsPageNumberChangedActionPayload = {
+      rfkId,
+      page: pageNumber,
+    };
+    onPageNumberChange(payload);
+  };
+
+  const viewMoreBtnHandler =
+    totalPages > 1 && products?.length !== totalItems ? handleViewMoreClick : null;
 
   const numberOfResults = !loading && totalPages > 0 && (
     <div className="items-num">{totalItems} items</div>
@@ -143,7 +156,12 @@ const FullPageSearchContent = ({
                 </button>
               </div>
               {noResultsMessage}
-              <ProductList products={products} loaded={loaded} loading={loading} />
+              <ProductList
+                products={products}
+                loaded={loaded}
+                loading={loading}
+                onViewMoreBtnClick={viewMoreBtnHandler}
+              />
             </div>
           </div>
         </div>
