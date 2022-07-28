@@ -37,7 +37,9 @@ const ProductList = ({
           ))}
       </ul>
       {ready && !!onViewMoreBtnClick && (
-        <button onClick={() => onViewMoreBtnClick()}>View more..</button>
+        <button className="view-more-products" onClick={() => onViewMoreBtnClick()}>
+          View more
+        </button>
       )}
     </>
   );
