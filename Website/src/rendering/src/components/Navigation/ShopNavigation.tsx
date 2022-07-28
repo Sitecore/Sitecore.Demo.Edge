@@ -33,6 +33,7 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     : ({
         ...previewSearchState,
         dispatch: dispatch,
+        redirectUrl: '/shop/products?q=',
         orderCloudChangeKeyPhraseAction: keyphraseChanged,
         orderCloudChangeCategoryAction: categoryChanged,
       } as unknown as PreviewSearchProps);
