@@ -42,13 +42,12 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
       !!props.user?.xp?.DefaultShippingAddressID &&
         props?.address?.ID === props.user?.xp?.DefaultShippingAddressID
     );
-    console.log(props.address.AddressName);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.address]);
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
-    setAddress(changes.address);
+    setAddress({ ...address, ...changes.address });
     setIsAddressValid(formRef?.current?.checkValidity?.() || false);
   };
 
