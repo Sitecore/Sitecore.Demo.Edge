@@ -6,6 +6,7 @@ import { SearchResultsFacetClickedChangedActionPayload } from '@sitecore-discove
 import { SortOrder } from '@sitecore-discover/react';
 
 type FacetValueProps = {
+  rfkId: string;
   values: FacetValue[];
   tindex: number;
   acumIndex: number;
@@ -18,6 +19,7 @@ type ActiveFacetValueProps = FacetValueProps & {
 };
 
 type FacetProps = {
+  rfkId: string;
   name: string;
   values: FacetValue[];
   index: number;
@@ -31,6 +33,7 @@ type SearchInputProps = {
 };
 
 type FacetListProps = {
+  rfkId: string;
   facets: Facet[];
   onFacetClick: (payload: SearchResultsFacetClickedChangedActionPayload) => void;
   onClear: () => void;
@@ -53,6 +56,7 @@ type SortChangeRequest = {
 };
 
 const FacetValues = ({
+  rfkId,
   values,
   tindex,
   acumIndex,
@@ -63,7 +67,7 @@ const FacetValues = ({
     {values.map(({ index: facetValueIndex, text, selected, id }, index) => {
       const handleValueClick = ({ target }: ChangeEvent<HTMLInputElement>) => {
         onFacetClick({
-          rfkId: '',
+          rfkId: rfkId,
           facetType,
           facetValue: text,
           facetValueIndex,
@@ -97,6 +101,7 @@ const FacetValues = ({
 );
 
 const FacetItem = ({
+  rfkId,
   name,
   values,
   index,
@@ -117,6 +122,7 @@ const FacetItem = ({
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
       <FacetValues
+        rfkId={rfkId}
         values={values}
         tindex={index}
         acumIndex={acumIndex}
@@ -129,6 +135,7 @@ const FacetItem = ({
 };
 
 const ActiveFacet = ({
+  rfkId,
   name,
   values,
   index,
@@ -138,6 +145,7 @@ const ActiveFacet = ({
 }: FacetProps): JSX.Element => (
   <div className="facet" data-type={type}>
     <ActiveFacetValues
+      rfkId={rfkId}
       name={name}
       values={values}
       tindex={index}
@@ -149,6 +157,7 @@ const ActiveFacet = ({
 );
 
 const ActiveFacetValues = ({
+  rfkId,
   name,
   values,
   tindex,
@@ -160,7 +169,7 @@ const ActiveFacetValues = ({
     {values.map(({ index: facetValueIndex, text, selected, id }, index) => {
       const handleValueClick = ({ target }: ChangeEvent<HTMLInputElement>) => {
         onFacetClick({
-          rfkId: '',
+          rfkId: rfkId,
           facetType,
           facetValue: text,
           facetValueIndex,
@@ -255,6 +264,7 @@ const SearchInput = ({ onSearchInputChange }: SearchInputProps): JSX.Element => 
 );
 
 const FacetList = ({
+  rfkId,
   facets,
   onFacetClick,
   onClear,
@@ -276,6 +286,7 @@ const FacetList = ({
       {facets?.map(({ facetType, values, display_name }, tindex) => {
         const componentHtml = (
           <ActiveFacet
+            rfkId={rfkId}
             name={display_name}
             index={tindex}
             acumIndex={acumIndex}
@@ -312,6 +323,7 @@ const FacetList = ({
         {facets?.map(({ facetType, values, display_name }, tindex) => {
           const componentHtml = (
             <FacetItem
+              rfkId={rfkId}
               name={display_name}
               index={tindex}
               acumIndex={acumIndex}

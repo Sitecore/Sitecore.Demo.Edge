@@ -30,6 +30,7 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
       }
     }
     return {
+      depth: 'all',
       search: productListState.keyphrase,
       sortBy: sortBy,
       page: productListState.page,
@@ -101,14 +102,13 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
   };
 
   useEffect(() => {
-    console.log(router.query.q);
     // set rfkid
     const path = router.pathname;
     setRfkid(path.includes('/category/') ? 'rfkid_10' : '');
 
     // search with new query
     const query = router.query.q as string;
-    onKeyphraseChange({ keyphrase: query, rfkId: '' });
+    onKeyphraseChange({ keyphrase: query, rfkId: rfkid });
 
     // ignoring adding onKeyphraseChange to dependency because we don't care if it or any of its dependencies
     // change, we only want to rerun this function if query changes

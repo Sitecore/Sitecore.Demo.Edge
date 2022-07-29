@@ -44,16 +44,16 @@ export const keyphraseChanged = createOcAsyncThunk<
 
 export const categoryChanged = createOcAsyncThunk<
   { categories: RequiredDeep<DCategory>[]; products: RequiredDeep<DBuyerProduct>[] },
-  DCategory
->('ocPreviewSearch/categoryChanged', async (category: DCategory) => {
+  string
+>('ocPreviewSearch/categoryChanged', async (categoryID: string) => {
   const productListRequest = Me.ListProducts<DBuyerProduct>({
     pageSize: 10,
-    categoryID: category.ID,
+    categoryID: categoryID,
     depth: 'all',
   });
   const categoryListRequest = Me.ListCategories<DCategory>({
     pageSize: 10,
-    search: category.ID,
+    search: categoryID,
     depth: 'all',
   });
   const [productList, categoryList] = await Promise.all([productListRequest, categoryListRequest]);

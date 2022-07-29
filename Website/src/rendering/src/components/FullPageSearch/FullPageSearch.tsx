@@ -44,7 +44,7 @@ const FullPageSearch = ({
   const [toggle, setToggle] = useState(false);
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
-    (keyphrase) => onKeyphraseChange({ rfkId: '', keyphrase }),
+    (keyphrase) => onKeyphraseChange({ rfkId: rfkId, keyphrase }),
     500,
     false
   );
@@ -130,6 +130,7 @@ const FullPageSearch = ({
           <div className="facet-panel-mask"></div>
           <div className="full-page-search-left">
             <FacetList
+              rfkId={rfkId}
               facets={facets}
               onFacetClick={handleFacetClick}
               onClear={handleFacetClear}
