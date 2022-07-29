@@ -64,8 +64,16 @@ const FullPageSearch = ({
     const productsFromSessionStorage = loadProductsFromSessionStorage();
 
     let productsToDisplay = [];
+    let initialProducts = [];
     if (productsFromSessionStorage && products) {
-      productsToDisplay = [...productsFromSessionStorage, ...products];
+      if (isCategoryProductListingPage) {
+        productsToDisplay = [...productsFromSessionStorage, ...products];
+      } else {
+        // BUG: Discover initially sends back a full page of products - currently 10, not relevant
+        // to the keyphrase, and then updates the products with the correct ones
+        initialProducts = productsFromSessionStorage.splice(0, 10);
+        productsToDisplay = [...productsFromSessionStorage, ...products];
+      }
       // Filter the products so that we don't include duplicates when refreshing the page
       productsToDisplay = productsToDisplay.filter(
         (value: Product, index: number, self: Product[]) =>
@@ -77,7 +85,9 @@ const FullPageSearch = ({
       return;
     }
     setLoadedProducts(productsToDisplay);
-    saveProductsToSessionStorage(productsToDisplay);
+    saveProductsToSessionStorage(
+      isCategoryProductListingPage ? productsToDisplay : [...initialProducts, ...productsToDisplay]
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
@@ -92,16 +102,11 @@ const FullPageSearch = ({
   };
 
   const saveProductsToSessionStorage = (products: Product[]) => {
-    sessionStorage.setItem(
-      getSessionStorageKey(),
-      JSON.stringify(products)
-    );
+    sessionStorage.setItem(getSessionStorageKey(), JSON.stringify(products));
   };
 
   const loadProductsFromSessionStorage = () =>
-    JSON.parse(
-      sessionStorage.getItem(getSessionStorageKey())
-    );
+    JSON.parse(sessionStorage.getItem(getSessionStorageKey()));
 
   return (
     <FullPageSearchContent
