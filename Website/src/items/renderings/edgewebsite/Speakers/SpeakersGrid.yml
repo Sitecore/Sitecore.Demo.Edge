@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Speakers/SpeakersGrid
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/EdgeWebsite/home/speakers
+  Value: "{1F4B781B-F2A5-5647-99DF-C0C369162C4D}"
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: SpeakersGrid
@@ -16,8 +16,8 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query($language: String!) {
-      item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: $language) {
+    query($language: String!, $datasource:String!) {
+      item(path: $datasource, language: $language) {
         children(hasLayout: true, first: 22) {
           total
           results {
@@ -71,11 +71,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "22fdcf67-c821-4408-b1fb-41c37964be05"
+      Value: "e1532e47-d561-4385-b07d-f5be9c6bd8f4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T090859Z
+      Value: 20220511T065313Z

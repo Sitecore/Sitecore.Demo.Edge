@@ -1,6 +1,13 @@
 import Link from 'next/link';
-import { Text, Image, RichText, DateField } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Text,
+  Image,
+  RichText,
+  DateField,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { News } from 'src/types/news';
 import { newsDateFormatter } from '../../helpers/DateHelper';
 
@@ -11,6 +18,15 @@ type NewsListProps = ComponentProps & {
 };
 
 const NewsList = (props: NewsListProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasNews = !!props?.fields?.items?.length;
+
+  !hasNews && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasNews && isPageEditing && <p>Missing Datasource Item</p>;
+
   const newsCards =
     props.fields.items &&
     props.fields.items.map((news, index) => (
@@ -36,12 +52,19 @@ const NewsList = (props: NewsListProps): JSX.Element => {
       </div>
     ));
 
-  return (
+  const newsList = hasNews && (
     <section className="section section-news-list">
       <div className="container">
         <div className="content">{newsCards}</div>
       </div>
     </section>
+  );
+
+  return (
+    <>
+      {newsList}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 
