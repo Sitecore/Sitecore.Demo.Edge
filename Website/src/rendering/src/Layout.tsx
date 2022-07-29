@@ -51,6 +51,7 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
         {/* DEMO TEAM CUSTOMIZATION - Use event name from context as the page title */}
         <title>{pageTitle}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
+        <meta name="robots" content="noindex" />
       </Head>
 
       {/* DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification and Navigation */}

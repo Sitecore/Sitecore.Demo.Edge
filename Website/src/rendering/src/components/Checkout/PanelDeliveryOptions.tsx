@@ -2,7 +2,7 @@ import { Address } from 'ordercloud-javascript-sdk';
 import { ChangeEvent, useState } from 'react';
 import { useAppDispatch } from '../../redux/store';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
-import { DOrder } from '../../models/ordercloud/DOrder';
+import { DeliveryTypes, DOrder } from '../../models/ordercloud/DOrder';
 import { patchOrder, removeShippingAddress, saveShippingAddress } from '../../redux/ocCurrentCart';
 
 const summitAddress: Address = {
@@ -29,7 +29,7 @@ const storeAddress: Address = {
 const PanelDeliveryOptions = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { order } = useOcCurrentCart();
-  const [deliveryType, setDeliveryType] = useState(order?.xp?.DeliveryType || 'Ship');
+  const [deliveryType, setDeliveryType] = useState(order?.xp?.DeliveryType || DeliveryTypes.Ship);
   const [loading, setIsLoading] = useState(false);
 
   const onDeliveryTypeChange = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -38,9 +38,9 @@ const PanelDeliveryOptions = (): JSX.Element => {
     try {
       setIsLoading(true);
       await dispatch(patchOrder({ xp: { DeliveryType: updatedDeliveryType } }));
-      if (updatedDeliveryType === 'PickupFromSummit') {
+      if (updatedDeliveryType === DeliveryTypes.PickupFromSummit) {
         await dispatch(saveShippingAddress(summitAddress));
-      } else if (updatedDeliveryType === 'PickupInStore') {
+      } else if (updatedDeliveryType === DeliveryTypes.PickupInStore) {
         await dispatch(saveShippingAddress(storeAddress));
       } else {
         await dispatch(removeShippingAddress());
@@ -61,9 +61,9 @@ const PanelDeliveryOptions = (): JSX.Element => {
             type="radio"
             name="deliveryOption"
             id="deliveryOptionShip"
-            value="Ship"
+            value={DeliveryTypes.Ship}
             disabled={loading}
-            checked={deliveryType === 'Ship'}
+            checked={deliveryType === DeliveryTypes.Ship}
             onChange={onDeliveryTypeChange}
           />
           <label htmlFor="deliveryOptionShip">
@@ -76,9 +76,9 @@ const PanelDeliveryOptions = (): JSX.Element => {
             type="radio"
             name="deliveryOption"
             id="deliveryOptionSummit"
-            value="PickupFromSummit"
+            value={DeliveryTypes.PickupFromSummit}
             disabled={loading}
-            checked={deliveryType === 'PickupFromSummit'}
+            checked={deliveryType === DeliveryTypes.PickupFromSummit}
             onChange={onDeliveryTypeChange}
           />
           <label htmlFor="deliveryOptionSummit">
@@ -91,9 +91,9 @@ const PanelDeliveryOptions = (): JSX.Element => {
             type="radio"
             name="deliveryOption"
             id="deliveryOptionStore"
-            value="PickupInStore"
+            value={DeliveryTypes.PickupInStore}
             disabled={loading}
-            checked={deliveryType === 'PickupInStore'}
+            checked={deliveryType === DeliveryTypes.PickupInStore}
             onChange={onDeliveryTypeChange}
           />
           <label htmlFor="deliveryOptionStore">
