@@ -32,6 +32,7 @@ const FullPageSearchContent = ({
   sortChoices,
   products,
   facets,
+  numberOfItems,
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
@@ -55,14 +56,6 @@ const FullPageSearchContent = ({
     onClearFilters();
   };
 
-  const handlePageNumberChange = (pageNumber: string) => {
-    const pageNo: SearchResultsPageNumberChangedActionPayload = {
-      rfkId,
-      page: Number(pageNumber),
-    };
-    onPageNumberChange(pageNo);
-  };
-
   const handleSortChange = (payload: SearchResultsSortChangedActionPayload) => {
     onSortChange(payload);
   };
@@ -76,6 +69,18 @@ const FullPageSearchContent = ({
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     onSearchInputChange(e.target.value || '');
   };
+
+  const handleViewMoreClick = () => {
+    const pageNumber = Math.ceil(products.length / numberOfItems + 1);
+    const payload: SearchResultsPageNumberChangedActionPayload = {
+      rfkId,
+      page: pageNumber,
+    };
+    onPageNumberChange(payload);
+  };
+
+  const viewMoreBtnHandler =
+    totalPages > 1 && products?.length !== totalItems ? handleViewMoreClick : null;
 
   const numberOfResults = !loading && totalPages > 0 && (
     <div className="items-num">{totalItems} items</div>
@@ -128,12 +133,9 @@ const FullPageSearchContent = ({
                 <div className="full-page-search-controls">
                   {numberOfResults}
                   <SearchControls
-                    totalPages={totalPages}
-                    page={page}
                     sortChoices={sortChoices}
                     sortType={sortType}
                     sortDirection={sortDirection}
-                    onPageNumberChange={handlePageNumberChange}
                     onSortChange={handleSortChange}
                   />
                 </div>
@@ -143,7 +145,12 @@ const FullPageSearchContent = ({
                 </button>
               </div>
               {noResultsMessage}
-              <ProductList products={products} loaded={loaded} loading={loading} />
+              <ProductList
+                products={products}
+                loaded={loaded}
+                loading={loading}
+                onViewMoreBtnClick={viewMoreBtnHandler}
+              />
             </div>
           </div>
         </div>
