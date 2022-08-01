@@ -14,7 +14,7 @@ import ClickOutside from '../ShopCommon/ClickOutside';
 import AccountPopup from './AccountPopup';
 import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
-import OrderCloudPreviewSearch from 'components/PreviewSearch/OrderCloudPreviewSearch';
+import OrderCloudPreviewSearch from '../PreviewSearch/OrderCloudPreviewSearch';
 
 export type ShopNavigationProps = {
   storyBookPreviewSearchProps?: PreviewSearchWidgetProps; // For Storybook support

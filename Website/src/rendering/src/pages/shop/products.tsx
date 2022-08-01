@@ -1,7 +1,7 @@
 import OrderCloudFullPageSearch from 'components/FullPageSearch/OrderCloudFullPageSearch';
 import Head from 'next/head';
 import { ReactElement } from 'react';
-import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
 import { ShopLayout } from '../../components/Products/Shop';
 import DiscoverWidget from '../../components/ShopCommon/DiscoverWidget';
 

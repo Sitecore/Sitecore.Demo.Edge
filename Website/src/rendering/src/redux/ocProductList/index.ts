@@ -5,11 +5,11 @@ import {
   mapOrderCloudCategoryToCategoriesDataCategory,
   mapOrderCloudProductToDiscoverProduct,
   mapOrderderCloudFacetToDiscoverFacet,
-} from 'src/helpers/OrderCloudHelper';
-import { CategoriesDataCategory } from 'src/models/Category';
-import { Facet, SortChoice } from 'src/models/discover/Facet';
-import { Product } from 'src/models/discover/Product';
-import { DBuyerProduct } from 'src/models/ordercloud/DBuyerProduct';
+} from '../../helpers/OrderCloudHelper';
+import { CategoriesDataCategory } from '../../models/Category';
+import { Facet, SortChoice } from '../../models/discover/Facet';
+import { Product } from '../../models/discover/Product';
+import { DBuyerProduct } from '../../models/ordercloud/DBuyerProduct';
 import { cacheProducts } from '../ocProductCache';
 import { createOcAsyncThunk, OcThrottle } from '../ocReduxHelpers';
 

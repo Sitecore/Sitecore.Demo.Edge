@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import FullPageSearch from './FullPageSearch';
-import useOcProductList from 'src/hooks/useOcProductList';
+import useOcProductList from '../../hooks/useOcProductList';
 import {
   SearchResultsFacetClickedChangedActionPayload,
   SearchResultsPageNumberChangedActionPayload,
   SearchResultsSortChangedActionPayload,
   SearchResultsKeyphraseChangedActionPayload,
 } from '@sitecore-discover/widgets';
-import { OcProductListOptions, listProducts } from 'src/redux/ocProductList';
+import { OcProductListOptions, listProducts } from '../../redux/ocProductList';
 import { clone, omit } from 'lodash';
-import { useAppDispatch } from 'src/redux/store';
-import { getCategoryIdByUrlPath } from 'src/helpers/CategoriesDataHelper';
+import { useAppDispatch } from '../../redux/store';
+import { getCategoryIdByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 const OrderCloudFullPageSearch = (): JSX.Element => {
   const dispatch = useAppDispatch();

@@ -15,7 +15,7 @@ import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { CategoriesDataCategory } from '../../models/Category';
-import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
 
 interface FullPageSearchResultsProps extends Partial<SearchResultsWidgetProps> {
   rfkId: string;

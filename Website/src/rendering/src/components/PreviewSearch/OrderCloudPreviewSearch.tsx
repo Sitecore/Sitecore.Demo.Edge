@@ -1,4 +1,4 @@
-import useOcPreviewSearch from 'src/hooks/useOcPreviewSearch';
+import useOcPreviewSearch from '../../hooks/useOcPreviewSearch';
 import PreviewSearch, { PreviewSearchProps } from './PreviewSearch';
 import {
   PreviewSearchKeyphraseChangedActionPayload,
@@ -6,8 +6,8 @@ import {
   PreviewSearchTrendingCategoryChangedActionPayload,
   PreviewSearchSuggestionChangedActionPayload,
 } from '@sitecore-discover/widgets';
-import { useAppDispatch } from 'src/redux/store';
-import { categoryChanged, keyphraseChanged } from 'src/redux/ocPreviewSearch';
+import { useAppDispatch } from '../../redux/store';
+import { categoryChanged, keyphraseChanged } from '../../redux/ocPreviewSearch';
 import { useState } from 'react';
 
 const OrderCloudPreviewSearch = (): JSX.Element => {

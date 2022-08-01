@@ -6,7 +6,7 @@ import RightColumn from './RightColumn';
 import debounce from '../../helpers/Debounce';
 import SearchInput from './SearchInput';
 import { getCategoryByUrlPath, getCategoryIdByUrlPath } from '../../helpers/CategoriesDataHelper';
-import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
 
 export interface PreviewSearchProps extends PreviewSearchWidgetProps {
   rfkId: string; // rfkId must be overriden because of a bug in the Discover SDK due to conflicting types
