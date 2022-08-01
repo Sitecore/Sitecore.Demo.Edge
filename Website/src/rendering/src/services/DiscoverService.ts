@@ -14,7 +14,7 @@ import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
-// import { isDiscoverEnabled } from '../helpers/DiscoverHelper'; TODO: add this back in once full refactor for splitting up ordercloud/discover is complete
+import { isDiscoverEnabled } from '../helpers/DiscoverHelper';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -25,10 +25,9 @@ type DiscoverServiceOptions = {
 };
 
 export const DiscoverService = (options?: DiscoverServiceOptions): void => {
-  // TODO: add this back in once full refactor for splitting up ordercloud/discover is complete
-  // if (!isDiscoverEnabled) {
-  //   return;
-  // }
+  if (!isDiscoverEnabled) {
+    return;
+  }
   const DISCOVER_CUSTOMER_KEY = options?.isStorybook
     ? '0-0'
     : process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
