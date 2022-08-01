@@ -1,23 +1,13 @@
-import Head from 'next/head';
-import debounce from '../../../src/helpers/Debounce';
-import FacetList from './FacetList';
-import ProductList from '../ShopCommon/ProductList';
-import SearchControls from './SearchControls';
-import { useEffect, useState } from 'react';
-import {
-  SearchResultsPageNumberChangedActionPayload,
-  SearchResultsFacetClickedChangedActionPayload,
-  SearchResultsSortChangedActionPayload,
-} from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
-import CategoryHero from '../Products/CategoryHero';
+import { useEffect, useState } from 'react';
+import debounce from '../../helpers/Debounce';
+import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
-import { CategoriesDataCategory } from '../../models/Category';
-import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import { Product } from '../../models/discover/Product';
+import { CategoriesDataCategory } from 'src/models/Category';
+import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
 
-interface FullPageSearchResultsProps extends Partial<SearchResultsWidgetProps> {
+export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
   category?: CategoriesDataCategory;
 }
@@ -35,23 +25,39 @@ const FullPageSearch = ({
   sortDirection,
   sortChoices,
   products,
-  facets,
   category, // only passed down for ordercloud
+  facets,
+  numberOfItems,
+  dispatch,
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
   onSortChange,
   onKeyphraseChange,
 }: FullPageSearchResultsProps): JSX.Element => {
-  const [toggle, setToggle] = useState(false);
-  const isCategoryProductListingPage = rfkId === 'rfkid_10' || Boolean(category);
   const useOrderCloudFiltering = !isDiscoverEnabled;
+  const isCategoryProductListingPage = rfkId === 'rfkid_10' || Boolean(category);
+
+  // in discover we don't have a good way of retrieving the category information so need to retrived from a well known but static source (data feed)
+  // which is a bit of a hack, for ordercloud however we can get via API which is passed down as state variable so just use that
+  // ideally discover sdk should provide category information for display
+  const displayCategory = useOrderCloudFiltering
+    ? category
+    : isCategoryProductListingPage && typeof window !== 'undefined'
+    ? getCategoryByUrlPath(window.location.pathname)
+    : null;
+
+  const [loadedProducts, setLoadedProducts] = useState([]);
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) => onKeyphraseChange({ rfkId: rfkId, keyphrase }),
     500,
     false
   );
+
+  const onSearchInputChange = (keyphrase: string) => {
+    setKeyphrase(keyphrase || '');
+  };
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -63,123 +69,79 @@ const FullPageSearch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (error) {
-    return <div>Response error</div>;
-  }
+  useEffect(() => {
+    if (!loaded && loading) return;
 
-  const handleFacetClick = (payload: SearchResultsFacetClickedChangedActionPayload) => {
-    onFacetClick(payload);
+    const productsFromSessionStorage = loadProductsFromSessionStorage();
+
+    let productsToDisplay = [];
+    let initialProducts = [];
+    if (productsFromSessionStorage && products) {
+      if (isCategoryProductListingPage) {
+        productsToDisplay = [...productsFromSessionStorage, ...products];
+      } else {
+        // BUG: Discover initially sends back a full page of products - currently 10, not relevant
+        // to the keyphrase, and then updates the products with the correct ones
+        initialProducts = productsFromSessionStorage.splice(0, 10);
+        productsToDisplay = [...productsFromSessionStorage, ...products];
+      }
+      // Filter the products so that we don't include duplicates when refreshing the page
+      productsToDisplay = productsToDisplay.filter(
+        (value: Product, index: number, self: Product[]) =>
+          self.findIndex((v) => v.sku === value.sku) === index
+      );
+    } else if (products) {
+      productsToDisplay = products;
+    } else {
+      return;
+    }
+    setLoadedProducts(productsToDisplay);
+    saveProductsToSessionStorage(
+      isCategoryProductListingPage ? productsToDisplay : [...initialProducts, ...productsToDisplay]
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
+
+  const getSessionStorageKey = (): string => {
+    if (isCategoryProductListingPage && keyphrase) {
+      return `${category.ccid} - ${keyphrase} products`;
+    } else if (isCategoryProductListingPage && category) {
+      return `${category.ccid} products`;
+    } else {
+      return `${keyphrase} products`;
+    }
   };
 
-  const handleFacetClear = () => {
-    onClearFilters();
+  const saveProductsToSessionStorage = (products: Product[]) => {
+    sessionStorage.setItem(getSessionStorageKey(), JSON.stringify(products));
   };
 
-  const handlePageNumberChange = (pageNumber: string) => {
-    const pageNo: SearchResultsPageNumberChangedActionPayload = {
-      rfkId,
-      page: Number(pageNumber),
-    };
-    onPageNumberChange(pageNo);
-  };
-
-  const handleSortChange = (payload: SearchResultsSortChangedActionPayload) => {
-    onSortChange(payload);
-  };
-
-  const handleToggleClick = () => {
-    const isVisible = !toggle;
-    setToggle(isVisible);
-    document.body.classList.toggle('shop-facet-panel-open', isVisible);
-  };
-
-  const handleSearchInputChange = (searchTerm: string) => {
-    setKeyphrase(searchTerm || '');
-  };
-
-  const numberOfResults = !loading && totalPages > 0 && (
-    <div className="items-num">{totalItems} items</div>
-  );
-
-  const noResultsMessage = totalItems === 0 && 'No results found';
-
-  const sortFacetProps = {
-    sortChoices,
-    sortType,
-    sortDirection,
-    onSortChange: handleSortChange,
-  };
-
-  // in discover we don't have a good way of retrieving the category information so need to retrived from a well known but static source (data feed)
-  // which is a bit of a hack, for ordercloud however we can get via API which is passed down as state variable so just use that
-  // ideally discover sdk should provide category information for display
-  const displayCategory = useOrderCloudFiltering
-    ? category
-    : isCategoryProductListingPage && typeof window !== 'undefined'
-    ? getCategoryByUrlPath(window.location.pathname)
-    : null;
-
-  const pageTitle =
-    isCategoryProductListingPage && displayCategory ? displayCategory.name : 'Products';
-
-  const categoryHero = isCategoryProductListingPage && displayCategory && (
-    <CategoryHero category={displayCategory} />
-  );
+  const loadProductsFromSessionStorage = () =>
+    JSON.parse(sessionStorage.getItem(getSessionStorageKey()));
 
   return (
-    <>
-      <Head>
-        <title>PLAY! SHOP - {pageTitle}</title>
-      </Head>
-
-      {categoryHero}
-      <section className="full-page-search section">
-        <div className="full-page-search-container">
-          <div className="facet-panel-mask"></div>
-          <div className="full-page-search-left">
-            <FacetList
-              rfkId={rfkId}
-              facets={facets}
-              onFacetClick={handleFacetClick}
-              onClear={handleFacetClear}
-              sortFacetProps={sortFacetProps}
-              onToggleClick={handleToggleClick}
-              isCategoryProductListingPage={isCategoryProductListingPage}
-              onSearchInputChange={handleSearchInputChange}
-            />
-            <div className="button-container">
-              <button className="btn-main" onClick={handleToggleClick}>
-                Show {totalItems} results
-              </button>
-            </div>
-          </div>
-          <div className="full-page-search-right">
-            <div data-page={page}>
-              <div className="full-page-search-header">
-                <div className="full-page-search-controls">
-                  {numberOfResults}
-                  <SearchControls
-                    totalPages={totalPages}
-                    page={page}
-                    sortChoices={sortChoices}
-                    sortType={sortType}
-                    sortDirection={sortDirection}
-                    onPageNumberChange={handlePageNumberChange}
-                    onSortChange={handleSortChange}
-                  />
-                </div>
-                <button className="btn-main facet-container-toggle" onClick={handleToggleClick}>
-                  <FontAwesomeIcon icon={faSlidersH} />
-                  Filter
-                </button>
-              </div>
-              {noResultsMessage}
-              <ProductList products={products} loaded={loaded} loading={loading} />
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    <FullPageSearchContent
+      rfkId={rfkId}
+      error={error}
+      loaded={loaded}
+      loading={loading}
+      page={page}
+      totalPages={totalPages}
+      totalItems={totalItems}
+      sortType={sortType}
+      sortDirection={sortDirection}
+      sortChoices={sortChoices}
+      products={loadedProducts}
+      facets={facets}
+      numberOfItems={numberOfItems}
+      dispatch={dispatch}
+      onFacetClick={onFacetClick}
+      onClearFilters={onClearFilters}
+      onPageNumberChange={onPageNumberChange}
+      onSortChange={onSortChange}
+      onSearchInputChange={onSearchInputChange}
+      category={displayCategory}
+    />
   );
 };
 
