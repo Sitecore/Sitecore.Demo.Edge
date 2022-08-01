@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import { ChangeEvent, FocusEvent, KeyboardEvent, useEffect, useRef } from 'react';
 
-// TODO: add story for component
-
 type SearchInputProps = {
   keyphrase: string;
   setSearchString: (value: string) => void;

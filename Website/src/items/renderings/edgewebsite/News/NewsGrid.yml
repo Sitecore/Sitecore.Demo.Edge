@@ -6,7 +6,7 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/News/NewsGrid
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/EdgeWebsite/home/news
+  Value: "{0E4A63DA-7496-557E-BF80-5BD52255E431}"
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: NewsGrid
@@ -40,11 +40,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2ec5ddfa-6833-4fcd-8833-8f49e9f6b9d7"
+      Value: "f89c35e1-9793-44bd-b557-54205cd4ef53"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T085845Z
+      Value: 20220407T075504Z

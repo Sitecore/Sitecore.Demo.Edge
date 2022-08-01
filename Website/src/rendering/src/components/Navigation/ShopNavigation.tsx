@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
-import { Actions, PageController } from '@sitecore-discover/react';
-import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +13,7 @@ import AccountPopup from './AccountPopup';
 import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import OrderCloudPreviewSearch from '../PreviewSearch/OrderCloudPreviewSearch';
+import { dispatchDiscoverCartStatusListActionEvent } from '../../helpers/discover/CartStatusDispatcher';
 
 export type ShopNavigationProps = {
   storyBookPreviewSearchProps?: PreviewSearchWidgetProps; // For Storybook support
@@ -46,19 +45,9 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
     </li>
   );
 
-  // TODO: Try to remove code duplication here and in LineItemList.tsx
-  const dispatchDiscoverCartStatusListActionEvent = () => {
-    PageController.getDispatcher().dispatch({
-      type: Actions.CART_STATUS,
-      payload: {
-        products: mapProductsForDiscover(lineItems),
-      },
-    });
-  };
-
   const handleCartIconClick = () => {
     if (!isMiniCartOpen && lineItems?.length !== undefined) {
-      dispatchDiscoverCartStatusListActionEvent();
+      dispatchDiscoverCartStatusListActionEvent(lineItems);
     }
     setIsMiniCartOpen(!isMiniCartOpen);
   };

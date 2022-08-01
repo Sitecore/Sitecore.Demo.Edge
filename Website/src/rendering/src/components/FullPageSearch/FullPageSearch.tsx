@@ -1,11 +1,10 @@
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 import { useEffect, useState } from 'react';
-import debounce from '../../helpers/Debounce';
+import debounce from '../../../src/helpers/Debounce';
+import { SearchResultsActions } from '@sitecore-discover/widgets';
 import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Product } from '../../models/discover/Product';
-import { CategoriesDataCategory } from 'src/models/Category';
-import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
 
 export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -38,6 +37,7 @@ const FullPageSearch = ({
   const useOrderCloudFiltering = !isDiscoverEnabled;
   const isCategoryProductListingPage = rfkId === 'rfkid_10' || Boolean(category);
 
+  const category = getCategoryByUrlPath(window.location.pathname);
   // in discover we don't have a good way of retrieving the category information so need to retrived from a well known but static source (data feed)
   // which is a bit of a hack, for ordercloud however we can get via API which is passed down as state variable so just use that
   // ideally discover sdk should provide category information for display
@@ -54,6 +54,10 @@ const FullPageSearch = ({
     500,
     false
   );
+
+  const onSearchInputChange = (keyphrase: string) => {
+    setKeyphrase(keyphrase);
+  };
 
   const onSearchInputChange = (keyphrase: string) => {
     setKeyphrase(keyphrase || '');
@@ -105,6 +109,14 @@ const FullPageSearch = ({
   const getSessionStorageKey = (): string => {
     if (isCategoryProductListingPage && keyphrase) {
       return `${category.ccid} - ${keyphrase} products`;
+    } else if (isCategoryProductListingPage) {
+      return `${category.ccid} products`;
+    } else {
+      return `${keyphrase} products`;
+    }
+  const getSessionStorageKey = (): string => {
+    if (isCategoryProductListingPage && keyphrase) {
+      return `${category.ccid} - ${keyphrase} products`;
     } else if (isCategoryProductListingPage && category) {
       return `${category.ccid} products`;
     } else {
@@ -120,6 +132,28 @@ const FullPageSearch = ({
     JSON.parse(sessionStorage.getItem(getSessionStorageKey()));
 
   return (
+    <FullPageSearchContent
+      rfkId={rfkId}
+      error={error}
+      loaded={loaded}
+      loading={loading}
+      page={page}
+      totalPages={totalPages}
+      totalItems={totalItems}
+      sortType={sortType}
+      sortDirection={sortDirection}
+      sortChoices={sortChoices}
+      products={loadedProducts}
+      facets={facets}
+      numberOfItems={numberOfItems}
+      dispatch={dispatch}
+      onFacetClick={onFacetClick}
+      onClearFilters={onClearFilters}
+      onPageNumberChange={onPageNumberChange}
+      onSortChange={onSortChange}
+      onSearchInputChange={onSearchInputChange}
+      category={category}
+    />
     <FullPageSearchContent
       rfkId={rfkId}
       error={error}
