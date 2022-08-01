@@ -1,4 +1,5 @@
 import { ListFacet } from 'ordercloud-javascript-sdk';
+import { CategoriesDataCategory } from 'src/models/Category';
 import { Category } from 'src/models/discover/Category';
 import { Facet } from 'src/models/discover/Facet';
 import { Product } from 'src/models/discover/Product';
@@ -36,6 +37,21 @@ export const mapOrderCloudCategoryToDiscoverCategory = (category: DCategory): Ca
   };
 };
 
+export const mapOrderCloudCategoryToCategoriesDataCategory = (
+  category: DCategory
+): CategoriesDataCategory => {
+  return {
+    ccid: category.ID,
+    name: category.Name,
+    url_path: `/shop/categories/${category.ID}`,
+    parent_ccid: category.ParentID,
+    title: category.Name,
+    desc: category.Description,
+    image_url: null,
+  };
+};
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const mapOrderderCloudFacetToDiscoverFacet = (facet: ListFacet, filters: any): Facet => {
   const selectedFacet = filters && filters[`xp.${facet.XpPath}`];
   return {

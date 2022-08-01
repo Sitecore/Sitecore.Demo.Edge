@@ -11,6 +11,7 @@ import {
 import { OcProductListOptions, listProducts } from 'src/redux/ocProductList';
 import { clone, omit } from 'lodash';
 import { useAppDispatch } from 'src/redux/store';
+import { getCategoryIdByUrlPath } from 'src/helpers/CategoriesDataHelper';
 
 const OrderCloudFullPageSearch = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -19,6 +20,13 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [facetFilters, setFacetFilters] = useState<any>({});
   const router = useRouter();
+
+  const getCategoryIdFromUrl = (): string => {
+    if (typeof window == 'undefined') {
+      return '';
+    }
+    return getCategoryIdByUrlPath(window.location.pathname);
+  };
 
   const buildExistingOptions = (): OcProductListOptions => {
     let sortBy: string[];
@@ -30,6 +38,7 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
       }
     }
     return {
+      categoryID: getCategoryIdFromUrl(),
       depth: 'all',
       search: productListState.keyphrase,
       sortBy: sortBy,
@@ -103,8 +112,7 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
 
   useEffect(() => {
     // set rfkid
-    const path = router.pathname;
-    setRfkid(path.includes('/category/') ? 'rfkid_10' : '');
+    setRfkid(router.asPath.includes('/categories/') ? 'rfkid_10' : '');
 
     // search with new query
     const query = router.query.q as string;
@@ -113,7 +121,7 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
     // ignoring adding onKeyphraseChange to dependency because we don't care if it or any of its dependencies
     // change, we only want to rerun this function if query changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query.q]);
+  }, [router.query.q, router.asPath]);
 
   return (
     <FullPageSearch

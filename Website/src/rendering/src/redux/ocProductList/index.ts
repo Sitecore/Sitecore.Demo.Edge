@@ -1,10 +1,12 @@
 import { createSlice, SerializedError } from '@reduxjs/toolkit';
 import { SortOrder } from '@sitecore-discover/react';
-import { Filters, ListPageWithFacets, Me } from 'ordercloud-javascript-sdk';
+import { Category, Filters, ListPageWithFacets, Me } from 'ordercloud-javascript-sdk';
 import {
+  mapOrderCloudCategoryToCategoriesDataCategory,
   mapOrderCloudProductToDiscoverProduct,
   mapOrderderCloudFacetToDiscoverFacet,
 } from 'src/helpers/OrderCloudHelper';
+import { CategoriesDataCategory } from 'src/models/Category';
 import { Facet, SortChoice } from 'src/models/discover/Facet';
 import { Product } from 'src/models/discover/Product';
 import { DBuyerProduct } from 'src/models/ordercloud/DBuyerProduct';
@@ -24,6 +26,7 @@ export interface OcProductListOptions {
 }
 
 export interface OcProductListState {
+  catalogId?: string;
   error?: SerializedError;
   loaded?: boolean;
   loading?: boolean;
@@ -35,6 +38,7 @@ export interface OcProductListState {
   sortDirection?: SortOrder;
   sortChoices?: SortChoice[];
   products?: Product[];
+  category?: CategoriesDataCategory;
   facets?: Facet[];
 }
 
@@ -70,6 +74,7 @@ const initialState: OcProductListState = {
 interface SetListOptionsResult {
   response: ListPageWithFacets<DBuyerProduct>;
   options: OcProductListOptions;
+  category?: Category;
 }
 
 const productListThrottle: OcThrottle = {
@@ -80,14 +85,32 @@ const productListThrottle: OcThrottle = {
 export const listProducts = createOcAsyncThunk<SetListOptionsResult, OcProductListOptions>(
   'ocProductList/listProducts',
   async (options, ThunkAPI) => {
+    let category: Category;
+    if (options.categoryID) {
+      let catalogID = ThunkAPI.getState().ocProductList.catalogId;
+      if (!catalogID) {
+        catalogID = await ThunkAPI.dispatch(setDefaultCatalog()).unwrap();
+      }
+      options.catalogID = catalogID;
+      category = await Me.GetCategory(options.categoryID, { catalogID });
+    }
     const response = await Me.ListProducts<DBuyerProduct>(options);
     ThunkAPI.dispatch(cacheProducts(response.Items));
     return {
       response,
       options,
+      category,
     };
   },
   productListThrottle
+);
+
+export const setDefaultCatalog = createOcAsyncThunk<string>(
+  'ocProductList/setDefaultCatalog',
+  async () => {
+    const myCatalogs = await Me.ListCatalogs();
+    return myCatalogs.Items[0].ID;
+  }
 );
 
 const ocProductListSlice = createSlice({
@@ -108,6 +131,9 @@ const ocProductListSlice = createSlice({
       state.totalPages = action.payload.response.Meta.TotalPages;
       state.totalItems = action.payload.response.Meta.TotalCount;
       state.products = action.payload.response.Items.map(mapOrderCloudProductToDiscoverProduct);
+      state.category = action.payload.category
+        ? mapOrderCloudCategoryToCategoriesDataCategory(action.payload.category)
+        : null;
       const facets = action.payload.response.Meta.Facets.map((facet) => {
         return mapOrderderCloudFacetToDiscoverFacet(facet, action.payload.options.filters);
       });
@@ -124,6 +150,9 @@ const ocProductListSlice = createSlice({
     builder.addCase(listProducts.rejected, (state, action) => {
       state.error = action.error;
       state.loading = false;
+    });
+    builder.addCase(setDefaultCatalog.fulfilled, (state, action) => {
+      state.catalogId = action.payload;
     });
   },
 });

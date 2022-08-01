@@ -1,6 +1,5 @@
 import { AccessToken, Auth, RequiredDeep, Tokens } from 'ordercloud-javascript-sdk';
 import { retrieveCart, transferAnonOrder } from '../ocCurrentCart';
-import { clearProductList } from '../ocProductList';
 import { cleanProductCache } from '../ocProductCache';
 import { createOcAsyncThunk } from '../ocReduxHelpers';
 import { clearUser, getUser } from '../ocUser';
@@ -29,7 +28,6 @@ const login = createOcAsyncThunk<RequiredDeep<AccessToken>, LoginActionRequest>(
     }
 
     thunkAPI.dispatch(clearUser());
-    thunkAPI.dispatch(clearProductList());
     thunkAPI.dispatch(cleanProductCache());
 
     const response = await Auth.Login(

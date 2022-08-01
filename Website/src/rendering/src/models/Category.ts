@@ -1,5 +1,5 @@
 // Type used to describe categories in categoriesData.ts
-export type Category = {
+export type CategoriesDataCategory = {
   ccid: string;
   name: string;
   url_path: string;

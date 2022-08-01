@@ -14,9 +14,12 @@ import CategoryHero from '../Products/CategoryHero';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { CategoriesDataCategory } from '../../models/Category';
+import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
 
 interface FullPageSearchResultsProps extends Partial<SearchResultsWidgetProps> {
   rfkId: string;
+  category?: CategoriesDataCategory;
 }
 
 const FullPageSearch = ({
@@ -33,15 +36,16 @@ const FullPageSearch = ({
   sortChoices,
   products,
   facets,
+  category, // only passed down for ordercloud
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
   onSortChange,
   onKeyphraseChange,
 }: FullPageSearchResultsProps): JSX.Element => {
-  const isCategoryProductListingPage = rfkId === 'rfkid_10';
-
   const [toggle, setToggle] = useState(false);
+  const isCategoryProductListingPage = rfkId === 'rfkid_10' || Boolean(category);
+  const useOrderCloudFiltering = !isDiscoverEnabled;
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) => onKeyphraseChange({ rfkId: rfkId, keyphrase }),
@@ -106,16 +110,20 @@ const FullPageSearch = ({
     onSortChange: handleSortChange,
   };
 
-  // TODO: Extract this whole component except this line that gets the URL path into a FullPageSearchContent.tsx component that will accept an extra prop for the urlPath. Then rename the FullPageSearch.stories.tsx to FullPageSearchContent.stories.tsx and test the sub component. Create test cases when the urlPath is for a non-existing category, an existing category, etc.
-  const category =
-    isCategoryProductListingPage && typeof window !== 'undefined'
-      ? getCategoryByUrlPath(window.location.pathname)
-      : null;
+  // in discover we don't have a good way of retrieving the category information so need to retrived from a well known but static source (data feed)
+  // which is a bit of a hack, for ordercloud however we can get via API which is passed down as state variable so just use that
+  // ideally discover sdk should provide category information for display
+  const displayCategory = useOrderCloudFiltering
+    ? category
+    : isCategoryProductListingPage && typeof window !== 'undefined'
+    ? getCategoryByUrlPath(window.location.pathname)
+    : null;
 
-  const pageTitle = isCategoryProductListingPage && category ? category.name : 'Products';
+  const pageTitle =
+    isCategoryProductListingPage && displayCategory ? displayCategory.name : 'Products';
 
-  const categoryHero = isCategoryProductListingPage && category && (
-    <CategoryHero category={category} />
+  const categoryHero = isCategoryProductListingPage && displayCategory && (
+    <CategoryHero category={displayCategory} />
   );
 
   return (

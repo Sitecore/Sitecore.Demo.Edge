@@ -5,7 +5,7 @@ import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
 import debounce from '../../helpers/Debounce';
 import SearchInput from './SearchInput';
-import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
+import { getCategoryByUrlPath, getCategoryIdByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { isDiscoverEnabled } from 'src/helpers/DiscoverHelper';
 
 export interface PreviewSearchProps extends PreviewSearchWidgetProps {
@@ -27,7 +27,6 @@ const PreviewSearch = ({
   onTrendingCategoryChange,
   onSuggestionChange,
 }: PreviewSearchProps): JSX.Element => {
-  const useOrderCloud = !isDiscoverEnabled;
   const [viewAllUrl, setViewAllUrl] = useState(keyphrase);
 
   const changeKeyphrase: (text: string) => void = debounce(
@@ -45,18 +44,19 @@ const PreviewSearch = ({
 
   const changeCategory = debounce(
     (categoryUrl: string) => {
-      const category = getCategoryByUrlPath(categoryUrl);
-      if (!category) {
-        return;
-      }
-
-      if (!useOrderCloud) {
+      if (isDiscoverEnabled) {
+        const category = getCategoryByUrlPath(categoryUrl);
+        if (!category) {
+          return;
+        }
         // HACK: Clear the keyphrase before changing the category to display all the products of that category
-        // not required for ordercloud implementation
         onKeyphraseChange({ keyphrase: '', rfkId: rfkId });
+        onCategoryChange({ category: category.ccid, rfkId: rfkId });
+        setViewAllUrl(category.url_path);
+      } else {
+        const categoryID = getCategoryIdByUrlPath(categoryUrl);
+        onCategoryChange({ category: categoryID, rfkId: rfkId });
       }
-      onCategoryChange({ category: useOrderCloud ? category.name : category.ccid, rfkId: rfkId });
-      setViewAllUrl(category.url_path);
     },
     200,
     null

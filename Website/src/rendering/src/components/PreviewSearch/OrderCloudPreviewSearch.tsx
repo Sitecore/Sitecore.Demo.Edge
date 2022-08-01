@@ -8,8 +8,10 @@ import {
 } from '@sitecore-discover/widgets';
 import { useAppDispatch } from 'src/redux/store';
 import { categoryChanged, keyphraseChanged } from 'src/redux/ocPreviewSearch';
+import { useState } from 'react';
 
 const OrderCloudPreviewSearch = (): JSX.Element => {
+  const [previousCategory, setPreviousCategory] = useState('');
   const dispatch = useAppDispatch();
   const previewSearchState = useOcPreviewSearch();
 
@@ -18,7 +20,10 @@ const OrderCloudPreviewSearch = (): JSX.Element => {
   };
 
   const onCategoryChange = ({ category }: PreviewSearchCategoryChangedActionPayload) => {
-    dispatch(categoryChanged(category));
+    if (previousCategory !== category) {
+      dispatch(categoryChanged(category));
+      setPreviousCategory(category);
+    }
   };
 
   const onTrendingCategoryChange = ({

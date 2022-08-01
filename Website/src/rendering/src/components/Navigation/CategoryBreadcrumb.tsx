@@ -1,10 +1,10 @@
 import React from 'react';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from './ShopBreadcrumb';
 import { getCategoryChain } from '../../helpers/CategoriesDataHelper';
-import { Category } from '../../models/Category';
+import { CategoriesDataCategory } from '../../models/Category';
 
 type CategoryBreadcrumbProps = {
-  category: Category;
+  category: CategoriesDataCategory;
 };
 
 const CategoryBreadcrumb = ({ category }: CategoryBreadcrumbProps): JSX.Element => {
@@ -12,7 +12,7 @@ const CategoryBreadcrumb = ({ category }: CategoryBreadcrumbProps): JSX.Element 
     return null;
   }
 
-  const categories: Category[] = getCategoryChain(category.ccid);
+  const categories: CategoriesDataCategory[] = getCategoryChain(category.ccid);
 
   // If it's a top-level category we hide the breadcrumb
   const shopBreadcrumbItems: ShopBreadcrumbItem[] =

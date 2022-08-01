@@ -1,5 +1,5 @@
 import React from 'react';
-import { Category } from '../../models/Category';
+import { CategoriesDataCategory } from '../../models/Category';
 import { getCategoryChain } from '../../helpers/CategoriesDataHelper';
 import ShopBreadcrumb, { ShopBreadcrumbItem } from './ShopBreadcrumb';
 
@@ -10,7 +10,7 @@ type ProductBreadcrumbProps = {
 };
 
 const ProductBreadcrumb = (props: ProductBreadcrumbProps): JSX.Element => {
-  const categories: Category[] = getCategoryChain(props.ccid);
+  const categories: CategoriesDataCategory[] = getCategoryChain(props.ccid);
 
   const shopBreadcrumbs: ShopBreadcrumbItem[] = categories.map((category) => ({
     urlPath: category.url_path,

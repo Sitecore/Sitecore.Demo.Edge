@@ -6,6 +6,7 @@ import {
   Auth,
   Buyers,
   Catalogs,
+  Categories,
   Configuration,
   PriceSchedules,
   ProductFacets,
@@ -278,6 +279,7 @@ async function processSingleProduct(
       },
     },
   };
+
   console.log(`Creating product schedule for ${row.product_group}`);
   const createdProduct = await Products.Save(productRequest.ID, productRequest);
   console.log(`Assigning product ${row.product_group} to catalog ${catalogID}`);
@@ -285,12 +287,30 @@ async function processSingleProduct(
     CatalogID: catalogID,
     ProductID: createdProduct.ID,
   });
-  console.log(`Assigning product ${row.product_group} to headstart catalog ${headstartCatalogID}`);
+
+  console.log(
+    `Assigning product ${row.product_group} to headstart catalog (usergroup) ${headstartCatalogID}`
+  );
   await Products.SaveAssignment({
     ProductID: createdProduct.ID,
     BuyerID: buyerID,
     UserGroupID: headstartCatalogID,
   });
+
+  const categoryIDs = row.ccids.split('|');
+  console.log(
+    `Assigning categories ${categoryIDs.join(',')} in catalog ${catalogID} to product ${
+      createdProduct.ID
+    }`
+  );
+
+  const categoryAssignmentRequests = categoryIDs.map((categoryID) =>
+    Categories.SaveProductAssignment(catalogID, {
+      CategoryID: categoryID,
+      ProductID: createdProduct.ID,
+    })
+  );
+  await Promise.all(categoryAssignmentRequests);
 }
 
 async function patchProductWithVariantFacets(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
