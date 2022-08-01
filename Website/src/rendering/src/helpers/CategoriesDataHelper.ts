@@ -15,7 +15,11 @@ export const getCategoryIdByUrlPath = (urlPath: string): string => {
     return '';
   }
   const urlParts = urlPath.split('/');
-  const categoryId = urlParts[urlParts.length - 1];
+  const categoriesTextIndex = urlParts.indexOf('categories');
+  if (categoriesTextIndex === -1) {
+    return '';
+  }
+  const categoryId = urlParts[categoriesTextIndex + 1];
   return categoryId;
 };
 
