@@ -8,11 +8,10 @@ import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
 import { logAddToCart } from '../../services/CdpService';
-import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
 import ProductBreadcrumb from '../Navigation/ProductBreadcrumb';
 import { Actions, PageController } from '@sitecore-discover/react';
 import Spinner from '../../components/ShopCommon/Spinner';
@@ -38,6 +37,8 @@ const ProductDetailsContent = ({
   const [specValues, setSpecValues] = useState<OrderCloudSpec[]>([]);
   const [variant, setVariant] = useState<Variant>(undefined);
   const loading = initialLoading || isLoading;
+
+  const pageTitle = loading ? 'loading...' : product ? product.Name : 'Product not found';
 
   // Handle LineItem edits
   const lineItemId = '';
@@ -135,9 +136,12 @@ const ProductDetailsContent = ({
           break;
         }
       }
+    } else {
+      setVariant(undefined);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [specValues]);
+  }, [specValues, variants]);
 
   const handleSpecFieldChange = (values: OrderCloudSpec) => {
     const tempSpecs: OrderCloudSpec[] = specValues.map((spec) => {
@@ -154,21 +158,25 @@ const ProductDetailsContent = ({
     setSpecValues(tempSpecs);
   };
 
-  const dispatchDiscoverAddToCartEvent = (product: BuyerProduct, quantity: number) => {
-    PageController.getDispatcher().dispatch({
-      type: Actions.ADD_TO_CART,
-      payload: {
-        page: 'pdp',
-        // TODO: On product with variants, Product.ID is equal to the Discover product group, not the variant SKU. We must send the variant SKU.
-        sku: product.ID,
-        quantity: quantity,
-        price:
-          product.PriceSchedule.PriceBreaks[0].SalePrice ||
-          product.PriceSchedule.PriceBreaks[0].Price,
-        priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
-      },
-    });
-  };
+  const dispatchDiscoverAddToCartEvent = useCallback(
+    (product: BuyerProduct, quantity: number) => {
+      const sku = !!variant ? variant.ID : product.ID;
+
+      PageController.getDispatcher().dispatch({
+        type: Actions.ADD_TO_CART,
+        payload: {
+          page: 'pdp',
+          sku: sku,
+          quantity: quantity,
+          price:
+            product.PriceSchedule.PriceBreaks[0].SalePrice ||
+            product.PriceSchedule.PriceBreaks[0].Price,
+          priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
+        },
+      });
+    },
+    [variant]
+  );
 
   const handleAddToCart = useCallback(
     async (e: FormEvent) => {
@@ -199,29 +207,13 @@ const ProductDetailsContent = ({
 
       dispatchDiscoverAddToCartEvent(product, quantity);
 
-      // TODO: Move building the event payload to CdpService, maybe using a mapper.
       // Retrieve the lineitem that was just created
       const resPayload: { LineItems?: LineItem[] } = response?.payload;
-      const sameProductLineItems = resPayload?.LineItems.filter(
-        (item) => item.ProductID === product.ID
-      );
-      const lineItem = sameProductLineItems[sameProductLineItems.length - 1];
-      const addToCartPayload: AddToCartPayload = {
-        product: {
-          type: lineItem.Product.xp.ProductType.toUpperCase(),
-          item_id: lineItem.Variant?.ID || lineItem.ProductID,
-          name: lineItem.Product.Name,
-          orderedAt: new Date().toISOString(),
-          quantity: quantity,
-          price: lineItem.UnitPrice,
-          productId: lineItem.ProductID,
-          currency: 'USD',
-          referenceId: lineItem.ID,
-        },
-      };
-      logAddToCart(addToCartPayload);
+      const lineItem = resPayload?.LineItems.find((item) => item.ProductID === product.ID);
+
+      logAddToCart(lineItem, quantity);
     },
-    [dispatch, product, specValues, quantity]
+    [dispatch, product, specValues, quantity, dispatchDiscoverAddToCartEvent]
   );
 
   const productImageProps =
@@ -290,12 +282,14 @@ const ProductDetailsContent = ({
     ],
   };
 
+  const btnText = `${lineItem ? 'Update' : 'Add To'} Cart`;
+
   const btnAddToCart = initialLoading ? (
     <Skeleton className="btn-main" width={168} />
   ) : (
     <button type="submit" className="btn-main" disabled={loading}>
-      {/* TODO: Extract JSX logic into a const */}
-      <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
+      <Spinner loading={loading} />
+      {btnText}
     </button>
   );
 
@@ -347,7 +341,7 @@ const ProductDetailsContent = ({
                     />
                     {quantityAlert}
                   </div>
-                  <PriceReact {...priceProps} altTheme sizeL loading={initialLoading} />
+                  <Price {...priceProps} altTheme sizeL loading={initialLoading} />
                   {productAddToCart}
                 </form>
               </div>
@@ -363,10 +357,7 @@ const ProductDetailsContent = ({
   return (
     <>
       <Head>
-        <title>
-          {/* TODO: Extract JSX logic into a const */}
-          PLAY! SHOP - {loading ? 'loading...' : product ? product.Name : 'Product not found'}
-        </title>
+        <title>PLAY! SHOP - {pageTitle}</title>
       </Head>
       {productDetails}
     </>

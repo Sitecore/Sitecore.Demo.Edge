@@ -20,9 +20,7 @@ const loadingState = {
 Loading.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -34,9 +32,7 @@ Editable.args = {
 Editable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -48,9 +44,7 @@ NonEditable.args = {
 NonEditable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];

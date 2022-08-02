@@ -188,7 +188,13 @@ Changes to the front-end project must be reverted from your Git client.
 
 ### Best Practices
 
+#### Never Use a Paragraph Element For a JSS RichText Component
+
 Using a RichText JSS element with a `tag="p"` prop causes issues when editing the element in Horizon. To be specific, Horizon will wrap your plain text inside a paragraph which results in nested `p` tags and an invalid HTML. For this reason it is suggested to use a block element that has no children restrictions like `div`, `section`, `blockquote`, etc.
+
+#### Use an Item ID Instead of an Item Path For Rendering Items Datasources
+
+When creating a rendering for a new Sitecore Component refrain from using paths as Datasources or inside GraphQL queries. Instead replace them with the corresponding Item IDs, so that renaming the items does not cause any issues later on.
 
 ### Custom Renderings Icons
 

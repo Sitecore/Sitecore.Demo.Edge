@@ -31,9 +31,29 @@ Object.defineProperty(nextImage, 'default', {
   value: props => <img {...props} />
 });
 
-const mockSitecoreContext = {
+export const mockSitecoreContext = {
   context: {
     pageEditing: false,
+    Languages: [
+      {
+        Name: 'en',
+      },
+      {
+        Name: 'en-US',
+      },
+      {
+        Name: 'fr',
+      },
+      {
+        Name: 'fr-CA',
+      },
+      {
+        Name: 'es-ES',
+      },
+      {
+        Name: 'ja-JP',
+      },
+    ],
   },
   setContext: () => {
     // nothing

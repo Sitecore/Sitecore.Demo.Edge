@@ -3,16 +3,15 @@ import { DLineItem } from 'src/models/ordercloud/DLineItem';
 import useOcProduct from '../../hooks/useOcProduct';
 import { patchLineItem, removeLineItem } from '../../redux/ocCurrentCart';
 import QuantityInput from '../ShopCommon/QuantityInput';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import GiftCheckboxLineItem from './GiftCheckboxLineItem';
 import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { AddToCartPayload } from '../../models/cdp/AddToCartPayload';
 import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
-import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import { getImageUrl, getProductSpecs } from '../../helpers/LineItemsHelpers';
 import Link from 'next/link';
 
 type LineItemCardProps = {
@@ -27,23 +26,11 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
 
   const product = useOcProduct(props.lineItem.ProductID);
 
-  const getProductSpecs = () => {
-    const lineItem = props.lineItem;
-    if (!lineItem.Specs?.length) {
-      return '';
-    }
-    const specValues = lineItem.Specs.map((spec) => (
-      <p key={spec.Value}>
-        {spec.Name}: {spec.Value}
-      </p>
-    ));
-    return <>{specValues}</>;
-  };
-
   const handleRemoveLineItem = useCallback(async () => {
     setRemoveLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
-    // TODO: Log CDP add to cart with a negative quantity equal to the quantity of product removed
+
+    logAddToCart(props.lineItem, -props.lineItem.Quantity);
   }, [dispatch, props.lineItem]);
 
   const handleUpdateQuantity = useCallback(
@@ -57,22 +44,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
       );
       setUpdateLoading(false);
 
-      // TODO: Move building the event payload to CdpService, maybe using a mapper.
-      const lineItem = props.lineItem;
-      const addToCartPayload: AddToCartPayload = {
-        product: {
-          type: lineItem.Product.xp.ProductType.toUpperCase(),
-          item_id: lineItem.Variant?.ID || lineItem.ProductID,
-          name: lineItem.Product.Name,
-          orderedAt: new Date().toISOString(),
-          quantity: quantity - lineItem.Quantity,
-          price: lineItem.UnitPrice,
-          productId: lineItem.ProductID,
-          currency: 'USD',
-          referenceId: lineItem.ID,
-        },
-      };
-      logAddToCart(addToCartPayload);
+      logAddToCart(props.lineItem, quantity - props.lineItem.Quantity);
     },
     [dispatch, props.lineItem]
   );
@@ -174,15 +146,19 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   // TODO: add functionality to field
   const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
-  // TODO: specs to return base and final price
   const priceBlock = (
-    <PriceReact
+    <Price
       price={props.lineItem.UnitPrice}
       finalPrice={props.lineItem.UnitPrice}
       altTheme={true}
       sizeL={true}
     />
   );
+
+  const productSpecs = getProductSpecs(props.lineItem).map((obj) => {
+    const [key, value] = Object.entries(obj)[0];
+    return <p key={key}>{value}</p>;
+  });
 
   const lineItemCard = (
     <div className="line-item-card">
@@ -197,7 +173,7 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         </Link>
         <div className="product-specs">
           <p>{props.lineItem.Product.xp?.Brand}</p>
-          {getProductSpecs()}
+          {productSpecs}
           {staticQuantityBlock}
           {staticUserComment}
         </div>

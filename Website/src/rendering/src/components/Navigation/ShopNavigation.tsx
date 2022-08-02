@@ -1,7 +1,5 @@
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
-import { Actions, PageController } from '@sitecore-discover/react';
-import mapProductsForDiscover from '../../../src/helpers/discover/ProductMapper';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +10,7 @@ import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearc
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import AccountPopup from './AccountPopup';
+import { dispatchDiscoverCartStatusListActionEvent } from '../../helpers/discover/CartStatusDispatcher';
 
 export type ShopNavigationProps = {
   previewSearchProps?: PreviewSearchProps; // For Storybook support
@@ -30,34 +29,22 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   const closeAccountPopup = () => setIsAccountPopupOpen(false);
   ClickOutside([accountPopupRef], closeAccountPopup);
 
-  // TODO: Remove conditions from JSX
+  const accountPopupActiveClass = isAccountPopupOpen ? 'active' : '';
+  const accountPopupOpenClass = isAccountPopupOpen ? 'open' : '';
   const accountMenuItem = isAuthenticationEnabled && (
-    <li
-      className={`shop-navigation-menu-item ${isAccountPopupOpen && 'active'}`}
-      ref={accountPopupRef}
-    >
+    <li className={`shop-navigation-menu-item ${accountPopupActiveClass}`} ref={accountPopupRef}>
       <button onClick={() => setIsAccountPopupOpen(!isAccountPopupOpen)}>
         <FontAwesomeIcon id="user-icon" icon={faUserCircle} />
       </button>
-      <div className={`account-popup-wrapper ${isAccountPopupOpen && 'open'}`}>
+      <div className={`account-popup-wrapper ${accountPopupOpenClass}`}>
         <AccountPopup onNavigatingAway={closeAccountPopup} />
       </div>
     </li>
   );
 
-  // TODO: Try to remove code duplication here and in LineItemList.tsx
-  const dispatchDiscoverCartStatusListActionEvent = () => {
-    PageController.getDispatcher().dispatch({
-      type: Actions.CART_STATUS,
-      payload: {
-        products: mapProductsForDiscover(lineItems),
-      },
-    });
-  };
-
   const handleCartIconClick = () => {
     if (!isMiniCartOpen && lineItems?.length !== undefined) {
-      dispatchDiscoverCartStatusListActionEvent();
+      dispatchDiscoverCartStatusListActionEvent(lineItems);
     }
     setIsMiniCartOpen(!isMiniCartOpen);
   };
@@ -67,6 +54,9 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
   ) : (
     <DiscoverWidget rfkId="rfkid_6" />
   );
+
+  const miniCartActiveClass = isMiniCartOpen ? 'active' : '';
+  const miniCartOpenClass = isMiniCartOpen ? 'open' : '';
 
   return (
     <nav className="shop-navigation">
@@ -80,19 +70,15 @@ const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
         </div>
         <div className="items-container">
           <ul>
-            {/* TODO: Remove condition from JSX */}
             <li
-              className={`shop-navigation-menu-item cart-menu-item ${
-                isMiniCartOpen ? 'active' : ''
-              }`}
+              className={`shop-navigation-menu-item cart-menu-item ${miniCartActiveClass}`}
               ref={miniCartRef}
             >
               <button onClick={handleCartIconClick}>
                 <FontAwesomeIcon id="cart-icon" icon={faShoppingCart} />
                 <CartBadge />
               </button>
-              {/* TODO: Remove condition from JSX */}
-              <div className={`mini-cart-wrapper ${isMiniCartOpen ? 'open' : ''}`}>
+              <div className={`mini-cart-wrapper ${miniCartOpenClass}`}>
                 <MiniCart onNavigatingAway={closeMinicart} />
               </div>
             </li>

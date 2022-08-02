@@ -1,20 +1,12 @@
-import Head from 'next/head';
-import debounce from '../../../src/helpers/Debounce';
-import FacetList from './FacetList';
-import ProductList from '../ShopCommon/ProductList';
-import SearchControls from './SearchControls';
-import { ChangeEvent, useEffect, useState } from 'react';
-import {
-  SearchResultsActions,
-  SearchResultsPageNumberChangedActionPayload,
-  SearchResultsFacetClickedChangedActionPayload,
-  SearchResultsSortChangedActionPayload,
-} from '@sitecore-discover/widgets';
 import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
-import CategoryHero from '../Products/CategoryHero';
+import { useEffect, useState } from 'react';
+import debounce from '../../../src/helpers/Debounce';
+import { SearchResultsActions } from '@sitecore-discover/widgets';
+import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
+import { Product } from '../../models/discover/Product';
 
-interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
+export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
 }
 
@@ -32,6 +24,7 @@ const FullPageSearch = ({
   sortChoices,
   products,
   facets,
+  numberOfItems,
   dispatch,
   onFacetClick,
   onClearFilters,
@@ -40,7 +33,9 @@ const FullPageSearch = ({
 }: FullPageSearchResultsProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
 
-  const [toggle, setToggle] = useState(false);
+  const category = getCategoryByUrlPath(window.location.pathname);
+
+  const [loadedProducts, setLoadedProducts] = useState([]);
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
@@ -48,6 +43,10 @@ const FullPageSearch = ({
     500,
     false
   );
+
+  const onSearchInputChange = (keyphrase: string) => {
+    setKeyphrase(keyphrase);
+  };
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -59,114 +58,79 @@ const FullPageSearch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (error) {
-    return <div>Response error</div>;
-  }
+  useEffect(() => {
+    if (!loaded && loading) return;
 
-  const handleFacetClick = (payload: SearchResultsFacetClickedChangedActionPayload) => {
-    onFacetClick(payload);
+    const productsFromSessionStorage = loadProductsFromSessionStorage();
+
+    let productsToDisplay = [];
+    let initialProducts = [];
+    if (productsFromSessionStorage && products) {
+      if (isCategoryProductListingPage) {
+        productsToDisplay = [...productsFromSessionStorage, ...products];
+      } else {
+        // BUG: Discover initially sends back a full page of products - currently 10, not relevant
+        // to the keyphrase, and then updates the products with the correct ones
+        initialProducts = productsFromSessionStorage.splice(0, 10);
+        productsToDisplay = [...productsFromSessionStorage, ...products];
+      }
+      // Filter the products so that we don't include duplicates when refreshing the page
+      productsToDisplay = productsToDisplay.filter(
+        (value: Product, index: number, self: Product[]) =>
+          self.findIndex((v) => v.sku === value.sku) === index
+      );
+    } else if (products) {
+      productsToDisplay = products;
+    } else {
+      return;
+    }
+    setLoadedProducts(productsToDisplay);
+    saveProductsToSessionStorage(
+      isCategoryProductListingPage ? productsToDisplay : [...initialProducts, ...productsToDisplay]
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
+
+  const getSessionStorageKey = (): string => {
+    if (isCategoryProductListingPage && keyphrase) {
+      return `${category.ccid} - ${keyphrase} products`;
+    } else if (isCategoryProductListingPage) {
+      return `${category.ccid} products`;
+    } else {
+      return `${keyphrase} products`;
+    }
   };
 
-  const handleFacetClear = () => {
-    onClearFilters();
+  const saveProductsToSessionStorage = (products: Product[]) => {
+    sessionStorage.setItem(getSessionStorageKey(), JSON.stringify(products));
   };
 
-  const handlePageNumberChange = (pageNumber: string) => {
-    const pageNo: SearchResultsPageNumberChangedActionPayload = {
-      rfkId,
-      page: Number(pageNumber),
-    };
-    onPageNumberChange(pageNo);
-  };
-
-  const handleSortChange = (payload: SearchResultsSortChangedActionPayload) => {
-    onSortChange(payload);
-  };
-
-  const handleToggleClick = () => {
-    const isVisible = !toggle;
-    setToggle(isVisible);
-    document.body.classList.toggle('shop-facet-panel-open', isVisible);
-  };
-
-  const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setKeyphrase(e.target.value || '');
-  };
-
-  const numberOfResults = !loading && totalPages > 0 && (
-    <div className="items-num">{totalItems} items</div>
-  );
-
-  const noResultsMessage = totalItems === 0 && 'No results found';
-
-  const sortFacetProps = {
-    sortChoices,
-    sortType,
-    sortDirection,
-    onSortChange: handleSortChange,
-  };
-
-  // TODO: Extract this whole component except this line that gets the URL path into a FullPageSearchContent.tsx component that will accept an extra prop for the urlPath. Then rename the FullPageSearch.stories.tsx to FullPageSearchContent.stories.tsx and test the sub component. Create test cases when the urlPath is for a non-existing category, an existing category, etc.
-  const category = getCategoryByUrlPath(window.location.pathname);
-
-  const pageTitle = isCategoryProductListingPage && category ? category.name : 'Products';
-
-  const categoryHero = isCategoryProductListingPage && category && (
-    <CategoryHero category={category} />
-  );
+  const loadProductsFromSessionStorage = () =>
+    JSON.parse(sessionStorage.getItem(getSessionStorageKey()));
 
   return (
-    <>
-      <Head>
-        <title>PLAY! SHOP - {pageTitle}</title>
-      </Head>
-
-      {categoryHero}
-      <section className="full-page-search section">
-        <div className="full-page-search-container">
-          <div className="facet-panel-mask"></div>
-          <div className="full-page-search-left">
-            <FacetList
-              facets={facets}
-              onFacetClick={handleFacetClick}
-              onClear={handleFacetClear}
-              sortFacetProps={sortFacetProps}
-              onToggleClick={handleToggleClick}
-              isCategoryProductListingPage={isCategoryProductListingPage}
-              onSearchInputChange={handleSearchInputChange}
-            />
-            <div className="button-container">
-              <button className="btn-main" onClick={handleToggleClick}>
-                Show {totalItems} results
-              </button>
-            </div>
-          </div>
-          <div className="full-page-search-right">
-            <div data-page={page}>
-              <div className="full-page-search-header">
-                <div className="full-page-search-controls">
-                  {numberOfResults}
-                  <SearchControls
-                    totalPages={totalPages}
-                    page={page}
-                    sortChoices={sortChoices}
-                    sortType={sortType}
-                    sortDirection={sortDirection}
-                    onPageNumberChange={handlePageNumberChange}
-                    onSortChange={handleSortChange}
-                  />
-                </div>
-                <button className="btn-main facet-container-toggle" onClick={handleToggleClick}>
-                  Filter
-                </button>
-              </div>
-              {noResultsMessage}
-              <ProductList products={products} loaded={loaded} loading={loading} />
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+    <FullPageSearchContent
+      rfkId={rfkId}
+      error={error}
+      loaded={loaded}
+      loading={loading}
+      page={page}
+      totalPages={totalPages}
+      totalItems={totalItems}
+      sortType={sortType}
+      sortDirection={sortDirection}
+      sortChoices={sortChoices}
+      products={loadedProducts}
+      facets={facets}
+      numberOfItems={numberOfItems}
+      dispatch={dispatch}
+      onFacetClick={onFacetClick}
+      onClearFilters={onClearFilters}
+      onPageNumberChange={onPageNumberChange}
+      onSortChange={onSortChange}
+      onSearchInputChange={onSearchInputChange}
+      category={category}
+    />
   );
 };
 

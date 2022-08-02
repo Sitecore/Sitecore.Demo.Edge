@@ -7,6 +7,7 @@ import { isSameAddress } from '../../helpers/AddressHelper';
 import useOcAddressBook from '../../hooks/useOcAddressBook';
 import useOcAuth from '../../hooks/useOcAuth';
 import CheckoutAddressList from './CheckoutAddressList';
+import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 
 const PanelBillingAddress = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -27,7 +28,7 @@ const PanelBillingAddress = (): JSX.Element => {
     filters: { Editable: true }, // personal addresses
   });
 
-  const isShipOrder = order?.xp?.DeliveryType === 'Ship';
+  const isShipOrder = order?.xp?.DeliveryType === DeliveryTypes.Ship;
 
   useEffect(() => {
     const updatedIsSameAsShipping = isSameAddress(billingAddress, shippingAddress);

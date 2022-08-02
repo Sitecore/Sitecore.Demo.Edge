@@ -118,6 +118,26 @@ export const mockMainNavigationFields = {
 };
 
 export const mockHeaderProps = {
+  fields: {
+    data: {
+      item: {
+        children: {
+          results: [
+            {
+              displayName: 'Link 1',
+              field: {
+                jsonValue: {
+                  value: {
+                    href: '/url1',
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+  },
   rendering: {
     placeholders: {
       'jss-header-content': [

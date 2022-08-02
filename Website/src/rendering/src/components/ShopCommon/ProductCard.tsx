@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import Price from './Price';
 
-// TODO: add story for component
-
 type ProductCardProps = {
   className?: string;
   onClick?: () => void;
@@ -31,16 +29,17 @@ const ProductCard = ({
   altTheme,
 }: ProductCardProps): JSX.Element => {
   // TODO: add functionality to offer ribbon
+  const productOfferRibbon = (
+    <span className={`product-offer ${altTheme ? 'product-offer-orange' : ''}`}>Spring Sale!</span>
+  );
+
   return (
     <div className="product-card">
       <div className="product-image-container">
         <Link href={product_url}>
           <a onClick={onClick}>
             <img className="product-image" src={image_url} alt={name} />
-            {/* TODO: Extract JSX logic into a const */}
-            <span className={`product-offer ${altTheme ? 'product-offer-orange' : ''}`}>
-              Spring Sale!
-            </span>
+            {productOfferRibbon}
           </a>
         </Link>
       </div>
