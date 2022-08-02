@@ -38,7 +38,7 @@
    |Field|Value|Note|
    |-|-|-|
    |Request Method|POST||
-   |Request URL|`https://api.moosend.com/v3/subscribers/ceda7fd4-df53-4e10-b6dc-8a637266d141/subscribe.json?apikey=Redacted`|Replace `Redacted` by your Sitecore Send API key.|
+   |Request URL|`https://api.moosend.com/v3/subscribers/{EMAIL_LIST_ID}/subscribe.json?apikey=Redacted`|Replace `{EMAIL_LIST_ID}` by a GUID from a Sitecore Send email list.<br/><br/>Replace `Redacted` by your Sitecore Send API key.|
    |Headers|See below for headers||
    |Connection Timeout|1000||
    |Read Timeout|1000||
