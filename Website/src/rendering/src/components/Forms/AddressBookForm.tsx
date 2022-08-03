@@ -44,7 +44,7 @@ const AddressBookForm = (props: AddressBookFormProps): JSX.Element => {
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.address]);
+  }, [props.address, props.user]);
 
   const handleAddressFormChange = (changes: OnAddressChangeEvent) => {
     setAddress({ ...address, ...changes.address });
