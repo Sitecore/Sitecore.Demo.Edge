@@ -1,0 +1,52 @@
+﻿---
+ID: "772b4b7f-d426-41c4-9126-2105a637cbca"
+Parent: "f9babd75-6592-5989-b3d9-63e13db2217b"
+Template: "7ff7c2d7-f5e1-57f1-a3f3-812418ac08aa"
+Path: /sitecore/content/EdgeWebsite/Data/Components/ThreeColumnCta/Demo Three Column Cta
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220729T101912Z
+    - ID: "3f8b5931-7a77-5142-b1f0-60e70c054056"
+      Hint: rightHeading
+      Value: 10+
+    - ID: "4eda31c4-fc05-5617-9af7-e0d1078beb16"
+      Hint: leftDescription
+      Value: vel luctus est
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "54372bd6-0da0-5051-b260-ddc7e6d7cc78"
+      Hint: leftHeading
+      Value: 20+
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "7644409c-22b8-5351-b56d-6f9f7a98a7ab"
+      Hint: middleDescription
+      Value: Sed vestibulum
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "fe836839-28d3-4f2b-b147-6d308f86215f"
+    - ID: "9067f7da-50eb-5d2f-bd0d-157b59412cfa"
+      Hint: rightDescription
+      Value: Donec at mi tellus
+    - ID: "ac952184-5994-50aa-8680-9c6f40495491"
+      Hint: middleHeading
+      Value: 300+
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220729T102036Z
