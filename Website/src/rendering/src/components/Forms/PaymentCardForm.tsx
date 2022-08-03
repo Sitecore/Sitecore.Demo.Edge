@@ -22,14 +22,18 @@ export type PaymentCardFormChangeHandler = ({
 
 const PaymentCardForm = (props: PaymentCardFormProps): JSX.Element => {
   const [cardholderName, setCardholderName] = useState(
-    props?.creditCard?.ID ? props?.creditCard?.CardholderName : ''
+    props?.creditCard?.CardholderName ? props?.creditCard?.CardholderName : ''
   );
   const [cardNumber, setCardNumber] = useState(props?.fullCardNumber ? props.fullCardNumber : '');
   const [expirationMonth, setExpirationMonth] = useState(
-    getMonthFromIsoDateString(props?.creditCard?.ID ? props?.creditCard?.ExpirationDate : '')
+    getMonthFromIsoDateString(
+      props?.creditCard?.ExpirationDate ? props?.creditCard?.ExpirationDate : ''
+    )
   );
   const [expirationYear, setExpirationYear] = useState(
-    getYearFromIsoDateString(props?.creditCard?.ID ? props?.creditCard?.ExpirationDate : '')
+    getYearFromIsoDateString(
+      props?.creditCard?.ExpirationDate ? props?.creditCard?.ExpirationDate : ''
+    )
   );
 
   useEffect(() => {
@@ -55,6 +59,7 @@ const PaymentCardForm = (props: PaymentCardFormProps): JSX.Element => {
     setExpirationMonth(getMonthFromIsoDateString(props?.creditCard?.ExpirationDate || ''));
     setExpirationYear(getYearFromIsoDateString(props?.creditCard?.ExpirationDate || ''));
     setCardNumber(props?.fullCardNumber || '');
+    console.log(props?.creditCard?.CardholderName);
   }, [props.creditCard, props.fullCardNumber]);
 
   const yearNow = new Date().getFullYear();

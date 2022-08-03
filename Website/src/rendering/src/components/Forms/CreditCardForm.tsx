@@ -45,7 +45,11 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
 
   return (
     <form onSubmit={handleFormSubmit} className="form creditcard-form">
-      <PaymentCardForm creditCard={props.creditCard} onChange={handlePaymentCardFormChange} />
+      <PaymentCardForm
+        creditCard={props.creditCard}
+        onChange={handlePaymentCardFormChange}
+        fullCardNumber={props.fullCardNumber}
+      />
       <div className="button-area">
         {cancelEditButton}
         <button className="btn-main" type="submit" disabled={props.loading}>
