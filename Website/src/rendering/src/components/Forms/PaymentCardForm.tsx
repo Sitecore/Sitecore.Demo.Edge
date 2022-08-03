@@ -8,17 +8,17 @@ import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 
 type PaymentCardFormProps = {
   creditCard?: DBuyerCreditCard;
-  onChange?: ({
-    creditCard,
-    fullCardNumber,
-  }: {
-    creditCard: DBuyerCreditCard;
-    fullCardNumber: string;
-  }) => void;
-  isEditing?: boolean;
-  loading?: boolean;
+  onChange?: PaymentCardFormChangeHandler;
   fullCardNumber?: string;
 };
+
+export type PaymentCardFormChangeHandler = ({
+  creditCard,
+  fullCardNumber,
+}: {
+  creditCard: DBuyerCreditCard;
+  fullCardNumber: string;
+}) => void;
 
 const PaymentCardForm = (props: PaymentCardFormProps): JSX.Element => {
   const [cardholderName, setCardholderName] = useState(
