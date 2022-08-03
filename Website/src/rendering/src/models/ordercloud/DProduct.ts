@@ -14,6 +14,7 @@ export interface DProductXp {
   ShortDescription?: string;
   Brand?: string;
   CCID?: string;
+  CCIDs?: string[];
   Price?: string; // using b2c retail price as basis for sorting, may not match real price user sees
   Facets?: {
     color?: string;

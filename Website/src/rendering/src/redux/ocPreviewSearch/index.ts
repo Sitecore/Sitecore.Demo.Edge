@@ -26,11 +26,14 @@ export const keyphraseChanged = createOcAsyncThunk<
   const productListRequest = Me.ListProducts<DBuyerProduct>({
     pageSize: 10,
     search: keyphrase,
+    depth: 'all',
+    sortBy: ['Name'],
   });
   const categoryListRequest = Me.ListCategories<DCategory>({
     pageSize: 10,
     search: keyphrase,
     depth: 'all',
+    sortBy: ['Name'],
   });
   const [productList, categoryList] = await Promise.all([productListRequest, categoryListRequest]);
   const products = productList.Items;
@@ -50,11 +53,13 @@ export const categoryChanged = createOcAsyncThunk<
     pageSize: 10,
     categoryID: categoryID,
     depth: 'all',
+    sortBy: ['Name'],
   });
   const categoryListRequest = Me.ListCategories<DCategory>({
     pageSize: 10,
     search: categoryID,
     depth: 'all',
+    sortBy: ['Name'],
   });
   const [productList, categoryList] = await Promise.all([productListRequest, categoryListRequest]);
   const products = productList.Items;

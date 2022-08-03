@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import FullPageSearch from './FullPageSearch';
+import FullPageSearch, { FullPageSearchResultsProps } from './FullPageSearch';
 import useOcProductList from '../../hooks/useOcProductList';
 import {
   SearchResultsFacetClickedChangedActionPayload,
@@ -15,7 +15,7 @@ import { getCategoryIdByUrlPath } from '../../helpers/CategoriesDataHelper';
 
 const OrderCloudFullPageSearch = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const productListState = useOcProductList();
+  const productListState = useOcProductList() as unknown as FullPageSearchResultsProps;
   const [rfkid, setRfkid] = useState<string>('');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [facetFilters, setFacetFilters] = useState<any>({});
@@ -29,7 +29,7 @@ const OrderCloudFullPageSearch = (): JSX.Element => {
   };
 
   const buildExistingOptions = (): OcProductListOptions => {
-    let sortBy: string[];
+    let sortBy: string[] = ['Name']; // default sort
     if (productListState.sortType) {
       if (productListState.sortDirection === 'desc') {
         sortBy = [`!${productListState.sortType}`];

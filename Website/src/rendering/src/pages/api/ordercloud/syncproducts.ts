@@ -313,31 +313,41 @@ async function createProductAssignments(
   buyerID: string,
   headstartCatalogID: string
 ) {
-  console.log(`Assigning product ${product.ID} to catalog ${catalogID}`);
-  await Catalogs.SaveProductAssignment({
-    CatalogID: catalogID,
-    ProductID: product.ID,
-  });
-
-  console.log(`Assigning product ${product.ID} to headstart catalog ${headstartCatalogID}`);
-  await Products.SaveAssignment({
-    ProductID: product.ID,
-    BuyerID: buyerID,
-    UserGroupID: headstartCatalogID,
-  });
-
+  const assignmentRequests = [];
   const categoryIDs = product.xp.CCIDs;
-  console.log(
-    `Assigning categories ${categoryIDs.join(',')} in catalog ${catalogID} to product ${product.ID}`
-  );
 
-  const categoryAssignmentRequests = categoryIDs.map((categoryID) =>
-    Categories.SaveProductAssignment(catalogID, {
-      CategoryID: categoryID,
+  console.log(
+    `Assigning product ${
+      product.ID
+    } to catalog ${catalogID}, to headstart catalog (usergroup) ${headstartCatalogID} and to categories ${categoryIDs.join(
+      ','
+    )}`
+  );
+  assignmentRequests.push(
+    Catalogs.SaveProductAssignment({
+      CatalogID: catalogID,
       ProductID: product.ID,
     })
   );
-  await Promise.all(categoryAssignmentRequests);
+
+  assignmentRequests.push(
+    Products.SaveAssignment({
+      ProductID: product.ID,
+      BuyerID: buyerID,
+      UserGroupID: headstartCatalogID,
+    })
+  );
+
+  categoryIDs.forEach((categoryID) => {
+    assignmentRequests.push(
+      Categories.SaveProductAssignment(catalogID, {
+        CategoryID: categoryID,
+        ProductID: product.ID,
+      })
+    );
+  });
+
+  await Promise.all(assignmentRequests);
 }
 
 async function patchProductWithVariantFacets(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
