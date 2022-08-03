@@ -50,6 +50,13 @@ const PaymentCardForm = (props: PaymentCardFormProps): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardholderName, cardNumber, expirationMonth, expirationYear]);
 
+  useEffect(() => {
+    setCardholderName(props?.creditCard?.CardholderName || '');
+    setExpirationMonth(getMonthFromIsoDateString(props?.creditCard?.ExpirationDate || ''));
+    setExpirationYear(getYearFromIsoDateString(props?.creditCard?.ExpirationDate || ''));
+    setCardNumber(props?.fullCardNumber || '');
+  }, [props.creditCard, props.fullCardNumber]);
+
   const yearNow = new Date().getFullYear();
   const expirationYearRange = new Array(11).fill('').map((_, index) => yearNow + index);
   const expirationMonthRange = new Array(12)

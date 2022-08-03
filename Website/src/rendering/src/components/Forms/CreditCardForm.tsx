@@ -20,8 +20,6 @@ const CreditCardForm = (props: CreditCardFormProps): JSX.Element => {
     creditCard,
     fullCardNumber,
   }) => {
-    console.log(creditCard);
-    console.log(fullCardNumber);
     setCreditCard(creditCard);
     setCardNumber(fullCardNumber);
   };
