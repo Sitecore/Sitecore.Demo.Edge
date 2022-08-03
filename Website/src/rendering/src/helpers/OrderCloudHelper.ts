@@ -51,7 +51,7 @@ export const mapOrderCloudCategoryToCategoriesDataCategory = (
   };
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
 export const mapOrderderCloudFacetToDiscoverFacet = (facet: ListFacet, filters: any): Facet => {
   const selectedFacet = filters && filters[`xp.${facet.XpPath}`];
   return {
