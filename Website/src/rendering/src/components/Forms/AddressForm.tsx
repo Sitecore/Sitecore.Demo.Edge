@@ -44,11 +44,27 @@ const AddressForm = (props: AddressFormProps): JSX.Element => {
         Country: country,
         State: state,
         Zip: zip,
+        Shipping: true,
+        Billing: true,
       },
     });
     // We do not add 'props' to the useEffect dependencies to avoid a render loop
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [country, street1, street2, city, state, zip, firstName, lastName]);
+
+  useEffect(() => {
+    setStates(GeographyService.getStatesOrProvinces(props.address?.Country || countries[0].code));
+    setCountry(props?.address?.Country || '');
+    setFirstName(props?.address?.FirstName || '');
+    setLastName(props?.address?.LastName || '');
+    setStreet1(props?.address?.Street1 || '');
+    setStreet2(props?.address?.Street2 || '');
+    setCity(props?.address?.City || '');
+    setState(props?.address?.State || '');
+    setZip(props?.address?.Zip || '');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.address]);
 
   const handleCountryChange = (countryCode: string) => {
     setCountry(countryCode);
