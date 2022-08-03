@@ -6,17 +6,16 @@ import { faShoppingCart, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import MiniCart from '../Checkout/MiniCart';
 import CartBadge from '../ShopCommon/CartBadge';
 import DiscoverWidget from '../ShopCommon/DiscoverWidget';
-import PreviewSearch from '../PreviewSearch/PreviewSearch';
+import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearch';
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import AccountPopup from './AccountPopup';
 import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
-import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import OrderCloudPreviewSearch from '../PreviewSearch/OrderCloudPreviewSearch';
 import { dispatchDiscoverCartStatusListActionEvent } from '../../helpers/discover/CartStatusDispatcher';
 
 export type ShopNavigationProps = {
-  storyBookPreviewSearchProps?: PreviewSearchWidgetProps; // For Storybook support
+  storyBookPreviewSearchProps?: PreviewSearchProps; // For Storybook support
 };
 
 const ShopNavigation = (props: ShopNavigationProps): JSX.Element => {
