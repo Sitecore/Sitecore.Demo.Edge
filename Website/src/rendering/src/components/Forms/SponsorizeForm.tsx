@@ -1,11 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
-import {
-  getGuestEmail,
-  getGuestFirstName,
-  getGuestLastName,
-  identifyVisitor,
-} from '../../services/CdpService';
+import { identifyVisitor } from '../../services/CdpService';
+import { getUserData } from '../../helpers/GuestDataHelper';
 
 const SponsorizeForm = (): JSX.Element => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -15,25 +11,15 @@ const SponsorizeForm = (): JSX.Element => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   useEffect(() => {
-    const getUserData = async () => {
-      const email = await getGuestEmail();
-      const firstName = await getGuestFirstName();
-      const lastName = await getGuestLastName();
+    const setUserData = async () => {
+      const userData = await getUserData();
 
-      if (email) {
-        setEmail(email);
-      }
-
-      if (firstName) {
-        setFirstName(firstName);
-      }
-
-      if (lastName) {
-        setLastName(lastName);
-      }
+      setFirstName(userData.firstName);
+      setLastName(userData.lastName);
+      setEmail(userData.email);
     };
 
-    getUserData();
+    setUserData();
   }, []);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {

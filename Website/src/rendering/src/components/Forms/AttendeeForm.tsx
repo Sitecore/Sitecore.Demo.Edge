@@ -1,12 +1,8 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
-import {
-  getGuestEmail,
-  getGuestFirstName,
-  getGuestLastName,
-  identifyVisitor,
-} from '../../services/CdpService';
+import { identifyVisitor } from '../../services/CdpService';
+import { getUserData } from '../../helpers/GuestDataHelper';
 
 const AttendeeForm = (): JSX.Element => {
   const ticketId =
@@ -17,25 +13,15 @@ const AttendeeForm = (): JSX.Element => {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    const getUserData = async () => {
-      const email = await getGuestEmail();
-      const firstName = await getGuestFirstName();
-      const lastName = await getGuestLastName();
+    const setUserData = async () => {
+      const userData = await getUserData();
 
-      if (email) {
-        setEmail(email);
-      }
-
-      if (firstName) {
-        setFirstName(firstName);
-      }
-
-      if (lastName) {
-        setLastName(lastName);
-      }
+      setFirstName(userData.firstName);
+      setLastName(userData.lastName);
+      setEmail(userData.email);
     };
 
-    getUserData();
+    setUserData();
   }, []);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
