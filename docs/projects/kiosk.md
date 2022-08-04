@@ -21,6 +21,17 @@ In an elevated PowerShell terminal:
 1. Navigate to the kiosk folder: `cd .\kiosk`
 2. Install NodeJs packages from NPM: `npm install`
 
+### Sitecore Content Hub Module Configuration
+
+The kiosk project uses Sitecore Content Hub Edge.
+
+1. Edit the `.\kiosk\.env` file.
+2. Fill in the following values:
+   1. **NEXT_PUBLIC_CMP_DELIVERY_ENDPOINT_URL**: `https://edge-beta.sitecorecloud.io/api/graphql/v1`
+   2. **NEXT_PUBLIC_CMP_DELIVERY_API_KEY**: Your Content Hub Edge delivery API key.
+   3. **NEXT_PUBLIC_DAM_INSTANCE_URL**: Your Content Hub sandbox URL.
+3. Save the file.
+
 ### Optional: Sitecore CDP Module Configuration
 
 If you want the kiosk application to save contact information in Sitecore CDP, you must:
