@@ -59,7 +59,6 @@ const PaymentCardForm = (props: PaymentCardFormProps): JSX.Element => {
     setExpirationMonth(getMonthFromIsoDateString(props?.creditCard?.ExpirationDate || ''));
     setExpirationYear(getYearFromIsoDateString(props?.creditCard?.ExpirationDate || ''));
     setCardNumber(props?.fullCardNumber || '');
-    console.log(props?.creditCard?.CardholderName);
   }, [props.creditCard, props.fullCardNumber]);
 
   const yearNow = new Date().getFullYear();
