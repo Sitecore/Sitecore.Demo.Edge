@@ -28,7 +28,15 @@ $syncFilesMappings = @(
         ".\tv\.vscode\settings.json",
         ".\Website\src\rendering\.vscode\settings.json",
         ".\demo\experience\cdp\guestDataGenerator\.vscode\settings.json"
-    )
+    ),
+    @{
+        ".\.vscode\extensions.json",
+        ".\Website\.vscode\extensions.json",
+        ".\Website\src\rendering\.vscode\extensions.json",
+        ".\demo\experience\cdp\guestDataGenerator\.vscode\extensions.json",
+        ".\kiosk\.vscode\extensions.json",
+        ".\tv\.vscode\extensions.json"
+    }
 )
 
 foreach ($syncFilesMapping in $syncFilesMappings) {
