@@ -1,0 +1,71 @@
+.order-review-details {
+  @apply mb-5;
+
+  h1 {
+    @apply text-2xl font-bold overflow-hidden text-ellipsis;
+    @apply sm:px-0;
+  }
+
+  .order-date {
+    @apply text-black-lightest;
+  }
+
+  .order-status {
+    @apply relative -right-5 float-right clear-left text-white text-xs px-3 py-0.5;
+    @apply sm:static;
+  }
+
+  .grid-container {
+    @apply grid grid-cols-1 gap-4 mt-3 -mx-5;
+    @apply sm:grid-cols-2 sm:mx-0;
+
+    .panel {
+      @apply bg-white h-[max-content];
+
+      &-header {
+        @apply px-2 py-1 text-white font-bold bg-blue;
+      }
+
+      &-body {
+        @apply px-3 py-4 mb-3 text-sm;
+
+        .title {
+          @apply font-bold;
+
+          &:not(.payment-title) {
+            @apply mt-3;
+          }
+        }
+      }
+
+      &.line-items-panel {
+        @apply bg-transparent;
+
+        .panel-body {
+          @apply p-0;
+        }
+      }
+    }
+
+    .line-item-card {
+      @apply px-5 py-2 my-4 bg-white;
+      @apply sm:px-2;
+
+      &-details {
+        @apply grid gap-x-4 grid-cols-[auto_1fr] mb-2;
+      }
+
+      .product-name {
+        @apply font-bold mb-2 row-start-1 col-start-1 col-span-2 text-base;
+      }
+
+      .product-specs {
+        @apply text-sm row-start-2 col-start-2;
+      }
+
+      img {
+        @apply w-14 h-14 object-contain;
+      }
+    }
+  }
+}

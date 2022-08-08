@@ -9,13 +9,13 @@ SharedFields:
   Value: Breadcrumb
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/arrow_right.png
+  Value: edgeicons/32x32/breadcrumb.png
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query($contextItem: String!) {
+    query($contextItem: String!, $language: String!) {
       # Assume item id is available on page
-      item(path: $contextItem , language: "en") {
+      item(path: $contextItem , language: $language) {
         url {
           path
         }
@@ -64,11 +64,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e33f243e-c903-4f01-a0f3-cb37f7e4204d"
+      Value: "47b22f96-9871-4376-bf4e-fd22f7904538"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210824T211724Z
+      Value: 20220221T085744Z

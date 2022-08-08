@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { ImageField, Image } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 
 export type MainNavigationProps = ComponentProps & {
   fields: {
@@ -12,12 +13,40 @@ export type MainNavigationProps = ComponentProps & {
           alt: string;
         };
       };
+      links: {
+        children: {
+          results: [
+            {
+              displayName: string;
+              field: {
+                jsonValue: {
+                  value: {
+                    anchor: string;
+                    href: string;
+                    linktype: string;
+                    target: string;
+                    text: string;
+                    url: string;
+                  };
+                };
+              };
+            }
+          ];
+        };
+      };
     };
   };
 };
 
 const MainNavigation = (props: MainNavigationProps): JSX.Element => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const shopLink = isCommerceEnabled && (
+    <li className="text-menu-item">
+      <Link href="/shop">
+        <a>Shop</a>
+      </Link>
+    </li>
+  );
 
   return (
     <nav className="main-navigation">
@@ -48,39 +77,17 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
         </div>
         <div className={'items-container' + (navbarOpen ? ' opened' : ' closed')}>
           <ul>
-            <li className="text-menu-item">
-              <Link href="/sessions">
-                <a>Sessions</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/speakers">
-                <a>Speakers</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/vendors">
-                <a>Vendors</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/sponsors">
-                <a>Sponsors</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/about-us">
-                <a>About Us</a>
-              </Link>
-            </li>
-            <li className="text-menu-item">
-              <Link href="/shop">
-                <a>Shop</a>
-              </Link>
-            </li>
+            {props.fields?.data?.links?.children?.results?.map((item, index) => (
+              <li className="text-menu-item" key={index}>
+                <Link href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
+                  <a>{item.displayName}</a>
+                </Link>
+              </li>
+            ))}
+            {shopLink}
             <li className="button-menu-item">
               <Link href="/tickets">
-                <a className="btn--main btn--main--round">Book Tickets</a>
+                <a className="btn-main">Book Tickets</a>
               </Link>
             </li>
           </ul>

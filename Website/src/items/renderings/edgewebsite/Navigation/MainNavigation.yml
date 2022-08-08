@@ -4,23 +4,39 @@ Parent: "75c438f6-65fd-4e65-95bb-7a12ce6ea229"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/MainNavigation
 SharedFields:
+- ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
+  Hint: Data source
+  Value: /sitecore/content/EdgeWebsite/Data/Navigation/Header/Main Navigation
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: MainNavigation
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/main-nav.png"
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    {
-      item(path: "/sitecore/content/EdgeWebsite/Data/Config" language: "en") {
+    query ($datasource : String!, $language: String!) {
+      item(path: "{4790380A-3F0C-443A-A954-269ECB2D5566}" language: $language) {
         id
         path
         ... on SiteConfiguration {
           headerLogo {
             jsonValue
             alt
+          }
+        }
+      }
+      links : item(path: $datasource, language: $language) {
+        displayName
+        children {
+          results {
+            displayName
+            field(name: "Link") {
+              ... on LinkField {
+                jsonValue
+              }
+            }
           }
         }
       }
@@ -49,11 +65,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "768daed1-bc9e-4ee7-868f-0bd0bca5ea82"
+      Value: "b60cb051-2cff-4fb8-808d-1b530f9e0291"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20210913T083038Z
+      Value: 20220519T113223Z

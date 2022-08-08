@@ -5,9 +5,7 @@
     @apply flex flex-row gap-5 bg-blue text-white items-stretch;
 
     .info-col-left {
-      @apply align-top text-center self-center uppercase flex h-60 w-56 pt-5 bg-no-repeat bg-left-bottom;
-
-      background-image: url('../../../img/background-element.svg');
+      @apply align-top text-center self-center uppercase flex h-60 w-56 pt-5 bg-element bg-no-repeat bg-left-bottom;
     }
 
     .info-col-content {

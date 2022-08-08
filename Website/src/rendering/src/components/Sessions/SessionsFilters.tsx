@@ -1,7 +1,7 @@
 const SessionsFilters = (): JSX.Element => (
   <section className="section pb-4 pt-12">
-    <div className="section__content form item-grid sessions-filters container">
-      <h2 className="section__content__title">Explore sessions</h2>
+    <div className="section-content form item-grid sessions-filters container">
+      <h2 className="section-content-title">Explore sessions</h2>
       <div className="filters-row">
         <div className="filters-col">
           <input type="text" placeholder="Search sessions..." />

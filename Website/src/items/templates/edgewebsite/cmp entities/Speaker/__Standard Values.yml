@@ -27,7 +27,7 @@ SharedFields:
         <p
           uid="{4C73E177-7D69-56C2-86DA-2945966D7A9A}"
           key="jss-main"
-          md="{83F8CCFF-EDAA-516B-BD68-71A16A354F42}" />
+          md="{48E3F6EF-ECC4-4940-89C5-3B240EC3D2AF}" />
         <p
           uid="{8C6B98B5-1E4D-5868-9019-BF85141D3ABC}"
           key="jss-footer"
@@ -112,14 +112,14 @@ Languages:
         sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3d18f047-9941-4a4d-bac6-ac52a7379a3e"
+      Value: "30bfa036-c755-453a-bafc-8de0703e668a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211116T174715Z
+      Value: 20220711T075443Z
     - ID: "e91669e4-7a60-495f-b868-47f9b15c28b3"
       Hint: Name
       Value: $name

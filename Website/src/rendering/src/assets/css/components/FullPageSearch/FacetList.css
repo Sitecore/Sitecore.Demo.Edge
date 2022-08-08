@@ -1,0 +1,128 @@
+.facet-list {
+  @apply text-sm;
+
+  .facet {
+    @apply border-t border-gray;
+
+    &:last-child {
+      @apply border-b border-gray;
+    }
+
+    &-title {
+      @apply flex justify-between items-center py-1 cursor-pointer font-bold capitalize;
+
+      svg {
+        @apply block text-black-light text-base transition-transform;
+      }
+    }
+
+    &-values {
+      @apply hidden bg-white-light py-3 px-2;
+      @apply lg:bg-white;
+
+      li {
+        @apply flex items-center;
+
+        &:not(:last-child) {
+          @apply mb-1;
+        }
+      }
+
+      input {
+        @apply appearance-none flex-shrink-0 w-3 h-3 bg-gray cursor-pointer;
+
+        &:checked {
+          @apply bg-checkbox-check bg-no-repeat bg-center bg-contain;
+        }
+      }
+
+      label {
+        @apply max-w-full pl-2 overflow-hidden whitespace-nowrap text-ellipsis cursor-pointer;
+      }
+    }
+
+    &.expanded {
+      .facet-title svg {
+        @apply rotate-180;
+      }
+
+      .facet-values {
+        @apply block;
+      }
+    }
+  }
+
+  &-active {
+    @apply flex flex-col mb-4 text-sm bg-white;
+    @apply lg:p-4;
+
+    button {
+      @apply mt-3;
+      @apply lg:mx-auto;
+    }
+
+    input[type='checkbox'] {
+      @apply hidden;
+    }
+
+    .facet-list-title {
+      @apply flex items-center mb-5 font-bold;
+
+      svg {
+        @apply h-4 mr-2 text-base;
+      }
+    }
+
+    .facet-values {
+      li {
+        @apply mb-2 px-2 bg-white-light;
+
+        label {
+          @apply flex justify-between items-center cursor-pointer;
+
+          svg {
+            @apply text-gray-dark text-lg flex-shrink-0 ml-1;
+          }
+
+          span {
+            @apply max-w-full overflow-hidden whitespace-nowrap text-ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+  .facet[data-type='sort'] {
+    @apply lg:hidden;
+
+    input {
+      @apply hidden;
+    }
+
+    input:checked + label {
+      @apply bg-white;
+    }
+
+    label {
+      @apply block;
+    }
+  }
+}
+
+.facet-container {
+  @apply flex flex-col p-4;
+  @apply lg:p-0;
+
+  .facet-container-toggle {
+    @apply ml-auto mb-2;
+  }
+
+  &-toggle {
+    @apply text-base;
+    @apply lg:hidden;
+
+    svg {
+      @apply relative text-base mr-2;
+    }
+  }
+}

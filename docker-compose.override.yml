@@ -39,6 +39,8 @@ services:
       args:
         PARENT_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-nodejs:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     mem_limit: 2GB
+    ports:
+      - "8099:3000"
     volumes:
       - .\Website\src\rendering:C:\app
     environment:
@@ -49,6 +51,22 @@ services:
       NEXT_PUBLIC_CDP_PROXY_URL: https://${CDP_PROXY_HOST}
       NEXT_PUBLIC_CDP_CLIENT_KEY: ${CDP_CLIENT_KEY}
       NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT: ${CDP_API_TARGET_ENDPOINT}/v1.2
+      NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY: ${DISCOVER_CUSTOMER_KEY}
+      NEXT_PUBLIC_DISCOVER_API_KEY: ${DISCOVER_API_KEY}
+      NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID: ${ORDERCLOUD_BUYER_CLIENT_ID}
+      NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL: ${ORDERCLOUD_BASE_API_URL}
+      NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID: ${ORDERCLOUD_OPENID_CONNECT_ID}
+      ORDERCLOUD_MIDDLEWARE_CLIENT_ID: ${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}
+      ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET: ${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}
+      OC_API_CLIENTS_WITH_ACCESS: ${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst#user-verification
+      OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst/blob/main/README.md#webhook-verification
+      # Auth0 - Not referenced in our code but used by the @auth0/nextjs-auth0 library
+      AUTH0_SECRET: ${AUTH0_SECRET}
+      AUTH0_BASE_URL: ${AUTH0_BASE_URL}
+      AUTH0_ISSUER_BASE_URL: ${AUTH0_ISSUER_BASE_URL}
+      AUTH0_CLIENT_ID: ${AUTH0_CLIENT_ID}
+      AUTH0_CLIENT_SECRET: ${AUTH0_CLIENT_SECRET}
+      NEXT_PUBLIC_AUTH0_ENABLED: ${AUTH0_ENABLED}
       #DEBUG: ${DEBUG} # Uncomment this line and set the DEBUG environment variable value in the .env file to enable debug logging
     depends_on:
       - cm
@@ -246,8 +264,8 @@ services:
       Sitecore_ExperienceEdge_DeliveryEndpoint_CircuitBreakerDurationOfBreak: "00:15:00"
       Sitecore_ExperienceEdge_DeliveryEndpoint_TransientFailureRetryCount: "3"
       Sitecore_ExperienceEdge_DeliveryEndpoint_TransientFailureSleepTime: "00:00:10"
-      Sitecore_ExperienceEdge_EnableItemLanguageFallback: "false"
-      Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "false"
+      Sitecore_ExperienceEdge_EnableItemLanguageFallback: "true"
+      Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "true"
       ## Disable Edge Publishing until Edge provisioning is implemented
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""

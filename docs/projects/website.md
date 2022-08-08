@@ -71,16 +71,9 @@ If adding a component story, the title should be: `'Components/%Component Name H
 1. Ensure you have installed and followed the [global prerequisites](../prerequisites.md).
 2. Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
 
-### Optional: Sitecore CDP Module Configuration
+### Optional: Sitecore CDP and Personalize Module Configuration
 
-If you want the website to use Sitecore CDP, you must:
-
-1. Edit the `.\.env` file.
-2. Fill the following values:
-   1. **CDP_API_TARGET_ENDPOINT**: The Sitecore CDP API target endpoint for your organisation. The URL must end with `.com` without the version. (e.g.: `https://api.boxever.com`)
-   2. **CDP_CLIENT_KEY**: Your Sitecore CDP organisation client key.
-   3. **CDP_API_TOKEN**: Your Sitecore CDP organisation API token.
-3. Save the file.
+If you want the website to use Sitecore CDP and Personalize, you must follow the [Sitecore CDP and Personalize](../cdp-personalize/README.md) instructions.
 
 ### Optional: Sitecore Content Hub Module Configuration
 
@@ -88,19 +81,98 @@ If you want the website to use Sitecore Content Hub DAM and CMP, you must:
 
 1. Edit the `.\.env` file.
 2. Fill the following values:
-   1. **CMP_ContentHub**: `ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;`
-   2. **CMP_ServiceBusEntityPathIn**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID`
-   3. **CMP_ServiceBusSubscription**: `hub_out_subscription`
-   4. **CMP_ServiceBusEntityPathOut**: `Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID`
-   5. **DAM_ContentHub**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud`
-   6. **DAM_SearchPage**: `https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets`
+
+   ```shell
+   # Content Hub Connector
+   CMP_ContentHub=ClientId=LogicApp;ClientSecret=YOUR_CLIENT_SECRET;UserName=YOUR_CONTENT_HUB_SUPERUSER_USER_NAME;Password=YOUR_CONTENT_HUB_SUPERUSER_PASSWORD;URI=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/;
+   CMP_ServiceBusEntityPathIn=Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Read;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_out_SOME_ID
+   CMP_ServiceBusSubscription=hub_out_subscription
+   CMP_ServiceBusEntityPathOut=Endpoint=sb://seps-run-sb-weu.servicebus.windows.net/;SharedAccessKeyName=Write;SharedAccessKey=YOUR_SHARED_ACCESS_KEY;EntityPath=hub_in_SOME_ID
+   DAM_ContentHub=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud
+   DAM_SearchPage=https://YOUR_CONTENT_HUB_SANDBOX_NAME.sitecoresandbox.cloud/en-us/sitecore-dam-connect/approved-assets
+   ```
+
 3. Save the file.
+
+### Optional: Commerce Configuration
+
+If you want the website to use Commerce, you must configure Sitecore OrderCloud, Sitecore Discover, and Auth0. To do that you must:
+
+1. [Seed a Headstart OrderCloud marketplace](../ordercloud.md#headstart-seeding).
+2. Edit the `.\.env` file.
+3. Fill the following values (see table below for description)
+
+   ```shell
+   # Discover
+   DISCOVER_CUSTOMER_KEY=YOUR_DISCOVER_CUSTOMER_KEY
+   DISCOVER_API_KEY=YOUR_DISCOVER_API_KEY
+
+   # OrderCloud
+   ORDERCLOUD_BUYER_CLIENT_ID=YOUR_BUYER_APPLICATION_CLIENT_ID
+   ORDERCLOUD_BASE_API_URL=YOUR_ORDERCLOUD_BASE_API_URL
+   ORDERCLOUD_MIDDLEWARE_CLIENT_ID=YOUR_MIDDLEWARE_CLIENT_ID
+   ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET=YOUR_MIDDLEWARE_CLIENT_SECRET
+   ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS=YOUR_ALLOWED_CLIENT_IDS
+   ORDERCLOUD_WEBHOOK_HASH_KEY=YOUR_WEBHOOK_HASH_KEY
+
+   # Auth0 Variables
+   AUTH0_ENABLED=true
+   ```
+
+4. Save the file.
+
+| Variable                                  | Description                                                                                                                                                                                        |
+|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ORDERCLOUD_BUYER_CLIENT_ID`              | Your buyer application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured to allow anonymous shopping.                                             |
+| `ORDERCLOUD_BASE_API_URL`                 | The base URL for accessing the ordercloud api. Generally in the shape https://{region}-{environment}.ordercloud.io. Access in portal when viewing your Marketplace.                                |
+| `ORDERCLOUD_MIDDLEWARE_CLIENT_ID`         | Your middleware application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured with `AllowSeller=true` as well as with a `DefaultContextUsername`  |
+| `ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET`     | Your middleware application ClientSecret                                                                                                                                                           |
+| `ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS` | A comma delimited list of API ClientIDs that should be allowed to call out to them middleware endpoints. Generally this should be just `ORDERCLOUD_BUYER_CLIENT_ID`                                |
+| `ORDERCLOUD_WEBHOOK_HASH_KEY`             | A long secret value used to encrypt and validate webhook requests. You can generate a suitable string using openssl rand -hex 32 on the command line                                               |
+| `DISCOVER_CUSTOMER_KEY`                   | Your Discover Customer Key. In the Discover CEC under Developer Resources > API Access                                                                                                             |
+| `DISCOVER_API_KEY`                        | Your Discover API Key. In the Discover CEC under Developer Resources > API Access                                                                                                                  |
+| `AUTH0_ENABLED`                           | `true` to enable Auth0 authentication                                                                                                                                                              |
+
+### Optional: Custom Auth0 Configuration
+
+The shop section of the demo comes with a default Auth0 configuration that works for development. It allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. If you wish to use your own Auth0 account, you must have configured commerce and have access to an [auth0](https://auth0.com) instance.
+
+1. Follow [instructions here](../ordercloud.md#) to configure OrderCloud for single sign on.
+2. Edit the `.\.env` file.
+3. Fill the following values (see table below for description and checkout Configuring OpenID Connect Integration).
+
+   ```shell
+   # OrderCloud
+   ORDERCLOUD_OPENID_CONNECT_ID=YOUR_OPENID_CONNECT_ID
+
+   # Auth0 Variables
+   AUTH0_SECRET=use [openssl rand -hex 32] to generate a 32 bytes value
+   AUTH0_BASE_URL=https://www.edge.localhost/shop
+   AUTH0_ISSUER_BASE_URL=https://YOUR_DOMAIN
+   AUTH0_CLIENT_ID=YOUR_CLIENT_ID
+   AUTH0_CLIENT_SECRET=YOUR_CLIENT_SECRET
+   AUTH0_ENABLED=true
+   ```
+
+4. Save the file.
+
+| Variable                        | Description                                                                                                                                                                                |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `AUTH0_SECRET`                  | A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line                                                  |
+| `AUTH0_BASE_URL`                | The base URL of your application. Used to redirect the user after logout.                                                                                                                  |
+| `AUTH0_ISSUER_BASE_URL`         | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
+| `AUTH0_CLIENT_ID`               | Your Auth0 application's Client ID                                                                                                                                                         |
+| `AUTH0_CLIENT_SECRET`           | Your Auth0 application's Client Secret                                                                                                                                                     |
+| `AUTH0_ENABLED`                 | `true` or `false` indicating whether or not auth0 is configured, must be true for profiled user features to appear                                                                         |
+| `ORDERCLOUD_OPENID_CONNECT_ID`  | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |
 
 ## Running the Website
 
 1. Ensure you have run the [prerequisites](#Prerequisites) above.
 2. [Start the containers](../docker.md#Starting-the-Containers) and follow the login directions.
 3. Wait for the startup script to open browser tabs for the rendered site and Sitecore Launchpad.
+4. If you [enabled commerce](#optional-commerce-configuration) before running the website:
+   1. [Configure the Headstart OrderCloud marketplace for PLAY! SHOP](../ordercloud.md#play-shop-seeding).
 
 ## Stopping the Website
 
@@ -116,7 +188,39 @@ Changes to the front-end project must be reverted from your Git client.
 
 ### Best Practices
 
+#### Never Use a Paragraph Element For a JSS RichText Component
+
 Using a RichText JSS element with a `tag="p"` prop causes issues when editing the element in Horizon. To be specific, Horizon will wrap your plain text inside a paragraph which results in nested `p` tags and an invalid HTML. For this reason it is suggested to use a block element that has no children restrictions like `div`, `section`, `blockquote`, etc.
+
+#### Use an Item ID Instead of an Item Path For Rendering Items Datasources
+
+When creating a rendering for a new Sitecore Component refrain from using paths as Datasources or inside GraphQL queries. Instead replace them with the corresponding Item IDs, so that renaming the items does not cause any issues later on.
+
+### Custom Renderings Icons
+
+#### Adding New Icons
+
+To add new icons to the EdgeIcons pack download your selected icons in a `.png` format and 100x100 px in size. When you have your desired icons you should add it to all four subfolders in `Sitecore.Demo.Edge\Website\src\icons`.
+
+#### Generating the ZIP file
+
+In order to be able to use the icons as rendering icons they need to be in a `.zip` format with the following structure: `EdgeIcons.zip\EdgeIcons\[size]x[size]`. To create a zip file right-click the EdgeIcons folder and select *Send to > Compressed (zipped) folder*.
+
+#### Quick Deploy and Test Icons
+
+To test your new zip you can upload it to `Sitecore.Demo.Edge\Website\deploy\sitecore\shell\Themes\Standard`. It will automatically deploy them to your local cm container and you will be able to use and test them immediately.
+
+#### Choosing a Rendering Icon
+
+When creating a new rendering you should select an appropriate icon for it. The custom Edge icons are located in `\sitecore\shell\Themes\Standard\EdgeIcons`. To select an icon, click on the icon of the rendering item and write the relative path to the selected icon (e.g. `edgeicons/32x32/breadcrumb.png`).
+
+#### Adding Icons to the Docker Build
+
+In order for your new icons to be available in all newly built instances, the new ZIP file needs to be added to the Docker build. In order to do that you should replace the existing ZIP file in `Sitecore.Demo.Edge\docker\build\cm\Data\sitecore\shell\Themes` with your new version.
+
+#### Credits
+
+All icons are by [icons8](https://icons8.com/icons/color).
 
 ### Developing the Platform Visual Studio Solution
 
@@ -137,6 +241,19 @@ The content of the project is mapped to the Rendering container using a Docker v
 #### Debugging the Rendering Next.js Project
 
 Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
+
+#### Building the Rendering Next.js Project Locally
+
+If you ever have to build the Next.js application in a command line:
+
+1. Stop the "rendering" Docker container.
+   - Because the rendering container has a mapped folder to `.\Website\src\rendering` and is running `npm run dev`, it shares the same build output folder as `next build`. Building for production while the container is running will produce all kind of errors.
+2. Run `npm run build:local`
+   - Some website code depends on environment variables that are set through the rendering Docker container. When building in a command line, those environment variables require fake values for the build to succeed. This command sets those fake values before starting the build.
+
+When you are done:
+
+1. Start the "rendering" Docker container.
 
 ### Items Serialization
 

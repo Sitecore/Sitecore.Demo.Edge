@@ -1,0 +1,180 @@
+.checkout-details {
+  @apply pb-5;
+
+  &-grid {
+    @apply grid grid-cols-1 gap-4 -mx-5;
+    @apply sm:mx-0;
+    @apply lg:grid-cols-2;
+  }
+
+  h1 {
+    @apply text-2xl font-bold mb-3;
+  }
+
+  .panel {
+    @apply bg-white;
+
+    &-header {
+      @apply px-2 py-1 text-white font-bold bg-blue;
+    }
+
+    &-body {
+      @apply px-3 py-6 text-sm;
+    }
+  }
+
+  .panel-comments-summary {
+    @screen lg {
+      grid-column: 2;
+    }
+  }
+
+  .radio-options {
+    .panel-body {
+      @apply space-y-5;
+
+      .shipmethods-list {
+        @apply space-y-5;
+      }
+
+      .option-item {
+        @apply flex;
+
+        label {
+          @apply ml-2;
+
+          > span {
+            @apply block;
+          }
+        }
+
+        input {
+          @apply w-4 h-4 mt-0.5;
+        }
+
+        .option-name {
+          @apply font-medium;
+        }
+
+        .option-desc {
+          @apply text-xs text-black-lightest;
+        }
+      }
+    }
+  }
+
+  .skeleton-radio-button {
+    @apply w-4 h-4 mt-0.5;
+  }
+
+  .same-as-shipping {
+    @apply flex items-center pb-4 font-medium;
+
+    input {
+      @apply w-4 h-4 mr-2;
+    }
+  }
+
+  .form {
+    @apply space-y-4;
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      @apply block w-full py-1 px-2 border-2 border-black-lightest rounded-none font-normal;
+
+      &:focus,
+      &:active {
+        @apply rounded-none outline-none;
+      }
+
+      &::placeholder {
+        @apply italic;
+      }
+    }
+
+    select {
+      @apply px-1.5;
+    }
+
+    textarea {
+      @apply h-16;
+      @apply lg:h-8;
+    }
+
+    label {
+      @apply block pb-1 text-sm font-normal;
+    }
+
+    .button-area {
+      @apply pt-2 pb-0 px-0 space-x-4 text-right;
+
+      .cancel-edit {
+        @apply font-medium;
+      }
+    }
+
+    &.creditcard-form {
+      .expiration-date {
+        @apply flex flex-wrap gap-x-4 gap-y-1;
+
+        span {
+          @apply w-full text-sm;
+        }
+
+        label {
+          @apply hidden;
+        }
+
+        > div {
+          @apply w-[calc(50%-0.5rem)];
+          @apply lg:w-24;
+        }
+
+        select {
+          @apply appearance-none px-1 bg-no-repeat bg-right cursor-pointer;
+
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='57' height='36' viewBox='0 0 57 36'%3E%3Cg id='Group_935' data-name='Group 935' transform='translate(-122 -943)'%3E%3Crect id='Rectangle_222' data-name='Rectangle 222' width='57' height='36' transform='translate(122 943)' fill='%23666'/%3E%3Cpath id='chevron-down-solid' d='M14.256,134.512l-8.3-8.3a1.025,1.025,0,0,1,0-1.45l.968-.968a1.025,1.025,0,0,1,1.448,0l6.609,6.578,6.609-6.578a1.025,1.025,0,0,1,1.448,0l.968.968a1.025,1.025,0,0,1,0,1.45l-8.3,8.3A1.025,1.025,0,0,1,14.256,134.512Z' transform='translate(135.344 831.505)' fill='%23f7f7f7'/%3E%3C/g%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+  }
+
+  .info-card {
+    @apply bg-white-light p-3 border-2 border-white-light;
+
+    &-active {
+      @apply border-yellow;
+    }
+
+    .card-name {
+      @apply font-bold;
+    }
+
+    .card-edit {
+      @apply text-xs float-right clear-right;
+
+      svg {
+        @apply mr-1;
+      }
+    }
+  }
+
+  .address-list {
+    @apply flex gap-4 flex-wrap;
+    @apply w-full;
+
+    .info-card {
+      @apply flex flex-row-reverse justify-between items-start grow-0 shrink-0 basis-full;
+
+      .info-card-address {
+        @apply w-full;
+      }
+    }
+
+    .new-address {
+      @apply w-full;
+    }
+  }
+}

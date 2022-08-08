@@ -1,0 +1,56 @@
+.shop-navigation {
+  @apply relative bg-black h-28;
+
+  @screen lg {
+    height: 100px;
+  }
+
+  .shop-navigation-content {
+    @apply flex flex-wrap justify-between items-center h-full;
+    @apply lg:flex-nowrap;
+
+    .logo-container {
+      @apply flex-shrink-0 w-24;
+      @apply sm:w-28;
+    }
+
+    .items-container {
+      @apply flex-shrink-0;
+      @apply lg:order-3;
+
+      ul {
+        @apply flex items-center list-none space-x-5;
+
+        .shop-navigation-menu-item {
+          @apply flex-shrink-0 text-base text-white align-middle;
+          @apply hover:text-yellow;
+
+          &.active {
+            @apply text-yellow;
+          }
+
+          &:not(.locale-picker) {
+            @apply text-[1.75rem];
+          }
+
+          &.cart-menu-item > button {
+            @apply relative;
+          }
+        }
+      }
+    }
+
+    .shop-search-input-container {
+      @apply relative basis-full;
+      @apply lg:mx-12;
+
+      .shop-search-input {
+        @apply block mx-auto my-0 w-full pl-11 py-2 text-sm;
+      }
+
+      .shop-search-icon {
+        @apply absolute left-3 top-1/2 transform -translate-y-1/2 cursor-pointer;
+      }
+    }
+  }
+}

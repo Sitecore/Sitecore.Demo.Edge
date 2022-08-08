@@ -1,285 +1,323 @@
-import { faChevronDown, faSearch, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import Link from 'next/link';
-import { ReactElement, useState } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
+import Head from 'next/head';
+import { UserProvider } from '@auth0/nextjs-auth0';
+import ShopNavigation from '../Navigation/ShopNavigation';
+import Footer, { FooterProps } from '../Navigation/Footer';
+import HeaderCdpMessageBar from '../HeaderCdpMessageBar';
+import { isCommerceEnabled } from '../../helpers/CommerceHelper';
+import { Provider } from 'react-redux';
+import reduxStore from '../../redux/store';
+import OcProvider from '../../redux/ocProvider';
+import { DiscoverService } from '../../services/DiscoverService';
+import { logViewEvent } from '../../services/CdpService';
 
-import Section from '../PageContent/Section';
+DiscoverService();
 
-type FeaturedProductHeroProps = {
-  subPageName?: string;
-};
+export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  useEffect(() => {
+    // Log a CDP page view on route change
+    const pushState = history.pushState;
+    history.pushState = (...rest) => {
+      pushState.apply(history, rest);
+      logViewEvent();
+    };
+  }, []);
 
-export const FeaturedProductHero = (props: FeaturedProductHeroProps): JSX.Element => {
-  const shopBreadcrumb = props.subPageName ? <Link href="/shop">Shop</Link> : <>Shop</>;
-  const subPageBreadcrumb = props.subPageName && <> &#62; {props.subPageName}</>;
-
-  return (
-    <section className="section section-featured-products">
-      <div className="section__content container">
-        <div id="featured-products-container">
-          <div id="products-left-container">
-            <h4>
-              <Link href="/">Home</Link> &#62; {shopBreadcrumb}
-              {subPageBreadcrumb}
-            </h4>
-            <h2>CenterCycle Ratchet Kit</h2>
-            <p>Small ratchet kit with a bag for your everyday bike travels and repairs.</p>
-            <div className="add-to-cart">
-              <Link href="/shop/product">
-                <a className="btn--main btn--main--round">Add to cart</a>
-              </Link>
-            </div>
-          </div>
-          <div id="products-right-container">
-            <img src="/assets/img/shop/demo/ratchet.png" alt="CenterCycle Ratchet Kit" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export const ProductSearchBar = (props: SearchBarProps): JSX.Element => {
-  const [popupVisible, setpopupVisible] = useState(false);
-  return (
-    <div id="search-input-container">
-      <FontAwesomeIcon id="search-icon" icon={faSearch} />
-      <input
-        id="search-input"
-        onFocus={() => setpopupVisible(true)}
-        onBlur={() => setpopupVisible(false)}
-        placeholder="Search for products"
-      ></input>
-      <Popup visible={popupVisible}>
-        <ReflektionContent {...props.reflektionProps} />
-      </Popup>
-    </div>
-  );
-};
-
-export const Popup = (props: PopupProps): JSX.Element => {
-  return props.visible ? <div id="popup-container">{props.children}</div> : <></>;
-};
-
-export const ReflektionContent = (props: ReflektionContentProps): JSX.Element => {
-  return (
-    <div id="reflektion-container">
-      <div id="reflektion-left-container">
-        <ul>
-          <li>Did you mean?</li>
-          {props.didYouMean.map((text) => (
-            <li key={text}>
-              <a href="#">{text}</a>
-            </li>
-          ))}
-        </ul>
-        <ul>
-          <li>Top categories</li>
-          {props.topCategories.map((text) => (
-            <li key={text}>
-              <a href="#">{text}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div id="reflektion-right-container">
-        {props.products.map((product) => (
-          <Product key={product.imageUrl} imageUrl={product.imageUrl} price={product.price} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export const ShopByCategory = (props: ShopByCategoryProps): JSX.Element => (
-  <Section
-    fields={{
-      cssClass: {
-        value: '',
-      },
-      brightness: {
-        value: 'dark',
-      },
-      title: {
-        value: 'Shop by category',
-      },
-      content: {
-        value: ' ',
-      },
-      callToActionLink: {
-        value: {
-          href: '/shop/products',
-          text: 'View all products',
+  const footerProps = {
+    fields: {
+      data: {
+        item: {
+          footerLogo: {},
+        },
+        links: {
+          displayName: 'Footer',
+          children: {
+            results: [
+              {
+                displayName: 'Follow Us',
+                children: {
+                  results: [
+                    {
+                      displayName: 'Facebook',
+                      icon: { value: 'faFacebookF' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Youtube',
+                      icon: { value: 'faYoutube' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Twitter',
+                      icon: { value: 'faTwitter' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Instagram',
+                      icon: { value: 'faInstagram' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Linkedin',
+                      icon: { value: 'faLinkedin' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                displayName: 'PLAY! Summit',
+                children: {
+                  results: [
+                    {
+                      displayName: 'Home',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}',
+                          },
+                        },
+                      },
+                    },
+                    {
+                      displayName: 'Sessions',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en/sessions',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}',
+                          },
+                        },
+                      },
+                    },
+                    {
+                      displayName: 'Speakers',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en/speakers',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{1F4B781B-F2A5-5647-99DF-C0C369162C4D}',
+                          },
+                        },
+                      },
+                    },
+                    {
+                      displayName: 'Vendors',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en/vendors',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{774E44E8-0F30-5879-B847-AD233FFB41AA}',
+                          },
+                        },
+                      },
+                    },
+                    {
+                      displayName: 'Sponsors',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en/sponsors',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{66C99E47-7BBF-52D1-B1D7-4662B850744A}',
+                          },
+                        },
+                      },
+                    },
+                    {
+                      displayName: 'About Us',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en/about-us',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{2717574C-48A0-5469-85A8-A332DF71F1E4}',
+                          },
+                        },
+                      },
+                    },
+                    {
+                      displayName: 'News',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en/news',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{0E4A63DA-7496-557E-BF80-5BD52255E431}',
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                displayName: 'Join Us',
+                children: {
+                  results: [
+                    {
+                      displayName: 'Book Tickets',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Become a Sponsor',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Become a Vendor',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                  ],
+                },
+              },
+              {
+                displayName: 'Get Support',
+                children: {
+                  results: [
+                    {
+                      displayName: 'FAQ',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                    {
+                      displayName: 'Tech Support',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: { value: { href: '' } },
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
         },
       },
-    }}
-    rendering={{
-      componentName: '',
-      placeholders: {
-        'jss-section-content': [],
-      },
-    }}
-    params={{}}
-  >
-    <div className="shop-by-container">
-      {props.categories.map((category, index) => (
-        <Category key={index} {...category} />
-      ))}
-    </div>
-  </Section>
-);
+    },
+  } as unknown as FooterProps;
 
-export const ShopByVendor = (props: ShopByVendorProps): JSX.Element => (
-  <Section
-    fields={{
-      cssClass: {
-        value: ' ',
-      },
-      brightness: {
-        value: 'light',
-      },
-      title: {
-        value: 'Shop by vendor',
-      },
-      content: {
-        value: '',
-      },
-      callToActionLink: {
-        value: {
-          href: '/shop/products',
-          text: 'View all products',
-        },
-      },
-    }}
-    rendering={{
-      componentName: '',
-      placeholders: {
-        'jss-section-content': [],
-      },
-    }}
-    params={{}}
-  >
-    <div className="shop-by-container shop-by-vendor-container">
-      {props.vendors.map((vendor, index) => (
-        <Vendor key={index} {...vendor} />
-      ))}
-    </div>
-  </Section>
-);
+  // Show shop content if commerce is enabled, otherwise show error message
+  const shopContent = isCommerceEnabled ? (
+    <UserProvider>
+      <Provider store={reduxStore}>
+        <OcProvider>
+          <header>
+            <ShopNavigation />
+          </header>
+          <main>
+            <HeaderCdpMessageBar />
+            <div className="shop-main-container">{props.children}</div>
+          </main>
+        </OcProvider>
+      </Provider>
+    </UserProvider>
+  ) : (
+    <p className="shop-integration-error">
+      Shop pages are currently disabled because the commerce integration is not configured
+    </p>
+  );
 
-export const Product = (props: ProductProps): JSX.Element => (
-  <div className="product">
-    <Link href="/shop/product">
-      <a>
-        <img className="product-image" src={props.imageUrl} alt="Product image" />
-        <div className="product-details">
-          <b>{props.name || 'Product Name'}</b>
-          <p>{props.vendor || 'Vendor Name'}</p>
-          <p>${props.price}</p>
-        </div>
-      </a>
-    </Link>
-  </div>
-);
-
-export const Category = (props: CategoryProps): JSX.Element => (
-  <Link href="/shop/products">
-    <a>
-      <div className="category">
-        <img className="category-image" src={props.imageUrl} alt={props.categoryName} />
-        <p className="item-name">{props.categoryName}</p>
-      </div>
-    </a>
-  </Link>
-);
-
-export const Vendor = (props: VendorProps): JSX.Element => (
-  <Link href="/shop/products">
-    <a>
-      <div>
-        <img src={props.imageUrl} alt={props.vendorName} />
-        <p className="item-name">{props.vendorName}</p>
-      </div>
-    </a>
-  </Link>
-);
-
-export const ExpandableDropDown = (props: ExpandableDropDownProps): JSX.Element => {
-  const [expanded, setExpanded] = useState(false);
   return (
-    <div className="dropdown-container">
-      <span className="dropdown-header" onClick={() => setExpanded(!expanded)}>
-        <Text tag="p" field={{ value: props.title }} />
-        <FontAwesomeIcon icon={expanded ? faChevronUp : faChevronDown} />
-      </span>
-      <ul
-        className={expanded ? 'dropdown-items expanded' : 'dropdown-items'}
-        style={{ height: expanded ? props.items.length * 40 : 0 }}
-      >
-        {props.items.map((item) => (
-          <li key={item.text} className="dropdown-item">
-            <span onClick={() => props.onClick(item.value)}>{item.text}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      {shopContent}
+      <footer>
+        <Footer {...footerProps} />
+      </footer>
+    </>
   );
 };
-
-// Interfaces
-
-export interface ProductProps {
-  imageUrl: string;
-  price: number;
-  name?: string;
-  vendor?: string;
-}
-
-export interface CategoryProps {
-  imageUrl: string;
-  categoryName: string;
-}
-
-export interface ShopByCategoryProps {
-  categories: CategoryProps[];
-}
-
-export interface VendorProps {
-  imageUrl: string;
-  vendorName: string;
-}
-
-export interface ShopByVendorProps {
-  vendors: VendorProps[];
-}
-
-export interface PopupProps {
-  children: ReactElement;
-  visible: boolean;
-}
-
-export interface ReflektionContentProps {
-  products: ProductProps[];
-  didYouMean: string[];
-  topCategories: string[];
-}
-
-export interface SearchBarProps {
-  reflektionProps: ReflektionContentProps;
-}
-
-export interface DropdownItem {
-  text: string;
-  value: string;
-}
-
-export interface ClickDelegate {
-  (value: string): void;
-}
-
-export interface ExpandableDropDownProps {
-  items: DropdownItem[];
-  title: string;
-  onClick: ClickDelegate;
-}

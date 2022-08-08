@@ -1,6 +1,12 @@
 import Link from 'next/link';
-import { Text, Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Text,
+  Image,
+  withDatasourceCheck,
+  useSitecoreContext,
+  LayoutServicePageState,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { Vendor } from 'src/types/vendor';
 
 type VendorsGridProps = ComponentProps & {
@@ -10,8 +16,19 @@ type VendorsGridProps = ComponentProps & {
 };
 
 const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasVendors = !!props.fields;
+
+  !hasVendors && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasVendors && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
+
   const vendors =
-    props.fields.items &&
+    props.fields?.items &&
     props.fields.items.map((vendor, index) => (
       <Link key={index} href={vendor.url} passHref>
         <a className="grid-item">
@@ -28,10 +45,10 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
       </Link>
     ));
 
-  return (
+  const vendorsGrid = hasVendors && (
     <section className="section">
-      <div className="section__content container">
-        <h1 className="section__content__title">All Event Vendors</h1>
+      <div className="section-content container">
+        <h1 className="section-content-title">All Event Vendors</h1>
         <div className="item-grid">
           <div className="grid-filters">
             <span>Filter by</span>
@@ -85,6 +102,13 @@ const VendorsGrid = (props: VendorsGridProps): JSX.Element => {
         </div>
       </div>
     </section>
+  );
+
+  return (
+    <>
+      {vendorsGrid}
+      {pageEditingMissingDatasource}
+    </>
   );
 };
 

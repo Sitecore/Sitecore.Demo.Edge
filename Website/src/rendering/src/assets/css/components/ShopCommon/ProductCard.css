@@ -1,0 +1,40 @@
+.product-card {
+  .product-image-container {
+    @apply relative w-full;
+
+    a {
+      @apply block relative pt-[100%];
+    }
+
+    .product-image {
+      @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover;
+    }
+
+    .product-offer {
+      @apply absolute bottom-4 pl-2 pr-1 py-[2px] text-xs bg-blue text-white;
+
+      &-orange {
+        @apply bg-orange;
+      }
+    }
+  }
+
+  .product-info-container {
+    @apply bg-white p-2;
+
+    a:hover {
+      .product-name,
+      .product-brand {
+        @apply text-black-lightest;
+      }
+    }
+
+    .product-name {
+      @apply text-sm font-bold overflow-hidden text-black overflow-ellipsis whitespace-nowrap transition-colors;
+    }
+
+    .product-brand {
+      @apply text-sm overflow-ellipsis whitespace-nowrap transition-colors;
+    }
+  }
+}

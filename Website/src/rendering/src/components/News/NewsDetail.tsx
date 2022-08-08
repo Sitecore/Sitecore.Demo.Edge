@@ -20,23 +20,23 @@ type NewsDetailProps = ComponentProps & {
 };
 
 const NewsDetail = (props: NewsDetailProps): JSX.Element => (
-  <section className="section section__news--detail">
-    <div className="section__content left__content">
+  <section className="section news-detail">
+    <div className="section-content left-content">
       <div className="container">
         <div className="left-column">
-          <Image field={props.fields?.Image} alt={props.fields?.Title.value} />
+          <Image field={props.fields?.Image} alt={props.fields?.Title?.value} />
         </div>
         <div className="right-column">
           <DateField
             tag="h3"
             className="news-date"
-            field={props.fields.PublishDate}
+            field={props.fields?.PublishDate}
             render={newsDateFormatter}
           />
-          <Text tag="h2" className="news-title" field={props.fields.Title} />
-          <RichText tag="div" className="news-excerpt rich-text" field={props.fields.Excerpt} />
+          <Text tag="h2" className="news-title" field={props.fields?.Title} />
+          <RichText tag="div" className="news-excerpt rich-text" field={props.fields?.Excerpt} />
           <div>
-            <RichText className="rich-text" field={props.fields.Content} />
+            <RichText className="rich-text" field={props.fields?.Content} />
           </div>
         </div>
       </div>

@@ -114,6 +114,9 @@ type GuestProfileResponse = GuestProfile | undefined;
 
 // ***** API *****
 
+const POINT_OF_SALE = 'PLAY! Summit';
+const CURRENCY = 'USD';
+
 const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
 const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
 const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
@@ -130,6 +133,7 @@ export const BoxeverScripts: JSX.Element | undefined = isCdpConfigured ? (
         client_key: '${CDP_CLIENT_KEY}',
         target: '${CDP_API_TARGET_ENDPOINT}',
         cookie_domain: '.edge.localhost',
+        pointOfSale: '${POINT_OF_SALE}',
         web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',
       };`}</Script>
     <Script src="https://d1mj578wat5n4o.cloudfront.net/boxever-1.4.8.min.js"></Script>
@@ -153,23 +157,40 @@ function getConfigWithCurrentPage(config: Record<string, unknown>) {
   );
 }
 
-function createEventPayload(eventConfig: Record<string, unknown>) {
+function getLanguage() {
+  let language = window?.navigator?.language ? window.navigator.language : 'en';
+
+  if (language.length > 2) {
+    language = language.slice(0, 2);
+  }
+
+  return language;
+}
+
+function createBasePayload(eventConfig: Record<string, unknown>) {
   return Object.assign(
     {
-      browser_id: window.Boxever.getID(), // For eventCreate calls
-      browserId: window.Boxever.getID(), // For callFlows calls
       channel: BoxeverServiceConfig.channel,
-      language: window.navigator.language ? window.navigator.language : 'en',
-      currency: 'USD',
-      pos: 'PLAY! Summit',
+      language: getLanguage(),
       websiteBaseUrl: BoxeverServiceConfig.websiteBaseUrl,
     },
     eventConfig
   );
 }
 
+function createEventPayload(eventConfig: Record<string, unknown>) {
+  return Object.assign(createBasePayload(eventConfig), {
+    currency: CURRENCY,
+    pos: POINT_OF_SALE,
+    browser_id: window.Boxever.getID(),
+  });
+}
+
 function createFlowPayload(flowConfig: Record<string, unknown>) {
-  return Object.assign(createEventPayload(flowConfig), {
+  return Object.assign(createBasePayload(flowConfig), {
+    currencyCode: CURRENCY,
+    pointOfSale: POINT_OF_SALE,
+    browserId: window.Boxever.getID(),
     clientKey: window._boxever_settings.client_key,
   });
 }
@@ -477,7 +498,7 @@ function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileRespons
   return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
-export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
+function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
   if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<undefined>(function (resolve) {
       resolve(undefined);
@@ -494,7 +515,7 @@ export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfi
 // ********************************
 // isAnonymousGuest
 // ********************************
-export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
+function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
   return !guestResponse?.data?.email;
 }
 
@@ -518,16 +539,34 @@ export function isAnonymousGuest(guestRef?: GuestRef): Promise<boolean> {
 // ********************************
 // getGuestFullName
 // ********************************
-export function getGuestFullNameInGuestResponse(
-  guestResponse: GuestProfileResponse
-): string | undefined {
+function getGuestFullNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
   const data = guestResponse?.data;
 
   if (!data || !data.firstName || !data.lastName) {
-    return;
+    return undefined;
   }
 
   return `${data.firstName} ${data.lastName}`;
+}
+
+function getGuestFirstNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.firstName) {
+    return undefined;
+  }
+
+  return data.firstName;
+}
+
+function getGuestLastNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.lastName) {
+    return undefined;
+  }
+
+  return data.lastName;
 }
 
 export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefined> {
@@ -541,6 +580,70 @@ export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefine
 
   return getGuestProfileResponse(guestRef)
     .then((guestResponse) => getGuestFullNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestFirstName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestFirstNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestLastName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestLastNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+// ********************************
+// getGuestEmail
+// ********************************
+function getGuestEmailInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data?.email) {
+    return undefined;
+  }
+
+  return data.email;
+}
+
+export function getGuestEmail(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestEmailInGuestResponse(guestResponse))
     .catch((e) => {
       console.log(e);
       return defaultValue;

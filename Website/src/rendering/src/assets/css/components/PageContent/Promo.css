@@ -1,26 +1,26 @@
-.section__promo {
+.promo {
   @apply bg-white;
 
   padding: 7em 0;
   box-shadow: 0 0 10px rgba(23, 23, 23, 0.3);
 
-  &__content {
+  &-content {
     @apply h-full;
 
-    &--left {
+    &-left {
       @include flex--fs-center;
     }
 
-    &--right {
+    &-right {
       @include flex--fe-center;
     }
 
-    &__card {
+    .promo-card {
       @include flex--center--column;
 
       @apply bg-center bg-no-repeat bg-cover bg-white-light text-center;
 
-      background-image: url(../../../img/offer-background.jpg);
+      background-image: url(../img/offer-background.jpg);
       padding: 3em;
       max-width: 700px;
       box-shadow: 0 0 20px rgba(23, 23, 23, 0.3);

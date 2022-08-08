@@ -6,13 +6,13 @@ Path: /sitecore/layout/Renderings/Project/edgewebsite/Sponsors/SponsorsGrid
 SharedFields:
 - ID: "003a72cd-4cd6-4392-9862-41d4159929cd"
   Hint: Data source
-  Value: /sitecore/content/EdgeWebsite/home/sponsors
+  Value: "{66C99E47-7BBF-52D1-B1D7-4662B850744A}"
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: SponsorsGrid
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/16x16/document_tag.png
+  Value: "edgeicons/32x32/sponsor-grid.png"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -40,11 +40,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fb0ccb80-70b6-42b8-a00c-934f15b6bad3"
+      Value: "e0abc344-8b3f-45d5-b6ed-add560729cf7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20211217T110257Z
+      Value: 20220407T074724Z

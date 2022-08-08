@@ -1,0 +1,15 @@
+.selected-sponsors-grid {
+  @include flex--center-w;
+
+  @apply max-w-full;
+
+  margin: 0 auto 1em;
+
+  .sponsor .sponsor-image {
+    @apply m-3 w-32 h-32;
+
+    img:hover {
+      filter: invert(39%) sepia(72%) saturate(4583%) hue-rotate(207deg) brightness(109%) contrast(101%);
+    }
+  }
+}

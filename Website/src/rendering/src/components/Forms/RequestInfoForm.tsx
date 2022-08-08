@@ -1,6 +1,7 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { identifyVisitor } from '../../services/CdpService';
+import { getUserData } from '../../helpers/GuestDataHelper';
 
 const RequestInfoForm = (): JSX.Element => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -8,6 +9,18 @@ const RequestInfoForm = (): JSX.Element => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+
+  useEffect(() => {
+    const setUserData = async () => {
+      const userData = await getUserData();
+
+      setFirstName(userData.firstName);
+      setLastName(userData.lastName);
+      setEmail(userData.email);
+    };
+
+    setUserData();
+  }, []);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -32,6 +45,7 @@ const RequestInfoForm = (): JSX.Element => {
             id="firstName"
             autoComplete="given-name"
             required
+            value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
           <label htmlFor="firstName">First Name *</label>
@@ -43,6 +57,7 @@ const RequestInfoForm = (): JSX.Element => {
             id="lastName"
             autoComplete="family-name"
             required
+            value={lastName}
             onChange={(e) => setLastName(e.target.value)}
           />
           <label htmlFor="lastName">Last Name *</label>
@@ -56,6 +71,7 @@ const RequestInfoForm = (): JSX.Element => {
             id="email"
             autoComplete="email"
             required
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label htmlFor="email">Email *</label>
@@ -97,13 +113,13 @@ const RequestInfoForm = (): JSX.Element => {
         </span>
       </label>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
+        <button className="btn-main" type="submit">
           Submit
         </button>
       </div>
       <div className="footnote">
         <p>
-          Already have an account? <Link href="/account/login">Log in.</Link>
+          Already have an account? <Link href="#">Log in.</Link>
         </p>
         <p>
           To find out more about how we are using this information you are giving up, please our{' '}

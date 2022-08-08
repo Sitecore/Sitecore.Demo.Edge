@@ -1,0 +1,121 @@
+.cart-details {
+  @apply my-5;
+
+  h1 {
+    @apply text-2xl font-bold mb-3;
+  }
+
+  &-grid {
+    @apply flex flex-col-reverse;
+    @apply lg:flex-row;
+  }
+
+  &-items {
+    @apply w-full;
+    @apply lg:mr-4;
+  }
+
+  &-actions {
+    @apply mb-3;
+    @apply lg:w-2/5 lg:relative lg:mb-0;
+
+    &-wrapper {
+      @apply lg:sticky lg:top-[calc(100px+1rem)];
+
+      > * {
+        @apply w-full;
+
+        &:not(:last-child) {
+          @apply mb-3;
+        }
+      }
+    }
+  }
+
+  .cart-summary {
+    @apply px-2 bg-white-dark;
+
+    &:not(:empty) {
+      @apply py-1;
+    }
+
+    p {
+      @apply flex items-center justify-between;
+    }
+
+    span {
+      @apply text-xl font-bold;
+    }
+  }
+
+  .quantity-static {
+    @apply w-32 flex;
+
+    .quantity-label {
+      @apply basis-2/3 border-2 border-gray p-0.5;
+    }
+
+    .quantity-num {
+      @apply basis-1/3 border-2 border-gray bg-gray text-white-light italic text-center p-0.5;
+    }
+  }
+
+  .promo-input {
+    input {
+      @apply italic px-2 py-1 mt-1 border-2 border-black-lightest w-full;
+
+      &:focus,
+      &:active {
+        @apply rounded-none outline-none;
+      }
+    }
+
+    .promotion-list {
+      .promotion {
+        @apply flex items-start mt-2;
+
+        &-body {
+          @apply mr-3;
+        }
+
+        &-remove {
+          @apply text-sm ml-3 text-black-lightest;
+
+          svg {
+            @apply transform rotate-45 mt-1;
+          }
+        }
+
+        &-amount {
+          @apply text-pink font-bold ml-auto;
+        }
+
+        &-code {
+          @apply text-sm font-bold break-all;
+        }
+
+        &-desc {
+          @apply text-sm text-black-lightest;
+        }
+      }
+    }
+  }
+
+  .gift-checkbox {
+    @apply flex w-full text-left;
+
+    input[type='checkbox'] {
+      @apply mt-1;
+    }
+
+    .label-text {
+      @apply ml-2 text-sm;
+    }
+  }
+
+  .line-item-list {
+    li {
+      @apply border-2 border-white;
+    }
+  }
+}
