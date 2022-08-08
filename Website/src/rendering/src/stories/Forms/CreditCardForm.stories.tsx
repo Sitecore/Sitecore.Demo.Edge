@@ -6,6 +6,13 @@ import CreditCardForm from '../../components/Forms/CreditCardForm';
 export default {
   title: 'Components/Forms/CreditCardForm',
   component: CreditCardForm,
+  decorators: [
+    (Story) => (
+      <section className="shop-container">
+        <Story />
+      </section>
+    ),
+  ],
 } as ComponentMeta<typeof CreditCardForm>;
 
 const Template: ComponentStory<typeof CreditCardForm> = (args) => <CreditCardForm {...args} />;
