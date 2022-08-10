@@ -8,7 +8,7 @@ import {
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
-import { logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
@@ -25,7 +25,15 @@ interface LayoutProps {
 const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): JSX.Element => {
   // DEMO TEAM CUSTOMIZATION - Log page views in CDP
   useEffect(() => {
-    logViewEvent(route);
+    (async () => {
+      if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
+        // First close the current CDP session if there is one and then
+        // log the custom event in the new session with channel 'MOBILE_WEB'
+        await closeCurrentSession();
+        await logQRCodeEvent('QR Code TV Scan');
+      }
+      await logViewEvent(route);
+    })();
   }, [route]);
   // END CUSTOMIZATION
 

@@ -5,13 +5,7 @@ import NProgress from 'nprogress';
 import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 // DEMO TEAM CUSTOMIZATION - CDP integration
-import {
-  CdpScripts,
-  identifyVisitor,
-  logQRCodeEvent,
-  closeCurrentSession,
-} from '../services/CdpService';
-import { getSessionURLByContentHubID } from 'src/api/getSessionByContentHubID';
+import { CdpScripts, identifyVisitor } from '../services/CdpService';
 import { KeypressHandler } from 'src/services/KeypressHandlerService';
 // END CUSTOMIZATION
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -59,29 +53,6 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
       identifyVisitor(email);
     }
     KeypressHandler();
-  });
-
-  useEffect(() => {
-    const contentHubSessionId = router.query['chid'] as string;
-    if (contentHubSessionId) {
-      // First close the current CDP session if there is one and then
-      // log the custom event in the new session with channel 'MOBILE_WEB'
-      // Finally redirect to the specific session page on the website if one is found
-      // otherwise redirect to the sessions page
-      (async () => {
-        await closeCurrentSession();
-        await logQRCodeEvent('QR Code TV Scan');
-
-        const sessionURL = await getSessionURLByContentHubID(contentHubSessionId);
-        if (sessionURL) {
-          const urlParts = sessionURL.split('/');
-          const websiteSessionURL = `/sessions/${urlParts[urlParts.length - 1]}`;
-          router.push(websiteSessionURL, websiteSessionURL);
-        } else {
-          router.push('/sessions', '/sessions');
-        }
-      })();
-    }
   });
   // END CUSTOMIZATION
 
