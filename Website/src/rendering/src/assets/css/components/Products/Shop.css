@@ -15,3 +15,11 @@ p.shop-integration-error {
 .continue-shopping-btn {
   @apply my-3;
 }
+
+p.shop-integration-error {
+  @apply text-center text-yellow font-bold;
+}
+
+.continue-shopping-btn {
+  @apply my-3;
+}

@@ -207,7 +207,6 @@ async function processSingleProduct(row: ProductRow) {
       },
     ],
   };
-
   console.log(`Creating price schedule for ${row.product_group}`);
   await PriceSchedules.Save(priceScheduleRequest.ID, priceScheduleRequest);
 
