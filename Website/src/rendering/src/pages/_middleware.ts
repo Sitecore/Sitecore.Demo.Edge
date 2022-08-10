@@ -1,0 +1,25 @@
+import { NextResponse, NextRequest } from 'next/server';
+import { getSessionURLByContentHubID } from 'src/api/getSessionByContentHubID';
+
+export async function middleware(request: NextRequest): Promise<NextResponse> {
+  // Redirect to the specific session page on the website if one is found
+  // after scanning a QR code (or copy/ pasting the link in the browser)
+  // Otherwise redirect to the sessions page
+  if (request.nextUrl.search.includes('chid')) {
+    const url = request.nextUrl.clone();
+    const contentHubSessionId = request.nextUrl.searchParams.get('chid');
+
+    let websiteSessionURL = '';
+    const sessionURL = await getSessionURLByContentHubID(contentHubSessionId);
+    if (sessionURL) {
+      const urlParts = sessionURL.split('/');
+      websiteSessionURL = `/sessions/${urlParts[urlParts.length - 1]}`;
+    } else {
+      websiteSessionURL = '/sessions';
+    }
+    url.pathname = websiteSessionURL;
+    url.search = 'qr-code-scan';
+    return NextResponse.redirect(url);
+  }
+  return NextResponse.next();
+}
