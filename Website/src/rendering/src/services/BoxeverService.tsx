@@ -651,36 +651,6 @@ export function getGuestEmail(guestRef?: GuestRef): Promise<string | undefined> 
 }
 
 // ********************************
-// getGuestEmail
-// ********************************
-function getGuestEmailInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
-  const data = guestResponse?.data;
-
-  if (!data?.email) {
-    return undefined;
-  }
-
-  return data.email;
-}
-
-export function getGuestEmail(guestRef?: GuestRef): Promise<string | undefined> {
-  const defaultValue = '';
-
-  if (!isBoxeverConfiguredInBrowser()) {
-    return new Promise(function (resolve) {
-      resolve(defaultValue);
-    });
-  }
-
-  return getGuestProfileResponse(guestRef)
-    .then((guestResponse) => getGuestEmailInGuestResponse(guestResponse))
-    .catch((e) => {
-      console.log(e);
-      return defaultValue;
-    });
-}
-
-// ********************************
 // Get Dynamic welcome message
 // ********************************
 export interface WelcomeMessage {
