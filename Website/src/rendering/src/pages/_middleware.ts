@@ -6,20 +6,17 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   // after scanning a QR code (or copy/ pasting the link in the browser)
   // Otherwise redirect to the sessions page
   if (request.nextUrl.search.includes('chid')) {
-    const url = request.nextUrl.clone();
     const contentHubSessionId = request.nextUrl.searchParams.get('chid');
+    const sessionURL = await getSessionURLByContentHubID(contentHubSessionId);
 
     let websiteSessionURL = '';
-    const sessionURL = await getSessionURLByContentHubID(contentHubSessionId);
     if (sessionURL) {
       const urlParts = sessionURL.split('/');
       websiteSessionURL = `/sessions/${urlParts[urlParts.length - 1]}`;
     } else {
       websiteSessionURL = '/sessions';
     }
-    url.pathname = websiteSessionURL;
-    url.search = 'qr-code-scan';
-    return NextResponse.redirect(url);
+    return NextResponse.redirect(`${process.env.PUBLIC_URL}${websiteSessionURL}?qr-code-scan`);
   }
   return NextResponse.next();
 }
