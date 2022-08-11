@@ -11,3 +11,11 @@ div.shop-main-container {
 p.shop-integration-error {
   @apply text-center text-yellow font-bold;
 }
+
+p.shop-integration-error {
+  @apply text-center text-yellow font-bold;
+}
+
+.continue-shopping-btn {
+  @apply my-3;
+}
