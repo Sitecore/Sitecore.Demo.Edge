@@ -26,7 +26,7 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
   // DEMO TEAM CUSTOMIZATION - Log page views in CDP
   useEffect(() => {
     (async () => {
-      if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
+      if (typeof window !== 'undefined' && document.cookie.includes('qr-code-scan=true')) {
         // First close the current CDP session if there is one and then
         // log the custom event in the new session with channel 'MOBILE_WEB'
         await closeCurrentSession();

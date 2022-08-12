@@ -16,7 +16,11 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
     } else {
       websiteSessionURL = '/sessions';
     }
-    return NextResponse.redirect(`${process.env.PUBLIC_URL}${websiteSessionURL}?qr-code-scan`);
+    return NextResponse.redirect(`${process.env.PUBLIC_URL}${websiteSessionURL}`).cookie(
+      'qr-code-scan',
+      'true',
+      { maxAge: 10000 }
+    );
   }
   return NextResponse.next();
 }
