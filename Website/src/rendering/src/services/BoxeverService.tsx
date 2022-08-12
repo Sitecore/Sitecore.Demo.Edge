@@ -549,6 +549,26 @@ function getGuestFullNameInGuestResponse(guestResponse: GuestProfileResponse): s
   return `${data.firstName} ${data.lastName}`;
 }
 
+function getGuestFirstNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.firstName) {
+    return undefined;
+  }
+
+  return data.firstName;
+}
+
+function getGuestLastNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.lastName) {
+    return undefined;
+  }
+
+  return data.lastName;
+}
+
 export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefined> {
   const defaultValue = '';
 
@@ -560,6 +580,40 @@ export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefine
 
   return getGuestProfileResponse(guestRef)
     .then((guestResponse) => getGuestFullNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestFirstName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestFirstNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestLastName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestLastNameInGuestResponse(guestResponse))
     .catch((e) => {
       console.log(e);
       return defaultValue;

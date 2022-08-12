@@ -69,14 +69,22 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
       // access token has been granted elevated role BuyerUserAdmin required to create users
       { accessToken: payload.OrderCloudAccessToken }
     );
-    await UserGroups.SaveUserAssignment(PROFILED_BUYER_ID, {
-      UserGroupID: `${PROFILED_BUYER_ID}-${PROFILED_LOCATION_ID_SUFFIX}`,
-      UserID: newUser.ID,
-    });
-    await UserGroups.SaveUserAssignment(PROFILED_BUYER_ID, {
-      UserGroupID: PROFILED_HEADSTART_CATALOG_ID,
-      UserID: newUser.ID,
-    });
+    await UserGroups.SaveUserAssignment(
+      PROFILED_BUYER_ID,
+      {
+        UserGroupID: `${PROFILED_BUYER_ID}-${PROFILED_LOCATION_ID_SUFFIX}`,
+        UserID: newUser.ID,
+      },
+      { accessToken: payload.OrderCloudAccessToken }
+    );
+    await UserGroups.SaveUserAssignment(
+      PROFILED_BUYER_ID,
+      {
+        UserGroupID: PROFILED_HEADSTART_CATALOG_ID,
+        UserID: newUser.ID,
+      },
+      { accessToken: payload.OrderCloudAccessToken }
+    );
     return response.status(200).json({
       Username: newUser.Username,
       ErrorMessage: '',

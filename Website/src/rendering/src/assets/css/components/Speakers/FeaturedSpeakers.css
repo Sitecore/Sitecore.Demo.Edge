@@ -1,26 +1,29 @@
 .featured-speakers.item-grid {
   .grid-content {
-    @apply sm:gap-2;
-    @apply md:gap-x-6 md:gap-y-4;
-    @apply lg:gap-x-8 lg:gap-y-6;
-    @apply xl:gap-x-12 xl:gap-y-8 xl:grid-cols-3;
+    @apply grid-cols-2 gap-x-12 px-0;
+    @apply md:gap-x-9 md:gap-y-4;
+    @apply lg:grid-cols-3 lg:gap-x-8 lg:gap-y-6;
+    @apply xl:gap-x-16 xl:gap-y-4 xl:grid-cols-3;
+    @apply 2xl:gap-x-20;
 
     .grid-item {
+      @apply max-w-[265px] rounded-none;
+
       .item-image {
-        @apply bg-element bg-no-repeat bg-orange;
+        @apply bg-element bg-no-repeat bg-left-bottom bg-contain bg-orange;
       }
 
       .item-details {
         @apply text-left p-0;
 
         .item-title {
-          @apply my-1;
+          @apply whitespace-nowrap text-ellipsis max-w-full overflow-hidden text-2xl mt-2;
         }
       }
     }
   }
 }
 
-.section--dark .featured-speakers.item-grid .grid-content .grid-item .item-details {
+.section-dark .featured-speakers.item-grid .grid-content .grid-item .item-details {
   @apply text-white;
 }

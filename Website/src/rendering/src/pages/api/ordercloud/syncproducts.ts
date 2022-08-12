@@ -8,6 +8,7 @@ import {
   Catalogs,
   Configuration,
   PriceSchedules,
+  Product,
   Products,
   Specs,
   Tokens,
@@ -18,11 +19,9 @@ import {
   PUBLIC_HEADSTART_CATALOG_ID,
   PROFILED_BUYER_NAME,
   PROFILED_HEADSTART_CATALOG_ID,
+  ADMIN_ADDRESS_ID,
 } from '../../../constants/seeding';
 
-// TODO: the part that creates products and the part that assigns them are coupled
-// it would be ideal to only create products once, and then assign the created products to
-// profiled and public buyer separately
 const handler: NextApiHandler<unknown> = async (request, response) => {
   const middlewareClientID = request.query?.MiddlewareClientID as string;
   const middlewareClientSecret = request.query?.MiddlewareClientSecret as string;
@@ -50,17 +49,36 @@ const handler: NextApiHandler<unknown> = async (request, response) => {
       filters: { Name: `${PUBLIC_BUYER_NAME}|${PROFILED_BUYER_NAME}` },
     });
 
-    // Create products for profiled buyer
-    const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
-    await postProducts(
-      profiledBuyer.DefaultCatalogID,
-      profiledBuyer.ID,
-      PROFILED_HEADSTART_CATALOG_ID
-    );
+    // Create the products
+    const createdProducts = await postProducts();
 
-    // Create products for public buyer
+    const productPromises = [];
+    const profiledBuyer = buyersList.Items.find((buyer) => buyer.Name === PROFILED_BUYER_NAME);
     const publicBuyer = buyersList.Items.find((buyer) => buyer.Name === PUBLIC_BUYER_NAME);
-    await postProducts(publicBuyer.DefaultCatalogID, publicBuyer.ID, PUBLIC_HEADSTART_CATALOG_ID);
+
+    for (const createdProduct of createdProducts) {
+      // Assign the created products to profiled buyer
+      productPromises.push(() =>
+        createProductAssignments(
+          createdProduct,
+          profiledBuyer.DefaultCatalogID,
+          profiledBuyer.ID,
+          PROFILED_HEADSTART_CATALOG_ID
+        )
+      );
+
+      // Assign the created products to public buyer
+      productPromises.push(() =>
+        createProductAssignments(
+          createdProduct,
+          publicBuyer.DefaultCatalogID,
+          publicBuyer.ID,
+          PUBLIC_HEADSTART_CATALOG_ID
+        )
+      );
+    }
+
+    await Promise.all(productPromises.map((productPromise) => productPromise()));
 
     return response.status(200).json('Products synced successfully');
     /* eslint-disable-next-line */
@@ -121,7 +139,7 @@ type VariantRow = {
   size: string;
 };
 
-async function postProducts(catalogID: string, buyerID: string, headstartCatalogID: string) {
+async function postProducts() {
   const csvStr = fs.readFileSync(
     path.join(__dirname + '/../../../../../discover-feeds/playsummit_product_feed.csv'),
     {
@@ -137,11 +155,14 @@ async function postProducts(catalogID: string, buyerID: string, headstartCatalog
   // Store the product promises (for normal products) in order to run them all together in parallel
   const productPromises = [];
 
+  // Store the created products in order to assign them to profiled and public buyer later
+  const createdProducts = [];
+
   for (const row of productFeed) {
     if (row.product_group !== row.sku) {
       // First time we encounter a variant of that product so we process it
       if (!productIdToVariantRowsMap.has(row.product_group)) {
-        await processSingleProduct(row, catalogID, buyerID, headstartCatalogID);
+        createdProducts.push(await processSingleProduct(row));
 
         // Initialize the map entry
         productIdToVariantRowsMap.set(row.product_group, []);
@@ -154,7 +175,7 @@ async function postProducts(catalogID: string, buyerID: string, headstartCatalog
       ]);
     } else {
       // Normal product without variants
-      productPromises.push(() => processSingleProduct(row, catalogID, buyerID, headstartCatalogID));
+      productPromises.push(() => processSingleProduct(row));
     }
   }
 
@@ -167,15 +188,14 @@ async function postProducts(catalogID: string, buyerID: string, headstartCatalog
   // Update the variants (IDs, imageUrls)
   await updateVariants(productIdToVariantRowsMap);
 
-  return await Promise.all(productPromises.map((productPromise) => productPromise()));
+  createdProducts.push(
+    ...(await Promise.all(productPromises.map((productPromise) => productPromise())))
+  );
+
+  return createdProducts;
 }
 
-async function processSingleProduct(
-  row: ProductRow,
-  catalogID: string,
-  buyerID: string,
-  headstartCatalogID: string
-) {
+async function processSingleProduct(row: ProductRow) {
   // Post price schedule
   const priceScheduleRequest = {
     ID: row.product_group,
@@ -187,6 +207,7 @@ async function processSingleProduct(
       },
     ],
   };
+
   console.log(`Creating price schedule for ${row.product_group}`);
   await PriceSchedules.Save(priceScheduleRequest.ID, priceScheduleRequest);
 
@@ -204,6 +225,7 @@ async function processSingleProduct(
     Active: true,
     Description: row.description,
     DefaultPriceScheduleID: row.product_group,
+    ShipFromAddressID: ADMIN_ADDRESS_ID,
     xp: {
       Images: [
         {
@@ -224,16 +246,28 @@ async function processSingleProduct(
       CCID: row.ccids.split('|')?.[0],
     },
   };
+
   console.log(`Creating product schedule for ${row.product_group}`);
   const createdProduct = await Products.Save(productRequest.ID, productRequest);
-  console.log(`Assigning product ${row.product_group} to catalog ${catalogID}`);
+
+  return createdProduct;
+}
+
+async function createProductAssignments(
+  product: Product,
+  catalogID: string,
+  buyerID: string,
+  headstartCatalogID: string
+) {
+  console.log(`Assigning product ${product.ID} to catalog ${catalogID}`);
   await Catalogs.SaveProductAssignment({
     CatalogID: catalogID,
-    ProductID: createdProduct.ID,
+    ProductID: product.ID,
   });
-  console.log(`Assigning product ${row.product_group} to headstart catalog ${headstartCatalogID}`);
+
+  console.log(`Assigning product ${product.ID} to headstart catalog ${headstartCatalogID}`);
   await Products.SaveAssignment({
-    ProductID: createdProduct.ID,
+    ProductID: product.ID,
     BuyerID: buyerID,
     UserGroupID: headstartCatalogID,
   });

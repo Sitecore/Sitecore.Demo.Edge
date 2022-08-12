@@ -1,6 +1,11 @@
 import Link from 'next/link';
-import { Image, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps } from 'lib/component-props';
+import {
+  Image,
+  withDatasourceCheck,
+  LayoutServicePageState,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
 export type SelectedSponsorsGridProps = ComponentProps & {
@@ -10,12 +15,23 @@ export type SelectedSponsorsGridProps = ComponentProps & {
 };
 
 const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => {
+  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+
+  const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
+  const hasSponsors = !!props?.fields?.Sponsors?.length;
+
+  !hasSponsors && console.warn('Missing Datasource Item');
+
+  const pageEditingMissingDatasource = !hasSponsors && isPageEditing && (
+    <p>Missing Datasource Item</p>
+  );
+
   const sponsors =
     props?.fields?.Sponsors &&
     props.fields.Sponsors.map((sponsor, index) => (
       <Link key={index} href={sponsor.url} passHref>
-        <a className="section__sponsors__grid__sponsor">
-          <div className="section__sponsors__grid__sponsor__imagecontainer">
+        <a className="sponsor">
+          <div className="sponsor-image">
             <Image
               field={sponsor.fields.Logo}
               alt={sponsor.fields.Name.value}
@@ -28,7 +44,16 @@ const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => 
       </Link>
     ));
 
-  return <div className="section__sponsors__grid">{sponsors}</div>;
+  const selectedSponsorsGrid = hasSponsors && (
+    <div className="selected-sponsors-grid">{sponsors}</div>
+  );
+
+  return (
+    <>
+      {selectedSponsorsGrid}
+      {pageEditingMissingDatasource}
+    </>
+  );
 };
 
 export default withDatasourceCheck()<SelectedSponsorsGridProps>(SelectedSponsorsGrid);

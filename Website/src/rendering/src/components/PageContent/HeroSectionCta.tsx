@@ -9,8 +9,8 @@ export type HeroSectionCtaProps = ComponentProps & {
 
 const HeroSectionCta = ({ fields }: HeroSectionCtaProps): JSX.Element => {
   return (
-    <div className="btn__area">
-      <Link field={fields.Link} className="btn--main btn--main--round" />
+    <div className="btn-area">
+      <Link field={fields.Link} className="btn-main" />
     </div>
   );
 };

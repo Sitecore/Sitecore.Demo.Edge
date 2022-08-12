@@ -18,7 +18,7 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
       {uniqueImages.map((img, i) => {
         const isActive = activeImg ? img.Url === activeImg : i === 0;
         return (
-          <div key={img.Url} className={isActive && 'active'}>
+          <div key={img.Url} className={isActive ? 'active' : ''}>
             <img src={img.Url} alt="" onClick={() => setActiveImg(img.Url)} />
           </div>
         );

@@ -1,8 +1,8 @@
-.section__products {
-  @apply bg-cover bg-center bg-no-repeat bg-pattern-light;
+.section-products {
+  @apply bg-cover bg-center bg-no-repeat bg-pattern-color;
 }
 
-.section__products__content {
+.section-products-content {
   width: 100%;
   max-width: 1440px;
   padding: 0 3%;
@@ -15,7 +15,7 @@
   flex-direction: column;
 }
 
-.section__products__grid {
+.product-categories-grid {
   display: -webkit-flex;
   display: flex;
   align-items: center;
@@ -24,17 +24,17 @@
   margin: 1em auto 2em;
 }
 
-.section__products__grid__product {
+.product-categories-grid-product {
   width: 350px;
   margin: 5px;
   position: relative;
 }
 
-.section__products__grid__product figure img {
+.product-categories-grid-product figure img {
   width: 100%;
 }
 
-.product__category {
+.product-category {
   position: absolute;
   top: 50%;
   right: 50%;
@@ -50,14 +50,14 @@
   opacity: 1;
 }
 
-.section__products__grid__product a:hover .product__category {
+.product-categories-grid-product a:hover .product-category {
   opacity: 0;
 }
 
 /*********************************************************** */
 
 /* Shine effect */
-.section__products__grid__product figure {
+.product-categories-grid-product figure {
   width: 100%;
   height: 100%;
   position: relative;
@@ -68,7 +68,7 @@
   display: flex;
 }
 
-.section__products__grid__product figure::before {
+.product-categories-grid-product figure::before {
   position: absolute;
   top: 0;
   left: -75%;
@@ -88,12 +88,12 @@
   transform: skewX(-25deg);
 }
 
-.section__products__grid__product a:hover figure::before {
+.product-categories-grid-product a:hover figure::before {
   -webkit-animation: shine 0.75s;
   animation: shine 0.75s;
 }
 
-.section__products__grid__product figure::after {
+.product-categories-grid-product figure::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -106,7 +106,7 @@
   -webkit-transition: all 0.75s;
 }
 
-.section__products__grid__product a:hover figure::after {
+.product-categories-grid-product a:hover figure::after {
   @apply opacity-0;
 }
 

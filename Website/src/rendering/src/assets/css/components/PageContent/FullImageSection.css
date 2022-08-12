@@ -1,21 +1,21 @@
-.section__full-image {
+.full-image-section {
   @apply bg-white bg-center bg-no-repeat bg-cover;
 
   padding: 7em 0;
   box-shadow: 0 0 10px rgba(23, 23, 23, 0.3);
 
-  &__content {
+  &-content {
     @apply h-full;
 
-    &--left {
+    &-left {
       @include flex--fs-center;
     }
 
-    &--right {
+    &-right {
       @include flex--fe-center;
     }
 
-    &__card {
+    .content-card {
       @include flex--center--column;
 
       @apply text-center bg-white-light;
@@ -48,16 +48,16 @@
 }
 
 @screen md {
-  .section__full-image--offer {
+  .full-image-section-offer {
     background-image: url(../img/offer-background.jpg);
   }
 
-  .section__full-image--speaker {
+  .full-image-section-speaker {
     background-image: url(../img/speaker-chris-williams-hero.png);
   }
 }
 
-.section__full-image--map {
+.full-image-section-map {
   @apply h-96;
 
   background-image: url(../img/play-venue-map.jpg);

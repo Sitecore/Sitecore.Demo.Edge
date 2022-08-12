@@ -45,7 +45,7 @@ const SessionInformation = (props: SessionInformationProps): JSX.Element => {
       <SessionInformationPageHero {...props} />
 
       <section className="section information-section">
-        <div className="section__content container">
+        <div className="section-content container">
           <div className="information-grid">
             <div className="main-col">
               <div className="column-title">Description:</div>

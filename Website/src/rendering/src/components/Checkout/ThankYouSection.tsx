@@ -1,8 +1,8 @@
 import { faEnvelope, faPrint, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { getLoginUrl } from '../../services/AuthenticationService';
 import useOcAuth from '../../hooks/useOcAuth';
+import OrderCloudLoginLink from '../ShopCommon/OrderCloudLoginLink';
 
 const ThankYouSection = (): JSX.Element => {
   const { isAuthenticated, isAnonymous } = useOcAuth();
@@ -45,9 +45,9 @@ const ThankYouSection = (): JSX.Element => {
           </span>
           <p>
             To follow the state of your order and view order history, please{' '}
-            <Link href={getLoginUrl('/account/orders')}>
-              <a>create an account</a>
-            </Link>
+            <OrderCloudLoginLink redirectToPathOnLogin="/account/orders">
+              create an account
+            </OrderCloudLoginLink>
             .
           </p>
         </li>

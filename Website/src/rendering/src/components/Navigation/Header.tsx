@@ -1,7 +1,6 @@
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useRouter } from 'next/router';
 import { ComponentProps } from 'lib/component-props';
-
-import Link from 'next/link';
+import HeaderContent from './HeaderContent';
 
 export type HeaderProps = ComponentProps & {
   fields: {
@@ -14,12 +13,12 @@ export type HeaderProps = ComponentProps & {
               field: {
                 jsonValue: {
                   value: {
-                    anchor: string;
+                    anchor?: string;
                     href: string;
-                    linktype: string;
-                    target: string;
-                    text: string;
-                    url: string;
+                    linktype?: string;
+                    target?: string;
+                    text?: string;
+                    url?: string;
                   };
                 };
               };
@@ -32,23 +31,10 @@ export type HeaderProps = ComponentProps & {
 };
 
 const Header = (props: HeaderProps): JSX.Element => {
-  return (
-    <>
-      <div className="header-eyebrow">
-        <div className="content">
-          <Link href="#" prefetch={false}>
-            <a>EN</a>
-          </Link>
-          {props.fields?.data?.item?.children?.results?.map((item, index) => (
-            <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
-              <a>{item.displayName}</a>
-            </Link>
-          ))}
-        </div>
-      </div>
-      <Placeholder name="jss-header-content" rendering={props.rendering} />
-    </>
-  );
+  const router = useRouter();
+  const { pathname, asPath, query } = router;
+
+  return <HeaderContent pathname={pathname} asPath={asPath} query={query} {...props} />;
 };
 
 export default Header;

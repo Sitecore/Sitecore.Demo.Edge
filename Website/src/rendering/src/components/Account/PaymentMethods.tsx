@@ -94,7 +94,7 @@ const PaymentMethods = (): JSX.Element => {
       <div className="payment-methods-header">
         <h1>Payment methods</h1>
         <Link href="/account/payment-methods/create">
-          <a className="btn--main btn--main--round">Add new payment method</a>
+          <a className="btn-main">Add new payment method</a>
         </Link>
       </div>
       <div className="payment-methods-grid">

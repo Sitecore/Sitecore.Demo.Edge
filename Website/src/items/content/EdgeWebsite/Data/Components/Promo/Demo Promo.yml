@@ -1,0 +1,47 @@
+﻿---
+ID: "562a05d1-3445-43ba-afe0-824bf525f096"
+Parent: "9a7535d9-2cd9-58d7-9c2f-3cc3ab2db861"
+Template: "77c8aac4-aac3-55b9-810c-896e8f321a12"
+Path: /sitecore/content/EdgeWebsite/Data/Components/Promo/Demo Promo
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220729T100414Z
+    - ID: "4db68bc4-e995-5b5b-9341-016d37322e1a"
+      Hint: content
+      Value: Mauris aliquet dolor nec ullamcorper laoreet. Pellentesque vel luctus est. Nulla mi metus, viverra eget laoreet pellentesque, lobortis nec augue.
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "5e56d361-36b3-5ecc-98c5-b32acb415f56"
+      Hint: subtitle
+      Value: rhoncus suscipit
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "876ec072-b6d9-42a5-aa51-bf3c5c372181"
+    - ID: "b85bf947-5ccc-5af3-a556-b4a05685b893"
+      Hint: title
+      Value: LOREM IPSUM DOLOR SIT AMET
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220729T100728Z
+    - ID: "fe1c53f3-3152-5536-a8a1-06b6c2709486"
+      Hint: callToActionLink
+      Value: |
+        <link text="Visit PLAY! SHOP" linktype="external" url="/shop" anchor="" target="" />

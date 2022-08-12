@@ -10,7 +10,7 @@ const TicketGrid = (): JSX.Element => {
     ticketsToDisplay &&
     ticketsToDisplay.length > 0 &&
     ticketsToDisplay.map((ticket, ticketIndex) => (
-      <div className={`ticket-grid-block ticket-grid-block--${ticket.color}`} key={ticketIndex}>
+      <div className={`ticket-grid-block ticket-grid-block-${ticket.color}`} key={ticketIndex}>
         <div className="ticket-content">
           <div className="slanted-spacer"></div>
           <h2 className="ticket-name">{ticket.name}</h2>
@@ -30,13 +30,13 @@ const TicketGrid = (): JSX.Element => {
         </div>
         <div className="ticket-button-container">
           <Link href={`/tickets/registration/attendee?ticket=${ticket.id}`}>
-            <a className="btn--main btn--main--round">Get Tickets</a>
+            <a className="btn-main">Get Tickets</a>
           </Link>
         </div>
       </div>
     ));
 
-  return <section className="container section__tickets">{tickets}</section>;
+  return <section className="container ticket-grid">{tickets}</section>;
 };
 
 export default TicketGrid;

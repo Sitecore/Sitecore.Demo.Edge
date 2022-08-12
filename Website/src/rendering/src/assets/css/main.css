@@ -48,6 +48,7 @@
 @import './components/Checkout/CartDetails.css';
 @import './components/Checkout/CheckoutDetails.css';
 @import './components/Checkout/CheckoutSummary.css';
+@import './components/Checkout/LineItemCard.css';
 @import './components/Checkout/MiniCart.css';
 @import './components/Checkout/OrderReviewDetails.css';
 @import './components/Checkout/PreCheckout.css';
@@ -81,6 +82,7 @@
 
 /* NonSitecore */
 @import './components/NonSitecore/InformationPageHero.css';
+@import './components/NonSitecore/Accordion.css';
 
 /* PageContent */
 @import './components/PageContent/DynamicWelcomeMessage.css';
@@ -111,9 +113,7 @@
 /* Products */
 @import './components/Products/CategoriesList.css';
 @import './components/Products/CategoryHero.css';
-@import './components/Products/ProductDetail.css';
 @import './components/Products/ProductDetails.css';
-@import './components/Products/ProductOverview.css';
 @import './components/Products/Shop.css';
 
 /* Sessions */
@@ -136,7 +136,7 @@
 @import './components/Speakers/SpeakersGrid.css';
 
 /* Sponsors */
-@import './components/Sponsors/SponsorsGrid.css';
+@import './components/Sponsors/SelectedSponsorsGrid.css';
 
 /* Widgets */
 @import './components/Widgets/RecommendedProducts.css';

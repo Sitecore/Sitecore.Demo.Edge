@@ -1,7 +1,8 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 import { identifyVisitor } from '../../services/CdpService';
+import { getUserData } from '../../helpers/GuestDataHelper';
 
 const AttendeeForm = (): JSX.Element => {
   const ticketId =
@@ -10,6 +11,18 @@ const AttendeeForm = (): JSX.Element => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    const setUserData = async () => {
+      const userData = await getUserData();
+
+      setFirstName(userData.firstName);
+      setLastName(userData.lastName);
+      setEmail(userData.email);
+    };
+
+    setUserData();
+  }, []);
 
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,6 +47,7 @@ const AttendeeForm = (): JSX.Element => {
           id="firstName"
           autoComplete="given-name"
           required
+          value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <label htmlFor="firstName">First Name</label>
@@ -45,6 +59,7 @@ const AttendeeForm = (): JSX.Element => {
           id="lastName"
           autoComplete="family-name"
           required
+          value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
         <label htmlFor="lastName">Last Name</label>
@@ -56,6 +71,7 @@ const AttendeeForm = (): JSX.Element => {
           id="email"
           autoComplete="email"
           required
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="email">Email</label>
@@ -76,13 +92,13 @@ const AttendeeForm = (): JSX.Element => {
         </span>
       </label>
       <div className="button-area">
-        <button className="btn--main btn--main--round" type="submit">
+        <button className="btn-main" type="submit">
           Next
         </button>
       </div>
       <div className="footnote">
         <p>
-          Already have an account? <Link href="/account/login">Log in.</Link>
+          Already have an account? <Link href="#">Log in.</Link>
         </p>
         <p>
           To find out more about how we are using this information you are giving up, please review

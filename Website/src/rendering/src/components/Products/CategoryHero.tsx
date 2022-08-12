@@ -1,5 +1,7 @@
+import Link from 'next/link';
+import { Category } from '../../models/Category';
 import CategoryBreadcrumb from '../../components/Navigation/CategoryBreadcrumb';
-import { Category } from '../../helpers/CategoriesDataHelper';
+import { getCategoryChildrenByCcid } from '../../helpers/CategoriesDataHelper';
 
 type CategoryHeroProps = {
   category: Category;
@@ -12,6 +14,27 @@ const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
 
   const categoryDisplayName = category.title ? category.title : category.name;
 
+  const categoryChildren = getCategoryChildrenByCcid(category.ccid);
+  const subCategories = categoryChildren && (
+    <div className="category-hero-sub">
+      <ul>
+        {categoryChildren.slice(0, 3).map((cat) => (
+          <li key={cat.ccid}>
+            <Link href={cat.url_path}>
+              <a>
+                <img
+                  src={cat?.image_url || '/assets/img/shop/category-placeholder.png'}
+                  alt="Category"
+                />
+                <h4>{cat?.title || cat.name}</h4>
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
     <section className="category-hero">
       <CategoryBreadcrumb category={category} />
@@ -20,21 +43,7 @@ const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
           <h1>{categoryDisplayName}</h1>
           <p>{category.desc}</p>
         </div>
-        {/* TODO: Add subcategories here */}
-        {/* <div className="category-hero-sub">
-          <ul>
-            {[...Array(3)].map((e, i) => (
-              <li key={i}>
-                <Link href="#">
-                  <a>
-                    <img src="/assets/img/shop/category-placeholder.png" alt="Category" />
-                    <h4>Sub-category {++i}</h4>
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div> */}
+        {subCategories}
       </div>
     </section>
   );

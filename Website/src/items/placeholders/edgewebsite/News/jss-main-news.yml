@@ -1,0 +1,67 @@
+﻿---
+ID: "700d7684-f8b5-4745-82af-db299d89c28b"
+Parent: "bdb185e7-81f2-4940-9f81-e8abcf40f103"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Project/edgewebsite/News/jss-main-news"
+SharedFields:
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: "jss-main"
+- ID: "e391b526-d0c5-439d-803e-17512eae6222"
+  Hint: Allowed Controls
+  Value: |
+    {780D897C-7065-585F-8585-28118565FA00}
+    {C1E45B3A-429D-53FE-9640-1581E24A1447}
+    {2DA4EF2D-BADE-52AB-9D3B-82D2EB08C53A}
+    {18D56CF9-81D3-50C2-A8C3-19349D36074D}
+    {D7333FEF-77BD-56D2-B76A-EA936D0A1001}
+    {0E094D67-EC7C-50AF-A8F2-24CF724F4B77}
+    {FC5B8C36-8C49-54FD-94F3-C5AD21446CC4}
+    {2C13DBC0-415C-5DAA-A7D9-56928F1271C4}
+    {C8BE3A17-798F-5054-B012-4772CB23AC88}
+    {3E02494C-9CB5-5FC4-A78B-C6AF4C44A559}
+    {BE6E4210-8CF4-5BD5-B968-103626DBCC1B}
+    {9E28A6C1-7D05-5C7F-81AF-1AF94C7A2F4D}
+    {34D68789-D03C-5299-8787-E5CDB2889E31}
+    {2F9D05FD-8E58-56CC-B586-41A3EC155CD7}
+    {2BCFA87E-B224-546E-9247-80B2ABAE98B9}
+    {AFA8D2EB-B612-5293-8BB8-F73F99004331}
+    {1059A458-3C21-5A98-ABD0-A65629F4DE1A}
+    {7AB4158F-135B-5E9B-8106-C4A898F2F02D}
+    {98F79B86-92EF-4699-A2F0-D9ECF79A70EF}
+    {CB6FAEE6-2A59-5114-B898-1147AA0FE82F}
+    {CC9984B5-432C-5A1A-9ED0-E8F88E26E5A2}
+    {4BE56F57-7867-5E91-8991-37464315D86B}
+    {279A5772-ADFA-5260-88E6-AB97D5C4D90A}
+    {298D16E7-CFB2-5BE9-8B8C-BBC10A72597F}
+    {DCC3725E-8F7E-58DF-A17B-FE153FBCE627}
+Languages:
+- Language: en
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Main
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210615T142047Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\JssImport
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\JssImport
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1aac927c-73d4-491e-ae88-2fe461d99c34"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220711T075108Z
