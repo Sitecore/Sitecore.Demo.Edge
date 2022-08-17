@@ -98,8 +98,11 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
 /**
  * Logs a custom event when a user scans a QR code on the TV app
  */
-export function logQRCodeEvent(eventName: string): Promise<unknown> {
-  return logEvent(eventName);
+export function logQRCodeEvent(
+  eventName: string,
+  payload?: Record<string, unknown>
+): Promise<unknown> {
+  return logEvent(eventName, payload);
 }
 
 export function closeCurrentSession(): Promise<unknown> {
