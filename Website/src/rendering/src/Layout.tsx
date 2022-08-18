@@ -10,6 +10,7 @@ import {
 import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
+import { shouldCloseSession } from './services/BoxeverService';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -27,9 +28,12 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
   useEffect(() => {
     (async () => {
       if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
-        // First close the current CDP session if there is one and then
-        // log the custom event in the new session with channel 'MOBILE_WEB'
-        await closeCurrentSession();
+        // First close the current CDP session if there is already a 'WEB' one in progress
+        // and then log the custom event in the 'MOBILE_WEB' session
+        const { shouldCloseCurrentSession } = await shouldCloseSession();
+        if (shouldCloseCurrentSession === 'true') {
+          await closeCurrentSession();
+        }
         await logQRCodeEvent('QR Code TV Scan');
       }
       await logViewEvent(route);
