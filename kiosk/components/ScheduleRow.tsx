@@ -1,4 +1,5 @@
 import { Session } from '../interfaces/session';
+import { logViewEvent } from '../services/CdpService';
 import { contentHubImageSrcGeneratorFromString } from '../utilities/contentHubImageLoader';
 
 type ScheduleRowProps = {
@@ -6,8 +7,11 @@ type ScheduleRowProps = {
   timeslot: string;
 };
 
-const showDetail = (sessionId: string) => {
-  document.getElementById(sessionId)?.classList.add('active');
+const showDetail = (session: Session) => {
+  document.getElementById(session.id)?.classList.add('active');
+  // Log the session page view on CDP
+  const sessionPage = `/sessions/${session.name}`;
+  logViewEvent({}, sessionPage);
 };
 
 const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
@@ -22,7 +26,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
 
         return (
           <div
-            onClick={() => showDetail(session.id)}
+            onClick={() => showDetail(session)}
             className={'schedule-sessions' + premiumClass + keynoteClass + noSpeakerClass}
             key={index}
           >
