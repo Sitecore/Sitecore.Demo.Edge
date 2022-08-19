@@ -9,9 +9,13 @@ type ScheduleRowProps = {
 
 const showDetail = (session: Session) => {
   document.getElementById(session.id)?.classList.add('active');
+
   // Log the session page view on CDP
   const sessionPage = `/sessions/${session.name}`;
-  logViewEvent({}, sessionPage);
+  const additionalData = {
+    premiumContent: !!session.isPremium,
+  };
+  logViewEvent(additionalData, sessionPage);
 };
 
 const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
