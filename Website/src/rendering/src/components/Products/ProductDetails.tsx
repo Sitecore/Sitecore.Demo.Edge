@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { trackPDPViewEvent } from '@sitecore-discover/react';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
 import ProductDetailsContent from './ProductDetailsContent';
-import { isDiscoverEnabled } from '../../services/DiscoverService';
+import { DiscoverService } from '../../services/DiscoverService';
 
 const ProductDetails = (): JSX.Element => {
   // Products without variants: /shop/products/[productGroup, same as SKU]/[product-name]
@@ -22,9 +21,7 @@ const ProductDetails = (): JSX.Element => {
       return;
     }
 
-    if (isDiscoverEnabled) {
-      trackPDPViewEvent(productSku);
-    }
+    DiscoverService.trackPDPViewEvent(productSku);
   }, [sku, variantID]);
 
   return (

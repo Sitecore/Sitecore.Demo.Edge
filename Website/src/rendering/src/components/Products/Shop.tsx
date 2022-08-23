@@ -11,7 +11,7 @@ import { DiscoverService } from '../../services/DiscoverService';
 import { logViewEvent } from '../../services/CdpService';
 import { isOrderCloudEnabled } from '../../helpers/OrderCloudHelper';
 
-DiscoverService();
+DiscoverService.initialize();
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   useEffect(() => {

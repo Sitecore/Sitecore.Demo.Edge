@@ -14,7 +14,7 @@ export default {
 
 const Template: ComponentStory<typeof ShopNavigation> = (args) => <ShopNavigation {...args} />;
 
-DiscoverService({
+DiscoverService.initialize({
   isStorybook: true,
 });
 

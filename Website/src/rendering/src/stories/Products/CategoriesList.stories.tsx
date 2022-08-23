@@ -12,7 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof CategoriesList> = (args) => <CategoriesList {...args} />;
 
-DiscoverService({
+DiscoverService.initialize({
   isStorybook: true,
 });
 
