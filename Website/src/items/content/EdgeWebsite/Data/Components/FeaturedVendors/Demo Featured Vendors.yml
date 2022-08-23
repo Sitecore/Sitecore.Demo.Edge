@@ -1,0 +1,44 @@
+﻿---
+ID: "772a856d-3906-4345-a634-e50906250120"
+Parent: "2f3e9067-f772-5218-82c9-c8085255a158"
+Template: "b6cd17f1-c851-5816-be10-9c09488f7704"
+Path: /sitecore/content/EdgeWebsite/Data/Components/FeaturedVendors/Demo Featured Vendors
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210727T152547Z
+    - ID: "453e6795-c512-4c06-a34f-326d1a999e14"
+      Hint: Vendors
+      Value: |
+        {3F809DBD-C095-40F0-AB32-D219CEF1CFC1}
+        {E67E1029-D58F-45E7-B85F-0E7E0086099E}
+        {3983AC76-7325-4AF4-9183-B68DE402F872}
+        {63C32663-C4AF-40C0-9347-47411C130E87}
+    - ID: "4a849808-6c4e-483e-9bf3-e9ae01d7db6b"
+      Hint: Subtitle
+      Value: Praesent non sem ultricies, tincidunt est sed, vehicula lorem. Praesent eget neque vulputate, placerat nulla sed, suscipit lorem.
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "6c0ffd67-8f13-525a-b487-b7ef41d328bd"
+      Hint: Title
+      Value: LOREM IPSUM
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7e318598-8997-428c-9e73-151aad4a0559"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220729T094338Z

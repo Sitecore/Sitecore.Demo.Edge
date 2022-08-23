@@ -1,0 +1,50 @@
+﻿---
+ID: "d3f5549c-9a57-445e-972d-7f460cfef5d0"
+Parent: "d683a83e-24b9-5c38-b7f7-4108b7c8c3ba"
+Template: "5954b01b-2adb-53d6-85ee-e8408d2cc2a4"
+Path: /sitecore/content/EdgeWebsite/Data/Components/FullImageSection/Demo Full Image Section
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "0f531c03-8501-5776-be06-03ac387d1076"
+      Hint: callToActionLink
+      Value: |
+        <link text="Visit PLAY! SHOP" linktype="external" url="/shop" anchor="" target="" />
+    - ID: "229909da-5f0b-55fc-8e0e-4f5a70f90913"
+      Hint: subtitle
+      Value: Get an exclusive discount
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210708T213917Z
+    - ID: "46dd92a7-c1e9-566c-99e7-1b63c9eeafcf"
+      Hint: position
+      Value: left
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3eb0d04e-0845-4305-a197-b5b78c51cfa4"
+    - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
+      Hint: content
+      Value: "Checkout our new <strong>PLAY! SHOP</strong> now and get an exclusive <strong>20% discount</strong> at checkout."
+    - ID: "abb16176-c5d9-548f-84d3-555010c54d6c"
+      Hint: cssClass
+      Value: "full-image-section-offer"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220729T095203Z
+    - ID: "e93c0025-7f3b-5484-ad56-198d8c5f9c22"
+      Hint: title
+      Value: "Looking for some new equipment?"
