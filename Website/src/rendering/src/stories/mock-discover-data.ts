@@ -7,8 +7,7 @@ const commonProps = {
   loaded: true,
   loading: false,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-  dispatch: (action: any): any => {
-    console.log(action);
+  dispatch: (): any => {
     return null;
   },
 };
