@@ -1,5 +1,5 @@
 import { Widget } from '@sitecore-discover/react';
-import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../services/DiscoverService';
 
 type DiscoverWidgetProps = {
   rfkId: string;

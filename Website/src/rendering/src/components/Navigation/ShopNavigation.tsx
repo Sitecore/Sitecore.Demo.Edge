@@ -10,7 +10,7 @@ import PreviewSearch, { PreviewSearchProps } from '../PreviewSearch/PreviewSearc
 import { isAuthenticationEnabled } from '../../services/AuthenticationService';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import AccountPopup from './AccountPopup';
-import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../services/DiscoverService';
 import OrderCloudPreviewSearch from '../PreviewSearch/OrderCloudPreviewSearch';
 import { dispatchDiscoverCartStatusListActionEvent } from '../../helpers/discover/CartStatusDispatcher';
 

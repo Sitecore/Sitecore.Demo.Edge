@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { trackPDPViewEvent } from '@sitecore-discover/react';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
 import ProductDetailsContent from './ProductDetailsContent';
-import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../services/DiscoverService';
 
 const ProductDetails = (): JSX.Element => {
   // Products without variants: /shop/products/[productGroup, same as SKU]/[product-name]

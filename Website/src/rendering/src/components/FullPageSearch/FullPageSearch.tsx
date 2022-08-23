@@ -4,7 +4,7 @@ import debounce from '../../../src/helpers/Debounce';
 import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Product } from '../../models/discover/Product';
-import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../services/DiscoverService';
 import { CategoriesDataCategory } from '../../models/Category';
 
 export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {

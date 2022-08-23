@@ -14,8 +14,6 @@ import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
-import { isDiscoverEnabled } from '../helpers/DiscoverHelper';
-
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
 }
@@ -23,6 +21,9 @@ export interface DiscoverReference {
 type DiscoverServiceOptions = {
   isStorybook?: boolean;
 };
+
+export const isDiscoverEnabled =
+  !!process.env.NEXT_PUBLIC_DISCOVER_API_KEY && !!process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY;
 
 export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   if (!isDiscoverEnabled) {

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { isDiscoverEnabled } from '../../helpers/DiscoverHelper';
+import { isDiscoverEnabled } from '../../services/DiscoverService';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Category } from '../../models/discover/Category';
 import { Suggestion } from '../../models/discover/Suggestion';
