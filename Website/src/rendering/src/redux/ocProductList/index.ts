@@ -34,6 +34,7 @@ export interface OcProductListState {
   keyphrase?: string;
   totalPages?: number;
   totalItems?: number;
+  numberOfItems?: number;
   sortType?: string;
   sortDirection?: SortOrder;
   sortChoices?: SortChoice[];
@@ -130,6 +131,7 @@ const ocProductListSlice = createSlice({
       state.keyphrase = action.payload.options.search;
       state.totalPages = action.payload.response.Meta.TotalPages;
       state.totalItems = action.payload.response.Meta.TotalCount;
+      state.numberOfItems = action.payload.response.Meta.PageSize;
       state.products = action.payload.response.Items.map(mapOrderCloudProductToDiscoverProduct);
       state.category = action.payload.category
         ? mapOrderCloudCategoryToCategoriesDataCategory(action.payload.category)

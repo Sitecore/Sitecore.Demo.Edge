@@ -71,7 +71,7 @@ const FullPageSearchContent = ({
   };
 
   const handleViewMoreClick = () => {
-    const pageNumber = Math.ceil(products.length / numberOfItems + 1);
+    const pageNumber = page + 1;
     const payload: SearchResultsPageNumberChangedActionPayload = {
       rfkId,
       page: pageNumber,
