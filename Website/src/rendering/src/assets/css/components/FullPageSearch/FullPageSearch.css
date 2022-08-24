@@ -1,13 +1,12 @@
 .shop-main-container {
   position: relative;
-  overflow: hidden;
 }
 
 body.shop-facet-panel-open {
   overflow: hidden;
 
   .full-page-search-left {
-    @apply translate-x-0;
+    @apply translate-x-0 w-full;
   }
 
   .facet-panel-mask {
@@ -28,8 +27,8 @@ body.shop-facet-panel-open {
   }
 
   &-left {
-    @apply absolute top-0 right-0 bottom-0 w-full max-h-[calc(100vh-110px)] bg-white;
-    @apply translate-x-[100%] transition-transform overflow-y-auto overflow-x-hidden z-20;
+    @apply absolute top-0 right-0 bottom-0 w-0 max-h-[calc(100vh-110px)] bg-white;
+    @apply translate-x-[100%] transition-all overflow-y-auto overflow-x-hidden z-20;
     @apply sm:w-1/2;
     @apply lg:static lg:w-1/4 lg:max-h-[none] lg:bg-transparent lg:mr-3 lg:translate-x-0;
 
