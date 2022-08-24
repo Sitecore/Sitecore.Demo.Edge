@@ -45,31 +45,20 @@ export const keyphraseChanged = createOcAsyncThunk<
   };
 });
 
-export const categoryChanged = createOcAsyncThunk<
-  { categories: RequiredDeep<DCategory>[]; products: RequiredDeep<DBuyerProduct>[] },
-  string
->('ocPreviewSearch/categoryChanged', async (categoryID: string) => {
-  const productListRequest = Me.ListProducts<DBuyerProduct>({
-    pageSize: 10,
-    categoryID: categoryID,
-    depth: 'all',
-    sortBy: ['Name'],
-  });
-  const categoryListRequest = Me.ListCategories<DCategory>({
-    pageSize: 10,
-    search: categoryID,
-    depth: 'all',
-    sortBy: ['Name'],
-  });
-  const [productList, categoryList] = await Promise.all([productListRequest, categoryListRequest]);
-  const products = productList.Items;
-  cacheProducts(products);
-  const categories = categoryList.Items;
-  return {
-    categories,
-    products,
-  };
-});
+export const categoryChanged = createOcAsyncThunk<RequiredDeep<DBuyerProduct>[], string>(
+  'ocPreviewSearch/categoryChanged',
+  async (categoryID: string) => {
+    const productList = await Me.ListProducts<DBuyerProduct>({
+      pageSize: 10,
+      categoryID: categoryID,
+      depth: 'all',
+      sortBy: ['Name'],
+    });
+    const products = productList.Items;
+    cacheProducts(products);
+    return products;
+  }
+);
 
 const isLoading = isAnyOf(keyphraseChanged.pending, categoryChanged.pending);
 const isNotLoading = isAnyOf(keyphraseChanged.fulfilled, categoryChanged.fulfilled);
@@ -92,8 +81,7 @@ const ocPreviewSearchSlice = createSlice({
       state.categories = action.payload.categories.map(mapOrderCloudCategoryToDiscoverCategory);
     });
     builder.addCase(categoryChanged.fulfilled, (state, action) => {
-      state.products = action.payload.products.map(mapOrderCloudProductToDiscoverProduct);
-      state.categories = action.payload.categories.map(mapOrderCloudCategoryToDiscoverCategory);
+      state.products = action.payload.map(mapOrderCloudProductToDiscoverProduct);
     });
     builder.addMatcher(isLoading, (state) => {
       state.loading = true;
