@@ -39,8 +39,6 @@ namespace Sitecore.Demo.Init.Services
                 await new PushSerialized(initContext).Run();
                 await new ClearAllCaches(initContext).Run();
                 await new WarmupCM(initContext).Run();
-                await stateService.SetState(InstanceState.Preparing);
-                await new DeployToVercel(initContext).Run();
                 await stateService.SetState(InstanceState.Ready);
             }
             catch (Exception ex)

@@ -1,0 +1,48 @@
+.accordion {
+  .accordion-heading {
+    @apply p-4 text-white uppercase font-bold bg-blue;
+  }
+
+  &.loading {
+    .accordion-heading {
+      @apply bg-gray;
+      @apply after:content-[''] after:block after:h-6;
+    }
+  }
+
+  .accordion-body {
+    @apply p-4 text-sm bg-white space-y-4;
+
+    .accordion-item {
+      @apply px-5 py-3 bg-white-light;
+
+      .accordion-item-heading {
+        @apply flex justify-between items-center appearance-none w-full font-medium;
+
+        svg {
+          @apply transition-transform;
+        }
+      }
+
+      .accordion-item-body {
+        @apply hidden;
+      }
+
+      &.active {
+        .accordion-item-heading {
+          svg {
+            @apply rotate-180;
+          }
+        }
+
+        .accordion-item-body {
+          @apply block;
+        }
+      }
+
+      &.disabled {
+        @apply bg-transparent text-gray;
+      }
+    }
+  }
+}

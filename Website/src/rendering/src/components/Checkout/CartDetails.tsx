@@ -6,10 +6,15 @@ import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import Skeleton from 'react-loading-skeleton';
 import { useState } from 'react';
 import Spinner from '../../components/ShopCommon/Spinner';
+import useOcAuth from '../../hooks/useOcAuth';
 
 const CartDetails = (): JSX.Element => {
   const { order, initialized } = useOcCurrentCart();
+  const { isAnonymous, isAuthenticated } = useOcAuth();
   const [loading, setLoading] = useState(false);
+
+  const nextStepLink =
+    !isAnonymous && isAuthenticated ? '/shop/checkout/checkout' : '/shop/checkout/anonymous';
 
   const getCartDetailsAction = () => {
     if (!initialized) {
@@ -27,8 +32,8 @@ const CartDetails = (): JSX.Element => {
           <div className="cart-details-actions-wrapper">
             <CartSummary />
             <PromoInput />
-            <Link href="/shop/checkout/checkout">
-              <a className="btn--main btn--main--round" onClick={() => setLoading(true)}>
+            <Link href={nextStepLink}>
+              <a className="btn-main" onClick={() => setLoading(true)}>
                 <Spinner loading={loading} /> Proceed to Checkout
               </a>
             </Link>

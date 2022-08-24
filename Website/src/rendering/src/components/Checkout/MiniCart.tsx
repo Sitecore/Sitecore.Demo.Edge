@@ -3,6 +3,7 @@ import { DLineItem } from '../../models/ordercloud/DLineItem';
 import Link from 'next/link';
 import MiniCartItem from './MiniCartItem';
 import { getItemsCount } from '../../helpers/LineItemsHelpers';
+import useOcAuth from '../../hooks/useOcAuth';
 
 type MinicartProps = {
   onNavigatingAway: () => void;
@@ -10,6 +11,10 @@ type MinicartProps = {
 
 const MiniCart = ({ onNavigatingAway }: MinicartProps): JSX.Element => {
   const { lineItems, order } = useOcCurrentCart();
+  const { isAnonymous, isAuthenticated } = useOcAuth();
+
+  const nextStepLink =
+    !isAnonymous && isAuthenticated ? '/shop/checkout/checkout' : '/shop/checkout/anonymous';
 
   const cartContent =
     lineItems && lineItems.length ? (
@@ -26,15 +31,12 @@ const MiniCart = ({ onNavigatingAway }: MinicartProps): JSX.Element => {
           </p>
           <div className="mini-cart-buttons">
             <Link href="/shop/checkout/cart">
-              <a
-                className="btn--secondary btn--secondary--light btn--secondary--round"
-                onClick={onNavigatingAway}
-              >
+              <a className="btn-secondary-light" onClick={onNavigatingAway}>
                 View full cart
               </a>
             </Link>
-            <Link href="/shop/checkout/checkout">
-              <a className="btn--main btn--main--round" onClick={onNavigatingAway}>
+            <Link href={nextStepLink}>
+              <a className="btn-main" onClick={onNavigatingAway}>
                 Proceed to checkout
               </a>
             </Link>

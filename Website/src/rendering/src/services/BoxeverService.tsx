@@ -498,7 +498,7 @@ function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileRespons
   return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
-export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
+function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
   if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<undefined>(function (resolve) {
       resolve(undefined);
@@ -515,7 +515,7 @@ export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfi
 // ********************************
 // isAnonymousGuest
 // ********************************
-export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
+function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
   return !guestResponse?.data?.email;
 }
 
@@ -539,9 +539,7 @@ export function isAnonymousGuest(guestRef?: GuestRef): Promise<boolean> {
 // ********************************
 // getGuestFullName
 // ********************************
-export function getGuestFullNameInGuestResponse(
-  guestResponse: GuestProfileResponse
-): string | undefined {
+function getGuestFullNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
   const data = guestResponse?.data;
 
   if (!data || !data.firstName || !data.lastName) {
@@ -549,6 +547,26 @@ export function getGuestFullNameInGuestResponse(
   }
 
   return `${data.firstName} ${data.lastName}`;
+}
+
+function getGuestFirstNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.firstName) {
+    return undefined;
+  }
+
+  return data.firstName;
+}
+
+function getGuestLastNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.lastName) {
+    return undefined;
+  }
+
+  return data.lastName;
 }
 
 export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefined> {
@@ -562,6 +580,70 @@ export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefine
 
   return getGuestProfileResponse(guestRef)
     .then((guestResponse) => getGuestFullNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestFirstName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestFirstNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestLastName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestLastNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+// ********************************
+// getGuestEmail
+// ********************************
+function getGuestEmailInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data?.email) {
+    return undefined;
+  }
+
+  return data.email;
+}
+
+export function getGuestEmail(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestEmailInGuestResponse(guestResponse))
     .catch((e) => {
       console.log(e);
       return defaultValue;

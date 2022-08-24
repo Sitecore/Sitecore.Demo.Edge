@@ -16,16 +16,16 @@ SharedFields:
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
   Value: |
-    query($datasource:String!) {
+    query($datasource:String!, $language: String!) {
       source: item(
         path: $datasource
-        language: "en"
+        language: $language
       ) {
         numberOfSpeakers: field(name: "NumberOfSpeakers") {
           value
         }
       }
-      item(path: "/sitecore/content/EdgeWebsite/home/speakers", language: "en") {
+      item(path: "{1F4B781B-F2A5-5647-99DF-C0C369162C4D}", language: $language) {
         children(hasLayout: true, first: 50) {
           results {
             ... on Speaker {
@@ -87,11 +87,11 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6f284b09-36bd-4e95-87b5-84c8bac9abda"
+      Value: "1d373e58-4e27-4fe8-a08f-a3e9db021b5b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\superuser
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20220221T090831Z
+      Value: 20220407T075847Z

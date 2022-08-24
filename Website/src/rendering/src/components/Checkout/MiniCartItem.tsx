@@ -5,13 +5,12 @@ import { useCallback, useState } from 'react';
 import { removeLineItem } from '../../redux/ocCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
-import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import { getImageUrl, getProductSpecs } from '../../helpers/LineItemsHelpers';
+import { logAddToCart } from '../../services/CdpService';
 
 type MiniCartItemProps = {
   lineItem: DLineItem;
 };
-
-// TODO: extract get methotds to reuse here and in LineItemCard component
 
 const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -20,6 +19,8 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
   const handleRemoveItem = useCallback(async () => {
     setLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
+
+    logAddToCart(props.lineItem, -props.lineItem.Quantity);
   }, [dispatch, props.lineItem]);
 
   const btnRemove = (
@@ -35,19 +36,6 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
     </button>
   );
 
-  const getProductSpecs = () => {
-    const lineItem = props.lineItem;
-    if (!lineItem.Specs?.length) {
-      return '';
-    }
-    const specValues = lineItem.Specs.map((spec) => (
-      <p key={spec.Value}>
-        {spec.Name}: {spec.Value}
-      </p>
-    ));
-    return <>{specValues}</>;
-  };
-
   const productImage = (
     <img
       src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
@@ -55,17 +43,21 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
     ></img>
   );
 
+  const productSpecs = getProductSpecs(props.lineItem).map((obj) => {
+    const [key, value] = Object.entries(obj)[0];
+    return <p key={key}>{value}</p>;
+  });
+
   return (
     <li>
       {btnRemove}
-      <Link href="#">
-        {/* TODO: get url from ordercloud data once implemented */}
+      <Link href={props.lineItem.Product.xp?.ProductUrl}>
         <a className="mini-cart-list-item">
           <div className="item-image">{productImage}</div>
           <div className="item-details">
             <h4 className="item-name">{props.lineItem.Product.Name}</h4>
-            <p>Brand</p> {/* TODO: get brand from ordercloud data once implemented */}
-            {getProductSpecs()}
+            <p>{props.lineItem.Product.xp?.Brand}</p>
+            {productSpecs}
             <p>Quantity: {props.lineItem.Quantity}</p>
             <p className="item-price">${props.lineItem.LineSubtotal}</p>
           </div>

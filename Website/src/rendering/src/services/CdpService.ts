@@ -7,10 +7,18 @@ import {
   WelcomeMessage,
   getDynamicWelcomeMessage as boxeverGetDynamicWelcomeMessage,
   isCdpConfigured as boxeverIsCdpConfigured,
+  getGuestEmail as boxeverGetGuestEmail,
+  getGuestFirstName as boxeverGetGuestFirstName,
+  getGuestLastName as boxeverGetGuestLastName,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
 import { SessionPageFields } from '../types/session';
+import { DLineItem } from '../models/ordercloud/DLineItem';
+import { AddToCartPayload } from '../models/cdp/AddToCartPayload';
+import { OrderCheckoutPayload, OrderItem } from '../models/cdp/OrderCheckoutPayload';
+import { DOrder } from '../models/ordercloud/DOrder';
+import { DPayment } from '../models/ordercloud/DPayment';
 
 export const isCdpConfigured = boxeverIsCdpConfigured;
 
@@ -86,9 +94,80 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   );
 }
 
+/**
+ * Logs an ADD (add to cart) event
+ */
+export function logAddToCart(lineItem: DLineItem, quantity: number): Promise<unknown> {
+  const addToCartPayload: AddToCartPayload = {
+    product: {
+      type: lineItem.Product.xp.ProductType.toUpperCase(),
+      item_id: lineItem.Variant?.ID || lineItem.ProductID,
+      name: lineItem.Product.Name,
+      orderedAt: new Date().toISOString(),
+      quantity: quantity,
+      price: lineItem.UnitPrice,
+      productId: lineItem.ProductID,
+      currency: 'USD',
+      referenceId: lineItem.ID,
+    },
+  };
+
+  return logEvent('ADD', addToCartPayload);
+}
+
+/**
+ * Logs an ORDER_CHECKOUT event
+ */
+export function logOrderCheckout(
+  order: DOrder,
+  lineItems: DLineItem[],
+  payments: DPayment[]
+): Promise<unknown> {
+  const orderItems: OrderItem[] = [];
+  lineItems.forEach((lineItem) => {
+    orderItems.push({
+      type: lineItem.Product.Name,
+      referenceId: lineItem.ID,
+      orderedAt: new Date(lineItem.DateAdded).toISOString(),
+      status: 'PURCHASED',
+      currencyCode: 'USD',
+      price: lineItem.UnitPrice,
+      name: lineItem.Product.Name,
+      productId: lineItem.ProductID,
+      quantity: lineItem.Quantity,
+    });
+  });
+
+  const orderCheckoutPayload: OrderCheckoutPayload = {
+    order: {
+      orderItems,
+      referenceId: order.ID,
+      orderedAt: new Date(order.DateSubmitted || order.LastUpdated).toISOString(),
+      status: 'PURCHASED',
+      currencyCode: 'USD',
+      price: order.Total,
+      paymentType: 'Card',
+      cardType: payments[0].xp?.CreditCard?.CardType,
+    },
+  };
+  return logEvent('ORDER_CHECKOUT', orderCheckoutPayload);
+}
+
 export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
 ): Promise<WelcomeMessage> {
   return boxeverGetDynamicWelcomeMessage(ipAddress, language);
+}
+
+export async function getGuestEmail(): Promise<string> {
+  return boxeverGetGuestEmail();
+}
+
+export async function getGuestFirstName(): Promise<string> {
+  return boxeverGetGuestFirstName();
+}
+
+export async function getGuestLastName(): Promise<string> {
+  return boxeverGetGuestLastName();
 }

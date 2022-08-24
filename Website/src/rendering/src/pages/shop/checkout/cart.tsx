@@ -1,15 +1,10 @@
-import { ReactElement, useEffect } from 'react';
+import { ReactElement } from 'react';
 import Head from 'next/head';
-import { logViewEvent } from '../../../services/CdpService';
 import { ShopLayout } from '../../../components/Products/Shop';
 import CartDetails from '../../../components/Checkout/CartDetails';
 import DiscoverWidget from '../../../components/ShopCommon/DiscoverWidget';
 
 const Cart = (): JSX.Element => {
-  useEffect(() => {
-    logViewEvent();
-  });
-
   return (
     <>
       <CartDetails />

@@ -58,7 +58,6 @@ services:
       NEXT_PUBLIC_ORDERCLOUD_OPENID_CONNECT_ID: ${ORDERCLOUD_OPENID_CONNECT_ID}
       ORDERCLOUD_MIDDLEWARE_CLIENT_ID: ${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}
       ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET: ${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}
-      ORDERCLOUD_PROFILED_BUYER_ID: ${ORDERCLOUD_PROFILED_BUYER_ID}
       OC_API_CLIENTS_WITH_ACCESS: ${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst#user-verification
       OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst/blob/main/README.md#webhook-verification
       # Auth0 - Not referenced in our code but used by the @auth0/nextjs-auth0 library
@@ -265,8 +264,8 @@ services:
       Sitecore_ExperienceEdge_DeliveryEndpoint_CircuitBreakerDurationOfBreak: "00:15:00"
       Sitecore_ExperienceEdge_DeliveryEndpoint_TransientFailureRetryCount: "3"
       Sitecore_ExperienceEdge_DeliveryEndpoint_TransientFailureSleepTime: "00:00:10"
-      Sitecore_ExperienceEdge_EnableItemLanguageFallback: "false"
-      Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "false"
+      Sitecore_ExperienceEdge_EnableItemLanguageFallback: "true"
+      Sitecore_ExperienceEdge_EnableFieldLanguageFallback: "true"
       ## Disable Edge Publishing until Edge provisioning is implemented
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""

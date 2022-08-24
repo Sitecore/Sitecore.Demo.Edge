@@ -1,15 +1,5 @@
+import { Category } from '../models/Category';
 import { categoriesData } from '../temp/categoriesData';
-
-// TODO: Move type outside of the helper file. Types usually go in the models folder.
-export type Category = {
-  ccid: string;
-  name: string;
-  url_path: string;
-  parent_ccid?: string;
-  title?: string;
-  desc?: string;
-  image_url?: string;
-};
 
 const getCategoryByCcid = (ccid: string): Category =>
   categoriesData.find((category) => category.ccid === ccid);
@@ -30,4 +20,8 @@ export const getCategoryChain = (ccid: string): Category[] => {
   }
 
   return results;
+};
+
+export const getCategoryChildrenByCcid = (ccid: string): Category[] => {
+  return categoriesData.filter((category) => category?.parent_ccid === ccid);
 };

@@ -4,14 +4,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import OrderDetailsContent from '../../components/Account/OrderDetailsContent';
 import { OrderWorksheet } from 'ordercloud-javascript-sdk';
 import { MockSlice, MockStore } from '../mock-store';
-import { authSlice, cartSlice, productCacheSlice } from '../Checkout/CheckoutCommon';
+import { loggedInAuthSlice, cartSlice, productCacheSlice } from '../Checkout/CheckoutCommon';
 
 export default {
   title: 'Components/Account/OrderDetailsContent',
   component: OrderDetailsContent,
 } as ComponentMeta<typeof OrderDetailsContent>;
 
-const slices: MockSlice[] = [cartSlice, productCacheSlice, authSlice];
+const slices: MockSlice[] = [cartSlice, productCacheSlice, loggedInAuthSlice];
 
 const Template: ComponentStory<typeof OrderDetailsContent> = (args) => (
   <MockStore sliceOrSlices={slices}>
@@ -120,6 +120,7 @@ const orderOne = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -375,6 +376,7 @@ const orderTwo = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -630,6 +632,7 @@ const orderThree = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -716,6 +719,7 @@ const orderThree = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -802,6 +806,7 @@ const orderThree = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -1031,6 +1036,7 @@ const orderFour = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -1117,6 +1123,7 @@ const orderFour = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,
@@ -1203,6 +1210,7 @@ const orderFour = {
               Tags: null,
             },
           ],
+          ProductUrl: '#',
           Status: 'Draft',
           IsResale: false,
           IntegrationData: null,

@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../redux/store';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import CheckoutSummary from './CheckoutSummary';
 import LineItemList from './LineItemList';
+import { logOrderCheckout } from '../../services/CdpService';
 import mapProductsForDiscover from '../../helpers/discover/ProductMapper';
 import mapUserForDiscover from '../../helpers/discover/UserMapper';
 import {
@@ -12,7 +13,6 @@ import {
   getCreditCardExpirationDate,
 } from '../../helpers/DateHelper';
 
-// TODO: Create Storybook story for that component
 const OrderReviewDetails = (): JSX.Element => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -81,6 +81,7 @@ const OrderReviewDetails = (): JSX.Element => {
 
   const onOrderSubmitSuccess = () => {
     dispatchDiscoverOrderConfirmEvent();
+    dispatchCdpOrderCheckoutEvent();
     router?.push(`/shop/checkout/order-summary`);
   };
 
@@ -95,6 +96,10 @@ const OrderReviewDetails = (): JSX.Element => {
         subtotal: order.Subtotal,
       },
     });
+  };
+
+  const dispatchCdpOrderCheckoutEvent = () => {
+    logOrderCheckout(order, lineItems, payments);
   };
 
   const handleSubmitOrder = async () => dispatch(submitOrder(onOrderSubmitSuccess));

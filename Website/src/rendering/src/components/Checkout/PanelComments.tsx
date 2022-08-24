@@ -18,13 +18,12 @@ const PanelComments = (): JSX.Element => {
       <div className="panel-body">
         <form className="form">
           <div>
-            <label htmlFor="order-comments">Leave your comment for us here...</label>
+            <label htmlFor="order-comments">Your comment (optional)</label>
             <textarea
               name="order-comments"
               id="order-comments"
               rows={3}
               defaultValue={order?.Comments}
-              // TODO: Investigate if we need to disable the "Review order" button while the comment is being saved
               onBlur={(event) => updateComments(event.target.value)}
             ></textarea>
           </div>

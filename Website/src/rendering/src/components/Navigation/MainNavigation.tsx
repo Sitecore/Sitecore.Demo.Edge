@@ -87,7 +87,7 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
             {shopLink}
             <li className="button-menu-item">
               <Link href="/tickets">
-                <a className="btn--main btn--main--round">Book Tickets</a>
+                <a className="btn-main">Book Tickets</a>
               </Link>
             </li>
           </ul>

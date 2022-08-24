@@ -36,11 +36,10 @@ const ShopBreadcrumb = (props: ShopBreadcrumbProps): JSX.Element => {
     return <li key={index}>{label}</li>;
   });
 
+  const extraCssClass = props.additionalCssClass ? props.additionalCssClass : '';
+
   return (
-    <nav
-      className={`breadcrumb shop-breadcrumb ${props.additionalCssClass}`}
-      aria-label="breadcrumbs"
-    >
+    <nav className={`breadcrumb shop-breadcrumb ${extraCssClass}`} aria-label="breadcrumbs">
       <ol className="list">{breadcrumbListItems}</ol>
     </nav>
   );

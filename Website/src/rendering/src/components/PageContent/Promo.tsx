@@ -20,17 +20,17 @@ export type PromoProps = ComponentProps & {
 };
 
 const Promo = ({ fields }: PromoProps): JSX.Element => {
-  const sectionCssClasses = `section section__promo ${fields.cssClass.value}`;
-  const positionCssClasses = `section__content section__promo__content section__promo__content--${fields.position.value} container`;
+  const sectionCssClasses = `section promo ${fields.cssClass.value}`;
+  const positionCssClasses = `section-content promo-content promo-content-${fields.position.value} container`;
 
   return (
     <section className={sectionCssClasses}>
       <div className={positionCssClasses}>
-        <div className="section__promo__content__card">
+        <div className="promo-card">
           <Text tag="h5" field={fields.subtitle} />
           <Text tag="h2" field={fields.title} />
           <RichText field={fields.content} />
-          <Link field={fields.callToActionLink} className="btn--main btn--main--round" />
+          <Link field={fields.callToActionLink} className="btn-main" />
         </div>
         <div></div>
       </div>

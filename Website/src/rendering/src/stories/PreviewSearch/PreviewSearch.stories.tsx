@@ -13,3 +13,14 @@ const Template: ComponentStory<typeof PreviewSearch> = (args) => <PreviewSearch 
 
 export const Default = Template.bind({});
 Default.args = mockDiscoverData.previewSearchProps;
+Default.decorators = [
+  (Story) => (
+    <div className="shop-navigation">
+      <div className="shop-navigation-content">
+        <div className="shop-search-input-container">
+          <Story />
+        </div>
+      </div>
+    </div>
+  ),
+];

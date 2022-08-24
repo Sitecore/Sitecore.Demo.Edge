@@ -1,0 +1,17 @@
+div.shop-main-container .section.address-book-form-section {
+  @apply pt-0;
+}
+
+.address-book-form-section {
+  h1 {
+    @apply text-2xl font-bold mb-5;
+  }
+
+  .form-wrapper {
+    @apply max-w-md mx-auto;
+
+    .button-area {
+      @apply text-right;
+    }
+  }
+}

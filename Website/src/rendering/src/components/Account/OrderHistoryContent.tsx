@@ -46,7 +46,7 @@ const OrderHistoryContent = ({ orders }: OrderHistoryContentProps): JSX.Element 
   );
 
   return (
-    <section className="order-history shop-container">
+    <section className="order-history shop-container section">
       <h1>Order history</h1>
       <div className="order-history-grid">
         {noOrders}

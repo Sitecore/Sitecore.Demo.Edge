@@ -41,13 +41,3 @@
 @mixin flex--fs-center {
   @apply flex items-start justify-center;
 }
-
-@mixin content {
-  @apply w-full my-0 mx-auto box-border;
-
-  max-width: 1440px;
-}
-
-@mixin shop-container {
-  @apply w-full px-5 mx-auto max-w-screen-2xl;
-}

@@ -100,10 +100,11 @@ const PreviewSearch = ({
   );
 
   const [open, setOpen] = useState(false);
-  const containerRef = useRef(null);
+  const popupRef = useRef(null);
+  const inputRef = useRef(null);
 
   const closePopup = () => setOpen(false);
-  ClickOutside(containerRef, closePopup);
+  ClickOutside([popupRef, inputRef], closePopup);
 
   const openedPopup = open && (
     <div className="preview-search-modal-container">
@@ -130,18 +131,22 @@ const PreviewSearch = ({
   );
 
   return (
-    <div ref={containerRef}>
+    <div>
       <div className="preview-search-container">
-        <div className="preview-search">{openedPopup}</div>
+        <div className="preview-search" ref={popupRef}>
+          {openedPopup}
+        </div>
       </div>
-      <SearchInput
-        redirectUrl={redirectUrl}
-        keyphrase={keyphrase}
-        setSearchString={changeKeyphrase}
-        placeholder="I am shopping for..."
-        onFocus={onFocus}
-        setOpen={setOpen}
-      />
+      <div ref={inputRef}>
+        <SearchInput
+          redirectUrl={redirectUrl}
+          keyphrase={keyphrase}
+          setSearchString={changeKeyphrase}
+          placeholder="I am shopping for..."
+          onFocus={onFocus}
+          setOpen={setOpen}
+        />
+      </div>
     </div>
   );
 };

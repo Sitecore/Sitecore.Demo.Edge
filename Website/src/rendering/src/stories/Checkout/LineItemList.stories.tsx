@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import LineItemList from '../../components/Checkout/LineItemList';
 import { MockSlice, MockStore } from '../mock-store';
-import { authSlice, cartSlice, productCacheSlice } from './CheckoutCommon';
+import { loggedInAuthSlice, cartSlice, productCacheSlice } from './CheckoutCommon';
 
 export default {
   title: 'Components/Checkout/LineItemList',
@@ -11,7 +11,7 @@ export default {
 
 const Template: ComponentStory<typeof LineItemList> = (args) => <LineItemList {...args} />;
 
-const slices: MockSlice[] = [cartSlice, productCacheSlice, authSlice];
+const slices: MockSlice[] = [cartSlice, productCacheSlice, loggedInAuthSlice];
 
 export const Loading = Template.bind({});
 const loadingState = {
@@ -20,9 +20,7 @@ const loadingState = {
 Loading.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={{ name: 'ocCurrentCart', state: loadingState }}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -34,9 +32,7 @@ Editable.args = {
 Editable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];
@@ -48,9 +44,7 @@ NonEditable.args = {
 NonEditable.decorators = [
   (Story) => (
     <MockStore sliceOrSlices={slices}>
-      <div className="cart-details">
-        <Story />
-      </div>
+      <Story />
     </MockStore>
   ),
 ];

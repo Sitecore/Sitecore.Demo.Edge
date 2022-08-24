@@ -5,11 +5,15 @@ import useOcAuth from '../../hooks/useOcAuth';
 import {
   clearAuthenticationTokens,
   isAuthenticationEnabled,
-  getLoginUrl,
   logoutUrl,
 } from '../../services/AuthenticationService';
+import OrderCloudLoginLink from '../ShopCommon/OrderCloudLoginLink';
 
-const AccountPopup = (): JSX.Element => {
+type AccountPopupProps = {
+  onNavigatingAway: () => void;
+};
+
+const AccountPopup = ({ onNavigatingAway }: AccountPopupProps): JSX.Element => {
   const router = useRouter();
   const { user } = useOcUser();
   const { isAnonymous, isAuthenticated } = useOcAuth();
@@ -22,37 +26,67 @@ const AccountPopup = (): JSX.Element => {
 
   const guestMenuItems = !isUserLoggedIn && (
     <>
-      <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn--secondary btn--secondary--light btn--secondary--round">Login</a>
-      </Link>
+      <OrderCloudLoginLink className="btn-secondary-light" redirectToPathOnLogin={router.asPath}>
+        Login
+      </OrderCloudLoginLink>
       {/* TODO: Replace with signup url when available */}
-      <Link href={getLoginUrl(router.asPath)}>
-        <a className="btn--main btn--main--round">Register</a>
-      </Link>
+      <OrderCloudLoginLink className="btn-main" redirectToPathOnLogin={router.asPath}>
+        Register
+      </OrderCloudLoginLink>
     </>
   );
 
   const getGreeting = () => {
-    let greeding = 'Greetings';
-    if (user?.FirstName || user?.LastName) {
-      greeding += `, ${user?.FirstName} ${user?.LastName}`;
+    if (!isUserLoggedIn) {
+      return null;
     }
-    return greeding;
+
+    let greeting = <h3>Greetings</h3>;
+    if (user?.FirstName || user?.LastName) {
+      greeting = (
+        <h3>
+          Greetings,{' '}
+          <Link href="/account">
+            <a>
+              {user?.FirstName} {user?.LastName}
+            </a>
+          </Link>
+        </h3>
+      );
+    }
+    return greeting;
   };
 
   const loggedInMenuItems = isUserLoggedIn && (
     <>
-      <h3>{getGreeting()}</h3>
+      <Link href="/account/address-book">
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
+          Address book
+        </a>
+      </Link>
+      <Link href="/account/payment-methods">
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
+          Payment methods
+        </a>
+      </Link>
+      <Link href="/account/orders">
+        <a className="btn-secondary-light" onClick={onNavigatingAway}>
+          Order history
+        </a>
+      </Link>
       <Link href={logoutUrl}>
-        <a className="btn--main btn--main--round" onClick={clearAuthenticationTokens}>
+        <a className="btn-main" onClick={clearAuthenticationTokens}>
           Logout
         </a>
       </Link>
     </>
   );
 
+  const loggedInClass = isUserLoggedIn ? 'account-popup-logged' : '';
+
   return (
-    <div className="account-popup">
+    <div className={`account-popup ${loggedInClass}`}>
+      {getGreeting()}
       <div className="account-popup-buttons">
         {guestMenuItems}
         {loggedInMenuItems}

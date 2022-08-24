@@ -3,14 +3,16 @@ import { DLineItem } from 'src/models/ordercloud/DLineItem';
 import useOcProduct from '../../hooks/useOcProduct';
 import { patchLineItem, removeLineItem } from '../../redux/ocCurrentCart';
 import QuantityInput from '../ShopCommon/QuantityInput';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import GiftCheckboxLineItem from './GiftCheckboxLineItem';
 import { useAppDispatch } from '../../redux/store';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
+import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
-import { getImageUrl } from '../../helpers/LineItemsHelpers';
+import { getImageUrl, getProductSpecs } from '../../helpers/LineItemsHelpers';
+import Link from 'next/link';
 
 type LineItemCardProps = {
   lineItem: DLineItem;
@@ -24,22 +26,11 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
 
   const product = useOcProduct(props.lineItem.ProductID);
 
-  const getProductSpecs = () => {
-    const lineItem = props.lineItem;
-    if (!lineItem.Specs?.length) {
-      return '';
-    }
-    const specValues = lineItem.Specs.map((spec) => (
-      <p key={spec.Value}>
-        {spec.Name}: {spec.Value}
-      </p>
-    ));
-    return <>{specValues}</>;
-  };
-
   const handleRemoveLineItem = useCallback(async () => {
     setRemoveLoading(true);
     await dispatch(removeLineItem(props.lineItem.ID));
+
+    logAddToCart(props.lineItem, -props.lineItem.Quantity);
   }, [dispatch, props.lineItem]);
 
   const handleUpdateQuantity = useCallback(
@@ -52,6 +43,8 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         })
       );
       setUpdateLoading(false);
+
+      logAddToCart(props.lineItem, quantity - props.lineItem.Quantity);
     },
     [dispatch, props.lineItem]
   );
@@ -143,7 +136,6 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
         type="text"
         className="user-comment"
         defaultValue={props.lineItem.xp?.Comment}
-        // TODO: Investigate if we need to disable the "Proceed to Checkout" button while the comment is being saved
         onBlur={(event) => handleUpdateComment(event.target.value)}
       />
     </>
@@ -154,9 +146,8 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
   // TODO: add functionality to field
   const quantityAlert = props.editable && <p className="quantity-alert">Only 3 left!</p>;
 
-  // TODO: specs to return base and final price
   const priceBlock = (
-    <PriceReact
+    <Price
       price={props.lineItem.UnitPrice}
       finalPrice={props.lineItem.UnitPrice}
       altTheme={true}
@@ -164,13 +155,25 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     />
   );
 
+  const productSpecs = getProductSpecs(props.lineItem).map((obj) => {
+    const [key, value] = Object.entries(obj)[0];
+    return <p key={key}>{value}</p>;
+  });
+
   const lineItemCard = (
     <div className="line-item-card">
       <div className="line-item-card-details">
-        <h4 className="product-name">{props.lineItem.Product.Name}</h4>
-        {productImage}
+        <Link href={props.lineItem.Product.xp?.ProductUrl}>
+          <a className="product-name">
+            <h4>{props.lineItem.Product.Name}</h4>
+          </a>
+        </Link>
+        <Link href={props.lineItem.Product.xp?.ProductUrl}>
+          <a className="product-image">{productImage}</a>
+        </Link>
         <div className="product-specs">
-          {getProductSpecs()}
+          <p>{props.lineItem.Product.xp?.Brand}</p>
+          {productSpecs}
           {staticQuantityBlock}
           {staticUserComment}
         </div>

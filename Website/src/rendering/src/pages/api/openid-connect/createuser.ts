@@ -4,11 +4,17 @@ import {
   Configuration,
   OpenIdConnectPayload,
   OpenIdConnectResponse,
+  UserGroups,
   Users,
 } from 'ordercloud-javascript-sdk';
 import { parseJwt } from '../../../helpers/JwtHelper';
 import { isOrderCloudError } from '../../../helpers/TypeGuards';
 import { Auth0Claims } from '../../../interfaces/Auth0';
+import {
+  PROFILED_BUYER_ID,
+  PROFILED_HEADSTART_CATALOG_ID,
+  PROFILED_LOCATION_ID_SUFFIX,
+} from '../../../constants/seeding';
 
 Configuration.Set({ baseApiUrl: process.env.NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL });
 
@@ -32,7 +38,7 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
     const claims = parseJwt(payload.TokenResponse.id_token) as Auth0Claims;
 
     const usersList = await Users.List(
-      process.env.ORDERCLOUD_PROFILED_BUYER_ID,
+      PROFILED_BUYER_ID,
       {
         filters: { Username: claims.email },
       },
@@ -52,7 +58,7 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
 
     // create a new user in ordercloud on the fly to call out to associate with the incoming idp identity
     const newUser = await Users.Create(
-      process.env.ORDERCLOUD_PROFILED_BUYER_ID,
+      PROFILED_BUYER_ID,
       {
         Username: claims.email, // claims.email is guaranteed
         Email: claims.email, // claims.email is guaranteed
@@ -61,6 +67,22 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
         Active: true,
       },
       // access token has been granted elevated role BuyerUserAdmin required to create users
+      { accessToken: payload.OrderCloudAccessToken }
+    );
+    await UserGroups.SaveUserAssignment(
+      PROFILED_BUYER_ID,
+      {
+        UserGroupID: `${PROFILED_BUYER_ID}-${PROFILED_LOCATION_ID_SUFFIX}`,
+        UserID: newUser.ID,
+      },
+      { accessToken: payload.OrderCloudAccessToken }
+    );
+    await UserGroups.SaveUserAssignment(
+      PROFILED_BUYER_ID,
+      {
+        UserGroupID: PROFILED_HEADSTART_CATALOG_ID,
+        UserID: newUser.ID,
+      },
       { accessToken: payload.OrderCloudAccessToken }
     );
     return response.status(200).json({

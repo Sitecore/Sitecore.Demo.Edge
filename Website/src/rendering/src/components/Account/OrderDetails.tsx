@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import {
   BuyerCreditCard,
   IntegrationEvents,
-  Me,
   OrderWorksheet,
   Payments,
   ShipMethod,
@@ -28,9 +27,8 @@ const OrderDetails = (): JSX.Element => {
 
       const [fetchedOrder, fetchedPayment] = await Promise.all([orderPromise, paymentPromise]);
 
-      let creditCardPromise: Promise<BuyerCreditCard>;
       if (fetchedPayment?.Items?.length > 0) {
-        creditCardPromise = Me.GetCreditCard(fetchedPayment.Items[0].CreditCardID);
+        setCreditCard(fetchedPayment.Items[0].xp.CreditCard);
       }
 
       if (fetchedOrder) {
@@ -45,13 +43,6 @@ const OrderDetails = (): JSX.Element => {
 
         if (selectedShipMethod) {
           setShipMethod(selectedShipMethod);
-        }
-      }
-
-      if (creditCardPromise) {
-        const fetchedCreditCard = await creditCardPromise;
-        if (fetchedCreditCard) {
-          setCreditCard(fetchedCreditCard);
         }
       }
     };

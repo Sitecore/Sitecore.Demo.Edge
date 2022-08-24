@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { BuyerProduct, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
+import { BuyerProduct, LineItem, RequiredDeep, Spec, Variant } from 'ordercloud-javascript-sdk';
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createLineItem } from '../../redux/ocCurrentCart';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
@@ -8,9 +8,11 @@ import ProductSpecList, { OrderCloudSpec } from './ProductSpecList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
-import { PriceReact } from '../ShopCommon/Price';
+import Price from '../ShopCommon/Price';
 import ProductOverview from './ProductOverview';
 import ProductImage from './ProductImage';
+import { logAddToCart } from '../../services/CdpService';
+import ProductBreadcrumb from '../Navigation/ProductBreadcrumb';
 import { Actions, PageController } from '@sitecore-discover/react';
 import Spinner from '../../components/ShopCommon/Spinner';
 import Skeleton from 'react-loading-skeleton';
@@ -35,6 +37,8 @@ const ProductDetailsContent = ({
   const [specValues, setSpecValues] = useState<OrderCloudSpec[]>([]);
   const [variant, setVariant] = useState<Variant>(undefined);
   const loading = initialLoading || isLoading;
+
+  const pageTitle = loading ? 'loading...' : product ? product.Name : 'Product not found';
 
   // Handle LineItem edits
   const lineItemId = '';
@@ -84,8 +88,9 @@ const ProductDetailsContent = ({
             };
           });
         }
-        setSpecValues(specVals);
       }
+
+      setSpecValues(specVals);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lineItem, specs, variants, variantID]);
@@ -131,9 +136,12 @@ const ProductDetailsContent = ({
           break;
         }
       }
+    } else {
+      setVariant(undefined);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [specValues]);
+  }, [specValues, variants]);
 
   const handleSpecFieldChange = (values: OrderCloudSpec) => {
     const tempSpecs: OrderCloudSpec[] = specValues.map((spec) => {
@@ -150,37 +158,62 @@ const ProductDetailsContent = ({
     setSpecValues(tempSpecs);
   };
 
-  const dispatchDiscoverAddToCartEvent = (product: BuyerProduct, quantity: number) => {
-    PageController.getDispatcher().dispatch({
-      type: Actions.ADD_TO_CART,
-      payload: {
-        page: 'pdp',
-        // TODO: On product with variants, Product.ID is equal to the Discover product group, not the variant SKU. We must send the variant SKU.
-        sku: product.ID,
-        quantity: quantity,
-        price:
-          product.PriceSchedule.PriceBreaks[0].SalePrice ||
-          product.PriceSchedule.PriceBreaks[0].Price,
-        priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
-      },
-    });
-  };
+  const dispatchDiscoverAddToCartEvent = useCallback(
+    (product: BuyerProduct, quantity: number) => {
+      const sku = !!variant ? variant.ID : product.ID;
+
+      PageController.getDispatcher().dispatch({
+        type: Actions.ADD_TO_CART,
+        payload: {
+          page: 'pdp',
+          sku: sku,
+          quantity: quantity,
+          price:
+            product.PriceSchedule.PriceBreaks[0].SalePrice ||
+            product.PriceSchedule.PriceBreaks[0].Price,
+          priceOriginal: product.PriceSchedule.PriceBreaks[0].Price,
+        },
+      });
+    },
+    [variant]
+  );
 
   const handleAddToCart = useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
       setIsLoading(true);
-      await dispatch(
+      const response = await dispatch(
         createLineItem({
           ProductID: product.ID,
           Quantity: quantity,
           Specs: specValues,
+          xp: {
+            StatusByQuantity: {
+              Submitted: quantity,
+              Open: 0,
+              Backordered: 0,
+              Canceled: 0,
+              CancelRequested: 0,
+              CancelDenied: 0,
+              Returned: 0,
+              ReturnRequested: 0,
+              ReturnDenied: 0,
+              Complete: 0,
+            },
+          },
         })
       );
-      dispatchDiscoverAddToCartEvent(product, quantity);
       setIsLoading(false);
+
+      dispatchDiscoverAddToCartEvent(product, quantity);
+
+      // Retrieve the lineitem that was just created
+      const resPayload: { LineItems?: LineItem[] } = response?.payload;
+      const lineItem = resPayload?.LineItems.find((item) => item.ProductID === product.ID);
+
+      logAddToCart(lineItem, quantity);
     },
-    [dispatch, product, specValues, quantity]
+    [dispatch, product, specValues, quantity, dispatchDiscoverAddToCartEvent]
   );
 
   const productImageProps =
@@ -249,12 +282,14 @@ const ProductDetailsContent = ({
     ],
   };
 
+  const btnText = `${lineItem ? 'Update' : 'Add To'} Cart`;
+
   const btnAddToCart = initialLoading ? (
-    <Skeleton className="btn--main" width={168} />
+    <Skeleton className="btn-main" width={168} />
   ) : (
-    <button type="submit" className="btn--main btn--main--round" disabled={loading}>
-      {/* TODO: Extract JSX logic into a const */}
-      <Spinner loading={loading} /> {`${lineItem ? 'Update' : 'Add To'} Cart`}
+    <button type="submit" className="btn-main" disabled={loading}>
+      <Spinner loading={loading} />
+      {btnText}
     </button>
   );
 
@@ -266,16 +301,28 @@ const ProductDetailsContent = ({
     </div>
   );
 
+  const productName = initialLoading ? <Skeleton width={300} /> : product?.Name;
+  const productBrand = initialLoading ? <Skeleton width={300} /> : product?.xp?.Brand;
+
+  const productBreadcrumb = initialLoading ? (
+    <Skeleton width={300} />
+  ) : product ? (
+    <ProductBreadcrumb
+      productName={product.Name}
+      productUrl={product.xp?.ProductUrl}
+      ccid={product.xp?.CCID}
+    />
+  ) : null;
+
   const productDetails =
     loading || product ? (
       <section className="section">
         <div className="shop-container">
           <div className="product-details">
             <div className="product-details-hero">
-              <h2 className="product-name">
-                {/* TODO: Extract JSX logic into a const */}
-                {initialLoading ? <Skeleton width={300} /> : product && product.Name}
-              </h2>
+              <div className="product-breadcrumb">{productBreadcrumb}</div>
+              <h2 className="product-name">{productName}</h2>
+              <h3 className="product-brand">{productBrand}</h3>
               <ProductImage images={productImageProps} loading={initialLoading} />
               <div className="product-description">
                 <form onSubmit={handleAddToCart}>
@@ -294,7 +341,7 @@ const ProductDetailsContent = ({
                     />
                     {quantityAlert}
                   </div>
-                  <PriceReact {...priceProps} altTheme sizeL loading={initialLoading} />
+                  <Price {...priceProps} altTheme sizeL loading={initialLoading} />
                   {productAddToCart}
                 </form>
               </div>
@@ -310,10 +357,7 @@ const ProductDetailsContent = ({
   return (
     <>
       <Head>
-        <title>
-          {/* TODO: Extract JSX logic into a const */}
-          PLAY! SHOP - {loading ? 'loading...' : product ? product.Name : 'Product not found'}
-        </title>
+        <title>PLAY! SHOP - {pageTitle}</title>
       </Head>
       {productDetails}
     </>
