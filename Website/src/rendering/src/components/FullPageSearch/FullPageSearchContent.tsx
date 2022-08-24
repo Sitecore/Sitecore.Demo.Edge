@@ -32,7 +32,6 @@ const FullPageSearchContent = ({
   sortChoices,
   products,
   facets,
-  numberOfItems,
   onFacetClick,
   onClearFilters,
   onPageNumberChange,
