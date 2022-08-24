@@ -362,12 +362,12 @@ services:
       JobSettings_ShouldRunZoho: "${JobSettings_ShouldRunZoho}"
 
       OrderCloudSettings_ApiUrl: "${OrderCloudSettings_ApiUrl}"
-      OrderCloudSettings_ClientIDsWithAPIAccess: "${OrderCloudSettings_ClientIDsWithAPIAccess}"
+      OrderCloudSettings_ClientIDsWithAPIAccess: "${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS}"
       OrderCloudSettings_IncrementorPrefix: "${OrderCloudSettings_IncrementorPrefix}"
-      OrderCloudSettings_MarketplaceID: "${OrderCloudSettings_MarketplaceID}"
+      OrderCloudSettings_MarketplaceID: ""
       OrderCloudSettings_MarketplaceName: "${OrderCloudSettings_MarketplaceName}"
-      OrderCloudSettings_MiddlewareClientID: "${OrderCloudSettings_MiddlewareClientID}"
-      OrderCloudSettings_MiddlewareClientSecret: "${OrderCloudSettings_MiddlewareClientSecret}"
+      OrderCloudSettings_MiddlewareClientID: "${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}"
+      OrderCloudSettings_MiddlewareClientSecret: "${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}"
       OrderCloudSettings_WebhookHashKey: "${OrderCloudSettings_WebhookHashKey}"
 
       SendGridSettings_ApiKey: "${SendGridSettings_ApiKey}"
@@ -428,7 +428,7 @@ services:
     environment:
       MARKETPLACE_ID: ${OrderCloudSettings_MarketplaceID}
       SELLER_CLIENT_ID: ${ORDERCLOUD_SELLER_CLIENT_ID}
-      MIDDLEWARE_URL: http://${API_HOST}
+      MIDDLEWARE_URL: https://${API_HOST}
       TRANSLATE_BLOB_URL: https://four51.blob.core.windows.net/ngx-translate/i18n/
       BLOB_STORAGE_URL: https://four51.blob.core.windows.net
     ports:
