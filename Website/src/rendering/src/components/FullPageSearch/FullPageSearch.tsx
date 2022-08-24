@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import debounce from '../../../src/helpers/Debounce';
 import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
-import { Product } from '../../models/discover/Product';
+// import { Product } from '../../models/discover/Product';
 import { isDiscoverEnabled } from '../../services/DiscoverService';
 import { CategoriesDataCategory } from '../../models/Category';
 
@@ -69,61 +69,60 @@ const FullPageSearch = ({
   }, []);
 
   useEffect(() => {
-    if (useOrderCloudFiltering) {
-      // TODO:
-      // for now we are skipping caching products for ordercloud because we dont have access to filter information needed to
-      // uniquely identify requests, we can probably implement similar caching at the OrderCloudFullPageSearch level instead
-      setLoadedProducts(products || []);
-      return;
-    }
-    if (!loaded && loading) return;
+    setLoadedProducts(products || []);
+    return;
+    // TODO: this caching mechanism was created but is not complete because it doesn't take into account applied filters or sorts
+    // and currently this information is not available via Discover
+    // this could potentially be implemented by holding that state in a wrapper component to this one
 
-    const productsFromSessionStorage = loadProductsFromSessionStorage();
+    // if (!loaded && loading) return;
 
-    let productsToDisplay = [];
-    let initialProducts = [];
-    if (productsFromSessionStorage && products) {
-      if (isCategoryProductListingPage) {
-        productsToDisplay = [...productsFromSessionStorage, ...products];
-      } else {
-        // BUG: Discover initially sends back a full page of products - currently 10, not relevant
-        // to the keyphrase, and then updates the products with the correct ones
-        initialProducts = productsFromSessionStorage.splice(0, 10);
-        productsToDisplay = [...productsFromSessionStorage, ...products];
-      }
-      // Filter the products so that we don't include duplicates when refreshing the page
-      productsToDisplay = productsToDisplay.filter(
-        (value: Product, index: number, self: Product[]) =>
-          self.findIndex((v) => v.sku === value.sku) === index
-      );
-    } else if (products) {
-      productsToDisplay = products;
-    } else {
-      return;
-    }
-    setLoadedProducts(productsToDisplay);
-    saveProductsToSessionStorage(
-      isCategoryProductListingPage ? productsToDisplay : [...initialProducts, ...productsToDisplay]
-    );
+    // const productsFromSessionStorage = loadProductsFromSessionStorage();
+
+    // let productsToDisplay = [];
+    // let initialProducts = [];
+    // if (productsFromSessionStorage && products) {
+    //   if (isCategoryProductListingPage) {
+    //     productsToDisplay = [...productsFromSessionStorage, ...products];
+    //   } else {
+    //     // BUG: Discover initially sends back a full page of products - currently 10, not relevant
+    //     // to the keyphrase, and then updates the products with the correct ones
+    //     initialProducts = productsFromSessionStorage.splice(0, 10);
+    //     productsToDisplay = [...productsFromSessionStorage, ...products];
+    //   }
+    //   // Filter the products so that we don't include duplicates when refreshing the page
+    //   productsToDisplay = productsToDisplay.filter(
+    //     (value: Product, index: number, self: Product[]) =>
+    //       self.findIndex((v) => v.sku === value.sku) === index
+    //   );
+    // } else if (products) {
+    //   productsToDisplay = products;
+    // } else {
+    //   return;
+    // }
+    // setLoadedProducts(productsToDisplay);
+    // saveProductsToSessionStorage(
+    //   isCategoryProductListingPage ? productsToDisplay : [...initialProducts, ...productsToDisplay]
+    // );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
-  const getSessionStorageKey = (): string => {
-    if (isCategoryProductListingPage && keyphrase) {
-      return `${category.ccid} - ${keyphrase} products`;
-    } else if (isCategoryProductListingPage && category) {
-      return `${category.ccid} products`;
-    } else {
-      return `${keyphrase} products`;
-    }
-  };
+  // const getSessionStorageKey = (): string => {
+  //   if (isCategoryProductListingPage && keyphrase) {
+  //     return `${category.ccid} - ${keyphrase} products`;
+  //   } else if (isCategoryProductListingPage && category) {
+  //     return `${category.ccid} products`;
+  //   } else {
+  //     return `${keyphrase} products`;
+  //   }
+  // };
 
-  const saveProductsToSessionStorage = (products: Product[]) => {
-    sessionStorage.setItem(getSessionStorageKey(), JSON.stringify(products));
-  };
+  // const saveProductsToSessionStorage = (products: Product[]) => {
+  //   sessionStorage.setItem(getSessionStorageKey(), JSON.stringify(products));
+  // };
 
-  const loadProductsFromSessionStorage = () =>
-    JSON.parse(sessionStorage.getItem(getSessionStorageKey()));
+  // const loadProductsFromSessionStorage = () =>
+  //   JSON.parse(sessionStorage.getItem(getSessionStorageKey()));
 
   return (
     <FullPageSearchContent
