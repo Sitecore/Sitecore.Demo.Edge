@@ -426,7 +426,6 @@ services:
     isolation: default
     scale: ${OC_HEADSTART_ENABLED}
     environment:
-      MARKETPLACE_ID: ${OrderCloudSettings_MarketplaceID}
       SELLER_CLIENT_ID: ${ORDERCLOUD_SELLER_CLIENT_ID}
       MIDDLEWARE_URL: https://${API_HOST}
       TRANSLATE_BLOB_URL: https://four51.blob.core.windows.net/ngx-translate/i18n/
