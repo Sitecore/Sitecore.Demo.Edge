@@ -315,7 +315,7 @@ services:
 
   # OrderCloud Headstart
   headstart-middleware:
-    image: ${REGISTRY}headstart/headstart-middleware:${OC_HEADSTART_VERSION}-linux
+    image: adoprog/headstart-middleware:${OC_HEADSTART_VERSION}-linux
     isolation: default
     ports:
       - 43005:80
@@ -422,7 +422,7 @@ services:
       - "traefik.http.services.headstart-middleware.loadbalancer.server.port=80"
 
   headstart-seller:
-    image: ${REGISTRY}headstart/headstart-seller:${OC_HEADSTART_VERSION}-linux
+    image: adoprog/headstart-seller:${OC_HEADSTART_VERSION}-linux
     isolation: default
     scale: ${OC_HEADSTART_ENABLED}
     environment:
@@ -439,7 +439,7 @@ services:
       - "traefik.http.routers.headstart-seller-secure.tls=true"
       
   cosmos:
-    image: ${REGISTRY}headstart/headstart-cosmos:${OC_HEADSTART_VERSION}-linux
+    image: adoprog/headstart-cosmos:${OC_HEADSTART_VERSION}-linux
     mem_limit: 3g
     cpu_count: 2
     scale: ${OC_HEADSTART_ENABLED}
