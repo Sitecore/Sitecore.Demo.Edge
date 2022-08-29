@@ -8,11 +8,12 @@
   }
 
   &-wrapper {
-    @apply absolute top-[50%] right-0 translate-x-[100%] transition-all z-50 w-full;
+    @apply absolute top-[50%] right-0 translate-x-[100%] transition-all z-50 w-0;
     @apply sm:w-auto sm:top-[100%];
 
     &.open {
-      @apply translate-x-0;
+      @apply translate-x-0 w-full;
+      @apply sm:w-auto;
     }
   }
 
