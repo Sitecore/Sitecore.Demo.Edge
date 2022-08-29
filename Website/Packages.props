@@ -12,7 +12,7 @@
     <PackageReference Update="Sitecore.Kernel" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.ContentSearch" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.ContentSearch.Linq" Version="$(PlatformVersion)" />
-    <PackageReference Update="Sitecore.LayoutService" Version="8.0.0" />
+    <PackageReference Update="Sitecore.LayoutService" Version="8.1.0" />
     <PackageReference Update="Sitecore.Assemblies.Platform" Version="$(PlatformVersion)" />
     <PackageReference Update="Sitecore.Assemblies.SitecoreHeadlessServicesServer" Version="20.0.1-r*" />
     <PackageReference Update="Sitecore.JavaScriptServices.ViewEngine" Version="20.0.1" />
