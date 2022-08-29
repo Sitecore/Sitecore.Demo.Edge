@@ -154,7 +154,7 @@ services:
       context: ./docker/build/mssql-init
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
+        HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
@@ -224,10 +224,10 @@ services:
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
         TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
-        HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:19.0.0-${LEGACY_NANOSERVER_VERSION}
+        HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
-        EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:19.0-${NANOSERVER_VERSION}
+        EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:20.0.0-${NANOSERVER_VERSION}
         HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:3.0-${NANOSERVER_VERSION}
     depends_on:
       - solution

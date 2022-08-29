@@ -46,7 +46,7 @@ const componentFilename = `${componentName}.tsx`; // DEMO TEAM CUSTOMIZATION - C
 const componentOutputPath = scaffoldFile(
   componentRootPath,
   generateComponentSrc(componentName),
-  componentFilename
+  componentFilename // DEMO TEAM CUSTOMIZATION - Change variable name
 );
 
 // DEMO TEAM CUSTOMIZATION - Add Storybook story scaffolding

@@ -6,7 +6,7 @@ import {
   useSitecoreContext,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
 export type SpeakersGridProps = ComponentProps & {
@@ -22,7 +22,7 @@ export type SpeakersGridProps = ComponentProps & {
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSpeakers = !!props.fields?.data?.item;

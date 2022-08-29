@@ -13,7 +13,7 @@ import Footer from '../../components/Navigation/Footer';
 import { SESSIONS } from '../mock-sessions';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { mockSitecoreContext } from '../../../.storybook/preview';
+import { mockLayoutData } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Speaker Information Page',
@@ -80,7 +80,7 @@ const speakerInformationProps = {
 
 const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
-    <SitecoreContext context={mockSitecoreContext.context} componentFactory={mockComponentFactory}>
+    <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
       <header>
         <HeaderContent {...mockHeaderProps} />
       </header>

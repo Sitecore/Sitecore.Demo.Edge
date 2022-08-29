@@ -5,7 +5,7 @@ import {
   LayoutServicePageState,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
 export type SelectedSponsorsGridProps = ComponentProps & {
@@ -15,7 +15,7 @@ export type SelectedSponsorsGridProps = ComponentProps & {
 };
 
 const SelectedSponsorsGrid = (props: SelectedSponsorsGridProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSponsors = !!props?.fields?.Sponsors?.length;
