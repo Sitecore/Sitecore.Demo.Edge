@@ -24,6 +24,8 @@ export const isCdpConfigured = boxeverIsCdpConfigured;
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
+export type { WelcomeMessage } from './BoxeverService';
+
 type viewEventAdditionalData = {
   sitecoreTemplateName?: string;
   premiumContent?: boolean;
