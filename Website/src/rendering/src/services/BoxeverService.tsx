@@ -661,17 +661,11 @@ export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
 ): Promise<WelcomeMessage> {
-  const dataExtensionName = 'PersonalInformation';
-
-  const dataExtensionPayload = {
-    key: dataExtensionName,
-    ipAddress,
-    language,
-  };
-  return saveDataExtension(dataExtensionName, dataExtensionPayload).then(
-    () =>
-      callFlows({
-        friendlyId: 'dynamic_welcome_message',
-      }) as Promise<WelcomeMessage>
-  );
+  return callFlows({
+    params: {
+      ipAddress,
+      browserLanguage: language,
+    },
+    friendlyId: 'dynamic_welcome_message',
+  }) as Promise<WelcomeMessage>;
 }
