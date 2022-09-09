@@ -8,6 +8,7 @@ import {
 import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Product } from '../../models/discover/Product';
+import { useRouter } from 'next/router';
 
 export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
   rfkId: string;
@@ -34,6 +35,9 @@ const FullPageSearch = ({
   onPageNumberChange,
   onSortChange,
 }: FullPageSearchResultsProps): JSX.Element => {
+  const router = useRouter();
+
+  const isCategoryProductListingPage = rfkId === 'rfkid_10';
   const category = getCategoryByUrlPath(window.location.pathname);
 
   const [loadedProducts, setLoadedProducts] = useState([]);
@@ -55,6 +59,24 @@ const FullPageSearch = ({
 
     onPageNumberChange(payload);
   };
+
+  useEffect(() => {
+    // Clear the filters when visiting another product listing page
+    if (router.asPath !== loadLastProductListingPage()) {
+      onClearFilters();
+    }
+
+    // Set the page number to 1 initially
+    onPageNumberChange({
+      rfkId,
+      page: 1,
+    });
+
+    // Save the product listing page to session storage
+    saveLastProductListingPage();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router]);
 
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -91,6 +113,17 @@ const FullPageSearch = ({
 
   const loadProductsFromSessionStorage = (): Product[] =>
     JSON.parse(sessionStorage.getItem('products'));
+
+  const saveLastProductListingPage = (): void =>
+    sessionStorage.setItem(
+      isCategoryProductListingPage ? 'lastCategoryProductListingPage' : 'lastProductListingPage',
+      router.asPath
+    );
+
+  const loadLastProductListingPage = (): string =>
+    sessionStorage.getItem(
+      isCategoryProductListingPage ? 'lastCategoryProductListingPage' : 'lastProductListingPage'
+    );
 
   return (
     <FullPageSearchContent
