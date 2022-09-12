@@ -42,6 +42,7 @@ const FullPageSearch = ({
 
   const [loadedProducts, setLoadedProducts] = useState([]);
   const [isViewMoreClicked, setIsViewMoreClicked] = useState(false);
+  const [displayedKeyphrase, setDisplayedKeyphrase] = useState(keyphrase);
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>
@@ -52,6 +53,10 @@ const FullPageSearch = ({
 
   const onSearchInputChange = (keyphrase: string) => {
     setKeyphrase(keyphrase);
+    setDisplayedKeyphrase(keyphrase);
+
+    // Update the keyphrase in session storage
+    saveLastProductListingPage(keyphrase);
   };
 
   const onViewMoreClick = (payload: SearchResultsPageNumberChangedActionPayload) => {
@@ -152,6 +157,7 @@ const FullPageSearch = ({
       onPageNumberChange={onViewMoreClick}
       onSortChange={onSortChange}
       onSearchInputChange={onSearchInputChange}
+      keyphrase={displayedKeyphrase}
       category={category}
     />
   );
