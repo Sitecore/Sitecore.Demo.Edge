@@ -42,7 +42,7 @@ const FullPageSearch = ({
 
   const [loadedProducts, setLoadedProducts] = useState([]);
   const [isViewMoreClicked, setIsViewMoreClicked] = useState(false);
-  const [displayedKeyphrase, setDisplayedKeyphrase] = useState(keyphrase);
+  const [displayedKeyphrase, setDisplayedKeyphrase] = useState(keyphrase || '');
 
   const setKeyphrase: (keyphrase: string) => void = debounce(
     (keyphrase) =>

@@ -240,7 +240,6 @@ const SearchInput = ({ onSearchInputChange, keyphrase }: SearchInputProps): JSX.
       onChange={onSearchInputChange}
       placeholder="Search within the list"
       autoComplete="off"
-      defaultValue=""
       value={keyphrase}
     />
   </div>
