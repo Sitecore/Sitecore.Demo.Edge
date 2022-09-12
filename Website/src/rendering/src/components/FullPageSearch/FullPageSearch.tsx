@@ -114,15 +114,20 @@ const FullPageSearch = ({
   const loadProductsFromSessionStorage = (): Product[] =>
     JSON.parse(sessionStorage.getItem('products'));
 
-  const saveLastProductListingPage = (): void =>
+  const saveLastProductListingPage = (keyphrase?: string): void =>
     sessionStorage.setItem(
       isCategoryProductListingPage ? 'lastCategoryProductListingPage' : 'lastProductListingPage',
-      router.asPath
+      JSON.stringify({
+        keyphrase,
+        path: router.asPath,
+      })
     );
 
-  const loadLastProductListingPage = (): string =>
+  const loadLastProductListingPage = (): { keyphrase: string; path: string } =>
+    JSON.parse(
     sessionStorage.getItem(
       isCategoryProductListingPage ? 'lastCategoryProductListingPage' : 'lastProductListingPage'
+      )
     );
 
   return (
