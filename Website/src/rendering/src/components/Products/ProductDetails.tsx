@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { trackPDPViewEvent } from '@sitecore-discover/react';
 import useOcProductDetail from '../../hooks/useOcProductDetail';
 import ProductDetailsContent from './ProductDetailsContent';
+import { updateDiscoverContext } from '../../services/DiscoverService';
 
 const ProductDetails = (): JSX.Element => {
   // Products without variants: /shop/products/[productGroup, same as SKU]/[product-name]
@@ -23,6 +24,20 @@ const ProductDetails = (): JSX.Element => {
 
     trackPDPViewEvent(productSku);
   }, [sku, variantID]);
+
+  // Update the Discover context when clicking the back button on a product details page
+  useEffect(() => {
+    router.beforePopState(({ as }) => {
+      if (as !== router.asPath) {
+        updateDiscoverContext();
+      }
+      return true;
+    });
+
+    return () => {
+      router.beforePopState(() => true);
+    };
+  }, [router]);
 
   return (
     <ProductDetailsContent
