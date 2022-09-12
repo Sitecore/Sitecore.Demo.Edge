@@ -85,14 +85,21 @@ const FullPageSearch = ({
   }, [router]);
 
   useEffect(() => {
-    const urlSearchParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlSearchParams.get('q');
-    const keyphraseToUse = keyphrase ?? searchQuery;
-    if (keyphraseToUse) {
-      setKeyphrase(keyphraseToUse);
+    if (isCategoryProductListingPage) {
+      // Set the initial keyphrase only if the page is not the same as the previously visited one,
+      // otherwise the filters will be lost
+      if (keyphrase && router.asPath !== loadLastProductListingPage()?.path) {
+        onSearchInputChange(keyphrase);
+      }
+    } else {
+      // Search query exists only on global search page
+      const searchQuery = router.query.q as string;
+      if (searchQuery && searchQuery !== loadLastProductListingPage()?.keyphrase) {
+        onSearchInputChange(searchQuery);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if (!loaded && loading) return;
