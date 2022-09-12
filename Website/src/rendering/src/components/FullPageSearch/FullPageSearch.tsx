@@ -71,14 +71,14 @@ const FullPageSearch = ({
       onClearFilters();
       onSearchInputChange('');
 
-    // Set the page number to 1 initially
-    onPageNumberChange({
-      rfkId,
-      page: 1,
-    });
+      // Set the page number to 1 initially
+      onPageNumberChange({
+        rfkId,
+        page: 1,
+      });
 
-    // Save the product listing page to session storage
-    saveLastProductListingPage();
+      // Save the product listing page to session storage
+      saveLastProductListingPage();
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -138,8 +138,8 @@ const FullPageSearch = ({
 
   const loadLastProductListingPage = (): { keyphrase: string; path: string } =>
     JSON.parse(
-    sessionStorage.getItem(
-      isCategoryProductListingPage ? 'lastCategoryProductListingPage' : 'lastProductListingPage'
+      sessionStorage.getItem(
+        isCategoryProductListingPage ? 'lastCategoryProductListingPage' : 'lastProductListingPage'
       )
     );
 
