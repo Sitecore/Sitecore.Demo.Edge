@@ -62,9 +62,9 @@ const FullPageSearch = ({
 
   useEffect(() => {
     // Clear the filters when visiting another product listing page
-    if (router.asPath !== loadLastProductListingPage()) {
+    if (router.asPath !== loadLastProductListingPage()?.path) {
       onClearFilters();
-    }
+      onSearchInputChange('');
 
     // Set the page number to 1 initially
     onPageNumberChange({
@@ -74,6 +74,7 @@ const FullPageSearch = ({
 
     // Save the product listing page to session storage
     saveLastProductListingPage();
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
