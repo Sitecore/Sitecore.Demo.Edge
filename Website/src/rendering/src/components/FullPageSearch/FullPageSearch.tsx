@@ -71,15 +71,15 @@ const FullPageSearch = ({
       onClearFilters();
       onSearchInputChange('');
 
-      // Set the page number to 1 initially
-      onPageNumberChange({
-        rfkId,
-        page: 1,
-      });
-
       // Save the product listing page to session storage
       saveLastProductListingPage();
     }
+
+    // Set the page number to 1 initially
+    onPageNumberChange({
+      rfkId,
+      page: 1,
+    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
