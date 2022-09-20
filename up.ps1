@@ -4,7 +4,7 @@ Param (
     [Parameter(HelpMessage = "Whether to skip building the Docker images.")]
     [switch]$SkipBuild,
 
-    [Parameter(HelpMessage = "Whether to skip running init container.")]
+    [Parameter(HelpMessage = "Whether to skip running the init container.")]
     [switch]$SkipInit,
 
     [Parameter(HelpMessage = "Whether to set up the environment with pre-release version of Sitecore products (internal only) .")]
@@ -17,6 +17,7 @@ $ErrorActionPreference = "Stop";
 $envCheckVariable = "HOST_LICENSE_FOLDER"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
+    # DEMO TEAM CUSTOMIZATION - Auto run init.ps1 if not run.
     if (Test-Path "C:\License") {
         Write-Host "Initializing environment using default values" -ForegroundColor Yellow
         & .\init.ps1 -InitEnv -AdminPassword b -LicenseXmlPath C:\License\license.xml
@@ -30,6 +31,7 @@ if (-not $envCheck) {
     else {
         throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
     }
+    # END CUSTOMIZATION
 }
 
 # DEMO TEAM CUSTOMIZATION - Add ability to skip building the containers.
@@ -41,12 +43,7 @@ if (-not $SkipBuild) {
         Write-Error "Container build failed, see errors above."
     }
 }
-
-# DEMO TEAM CUSTOMIZATION - Install npm modules before starting the development rendering container.
-# Install npm modules in rendering folder
-Push-Location .\Website\src\rendering
-npm install
-Pop-Location
+# END CUSTOMIZATION
 
 # Start the Sitecore instance
 Write-Host "Starting Sitecore environment..." -ForegroundColor Green
@@ -75,14 +72,26 @@ if (-not $status.status -eq "enabled") {
 $clientSecretVariable = "ID_SERVER_DEMO_CLIENT_SECRET"
 $clientSecret = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$clientSecretVariable=.+" } 
 $clientSecret = $clientSecret.Split("=")[1]
+# END CUSTOMIZATION
 
 # DEMO TEAM CUSTOMIZATION - Moved the Docker files up one level. Must run the Sitecore CLI commands in the .\Website folder.
 Push-Location .\Website
 
 try {
     # DEMO TEAM CUSTOMIZATION - Added restore command for computers without the Sitecore CLI already installed.
+    Write-Host "Restoring Sitecore CLI..." -ForegroundColor Green
     dotnet tool restore
+    # END CUSTOMIZATION
+    # DEMO TEAM CUSTOMIZATION - Install the CLI plugins
+    Write-Host "Installing Sitecore CLI Plugins..."
+    dotnet sitecore --help | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Unexpected error installing Sitecore CLI Plugins"
+    }
+    # END CUSTOMIZATION
 
+
+    # DEMO TEAM CUSTOMIZATION - Custom hostname
     dotnet sitecore login --cm https://cm.edge.localhost/ --auth https://id.edge.localhost/ --allow-write true
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Unable to log into Sitecore, did the Sitecore environment start correctly? See logs above."
@@ -99,6 +108,7 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Populating Solr managed schema failed, see errors above."
     }
+    # END CUSTOMIZATION
 
     # DEMO TEAM CUSTOMIZATION - Removed initial JSS app items deployment and serialization. We are developing in Sitecore-first mode.
     # Push the serialized items
@@ -112,6 +122,7 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Serialization publish failed, see errors above."
     }
+    # END CUSTOMIZATION
 
     # DEMO TEAM CUSTOMIZATION - Rebuild indexes using Sitecore CLI.
     # Rebuild indexes
@@ -120,6 +131,7 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Rebuild indexes failed, see errors above."
     }
+    # END CUSTOMIZATION
 }
 catch {
     Write-Error "An error occurred while attempting to log into Sitecore, populate the Solr managed schema, or pushing website items to Sitecore: $_"
@@ -153,9 +165,12 @@ if (-not $SkipInit) {
     docker-compose up -d init
     Set-DockerComposeEnvFileVariable "INIT_CONTAINERS_COUNT" -Value 0
 }
+# END CUSTOMIZATION
 
 Write-Host "Opening site..." -ForegroundColor Green
 
+
+# DEMO TEAM CUSTOMIZATION - Custom hostnames.
 Start-Process https://cm.edge.localhost/sitecore/
 Start-Process https://www.edge.localhost/
 
