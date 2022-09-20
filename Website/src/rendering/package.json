@@ -1,6 +1,6 @@
 {
   "name": "edgewebsite",
-  "description": "PLAY! Summit website",
+  "description": "PLAY! Summit and PLAY! SHOP websites",
   "version": "1.0.0",
   "private": true,
   "config": {

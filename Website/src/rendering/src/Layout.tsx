@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views in CDP
 import Head from 'next/head';
+// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
 import {
   Placeholder,
-  // DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification
   getPublicUrl,
   LayoutServiceData,
-  LayoutServicePageState, // DEMO TEAM CUSTOMIZATION - Add LayoutServicePageState
+  LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 // DEMO TEAM CUSTOMIZATION - Remove navigation from layout
-import { logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+// DEMO TEAM CUSTOMIZATION - CDP integration
+import { logViewEvent } from './services/CdpService';
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
+// END CUSTOMIZATION
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -28,7 +30,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   }, [route]);
   // END CUSTOMIZATION
 
-  // DEMO TEAM CUSTOMIZATION - Add CSS classes when Experience Editor is active
+  // DEMO TEAM CUSTOMIZATION - Add CSS classes when Sitecore editors are active
   const isExperienceEditorActiveCssClass =
     context.pageState === LayoutServicePageState.Edit ||
     context.pageState === LayoutServicePageState.Preview
@@ -37,10 +39,11 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Use event name from context as the page title
+  const fields = route?.fields;
   const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
   let pageTitle = contextTitle.titlePrefix;
-  if (route?.fields?.pageTitle?.value) {
-    pageTitle += ' - ' + route.fields.pageTitle.value;
+  if (fields?.pageTitle?.value.toString()) {
+    pageTitle += ` - ${fields.pageTitle.value.toString()}`;
   }
   // END CUSTOMIZATION
 
@@ -55,8 +58,8 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 
       {/* DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification and Navigation */}
 
-      {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
+      {/* DEMO TEAM CUSTOMIZATION - Add placeholders. Add CSS classes when Sitecore editors are active. Add HeaderCdpMessageBar. */}
       <header className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-header" rendering={route} />
       </header>
@@ -67,7 +70,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
       <footer>
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
-      {/* END CUSTOMIZATION*/}
+      {/* END CUSTOMIZATION */}
     </>
   );
 };
