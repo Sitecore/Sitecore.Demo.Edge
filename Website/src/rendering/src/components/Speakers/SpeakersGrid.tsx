@@ -2,7 +2,6 @@ import Link from 'next/link';
 import {
   Text,
   Image,
-  withDatasourceCheck,
   useSitecoreContext,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
