@@ -2,7 +2,7 @@
 
 This repository is used for the primary Sitecore DXP demo that uses:
 
-- Sitecore Experience Management (XM) test
+- Sitecore Experience Management (XM)
 - Sitecore Experience Edge
 - Sitecore Content Hub DAM and CMP
 - Sitecore Content Hub Edge
