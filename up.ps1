@@ -13,6 +13,19 @@ Param (
 
 $ErrorActionPreference = "Stop";
 
+# DEMO TEAM CUSTOMIZATION - Ensure the right NodeJs version is installed
+$currentNodeJsVersion = node -v
+$currentNodeJsVersion = $currentNodeJsVersion.substring(1)
+
+$nodeJsVersionVariable = "NODEJS_VERSION"
+$requiredNodeJsVersion = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$nodeJsVersionVariable=.+" }
+$requiredNodeJsVersion = $requiredNodeJsVersion.substring(15)
+
+if ($currentNodeJsVersion -ne $requiredNodeJsVersion) {
+    throw "ERROR: You are currently running NodeJs $currentNodeJsVersion and this project requires a different version. Please switch to NodeJs $($requiredNodeJsVersion). Then delete the /Website/src/rendering/node_modules folder. Then run this script again."
+}
+# END CUSTOMIZATION
+
 # Double check whether init has been run
 $envCheckVariable = "HOST_LICENSE_FOLDER"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
