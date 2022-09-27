@@ -1,5 +1,6 @@
 import { NextApiHandler } from 'next';
 import { config } from './config';
+import Cors from 'cors';
 import { runNextApiMiddleware } from '../../../helpers/runNextApiMiddleware';
 
 // Initializing the cors middleware
