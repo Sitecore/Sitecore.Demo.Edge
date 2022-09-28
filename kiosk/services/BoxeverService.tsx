@@ -494,7 +494,7 @@ export function saveDataExtension(
 // Get non-expanded guest profile
 // ********************************
 function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileResponse> {
-  return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
+  return boxeverGet(`/getguestbyref?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
 function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
