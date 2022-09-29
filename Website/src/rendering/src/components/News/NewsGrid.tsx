@@ -6,7 +6,7 @@ import {
   LayoutServicePageState,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { News } from 'src/types/news';
 
 type NewsGridProps = ComponentProps & {
@@ -16,7 +16,7 @@ type NewsGridProps = ComponentProps & {
 };
 
 const NewsGrid = (props: NewsGridProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasNews = !!props.fields;

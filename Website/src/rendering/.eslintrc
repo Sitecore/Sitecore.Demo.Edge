@@ -5,8 +5,8 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "plugin:yaml/recommended"
+    "plugin:yaml/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": [
     "@typescript-eslint",
@@ -15,12 +15,12 @@
   ],
   "ignorePatterns": [".generated/**/*", "**/*.d.ts", "**/*.js"],
   "rules": {
+    "@typescript-eslint/no-empty-interface": "off", // DEMO TEAM CUSTOMIZATION - Empty interfaces intentionally used to provide scaffolding for custom OrderCloud models
     "@next/next/no-img-element": "off", // Don't force next/image (not currently compatible with Sitecore editing)
     "jsx-a11y/alt-text": ["warn", { "elements": ["img"] }], // Don't force alt for <Image/> (sourced from Sitecore media)
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
-    "jsx-quotes": ["error", "prefer-double"],
-    "@typescript-eslint/no-empty-interface": "off" // empty interfaces intentionally used to provide scaffolding for custom ordercloud models
+    "jsx-quotes": ["error", "prefer-double"]
   }
 }

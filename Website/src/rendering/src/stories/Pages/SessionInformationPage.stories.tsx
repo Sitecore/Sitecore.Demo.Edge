@@ -11,7 +11,7 @@ import SessionInformation, {
 import { Speaker } from 'src/types/speaker';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { mockSitecoreContext } from '../../../.storybook/preview';
+import { mockLayoutData } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Session Information Page',
@@ -192,7 +192,7 @@ const sessionInformationProps = {
 
 const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
-    <SitecoreContext context={mockSitecoreContext.context} componentFactory={mockComponentFactory}>
+    <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
       <header>
         <HeaderContent {...mockHeaderProps} />
       </header>
