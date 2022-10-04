@@ -52,7 +52,7 @@
       "url": "/sitecore/client/Applications/ExperienceEditor/Dialogs/InsertPage/?itemId=%7b2D1D7ACA-9597-5CA6-85B2-9B04907E4298%7d#"
     },
     {
-      "url": "http://sitecore/client/Applications/ExperienceEditor/Ribbon.aspx?sc_content=core&ribbonId=%7B570A52B6-6755-461A-8052-5B95EF766F74%7D&itemId=%7B2D1D7ACA-9597-5CA6-85B2-9B04907E4298%7D&deviceId=%7BFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7D&database=master&mode=edit&url=%2Fen%2F%3Fsc_mode%3Dedit%26sc_lang%3Den&lang=en&pageSite=edgewebsite"
+      "url": "/sitecore/client/Applications/ExperienceEditor/Ribbon.aspx?sc_content=core&ribbonId=%7B570A52B6-6755-461A-8052-5B95EF766F74%7D&itemId=%7B2D1D7ACA-9597-5CA6-85B2-9B04907E4298%7D&deviceId=%7BFE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3%7D&database=master&mode=edit&url=%2Fen%2F%3Fsc_mode%3Dedit%26sc_lang%3Den&lang=en&pageSite=edgewebsite"
     },
     {
       "url": "/sitecore/shell/default.aspx?xmlcontrol=RichText.InsertLink&la=en"
