@@ -1,5 +1,4 @@
 import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecoreContextValue } from 'lib/component-props';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -14,7 +13,7 @@ export type HeaderContentProps = HeaderProps & {
 
 const HeaderContent = (props: HeaderContentProps): JSX.Element => {
   const router = useRouter();
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const languageNames = new Intl.DisplayNames(['en'], {
     type: 'language',
@@ -35,32 +34,37 @@ const HeaderContent = (props: HeaderContentProps): JSX.Element => {
     }
   };
 
+  const languageSelector = languageList && (
+    <select
+      onChange={(e) => changeLanguage(e.currentTarget.value)}
+      className="languagePicker"
+      defaultValue={sitecoreContext.language}
+    >
+      {languageList.map((language, index) => (
+        <option
+          key={index}
+          value={language['Name']}
+          label={languageNames.of(language['Name'])}
+          className="languageItem"
+        >
+          {languageNames.of(language['Name'])}
+        </option>
+      ))}
+    </select>
+  );
+
+  const links = props.fields?.data?.item?.children?.results?.map((item, index) => (
+    <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
+      <a>{item.displayName}</a>
+    </Link>
+  ));
+
   return (
     <>
       <div className="header-eyebrow">
         <div className="content">
-          <select
-            onChange={(e) => changeLanguage(e.currentTarget.value)}
-            className="languagePicker"
-            defaultValue={sitecoreContext.language}
-          >
-            {languageList.map((language, index) => (
-              <option
-                key={index}
-                value={language['Name']}
-                label={languageNames.of(language['Name'])}
-                className="languageItem"
-              >
-                {languageNames.of(language['Name'])}
-              </option>
-            ))}
-          </select>
-
-          {props.fields?.data?.item?.children?.results?.map((item, index) => (
-            <Link key={index} href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
-              <a>{item.displayName}</a>
-            </Link>
-          ))}
+          {languageSelector}
+          {links}
         </div>
       </div>
       <Placeholder name="jss-header-content" rendering={props.rendering} />

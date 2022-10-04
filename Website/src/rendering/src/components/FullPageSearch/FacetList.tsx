@@ -25,6 +25,7 @@ type FacetProps = {
 
 type SearchInputProps = {
   onSearchInputChange: (...args: unknown[]) => void;
+  keyphrase?: string;
 };
 
 type FacetListProps = {
@@ -35,6 +36,7 @@ type FacetListProps = {
   onToggleClick: (...args: unknown[]) => void;
   isCategoryProductListingPage?: boolean;
   onSearchInputChange?: (...args: unknown[]) => void;
+  keyphrase?: string;
 };
 
 type SortFacetProps = {
@@ -229,7 +231,7 @@ const SortFacet = ({
   );
 };
 
-const SearchInput = ({ onSearchInputChange }: SearchInputProps): JSX.Element => (
+const SearchInput = ({ onSearchInputChange, keyphrase }: SearchInputProps): JSX.Element => (
   <div className="category-search-container">
     <FontAwesomeIcon className="category-search-icon" icon={faSearch} />
     <input
@@ -238,6 +240,7 @@ const SearchInput = ({ onSearchInputChange }: SearchInputProps): JSX.Element => 
       onChange={onSearchInputChange}
       placeholder="Search within the list"
       autoComplete="off"
+      value={keyphrase}
     />
   </div>
 );
@@ -250,6 +253,7 @@ const FacetList = ({
   onToggleClick,
   isCategoryProductListingPage,
   onSearchInputChange,
+  keyphrase,
 }: FacetListProps): JSX.Element => {
   let acumIndex = 0;
 
@@ -283,7 +287,7 @@ const FacetList = ({
   );
 
   const searchInput = isCategoryProductListingPage && (
-    <SearchInput onSearchInputChange={onSearchInputChange} />
+    <SearchInput keyphrase={keyphrase} onSearchInputChange={onSearchInputChange} />
   );
 
   // TODO: Implement and style range filters (e.g. min - max price)

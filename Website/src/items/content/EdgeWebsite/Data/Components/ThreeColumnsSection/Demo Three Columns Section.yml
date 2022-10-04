@@ -30,7 +30,7 @@ Languages:
     - ID: "2d39d751-cfc9-5e7b-a6b7-036eb48b0241"
       Hint: RightLink
       Value: |
-        <link text="See Products" linktype="external" url="https://www.edge.localhost/shop/categories/PSAF/activities/fitness" anchor="" target="" />
+        <link text="See Products" linktype="external" url="/shop/categories/PSAF/activities/fitness" anchor="" target="" />
     - ID: "4bcf7d15-f018-5ca8-ae87-54499668a439"
       Hint: LeftLink
       Value: |
@@ -64,7 +64,7 @@ Languages:
     - ID: "cffaaa85-da42-588a-8846-e91e1be15067"
       Hint: MiddleLink
       Value: |
-        <link text="See Products" linktype="external" url="https://www.edge.localhost/shop/categories/PSAY/activities/yoga" anchor="" target="" />
+        <link text="See Products" linktype="external" url="/shop/categories/PSAY/activities/yoga" anchor="" target="" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20220729T102648Z

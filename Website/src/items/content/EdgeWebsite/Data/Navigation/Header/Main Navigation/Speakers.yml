@@ -25,7 +25,7 @@ Languages:
     - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
       Hint: Link
       Value: |
-        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
+        <link class="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" querystring="" anchor="" target="" title="" linktype="internal" text="" />
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

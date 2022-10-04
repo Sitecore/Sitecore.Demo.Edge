@@ -20,7 +20,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="Become a Sponsor" anchor="" linktype="internal" class="" title=""  querystring="" id="{6CF37FF6-755C-5B1A-B5EB-63F03481DB4A}" />
+        <link class="" id="{6CF37FF6-755C-5B1A-B5EB-63F03481DB4A}" querystring="" anchor="" title="" linktype="internal" text="Become a Sponsor" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |

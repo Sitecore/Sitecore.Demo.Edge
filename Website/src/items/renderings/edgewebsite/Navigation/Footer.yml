@@ -20,7 +20,7 @@ SharedFields:
       item(path: "{4790380A-3F0C-443A-A954-269ECB2D5566}" language: $language) {
         id
         path
-        ... on SiteConfiguration {   
+        ... on SiteConfiguration {
           footerLogo {
             jsonValue
             alt
