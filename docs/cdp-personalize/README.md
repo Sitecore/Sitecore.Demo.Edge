@@ -40,7 +40,6 @@ Example configuration:
 
 ```text
 # CDP
-CDP_PROXY_HOST=cdp.edge.localhost
 CDP_API_TARGET_ENDPOINT=https://api.boxever.com
 CDP_CLIENT_KEY=6dabaf8bae914e3881cf1f725a70acea
 CDP_API_TOKEN=0f081fffc159400c93188df1f5faa52d
@@ -60,7 +59,7 @@ Example configuration:
 
 ```text
 # CDP
-NEXT_PUBLIC_CDP_PROXY_URL=https://cdp.edge.localhost
+NEXT_PUBLIC_WEBSITE_CDP_PROXY_URL=https://www.edge.localhost/api/cdp
 NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT=https://api.boxever.com/v1.2
 NEXT_PUBLIC_CDP_CLIENT_KEY=6dabaf8bae914e3881cf1f725a70acea
 ```

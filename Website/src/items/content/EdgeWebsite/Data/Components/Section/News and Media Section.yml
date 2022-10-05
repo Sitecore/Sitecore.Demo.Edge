@@ -3,6 +3,10 @@ ID: "23c00813-f14b-5e8d-9102-eb409b5e1878"
 Parent: "6c003c60-1b9a-5e5a-a5bf-93cc18b8c6b9"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
 Path: /sitecore/content/EdgeWebsite/Data/Components/Section/News and Media Section
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
 Languages:
 - Language: en
   Versions:
@@ -20,7 +24,7 @@ Languages:
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: |
-        <link text="View All News" linktype="internal" id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" />
+        <link id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" linktype="internal" text="View All News" querystring="" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |

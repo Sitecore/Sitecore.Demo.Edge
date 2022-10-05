@@ -7,35 +7,26 @@ import {
   ComponentPropsContext,
   handleEditorFastRefresh,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
-const SitecorePage = ({
-  notFound,
-  sitecoreContext,
-  componentProps,
-}: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
+    // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
   }, []);
 
-  if (notFound || !sitecoreContext?.route) {
+  if (notFound || !layoutData.sitecore.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
     return <NotFound />;
   }
 
   return (
     <ComponentPropsContext value={componentProps}>
-      {/* DEMO TEAM CUSTOMIZATION (next line) - Different type name */}
-      <SitecoreContext<SitecoreContextValue>
-        componentFactory={componentFactory}
-        context={sitecoreContext}
-      >
-        <Layout />
+      <SitecoreContext componentFactory={componentFactory} layoutData={layoutData}>
+        <Layout layoutData={layoutData} />
       </SitecoreContext>
     </ComponentPropsContext>
   );

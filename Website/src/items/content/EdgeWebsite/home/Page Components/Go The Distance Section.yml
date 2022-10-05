@@ -27,11 +27,11 @@ Languages:
     - ID: "2d39d751-cfc9-5e7b-a6b7-036eb48b0241"
       Hint: RightLink
       Value: |
-        <link text="View Vendors" anchor="" linktype="internal" class="" title=""  querystring="" id="{774E44E8-0F30-5879-B847-AD233FFB41AA}" />
+        <link class="" id="{774E44E8-0F30-5879-B847-AD233FFB41AA}" querystring="" anchor="" title="" linktype="internal" text="View Vendors" />
     - ID: "4bcf7d15-f018-5ca8-ae87-54499668a439"
       Hint: LeftLink
       Value: |
-        <link text="View Sessions" anchor="" linktype="internal" class="" title=""  querystring="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" />
+        <link class="" id="{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}" querystring="" anchor="" title="" linktype="internal" text="View Sessions" />
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -61,7 +61,7 @@ Languages:
     - ID: "cffaaa85-da42-588a-8846-e91e1be15067"
       Hint: MiddleLink
       Value: |
-        <link text="View Speakers" anchor="" linktype="internal" class="" title=""  querystring="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" />
+        <link class="" id="{1F4B781B-F2A5-5647-99DF-C0C369162C4D}" querystring="" anchor="" title="" linktype="internal" text="View Speakers" />
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20210907T115620Z

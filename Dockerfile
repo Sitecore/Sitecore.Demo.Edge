@@ -24,9 +24,11 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 # Ensure updated nuget. Depending on your Windows version, dotnet/framework/sdk:4.8 tag may provide an outdated client.
 # See https://github.com/microsoft/dotnet-framework-docker/blob/1c3dd6638c6b827b81ffb13386b924f6dcdee533/4.8/sdk/windowsservercore-ltsc2019/Dockerfile#L7
 ENV NUGET_VERSION 5.8.1
+# DEMO TEAM CUSTOMIZATION - Add TLS 1.2 protocol
 RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
     Invoke-WebRequest "https://dist.nuget.org/win-x86-commandline/v$env:NUGET_VERSION/nuget.exe" -UseBasicParsing -OutFile "$env:ProgramFiles\NuGet\nuget.exe"
 
+# DEMO TEAM CUSTOMIZATION - Needed?
 # Install latest PackageProvider (required for Sitecore.Courier)
 RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
     Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -44,12 +46,18 @@ COPY Website/src/ ./src/
 
 # Build the Sitecore main platform artifacts
 RUN msbuild .\src\platform\Platform.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
+
+# DEMO TEAM CUSTOMIZATION - New project
 RUN msbuild .\src\Foundation\BranchPresets\Sitecore.Demo.Edge.Foundation.BranchPresets.csproj /p:Configuration=$env:BUILD_CONFIGURATION /m /p:DeployOnBuild=true /p:PublishProfile=Local
 
 # Save the artifacts for copying into other images (see 'cm' and 'rendering' Dockerfiles).
 FROM ${BUILD_IMAGE}
 WORKDIR /artifacts
+# DEMO TEAM CUSTOMIZATION - Removed the platform subfolder
 COPY --from=builder /build/deploy  ./sitecore/
+
+# DEMO TEAM CUSTOMIZATION - Copy sources for initcontainer to deploy the front-end projects to Vercel
 COPY Website/src/ ./src
+# DEMO TEAM CUSTOMIZATION - Extra projects
 COPY tv/ ./src/tv
 COPY kiosk/ ./src/kiosk

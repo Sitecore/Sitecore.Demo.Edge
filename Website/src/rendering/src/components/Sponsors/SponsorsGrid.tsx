@@ -6,7 +6,7 @@ import {
   useSitecoreContext,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { Sponsor } from 'src/types/sponsor';
 
 type SponsorsGridProps = ComponentProps & {
@@ -16,7 +16,7 @@ type SponsorsGridProps = ComponentProps & {
 };
 
 const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSponsors = !!props.fields;
