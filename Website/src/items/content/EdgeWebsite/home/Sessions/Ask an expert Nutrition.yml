@@ -29,6 +29,9 @@ Languages:
         
         <p>Join a leading online expert who embraces the latest scientific evidence to craft personalized nutrition advice for people just like you.</p>
                
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210921T182429Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{87223FA1-B672-4201-BE61-0011EE4A7A09}"
@@ -39,9 +42,17 @@ Languages:
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
       Value: "{3C8054D9-EE77-47CB-8142-5541A557260D}|{81801E88-1D20-4B32-A344-772504C234EA}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
     - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
       Hint: Type
       Value: Session
@@ -51,6 +62,16 @@ Languages:
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{421831DC-EE86-4E05-B974-8C0AE7A21D0E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5ad2ab3d-17a6-48bd-a48d-6c5ddd36bc41"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220114T224927Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: nutrition"

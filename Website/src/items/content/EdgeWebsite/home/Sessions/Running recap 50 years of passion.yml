@@ -24,6 +24,9 @@ Languages:
       Value: |
         <p>Our history is rich and we&rsquo;re proud to celebrate 50 years running.&nbsp;The rise and fall of the great US running movement has been a roller coaster of emotions, and in the end, there were no easy choices. You&rsquo;ll remember the highs and lows of the past, but you&rsquo;ll also know that we put our heart and soul into every run, every day, and every year. We&rsquo;ve been involved in running since 1971, and we&rsquo;ve been passionate about running since the day we picked up the first running shoes.</p>
                        
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210920T224229Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{04013CFE-C1DD-4D16-BBC1-AD0B548FCD7F}"
@@ -34,9 +37,17 @@ Languages:
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
       Value: "{B11718D1-F1A7-4B3A-9EAB-D9D22FA58BED}"
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
     - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
       Hint: Type
       Value: Session
@@ -46,9 +57,19 @@ Languages:
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{A5673B41-FABE-450B-9037-14132FA734DA}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d18f3980-2933-43d1-9134-b92ae4a11460"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
     - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
       Hint: Sponsors
       Value: "{55F9B5A9-9EB9-43CD-8D4E-647D57D18EFE}"
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220114T230231Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Running recap: 50 years of passion"

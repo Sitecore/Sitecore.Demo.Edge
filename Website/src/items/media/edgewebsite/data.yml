@@ -6,7 +6,7 @@ Path: /sitecore/media library/edgewebsite/data
 Languages:
 - Language: en
   Versions:
-  - Version: 777
+  - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created

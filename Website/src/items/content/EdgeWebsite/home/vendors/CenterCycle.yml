@@ -22,6 +22,9 @@ Languages:
     - ID: "21bd2ce2-43b1-4a8a-8383-1470d503c504"
       Hint: ActivityType
       Value: "{39C8070A-3BF0-4BB7-BB36-88AEC20A2A30}|{252CE747-6A8F-478B-B59A-70DBE713E6E2}"
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20210924T162948Z
     - ID: "2696b94c-fb09-4392-999a-9a7a7223f228"
       Hint: InstagramProfileLink
       Value: "https://www.instagram.com/#"
@@ -31,6 +34,14 @@ Languages:
     - ID: "3c5bc1cb-ad72-444f-bd6f-a9a09b6bc7bb"
       Hint: Speakers
       Value: "{AFB23041-6733-44B0-843C-193713F55C7D}"
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        default\Anonymous
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        default\Anonymous
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
@@ -38,6 +49,13 @@ Languages:
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{71B49CE4-5034-436E-BE7F-DB838C8FDFEF}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}|{7C9530B9-E948-4A84-9A6F-9A3D27B5CB42}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "36fbc847-6b10-424f-871c-44e272e6edea"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        default\Anonymous
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
       Value: |
@@ -46,6 +64,9 @@ Languages:
     - ID: "d57b5629-9801-4418-9088-8a8dfa8fc84c"
       Hint: Name
       Value: CenterCycle
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20211124T145711Z
     - ID: "da7733f4-3061-4f93-a870-9aff906af40b"
       Hint: FacebookProfileLink
       Value: "https://www.facebook.com/#"
