@@ -13,8 +13,11 @@ export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 /**
  * Logs a page view event.
  */
-export function logViewEvent(): Promise<unknown> {
-  return boxeverLogViewEvent();
+export function logViewEvent(
+  additionalData?: Record<string, unknown>,
+  page?: string
+): Promise<unknown> {
+  return boxeverLogViewEvent(additionalData, page);
 }
 
 /**

@@ -5,6 +5,7 @@ const BoxeverServiceConfig = {
       ? 'MOBILE_WEB'
       : 'WEB',
   websiteBaseUrl: typeof window !== 'undefined' ? window.location.origin : '',
+  proxyUrl: '/api/cdp',
 };
 
 export default BoxeverServiceConfig;

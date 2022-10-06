@@ -14,7 +14,7 @@ import Footer from '../../components/Navigation/Footer';
 import { Sponsor } from 'src/types/sponsor';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
-import { mockSitecoreContext } from '../../../.storybook/preview';
+import { mockLayoutData } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Home Page',
@@ -184,7 +184,7 @@ const threeColProps = {
 
 const Template: ComponentStory<typeof HeroSection> = () => {
   return (
-    <SitecoreContext context={mockSitecoreContext.context} componentFactory={mockComponentFactory}>
+    <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
       <header>
         <HeaderContent {...mockHeaderProps} />
       </header>

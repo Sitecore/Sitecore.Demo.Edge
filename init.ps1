@@ -41,6 +41,8 @@ Import-Module PowerShellGet
 $SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
 if (-not $SitecoreGallery) {
     Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green 
+    # DEMO TEAM CUSTOMIZATION - Sync with XM Cloud. Unregister the repository
+    Unregister-PSRepository -Name SitecoreGallery -ErrorAction SilentlyContinue
     Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
     $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
@@ -76,6 +78,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
+    # DEMO TEAM CUSTOMIZATION - Custom host name
     & $mkcert "*.edge.localhost"
 
     # stash CAROOT path for messaging at the end of the script
@@ -95,6 +98,8 @@ finally {
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
+
+# DEMO TEAM CUSTOMIZATION - Custom host names.
 Add-HostsEntry "cm.edge.localhost"
 Add-HostsEntry "cd.edge.localhost"
 Add-HostsEntry "id.edge.localhost"
@@ -113,12 +118,16 @@ if ($InitEnv) {
     Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
 
     # CM_HOST
+
+    # DEMO TEAM CUSTOMIZATION - Custom host name
     Set-EnvFileVariable "CM_HOST" -Value "cm.edge.localhost"
 
     # ID_HOST
+    # DEMO TEAM CUSTOMIZATION - Custom host name
     Set-EnvFileVariable "ID_HOST" -Value "id.edge.localhost"
 
     # RENDERING_HOST
+    # DEMO TEAM CUSTOMIZATION - Custom host name
     Set-EnvFileVariable "RENDERING_HOST" -Value "www.edge.localhost"
 
     # REPORTING_API_KEY = random 64-128 chars
@@ -147,6 +156,7 @@ if ($InitEnv) {
     # SITECORE_ADMIN_PASSWORD
     Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
 
+    # DEMO TEAM CUSTOMIZATION - Add a Sitecore user password
     # SITECORE_USER_PASSWORD (same as admin in local env.)
     Set-EnvFileVariable "SITECORE_USER_PASSWORD" -Value $AdminPassword
 

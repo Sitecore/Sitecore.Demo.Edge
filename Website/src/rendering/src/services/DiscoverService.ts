@@ -23,6 +23,19 @@ type DiscoverServiceOptions = {
   isStorybook?: boolean;
 };
 
+export const updateDiscoverContext = (): void => {
+  const context = PageController.getContext();
+  context.setPageUri(window.location.pathname);
+  trackPageViewEvent({
+    page: {
+      uri: context.getPageUri(),
+    },
+    user: {
+      uuid: context.getUserUuid(),
+    },
+  });
+};
+
 export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   const DISCOVER_CUSTOMER_KEY = options?.isStorybook
     ? '0-0'
@@ -137,15 +150,6 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   const pushState = history.pushState;
   history.pushState = (...rest) => {
     pushState.apply(history, rest);
-    const context = PageController.getContext();
-    context.setPageUri(window.location.pathname);
-    trackPageViewEvent({
-      page: {
-        uri: context.getPageUri(),
-      },
-      user: {
-        uuid: context.getUserUuid(),
-      },
-    });
+    updateDiscoverContext();
   };
 };

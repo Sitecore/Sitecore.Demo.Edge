@@ -1,5 +1,5 @@
 import { LayoutServicePageState, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { GraphQLSession } from 'src/types/session';
 import SessionItem from './SessionItem';
 
@@ -16,7 +16,7 @@ type SessionsGridProps = ComponentProps & {
 };
 
 const SessionsGrid = (props: SessionsGridProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSessions = !!props.fields?.data?.item;

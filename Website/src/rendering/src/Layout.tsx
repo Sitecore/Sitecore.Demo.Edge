@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views in CDP
 import Head from 'next/head';
-import deepEqual from 'deep-equal';
+// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
 import {
   Placeholder,
-  withSitecoreContext,
   getPublicUrl,
+  LayoutServiceData,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecoreContextValue } from 'lib/component-props'; // DEMO TEAM CUSTOMIZATION - Different type name
 import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
 import { shouldCloseSession } from './services/BoxeverService';
@@ -16,14 +15,13 @@ import { shouldCloseSession } from './services/BoxeverService';
 // If you're not supporting the Experience Editor, you can remove this.
 const publicUrl = getPublicUrl();
 
-// DEMO TEAM CUSTOMIZATION - Move navigation to a component
-
 interface LayoutProps {
-  sitecoreContext: SitecoreContextValue; // DEMO TEAM CUSTOMIZATION - Different type name
+  layoutData: LayoutServiceData;
 }
 
-// DEMO TEAM CUSTOMIZATION - Add sitecoreContext to destructuring
-const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): JSX.Element => {
+const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
+  const { route, context } = layoutData.sitecore; // DEMO TEAM CUSTOMIZATION - Add context to destructuring
+
   // DEMO TEAM CUSTOMIZATION - Log page views in CDP
   useEffect(() => {
     (async () => {
@@ -41,19 +39,20 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
   }, [route]);
   // END CUSTOMIZATION
 
-  // DEMO TEAM CUSTOMIZATION - Add CSS classes when Experience Editor is active
+  // DEMO TEAM CUSTOMIZATION - Add CSS classes when Sitecore editors are active
   const isExperienceEditorActiveCssClass =
-    sitecoreContext.pageState === LayoutServicePageState.Edit ||
-    sitecoreContext.pageState === LayoutServicePageState.Preview
+    context.pageState === LayoutServicePageState.Edit ||
+    context.pageState === LayoutServicePageState.Preview
       ? 'experience-editor-active'
       : '';
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Use event name from context as the page title
-  const contextTitle = sitecoreContext['EventInfo'] as NodeJS.Dict<string | string>;
+  const fields = route?.fields;
+  const contextTitle = context['EventInfo'] as NodeJS.Dict<string | string>;
   let pageTitle = contextTitle.titlePrefix;
-  if (route?.fields?.pageTitle?.value) {
-    pageTitle += ' - ' + route?.fields?.pageTitle?.value;
+  if (fields?.pageTitle?.value.toString()) {
+    pageTitle += ` - ${fields.pageTitle.value.toString()}`;
   }
   // END CUSTOMIZATION
 
@@ -68,8 +67,8 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
 
       {/* DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification and Navigation */}
 
-      {/* DEMO TEAM CUSTOMIZATION - Add placeholders */}
       {/* root placeholders for the app, which we add components to using route data */}
+      {/* DEMO TEAM CUSTOMIZATION - Add placeholders. Add CSS classes when Sitecore editors are active. Add HeaderCdpMessageBar. */}
       <header className={isExperienceEditorActiveCssClass}>
         <Placeholder name="jss-header" rendering={route} />
       </header>
@@ -80,15 +79,9 @@ const Layout = ({ sitecoreContext, sitecoreContext: { route } }: LayoutProps): J
       <footer>
         <Placeholder name="jss-footer" rendering={route} />
       </footer>
-      {/* END CUSTOMIZATION*/}
+      {/* END CUSTOMIZATION */}
     </>
   );
 };
 
-const propsAreEqual = (prevProps: LayoutProps, nextProps: LayoutProps) => {
-  if (deepEqual(prevProps.sitecoreContext.route, nextProps.sitecoreContext.route)) return true;
-
-  return false;
-};
-
-export default withSitecoreContext()(React.memo(Layout, propsAreEqual));
+export default Layout;

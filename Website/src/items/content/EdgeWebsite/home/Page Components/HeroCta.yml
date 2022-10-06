@@ -15,7 +15,7 @@ Languages:
     - ID: "02110427-7e12-40a8-9fee-9d79b24cf1ec"
       Hint: Link
       Value: |
-        <link text="Book Tickets" anchor="" linktype="internal" class="" title=""  querystring="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" />
+        <link class="" id="{A7BDFBDA-D5CC-5388-A039-F262BC768721}" querystring="" anchor="" title="" linktype="internal" text="Book Tickets" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20210727T181349Z

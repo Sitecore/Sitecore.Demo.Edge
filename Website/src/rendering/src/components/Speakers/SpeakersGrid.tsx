@@ -2,11 +2,10 @@ import Link from 'next/link';
 import {
   Text,
   Image,
-  withDatasourceCheck,
   useSitecoreContext,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { GraphQLSpeaker } from 'src/types/speaker';
 
 export type SpeakersGridProps = ComponentProps & {
@@ -22,7 +21,7 @@ export type SpeakersGridProps = ComponentProps & {
 };
 
 const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasSpeakers = !!props.fields?.data?.item;
@@ -40,13 +39,14 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
       .map((speaker, index) => (
         <Link key={index} href={speaker.url.path} passHref>
           <a className="speakers-grid-speaker">
-            <Image
-              className="speaker-image"
-              field={speaker.picture.jsonValue}
-              alt={speaker.name.value}
-              width={265}
-              height={265}
-            />
+            <div className="speaker-image">
+              <Image
+                field={speaker.picture.jsonValue}
+                alt={speaker.name.value}
+                width={265}
+                height={265}
+              />
+            </div>
             <Text className="speaker-name" tag="p" field={speaker.name} />
             <Text tag="p" field={speaker.jobTitle} />
           </a>
@@ -63,4 +63,4 @@ const SpeakersGrid = (props: SpeakersGridProps): JSX.Element => {
   );
 };
 
-export default withDatasourceCheck()<SpeakersGridProps>(SpeakersGrid);
+export default SpeakersGrid;
