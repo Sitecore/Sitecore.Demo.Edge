@@ -7,6 +7,7 @@ import {
   WelcomeMessage,
   getDynamicWelcomeMessage as boxeverGetDynamicWelcomeMessage,
   isCdpConfigured as boxeverIsCdpConfigured,
+  closeSession as boxeverCloseSession,
   getGuestEmail as boxeverGetGuestEmail,
   getGuestFirstName as boxeverGetGuestFirstName,
   getGuestLastName as boxeverGetGuestLastName,
@@ -92,6 +93,20 @@ export function logTicketPurchase(ticketId: number): Promise<unknown> {
   return logEvent('TICKET_PURCHASED', eventPayload).then(() =>
     saveDataExtension(dataExtensionName, dataExtensionPayload)
   );
+}
+
+/**
+ * Logs a custom event when a user scans a QR code on the TV app
+ */
+export function logQRCodeEvent(
+  eventName: string,
+  payload?: Record<string, unknown>
+): Promise<unknown> {
+  return logEvent(eventName, payload);
+}
+
+export function closeCurrentSession(): Promise<unknown> {
+  return boxeverCloseSession();
 }
 
 /**

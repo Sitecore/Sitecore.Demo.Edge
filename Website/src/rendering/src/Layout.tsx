@@ -7,11 +7,9 @@ import {
   LayoutServiceData,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-// DEMO TEAM CUSTOMIZATION - Remove navigation from layout
-// DEMO TEAM CUSTOMIZATION - CDP integration
-import { logViewEvent } from './services/CdpService';
+import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
-// END CUSTOMIZATION
+import { shouldCloseSession } from './services/BoxeverService';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -26,7 +24,18 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
 
   // DEMO TEAM CUSTOMIZATION - Log page views in CDP
   useEffect(() => {
-    logViewEvent(route);
+    (async () => {
+      if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
+        // First close the current CDP session if there is already a 'WEB' one in progress
+        // and then log the custom event in the 'MOBILE_WEB' session
+        const { shouldCloseCurrentSession } = await shouldCloseSession();
+        if (shouldCloseCurrentSession === 'true') {
+          await closeCurrentSession();
+        }
+        await logQRCodeEvent('QR Code TV Scan');
+      }
+      await logViewEvent(route);
+    })();
   }, [route]);
   // END CUSTOMIZATION
 
