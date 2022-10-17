@@ -3,60 +3,64 @@ import FacetList from './FacetList';
 import ProductList from '../ShopCommon/ProductList';
 import SearchControls from './SearchControls';
 import { ChangeEvent, useState } from 'react';
-import {
-  SearchResultsPageNumberChangedActionPayload,
-  SearchResultsFacetClickedChangedActionPayload,
-  SearchResultsSortChangedActionPayload,
-} from '@sitecore-discover/widgets';
 import CategoryHero from '../Products/CategoryHero';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 import { FullPageSearchResultsProps } from './FullPageSearch';
 import { Category } from '../../models/Category';
+import { Product } from '../../models/discover/Product';
+import { SearchResultsSortChangedActionPayload } from '@sitecore-discover/widgets';
+import { SearchResponseSortChoice } from '@sitecore-discover/models';
+import { SearchResponseFacets } from '@sitecore-discover/react';
 
 type FullPageSearchContentProps = Partial<FullPageSearchResultsProps> & {
-  onSearchInputChange: (s: string) => void;
+  page: number;
   keyphrase: string;
+  productsPerPage: number;
+  sortType: string;
+  sortDirection: string;
+  sortChoices: SearchResponseSortChoice[];
+  isError: boolean;
+  isLoading: boolean;
+  isFetching: boolean;
+  totalItems: number;
+  totalPages: number;
+  facets: SearchResponseFacets;
+  facetNames: string[];
+  products: Product[];
+  onPageNumberChange: (obj: { page: number }) => void;
+  onSortChange: (obj: { sortType: string; sortDirection: string }) => void;
+  onSearchInputChange: (s: string) => void;
   category: Category;
 };
 
 const FullPageSearchContent = ({
   rfkId,
-  error,
-  loaded,
-  loading,
   page,
-  totalPages,
-  totalItems,
+  keyphrase,
+  productsPerPage,
   sortType,
   sortDirection,
   sortChoices,
-  products,
+  isError,
+  isLoading,
+  isFetching,
+  totalItems,
+  totalPages,
   facets,
-  numberOfItems,
-  onFacetClick,
-  onClearFilters,
+  facetNames,
+  products,
   onPageNumberChange,
   onSortChange,
   onSearchInputChange,
-  keyphrase,
   category,
 }: FullPageSearchContentProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
-
   const [toggle, setToggle] = useState(false);
 
-  if (error) {
+  if (isError) {
     return <div>Response error</div>;
   }
-
-  const handleFacetClick = (payload: SearchResultsFacetClickedChangedActionPayload) => {
-    onFacetClick(payload);
-  };
-
-  const handleFacetClear = () => {
-    onClearFilters();
-  };
 
   const handleSortChange = (payload: SearchResultsSortChangedActionPayload) => {
     onSortChange(payload);
@@ -73,18 +77,15 @@ const FullPageSearchContent = ({
   };
 
   const handleViewMoreClick = () => {
-    const pageNumber = Math.ceil(products.length / numberOfItems + 1);
-    const payload: SearchResultsPageNumberChangedActionPayload = {
-      rfkId,
-      page: pageNumber,
-    };
-    onPageNumberChange(payload);
+    const pageNumber = Math.ceil(products.length / productsPerPage + 1);
+
+    onPageNumberChange({ page: pageNumber });
   };
 
   const viewMoreBtnHandler =
     totalPages > 1 && products?.length !== totalItems ? handleViewMoreClick : null;
 
-  const numberOfResults = !loading && totalPages > 0 && (
+  const numberOfResults = !isLoading && totalPages > 0 && (
     <div className="items-num">{totalItems} items</div>
   );
 
@@ -115,9 +116,8 @@ const FullPageSearchContent = ({
           <div className="facet-panel-mask"></div>
           <div className="full-page-search-left">
             <FacetList
+              list={facetNames}
               facets={facets}
-              onFacetClick={handleFacetClick}
-              onClear={handleFacetClear}
               sortFacetProps={sortFacetProps}
               onToggleClick={handleToggleClick}
               isCategoryProductListingPage={isCategoryProductListingPage}
@@ -150,8 +150,8 @@ const FullPageSearchContent = ({
               {noResultsMessage}
               <ProductList
                 products={products}
-                loaded={loaded}
-                loading={loading}
+                loaded={!isLoading}
+                loading={isFetching}
                 onViewMoreBtnClick={viewMoreBtnHandler}
               />
             </div>
