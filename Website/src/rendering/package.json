@@ -41,7 +41,7 @@
     "@ordercloud/catalyst": "^1.1.3",
     "@ordercloud/portal-javascript-sdk": "0.0.1-beta.19",
     "@reduxjs/toolkit": "^1.7.2",
-    "@sitecore-discover/react": "^0.2.1",
+    "@sitecore-discover/react": "^1.0.0-alpha.0",
     "@sitecore-jss/sitecore-jss-nextjs": "^20.0.3",
     "auth0": "^2.37.0",
     "cors": "^2.8.5",
