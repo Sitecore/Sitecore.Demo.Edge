@@ -1,22 +1,28 @@
-import { RecommendationWidgetProps } from '@sitecore-discover/ui';
+import { useRecommendation } from '@sitecore-discover/react';
 import { Product } from '../../models/discover/Product';
 import ProductList from '../../components/ShopCommon/ProductList';
 
-interface RecommendedProductsProps extends RecommendationWidgetProps {
+interface RecommendedProductsProps {
   rfkId: string;
   title: string;
   altTheme?: boolean;
 }
 
-const RecommendedProducts = (props: RecommendedProductsProps): JSX.Element => {
-  const { onProductClick, products, rfkID, title, loaded, loading, altTheme } = props;
+const RecommendedProducts = ({ title, altTheme }: RecommendedProductsProps): JSX.Element => {
+  const {
+    actions: { onProductClick },
+    queryResult: {
+      isLoading,
+      isFetching,
+      data: { content: { product: { value: products = [] } = {} } = {} } = {},
+    },
+  } = useRecommendation((query) => {
+    query.getRequest().setNumberProducts(4);
+  });
 
   const handleProductClick = (product: Product) => {
-    onProductClick({ sku: product.sku, rfkId: rfkID });
+    onProductClick({ sku: product.sku });
   };
-
-  // TODO: Remove this when the Discover SDK allows us to configure a maximum number of products it returns.
-  const firstFourProucts = products?.slice(0, 4);
 
   const themeClass = `recommended-products-title ${
     altTheme ? 'recommended-products-title-orange' : ''
@@ -27,9 +33,9 @@ const RecommendedProducts = (props: RecommendedProductsProps): JSX.Element => {
       <div className="shop-container">
         <h3 className={themeClass}>{title}</h3>
         <ProductList
-          products={firstFourProucts}
-          loaded={loaded}
-          loading={loading}
+          products={products as unknown as Product[]}
+          loaded={!isLoading}
+          loading={isFetching}
           onProductClick={handleProductClick}
           altTheme={altTheme}
         />
