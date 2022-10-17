@@ -28,10 +28,10 @@ type FullPageSearchContentProps = Partial<FullPageSearchResultsProps> & {
   facets: SearchResponseFacets;
   facetNames: string[];
   products: Product[];
+  category: Category;
   onPageNumberChange: (obj: { page: number }) => void;
   onSortChange: (obj: { sortType: string; sortDirection: string }) => void;
   onSearchInputChange: (s: string) => void;
-  category: Category;
 };
 
 const FullPageSearchContent = ({
@@ -50,10 +50,10 @@ const FullPageSearchContent = ({
   facets,
   facetNames,
   products,
+  category,
   onPageNumberChange,
   onSortChange,
   onSearchInputChange,
-  category,
 }: FullPageSearchContentProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
   const [toggle, setToggle] = useState(false);

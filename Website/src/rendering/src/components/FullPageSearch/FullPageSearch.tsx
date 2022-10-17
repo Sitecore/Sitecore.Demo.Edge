@@ -157,6 +157,7 @@ export const FullPageSearch = ({ rfkId }: FullPageSearchResultsProps): JSX.Eleme
       facets={facets}
       facetNames={facetNames}
       products={loadedProducts}
+      category={category}
       onPageNumberChange={onViewMoreClick}
       onSortChange={onSortChange}
       onSearchInputChange={onSearchInputChange}
