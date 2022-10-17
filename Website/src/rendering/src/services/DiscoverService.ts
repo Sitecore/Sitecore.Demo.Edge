@@ -1,7 +1,5 @@
 import {
-  init,
   setWidget,
-  setCredentials,
   WidgetDataType,
   PageController,
   trackPageViewEvent,
@@ -14,14 +12,11 @@ import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
+import DiscoverServiceConfig from './DiscoverServiceConfig';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
 }
-
-type DiscoverServiceOptions = {
-  isStorybook?: boolean;
-};
 
 export const updateDiscoverContext = (): void => {
   const context = PageController.getContext();
@@ -36,24 +31,11 @@ export const updateDiscoverContext = (): void => {
   });
 };
 
-export const DiscoverService = (options?: DiscoverServiceOptions): void => {
-  const DISCOVER_CUSTOMER_KEY = options?.isStorybook
-    ? '0-0'
-    : process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
-  const DISCOVER_API_KEY = options?.isStorybook
-    ? '0-0-0'
-    : process.env.NEXT_PUBLIC_DISCOVER_API_KEY || '';
-
-  if (typeof window === 'undefined' || !DISCOVER_CUSTOMER_KEY || !DISCOVER_API_KEY) {
+export const DiscoverService = (): void => {
+  const config = DiscoverServiceConfig();
+  if (typeof window === 'undefined' || !config.customerKey || !config.apiKey) {
     return;
   }
-
-  setCredentials({
-    env: 'prod',
-    customerKey: `${DISCOVER_CUSTOMER_KEY}`,
-    apiKey: `${DISCOVER_API_KEY}`,
-    useToken: true,
-  });
 
   setWidget('rfkid_7', {
     component: FullPageSearch,
@@ -143,8 +125,6 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     component: TrendingCategories,
     type: WidgetDataType.PREVIEW_SEARCH,
   });
-
-  init();
 
   // Update the context page URI on route change
   const pushState = history.pushState;
