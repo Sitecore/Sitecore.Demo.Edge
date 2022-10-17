@@ -1,7 +1,7 @@
-import { RecommendationWidgetProps } from '@sitecore-discover/ui';
+import { widget, WidgetDataType } from '@sitecore-discover/react';
 import RecommendedProducts from './RecommendedProducts';
 
-interface RecommendedForYouProps extends RecommendationWidgetProps {
+interface RecommendedForYouProps {
   rfkId: string;
 }
 
@@ -9,4 +9,4 @@ const RecommendedForYou = (props: RecommendedForYouProps): JSX.Element => (
   <RecommendedProducts {...props} title="Recommended for you" />
 );
 
-export default RecommendedForYou;
+export default widget(RecommendedForYou, WidgetDataType.RECOMMENDATION);

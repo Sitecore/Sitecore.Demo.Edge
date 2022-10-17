@@ -1,7 +1,7 @@
-import { RecommendationWidgetProps } from '@sitecore-discover/ui';
+import { widget, WidgetDataType } from '@sitecore-discover/react';
 import RecommendedProducts from './RecommendedProducts';
 
-interface RecentlyViewedProductsProps extends RecommendationWidgetProps {
+interface RecentlyViewedProductsProps {
   rfkId: string;
 }
 
@@ -9,4 +9,4 @@ const RecentlyViewedProducts = (props: RecentlyViewedProductsProps): JSX.Element
   <RecommendedProducts {...props} title="Recently viewed products" />
 );
 
-export default RecentlyViewedProducts;
+export default widget(RecentlyViewedProducts, WidgetDataType.RECOMMENDATION);
