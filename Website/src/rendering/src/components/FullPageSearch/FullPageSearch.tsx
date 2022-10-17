@@ -1,42 +1,49 @@
-import { SearchResultsWidgetProps } from '@sitecore-discover/ui';
 import { useEffect, useState } from 'react';
-import debounce from '../../../src/helpers/Debounce';
-import {
-  SearchResultsActions,
-  SearchResultsPageNumberChangedActionPayload,
-} from '@sitecore-discover/widgets';
+import { SearchResultsPageNumberChangedActionPayload } from '@sitecore-discover/widgets';
 import FullPageSearchContent from './FullPageSearchContent';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 import { Product } from '../../models/discover/Product';
 import { useRouter } from 'next/router';
 
-export interface FullPageSearchResultsProps extends SearchResultsWidgetProps {
+import {
+  SearchResponseFacets,
+  SearchResponseProduct,
+  useSearchResults,
+  widget,
+  WidgetDataType,
+} from '@sitecore-discover/react';
+
+export interface FullPageSearchResultsProps {
   rfkId: string;
 }
 
-const FullPageSearch = ({
-  rfkId,
-  error,
-  loaded,
-  loading,
-  page,
-  keyphrase,
-  totalPages,
-  totalItems,
-  sortType,
-  sortDirection,
-  sortChoices,
-  products,
-  facets,
-  numberOfItems,
-  dispatch,
-  onFacetClick,
-  onClearFilters,
-  onPageNumberChange,
-  onSortChange,
-}: FullPageSearchResultsProps): JSX.Element => {
-  const router = useRouter();
+export const FullPageSearch = ({ rfkId }: FullPageSearchResultsProps): JSX.Element => {
+  const {
+    actions: { onKeyphraseChange, onPageNumberChange, onSortChange },
+    context: { page = 1, keyphrase = '', productsPerPage = 10, sortType, sortDirection },
+    queryResult: {
+      isError,
+      isLoading,
+      isFetching,
+      data: {
+        sort: { choices: sortChoices = [] } = {},
+        total_item: totalItems = 0,
+        total_page: totalPages = 0,
+        facet: facets = [] as unknown as SearchResponseFacets,
+        facet_names: facetNames = [],
+        content: { product: { value: products = [] } = {} } = {},
+      } = {},
+    },
+    query,
+  } = useSearchResults((query) => {
+    query.getRequest();
+    return {
+      productsPerPage,
+      keyphrase,
+    };
+  });
 
+  const router = useRouter();
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
   const category = getCategoryByUrlPath(window.location.pathname);
 
@@ -44,19 +51,14 @@ const FullPageSearch = ({
   const [isViewMoreClicked, setIsViewMoreClicked] = useState(false);
   const [displayedKeyphrase, setDisplayedKeyphrase] = useState(keyphrase || '');
 
-  const setKeyphrase: (keyphrase: string) => void = debounce(
-    (keyphrase) =>
-      dispatch({ type: SearchResultsActions.KEYPHRASE_CHANGED, payload: { keyphrase } }),
-    500,
-    false
-  );
-
   const onSearchInputChange = (keyphrase: string) => {
-    setKeyphrase(keyphrase);
     setDisplayedKeyphrase(keyphrase);
 
     // Update the keyphrase in session storage
     saveLastProductListingPage(keyphrase);
+
+    query.getRequest();
+    onKeyphraseChange({ keyphrase });
   };
 
   const onViewMoreClick = (payload: SearchResultsPageNumberChangedActionPayload) => {
@@ -67,19 +69,14 @@ const FullPageSearch = ({
 
   useEffect(() => {
     // Clear the filters when visiting another product listing page
+
     if (router.asPath !== loadLastProductListingPage()?.path) {
-      onClearFilters();
+      // onClearFilters();
       onSearchInputChange('');
 
       // Save the product listing page to session storage
       saveLastProductListingPage();
     }
-
-    // Set the page number to 1 initially
-    onPageNumberChange({
-      rfkId,
-      page: 1,
-    });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
@@ -102,10 +99,10 @@ const FullPageSearch = ({
   }, [router]);
 
   useEffect(() => {
-    if (!loaded && loading) return;
+    if (isLoading || isFetching) return;
     if (!products) return;
 
-    let productsToDisplay: Product[] = [];
+    let productsToDisplay: (SearchResponseProduct | Product)[] = [];
     if (isViewMoreClicked) {
       setIsViewMoreClicked(false);
 
@@ -120,11 +117,11 @@ const FullPageSearch = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
-  const saveProductsToSessionStorage = (products: Product[]) => {
+  const saveProductsToSessionStorage = (products: (SearchResponseProduct | Product)[]) => {
     sessionStorage.setItem('products', JSON.stringify(products));
   };
 
-  const loadProductsFromSessionStorage = (): Product[] =>
+  const loadProductsFromSessionStorage = (): (SearchResponseProduct | Product)[] =>
     JSON.parse(sessionStorage.getItem('products'));
 
   const saveLastProductListingPage = (keyphrase?: string): void =>
@@ -146,28 +143,26 @@ const FullPageSearch = ({
   return (
     <FullPageSearchContent
       rfkId={rfkId}
-      error={error}
-      loaded={loaded}
-      loading={loading}
       page={page}
-      totalPages={totalPages}
-      totalItems={totalItems}
+      keyphrase={displayedKeyphrase}
+      productsPerPage={productsPerPage}
       sortType={sortType}
       sortDirection={sortDirection}
       sortChoices={sortChoices}
-      products={loadedProducts}
+      isError={isError}
+      isLoading={isLoading}
+      isFetching={isFetching}
+      totalItems={totalItems}
+      totalPages={totalPages}
       facets={facets}
-      numberOfItems={numberOfItems}
-      dispatch={dispatch}
-      onFacetClick={onFacetClick}
-      onClearFilters={onClearFilters}
+      facetNames={facetNames}
+      products={loadedProducts}
       onPageNumberChange={onViewMoreClick}
       onSortChange={onSortChange}
       onSearchInputChange={onSearchInputChange}
-      keyphrase={displayedKeyphrase}
       category={category}
     />
   );
 };
 
-export default FullPageSearch;
+export default widget(FullPageSearch, WidgetDataType.SEARCH_RESULTS);
