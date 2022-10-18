@@ -161,7 +161,6 @@ export const FullPageSearch = ({ rfkId }: FullPageSearchResultsProps): JSX.Eleme
       onPageNumberChange={onViewMoreClick}
       onSortChange={onSortChange}
       onSearchInputChange={onSearchInputChange}
-      category={category}
     />
   );
 };
