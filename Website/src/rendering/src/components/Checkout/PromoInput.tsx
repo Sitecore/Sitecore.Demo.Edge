@@ -5,9 +5,20 @@ import useOcCurrentCart from '../../hooks/useOcCurrentCart';
 import { addPromotion, removePromotion } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 
+type PromoResponse = {
+  error?: {
+    name?: string;
+    message?: string;
+  };
+  meta?: unknown;
+  payload?: unknown;
+  type?: string;
+};
+
 const PromoInput = (): JSX.Element => {
   const [loading, setLoading] = useState(false);
   const [promoCode, setPromoCode] = useState('');
+  const [promoError, setPromoError] = useState('');
   const dispatch = useAppDispatch();
   const { promotions } = useOcCurrentCart();
 
@@ -24,7 +35,14 @@ const PromoInput = (): JSX.Element => {
   const handleApplyPromotion = async () => {
     if (promoCode) {
       setLoading(true);
-      await dispatch(addPromotion(promoCode));
+
+      const res = (await dispatch(addPromotion(promoCode))) as PromoResponse;
+      if (res?.error) {
+        setPromoError(res?.error?.message || `${promoCode} is not a valid promo code`);
+      } else {
+        setPromoError('');
+      }
+
       setLoading(false);
       setPromoCode('');
     }
@@ -71,6 +89,7 @@ const PromoInput = (): JSX.Element => {
         onKeyDown={handlePromoCodeKeyDown}
         onChange={handlePromoCodeChange}
       />
+      {promoError}
       {addedPromotions}
       <button
         disabled={loading || !promoCode}
