@@ -66,6 +66,13 @@ const PromoInput = (): JSX.Element => {
         onChange={handlePromoCodeChange}
       />
       {addedPromotions}
+      <button
+        disabled={loading || !promoCode}
+        className="apply-promo-btn"
+        onClick={handleApplyPromotion}
+      >
+        Apply promotion
+      </button>
     </div>
   );
 };
