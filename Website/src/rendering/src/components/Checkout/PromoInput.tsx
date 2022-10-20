@@ -15,8 +15,14 @@ const PromoInput = (): JSX.Element => {
     setPromoCode(event.target.value);
   };
 
-  const handlePromoCodeKeyDown = async (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && promoCode) {
+  const handlePromoCodeKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleApplyPromotion();
+    }
+  };
+
+  const handleApplyPromotion = async () => {
+    if (promoCode) {
       setLoading(true);
       await dispatch(addPromotion(promoCode));
       setLoading(false);
