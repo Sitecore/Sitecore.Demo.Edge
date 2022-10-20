@@ -61,7 +61,6 @@ const PromoInput = (): JSX.Element => {
       <input
         id="promoInput"
         type="text"
-        disabled={!promotions}
         value={promoCode}
         onKeyDown={handlePromoCodeKeyDown}
         onChange={handlePromoCodeChange}
