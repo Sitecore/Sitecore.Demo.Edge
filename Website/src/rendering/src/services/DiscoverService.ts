@@ -14,6 +14,7 @@ import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
+import FeaturedProducts from '../components/Widgets/FeaturedProducts';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -129,6 +130,18 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
 
   setWidget('rfkid_33', {
     component: CustomersAlsoBought,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
+  setWidget('rfkid_36', {
+    component: FeaturedProducts,
     type: WidgetDataType.RECOMMENDATION,
     options: {
       properties: {
