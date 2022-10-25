@@ -54,7 +54,7 @@ const PromoInput = (): JSX.Element => {
     setLoading(false);
   };
 
-  const addedPromotions = promotions?.length ? (
+  const addedPromotions = promotions?.length > 0 && (
     <ul className="promotion-list">
       {promotions.map((promotion) => {
         return (
@@ -75,8 +75,6 @@ const PromoInput = (): JSX.Element => {
         );
       })}
     </ul>
-  ) : (
-    ''
   );
 
   return (
