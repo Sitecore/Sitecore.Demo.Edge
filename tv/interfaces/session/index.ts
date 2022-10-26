@@ -1,4 +1,4 @@
-import { RoomResults } from '../room';
+import { Room, RoomResults } from '../room';
 import { SpeakerResults } from '../speaker';
 import { Image } from '../asset';
 import { Timeslot, Timeslots } from '../timeslot';
@@ -8,7 +8,7 @@ export interface SessionResult {
   id: string;
   name: string;
   description: string;
-  room: RoomResults;
+  room: RoomResults | Room;
   speakers: SpeakerResults;
   roomName: string;
   sessionToMasterAsset: Image;

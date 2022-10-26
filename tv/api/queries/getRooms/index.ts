@@ -16,7 +16,6 @@ export const getRooms = async (): Promise<{ rooms: Room[] }> => {
   const results: AllRoomsResponse = (await fetchGraphQL(roomsQuery)) as AllRoomsResponse;
 
   const rooms: Room[] = results.data.allDemo_Room.results;
-
   return { rooms: rooms.sort((a, b) => a.name.localeCompare(b.name)) };
 };
 

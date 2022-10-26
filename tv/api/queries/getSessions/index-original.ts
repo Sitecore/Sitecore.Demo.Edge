@@ -40,14 +40,13 @@ const formattedSession = function (
         .join(', ');
     }
   }
-
   //Not taking session with multiple rooms into consideration
   if (room != null) {
     session.roomId = room.id;
     session.room = room.name;
-  } else if (sessionResult?.room) {
-    session.roomId = sessionResult.room.id;
-    session.room = sessionResult.room.name;
+  } else if (sessionResult?.room?.results?.length > 0) {
+    session.roomId = sessionResult.room.results[0].id;
+    session.room = sessionResult.room.results[0]?.name;
   }
 
   if (day != null) {
@@ -164,40 +163,39 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
       results {
         sortOrder
         taxonomyName
-        dayToSession:session_Days {
+        dayToSession {
           results {
-            ... on M_Content_Session {
-              id
-              name:content_Name
-              isPremium:session_PremiumSession
-              sessionToMasterAsset:cmpContentToMasterLinkedAsset {
-                results {
-                  assetToPublicLink(first: 1) {
-                    results {
-                      id
-                      relativeUrl
-                      versionHash
-                    }
+            id
+            name
+            isPremium
+            sessionToMasterAsset {
+              results {
+                assetToPublicLink(first: 1) {
+                  results {
+                    relativeUrl
+                    versionHash
                   }
                 }
               }
-              room:session_Room{
+            }
+            room {
+              results {
                 id
                 name
               }
-              timeslotToSession:session_Timeslot{
-                results{
-                  taxonomyLabel
-                  sortOrder
-                }
+            }
+            timeslotToSession {
+              results {
+                taxonomyLabel
+                sortOrder
               }
-              sessionsTypeToSessions:session_SessionType{
-                taxonomyName
-              }
-              speakers:reference_Session_Speakers_Parents{
-                results{
-                  content_Name
-                }
+            }
+            sessionsTypeToSessions {
+              taxonomyName
+            }
+            speakers{
+              results{
+                name
               }
             }
           }

@@ -18,10 +18,10 @@ export const getSpeakers = async (): Promise<{ speakers: Speaker[] }> => {
       allDemo_Speaker(first: 8) {
         results {
           id
-          name
-          description
-          speakerToMasterAsset {
-            results {
+          name:content_Name
+          description:speaker_Bio
+          speakerToMasterAsset:cmpContentToMasterLinkedAsset{
+            results{
               id
               fileName
               assetToPublicLink {

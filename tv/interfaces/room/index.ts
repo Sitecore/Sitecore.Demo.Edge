@@ -8,6 +8,8 @@ export interface Room {
 
 export interface RoomResults {
   results: Room[];
+  id: string;
+  name: string;
 }
 
 export interface AllRoomsResponse {
