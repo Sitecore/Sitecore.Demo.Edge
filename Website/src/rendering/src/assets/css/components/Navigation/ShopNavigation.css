@@ -1,5 +1,5 @@
 .shop-navigation {
-  @apply relative bg-black h-28;
+  @apply relative bg-gray h-28;
 
   @screen lg {
     height: 100px;
