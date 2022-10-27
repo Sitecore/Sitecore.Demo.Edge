@@ -2,11 +2,11 @@ import { fetchGraphQL } from '..';
 
 type SessionURLResult = {
   url: {
-    url: string;
+    path: string;
   };
 };
 
-type SessionURLsResults = {
+type SessionURLResults = {
   data: {
     search: {
       results: SessionURLResult[];
@@ -20,20 +20,20 @@ export const getSessionURLByContentHubID = async (id: string): Promise<string | 
       search(where: {name:"EntityIdentifier", value:"${id}"}) {
         results {
           url {
-            url
+            path
           }
         }
       }
     }
   `;
 
-  const results: SessionURLsResults = (await fetchGraphQL(
+  const results: SessionURLResults = (await fetchGraphQL(
     sessionByURLContentHubQuery
-  )) as SessionURLsResults;
+  )) as SessionURLResults;
 
   if (!results?.data) {
     return undefined;
   }
 
-  return results?.data?.search?.results[0]?.url?.url || undefined;
+  return results?.data?.search?.results[0]?.url?.path || undefined;
 };
