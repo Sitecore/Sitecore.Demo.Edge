@@ -48,6 +48,9 @@ Languages:
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{A5673B41-FABE-450B-9037-14132FA734DA}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "125e9d78-1a94-4235-bc97-05b56fd63e92"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Seven mindset strategies to raise your game

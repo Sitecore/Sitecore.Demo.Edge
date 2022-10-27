@@ -23,3 +23,7 @@ Languages:
 - Language: en
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1e0e463b-8174-40cf-b70d-2f816a010ea7"

@@ -16,6 +16,9 @@ Languages:
       Hint: Picture
       Value: |
         <image mediaid="{7071C7CE-784D-434B-BBDB-C3552D5CD116}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f41d4d05-d7b4-41aa-81ae-6a9b79f32dbb"
     - ID: "ceb0f7a3-e5e1-4e8c-a95a-8bff6f13708f"
       Hint: Title
       Value: Motor Sports

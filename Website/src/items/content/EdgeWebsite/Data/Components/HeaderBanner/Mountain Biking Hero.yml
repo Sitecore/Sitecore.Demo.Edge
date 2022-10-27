@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6ce2068f-3a8c-404e-9153-5ee572a0575d"
     - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
       Hint: title
       Value: Meet all our awesome guests

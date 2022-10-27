@@ -51,6 +51,9 @@ Languages:
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{C53A4814-4956-427E-A3C0-1DAEE197459C}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "837ad26b-1838-4439-ad36-75fe9584f430"
     - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
       Hint: Sponsors
       Value: "{5319CA3C-CD21-4D68-A68A-1EAF4D34F63D}"

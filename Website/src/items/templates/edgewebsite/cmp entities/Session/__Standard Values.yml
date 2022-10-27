@@ -104,3 +104,6 @@ Languages:
     - ID: "8058e5a0-d20d-4923-b87d-f56b19efc20f"
       Hint: Name
       Value: $name
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "785d70f6-ed32-43ff-839b-513c69ba38df"

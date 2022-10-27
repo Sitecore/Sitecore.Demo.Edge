@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7d281d46-0fbd-44b1-ac43-2da41b0a9b6b"
     - ID: "e6dd8379-422c-41c1-863c-947992df1836"
       Hint: Name
       Value: Camping

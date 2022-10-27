@@ -23,6 +23,9 @@ Languages:
     - ID: "5526367b-610b-4424-a18b-719ce079f4ad"
       Hint: Size
       Value: 2500
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "303c60e8-0f24-4f3c-89ab-5079d814b149"
     - ID: "91e38983-3229-41b3-9161-c1136039a209"
       Hint: Description
       Value: |

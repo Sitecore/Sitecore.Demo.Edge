@@ -29,6 +29,9 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" linktype="internal" text="Vendor Registration" querystring="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4eda0adb-3f1c-4441-8cf0-010a3652fcbc"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "left-full"

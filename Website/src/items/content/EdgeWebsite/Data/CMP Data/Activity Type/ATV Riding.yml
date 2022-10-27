@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "16b97c51-103f-42e6-8983-d3b2ece86f4f"
     - ID: "e6dd8379-422c-41c1-863c-947992df1836"
       Hint: Name
       Value: ATV Riding

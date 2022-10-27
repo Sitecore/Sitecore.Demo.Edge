@@ -37,6 +37,9 @@ Languages:
       Hint: LeftLogo
       Value: |
         <image mediaid="{21C5D87C-3E77-4AFA-82FF-665B15EA7806}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ae993aa8-70a7-4b55-846b-61202254bce6"
     - ID: "a8282684-a5d5-57be-b6f6-a509c6ccdbe3"
       Hint: LeftTitle
       Value: 48 Talks and Workshops

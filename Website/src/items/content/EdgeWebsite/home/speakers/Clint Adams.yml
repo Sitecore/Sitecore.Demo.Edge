@@ -25,6 +25,9 @@ Languages:
     - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
       Hint: Vendors
       Value: "{3983AC76-7325-4AF4-9183-B68DE402F872}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "18c8df73-ad2b-4d99-9a81-a2395635d555"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Mapd

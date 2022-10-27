@@ -20,3 +20,7 @@ Languages:
     Value: Payment Progress Bars
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9cb70923-7a0d-4a7b-8d68-a5b160bd29c6"
