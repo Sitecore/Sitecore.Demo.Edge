@@ -16,6 +16,9 @@ Languages:
       Hint: Picture
       Value: |
         <image mediaid="{11614320-51D5-46E2-A778-4F41AD466601}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "dd953955-cc4b-49f1-b1de-9d3b591bf7a4"
     - ID: "ceb0f7a3-e5e1-4e8c-a95a-8bff6f13708f"
       Hint: Title
       Value: Fitness

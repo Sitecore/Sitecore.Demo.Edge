@@ -18,6 +18,9 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link class="" id="{6CF37FF6-755C-5B1A-B5EB-63F03481DB4A}" querystring="" anchor="" title="" linktype="internal" text="Become a Sponsor" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "adbec928-1e41-466f-833c-64c4ad1a437a"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "section-sponsors"

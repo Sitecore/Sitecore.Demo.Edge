@@ -18,6 +18,9 @@ Languages:
       Hint: Logo
       Value: |
         <image mediaid="{A61B8F1F-643D-4074-84C7-0E72F6363701}" ></image>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "de5d7026-0f54-4751-86f7-4c61e6d7d628"
     - ID: "c63db4c4-d678-45cd-9d0d-4994b571eb7d"
       Hint: Link
       Value: |

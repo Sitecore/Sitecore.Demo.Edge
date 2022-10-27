@@ -16,6 +16,9 @@ Languages:
       Hint: Picture
       Value: |
         <image mediaid="{C9213530-B6B3-41C8-ADD5-8184F6C2C25B}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "3940d9f5-a6e0-45e7-8f1c-562dcafa6700"
     - ID: "ceb0f7a3-e5e1-4e8c-a95a-8bff6f13708f"
       Hint: Title
       Value: Team Sports

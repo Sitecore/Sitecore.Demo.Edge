@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "be17600f-d185-4596-a472-59856d2d5140"
     - ID: "e6dd8379-422c-41c1-863c-947992df1836"
       Hint: Name
       Value: Snowmobiling

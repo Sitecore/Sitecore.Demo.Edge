@@ -18,6 +18,9 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "192c9238-add2-445e-a226-9eaa682102b5"
     - ID: "c61b8113-e6e4-4d25-a768-85febbe750da"
       Hint: ImageTransformation
       Value: web

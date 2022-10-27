@@ -16,6 +16,9 @@ Languages:
       Hint: Picture
       Value: |
         <image mediaid="{F94990A4-AE43-46DF-9CF7-DBC6BA46E463}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "af69f5d1-2084-4a99-8754-f03c816557b0"
     - ID: "ceb0f7a3-e5e1-4e8c-a95a-8bff6f13708f"
       Hint: Title
       Value: Hiking

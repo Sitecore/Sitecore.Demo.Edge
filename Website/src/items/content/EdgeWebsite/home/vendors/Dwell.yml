@@ -38,6 +38,9 @@ Languages:
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{349CE17E-AB72-4C9B-BF43-8DE819D2E8B2}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "87c8e1ad-44dd-4eca-ad79-daa932c09e39"
     - ID: "be48543c-ebb6-47d2-a0be-508184f2796b"
       Hint: Description
       Value: |

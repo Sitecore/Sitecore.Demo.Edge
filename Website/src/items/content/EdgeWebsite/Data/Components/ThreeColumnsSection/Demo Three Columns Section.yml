@@ -40,6 +40,9 @@ Languages:
       Hint: LeftLogo
       Value: |
         <image mediaid="{D6AECB2C-9006-450A-ABD7-CFE9AF3C7136}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "09ffb8de-49f6-4622-bf5b-684a4fb3e6ed"
     - ID: "a8282684-a5d5-57be-b6f6-a509c6ccdbe3"
       Hint: LeftTitle
       Value: Running

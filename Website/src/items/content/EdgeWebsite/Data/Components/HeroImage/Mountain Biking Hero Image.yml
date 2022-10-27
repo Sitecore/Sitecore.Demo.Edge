@@ -12,3 +12,6 @@ Languages:
       Hint: hero
       Value: |
         <image mediaid="{16BD098F-8441-43C9-A08F-3E2251D0F18E}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "531f51ce-9432-46f2-8d8d-d4cfbc215921"

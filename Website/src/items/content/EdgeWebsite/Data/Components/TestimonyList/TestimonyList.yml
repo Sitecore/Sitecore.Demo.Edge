@@ -11,6 +11,9 @@ Languages:
     - ID: "329f8d46-2911-490d-95a8-1a6e5469b2d1"
       Hint: Subtitle
       Value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "68bb3ea9-6c3d-4d25-9dea-22d365c741ee"
     - ID: "aaf1aea1-154f-5889-950c-f023fcf9e76f"
       Hint: Title
       Value: Testimonies

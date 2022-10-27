@@ -18,3 +18,7 @@ Languages:
     Value: Header Logo
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d8603829-0d5d-4b29-b7eb-3eb3b55cfb76"

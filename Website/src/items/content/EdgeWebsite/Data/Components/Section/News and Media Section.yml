@@ -22,6 +22,9 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link id="{0E4A63DA-7496-557E-BF80-5BD52255E431}" linktype="internal" text="View All News" querystring="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2a352292-7119-422f-a071-09d855908ded"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "section-news"

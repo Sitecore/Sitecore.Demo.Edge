@@ -27,3 +27,7 @@ Languages:
     Value: Page Title
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "fa071d06-0ae7-4d7d-aa52-d6f476ef1b3e"

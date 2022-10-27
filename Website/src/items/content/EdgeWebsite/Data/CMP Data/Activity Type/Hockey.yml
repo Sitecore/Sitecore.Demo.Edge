@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "744416f5-39e6-4b0a-afe4-7e2d6be69669"
     - ID: "e6dd8379-422c-41c1-863c-947992df1836"
       Hint: Name
       Value: Hockey
