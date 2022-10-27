@@ -20,6 +20,9 @@ Languages:
     - ID: "30de01d7-233e-42ac-bb14-751e9d60b1cd"
       Hint: Provider
       Value: Striva
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ab6f8b56-126b-49aa-a24f-a39655f20d87"
     - ID: "a4eb8a28-879d-41d9-87c9-2ed2f03d0ae4"
       Hint: Logo
       Value: |

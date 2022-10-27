@@ -30,6 +30,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "923884a7-e348-4e44-816a-b6d5323c8bab"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Registration

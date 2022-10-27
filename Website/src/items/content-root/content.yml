@@ -54,3 +54,7 @@ Languages:
     Value: Content
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2aafa623-7abe-4214-8fe4-de31d0042b9f"

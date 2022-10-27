@@ -16,6 +16,9 @@ Languages:
       Hint: Picture
       Value: |
         <image mediaid="{558299A6-89EA-4A42-8CFC-581E0669A04D}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "65efab46-c986-4b24-83a6-478d1713c2dc"
     - ID: "ceb0f7a3-e5e1-4e8c-a95a-8bff6f13708f"
       Hint: Title
       Value: Swimming

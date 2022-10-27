@@ -87,6 +87,9 @@ Languages:
     - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
       Hint: Title
       Value: $name
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6bdf108b-eca7-4f65-902b-0a638d41828d"
     - ID: "a186dea1-d336-4aa4-8448-fbdd419c31fe"
       Hint: ImageTransformation
       Value: postcard

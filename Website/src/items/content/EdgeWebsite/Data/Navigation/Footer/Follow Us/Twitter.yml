@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "635ddb44-7f6b-4cd2-9d57-33c8b5104249"
     - ID: "bf52b591-6456-4189-b1cc-4a50b2647017"
       Hint: Fontawesome Icon Name
       Value: faTwitter

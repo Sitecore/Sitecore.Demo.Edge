@@ -51,6 +51,9 @@ Languages:
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{421831DC-EE86-4E05-B974-8C0AE7A21D0E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b22a96a7-b691-4c68-a39f-e66303adb4ed"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: nutrition"

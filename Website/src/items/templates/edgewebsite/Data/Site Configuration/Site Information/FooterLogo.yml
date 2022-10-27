@@ -18,3 +18,7 @@ Languages:
     Value: Footer Logo
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2d666399-6373-45c3-9084-13e55f0d2d34"

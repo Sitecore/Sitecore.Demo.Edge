@@ -25,6 +25,9 @@ Languages:
     - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
       Hint: Vendors
       Value: "{E67E1029-D58F-45E7-B85F-0E7E0086099E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4dc5eda7-53c0-469c-b018-86094929b798"
     - ID: "adbe3132-d415-414c-941f-9d840ebcf9cd"
       Hint: Sessions
       Value: "{EDAB61E8-A039-4F40-AC57-68A9C9EF4363}|{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"

@@ -25,6 +25,9 @@ Languages:
     - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
       Hint: Vendors
       Value: "{01E09652-ABD7-4BB0-AD96-E609966330BD}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "97198746-b50b-4e79-ae36-74e08a6b983b"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Striva

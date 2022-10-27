@@ -18,6 +18,9 @@ Languages:
     - ID: "46dd92a7-c1e9-566c-99e7-1b63c9eeafcf"
       Hint: position
       Value: left
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f42f510a-4275-4001-9a46-1e736122d117"
     - ID: "a41c61bb-5abb-5773-9870-c06f637dd22c"
       Hint: content
       Value: "Checkout our new <strong>PLAY! SHOP</strong> now and get an exclusive <strong>20% discount</strong> at checkout."

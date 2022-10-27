@@ -26,3 +26,7 @@ Languages:
 - Language: en
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "beef4fbe-b806-41a5-99f1-a1d70f05352b"

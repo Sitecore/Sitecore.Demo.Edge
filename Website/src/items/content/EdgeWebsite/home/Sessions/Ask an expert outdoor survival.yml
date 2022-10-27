@@ -53,6 +53,9 @@ Languages:
     - ID: "8c3dff8b-74bc-4a65-af6d-81452a3d9a11"
       Hint: Rooms
       Value: "{3BC52CBD-3EE1-496F-918E-C0D55A96B7C9}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8e0dad5d-8232-42e4-9c5e-b10d823466d7"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Ask an expert: outdoor survival"

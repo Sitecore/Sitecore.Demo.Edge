@@ -18,6 +18,9 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "aa15ca27-7351-4363-8471-2dc6094b2c8e"
     - ID: "957519d5-5c6b-40c0-b462-b1dac8f12a03"
       Hint: Eyebrow
       Value: $name

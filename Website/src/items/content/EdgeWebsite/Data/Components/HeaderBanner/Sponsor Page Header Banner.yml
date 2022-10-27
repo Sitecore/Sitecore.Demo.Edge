@@ -8,6 +8,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8b181e73-b049-4942-9a45-a818ac493c0b"
     - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
       Hint: title
       Value: Vendor

@@ -22,6 +22,9 @@ Languages:
     - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
       Hint: Vendors
       Value: "{4A95D3FB-A669-47E7-8454-119476231CB7}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1ca9100c-1fb9-4dd4-8dc8-31a878b7d54e"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: Final Whistle

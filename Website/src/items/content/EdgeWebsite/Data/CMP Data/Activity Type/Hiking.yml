@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0ca32c26-289e-464e-9595-c0fc61e5bcf1"
     - ID: "e6dd8379-422c-41c1-863c-947992df1836"
       Hint: Name
       Value: Hiking

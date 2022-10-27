@@ -34,10 +34,6 @@
       {
         "fieldId": "{52807595-0F8F-4B20-8D2A-CB71D28C6103}",
         "description": "__Owner"
-      },
-      {
-        "fieldId": "{8CDC337E-A112-42FB-BBB4-4143751E123F}",
-        "description": "__Revision"
       }
     ]
   }
