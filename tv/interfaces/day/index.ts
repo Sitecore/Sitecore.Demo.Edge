@@ -5,6 +5,8 @@ export interface DayResult {
 
 export interface Days {
   results: DayResult[];
+  sortOrder: string;
+  taxonomyName: string;
 }
 
 export interface Day {

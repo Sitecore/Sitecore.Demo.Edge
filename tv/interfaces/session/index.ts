@@ -2,7 +2,7 @@ import { Room, RoomResults } from '../room';
 import { SpeakerResults } from '../speaker';
 import { Image } from '../asset';
 import { Timeslot, Timeslots } from '../timeslot';
-import { Days } from '../day';
+import { DayResult, Days } from '../day';
 
 export interface SessionResult {
   id: string;
@@ -15,7 +15,7 @@ export interface SessionResult {
   timeslotName: string;
   timeslotOrder: number;
   timeslotToSession: Timeslots;
-  dayToSession: Days;
+  dayToSession: Days | DayResult;
   sessionsTypeToSessions: {
     taxonomyName: string;
   };

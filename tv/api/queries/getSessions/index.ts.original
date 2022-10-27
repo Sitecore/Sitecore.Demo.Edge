@@ -44,17 +44,17 @@ const formattedSession = function (
   if (room != null) {
     session.roomId = room.id;
     session.room = room.name;
-  } else if (sessionResult?.room?.results?.length > 0) {
-    session.roomId = sessionResult.room.results[0].id;
-    session.room = sessionResult.room.results[0]?.name;
+  } else if (sessionResult?.room) {
+    session.roomId = sessionResult.room.id;
+    session.room = sessionResult.room.name;
   }
 
   if (day != null) {
     session.Day = day.taxonomyName;
     session.ShortDay = day.sortOrder;
-  } else if (sessionResult?.dayToSession?.results?.length > 0) {
-    session.ShortDay = sessionResult.dayToSession.results[0].sortOrder;
-    session.Day = sessionResult.dayToSession.results[0]?.taxonomyName;
+  } else if (sessionResult?.dayToSession) {
+    session.ShortDay = sessionResult.dayToSession.sortOrder;
+    session.Day = sessionResult.dayToSession.taxonomyName;
   }
 
   if (time != null) {

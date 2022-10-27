@@ -53,9 +53,9 @@ const formattedSession = function (
   if (day != null) {
     session.Day = day.taxonomyName;
     session.ShortDay = day.sortOrder;
-  } else if (sessionResult?.dayToSession?.results?.length > 0) {
-    session.ShortDay = sessionResult.dayToSession.results[0].sortOrder;
-    session.Day = sessionResult.dayToSession.results[0]?.taxonomyName;
+  } else if (sessionResult?.dayToSession) {
+    session.ShortDay = sessionResult.dayToSession.sortOrder;
+    session.Day = sessionResult.dayToSession.taxonomyName;
   }
 
   if (time != null) {
@@ -79,42 +79,42 @@ export const getSessionsByRoom = async (
       results {
         id
         name
-        venue:rooms{
+        venue: rooms {
           name
         }
-        session: room {
+        session: session_Room {
           results {
-            id
-            name
-            isPremium
-            sessionToMasterAsset {
-              results {
-                assetToPublicLink(first: 1) {
-                  results {
-                    relativeUrl
-                    versionHash
+            ... on M_Content_Session {
+              id
+              name:content_Name
+              isPremium:session_PremiumSession
+              sessionToMasterAsset: cmpContentToMasterLinkedAsset {
+                results {
+                  assetToPublicLink(first: 1) {
+                    results {
+                      relativeUrl
+                      versionHash
+                    }
                   }
                 }
               }
-            }
-            dayToSession {
-              results {
+              dayToSession: session_Days {
                 taxonomyName
                 sortOrder
               }
-            }
-            timeslotToSession {
-              results {
-                taxonomyLabel
-                sortOrder
+              timeslotToSession:session_Timeslot {
+                results {
+                  taxonomyLabel
+                  sortOrder
+                }
               }
-            }
-            sessionsTypeToSessions {
-              taxonomyName
-            }
-            speakers{
-              results{
-                name
+              sessionsTypeToSessions: session_SessionType {
+                taxonomyName
+              }
+              speakers: reference_Session_Speakers_Parents {
+                results {
+                  name:content_Name
+                }
               }
             }
           }
@@ -127,7 +127,6 @@ export const getSessionsByRoom = async (
   const results: SessionsByRoomResponse = (await fetchGraphQL(
     SessionByRoomQuery
   )) as SessionsByRoomResponse;
-
   const currentRoom: Room = {
     id: results?.data?.allDemo_Room.results[0].id,
     name: results?.data?.allDemo_Room.results[0].name,
@@ -142,10 +141,7 @@ export const getSessionsByRoom = async (
   const sessions: Session[] = [];
   results?.data?.allDemo_Room.results[0].session.results.map((sessionData) => {
     sessionData.timeslotToSession.results.map((ts) => {
-      if (
-        sessionData.dayToSession.results &&
-        sessionData.dayToSession.results[0].sortOrder == day.toString()
-      ) {
+      if (sessionData.dayToSession && sessionData.dayToSession.sortOrder == day.toString()) {
         sessions.push(formattedSession(sessionData, currentDay, ts, currentRoom, true));
       }
     });
@@ -170,7 +166,7 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
               id
               name:content_Name
               isPremium:session_PremiumSession
-              sessionToMasterAsset:cmpContentToMasterLinkedAsset {
+              sessionToMasterAsset: cmpContentToMasterLinkedAsset {
                 results {
                   assetToPublicLink(first: 1) {
                     results {
@@ -181,11 +177,11 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
                   }
                 }
               }
-              room:session_Room{
+              room: session_Room{
                 id
                 name
               }
-              timeslotToSession:session_Timeslot{
+              timeslotToSession: session_Timeslot{
                 results{
                   taxonomyLabel
                   sortOrder
@@ -196,7 +192,7 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
               }
               speakers:reference_Session_Speakers_Parents{
                 results{
-                  content_Name
+                  name:content_Name
                 }
               }
             }
