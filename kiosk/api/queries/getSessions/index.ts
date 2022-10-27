@@ -1,17 +1,16 @@
 import { fetchGraphQL } from '../..';
 import { Session, AllSessionsResponse, SessionResult } from '../../../interfaces/session';
 import { TimeslotResult } from '../../../interfaces/timeslot';
-import { DayResult } from '../../../interfaces/day';
 
 const sessionsQuery = `
 query {
-  allDemo_Session (first: 30) {
+  allM_Content_Session (first: 30) {
     results {
       id
-      name
-      isPremium
-      description
-      sessionToMasterAsset {
+      name:content_Name
+      isPremium:session_PremiumSession
+      description:session_Description
+      sessionToMasterAsset:cmpContentToMasterLinkedAsset {
         results {
           assetToPublicLink(first: 1) {
             results {
@@ -22,37 +21,28 @@ query {
           }
         }
       }
-
-      room {
-        results {
-          id
-          name
-        }
+      room:session_Room {
+        id
+        name
       }
-
-      timeslotToSession {
+      timeslotToSession:session_Timeslot {
         results {
           id
           taxonomyLabel
           sortOrder
         }
       }
-
-      speakers {
+      speakers:reference_Session_Speakers_Parents {
         results {
           id
-          name
+          name:content_Name
         }
       }
-
-      dayToSession {
-        results {
-          taxonomyName
-          sortOrder
-        }
+      dayToSession:session_Days {
+        taxonomyName
+        sortOrder
       }
-
-      sessionsTypeToSessions {
+      sessionsTypeToSessions:session_SessionType {
         taxonomyName
       }
     }
@@ -87,9 +77,8 @@ const parseSessionWithTimeSlot = function (
     sessionResult.sessionsTypeToSessions && sessionResult.sessionsTypeToSessions.taxonomyName;
   session.isPremium = sessionResult.isPremium;
   session.image = `${relativeUrl}?v=${versionHash}`;
-
-  if (sessionResult.room.results.length > 0) {
-    session.room = sessionResult.room.results[0].name;
+  if (sessionResult.room) {
+    session.room = sessionResult.room.name;
   }
 
   if (sessionResult.speakers.results.length > 0) {
@@ -103,7 +92,7 @@ const parseSessionWithTimeSlot = function (
     }
   }
 
-  session.Day = sessionResult.dayToSession.results[0].taxonomyName;
+  session.Day = sessionResult.dayToSession.taxonomyName;
 
   if (timeslotResult.id === '' && sessionResult.timeslotToSession.results.length > 0) {
     session.timeslot = sessionResult.timeslotToSession.results[0].taxonomyLabel['en-US'];
@@ -119,13 +108,8 @@ const parseSessionWithTimeSlot = function (
 export const getAllSessionsByDay = async (day: string): Promise<{ sessions: Session[] }> => {
   const results: AllSessionsResponse = (await fetchGraphQL(sessionsQuery)) as AllSessionsResponse;
   const sessions: Session[] = [];
-
-  results.data.allDemo_Session.results.forEach((s: SessionResult) => {
-    if (
-      s.dayToSession &&
-      s.dayToSession.results &&
-      s.dayToSession.results.find((e: DayResult) => e.sortOrder == day)
-    ) {
+  results.data.allM_Content_Session.results.forEach((s: SessionResult) => {
+    if (s.dayToSession && s.dayToSession.sortOrder == day) {
       if (s.timeslotToSession.results.length > 1) {
         s.timeslotToSession.results.map((timedSession) =>
           sessions.push(parseSessionWithTimeSlot(s, timedSession))

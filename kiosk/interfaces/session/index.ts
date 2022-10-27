@@ -1,21 +1,21 @@
-import { RoomResults } from '../room';
+import { Room } from '../room';
 import { SpeakerResults } from '../speaker';
 import { Image } from '../asset';
 import { Timeslot, Timeslots } from '../timeslot';
-import { Days } from '../day';
+import { DayResult } from '../day';
 
 export interface SessionResult {
   id: string;
   name: string;
   description: string;
-  room: RoomResults;
+  room: Room;
   speakers: SpeakerResults;
   roomName: string;
   sessionToMasterAsset: Image;
   timeslotName: string;
   timeslotOrder: number;
   timeslotToSession: Timeslots;
-  dayToSession: Days;
+  dayToSession: DayResult;
   sessionsTypeToSessions: {
     taxonomyName: string;
   };
@@ -24,7 +24,7 @@ export interface SessionResult {
 
 export interface AllSessionsResponse {
   data: {
-    allDemo_Session: {
+    allM_Content_Session: {
       results: SessionResult[];
     };
   };
