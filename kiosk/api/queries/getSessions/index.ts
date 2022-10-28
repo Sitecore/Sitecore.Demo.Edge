@@ -7,7 +7,7 @@ query {
   allM_Content_Session (first: 30) {
     results {
       id
-      name:content_Name
+      name:session_Name
       isPremium:session_PremiumSession
       description:session_Description
       sessionToMasterAsset:cmpContentToMasterLinkedAsset {
@@ -34,8 +34,10 @@ query {
       }
       speakers:reference_Session_Speakers_Parents {
         results {
-          id
-          name:content_Name
+          ... on M_Content_Speaker {
+            id
+            name:speaker_Name
+          }
         }
       }
       dayToSession:session_Days {

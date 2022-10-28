@@ -86,7 +86,7 @@ export const getSessionsByRoom = async (
           results {
             ... on M_Content_Session {
               id
-              name:content_Name
+              name:session_Name
               isPremium:session_PremiumSession
               sessionToMasterAsset: cmpContentToMasterLinkedAsset {
                 results {
@@ -113,7 +113,9 @@ export const getSessionsByRoom = async (
               }
               speakers: reference_Session_Speakers_Parents {
                 results {
-                  name:content_Name
+                  ... on M_Content_Speaker {
+                    name:speaker_Name
+                  }
                 }
               }
             }
@@ -164,7 +166,7 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
           results {
             ... on M_Content_Session {
               id
-              name:content_Name
+              name:session_Name
               isPremium:session_PremiumSession
               sessionToMasterAsset: cmpContentToMasterLinkedAsset {
                 results {
@@ -192,7 +194,9 @@ export const getSessionsByDay = async (day: number): Promise<{ sessions: Session
               }
               speakers:reference_Session_Speakers_Parents{
                 results{
-                  name:content_Name
+                  ... on M_Content_Speaker {
+                    name:speaker_Name
+                  }
                 }
               }
             }
