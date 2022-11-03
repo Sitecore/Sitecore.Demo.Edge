@@ -16,36 +16,18 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20210922T135309Z
     - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
       Hint: Audience
       Value: "{4D758CED-1AD4-46C7-8E72-B42BE54A08E8}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}"
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        default\Anonymous
     - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
       Hint: Title
       Value: "Get two-year access to a top fitness app"
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1d9bd254-f7c3-4c6e-a745-e644d9e8d8d8"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        default\Anonymous
+      Value: "5f19f920-cfc3-483e-8f07-78e5ef9fd39c"
     - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
       Hint: PublishDate
       Value: "20211030T040000:637711632000000000Z"
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20211124T170614Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: "Start getting into a better fitness routine with a bundle of fitness apps available for PLAY! Summit attendees."

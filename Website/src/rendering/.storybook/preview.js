@@ -1,5 +1,5 @@
 import React from 'react';
-import { SitecoreContextReactContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SitecoreContextReactContext, LayoutServicePageState } from '@sitecore-jss/sitecore-jss-nextjs';
 import "../src/assets/css/abstracts/mixins.css";
 import "../src/assets/css/main.css";
 import * as nextImage from 'next/image';
@@ -31,38 +31,42 @@ Object.defineProperty(nextImage, 'default', {
   value: props => <img {...props} />
 });
 
-export const mockSitecoreContext = {
-  context: {
-    pageEditing: false,
-    Languages: [
-      {
-        Name: 'en',
-      },
-      {
-        Name: 'en-US',
-      },
-      {
-        Name: 'fr',
-      },
-      {
-        Name: 'fr-CA',
-      },
-      {
-        Name: 'es-ES',
-      },
-      {
-        Name: 'ja-JP',
-      },
-    ],
-  },
-  setContext: () => {
-    // nothing
+export const mockLayoutData = {
+  sitecore: {
+    context: {
+      pageEditing: false,
+      pageState: LayoutServicePageState.Normal,
+      Languages: [
+        {
+          Name: 'en',
+        },
+        {
+          Name: 'en-US',
+        },
+        {
+          Name: 'fr',
+        },
+        {
+          Name: 'fr-CA',
+        },
+        {
+          Name: 'es-ES',
+        },
+        {
+          Name: 'ja-JP',
+        },
+      ],
+    },
+    setContext: () => {
+      // nothing
+    },
+    route: null,
   },
 };
 
 export const decorators = [
   (Story) => (
-    <SitecoreContextReactContext.Provider value={mockSitecoreContext}>
+    <SitecoreContextReactContext.Provider value={mockLayoutData.sitecore}>
       <Story />
     </SitecoreContextReactContext.Provider>
   ),

@@ -16,6 +16,7 @@ import { Category } from '../../models/Category';
 
 type FullPageSearchContentProps = Partial<FullPageSearchResultsProps> & {
   onSearchInputChange: (s: string) => void;
+  keyphrase: string;
   category: Category;
 };
 
@@ -38,6 +39,7 @@ const FullPageSearchContent = ({
   onPageNumberChange,
   onSortChange,
   onSearchInputChange,
+  keyphrase,
   category,
 }: FullPageSearchContentProps): JSX.Element => {
   const isCategoryProductListingPage = rfkId === 'rfkid_10';
@@ -120,6 +122,7 @@ const FullPageSearchContent = ({
               onToggleClick={handleToggleClick}
               isCategoryProductListingPage={isCategoryProductListingPage}
               onSearchInputChange={handleSearchInputChange}
+              keyphrase={keyphrase}
             />
             <div className="button-container">
               <button className="btn-main" onClick={handleToggleClick}>

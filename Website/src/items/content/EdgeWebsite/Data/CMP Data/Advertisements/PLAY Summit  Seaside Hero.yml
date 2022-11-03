@@ -16,17 +16,6 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20211124T152324Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        default\Anonymous
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        default\Anonymous
     - ID: "69e8418c-5f11-40a8-9c0d-9e5eacc1229e"
       Hint: Hero
       Value: |
@@ -36,20 +25,13 @@ Languages:
       Value: "READY | STEADY | PLAY!"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "918a1b56-c941-425d-a3c5-980db7f98fe0"
+      Value: "b9216209-9719-414d-a15e-58b45ba56ed5"
     - ID: "957519d5-5c6b-40c0-b462-b1dac8f12a03"
       Hint: Eyebrow
       Value: Sports and Recreation Expo
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        default\Anonymous
     - ID: "c068953c-33ee-4889-b473-395d5e0aea0f"
       Hint: Body
       Value: <p>loren ipsu mdoler sitamit kadta natakuru hotami tataku</p>
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20211124T152325Z
     - ID: "e2d35418-b6ed-4838-90cb-26f98c1d7586"
       Hint: Title
       Value: Live to surf, surf to live

@@ -2,7 +2,7 @@
 ID: "f7584d58-c1c2-4d57-b9e6-b2a1a5e1f14f"
 Parent: "68dc89a4-1b04-59a8-9c4e-3b49d6c61052"
 Template: "d8aa73e1-c275-4eee-bb9d-333925e51952"
-Path: "/sitecore/content/EdgeWebsite/home/sessions/Intro to Distance Running Sponsored by Alba"
+Path: /sitecore/content/EdgeWebsite/home/sessions/Intro to Distance Running Sponsored by Alba
 SharedFields:
 - ID: "9b0343a9-9f69-4e0f-a059-9215bc8fe422"
   Hint: EntityIdentifier
@@ -29,9 +29,6 @@ Languages:
         
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede posuere.</p>
         
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20210920T212722Z
     - ID: "3647d085-16e3-44ee-a3f7-c613d0fe17ce"
       Hint: Speakers
       Value: "{4C23E8E4-BA94-4840-8888-D769F0F57835}"
@@ -42,17 +39,9 @@ Languages:
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{1EB4DC2D-C299-42FF-B3C1-0719E694298E}"
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        default\Anonymous
     - ID: "5c88d198-7603-4a45-b9f6-682b908c60b9"
       Hint: Timeslots
       Value: "{9FA93929-60C9-47DF-9E5A-C170E6EE2440}"
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        default\Anonymous
     - ID: "6f888071-3e3a-4888-ae95-d90b7df06870"
       Hint: Type
       Value: Workshop
@@ -64,17 +53,10 @@ Languages:
       Value: "{4D920373-9BC1-44A5-A586-0AF23C5711A1}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "d66cac2b-84be-4da7-8ff0-31051a4167d9"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        default\Anonymous
+      Value: "0716a311-18cf-40a2-8dfa-408b26df236d"
     - ID: "cb19a833-48b8-4ad4-a841-09769bbef5c6"
       Hint: Sponsors
       Value: "{5319CA3C-CD21-4D68-A68A-1EAF4D34F63D}"
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20220114T230125Z
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: "Intro to Distance Running - Sponsored by Alba"

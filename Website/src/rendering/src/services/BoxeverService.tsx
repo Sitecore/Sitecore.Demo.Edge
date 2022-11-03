@@ -117,7 +117,6 @@ type GuestProfileResponse = GuestProfile | undefined;
 const POINT_OF_SALE = 'PLAY! Summit';
 const CURRENCY = 'USD';
 
-const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
 const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
 const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
 export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
@@ -425,7 +424,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 }
 
 function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Cdp${action}`;
+  const url = `${BoxeverServiceConfig.proxyUrl}${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'POST',
@@ -441,7 +440,7 @@ function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPr
 }
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Cdp${action}`;
+  const url = `${BoxeverServiceConfig.proxyUrl}${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'GET',
@@ -455,7 +454,7 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 
 // TEMP: Keeping this commented method for near future use
 // function boxeverDelete(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
+//   const url = `${BoxeverServiceConfig.proxyUrl}${action}`;
 
 //   const options: AxiosRequestConfig = {
 //     method: 'DELETE',
@@ -495,7 +494,7 @@ export function saveDataExtension(
 // Get non-expanded guest profile
 // ********************************
 function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileResponse> {
-  return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
+  return boxeverGet(`/getguestbyref?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
 function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
@@ -674,4 +673,18 @@ export function getDynamicWelcomeMessage(
         friendlyId: 'dynamic_welcome_message',
       }) as Promise<WelcomeMessage>
   );
+}
+
+// ***************************
+// Used to determine if the session should be closed
+// in case of a QR code scan from the TV app
+// ***************************
+interface ShouldCloseSessionResponse {
+  shouldCloseCurrentSession: string;
+}
+
+export function shouldCloseSession(): Promise<ShouldCloseSessionResponse> {
+  return callFlows({
+    friendlyId: 'should_close_current_session',
+  }) as Promise<ShouldCloseSessionResponse>;
 }

@@ -117,7 +117,6 @@ type GuestProfileResponse = GuestProfile | undefined;
 const POINT_OF_SALE = 'PLAY! Summit';
 const CURRENCY = 'USD';
 
-const CDP_PROXY_URL = process.env.NEXT_PUBLIC_CDP_PROXY_URL || '';
 const CDP_CLIENT_KEY = process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '';
 const CDP_API_TARGET_ENDPOINT = process.env.NEXT_PUBLIC_CDP_API_TARGET_ENDPOINT || '';
 export const isCdpConfigured = !!CDP_CLIENT_KEY && !!CDP_API_TARGET_ENDPOINT;
@@ -148,10 +147,10 @@ function isBoxeverConfiguredInBrowser(): boolean {
   );
 }
 
-function getConfigWithCurrentPage(config: Record<string, unknown>) {
+function getConfigWithCurrentPage(config: Record<string, unknown>, page?: string) {
   return Object.assign(
     {
-      page: window.location.pathname + window.location.search,
+      page: page || window.location.pathname + window.location.search,
     },
     config
   );
@@ -210,7 +209,7 @@ function delayUntilBoxeverIsReady(functionToDelay: () => unknown) {
   }
 }
 
-function sendEventCreate(eventConfig: Record<string, unknown>) {
+function sendEventCreate(eventConfig: Record<string, unknown>, page?: string) {
   if (typeof window === 'undefined' || !isBoxeverConfiguredInBrowser()) {
     return new Promise<void>(function (resolve) {
       resolve();
@@ -218,7 +217,7 @@ function sendEventCreate(eventConfig: Record<string, unknown>) {
   }
 
   // Set the page now as the location might have already changed when createEventPayload will be executed.
-  const eventWithCurrentPage = getConfigWithCurrentPage(eventConfig);
+  const eventWithCurrentPage = getConfigWithCurrentPage(eventConfig, page);
 
   return new Promise(function (resolve, reject) {
     try {
@@ -280,7 +279,10 @@ function callFlows(flowConfig: Record<string, unknown>) {
 }
 
 // Boxever view page tracking
-export function logViewEvent(additionalData?: Record<string, unknown>): Promise<unknown> {
+export function logViewEvent(
+  additionalData?: Record<string, unknown>,
+  page?: string
+): Promise<unknown> {
   const eventConfig = Object.assign(
     {
       type: 'VIEW',
@@ -288,7 +290,7 @@ export function logViewEvent(additionalData?: Record<string, unknown>): Promise<
     additionalData
   );
 
-  return sendEventCreate(eventConfig);
+  return sendEventCreate(eventConfig, page);
 }
 
 export function logEvent(eventName: string, payload?: Record<string, unknown>): Promise<unknown> {
@@ -425,7 +427,7 @@ export function getGuestRef(): Promise<GuestRefResponse> {
 }
 
 function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Cdp${action}`;
+  const url = `${BoxeverServiceConfig.proxyUrl}${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'POST',
@@ -441,7 +443,7 @@ function boxeverPost(action: string, payload?: Record<string, unknown>): AxiosPr
 }
 
 function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-  const url = `${CDP_PROXY_URL}/Cdp${action}`;
+  const url = `${BoxeverServiceConfig.proxyUrl}${action}`;
 
   const options: AxiosRequestConfig = {
     method: 'GET',
@@ -455,7 +457,7 @@ function boxeverGet(action: string, payload?: Record<string, unknown>): AxiosPro
 
 // TEMP: Keeping this commented method for near future use
 // function boxeverDelete(action: string, payload?: Record<string, unknown>): AxiosPromise<unknown> {
-//   const url = `${CDP_PROXY_URL}/Cdp${action}`;
+//   const url = `${BoxeverServiceConfig.proxyUrl}${action}`;
 
 //   const options: AxiosRequestConfig = {
 //     method: 'DELETE',
@@ -495,10 +497,10 @@ export function saveDataExtension(
 // Get non-expanded guest profile
 // ********************************
 function getGuestProfilePromise(guestRef: GuestRef): Promise<GuestProfileResponse> {
-  return boxeverGet(`/getguestByRef?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
+  return boxeverGet(`/getguestbyref?guestRef=${guestRef}`) as Promise<GuestProfileResponse>;
 }
 
-export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
+function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfileResponse> {
   if (!isBoxeverConfiguredInBrowser()) {
     return new Promise<undefined>(function (resolve) {
       resolve(undefined);
@@ -515,7 +517,7 @@ export function getGuestProfileResponse(guestRef?: GuestRef): Promise<GuestProfi
 // ********************************
 // isAnonymousGuest
 // ********************************
-export function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
+function isAnonymousGuestInGuestResponse(guestResponse: GuestProfileResponse): boolean {
   return !guestResponse?.data?.email;
 }
 
@@ -539,9 +541,7 @@ export function isAnonymousGuest(guestRef?: GuestRef): Promise<boolean> {
 // ********************************
 // getGuestFullName
 // ********************************
-export function getGuestFullNameInGuestResponse(
-  guestResponse: GuestProfileResponse
-): string | undefined {
+function getGuestFullNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
   const data = guestResponse?.data;
 
   if (!data || !data.firstName || !data.lastName) {
@@ -549,6 +549,26 @@ export function getGuestFullNameInGuestResponse(
   }
 
   return `${data.firstName} ${data.lastName}`;
+}
+
+function getGuestFirstNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.firstName) {
+    return undefined;
+  }
+
+  return data.firstName;
+}
+
+function getGuestLastNameInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data || !data.lastName) {
+    return undefined;
+  }
+
+  return data.lastName;
 }
 
 export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefined> {
@@ -562,6 +582,70 @@ export function getGuestFullName(guestRef?: GuestRef): Promise<string | undefine
 
   return getGuestProfileResponse(guestRef)
     .then((guestResponse) => getGuestFullNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestFirstName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestFirstNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+export function getGuestLastName(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestLastNameInGuestResponse(guestResponse))
+    .catch((e) => {
+      console.log(e);
+      return defaultValue;
+    });
+}
+
+// ********************************
+// getGuestEmail
+// ********************************
+function getGuestEmailInGuestResponse(guestResponse: GuestProfileResponse): string | undefined {
+  const data = guestResponse?.data;
+
+  if (!data?.email) {
+    return undefined;
+  }
+
+  return data.email;
+}
+
+export function getGuestEmail(guestRef?: GuestRef): Promise<string | undefined> {
+  const defaultValue = '';
+
+  if (!isBoxeverConfiguredInBrowser()) {
+    return new Promise(function (resolve) {
+      resolve(defaultValue);
+    });
+  }
+
+  return getGuestProfileResponse(guestRef)
+    .then((guestResponse) => getGuestEmailInGuestResponse(guestResponse))
     .catch((e) => {
       console.log(e);
       return defaultValue;
