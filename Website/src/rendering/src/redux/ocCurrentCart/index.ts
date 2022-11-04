@@ -494,6 +494,9 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
 
 const thunksThatAffectOrderTotal = [
   removeAllPayments,
+  addPromotion,
+  removePromotion,
+  retrievePromotions,
   refreshPromotions,
   createLineItem,
   updateLineItem,
