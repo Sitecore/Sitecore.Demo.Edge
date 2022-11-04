@@ -2,7 +2,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
 import useOcCurrentCart from '../../hooks/useOcCurrentCart';
-import { addPromotion, removePromotion } from '../../redux/ocCurrentCart';
+import { addPromotion, patchOrder, removePromotion } from '../../redux/ocCurrentCart';
 import { useAppDispatch } from '../../redux/store';
 
 type PromoResponse = {
@@ -20,7 +20,7 @@ const PromoInput = (): JSX.Element => {
   const [promoCode, setPromoCode] = useState('');
   const [promoError, setPromoError] = useState('');
   const dispatch = useAppDispatch();
-  const { promotions } = useOcCurrentCart();
+  const { promotions, order } = useOcCurrentCart();
 
   const handlePromoCodeChange = async (event: ChangeEvent<HTMLInputElement>) => {
     setPromoCode(event.target.value);
@@ -43,6 +43,8 @@ const PromoInput = (): JSX.Element => {
         setPromoError('');
       }
 
+      await dispatch(patchOrder(order));
+
       setLoading(false);
       setPromoCode('');
     }
@@ -50,7 +52,10 @@ const PromoInput = (): JSX.Element => {
 
   const handleRemovePromotion = async (promoCode: string) => {
     setLoading(true);
+
     await dispatch(removePromotion(promoCode));
+    await dispatch(patchOrder(order));
+
     setLoading(false);
   };
 
