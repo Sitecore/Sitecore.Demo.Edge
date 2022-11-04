@@ -6,7 +6,7 @@ interface GeoBasedProductProps extends RecommendationWidgetProps {
 }
 
 const GeoBasedProducts = (props: GeoBasedProductProps): JSX.Element => (
-  <RecommendedProducts {...props} title="Recommended for you based on your location" />
+  <RecommendedProducts {...props} title="Recommended based on your location" />
 );
 
 export default GeoBasedProducts;
