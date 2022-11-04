@@ -35,6 +35,8 @@
    6. Click the "Save" button.
    7. Click the "Close" button.
 
+      ![After variant 1](After-variant-1.png)
+
 6. Page Targeting
 
    1. Under "Page Targeting", click the "Add" button.
@@ -51,10 +53,13 @@
 
       ![Page targeting advanced](/docs/cdp-personalize/experiments/web/Page-targeting-advanced.png)
 
-   6. Change the "Contains" dropdown selection to "Matches Regex". Enter [\s\S] in the input field.
+   6. Change the "Match on" dropdown selection to "Matches Regex".
+   7. In the "String" field, enter `[\s\S]`.
 
-   7. Click the "Save" button.
-   8. Close the targeting side panel.
+      ![Page targeting regex](After-page-targeting-regex.png)
+
+   8. Click the "Save" button.
+   9. Close the targeting side panel.
 
       ![After page targeting](After-page-targeting.png)
 

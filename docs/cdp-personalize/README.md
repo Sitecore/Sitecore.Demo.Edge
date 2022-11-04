@@ -23,6 +23,8 @@ If you want to use this integration, you must:
    5. [Website - Audience-based website home page hero](stories/website-audience-based-website-home-page-hero.md)
    6. [Dynamic Welcome Message](stories/dynamic-welcome-message.md)
    7. [Website - Message Bar Below Header](stories/website-message-bar-below-header.md)
+   8. [Slide out demo panel](stories/slide-out-demo-panel.md)
+   9. [Slide out guest data panel](stories/slide-out-guest-data-panel.md)
 
 ## Enable Sitecore CDP and Personalize
 
