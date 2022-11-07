@@ -1,0 +1,79 @@
+/*
+[[Icon Colour | colour | #ffffff  | {group: Open Button, order: 2 }]]
+[[Background Colour | colour | #006EF9 | {group: Open Button, order: 3 }]]
+[[Top Margin | number | 160 | {group: Open Button, order: 4 }]]
+*/
+
+#bx-{{ref}} a,
+#bx-{{ref}} p,
+#bx-{{ref}} span,
+#bx-{{ref}} h3 { font-weight: 300; line-height: 1.2; }
+
+#bx-{{ref}} #bx-databar { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 99998; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
+
+#bx-{{ref}} #bx-databar.open { right: 0; z-index: 99999; max-width: 100vw; }
+
+#bx-{{ref}} #bx-databar .bx-databar__openToggle { position: absolute; left: 39px; top: [[Top Margin]]px; width: 50px; height: 50px; transform: translateX(-100%); background-color: [[ Background Colour ]]; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: [[ Icon Colour ]]; cursor: pointer; padding-top: 5px; }
+#bx-{{ref}} #bx-databar .bx-databar__openToggle:hover { left: 0; transition: 0.3s; }
+#bx-{{ref}} #bx-databar.open .bx-databar__openToggle { display: none; }
+
+#bx-{{ref}} #bx-databar .bx-databar__body { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
+#bx-{{ref}} #bx-databar .databar__body__section { padding: 15px; background-color: #f7f7f7; }
+
+/* scollbar */
+#bx-{{ref}} #bx-databar .bx-databar__body::-webkit-scrollbar { width: 12px; } /* width of the entire scrollbar */
+#bx-{{ref}} #bx-databar .bx-databar__body::-webkit-scrollbar-track {  background-color: #f7f7f7; } /* color of the tracking area */
+#bx-{{ref}} #bx-databar .bx-databar__body::-webkit-scrollbar-thumb { background-color: #666666; /* color of the scroll thumb */ border-radius: 20px; /* roundness of the scroll thumb */ border: 3px solid #f7f7f7; /* creates padding around scroll thumb */ }
+
+/* header */
+#bx-{{ref}} .databar-heading { position: sticky; top: 0; }
+#bx-{{ref}} .databar-heading h3 { font-weight: bold; font-size: 22px; }
+
+#bx-{{ref}} .guestIdentifer { font-size: 18px; line-height: 24px; }
+#bx-{{ref}} .guestProvider { font-size: 14px; }
+#bx-{{ref}} .guestRef { font-size: 14px; color:gray; line-height: 24px; }
+#bx-{{ref}} .guestType { font-size: 16px; line-height: 24px; }
+
+/* close button */
+#bx-{{ref}} .bx-databar__closeButton { position: absolute; top: 10px; right: 10px; width: 22px; height: 30px; cursor: pointer; font-size: 34px; line-height: 0; }
+
+/* accordion */
+#bx-{{ref}} .databar-accordion + .databar-accordion { margin-top: 20px; }
+
+#bx-{{ref}} .databar-accordion-button { width: 100%; background-color: white; color: #232323; border: 2px solid #666666; outline: none; text-align: left; padding: 5px 10px; font-size: 18px; cursor: pointer; transition: background-color 0.2s linear; text-transform: lowercase; }
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button { font-weight: bold; }
+#bx-{{ref}} .databar-accordion-button:after { text-rendering: auto; -webkit-font-smoothing: antialiased; font: var(--fa-font-solid); font-size: 25px; content: "\f107"; float: right; }
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button:after { content: "\f106"; }
+
+#bx-{{ref}} .databar-accordion-content { background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); }
+
+#bx-{{ref}} .databar-accordion-button.openSession { color:#006EF9; }
+#bx-{{ref}} .databar-accordion-button.openSession:hover,
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button.openSession { background-color:  #006EF9; border-color:  #006EF9; color: #fff; }
+#bx-{{ref}} .databar-accordion-button.closedSession { color:#666666; }
+#bx-{{ref}} .databar-accordion-button.closedSession:hover,
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button.closedSession { background-color:  #666666; border-color:  #666666; color: #fff; }
+#bx-{{ref}} .databar-accordion-button.cartSession { color: #FF1886; }
+#bx-{{ref}} .databar-accordion-button.cartSession:hover,
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button.cartSession { background-color:  #FF1886; border-color:  #FF1886; color: #fff; }
+#bx-{{ref}} .databar-accordion-button.emailSession { color: #ff8d00; }
+#bx-{{ref}} .databar-accordion-button.emailSession:hover,
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button.emailSession { background-color:  #ff8d00; border-color:  #ff8d00; color: #fff; }
+#bx-{{ref}} .databar-accordion-button.convertSession { color: #005E6E; }
+#bx-{{ref}} .databar-accordion-button.convertSession:hover,
+#bx-{{ref}} .databar-accordion.is-open .databar-accordion-button.convertSession { background-color:  #005E6E; border-color:  #005E6E; color: #fff; }
+
+/* events */
+#bx-{{ref}} .databar-event { margin: 0 10px; padding: 10px 0; }
+#bx-{{ref}} .databar-event + .databar-event { border-top: 1px solid #cccccc; }
+#bx-{{ref}} .databar-event p + p { margin-top: 5px; }
+
+#bx-{{ref}} .databar-eventTitle { font-size: 16px; font-weight: 500; }
+#bx-{{ref}} .viewevent  { color: #006EF9; }
+#bx-{{ref}} .identityevent { color:  #d7ad00; }
+#bx-{{ref}} .addevent { color:  #ff8d00; }
+#bx-{{ref}} .checkoutevent { color: #FF1886; }
+#bx-{{ref}} .customevent { color: #666666; }
+
+#bx-{{ref}} .databar-eventDate { font-size: 12px; color: gray; }
+#bx-{{ref}} .databar-eventInfo { font-size: 14px; font-weight: 400;}

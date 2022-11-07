@@ -1,0 +1,177 @@
+<div id="bx-demobar">
+    <div class="bx-demobar__openToggle" title="Create Events">
+        <i class="[[FontAwesome Icon | string | fa-solid fa-bolt  | {group: Open Button, groupOrder: 1, order: 1 }]]"></i>
+    </div>
+    <div class="bx-demobar__body">
+        <div class="demobar__body__section demobar-heading">
+            <h3>Create Events</h3>
+            <div class="bx-demobar__closeButton">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div id="saveMsg" style="display: none">Event sent</div>
+        </div>
+
+        <div class="demobar__body__section">
+            <h4>Session</h4>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Identify user</button>
+                <div class="demobar-accordion-content">
+                    <form id="identifyUserForm" action="" method="GET">
+                        <label for="identifyUserEmail">Email:</label>
+                        <input type="email" id="identifyUserEmail" />
+
+                        <label for="identifyProviderName">Identifier provider:</label>
+                        <input
+                        type="text"
+                        id="identifyProviderName"
+                        value="[[Identity Provider Name | string | email | {group: Event Settings, groupOrder: 6, order: 1 }]]"
+                        />
+
+                        <label for="identifyUserName">Identifier value:</label>
+                        <input type="text" id="identifyUserName" />
+
+                        <div class="buttonContainer">
+                            <button id="identifyUserButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Send force close</button>
+                <div class="demobar-accordion-content">
+                    <form id="forceCloseForm" action="" method="GET">
+                        <div class="buttonContainer">
+                            <button id="forceCloseButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Restart as anonymous</button>
+                <div class="demobar-accordion-content">
+                    <form id="anonymousForm" action="" method="GET">
+                        <div class="buttonContainer">
+                            <button id="anonymousButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <h4>Commerce</h4>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Add item to cart</button>
+                <div class="demobar-accordion-content">
+                    <form id="addItemToCartForm" action="" method="GET">
+                        <label for="addSKU">Product sku:</label>
+                        <input type="text" id="addSKU" />
+
+                        <label for="addProductName">Product name:</label>
+                        <input type="text" id="addProductName" />
+
+                        <label for="addProductType">Product type:</label>
+                        <input type="text" id="addProductType" />
+
+                        <label for="addPrice">Price:</label>
+                        <input type="text" id="addPrice" />
+
+                        <label for="addQuantity">Quantity:</label>
+                        <input
+                            type="number"
+                            id="addQuantity"
+                            value="1"
+                        />
+
+                        <div class="buttonContainer">
+                            <button id="addToCartButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Checkout</button>
+                <div class="demobar-accordion-content">
+                    <form id="checkoutForm" action="" method="GET">
+                        <label for="checkoutRef">Reference id:</label>
+                        <input type="text" id="checkoutRef" />
+
+                        <label for="checkoutStatus">Status:</label>
+                        <input type="text" value="PURCHASED" id="checkoutStatus" />
+
+                        <div class="buttonContainer">
+                            <button id="checkoutCartButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Clear cart</button>
+                <div class="demobar-accordion-content">
+                    <form id="clearCartForm" action="" method="GET">
+                        <div class="buttonContainer">
+                            <button id="clearCartButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <h4>Custom events</h4>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Send custom event</button>
+                <div class="demobar-accordion-content">
+                    <form id="customEventForm" action="" method="GET">
+                        <label for="customType">Event type:</label>
+                        <input type="text" id="customType" />
+
+                        <div class="buttonContainer">
+                            <button id="customEventButton">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <h4>Settings</h4>
+
+            <div class="demobar-accordion">
+                <button class="demobar-accordion-button">Global properties</button>
+                <div class="demobar-accordion-content">
+                    <form id="globalPropertiesForm" action="" method="GET">
+                        <label for="Channel">Channel:</label>
+                        <input
+                            type="text"
+                            id="Channel"
+                            value="[[Channel | string | WEB | {group: Event Settings, groupOrder: 6, order: 2 }]]"
+                        />
+
+                        <label for="Language">Language:</label>
+                        <input
+                            type="text"
+                            id="Language"
+                            value="[[Language | string | EN | {group: Event Settings, groupOrder: 6, order: 3 }]]"
+                        />
+
+                        <label for="Currency">Currency:</label>
+                        <input
+                            type="text"
+                            id="Currency"
+                            value="[[Currency | string | USD | {group: Event Settings, groupOrder: 6, order: 4 }]]"
+                        />
+
+                        <label for="PointOfSale">Point of sale (POS):</label>
+                        <input
+                            type="text"
+                            id="PointOfSale"
+                            value="[[Point of Sale | string | PLAY! Summit | {group: Event Settings, groupOrder: 6, order: 5 }]]"
+                        />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
