@@ -494,6 +494,9 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
 
 const thunksThatAffectOrderTotal = [
   removeAllPayments,
+  addPromotion,
+  removePromotion,
+  retrievePromotions,
   refreshPromotions,
   createLineItem,
   updateLineItem,
@@ -553,13 +556,15 @@ const ocCurrentCartSlice = createSlice({
       }
     });
     builder.addCase(removePromotion.fulfilled, (state, action) => {
-      if (action.payload) {
-        state.promotions = state.promotions.filter((p) => p.ID === action.payload.ID);
+      if (action.meta) {
+        state.promotions = state.promotions.filter((p) => p.ID !== action.meta.arg);
       }
     });
     builder.addCase(addPromotion.fulfilled, (state, action) => {
       if (action.payload) {
-        state.promotions = [...state.promotions, action.payload];
+        state.promotions = state.promotions
+          ? [...state.promotions, action.payload]
+          : [action.payload];
       }
     });
     builder.addCase(refreshPromotions.fulfilled, (state, action) => {
