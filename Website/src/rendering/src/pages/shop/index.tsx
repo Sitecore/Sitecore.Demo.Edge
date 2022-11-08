@@ -16,6 +16,7 @@ const Shop = (): JSX.Element => {
       <DiscoverWidget rfkId="rfkid_2" />
       <DiscoverWidget rfkId="rfkid_1" />
       <DiscoverWidget rfkId="rfkid_3" />
+      <DiscoverWidget rfkId="ps_geo" />
     </>
   );
 };
