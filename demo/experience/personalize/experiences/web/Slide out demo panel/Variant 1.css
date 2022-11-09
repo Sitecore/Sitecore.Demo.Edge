@@ -1,0 +1,75 @@
+/*
+[[Icon Colour | colour | #ffffff  | {group: Open Button, order: 2 }]]
+[[Background Colour | colour | #FF1887 | {group: Open Button, order: 3 }]]
+[[Top Margin | number | 225 | {group: Open Button, order: 4 }]]
+*/
+
+#bx-{{ref}} a,
+#bx-{{ref}} p,
+#bx-{{ref}} span,
+#bx-{{ref}} h3,
+#bx-{{ref}} h4 { font-weight: 300; line-height: 1.2; }
+
+#bx-{{ref}} #bx-demobar { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 99998; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
+
+#bx-{{ref}} #bx-demobar.open { right: 0; z-index: 99999; max-width: 100vw; }
+
+#bx-{{ref}} #bx-demobar .bx-demobar__openToggle { position: absolute; left: 39px; top: [[Top Margin]]px; width: 50px; height: 50px; transform: translateX(-100%); background-color: [[ Background Colour ]]; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: [[ Icon Colour ]]; cursor: pointer; padding-top: 5px; }
+#bx-{{ref}} #bx-demobar .bx-demobar__openToggle:hover { left: 0; transition: 0.3s; }
+#bx-{{ref}} #bx-demobar.open .bx-demobar__openToggle { display: none; }
+
+#bx-{{ref}} #bx-demobar .bx-demobar__body { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
+#bx-{{ref}} #bx-demobar .demobar__body__section { padding: 15px; background-color: #f7f7f7; }
+
+#bx-{{ref}} h4 { font-weight: 500; font-size: 20px; margin: 25px 0 5px 0; padding: 0; }
+#bx-{{ref}} h4:first-child { margin-top: 0; }
+
+/* scollbar */
+#bx-{{ref}} #bx-demobar .bx-demobar__body::-webkit-scrollbar { width: 12px; } /* width of the entire scrollbar */
+#bx-{{ref}} #bx-demobar .bx-demobar__body::-webkit-scrollbar-track {  background-color: #f7f7f7; } /* color of the tracking area */
+#bx-{{ref}} #bx-demobar .bx-demobar__body::-webkit-scrollbar-thumb { background-color: #666666; /* color of the scroll thumb */ border-radius: 20px; /* roundness of the scroll thumb */ border: 3px solid #f7f7f7; /* creates padding around scroll thumb */ }
+
+/* header */
+#bx-{{ref}} .demobar-heading { position: sticky; top: 0; }
+#bx-{{ref}} .demobar-heading h3 { font-weight: bold; font-size: 22px; }
+
+/* close button */
+#bx-{{ref}} .bx-demobar__closeButton { position: absolute; top: 10px; right: 10px; width: 22px; height: 30px; cursor: pointer; font-size: 34px; line-height: 0; }
+
+/* save message */
+#bx-{{ref}} #bx-demobar #saveMsg { position: absolute; top: 10px; left: 10px; width: 97%; background-color: #333378; color: white; padding: 5px; text-align: center; border-radius: 7.5px; }
+
+/* accordion */
+#bx-{{ref}} .demobar-accordion + .demobar-accordion { margin-top: 20px; }
+
+#bx-{{ref}} .demobar-accordion-button { width: 100%; background-color: white; color: #232323; border: 2px solid #666666; outline: none; text-align: left; padding: 5px 10px; font-size: 18px; cursor: pointer; transition: background-color 0.2s linear; }
+#bx-{{ref}} .demobar-accordion-button:hover,
+#bx-{{ref}} .demobar-accordion.is-open .demobar-accordion-button { font-weight: bold; background-color:  #FF1886; border-color:  #FF1886; color: #fff; }
+#bx-{{ref}} .demobar-accordion-button:after { text-rendering: auto; -webkit-font-smoothing: antialiased; font: var(--fa-font-solid); font-size: 25px; content: "\f107"; float: right; }
+#bx-{{ref}} .demobar-accordion.is-open .demobar-accordion-button:after { content: "\f106"; }
+
+#bx-{{ref}} .demobar-accordion-content { background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); }
+
+/* forms */
+#bx-{{ref}} .demobar-accordion-content form { width: 100%; padding: 20px; }
+
+#bx-{{ref}} .demobar-accordion-content label { display: block; margin-bottom: 8px; font-size: 16px; }
+
+#bx-{{ref}} .demobar-accordion-content input[type="text"],
+#bx-{{ref}} .demobar-accordion-content input[type="password"],
+#bx-{{ref}} .demobar-accordion-content input[type="date"],
+#bx-{{ref}} .demobar-accordion-content input[type="datetime"],
+#bx-{{ref}} .demobar-accordion-content input[type="email"],
+#bx-{{ref}} .demobar-accordion-content input[type="number"],
+#bx-{{ref}} .demobar-accordion-content input[type="search"],
+#bx-{{ref}} .demobar-accordion-content input[type="tel"],
+#bx-{{ref}} .demobar-accordion-content input[type="time"],
+#bx-{{ref}} .demobar-accordion-content input[type="url"],
+#bx-{{ref}} .demobar-accordion-content textarea,
+#bx-{{ref}} .demobar-accordion-content select { width: 100%; background-color: white; color: #232323; border: 2px solid #666666; outline: none; text-align: left; padding: 5px 10px; font-size: 18px; height: auto; margin: 0; margin-bottom: 20px; }
+#bx-{{ref}} .demobar-accordion-content input[type="radio"],
+#bx-{{ref}} .demobar-accordion-content input[type="checkbox"] { margin: 0 4px 8px 0; }
+#bx-{{ref}} .demobar-accordion-content select { padding: 6px; height: 32px; }
+#bx-{{ref}} .demobar-accordion-content button { padding: 10px 31px; color: rgb(35, 35, 35); background-color: rgb(255, 211, 28); transition: all .2s ease-in-out; display: inline-block; font-size: 20px; line-height: 30px; text-align: center; font-style: normal; border-radius: 7.5px; border-width: 0px; font-weight: 500; }
+
+#bx-{{ref}} .demobar-accordion-content .buttonContainer { text-align: center; }

@@ -1,6 +1,6 @@
 ﻿---
 ID: "83f8ccff-edaa-516b-bd68-71a16a354f42"
-Parent: "dc861650-fb23-5bb6-b07d-b9db7e1c33bc"
+Parent: "b63fe2f1-b5ca-481f-8d7c-cc11bf1dabf8"
 Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
 Path: "/sitecore/layout/Placeholder Settings/Project/edgewebsite/jss-main"
 SharedFields:
@@ -43,24 +43,6 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20210615T142047Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\JssImport
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0b66422a-dd00-4c80-aaac-ac03c383af54"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\superuser
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20220711T110341Z
+      Value: "48d71aca-08b8-414c-b692-99f9dd13bca3"

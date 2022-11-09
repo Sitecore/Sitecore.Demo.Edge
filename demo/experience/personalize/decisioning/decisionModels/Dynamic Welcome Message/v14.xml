@@ -66,6 +66,11 @@ return message;
 
 return undefined;
 })();]]></text></literalExpression></decision><decision id="ebd6c17f-d55a-4919-9449-cd5c2eb96998" name="Get Guest IP Address"><extensionElements><biodi:bounds x="510" y="623" width="200" height="73.3"/><biodi:edge source="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></extensionElements><variable id="variable1643835725897" typeRef="string" name="ipAddress"/><informationRequirement><requiredInput href="#bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></informationRequirement><literalExpression id="literal1643835725897" expressionLanguage="javascript"><text><![CDATA[(function () {
+    // First try to retrieve the IP address from the callFlows params object
+    if (request && request.params && request.params.ipAddress) {
+        return request.params.ipAddress;
+    }
+    
     var PERSONAL_INFORMATION_DATA_EXTENSION_NAME = "PersonalInformation";
 
     for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {
@@ -107,6 +112,11 @@ return undefined;
     ? azureTranslation.result[0].translations[0].text 
     : welcomeText ;
 })();]]></text></literalExpression></decision><decision id="b223959e-8cc2-406e-a698-eb3e693067c8" name="Get Guest Language"><extensionElements><biodi:bounds x="260" y="623" width="200" height="73.3"/><biodi:edge source="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></extensionElements><variable id="variable1643927498501" typeRef="string" name="browserLanguage"/><informationRequirement><requiredInput href="#bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></informationRequirement><literalExpression id="literal1643927498501" expressionLanguage="javascript"><text><![CDATA[(function () {
+    // First try to retrieve the browser language from the callFlows params object
+    if (request && request.params && request.params.browserLanguage) {
+        return request.params.browserLanguage;
+    }
+    
     var PERSONAL_INFORMATION_DATA_EXTENSION_NAME = "PersonalInformation";
 
     for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {

@@ -1,0 +1,90 @@
+<!-- define the structure and content of your Experience in HTML e.g.-->
+<div id="bx-databar">
+    <div class="bx-databar__openToggle" title="Guest Data">
+        <i class="[[FontAwesome Icon | string | fa-solid fa-circle-info  | {group: Open Button, groupOrder: 1, order: 1 }]]"></i>
+    </div>
+    <div class="bx-databar__body">
+        <div class="databar__body__section databar-heading">
+            <h3>Guest Data</h3>
+            {{#if guest}}
+                {{#if guest.identifiers}}
+                    {{#each guest.identifiers}}
+                        <p class="guestIdentifer">{{id}} <span class="guestProvider">({{provider}})</span></p>
+                    {{/each}}
+                    <p class="guestRef">{{guest.ref}}</p>
+                    <p class="guestType">{{guest.guestType}}</p>
+                {{else}}
+                    <p class="guestIdentifer">{{guest.ref}}</p>
+                    <p class="guestType">{{guest.guestType}}</p>
+                {{/if}}
+            {{else}}
+                <p class="guestIdentifer">No guest</p>
+            {{/if}}
+            <div class="bx-databar__closeButton">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        {{#if guest}}
+            <div class="databar__body__section">
+                {{#if guest.sessions}}
+                    {{#each guest.sessions}}
+                        <div class="databar-accordion">
+                            {{#equals cartType 'ABANDONED'}}
+                                <button class="databar-accordion-button cartSession">{{sessionType}} {{cartType}} Session</button>
+                            {{else equals cartType 'CONVERTED'}}
+                                <button class="databar-accordion-button convertSession">{{sessionType}} {{cartType}} Session</button>
+                            {{else equals sessionType 'EMAIL'}}
+                                <button class="databar-accordion-button emailSession">{{sessionType}} Session</button>
+                            {{else equals status 'OPEN'}}
+                                <button class="databar-accordion-button openSession">{{sessionType}} {{status}} Session</button>
+                            {{else}}
+                                <button class="databar-accordion-button closedSession">{{sessionType}} {{status}} Session</button>
+                            {{/equals}}
+                            <div class="databar-accordion-content">
+                                {{#if events}}
+                                    {{#each events}}
+                                        {{#equals type 'TRACKING'}}
+                                            <!-- do nothing -->
+                                        {{else equals type 'VIEW'}}
+                                            <div class="databar-event">
+                                                <p class="databar-eventTitle viewevent">Viewed page</p>
+                                                <p class="databar-eventDate">{{createdAt}}</p>
+                                                <p class="databar-eventInfo">{{arbitraryData.page}}</p>
+                                            </div>
+                                        {{else equals type 'IDENTITY'}}
+                                            <div class="databar-event">
+                                                <p class="identityevent">Guest identified</p>
+                                                <p class="databar-eventDate">{{createdAt}}</p>
+                                                <p class="databar-eventInfo">({{arbitraryData.email}})</p>
+                                            </div>
+                                        {{else equals type 'ADD'}}
+                                            <div class="databar-event">
+                                                <p class="addevent">Added product to cart</p>
+                                                <p class="databar-eventDate">{{createdAt}}</p>
+                                                <p class="databar-eventInfo">Type: {{arbitraryData.product.type}}</p>
+                                                <p class="databar-eventInfo">Name: {{arbitraryData.product.name}}</p>
+                                            </div>
+                                        {{else equals type 'CHECKOUT'}}
+                                            <div class="databar-event">
+                                                <p class="checkoutevent">Completed purchase</p>
+                                                <p class="databar-eventDate">{{createdAt}}</p>
+                                                <p class="databar-eventInfo">Order: {{arbitraryData.reference_id}}</p>
+                                            </div>
+                                        {{else}}
+                                            <div class="databar-event">
+                                                <p class="customevent">Sent custom event</p>
+                                                <p class="databar-eventDate">{{createdAt}}</p>
+                                                <p class="databar-eventInfo">{{type}}</p>
+                                            </div>
+                                        {{/equals}}
+                                    {{/each}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        {{/if}}
+    </div>
+</div>

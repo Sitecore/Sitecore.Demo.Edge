@@ -15,42 +15,24 @@ Languages:
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
       Value: Privacy policy
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20210615T142052Z
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: |
         <p>We will not sell your personal information that you give to us, including your email, and will only use it for internal purposes.
         </p>
-        <p>We place various cookies on your browser to understand how you're using the Play! Summit Website and how we can then provide you with experiences and offers that align with your needs. Some of the cookies are for third parties that help us advertise and measure the impact of our advertising, which allows us to spend our marketing money thoughtfully. If you don't like cookies, then please do not browse the Play! Summit Website.</p>
+        <p>We place various cookies on your browser to understand how you're using the PLAY! Summit website and how we can then provide you with experiences and offers that align with your needs. Some of the cookies are for third parties that help us advertise and measure the impact of our advertising, which allows us to spend our marketing money thoughtfully. If you don't like cookies, then please do not browse the PLAY! Summit website.</p>
     - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
       Hint: callToActionLink
       Value: 
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\Admin
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "01c57e4d-6407-49fc-ac01-6803d17ae9b1"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\superuser
+      Value: "c82bf8ca-7000-4f30-a798-94a7099d3887"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "left-full"
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
       Value: light
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20211116T224409Z
 - Language: "fr-CA"
   Versions:
   - Version: 1
@@ -60,39 +42,21 @@ Languages:
       Value: <r />
     - ID: "05607296-e17f-567f-898f-46bb9665d619"
       Hint: title
-      Value: Intimité
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20220519T114133Z
+      Value: Politique de confidentialité
     - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
       Hint: content
       Value: |
-        <p>Nous ne vendrons pas vos informations personnelles que vous nous fournissez, y compris votre e-mail, et ne les utiliserons qu&rsquo;&agrave; des fins internes.</p>
-        <p>Nous pla&ccedil;ons divers cookies sur votre navigateur pour comprendre comment vous utilisez Play! Site Web du Sommet et comment nous pouvons ensuite vous fournir des exp&eacute;riences et des offres qui correspondent &agrave; vos besoins. Certains des cookies sont destin&eacute;s &agrave; des tiers qui nous aident &agrave; faire de la publicit&eacute; et &agrave; mesurer l&rsquo;impact de notre publicit&eacute;, ce qui nous permet de d&eacute;penser notre argent marketing de mani&egrave;re r&eacute;fl&eacute;chie. Si vous n&rsquo;aimez pas les cookies, veuillez ne pas parcourir le Play! Site Web du Sommet.</p>
+        <p>Nous ne vendrons pas les informations personnelles que vous nous fournissez, y compris votre e-mail, et ne les utiliserons qu&rsquo;&agrave; des fins internes.</p>
+        <p>Nous pla&ccedil;ons divers cookies sur votre navigateur pour comprendre comment vous utilisez le site web de PLAY! Summit et comment nous pouvons ensuite vous fournir des exp&eacute;riences et des offres qui correspondent &agrave; vos besoins. Certains des cookies sont destin&eacute;s &agrave; des tiers qui nous aident &agrave; faire de la publicit&eacute; et &agrave; mesurer l&rsquo;impact de notre publicit&eacute;, ce qui nous permet de d&eacute;penser notre argent marketing de mani&egrave;re r&eacute;fl&eacute;chie. Si vous n&rsquo;aimez pas les cookies, veuillez ne pas parcourir le site web de PLAY! Summit.</p>
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\superuser
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "39a396da-d4df-443f-9a81-e3aa691a4b1a"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\superuser
+      Value: "9ba6c028-30a1-46e6-937b-10f104f7ebe7"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "left-full"
     - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
       Hint: brightness
       Value: light
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20220519T121256Z
