@@ -35,18 +35,17 @@ const PromoInput = (): JSX.Element => {
   const handleApplyPromotion = async () => {
     if (promoCode) {
       setLoading(true);
+      setPromoCode('');
 
       const res = (await dispatch(addPromotion(promoCode))) as PromoResponse;
       if (res?.error) {
         setPromoError(res?.error?.message || `${promoCode} is not a valid promo code`);
       } else {
         setPromoError('');
+        await dispatch(patchOrder(order));
       }
 
-      await dispatch(patchOrder(order));
-
       setLoading(false);
-      setPromoCode('');
     }
   };
 
