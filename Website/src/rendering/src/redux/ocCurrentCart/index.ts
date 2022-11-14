@@ -10,6 +10,7 @@ import {
   PartialDeep,
   Tokens,
   LineItem,
+  Promotion,
 } from 'ordercloud-javascript-sdk';
 import { DAddress } from '../../models/ordercloud/DAddress';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
@@ -23,7 +24,11 @@ import { createOcAsyncThunk } from '../ocReduxHelpers';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import axios from 'axios';
 import { deleteCookie, getCookie } from '../../services/CookieService';
-import { COOKIES_ANON_ORDER_ID, COOKIES_ANON_USER_TOKEN } from '../../constants/cookies';
+import {
+  COOKIES_ANON_ORDER_ID,
+  COOKIES_ANON_ORDER_PROMOS,
+  COOKIES_ANON_USER_TOKEN,
+} from '../../constants/cookies';
 
 export interface RecentOrder {
   order: RequiredDeep<DOrder>;
@@ -233,8 +238,29 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
       ) {
         ThunkAPI.dispatch(retrievePayments(existingOrder.ID));
       }
-      ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
+      const existingOrderPromos = (await ThunkAPI.dispatch(retrievePromotions(existingOrder.ID)))
+        .payload as Promotion[];
+      const existingOrderPromoCodes = existingOrderPromos.map((promo) => promo.Code);
+
       if (mergedAnonOrder) {
+        // Retrieve promotions that were applied to anonymous order
+        const anonPromos: Promotion[] = JSON.parse(getCookie(COOKIES_ANON_ORDER_PROMOS));
+        const anonPromoCodes = anonPromos.map((promo) => promo.Code);
+        deleteCookie(COOKIES_ANON_ORDER_PROMOS);
+
+        // Remove existing order's promo codes
+        for (const code of existingOrderPromoCodes) {
+          ThunkAPI.dispatch(removePromotion(code));
+        }
+
+        // Merge promo codes (existing and anonymous order) and remove duplicates
+        const allPromoCodesToApply = [...new Set([...existingOrderPromoCodes, ...anonPromoCodes])];
+
+        // Apply promo codes to merged order
+        for (const code of allPromoCodesToApply) {
+          ThunkAPI.dispatch(addPromotion(code));
+        }
+
         // This is a bit of a hack but since we're updating the cart right before we get the worksheet
         // there can be a race condition where the order worksheet is stale so anytime we merge an order
         // get the order worksheet once more
