@@ -70,6 +70,11 @@ const FullPageSearch = ({
     if (router.asPath !== loadLastProductListingPage()?.path) {
       onClearFilters();
       onSearchInputChange('');
+      onSortChange({
+        rfkId,
+        sortType: 'featured',
+        sortDirection: 'desc',
+      });
 
       // Save the product listing page to session storage
       saveLastProductListingPage();
