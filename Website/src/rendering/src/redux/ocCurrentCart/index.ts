@@ -189,6 +189,7 @@ const mergeAnonOrder = async (
       // to a product that the public user does
     }
   });
+
   const lineItemUpdateRequests = anonLineItems.Items.filter((lineItem) =>
     profiledProductIDs.includes(lineItem.ProductID)
   ).map((anonLineItem) => {
@@ -206,6 +207,9 @@ const mergeAnonOrder = async (
     }
   });
   await Promise.all([...lineItemCreateRequests, ...lineItemUpdateRequests]);
+
+  await mergePromos(existingOrder.ID);
+
   return existingOrder;
 };
 
@@ -262,17 +266,11 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
         ThunkAPI.dispatch(retrievePayments(existingOrder.ID));
       }
       ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
-
       if (mergedAnonOrder) {
         // This is a bit of a hack but since we're updating the cart right before we get the worksheet
         // there can be a race condition where the order worksheet is stale so anytime we merge an order
         // get the order worksheet once more
-        await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
-
-        await mergePromos(existingOrder.ID);
-        ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
-
-        return await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
+        return IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
       }
       return worksheet;
     }
