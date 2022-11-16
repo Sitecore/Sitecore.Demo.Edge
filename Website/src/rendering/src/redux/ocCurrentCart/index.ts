@@ -209,6 +209,29 @@ const mergeAnonOrder = async (
   return existingOrder;
 };
 
+const mergePromos = async (existingOrderID: string) => {
+  // Retrieve promotions that were applied to anonymous order
+  const anonPromos: Promotion[] = JSON.parse(getCookie(COOKIES_ANON_ORDER_PROMOS));
+  const anonPromoCodes = anonPromos.map((promo) => promo.Code);
+  deleteCookie(COOKIES_ANON_ORDER_PROMOS);
+
+  const existingOrderPromos = (await Orders.ListPromotions('All', existingOrderID)).Items;
+  const existingOrderPromoCodes = existingOrderPromos.map((promo) => promo.Code);
+
+  // Remove existing order's promo codes
+  for (const code of existingOrderPromoCodes) {
+    await Orders.RemovePromotion('All', existingOrderID, code);
+  }
+
+  // Merge promo codes (existing and anonymous order) and remove duplicates
+  const allPromoCodesToApply = [...new Set([...existingOrderPromoCodes, ...anonPromoCodes])];
+
+  // Apply promo codes to merged order
+  for (const code of allPromoCodesToApply) {
+    await Orders.AddPromotion('All', existingOrderID, code);
+  }
+};
+
 export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | undefined, void>(
   'ocCurrentCart/retrieveCart',
   async (_, ThunkAPI) => {
@@ -224,7 +247,7 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
     }
 
     if (existingOrder) {
-      const worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>(
+      let worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>(
         'All',
         existingOrder.ID
       );
@@ -238,33 +261,18 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
       ) {
         ThunkAPI.dispatch(retrievePayments(existingOrder.ID));
       }
-      const existingOrderPromos = (await ThunkAPI.dispatch(retrievePromotions(existingOrder.ID)))
-        .payload as Promotion[];
-      const existingOrderPromoCodes = existingOrderPromos.map((promo) => promo.Code);
+      ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
 
       if (mergedAnonOrder) {
-        // Retrieve promotions that were applied to anonymous order
-        const anonPromos: Promotion[] = JSON.parse(getCookie(COOKIES_ANON_ORDER_PROMOS));
-        const anonPromoCodes = anonPromos.map((promo) => promo.Code);
-        deleteCookie(COOKIES_ANON_ORDER_PROMOS);
-
-        // Remove existing order's promo codes
-        for (const code of existingOrderPromoCodes) {
-          ThunkAPI.dispatch(removePromotion(code));
-        }
-
-        // Merge promo codes (existing and anonymous order) and remove duplicates
-        const allPromoCodesToApply = [...new Set([...existingOrderPromoCodes, ...anonPromoCodes])];
-
-        // Apply promo codes to merged order
-        for (const code of allPromoCodesToApply) {
-          ThunkAPI.dispatch(addPromotion(code));
-        }
-
         // This is a bit of a hack but since we're updating the cart right before we get the worksheet
         // there can be a race condition where the order worksheet is stale so anytime we merge an order
         // get the order worksheet once more
-        return IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
+        worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
+
+        await mergePromos(existingOrder.ID);
+        ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
+
+        return await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
       }
       return worksheet;
     }
