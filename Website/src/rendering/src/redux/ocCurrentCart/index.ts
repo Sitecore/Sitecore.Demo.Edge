@@ -247,7 +247,7 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
     }
 
     if (existingOrder) {
-      let worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>(
+      const worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>(
         'All',
         existingOrder.ID
       );
@@ -267,7 +267,7 @@ export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | u
         // This is a bit of a hack but since we're updating the cart right before we get the worksheet
         // there can be a race condition where the order worksheet is stale so anytime we merge an order
         // get the order worksheet once more
-        worksheet = await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
+        await IntegrationEvents.GetWorksheet<DOrderWorksheet>('All', existingOrder.ID);
 
         await mergePromos(existingOrder.ID);
         ThunkAPI.dispatch(retrievePromotions(existingOrder.ID));
