@@ -10,6 +10,7 @@ import {
   PartialDeep,
   Tokens,
   LineItem,
+  Promotion,
 } from 'ordercloud-javascript-sdk';
 import { DAddress } from '../../models/ordercloud/DAddress';
 import { DBuyerAddress } from '../../models/ordercloud/DBuyerAddress';
@@ -23,7 +24,11 @@ import { createOcAsyncThunk } from '../ocReduxHelpers';
 import { DBuyerCreditCard } from '../../models/ordercloud/DCreditCard';
 import axios from 'axios';
 import { deleteCookie, getCookie } from '../../services/CookieService';
-import { COOKIES_ANON_ORDER_ID, COOKIES_ANON_USER_TOKEN } from '../../constants/cookies';
+import {
+  COOKIES_ANON_ORDER_ID,
+  COOKIES_ANON_ORDER_PROMOS,
+  COOKIES_ANON_USER_TOKEN,
+} from '../../constants/cookies';
 
 export interface RecentOrder {
   order: RequiredDeep<DOrder>;
@@ -184,6 +189,7 @@ const mergeAnonOrder = async (
       // to a product that the public user does
     }
   });
+
   const lineItemUpdateRequests = anonLineItems.Items.filter((lineItem) =>
     profiledProductIDs.includes(lineItem.ProductID)
   ).map((anonLineItem) => {
@@ -201,7 +207,33 @@ const mergeAnonOrder = async (
     }
   });
   await Promise.all([...lineItemCreateRequests, ...lineItemUpdateRequests]);
+
+  await mergePromos(existingOrder.ID);
+
   return existingOrder;
+};
+
+const mergePromos = async (existingOrderID: string) => {
+  // Retrieve promotions that were applied to anonymous order
+  const anonPromos: Promotion[] = JSON.parse(getCookie(COOKIES_ANON_ORDER_PROMOS));
+  const anonPromoCodes = anonPromos.map((promo) => promo.Code);
+  deleteCookie(COOKIES_ANON_ORDER_PROMOS);
+
+  const existingOrderPromos = (await Orders.ListPromotions('All', existingOrderID)).Items;
+  const existingOrderPromoCodes = existingOrderPromos.map((promo) => promo.Code);
+
+  // Remove existing order's promo codes
+  for (const code of existingOrderPromoCodes) {
+    await Orders.RemovePromotion('All', existingOrderID, code);
+  }
+
+  // Merge promo codes (existing and anonymous order) and remove duplicates
+  const allPromoCodesToApply = [...new Set([...existingOrderPromoCodes, ...anonPromoCodes])];
+
+  // Apply promo codes to merged order
+  for (const code of allPromoCodesToApply) {
+    await Orders.AddPromotion('All', existingOrderID, code);
+  }
 };
 
 export const retrieveCart = createOcAsyncThunk<RequiredDeep<DOrderWorksheet> | undefined, void>(
@@ -494,8 +526,6 @@ export const submitOrder = createOcAsyncThunk<RecentOrder, (orderID: string) => 
 
 const thunksThatAffectOrderTotal = [
   removeAllPayments,
-  addPromotion,
-  removePromotion,
   retrievePromotions,
   refreshPromotions,
   createLineItem,
