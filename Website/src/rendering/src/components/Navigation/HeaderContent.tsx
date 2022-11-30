@@ -24,12 +24,7 @@ const HeaderContent = (props: HeaderContentProps): JSX.Element => {
   const languageList = sitecoreContext['Languages'] as NodeJS.Dict<string | string>[];
 
   useEffect(() => {
-    // Fix for React hydration error in MS Edge because of the display name mismatch for 'fr-CA'
-    const labels = languageList.map((language) =>
-      languageNames.of(language['Name']) === 'French (Canada)'
-        ? 'Canadian French'
-        : languageNames.of(language['Name'])
-    );
+    const labels = languageList.map((language) => languageNames.of(language['Name']));
 
     setLanguageLabels(labels);
     // eslint-disable-next-line react-hooks/exhaustive-deps
