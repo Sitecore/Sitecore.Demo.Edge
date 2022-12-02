@@ -27,7 +27,7 @@ services:
         condition: service_healthy
   redis:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-redis:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-redis:10.2-${WINDOWSSERVERCORE_VERSION}
   mssql:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/mssql-developer:2017-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
@@ -39,7 +39,7 @@ services:
     # DEMO TEAM CUSTOMIZATION - Removed default volume
   solr:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.8.2-${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.11.2-${WINDOWSSERVERCORE_VERSION}
     ports:
       - "8984:8983"
     # DEMO TEAM CUSTOMIZATION - Removed default volume
