@@ -10,7 +10,7 @@ resources:
 
 variables:
   GitVersion.SemVer: ''
-  SITECORE_VERSION: '10.2.0'
+  SITECORE_VERSION: '10.3'
   GitVersion.PreReleaseLabel: ''
   tag: '$(GitVersion.SemVer)'
   additionalImageTags: ''

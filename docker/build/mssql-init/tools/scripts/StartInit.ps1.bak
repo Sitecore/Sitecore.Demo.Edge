@@ -22,11 +22,6 @@ param (
     [Parameter(Mandatory)]
     [string]$SitecoreUserPassword,
 
-    [Parameter(Mandatory)]
-    [string]$SqlDatabasePrefix,
-
-    [string]$SqlCustomDatabasePrefixUpdateFrom,
-
     [string]$SqlElasticPoolName,
     [object[]]$DatabaseUsers,
 
@@ -50,26 +45,26 @@ if (-not $DatabasesToDeploy) {
 }
 
 if ($deployDatabases) {
-    .\DeployDatabases.ps1 -ResourcesDirectory $ResourcesDirectory -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
+    .\DeployDatabases.ps1 -ResourcesDirectory $ResourcesDirectory -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy
 
     if(-not $DatabasesToDeploy) {
         if(Test-Path -Path (Join-Path $ResourcesDirectory "smm_azure.sql")) {
-            .\InstallShards.ps1 -ResourcesDirectory $ResourcesDirectory -SqlElasticPoolName $SqlElasticPoolName -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SqlDatabasePrefix:$SqlDatabasePrefix
+            .\InstallShards.ps1 -ResourcesDirectory $ResourcesDirectory -SqlElasticPoolName $SqlElasticPoolName -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword
         }
 
         .\SetDatabaseUsers.ps1 -ResourcesDirectory $ResourcesDirectory -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword `
-            -DatabaseUsers $DatabaseUsers -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
-        .\SetSitecoreAdminPassword.ps1 -ResourcesDirectory $ResourcesDirectory -SitecoreAdminPassword $SitecoreAdminPassword -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword  -SqlDatabasePrefix:$SqlDatabasePrefix
+            -DatabaseUsers $DatabaseUsers
+        .\SetSitecoreAdminPassword.ps1 -ResourcesDirectory $ResourcesDirectory -SitecoreAdminPassword $SitecoreAdminPassword -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword
     }
 
     Write-Host "Installing SPE assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\spe_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
+    .\DeployDatabases.ps1 -ResourcesDirectory C:\spe_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy
 
     Write-Host "Installing Content Hub Connector assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\ch_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
+    .\DeployDatabases.ps1 -ResourcesDirectory C:\ch_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy
 
     Write-Host "Installing JSS assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\jss_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
+    .\DeployDatabases.ps1 -ResourcesDirectory C:\jss_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy
 
 }
 
