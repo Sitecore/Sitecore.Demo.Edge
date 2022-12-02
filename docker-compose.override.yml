@@ -194,7 +194,7 @@ services:
       context: ./docker/build/id
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id6:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.2-${SITECORE_ASSET_NANOSERVER_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -214,7 +214,7 @@ services:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         # DEMO TEAM CUSTOMIZATION - Add modules
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
