@@ -63,6 +63,9 @@ COPY ./tools/ /tools/
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
 
+# Copy website images to allow displaying them in Horizon without EnableRelativeLinkProcessing
+COPY --from=solution /artifacts/src/rendering/public ./
+
 # Perform transforms
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
     ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\web.config' -XdtPath $_.FullName `
