@@ -8,7 +8,6 @@ ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
 ARG EXPERIENCE_EDGE_ASSETS_IMAGE
-ARG HORIZON_INTEGRATION_ASSETS
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
@@ -17,7 +16,6 @@ FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${EXPERIENCE_EDGE_ASSETS_IMAGE} AS edge_assets
-FROM ${HORIZON_INTEGRATION_ASSETS} as horizon_integration_assets
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -38,9 +36,6 @@ COPY --from=management_services C:\module\cm\content C:\inetpub\wwwroot
 # Copy the Experience Edge Connector Module
 COPY --from=edge_assets C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=edge_assets C:\module\cm\xdt C:\module\xdt
-
-# Copy the Sitecore Horizon Module
-COPY --from=horizon_integration_assets /module/cm/content C:\inetpub\wwwroot
 
 # Copy and init the JSS / Headless Services Module
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
@@ -67,12 +62,6 @@ COPY ./tools/ /tools/
 
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
-
-# Copy website images to allow displaying them in Horizon without EnableRelativeLinkProcessing
-COPY --from=solution /artifacts/src/rendering/public ./
-
-# Fix for PowerShell Console failing to open from Sitecore desktop menu - Requires PSE to be installed
-RUN Rename-Item -Path 'C:\inetpub\wwwroot\App_Config\Include\Spe\Spe.IdentityServer.config.disabled' -NewName 'Spe.IdentityServer.config'
 
 # Perform transforms
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
