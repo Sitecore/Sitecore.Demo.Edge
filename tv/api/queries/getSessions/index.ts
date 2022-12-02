@@ -141,11 +141,11 @@ export const getSessionsByRoom = async (
   const sessions: Session[] = [];
   results?.data?.allDemo_Room.results[0].session.results.map((sessionData) => {
     sessionData.timeslotToSession.results.map((ts) => {
-      const sessionIsToday = sessionData.dayToSession.results.some((sessionDay) => {
+      const sessionIsToday = sessionData?.dayToSession?.results?.some((sessionDay) => {
         return sessionDay.sortOrder == day.toString();
       });
 
-      if (sessionData.dayToSession.results && sessionIsToday) {
+      if (sessionIsToday) {
         sessions.push(formattedSession(sessionData, currentDay, ts, currentRoom, true));
       }
     });
