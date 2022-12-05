@@ -67,7 +67,6 @@ function getSessionsToDisplay(
 
 export default function RoomPage(props: RoomProps) {
   const router = useRouter();
-  const initialPageLoad = useRef(true);
   const dayTimeContext = useContext(DayTimeContext);
 
   // Added useRef to allow use of dayTimeContextRef as a dependency in useEffect (required by linting rules)
@@ -84,8 +83,6 @@ export default function RoomPage(props: RoomProps) {
       );
       dayTimeContextRef.current.hideLoading();
     });
-
-    initialPageLoad.current = false;
   }, [props.roomId, dayTimeContext.dayTime, dayTimeContextRef, router, props.room.name]);
 
   return (
