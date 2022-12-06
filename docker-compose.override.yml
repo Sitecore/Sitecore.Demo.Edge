@@ -145,7 +145,7 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     environment:
@@ -193,8 +193,8 @@ services:
     build:
       context: ./docker/build/id
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id6:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id7:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.2-${SITECORE_ASSET_NANOSERVER_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -214,14 +214,13 @@ services:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         # DEMO TEAM CUSTOMIZATION - Add modules
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:20.0.0-${NANOSERVER_VERSION}
-        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:3.0-${NANOSERVER_VERSION}
     depends_on:
       - solution
     volumes:
@@ -233,7 +232,6 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      Sitecore_Horizon_ClientHost: https://${SH_HOST}
       SITECORE_APPSETTINGS_ROLE:DEFINE: Standalone
       ## Development Environment Optimizations
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff,RobotDetectionOff
@@ -265,48 +263,6 @@ services:
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""
     entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
-
-  # Horizon
-  authoringhost:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
-    build:
-      context: ./docker/build/authoringhost
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:3.0-${WINDOWSSERVERCORE_VERSION}
-    isolation: ${ISOLATION}
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      Sitecore_FederatedUI__HostBaseUrl: http://authoringhost
-      Sitecore_SitecorePlatform__ContentManagementUrl: https://${CM_HOST}
-      Sitecore_SitecorePlatform__ContentManagementInternalUrl: http://cm
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__RequireHttpsMetadata: "false"
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__Authority: https://${ID_HOST}
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__CallbackAuthority: https://${SH_HOST}
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__InternalAuthority: http://id
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__Authority: https://${ID_HOST}
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__InternalAuthority: http://id
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__RequireHttpsMetadata: "false"
-      Sitecore_Plugins__Filters__ExperienceAccelerator: +SXA
-      Sitecore_Plugins__Filters__ContentHub: +ContentHub
-      Sitecore_Sitecore__Logging__Serilog__MinimumLevel__Default: Debug
-    depends_on:
-      id:
-        condition: service_healthy
-      cm:
-        condition: service_started
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.sh-secure.entrypoints=websecure"
-      - "traefik.http.routers.sh-secure.rule=Host(`${SH_HOST}`)"
-      - "traefik.http.routers.sh-secure.tls=true"
-      - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
-      - "traefik.http.services.sh.loadbalancer.server.port=80"
 
   # OrderCloud Headstart
   headstart-middleware:
