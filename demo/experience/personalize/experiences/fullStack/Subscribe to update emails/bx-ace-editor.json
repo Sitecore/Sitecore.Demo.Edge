@@ -80,7 +80,7 @@
               },
               "request": {
                 "requestType": "POST",
-                "connectionUrl": "https://api.moosend.com/v3/subscribers/9cc1150c-0733-40a1-8a1c-828d9a44707c/subscribe.json?apikey=redacted",
+                "connectionUrl": "https://api.moosend.com/v3/subscribers/redacted_email_list_id/subscribe.json?apikey=redacted_api_key",
                 "requestBody": "{\r\n  \"Name\": \"test\",\r\n  \"Email\": \"test@test.com\",\r\n  \"HasExternalDoubleOptIn\": false,\r\n  \"CustomFields\": [\r\n    \"Age=25\",\r\n    \"Country=USA\"\r\n  ]\r\n}"
               },
               "inputMappings": [],
@@ -171,7 +171,7 @@
               },
               "request": {
                 "requestType": "POST",
-                "connectionUrl": "https://api.moosend.com/v3/subscribers/9cc1150c-0733-40a1-8a1c-828d9a44707c/subscribe.json?apikey=redacted",
+                "connectionUrl": "https://api.moosend.com/v3/subscribers/redacted_email_list_id/subscribe.json?apikey=redacted_api_key",
                 "requestBody": "{\r\n  \"Name\": \"test\",\r\n  \"Email\": \"test@test.com\",\r\n  \"HasExternalDoubleOptIn\": false,\r\n  \"CustomFields\": [\r\n    \"Age=25\",\r\n    \"Country=USA\"\r\n  ]\r\n}"
               },
               "inputMappings": [],
