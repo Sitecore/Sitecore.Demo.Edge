@@ -20,6 +20,7 @@ const Custom500 = (): JSX.Element => {
                 height={100}
                 alt="Logo"
                 title="Tap to go home"
+                unoptimized
               />
               <div>Oops! You broke the kiosk.</div>
               <div>Please click here to reboot system.</div>

@@ -33,6 +33,7 @@ const SignupForm = (): JSX.Element => {
               className="left float"
               alt="Logo"
               title="Tap to go home"
+              unoptimized
             />
           </Link>
         </div>

@@ -1,6 +1,11 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['playsummit.sitecoresandbox.cloud'],
-  },
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.sitecoresandbox.cloud',
+      }
+    ]
+  }
 };

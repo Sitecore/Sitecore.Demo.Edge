@@ -30,6 +30,7 @@ const SignupConfirmation = (): JSX.Element => {
             height={100}
             className="left float"
             alt="Logo"
+            unoptimized
           />
         </div>
 

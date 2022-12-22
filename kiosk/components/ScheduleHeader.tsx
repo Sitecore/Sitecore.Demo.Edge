@@ -23,6 +23,7 @@ const ScheduleHeader = (props: ScheduleHeaderProps): JSX.Element => {
               className="left float"
               alt="Logo"
               title="Tap to go home"
+              unoptimized
             />
           </a>
         </Link>
