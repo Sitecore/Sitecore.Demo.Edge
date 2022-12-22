@@ -28,7 +28,7 @@ const SignupConfirmation = (): JSX.Element => {
             src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
             width={200}
             height={100}
-            className="left float"
+            className="left float w-[200px] h-[100px]"
             alt="Logo"
             unoptimized
           />
