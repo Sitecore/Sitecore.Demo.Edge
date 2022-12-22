@@ -22,36 +22,18 @@ Languages:
     - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
       Hint: __Lock
       Value: <r />
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20210803T195629Z
     - ID: "49461c19-39ae-4df4-abf5-15bd7fab54ce"
       Hint: Audience
       Value: "{D7E74E60-9708-48B2-9D37-C34D165BEC43}|{6AB3A378-547F-4B38-8BE4-7538313020B2}|{A69C357B-F4F9-4D4B-8262-44B0E60F051F}|{4D758CED-1AD4-46C7-8E72-B42BE54A08E8}|{EB7D2E35-46BD-4EA3-A142-6B524DF4ED97}"
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        default\Anonymous
     - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
       Hint: Title
       Value: "PLAY! Summit Goes Live"
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        default\Anonymous
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "6a09d6b3-a55a-4d4d-962f-024e1b6480b9"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\superuser
+      Value: "de39decb-6f00-40fa-8f75-d91a6550d4ff"
     - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
       Hint: PublishDate
       Value: 20210804T172751Z
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20220613T192114Z
     - ID: "ec2ff3e7-0a21-4808-8cf8-c13ccd6fffc8"
       Hint: Excerpt
       Value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan posuere orci, placerat tristique quam vulputate non. Aliquam erat volutpat. Vestibulum ante ipsum primis in orci luctus et posuere cubilia Sed mollis tincidunt eu. Vestibulum ante ipsum primis in orci luctus et posuere cubilia Sed mollis tincidunt eu.

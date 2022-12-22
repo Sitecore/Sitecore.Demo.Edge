@@ -99,6 +99,10 @@
         }
       }
     }
+
+    .apply-promo-btn {
+      @apply w-full mt-2 border-2 border-yellow rounded-[4px] py-1 px-4;
+    }
   }
 
   .gift-checkbox {

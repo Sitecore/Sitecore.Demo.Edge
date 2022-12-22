@@ -13,7 +13,7 @@ import Footer from '../../components/Navigation/Footer';
 import { mockComponentFactory, mockFooterProps, mockHeaderProps } from './PageStoriesCommon';
 import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SESSIONS } from '../mock-sessions';
-import { mockSitecoreContext } from '../../../.storybook/preview';
+import { mockLayoutData } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Vendor Information Page',
@@ -75,7 +75,7 @@ const vendorInformationProps = {
 
 const Template: ComponentStory<typeof VendorInformationPageHero> = () => {
   return (
-    <SitecoreContext context={mockSitecoreContext.context} componentFactory={mockComponentFactory}>
+    <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
       <header>
         <HeaderContent {...mockHeaderProps} />
       </header>

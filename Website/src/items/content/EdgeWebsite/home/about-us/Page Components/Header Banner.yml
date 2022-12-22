@@ -12,33 +12,15 @@ Languages:
   Versions:
   - Version: 1
     Fields:
-    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
-      Hint: __Created
-      Value: 20210707T152613Z
-    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
-      Hint: __Owner
-      Value: |
-        sitecore\superuser
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\superuser
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e25a20e1-b70c-4386-bc66-9681dcb66deb"
-    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
-      Hint: __Updated by
-      Value: |
-        sitecore\superuser
+      Value: "d142e9ed-9ead-416b-bc5c-bdfb18035621"
     - ID: "c9069b9e-8ffb-564d-8f08-5b3ab1a6c14f"
       Hint: title
       Value: The World's Largest sports & Recreation expo
     - ID: "d2f0af85-24ce-5ea3-94c0-690d8c774a6d"
       Hint: eyebrow
       Value: "READY | STEADY | PLAY!"
-    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
-      Hint: __Updated
-      Value: 20210722T012406Z
     - ID: "e85a8061-ab10-54ce-b74a-6a9d2e71b554"
       Hint: subtitle
       Value: "an action-packed agenda of workshops, keynotes, product demos, and exclusive content"

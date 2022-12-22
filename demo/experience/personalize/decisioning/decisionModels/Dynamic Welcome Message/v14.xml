@@ -1,0 +1,131 @@
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" namespace="http://camunda.org/schema/1.0/dmn" name="definitions" id="definitions"><decision id="b6ace55a-5e2f-4b9e-a1b4-50f59c0468ba" name="Get City from MaxMind"><extensionElements><biodi:bounds x="510" y="469" width="200" height="73.3"/><biodi:edge source="ebd6c17f-d55a-4919-9449-cd5c2eb96998"/></extensionElements><variable id="variablee9dbb670-de90-4631-8b78-bda050dfeb0a" typeRef="map" name="getCityFromMaxmind"/><informationRequirement><requiredDecision href="#ebd6c17f-d55a-4919-9449-cd5c2eb96998"/></informationRequirement><literalExpression expressionLanguage="web-service" id="literale9dbb670-de90-4631-8b78-bda050dfeb0a"><text><![CDATA[{"clientKey":"dpsbx91fh7b0ve3qbfuoa0f7brme513i","href":"https://api-us.boxever.com/v2/connections/a857d8f1-6f36-47e7-8687-8e57e2614999","ref":"a857d8f1-6f36-47e7-8687-8e57e2614999","name":"Get City from MaxMind","description":"Get the city of an IP address using MaxMind geolocation api","modifiedByRef":"171e2c01-9026-4573-bed2-f556d8b37bf5","modifiedAt":"2022-02-02T21:59:54.143Z","revision":1,"archived":false,"auth":{"authType":"BASIC","username":"Redacted"},"request":{"requestType":"GET","connectionUrl":"https://geolite.info/geoip/v2.1/city/${ipAddress}"},"inputMappings":[],"outputMappings":[{"label":"City","outputReference":"city","type":"Object"},{"label":"Country","outputReference":"country","type":"Object"},{"label":"Location","outputReference":"location","type":"Object"},{"label":"Subdivisions","outputReference":"subdivisions","type":"Array"}],"customHeaders":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip"}],"urlParameters":[{"label":"IP Address","key":"ipAddress","type":"string","exampleValue":"174.0.167.183","mapping":"ipAddress","data":{"type":"Programmables","label":"Get Guest IP Address","value":"ipAddress","dataType":"string","firstInGroup":true}}],"systemType":"DATA_SYSTEM","connectionTimeout":1000,"socketTimeout":1000,"icon":"fad fa-chart-network"}]]></text></literalExpression></decision><decision id="d6b27bcb-202e-4f69-984b-fde0ec328fa2" name="Azure Translation"><extensionElements><biodi:bounds x="135" y="469" width="200" height="73.3"/><biodi:edge source="af9b0299-c7dc-4e97-bfc0-4f2e0109aa90"/><biodi:edge source="b223959e-8cc2-406e-a698-eb3e693067c8"/></extensionElements><variable id="variabled819b4d9-fa7e-4a33-aecb-c74a40559781" typeRef="map" name="azureTranslation"/><informationRequirement><requiredDecision href="#af9b0299-c7dc-4e97-bfc0-4f2e0109aa90"/></informationRequirement><informationRequirement><requiredDecision href="#b223959e-8cc2-406e-a698-eb3e693067c8"/></informationRequirement><literalExpression expressionLanguage="web-service" id="literald819b4d9-fa7e-4a33-aecb-c74a40559781"><text><![CDATA[{"clientKey":"dpsbx91fh7b0ve3qbfuoa0f7brme513i","href":"https://api-us.boxever.com/v2/connections/f59fd04e-dc92-41bc-83ac-436efaf8123c","ref":"f59fd04e-dc92-41bc-83ac-436efaf8123c","name":"Azure Translation","description":"Translate text using azure translate api","modifiedByRef":"171e2c01-9026-4573-bed2-f556d8b37bf5","modifiedAt":"2022-02-03T20:59:43Z","revision":1,"archived":false,"auth":{"authType":"NONE"},"request":{"requestType":"POST","connectionUrl":"https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${inputLanguage}&to=${outputLanguage}","requestBody":"[{\"text\":\"${text}\"}]"},"inputMappings":[{"label":"Text","key":"text","type":"string","exampleValue":"welcome","mapping":"welcomeText","data":{"type":"Programmables","label":"Get welcome text","value":"welcomeText","dataType":"string","firstInGroup":true}}],"outputMappings":[{"label":"Result","outputReference":"result","type":"Array"}],"customHeaders":[{"name":"Accept","value":"application/json"},{"name":"Accept-Encoding","value":"gzip"},{"name":"Content-Type","value":"application/json"},{"name":"Ocp-Apim-Subscription-Key","value":"Redacted"},{"name":"Ocp-Apim-Subscription-Region","value":"eastus"}],"urlParameters":[{"label":"Input Language","key":"inputLanguage","type":"String","exampleValue":"en","mapping":"\"en\""},{"label":"Output Language","key":"outputLanguage","type":"string","exampleValue":"fr","mapping":"browserLanguage","data":{"type":"Glossary","label":"Guest Language","value":"guest.language","dataType":"string","firstInGroup":true}}],"systemType":"DATA_SYSTEM","connectionTimeout":1000,"socketTimeout":1000,"icon":"fad fa-chart-network"}]]></text></literalExpression></decision><decision id="bda76ca7-8084-4490-923d-feb4933b087a" name="Message Template Selector"><extensionElements><biodi:bounds x="785" y="210" width="200" height="73.3"/><biodi:edge source="d2dee212-8e1c-41b6-bc62-bd4d443e71cc"/><biodi:edge source="daa26aa9-76c9-46a8-8450-fa55a9b7f41c"/><biodi:edge source="a9fd402b-039f-449a-bcc7-86135a927bfc"/><biodi:edge source="d283cac4-8839-456d-8588-9cbab2517e1c"/></extensionElements><informationRequirement><requiredDecision href="#d2dee212-8e1c-41b6-bc62-bd4d443e71cc"/></informationRequirement><informationRequirement><requiredDecision href="#daa26aa9-76c9-46a8-8450-fa55a9b7f41c"/></informationRequirement><informationRequirement><requiredDecision href="#d283cac4-8839-456d-8588-9cbab2517e1c"/></informationRequirement><authorityRequirement><requiredAuthority href="#a9fd402b-039f-449a-bcc7-86135a927bfc"/></authorityRequirement><decisionTable hitPolicy="FIRST"><input id="stringfb71729a-44cd-459d-b1c3-19547b36d171" label="First Name" camunda:inputVariable=""><inputExpression typeRef="string"><text>firstName</text></inputExpression></input><input id="string4e6a3555-a216-4e4c-aaf5-a55c8bed67c3" label="Location" camunda:inputVariable=""><inputExpression typeRef="string"><text>location</text></inputExpression></input><output id="string2ea68d54-19db-449f-9767-0729f0150aef" label="Message Template" name="messageTemplate" typeRef="string"/><rule id="MessageTemplateSelector_0"><inputEntry id="input64b6c8f5-6659-417f-a2be-8fdaf8693fd5"><text><![CDATA[not(" ")]]></text></inputEntry><inputEntry id="inputcd57abed-4d76-421e-bce6-43fa09baea0c"><text><![CDATA[not(" ")]]></text></inputEntry><outputEntry id="outputae55b513-85db-4250-a189-9534becb1e2c"><text><![CDATA["{{translatedWelcomeText}} PLAY! Summit {{firstName}}, we see you're visiting us from {{location}}."]]></text></outputEntry></rule><rule id="MessageTemplateSelector_1"><inputEntry id="inputd34e6faf-0da3-4cb9-8643-7bc7cc567d4d"><text><![CDATA[" "]]></text></inputEntry><inputEntry id="input0443167f-a26e-42c0-8229-be198651dd72"><text><![CDATA[not(" ")]]></text></inputEntry><outputEntry id="output43f90c48-f7fa-42d8-8090-72ddd252661a"><text><![CDATA["{{translatedWelcomeText}} PLAY! Summit, we don't know who you are yet and we see you're visiting us from {{location}}."]]></text></outputEntry></rule><rule id="MessageTemplateSelector_2"><inputEntry id="input457eb276-b9fe-41a8-aebe-1f02b54bb658"><text><![CDATA[not(" ")]]></text></inputEntry><inputEntry id="input275b1cb3-3173-4470-8d20-4043d5f89f13"><text><![CDATA[" "]]></text></inputEntry><outputEntry id="output0d997afa-f25e-42ba-9751-181199896bb2"><text><![CDATA["{{translatedWelcomeText}} PLAY! Summit {{firstName}}, we see you're visiting us from somewhere on planet earth."]]></text></outputEntry></rule><rule id="MessageTemplateSelector_3"><inputEntry id="input58a10506-a7c7-43bb-8694-ca313917166f"><text><![CDATA[" "]]></text></inputEntry><inputEntry id="input5b71f7d4-79a6-4023-af47-87363e535326"><text><![CDATA[" "]]></text></inputEntry><outputEntry id="output3aa9ce71-9caf-4202-9b56-b56b4cef127b"><text><![CDATA["{{translatedWelcomeText}} PLAY! Summit, we don't know who you are yet and we see you're visiting us from somewhere on planet earth."]]></text></outputEntry></rule><rule id="MessageTemplateSelector_4"><inputEntry id="input0c32bd5a-aee2-4830-a13d-32dc2eb092e4"><text><![CDATA[]]></text></inputEntry><inputEntry id="inputf282724b-75bb-424c-a792-bb213ec95922"><text><![CDATA[]]></text></inputEntry><outputEntry id="output5451dedd-8db8-4594-a303-b600749f2da7"><text><![CDATA[]]></text></outputEntry></rule></decisionTable></decision><inputData id="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309" name="Guest"><extensionElements><biodi:bounds x="385" y="776" width="200" height="73.3"/></extensionElements></inputData><knowledgeSource id="a9fd402b-039f-449a-bcc7-86135a927bfc" name="Offers"><extensionElements><biodi:bounds x="1060" y="210" width="200" height="73.3"/></extensionElements></knowledgeSource><decision id="daa26aa9-76c9-46a8-8450-fa55a9b7f41c" name="Get Location"><extensionElements><biodi:bounds x="510" y="316" width="200" height="73.3"/><biodi:edge source="b6ace55a-5e2f-4b9e-a1b4-50f59c0468ba"/></extensionElements><variable id="variable1643821002017" typeRef="string" name="location"/><informationRequirement><requiredDecision href="#b6ace55a-5e2f-4b9e-a1b4-50f59c0468ba"/></informationRequirement><literalExpression id="literal1643821002017" expressionLanguage="javascript"><text><![CDATA[(function () {
+    var maxmindCity = (
+        getCityFromMaxmind &&
+        getCityFromMaxmind.city &&
+        getCityFromMaxmind.city.names &&
+        getCityFromMaxmind.city.names.en
+        ) ? getCityFromMaxmind.city.names.en : undefined;
+
+    var maxmindCountry = (
+        getCityFromMaxmind &&
+        getCityFromMaxmind.country &&
+        getCityFromMaxmind.country.names &&
+        getCityFromMaxmind.country.names.en
+        ) ? getCityFromMaxmind.country.names.en : undefined;
+
+    if (maxmindCountry && maxmindCity) {
+        return maxmindCity + ', '+ maxmindCountry;
+    }
+
+    if (maxmindCity) {
+        return maxmindCity;
+    }
+
+    if (maxmindCountry) {
+        return maxmindCountry;
+    }
+
+    return ' ';
+})();]]></text></literalExpression></decision><decision id="d283cac4-8839-456d-8588-9cbab2517e1c" name="Get First Name"><extensionElements><biodi:bounds x="1060" y="623" width="200" height="73.3"/><biodi:edge source="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></extensionElements><variable id="variable1643821323874" typeRef="string" name="firstName"/><informationRequirement><requiredInput href="#bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></informationRequirement><literalExpression id="literal1643821323874" expressionLanguage="javascript"><text><![CDATA[(function () {
+  return guest.firstName || ' ';
+})();]]></text></literalExpression></decision><decision id="d7b6caeb-38b6-4807-87f7-db6c22a556ea" name="Generate Welcome Message"><extensionElements><biodi:bounds x="785" y="469" width="200" height="73.3"/><biodi:edge source="d283cac4-8839-456d-8588-9cbab2517e1c"/><biodi:edge source="daa26aa9-76c9-46a8-8450-fa55a9b7f41c"/><biodi:edge source="bda76ca7-8084-4490-923d-feb4933b087a"/></extensionElements><variable id="variable1643821440432" typeRef="string" name="welcomeMessage"/><informationRequirement><requiredDecision href="#d283cac4-8839-456d-8588-9cbab2517e1c"/></informationRequirement><informationRequirement><requiredDecision href="#daa26aa9-76c9-46a8-8450-fa55a9b7f41c"/></informationRequirement><informationRequirement><requiredDecision href="#bda76ca7-8084-4490-923d-feb4933b087a"/></informationRequirement><literalExpression id="literal1643821440432" expressionLanguage="javascript"><text><![CDATA[(function() {
+function getTokenFromString(input) {
+var tokenStart = input.indexOf('{{');
+if (tokenStart === -1) {
+return undefined;
+}
+
+var tokenEnd = input.indexOf('}}');
+if (tokenEnd === -1) {
+return undefined;
+}
+
+var token = input.substr(tokenStart + 2, tokenEnd - tokenStart - 2);
+
+return token;
+}
+
+// messageTemplate might not exist if no decision table rule was matched.
+var messageTemplateString = this.messageTemplate;
+
+if (messageTemplateString) {
+var message = messageTemplateString;
+var token = getTokenFromString(message);
+
+while (token) {
+var tokenReplacement = this[token];
+tokenReplacement = !tokenReplacement ? '' : tokenReplacement;
+
+message = message.replace('{{' + token + '}}', tokenReplacement);
+
+token = getTokenFromString(message);
+}
+
+return message;
+}
+
+return undefined;
+})();]]></text></literalExpression></decision><decision id="ebd6c17f-d55a-4919-9449-cd5c2eb96998" name="Get Guest IP Address"><extensionElements><biodi:bounds x="510" y="623" width="200" height="73.3"/><biodi:edge source="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></extensionElements><variable id="variable1643835725897" typeRef="string" name="ipAddress"/><informationRequirement><requiredInput href="#bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></informationRequirement><literalExpression id="literal1643835725897" expressionLanguage="javascript"><text><![CDATA[(function () {
+    // First try to retrieve the IP address from the callFlows params object
+    if (request && request.params && request.params.ipAddress) {
+        return request.params.ipAddress;
+    }
+    
+    var PERSONAL_INFORMATION_DATA_EXTENSION_NAME = "PersonalInformation";
+
+    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {
+        var dataExtension = guest.dataExtensions[dataExtensionIndex];
+        
+        if (dataExtension.name === PERSONAL_INFORMATION_DATA_EXTENSION_NAME) {
+            return dataExtension.values.ipAddress || undefined;
+        }
+    }
+    
+    return undefined;
+})();]]></text></literalExpression></decision><decision id="af9b0299-c7dc-4e97-bfc0-4f2e0109aa90" name="Get welcome text"><extensionElements><biodi:bounds x="10" y="623" width="200" height="73.3"/><biodi:edge source="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></extensionElements><variable id="variable1643910765990" typeRef="string" name="welcomeText"/><informationRequirement><requiredInput href="#bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></informationRequirement><literalExpression id="literal1643910765990" expressionLanguage="javascript"><text><![CDATA[(function () {
+    var numberOfNonFlowSessions = 0;
+    
+ 	var cdpSessions = guest.sessions;
+
+ 	for (var i = 0; i < cdpSessions.length; i++) {
+ 		var cdpSession = cdpSessions[i];
+
+ 		if (cdpSession.sessionType === 'WEB' && cdpSession.pointOfSale && !cdpSession.flowExecutionRef) {
+ 			numberOfNonFlowSessions += 1;
+
+ 			if (numberOfNonFlowSessions === 2) {
+ 			    break;
+ 			}
+ 		}
+ 	}
+    
+    return numberOfNonFlowSessions === 2 ? "Welcome back to" : "Welcome to";
+})();]]></text></literalExpression></decision><decision id="d2dee212-8e1c-41b6-bc62-bd4d443e71cc" name="Extract Translated Welcome Text"><extensionElements><biodi:bounds x="135" y="210" width="200" height="73.3"/><biodi:edge source="d6b27bcb-202e-4f69-984b-fde0ec328fa2"/></extensionElements><variable id="variable1643922375125" typeRef="string" name="translatedWelcomeText"/><informationRequirement><requiredDecision href="#d6b27bcb-202e-4f69-984b-fde0ec328fa2"/></informationRequirement><literalExpression id="literal1643922375125" expressionLanguage="javascript"><text><![CDATA[(function () {
+  return azureTranslation 
+        && azureTranslation.result
+        && azureTranslation.result.length > 0
+        && azureTranslation.result[0] 
+        && azureTranslation.result[0].translations
+        && azureTranslation.result[0].translations.length > 0
+        && azureTranslation.result[0].translations[0] 
+        && azureTranslation.result[0].translations[0].text 
+    ? azureTranslation.result[0].translations[0].text 
+    : welcomeText ;
+})();]]></text></literalExpression></decision><decision id="b223959e-8cc2-406e-a698-eb3e693067c8" name="Get Guest Language"><extensionElements><biodi:bounds x="260" y="623" width="200" height="73.3"/><biodi:edge source="bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></extensionElements><variable id="variable1643927498501" typeRef="string" name="browserLanguage"/><informationRequirement><requiredInput href="#bc86f7ae-de83-4e58-bb4f-f6bc0b18a309"/></informationRequirement><literalExpression id="literal1643927498501" expressionLanguage="javascript"><text><![CDATA[(function () {
+    // First try to retrieve the browser language from the callFlows params object
+    if (request && request.params && request.params.browserLanguage) {
+        return request.params.browserLanguage;
+    }
+    
+    var PERSONAL_INFORMATION_DATA_EXTENSION_NAME = "PersonalInformation";
+
+    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {
+        var dataExtension = guest.dataExtensions[dataExtensionIndex];
+
+        if (dataExtension.name === PERSONAL_INFORMATION_DATA_EXTENSION_NAME) {
+            return dataExtension.values.language || 'en';
+        }
+    }
+
+    return 'en';
+})();]]></text></literalExpression></decision></definitions>

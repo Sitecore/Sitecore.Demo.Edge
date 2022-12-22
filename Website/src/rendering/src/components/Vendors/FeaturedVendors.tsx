@@ -7,7 +7,7 @@ import {
   LayoutServicePageState,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import { Vendor } from 'src/types/vendor';
 
 type FeaturedVendorsProps = ComponentProps & {
@@ -19,7 +19,7 @@ type FeaturedVendorsProps = ComponentProps & {
 };
 
 const FeaturedVendors = (props: FeaturedVendorsProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
 
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
   const hasVendors = !!props?.fields?.Vendors?.length;

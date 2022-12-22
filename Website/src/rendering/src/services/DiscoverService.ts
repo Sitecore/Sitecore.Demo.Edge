@@ -14,6 +14,8 @@ import SimilarProducts from '../components/Widgets/SimilarProducts';
 import RecommendedForYou from '../components/Widgets/RecommendedForYou';
 import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
+import FeaturedProducts from '../components/Widgets/FeaturedProducts';
+import GeoBasedProducts from '../components/Widgets/GeoBasedProducts';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -21,6 +23,19 @@ export interface DiscoverReference {
 
 type DiscoverServiceOptions = {
   isStorybook?: boolean;
+};
+
+export const updateDiscoverContext = (): void => {
+  const context = PageController.getContext();
+  context.setPageUri(window.location.pathname);
+  trackPageViewEvent({
+    page: {
+      uri: context.getPageUri(),
+    },
+    user: {
+      uuid: context.getUserUuid(),
+    },
+  });
 };
 
 export const DiscoverService = (options?: DiscoverServiceOptions): void => {
@@ -126,9 +141,33 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     },
   });
 
+  setWidget('rfkid_36', {
+    component: FeaturedProducts,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
+  });
+
   setWidget('ps_trending_categories', {
     component: TrendingCategories,
     type: WidgetDataType.PREVIEW_SEARCH,
+  });
+
+  setWidget('ps_geo', {
+    component: GeoBasedProducts,
+    type: WidgetDataType.RECOMMENDATION,
+    options: {
+      properties: {
+        initial: {
+          totalItems: 4,
+        },
+      },
+    },
   });
 
   init();
@@ -137,15 +176,6 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
   const pushState = history.pushState;
   history.pushState = (...rest) => {
     pushState.apply(history, rest);
-    const context = PageController.getContext();
-    context.setPageUri(window.location.pathname);
-    trackPageViewEvent({
-      page: {
-        uri: context.getPageUri(),
-      },
-      user: {
-        uuid: context.getUserUuid(),
-      },
-    });
+    updateDiscoverContext();
   };
 };

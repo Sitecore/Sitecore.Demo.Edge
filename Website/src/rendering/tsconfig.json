@@ -13,11 +13,12 @@
       "dom.iterable",
       "esnext"
     ],
+    "strictNullChecks": false,
+    "incremental": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "strictFunctionTypes": false,
-    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
     "noEmit": true,
@@ -30,8 +31,7 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "incremental": true
+    "noUnusedParameters": true
   },
   "include": [
     "next-env.d.ts",

@@ -5,7 +5,7 @@ import {
   Text,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { ComponentProps, SitecoreContextValue } from 'lib/component-props';
+import { ComponentProps } from 'lib/component-props';
 import InformationPageHero from '../NonSitecore/InformationPageHero';
 
 export type SpeakerInformationPageHeroProps = ComponentProps & {
@@ -24,7 +24,8 @@ export type SpeakerInformationPageHeroProps = ComponentProps & {
 };
 
 const SpeakerInformationPageHero = (props: SpeakerInformationPageHeroProps): JSX.Element => {
-  const { sitecoreContext } = useSitecoreContext<SitecoreContextValue>();
+  const { sitecoreContext } = useSitecoreContext();
+
   const isPageEditing = sitecoreContext.pageState === LayoutServicePageState.Edit;
 
   const { fields, ...propsRest } = props;

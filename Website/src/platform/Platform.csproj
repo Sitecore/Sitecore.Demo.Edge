@@ -57,14 +57,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Sitecore.Connector.CMP">
-      <PrivateAssets>all</PrivateAssets>
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Sitecore.JavaScriptServices.ViewEngine">
-      <PrivateAssets>all</PrivateAssets>
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>
     <PackageReference Include="Sitecore.Kernel">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -89,6 +81,14 @@
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
+    <PackageReference Include="Sitecore.Connector.CMP">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sitecore.JavaScriptServices.ViewEngine">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="Sitecore.Services.GraphQL">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>runtime</ExcludeAssets>
@@ -102,6 +102,7 @@
     <Content Include="App_Config\Include\Sitecore.LoadBalancing.config" />
     <Content Include="App_Config\Include\Sitecore.Media.config" />
     <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.config" />
+    <Content Include="App_Config\Include\Sitecore.Demo.Edge.Website.Custom.config" />
     <Content Include="App_Config\Include\Sitecore.Owin.Authentication.ClientCredentialsMapping.Mvp.config" />
     <Content Include="Utilities\ClearAllCaches.aspx" />
     <Content Include="Utilities\IndexRebuild.aspx" />
@@ -117,6 +118,7 @@
     <Compile Include="FieldSerializer\DemoImageFieldSerializer.cs" />
     <Compile Include="FieldSerializer\GetDemoImageFieldSerializer.cs" />
     <Compile Include="FieldMapping\DemoFieldTypeFactoryStore.cs" />
+    <Compile Include="Pipelines\LoadBalancingSchemeFix.cs" />
     <Compile Include="Pipelines\PublishSyncedItem.cs" />
     <Compile Include="Pipelines\DemoCmpFieldMapping.cs" />
     <Compile Include="Pipelines\DemoContextExtension.cs" />
