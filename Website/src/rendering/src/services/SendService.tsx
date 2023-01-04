@@ -15,5 +15,7 @@ export const SendScripts: JSX.Element | undefined = isSendConfigured ? (
 ) : undefined;
 
 export function trackViewEventToSend() {
-  window.mootrack('trackPageView');
+  if(isSendConfigured){
+    window.mootrack('trackPageView');
+  }
 }
