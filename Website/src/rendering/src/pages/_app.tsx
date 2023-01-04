@@ -14,6 +14,7 @@ import 'assets/css/main.css'; // DEMO TEAM CUSTOMIZATION - Different CSS file na
 
 // DEMO TEAM CUSTOMIZATION - Implement per page layouts to conditionally load commerce on some pages https://nextjs.org/docs/basic-features/layouts#per-page-layouts
 import { NextPage } from 'next';
+import { SendScripts } from 'src/services/SendService';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement;
@@ -63,6 +64,10 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
 
       {/* DEMO TEAM CUSTOMIZATION - CDP integration. It is important this script is rendered before the <Component> so the CDP calls made on the first page load are successful. */}
       {CdpScripts}
+      {/* END CUSTOMIZATION*/}
+
+      {/* DEMO TEAM CUSTOMIZATION - Sitecore Send integration. It is important this script is rendered before the <Component> so the Send calls made on the first page load are successful. */}
+      {SendScripts}
       {/* END CUSTOMIZATION*/}
 
       {/*
