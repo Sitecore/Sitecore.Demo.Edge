@@ -9,7 +9,7 @@
     @apply top-3 left-3 cursor-pointer;
 
     .icon {
-      @apply w-6 mx-auto pt-2;
+      @apply w-6 mx-auto pt-1;
     }
   }
 }
