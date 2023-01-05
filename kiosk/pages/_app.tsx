@@ -3,6 +3,11 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { CdpScripts, logViewEvent } from '../services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+// DEMO TEAM CUSTOMIZATION - Font Awesome integration
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+// END CUSTOMIZATION
 
 function App({ Component, pageProps, router }: AppProps) {
   const backgroundClassName = router.pathname != '/' ? 'filtered' : '';
