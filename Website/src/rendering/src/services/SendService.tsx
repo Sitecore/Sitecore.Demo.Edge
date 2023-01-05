@@ -22,10 +22,9 @@ export function trackViewEventInSend(): void {
 
 export function identifyVisitorInSend(email: string, firstName?: string, lastName?: string): void {
   if (isSendConfigured) {
-    if(firstName && lastName) {
+    if (firstName && lastName) {
       window.mootrack('identify', email, `${firstName} ${lastName}`);
-    }
-    else {
+    } else {
       window.mootrack('identify', email);
     }
   }
