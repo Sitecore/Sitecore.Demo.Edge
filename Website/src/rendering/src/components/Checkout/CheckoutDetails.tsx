@@ -17,7 +17,7 @@ import { useAppDispatch } from '../../redux/store';
 import { updateUser } from '../../redux/ocUser';
 import { patchOrder } from '../../redux/ocCurrentCart';
 import { DeliveryTypes } from '../../models/ordercloud/DOrder';
-import { identifyVisitorInSend } from 'src/services/SendService';
+import { identifyVisitorInSend } from '../../services/SendService';
 
 const CheckoutDetailsSkeleton = (): JSX.Element => {
   const skeletonCount = 5;

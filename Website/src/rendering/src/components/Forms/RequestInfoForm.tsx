@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { identifyVisitor } from '../../services/CdpService';
 import { getUserData } from '../../helpers/GuestDataHelper';
-import { identifyVisitorInSend } from 'src/services/SendService';
+import { identifyVisitorInSend } from '../../services/SendService';
 
 const RequestInfoForm = (): JSX.Element => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
