@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { identifyVisitor } from '../../services/CdpService';
 import { getUserData } from '../../helpers/GuestDataHelper';
+import { identifyVisitorInSend } from 'src/services/SendService';
 
 const RequestInfoForm = (): JSX.Element => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -29,6 +30,8 @@ const RequestInfoForm = (): JSX.Element => {
       alert('First Name, Last Name, and Email form fields must be filled.');
       return;
     }
+
+    identifyVisitorInSend(email, firstName, lastName);
 
     return await identifyVisitor(email, firstName, lastName, phoneNumber).then(() => {
       setIsFormSubmitted(true);

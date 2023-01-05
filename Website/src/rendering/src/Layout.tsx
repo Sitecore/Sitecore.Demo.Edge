@@ -10,7 +10,7 @@ import {
 import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
 import { shouldCloseSession } from './services/BoxeverService';
-import { trackViewEventToSend } from './services/SendService';
+import { trackViewEventInSend } from './services/SendService';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -36,7 +36,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         await logQRCodeEvent('QR Code TV Scan');
       }
       await logViewEvent(route);
-      await trackViewEventToSend();
+      await trackViewEventInSend();
     })();
   }, [route]);
   // END CUSTOMIZATION

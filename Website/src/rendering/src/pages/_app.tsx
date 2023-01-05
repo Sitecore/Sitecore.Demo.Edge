@@ -14,7 +14,7 @@ import 'assets/css/main.css'; // DEMO TEAM CUSTOMIZATION - Different CSS file na
 
 // DEMO TEAM CUSTOMIZATION - Implement per page layouts to conditionally load commerce on some pages https://nextjs.org/docs/basic-features/layouts#per-page-layouts
 import { NextPage } from 'next';
-import { SendScripts } from 'src/services/SendService';
+import { identifyVisitorInSend, SendScripts } from 'src/services/SendService';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement;
@@ -39,6 +39,7 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
         email = emailQueryStringValue[0];
       }
 
+      identifyVisitorInSend(email);
       identifyVisitor(email);
     }
     KeypressHandler();
