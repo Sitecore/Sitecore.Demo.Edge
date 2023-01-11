@@ -38,7 +38,7 @@ const ProductCard = ({
       <div className="product-image-container">
         <Link href={product_url}>
           <a onClick={onClick}>
-            <img className="product-image" src={image_url} alt={name} />
+            <img className="product-image" src={`${image_url}&t=w480`} alt={name} />
             {productOfferRibbon}
           </a>
         </Link>

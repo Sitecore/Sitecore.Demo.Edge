@@ -51,7 +51,7 @@ const TrendingCategories = ({
       {trendingCategories?.map((category: Category) => {
         const categoryInformation = getCategoryByUrlPath(category.url);
         const image = categoryInformation?.image_url
-          ? categoryInformation.image_url
+          ? `${categoryInformation.image_url}&t=w480`
           : '/assets/img/shop/category-placeholder.png';
 
         return (
