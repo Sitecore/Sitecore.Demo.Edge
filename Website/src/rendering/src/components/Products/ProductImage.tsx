@@ -30,7 +30,9 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
     if (props.loading) {
       return <Skeleton height="100%" />;
     } else if (activeImg || uniqueImages[0]) {
-      return <img src={activeImg || uniqueImages[0].Url} alt="" />;
+      return (
+        <img src={activeImg ? `${activeImg}&t=w800` : `${uniqueImages[0].Url}&t=w800`} alt="" />
+      );
     } else {
       return null;
     }
