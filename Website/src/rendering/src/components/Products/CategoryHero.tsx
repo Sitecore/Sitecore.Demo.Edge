@@ -23,7 +23,11 @@ const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
             <Link href={cat.url_path}>
               <a>
                 <img
-                  src={cat?.image_url ? `${cat?.image_url}&t=w480` : '/assets/img/shop/category-placeholder.png'}
+                  src={
+                    cat?.image_url
+                      ? `${cat?.image_url}&t=w480`
+                      : '/assets/img/shop/category-placeholder.png'
+                  }
                   alt="Category"
                 />
                 <h4>{cat?.title || cat.name}</h4>
