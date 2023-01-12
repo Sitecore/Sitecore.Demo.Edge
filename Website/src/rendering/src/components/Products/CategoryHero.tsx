@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Category } from '../../models/Category';
 import CategoryBreadcrumb from '../../components/Navigation/CategoryBreadcrumb';
 import { getCategoryChildrenByCcid } from '../../helpers/CategoriesDataHelper';
+import { addTransformation } from '../../helpers/ImageHelper';
 
 type CategoryHeroProps = {
   category: Category;
@@ -25,7 +26,7 @@ const CategoryHero = ({ category }: CategoryHeroProps): JSX.Element => {
                 <img
                   src={
                     cat?.image_url
-                      ? `${cat?.image_url}&t=w480`
+                      ? addTransformation(cat.image_url, 'w320')
                       : '/assets/img/shop/category-placeholder.png'
                   }
                   alt="Category"

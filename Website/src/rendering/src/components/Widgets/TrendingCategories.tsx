@@ -5,6 +5,7 @@ import { Action } from '@sitecore-discover/react';
 import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import Link from 'next/link';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
+import { addTransformation } from '../../helpers/ImageHelper';
 
 type Category = {
   id: string;
@@ -51,7 +52,7 @@ const TrendingCategories = ({
       {trendingCategories?.map((category: Category) => {
         const categoryInformation = getCategoryByUrlPath(category.url);
         const image = categoryInformation?.image_url
-          ? `${categoryInformation.image_url}&t=w480`
+          ? addTransformation(categoryInformation.image_url, 'w480')
           : '/assets/img/shop/category-placeholder.png';
 
         return (

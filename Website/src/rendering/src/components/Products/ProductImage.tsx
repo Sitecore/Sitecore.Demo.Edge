@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import { addTransformation } from '../../helpers/ImageHelper';
 
 type ProductImageProps = {
   images: {
@@ -19,7 +20,11 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
         const isActive = activeImg ? img.Url === activeImg : i === 0;
         return (
           <div key={img.Url} className={isActive ? 'active' : ''}>
-            <img src={img.Url} alt="" onClick={() => setActiveImg(img.Url)} />
+            <img
+              src={addTransformation(img.Url, 'w320')}
+              alt=""
+              onClick={() => setActiveImg(img.Url)}
+            />
           </div>
         );
       })}
@@ -31,7 +36,14 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
       return <Skeleton height="100%" />;
     } else if (activeImg || uniqueImages[0]) {
       return (
-        <img src={activeImg ? `${activeImg}&t=w800` : `${uniqueImages[0].Url}&t=w800`} alt="" />
+        <img
+          src={
+            activeImg
+              ? addTransformation(activeImg, 'w800')
+              : addTransformation(uniqueImages[0].Url, 'w800')
+          }
+          alt=""
+        />
       );
     } else {
       return null;
