@@ -1,12 +1,13 @@
 import type { AppProps } from 'next/app';
 import { I18nProvider } from 'next-localization';
-// DEMO TEAM CUSTOMIZATION - CDP integration. Per page layouts. Fonts and icons. etc.
+// DEMO TEAM CUSTOMIZATION - CDP and Sitecore Send integration. Per page layouts. Fonts and icons. etc.
 import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 import { CdpScripts, identifyVisitor } from '../services/CdpService';
 import { KeypressHandler } from 'src/services/KeypressHandlerService';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { identifyVisitorInSend, SendScripts } from 'src/services/SendService';
 config.autoAddCss = false;
 // END CUSTOMIZATION
 
@@ -14,7 +15,7 @@ import 'assets/css/main.css'; // DEMO TEAM CUSTOMIZATION - Different CSS file na
 
 // DEMO TEAM CUSTOMIZATION - Implement per page layouts to conditionally load commerce on some pages https://nextjs.org/docs/basic-features/layouts#per-page-layouts
 import { NextPage } from 'next';
-import { identifyVisitorInSend, SendScripts } from 'src/services/SendService';
+
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement;

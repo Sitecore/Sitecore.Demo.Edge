@@ -3,6 +3,13 @@ import Script from 'next/script';
 const SEND_WEBSITE_ID = process.env.NEXT_PUBLIC_SEND_WEBSITE_ID || '';
 export const isSendConfigured = !!SEND_WEBSITE_ID;
 
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mootrack: any;
+  }
+}
+
 export const SendScripts: JSX.Element | undefined = isSendConfigured ? (
   <>
     <Script id="sendTracker">{`

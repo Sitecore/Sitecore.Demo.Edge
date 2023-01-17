@@ -84,8 +84,6 @@ declare global {
       target: string;
       cookie_domain: string;
     };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    mootrack: any;
     Boxever: Boxever;
     _boxever: Boxever;
     _boxeverq: boxeverQueueFunctionType[];
