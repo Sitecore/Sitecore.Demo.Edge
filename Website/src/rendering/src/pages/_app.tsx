@@ -16,7 +16,6 @@ import 'assets/css/main.css'; // DEMO TEAM CUSTOMIZATION - Different CSS file na
 // DEMO TEAM CUSTOMIZATION - Implement per page layouts to conditionally load commerce on some pages https://nextjs.org/docs/basic-features/layouts#per-page-layouts
 import { NextPage } from 'next';
 
-
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement;
 };
