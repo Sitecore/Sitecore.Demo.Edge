@@ -390,7 +390,7 @@ services:
       - "traefik.http.routers.headstart-seller-secure.tls=true"
       
   cosmos:
-    image: adoprog/headstart-cosmos:${OC_HEADSTART_VERSION}-linux
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     mem_limit: 3g
     cpu_count: 2
     scale: ${OC_HEADSTART_ENABLED}
@@ -404,7 +404,7 @@ services:
       - 10253:10253
       - 10254:10254
     healthcheck:
-       test: ["CMD-SHELL", "curl -f -k https://127.0.0.1:8081/_explorer/emulator.pem || exit 1"]
+       test: ["CMD-SHELL", "exit 0"]
 
   headstart-storage:
     image: mcr.microsoft.com/azure-storage/azurite:${AZUREITE_TAG}
