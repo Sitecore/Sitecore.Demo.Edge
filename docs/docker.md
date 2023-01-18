@@ -7,7 +7,6 @@ The included `docker-compose.yml` is a stock XM1 environment from the Sitecore C
 The environment has some extra containers:
 
 - **Rendering Host**: A Next.js rendering host container to render the main website. It runs the website in development mode with hot reloading.
-- **Sitecore CDP Proxy**: A Sitecore CDP proxy container that uses a private API key for authenticated calls to Sitecore CDP. This is to keep the API key secret.
 - **Init Container**: It runs some startup jobs (mostly when deployed to AKS and Vercel) and warms up the main website.
 
 ## Prerequisites
@@ -98,7 +97,7 @@ The Linux MSSQL container is super slow to terminate when using the `docker-comp
 
 ## Starting Over
 
-A script here can be used to "reset" the state of your containers. It clears all mounted data and deployed/copied build output. In an elevated PowerShell terminal:
+A script can be used to "reset" the state of your containers. It clears all mounted data and deployed/copied build output. In an elevated PowerShell terminal:
 
 1. Ensure you have [stopped the containers](#Stopping-the-Containers).
 2. Run the script:
@@ -109,6 +108,28 @@ A script here can be used to "reset" the state of your containers. It clears all
 
 ## Troubleshooting
 
-If you have trouble with Docker, it is recommended to run the [Sitecore containers prerequisite checker script](https://github.com/strezag/sitecore-containers-prerequisites/blob/main/sitecore-containers-prerequisites.ps1) by Gabriel Streza.
+### General Troubleshooting
+
+If you have trouble with Docker, it is recommended to run the [Sitecore containers prerequisite checker script](https://github.com/strezag/sitecore-containers-prerequisites) by Gabriel Streza.
 
 If you have issues building Docker images or if that prerequisite checker identifies a conflicting driver, it might be caused by the "Box.com" software. If it is installed on your system and you are not using it, try uninstalling it.
+
+### Docker Desktop v4.14 and 4.15
+
+#### Problem
+
+When starting the containers, you might encounter an error mentioning `open \.\pipe\docker_engine_windows: The system cannot find the file specified.`
+
+#### Cause
+
+Docker Desktop v4.14 and 4.15 have an issue with Windows containers.
+
+#### Solutions
+
+There are a few solutions available:
+
+- Rollback to Docker Desktop v4.13.
+- Running a few commands and creating a few files.
+- Creating a registry key.
+
+For more details about the problem, causes, and solutions, read [Jeremy Davis' blog post](https://blog.jermdavis.dev/posts/2022/fix-broken-pipe-docker-engine-windows).

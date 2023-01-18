@@ -663,17 +663,25 @@ export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
 ): Promise<WelcomeMessage> {
-  const dataExtensionName = 'PersonalInformation';
+  return callFlows({
+    params: {
+      ipAddress,
+      browserLanguage: language,
+    },
+    friendlyId: 'dynamic_welcome_message',
+  }) as Promise<WelcomeMessage>;
+}
 
-  const dataExtensionPayload = {
-    key: dataExtensionName,
-    ipAddress,
-    language,
-  };
-  return saveDataExtension(dataExtensionName, dataExtensionPayload).then(
-    () =>
-      callFlows({
-        friendlyId: 'dynamic_welcome_message',
-      }) as Promise<WelcomeMessage>
-  );
+// ***************************
+// Used to determine if the session should be closed
+// in case of a QR code scan from the TV app
+// ***************************
+interface ShouldCloseSessionResponse {
+  shouldCloseCurrentSession: string;
+}
+
+export function shouldCloseSession(): Promise<ShouldCloseSessionResponse> {
+  return callFlows({
+    friendlyId: 'should_close_current_session',
+  }) as Promise<ShouldCloseSessionResponse>;
 }
