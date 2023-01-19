@@ -67,7 +67,7 @@ services:
       Sitecore_Sitecore__IdentityServer__CertificateRawData: ${SITECORE_ID_CERTIFICATE}
       Sitecore_Sitecore__IdentityServer__PublicOrigin: https://${ID_HOST}
       Sitecore_Sitecore__IdentityServer__CertificateRawDataPassword: ${SITECORE_ID_CERTIFICATE_PASSWORD}
-      Sitecore_License: ${SITECORE_LICENSE}
+      # Sitecore_License: ${SITECORE_LICENSE}
     healthcheck:
       test: ["CMD", "pwsh", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
@@ -101,7 +101,7 @@ services:
       Sitecore_AppSettings_Telerik.AsyncUpload.ConfigurationEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
       Sitecore_AppSettings_Telerik.Upload.ConfigurationHashKey: ${TELERIK_ENCRYPTION_KEY}
       Sitecore_AppSettings_Telerik.Web.UI.DialogParametersEncryptionKey: ${TELERIK_ENCRYPTION_KEY}
-      Sitecore_License: ${SITECORE_LICENSE}
+      # Sitecore_License: ${SITECORE_LICENSE}
       Sitecore_Identity_Server_Authority: https://${ID_HOST}
       Sitecore_Identity_Server_InternalAuthority: http://id
       Sitecore_Identity_Server_CallbackAuthority: https://${CM_HOST}
