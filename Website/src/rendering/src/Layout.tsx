@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views in CDP and Sitecore Send
+import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views
 import Head from 'next/head';
 // DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
 import {
@@ -7,7 +7,7 @@ import {
   LayoutServiceData,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-// DEMO TEAM CUSTOMIZATION - CDP ans Sitecore Send integration
+// DEMO TEAM CUSTOMIZATION - CDP and Sitecore Send integration
 import { closeCurrentSession, logQRCodeEvent, shouldCloseSession } from './services/CdpService';
 import { trackViewEvent } from './services/TrackingService';
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
@@ -24,7 +24,7 @@ interface LayoutProps {
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route, context } = layoutData.sitecore; // DEMO TEAM CUSTOMIZATION - Add context to destructuring
 
-  // DEMO TEAM CUSTOMIZATION - Log page views in CDP and Sitecore Send
+  // DEMO TEAM CUSTOMIZATION - Log page views and code scans
   useEffect(() => {
     (async () => {
       if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
