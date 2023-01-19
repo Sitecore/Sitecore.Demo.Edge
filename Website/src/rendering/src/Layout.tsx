@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views in CDP
+import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views in CDP and Sitecore Send
 import Head from 'next/head';
 // DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
 import {
@@ -7,10 +7,11 @@ import {
   LayoutServiceData,
   LayoutServicePageState,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+// DEMO TEAM CUSTOMIZATION - CDP ans Sitecore Send integration
+import { closeCurrentSession, logQRCodeEvent, shouldCloseSession } from './services/CdpService';
+import { trackViewEvent } from './services/TrackingService';
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
-import { shouldCloseSession } from './services/BoxeverService';
-import { trackViewEventInSend } from './services/SendService'; // DEMO TEAM CUSTOMIZATION - Sitecore Send integration
+// END CUSTOMIZATION
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -23,7 +24,7 @@ interface LayoutProps {
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route, context } = layoutData.sitecore; // DEMO TEAM CUSTOMIZATION - Add context to destructuring
 
-  // DEMO TEAM CUSTOMIZATION - Log page views in CDP
+  // DEMO TEAM CUSTOMIZATION - Log page views in CDP and Sitecore Send
   useEffect(() => {
     (async () => {
       if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
@@ -35,8 +36,7 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         }
         await logQRCodeEvent('QR Code TV Scan');
       }
-      await logViewEvent(route);
-      trackViewEventInSend();
+      await trackViewEvent(route);
     })();
   }, [route]);
   // END CUSTOMIZATION

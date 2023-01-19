@@ -673,7 +673,7 @@ export function getDynamicWelcomeMessage(
 // Used to determine if the session should be closed
 // in case of a QR code scan from the TV app
 // ***************************
-interface ShouldCloseSessionResponse {
+export interface ShouldCloseSessionResponse {
   shouldCloseCurrentSession: string;
 }
 

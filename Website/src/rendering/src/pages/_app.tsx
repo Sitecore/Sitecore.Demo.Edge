@@ -3,11 +3,12 @@ import { I18nProvider } from 'next-localization';
 // DEMO TEAM CUSTOMIZATION - CDP and Sitecore Send integration. Per page layouts. Fonts and icons. etc.
 import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
-import { CdpScripts, identifyVisitor } from '../services/CdpService';
-import { KeypressHandler } from 'src/services/KeypressHandlerService';
+import { CdpScripts } from '../services/CdpService';
+import { SendScripts } from '../services/SendService';
+import { identifyVisitor } from '../services/IdentificationService';
+import { KeypressHandler } from '../services/KeypressHandlerService';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import { identifyVisitorInSend, SendScripts } from 'src/services/SendService';
 config.autoAddCss = false;
 // END CUSTOMIZATION
 
@@ -39,7 +40,6 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
         email = emailQueryStringValue[0];
       }
 
-      identifyVisitorInSend(email);
       identifyVisitor(email);
     }
     KeypressHandler();
@@ -53,7 +53,7 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
   const component = getLayout(<Component {...rest} />);
   // END CUSTOMIZATION
 
-  // DEMO TEAM CUSTOMIZATION - Add head section and CDP integration
+  // DEMO TEAM CUSTOMIZATION - Add head section, CDP, and Sitecore Send integration
   return (
     <>
       <Head>

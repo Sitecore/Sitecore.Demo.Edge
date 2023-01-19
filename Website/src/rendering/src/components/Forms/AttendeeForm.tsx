@@ -1,9 +1,8 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
-import { identifyVisitor } from '../../services/CdpService';
+import { identifyVisitor } from '../../services/IdentificationService';
 import { getUserData } from '../../helpers/GuestDataHelper';
-import { identifyVisitorInSend } from '../../services/SendService';
 
 const AttendeeForm = (): JSX.Element => {
   const ticketId =
@@ -32,8 +31,6 @@ const AttendeeForm = (): JSX.Element => {
       alert('All form fields must be filled.');
       return;
     }
-
-    identifyVisitorInSend(email, firstName, lastName);
 
     return await identifyVisitor(email, firstName, lastName).then(() => {
       Router.push(`/tickets/payment?ticket=${ticketId}`);
