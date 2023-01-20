@@ -178,7 +178,7 @@ stages:
         script: |
           $sitecoreRegistry = "$(sitecore.container.registry)"
 
-          az login -u "$(sitecore.container.registry.username)" -p "$(sitecore.container.registry.password)" -t "$(sitecore.container.registry.tenant)"
+          az login -u "$(sitecore.container.registry.username)" -p "${env:SITECORE_CONTAINER_REGISTRY_PASSWORD}" -t "$(sitecore.container.registry.tenant)"
 
           if ("$sitecoreRegistry" -ne "scr.sitecore.com/"){
             az acr login -n "$(sitecore.container.registry.short)"
