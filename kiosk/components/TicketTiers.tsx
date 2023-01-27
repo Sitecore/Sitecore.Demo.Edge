@@ -59,10 +59,12 @@ class TicketTiers extends React.Component {
             Previous
           </span>
           {this.state.selectedTicket ? (
-            <Link href={`/payment/${this.state.selectedTicket}`} passHref>
-              <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right">
-                Continue
-              </a>
+            <Link
+              href={`/payment/${this.state.selectedTicket}`}
+              passHref
+              className="btn--main btn--main--round btn--main--primary btn--main--big btn-right"
+            >
+              Continue
             </Link>
           ) : (
             <a className="btn--main btn--main--round btn--main--primary btn--main--big btn-right btn--disabled">

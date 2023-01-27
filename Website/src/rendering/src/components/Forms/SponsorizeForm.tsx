@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { identifyVisitor } from '../../services/CdpService';
+import { identifyVisitor } from '../../services/IdentificationService';
 import { getUserData } from '../../helpers/GuestDataHelper';
 
 const SponsorizeForm = (): JSX.Element => {
