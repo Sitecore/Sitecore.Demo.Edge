@@ -4,13 +4,17 @@
 
 Main PLAY! Summit website built with:
 
-- Sitecore Experience Management
-- Sitecore JavaScript Services (JSS)
+- Sitecore Experience Management (XM)
 - Sitecore Experience Edge
+- Sitecore Content Hub DAM and CMP
+- Sitecore JavaScript Services (JSS)
 - Sitecore CDP
 - Sitecore Personalize
+- Sitecore Discover
+- Sitecore OrderCloud
 - Next.js
-- Vercel
+- Tailwind CSS
+- Storybook
 
 ### Project Content
 
@@ -28,7 +32,7 @@ The `\src` subfolder has the Sitecore Content Serialization (SCS) configuration 
 
 ### Configured for Sitecore-based workflow
 
-It is intended that you work directly in Sitecore to define templates and renderings, instead of using the code-first approach. This is also known as "Sitecore-first" JSS workflow. To support this:
+It is intended that you work directly in Sitecore to define templates and renderings, instead of using the code-first/disconnected approach. This is also known as "Sitecore-first" JSS workflow. To support this:
 
 - The JSS content workflow is disabled.
 - Imported items will not be marked as 'protected'.
@@ -38,11 +42,12 @@ It is intended that you work directly in Sitecore to define templates and render
 
 The `\items` folder contains serialized Sitecore content items for this demo. The serialized paths are configured in `*.module.json` files in the parent directory.
 
-- `InitItems.module.json` configures items which this template needs to push before deploying JSS items using `jss deploy` (command that is not used in this demo that is developed using Sitecore-first).
-- `EdgeWebsite.module.json` contains developer-owned configuration items which are created by the JSS website.
-- `EdgeWebsite-Content.module.json` contains content items which are created by the JSS website. It's a good practice to put content into a separate module, so it can be excluded from packaging and deployment.
+- `InitItems.module.json` configures items which this solution needs to push before deploying other items.
+- `EdgeWebsite.module.json` contains developer-owned items for the website.
+- `EdgeWebsite-Content.module.json` contains content items for the website. It's a good practice to put content into a separate module, so it can be excluded from packaging and deployment.
+- `Roles.module.json` contains a custom demo Sitecore roles.
 
-See Sitecore Content Serialization documentation for more information.
+See [Sitecore Content Serialization documentation](https://doc.sitecore.com/xp/en/developers/103/developer-tools/sitecore-content-serialization.html) for more information.
 
 ### Sitecore Platform Project
 
@@ -52,24 +57,24 @@ This Visual Studio / MSBuild project is used to deploy code and configuration to
 
 The `\rendering` folder contains the main website JSS Next.js project. The content of this folder is mapped to the Rendering container using a Docker volume. All changes to the sources trigger a recompile and can be seen live in the browser at [https://www.edge.localhost](https://www.edge.localhost).
 
-You can also run the Next.js application directly using `npm` commands within `src\rendering`. It is not recommended to run both the rendering Docker container and the npm commands at the same time as both use the same output folder. Stop the rendering Docker container if you want to run the Next.js application using `npm` commands.
+You can also build or run the Next.js application directly using `npm` commands within `src\rendering`. It is not recommended to run both the rendering Docker container and the npm commands at the same time as both use the same output folder. Stop the rendering Docker container if you want to build or run the Next.js application using `npm` commands.
 
 #### Storybook
 
 The project uses [Storybook](https://github.com/storybookjs/storybook) for "disconnected" development. Standard JSS "disconnected" mode has been removed. `jss start` runs connected and expects Sitecore to be running using the provided Docker-compose container environment.
 
-To browse the existing stories, run `jss storybook`
+To browse the existing stories, run `jss storybook` or `npm run storybook`.
 
 To add a new story, create a `*.stories.tsx` file under `src\stories`. Use other files in that folder as an example.
 
 If adding a component story, the title should be: `'Components/%Component Name Here%'`. For pages, it is `'Pages/%Page Name Here%'`.
 
-`jss scaffold [%OptionalComponentPath%]%ComponentName%` will automatically create the related component story.
+`jss scaffold [%OptionalComponentPath%]%ComponentName%` will automatically create the related component story at the same time as the component file.
 
 ## Prerequisites
 
 1. Ensure you have installed and followed the [global prerequisites](../prerequisites.md).
-2. Ensure you have run the [Docker prerequisites](../docker.md#Prerequisites).
+2. Ensure you have run the [Docker prerequisites](../docker.md#prerequisites).
 
 ### Optional: Sitecore CDP and Personalize Module Configuration
 
@@ -137,7 +142,7 @@ If you want the website to use Commerce, you must configure Sitecore OrderCloud,
 
 The shop section of the demo comes with a default Auth0 configuration that works for development. It allows your users to log in via single sign on (Auth0) as well as access logged-in user flows. If you wish to use your own Auth0 account, you must have configured commerce and have access to an [auth0](https://auth0.com) instance.
 
-1. Follow [instructions here](../ordercloud.md#) to configure OrderCloud for single sign on.
+1. Follow [instructions here](../ordercloud.md#configuring-single-sign-on) to configure OrderCloud for single sign on.
 2. Edit the `.\.env` file.
 3. Fill the following values (see table below for description and checkout Configuring OpenID Connect Integration).
 
@@ -168,19 +173,19 @@ The shop section of the demo comes with a default Auth0 configuration that works
 
 ## Running the Website
 
-1. Ensure you have run the [prerequisites](#Prerequisites) above.
-2. [Start the containers](../docker.md#Starting-the-Containers) and follow the login directions.
+1. Ensure you have run the [prerequisites](#prerequisites) above.
+2. [Start the containers](../docker.md#starting-the-containers) and follow the login directions.
 3. Wait for the startup script to open browser tabs for the rendered site and Sitecore Launchpad.
 4. If you [enabled commerce](#optional-commerce-configuration) before running the website:
    1. [Configure the Headstart OrderCloud marketplace for PLAY! SHOP](../ordercloud.md#play-shop-seeding).
 
 ## Stopping the Website
 
-Stop the website by [stopping the containers](../docker.md#Stopping-the-Containers).
+Stop the website by [stopping the containers](../docker.md#stopping-the-containers).
 
 ## Starting Over
 
-You can remove all databases and solr indexes content by following the [Docker starting over procedure](../docker.md#Starting-Over).
+You can remove all databases and solr indexes content by following the [Docker starting over procedure](../docker.md#starting-over).
 
 Changes to the front-end project must be reverted from your Git client.
 

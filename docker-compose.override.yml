@@ -389,7 +389,7 @@ services:
       - "traefik.http.routers.headstart-seller-secure.entrypoints=websecure"
       - "traefik.http.routers.headstart-seller-secure.rule=Host(`${SELLER_HOST}`)"
       - "traefik.http.routers.headstart-seller-secure.tls=true"
-      
+
   cosmos:
     image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     mem_limit: 3g
