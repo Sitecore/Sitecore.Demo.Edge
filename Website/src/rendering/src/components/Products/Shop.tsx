@@ -8,12 +8,12 @@ import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
-import { DiscoverService } from '../../services/DiscoverService';
+import { initialize as initializeDiscover } from '../../services/DiscoverService';
 import { trackViewEvent } from '../../services/TrackingService';
 
-DiscoverService();
-
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  initializeDiscover();
+
   useEffect(() => {
     trackViewEvent();
     // Log a page view on route change
