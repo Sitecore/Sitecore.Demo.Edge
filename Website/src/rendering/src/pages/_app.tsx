@@ -4,7 +4,7 @@ import { I18nProvider } from 'next-localization';
 import { ReactElement, useEffect } from 'react';
 import Head from 'next/head';
 import { CdpScripts } from '../services/CdpService';
-import { SendScripts } from '../services/SendService';
+import { initialize as initializeSend, SendScripts } from '../services/SendService';
 import { identifyVisitor } from '../services/IdentificationService';
 import { KeypressHandler } from '../services/KeypressHandlerService';
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -28,8 +28,12 @@ type AppPropsWithLayout = AppProps & {
 
 // DEMO TEAM CUSTOMIZATION (next line) - Different prop type. Add router.
 function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element {
-  // DEMO TEAM CUSTOMIZATION - Identify the user from an email address from the query string to handle clicks on email links. Also register a key press handler to close CDP sessions and forget CDP guests.
+  // DEMO TEAM CUSTOMIZATION
   useEffect(() => {
+    // Initialize Sitecore Send
+    initializeSend();
+
+    // Identify the user from an email address from the query string to handle clicks on email links
     const emailQueryStringValue = router.query['email'];
     if (emailQueryStringValue) {
       let email = '';
@@ -42,6 +46,8 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
 
       identifyVisitor(email);
     }
+
+    // Register a key press handler to close CDP sessions and forget CDP guests
     KeypressHandler();
   });
   // END CUSTOMIZATION
