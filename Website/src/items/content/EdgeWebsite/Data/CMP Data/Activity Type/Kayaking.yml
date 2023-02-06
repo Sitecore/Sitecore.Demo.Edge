@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f3d7be4a-4470-4826-b2f3-90877310e701"
     - ID: "e6dd8379-422c-41c1-863c-947992df1836"
       Hint: Name
       Value: Kayaking

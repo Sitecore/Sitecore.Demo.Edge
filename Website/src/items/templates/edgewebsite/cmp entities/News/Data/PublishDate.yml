@@ -18,3 +18,7 @@ Languages:
     Value: Publish Date
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9fafb892-e0a9-4ae8-91b6-8a8739329f44"

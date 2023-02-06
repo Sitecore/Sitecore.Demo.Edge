@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getDynamicWelcomeMessage, WelcomeMessage } from 'src/services/BoxeverService';
+import { getDynamicWelcomeMessage, WelcomeMessage } from 'src/services/CdpService';
 import { getIpAddress } from 'src/services/IpAddressService';
 import { useRouter } from 'next/router';
 
@@ -26,7 +26,7 @@ const DynamicWelcomeMessage = (): JSX.Element => {
 
   const messageContent = message && (
     <section className="section dynamic-welcome-message">
-      <div className="section-content container message-banner">
+      <div className="container message-banner">
         <span>{message}</span>
       </div>
     </section>

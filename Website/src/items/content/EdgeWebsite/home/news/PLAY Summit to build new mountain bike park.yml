@@ -22,6 +22,9 @@ Languages:
     - ID: "5452a1d2-a7e3-421c-a6ee-dc69e58bf206"
       Hint: Title
       Value: "PLAY! Summit to build new mountain biking park"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9bed1f68-ca3f-4b41-bd17-2dbcbff47ba6"
     - ID: "c60646d2-b021-4158-be5f-64943e445b1a"
       Hint: PublishDate
       Value: "20211110T050000:637721172000000000Z"

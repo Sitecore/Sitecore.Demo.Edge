@@ -1,7 +1,7 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
-import { identifyVisitor } from '../../services/CdpService';
+import { identifyVisitor } from '../../services/IdentificationService';
 import { getUserData } from '../../helpers/GuestDataHelper';
 
 const AttendeeForm = (): JSX.Element => {

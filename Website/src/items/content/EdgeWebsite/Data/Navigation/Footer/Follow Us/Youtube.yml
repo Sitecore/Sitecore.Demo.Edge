@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "eb7b1105-c321-499a-aee2-2f9fa5bb2e64"
     - ID: "bf52b591-6456-4189-b1cc-4a50b2647017"
       Hint: Fontawesome Icon Name
       Value: faYoutube

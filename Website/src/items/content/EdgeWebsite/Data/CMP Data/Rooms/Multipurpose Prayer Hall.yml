@@ -24,6 +24,9 @@ Languages:
       Value: |
         <p>Multipurpose Prayer Hall</p>
         
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "2765cd47-9cc6-40d3-ba05-2c08d47b46ca"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Multipurpose Prayer Hall

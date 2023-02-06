@@ -10,8 +10,11 @@ export const getCategoryByUrlPath = (urlPath: string): Category =>
 // Returns the original category along with all its parents up to the root
 export const getCategoryChain = (ccid: string): Category[] => {
   let category = getCategoryByCcid(ccid);
-  const results = [category];
+  if (!category) {
+    return [];
+  }
 
+  const results = [category];
   while (category.parent_ccid !== '') {
     const parentCategory = getCategoryByCcid(category.parent_ccid);
     results.push(parentCategory);

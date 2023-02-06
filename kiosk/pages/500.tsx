@@ -12,18 +12,17 @@ const Custom500 = (): JSX.Element => {
         }}
       >
         <div className="m-auto text-white text-center text-xl">
-          <Link href="/start" passHref>
-            <a>
-              <Image
-                src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
-                width={200}
-                height={100}
-                alt="Logo"
-                title="Tap to go home"
-              />
-              <div>Oops! You broke the kiosk.</div>
-              <div>Please click here to reboot system.</div>
-            </a>
+          <Link href="/start">
+            <Image
+              src="https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+              width={200}
+              height={100}
+              alt="Logo"
+              title="Tap to go home"
+              unoptimized
+            />
+            <div>Oops! You broke the kiosk.</div>
+            <div>Please click here to reboot system.</div>
           </Link>
         </div>
       </div>

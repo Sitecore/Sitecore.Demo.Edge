@@ -40,7 +40,7 @@
 
    ![Empty canvas](/docs/cdp-personalize/decisioning/decisionModels/Empty-canvas.png)
 
-8. In a new browser tab, open the [GitHub decision model XML file](/demo/experience/personalize/decisioning/decisionModels/Dynamic%20Welcome%20Message/v12.1.xml).
+8. In a new browser tab, open the [GitHub decision model XML file](/demo/experience/personalize/decisioning/decisionModels/Dynamic%20Welcome%20Message/v14.xml).
 
    ![XML file](GitHub.png)
 

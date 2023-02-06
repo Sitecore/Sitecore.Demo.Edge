@@ -8,16 +8,9 @@ export async function middleware(request: NextRequest): Promise<NextResponse> {
   if (request.nextUrl.search.includes('chid')) {
     const url = request.nextUrl.clone();
     const contentHubSessionId = url.searchParams.get('chid');
-    const sessionURL = await getSessionURLByContentHubID(contentHubSessionId);
+    const sessionURL = (await getSessionURLByContentHubID(contentHubSessionId)) ?? '/sessions';
 
-    let websiteSessionURL = '';
-    if (sessionURL) {
-      const urlParts = sessionURL.split('/');
-      websiteSessionURL = `/sessions/${urlParts[urlParts.length - 1]}`;
-    } else {
-      websiteSessionURL = '/sessions';
-    }
-    url.pathname = websiteSessionURL;
+    url.pathname = sessionURL;
     url.search = 'qr-code-scan=true';
     return NextResponse.redirect(url);
   }

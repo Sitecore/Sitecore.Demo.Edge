@@ -6,6 +6,7 @@ import { removeLineItem } from '../../redux/ocCurrentCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { getImageUrl, getProductSpecs } from '../../helpers/LineItemsHelpers';
+import { addTransformation } from '../../helpers/ImageHelper';
 import { logAddToCart } from '../../services/CdpService';
 
 type MiniCartItemProps = {
@@ -36,9 +37,14 @@ const MiniCartItem = (props: MiniCartItemProps): JSX.Element => {
     </button>
   );
 
+  const productImageUrlFromLineItem = getImageUrl(props.lineItem);
   const productImage = (
     <img
-      src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
+      src={
+        productImageUrlFromLineItem
+          ? addTransformation(productImageUrlFromLineItem, 'w320')
+          : '/assets/img/shop/category-placeholder.png'
+      }
       alt={props.lineItem.Product.Name}
     ></img>
   );

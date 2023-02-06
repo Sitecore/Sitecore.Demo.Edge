@@ -25,3 +25,7 @@ Languages:
     Value: __Display name
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cb187a18-dab2-439f-8485-d11d0f77c6bc"

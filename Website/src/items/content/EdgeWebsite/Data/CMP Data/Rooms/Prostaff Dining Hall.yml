@@ -27,6 +27,9 @@ Languages:
       Value: |
         <p>Enjoy breakfast and lunch with other attendees in the Satellite Dining Hall - Thank you to&nbsp;Prostaff for sponsoring the meals!</p>
                
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0ff9b48a-a87d-40d9-bae9-75d89dbb1f6e"
     - ID: "a91ae9cb-e0be-4790-ae8d-29a196e15ba0"
       Hint: Name
       Value: Prostaff Dining Hall
