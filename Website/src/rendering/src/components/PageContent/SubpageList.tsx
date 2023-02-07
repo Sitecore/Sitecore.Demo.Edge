@@ -36,9 +36,11 @@ const SubpageList = (props: SubpageListProps): JSX.Element => {
     ));
 
   const subpageList = hasSubpages && (
-    <ul className="component navigation subpage-navigation">
-      {subpageItems}
-    </ul>
+    <div className="component navigation subpage-navigation">
+      <ul>
+        {subpageItems}
+      </ul>
+    </div>
   );
 
   return (
