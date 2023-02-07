@@ -80,8 +80,16 @@ SharedFields:
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
-          uid="{E579D137-2D14-5B2A-B960-E36612C5E79C}"
+          uid="{7477DFC5-9B39-4A02-8F56-FC936440D720}"
           p:after="r[@uid='{22E27035-D3F1-4C50-97B8-6AC5EACE81B9}']"
+          s:ds=""
+          s:id="{BC2FAA3A-C822-4ADC-A61E-09E484E42535}"
+          s:par=""
+          s:ph="/jss-main/jss-section-content-{22E27035-D3F1-4C50-97B8-6AC5EACE81B9}-0"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{E579D137-2D14-5B2A-B960-E36612C5E79C}"
+          p:after="r[@uid='{7477DFC5-9B39-4A02-8F56-FC936440D720}']"
           s:rname="Section"
           s:ds="{23C00813-F14B-5E8D-9102-EB409B5E1878}"
           s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
@@ -129,9 +137,12 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ec586596-a288-4662-b122-b85955061676"
+      Value: "87b4fb87-38ae-4dc5-b78e-11e066606c0a"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Landing Pages

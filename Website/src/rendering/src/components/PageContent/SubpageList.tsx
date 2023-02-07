@@ -1,17 +1,16 @@
 import Link from 'next/link';
 import {
-  Text,
-  RichText,
   LayoutServicePageState,
   useSitecoreContext,
+  Item,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
-import { News } from 'src/types/news';
 
 type SubpageListProps = ComponentProps & {
   fields: {
-    items: News[];
+    items: Item[];
   };
+  url: string;
 };
 
 const SubpageList = (props: SubpageListProps): JSX.Element => {
@@ -24,28 +23,22 @@ const SubpageList = (props: SubpageListProps): JSX.Element => {
 
   const pageEditingMissingDatasource = !hasSubpages && isPageEditing && <p>Missing Datasource Item</p>;
 
-  const subpageCards =
+  const subpageItems =
     props.fields.items &&
-    props.fields.items.map((news, index) => (
-      <div key={index} className="news">
-        <div className="text-container">
-          <Text tag="div" className="news-title" field={news.fields.Title} />
-          <RichText className="news-excerpt" field={news.fields.Excerpt} />
-        </div>
-        <div className="info-col-cta">
-          <Link href={props.url.path}>
-            <a className="btn-main">More Information</a>
+    props.fields.items.map((item, index) => (
+      <li key={index}>
+          <Link key={index} href={item.url} passHref>
+            <a className="subitem">
+              {item?.name}
+            </a>
           </Link>
-        </div>
-      </div>
+      </li>
     ));
 
   const subpageList = hasSubpages && (
-    <section className="section section-news-list">
-      <div className="container">
-        <div className="content">{subpageCards}</div>
-      </div>
-    </section>
+    <ul className="component navigation subpage-navigation">
+      {subpageItems}
+    </ul>
   );
 
   return (

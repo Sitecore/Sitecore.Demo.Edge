@@ -34,7 +34,7 @@ SharedFields:
         <r
           uid="{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}"
           p:after="r[@uid='{42BDCB96-CB9C-4508-B697-FAD233747A8F}']"
-          s:ds="{E091B133-450A-4144-AC0A-FA6F4C1C8A48}"
+          s:ds="{DA7387ED-BA73-4F9B-8AD9-25BEBE1C4E58}"
           s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
           s:par=""
           s:ph="/jss-main"
@@ -65,7 +65,7 @@ Languages:
       Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4140ebb4-3597-49c4-8931-6428d4c006c6"
+      Value: "93da9117-089e-46d7-8920-e4ad917d381a"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Landing Page with CTA

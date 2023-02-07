@@ -1,0 +1,13 @@
+.component.navigation {
+  &.subpage-navigation {
+    @apply py-4;
+
+    ul {
+      @apply pl-8 list-[circle];
+    }
+
+    a {
+      @apply hover:underline;
+    }
+  }
+}
