@@ -1,0 +1,32 @@
+﻿---
+ID: "c689a2ae-eb72-4b7e-a23b-e864e667f1be"
+Parent: "e9c6e28f-77d7-4bcd-88a8-217dcc63444e"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Page with Send Form/$name/Page Components/Landing Page Content
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Lorem ipsum dolor sit amet
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c3cd95a7-12a4-4b01-b8f4-70031ea194a9"
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: "left-full"
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: light

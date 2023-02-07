@@ -2,7 +2,7 @@
 ID: "37f3568d-8627-5cc9-8a47-f013112ec7ad"
 Parent: "42003282-4089-5022-8df0-a199796b19f0"
 Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
-Path: /sitecore/content/EdgeWebsite/home/media/center
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/center"
 SharedFields:
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
