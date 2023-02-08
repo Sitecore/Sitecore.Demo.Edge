@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Item } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { SitecoreItem } from 'src/types/sitecoreItem';
 
 type SubpageListProps = ComponentProps & {
   fields: {
-    items: Item[];
+    items: SitecoreItem[];
   };
   url: string;
 };
