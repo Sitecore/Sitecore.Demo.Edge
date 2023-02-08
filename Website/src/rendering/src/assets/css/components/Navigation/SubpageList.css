@@ -1,6 +1,7 @@
 .component.navigation {
   &.subpage-navigation {
     @apply py-4;
+
     padding: 0;
 
     ul {
