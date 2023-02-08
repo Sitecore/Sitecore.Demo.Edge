@@ -3,7 +3,6 @@ ID: "f71bb900-bb87-492a-bcd0-8ee861b53991"
 Parent: "feb9fafe-36a9-4b4a-a976-926a94871ee8"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
 Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page with Send Form/Page Components/Landing Page Content"
-BranchID: "c73adaa7-2f51-4088-9f85-66ceae6ad72d"
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder

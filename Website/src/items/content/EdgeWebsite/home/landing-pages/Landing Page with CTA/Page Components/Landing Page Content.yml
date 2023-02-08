@@ -3,7 +3,6 @@ ID: "da7387ed-ba73-4f9b-8ad9-25bebe1c4e58"
 Parent: "96f0ef27-2b2c-4e2f-9b9e-737c6409d307"
 Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
 Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page with CTA/Page Components/Landing Page Content"
-BranchID: "063288be-ddce-4d7e-beab-170f601e4b10"
 SharedFields:
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
