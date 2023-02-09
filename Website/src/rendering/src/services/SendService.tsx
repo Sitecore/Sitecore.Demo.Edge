@@ -1,8 +1,10 @@
+import { LayoutServiceContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 
 const SEND_WEBSITE_ID = process.env.NEXT_PUBLIC_SEND_WEBSITE_ID || '';
 export const isSendConfigured = !!SEND_WEBSITE_ID;
 let isSendInitialized = false;
+let cancelDelayedFunctions = false;
 
 declare global {
   interface Window {
@@ -20,8 +22,8 @@ export const SendScripts: JSX.Element | undefined = isSendConfigured ? (
   </>
 ) : undefined;
 
-export function initialize(): void {
-  if (isSendConfigured) {
+export function initialize(context: LayoutServiceContext): void {
+  if (isSendConfigured && !context.pageEditing) {
     // tracker has to be initialized otherwise it will generate warnings and wont sendtracking events
     window.mootrack('init', SEND_WEBSITE_ID);
 
@@ -33,6 +35,8 @@ export function initialize(): void {
     };
 
     isSendInitialized = true;
+  } else {
+    cancelDelayedFunctions = true;
   }
 }
 
@@ -41,7 +45,7 @@ export function initialize(): void {
 // before the Send library had finished initializing.
 // ****************************************************************************
 function delayUntilSendIsInitialized(functionToDelay: () => unknown) {
-  if (!isSendConfigured) {
+  if (!isSendConfigured || cancelDelayedFunctions) {
     return;
   }
 
@@ -57,13 +61,13 @@ function delayUntilSendIsInitialized(functionToDelay: () => unknown) {
 }
 
 export function trackViewEvent(): void {
-  if (isSendConfigured) {
+  if (isSendConfigured && !cancelDelayedFunctions) {
     delayUntilSendIsInitialized(() => window.mootrack('trackPageView'));
   }
 }
 
 export function identifyVisitor(email: string, firstName?: string, lastName?: string): void {
-  if (isSendConfigured) {
+  if (isSendConfigured && !cancelDelayedFunctions) {
     delayUntilSendIsInitialized(function () {
       if (firstName && lastName) {
         window.mootrack('identify', email, `${firstName} ${lastName}`);
