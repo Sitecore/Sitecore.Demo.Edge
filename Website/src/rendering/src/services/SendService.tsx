@@ -31,6 +31,7 @@ export function initialize(context: LayoutServiceContext): void {
     const pushState = history.pushState;
     history.pushState = (...rest) => {
       pushState.apply(history, rest);
+      window.mootrack('init', SEND_WEBSITE_ID);
     };
 
     isSendInitialized = true;
