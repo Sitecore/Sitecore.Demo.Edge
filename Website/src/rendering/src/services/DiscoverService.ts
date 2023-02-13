@@ -16,6 +16,7 @@ import TrendingProducts from '../components/Widgets/TrendingProducts';
 import RecentlyViewedProducts from '../components/Widgets/RecentlyViewedProducts';
 import FeaturedProducts from '../components/Widgets/FeaturedProducts';
 import GeoBasedProducts from '../components/Widgets/GeoBasedProducts';
+import { isAShopPage } from '../helpers/CommerceHelper';
 
 export interface DiscoverReference {
   current: { contains: (eventTarget: EventTarget) => boolean };
@@ -26,19 +27,30 @@ type DiscoverServiceOptions = {
 };
 
 export const updateDiscoverContext = (): void => {
-  const context = PageController.getContext();
-  context.setPageUri(window.location.pathname);
-  trackPageViewEvent({
-    page: {
-      uri: context.getPageUri(),
-    },
-    user: {
-      uuid: context.getUserUuid(),
-    },
-  });
+  const pathName = window.location.pathname;
+
+  // Only update the context for shop pages
+  if (isAShopPage(pathName)) {
+    const context = PageController.getContext();
+    context.setPageUri(pathName);
+    trackPageViewEvent({
+      page: {
+        uri: context.getPageUri(),
+      },
+      user: {
+        uuid: context.getUserUuid(),
+      },
+    });
+  }
 };
 
-export const DiscoverService = (options?: DiscoverServiceOptions): void => {
+let isDiscoverInitialized = false;
+
+export const initialize = (options?: DiscoverServiceOptions): void => {
+  if (isDiscoverInitialized) {
+    return;
+  }
+
   const DISCOVER_CUSTOMER_KEY = options?.isStorybook
     ? '0-0'
     : process.env.NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY || '';
@@ -178,4 +190,6 @@ export const DiscoverService = (options?: DiscoverServiceOptions): void => {
     pushState.apply(history, rest);
     updateDiscoverContext();
   };
+
+  isDiscoverInitialized = true;
 };
