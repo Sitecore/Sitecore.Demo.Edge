@@ -29,7 +29,7 @@ export function initialize(): void {
     const pushState = history.pushState;
     history.pushState = (...rest) => {
       pushState.apply(history, rest);
-      window.mootrack('init', SEND_WEBSITE_ID);
+      //window.mootrack('init', SEND_WEBSITE_ID);
     };
 
     isSendInitialized = true;
