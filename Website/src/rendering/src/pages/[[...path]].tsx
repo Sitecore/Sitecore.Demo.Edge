@@ -11,11 +11,15 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentFactory } from 'temp/componentFactory';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+import { initialize as initializeSend } from '../services/SendService';
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
+
+    // Initialize Sitecore Send
+    initializeSend(layoutData.sitecore.context);
   }, []);
 
   if (notFound || !layoutData.sitecore.route) {
