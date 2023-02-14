@@ -25,6 +25,17 @@ const EmbedSendForm = (props: EmbedSendFormProps): JSX.Element => {
     );
   }
 
+  if (isPageEditing) {
+    return (
+      <section className="section">
+        <div className="section-content col-content container">
+          <p className="section-content-p">Sitecore Send Form Component</p>
+          <p>Switch to preview mode to view the form</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="section">
       <div data-mooform-id={`${props?.params?.sendFormId}`} />
