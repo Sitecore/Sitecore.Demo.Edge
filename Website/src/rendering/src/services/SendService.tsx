@@ -22,8 +22,8 @@ export const SendScripts: JSX.Element | undefined = isSendConfigured ? (
   </>
 ) : undefined;
 
-export function initialize(context: LayoutServiceContext): void {
-  if (isSendConfigured && !context.pageEditing) {
+export function initialize(context?: LayoutServiceContext): void {
+  if (isSendConfigured && (typeof context === 'undefined' || !context.pageEditing)) {
     // tracker has to be initialized otherwise it will generate warnings and wont sendtracking events
     window.mootrack('init', SEND_WEBSITE_ID);
 

@@ -20,7 +20,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
 
     // Initialize Sitecore Send
     initializeSend(layoutData.sitecore.context);
-  }, []);
+  }, [layoutData.sitecore.context]);
 
   if (notFound || !layoutData.sitecore.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
