@@ -17,10 +17,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
-
-    // Initialize Sitecore Send
-    initializeSend(layoutData.sitecore.context);
-  }, [layoutData.sitecore.context]);
+  }, []);
 
   // DEMO TEAM CUSTOMIZATION - Sitecore Send integration
   useEffect(() => {
