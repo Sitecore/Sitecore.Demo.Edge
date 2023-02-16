@@ -16,6 +16,9 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
   initializeDiscover();
 
   useEffect(() => {
+    // Initialize Sitecore Send
+    initializeSend();
+
     trackViewEvent();
     // Log a page view on route change
     const pushState = history.pushState;
@@ -23,9 +26,6 @@ export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
       pushState.apply(history, rest);
       trackViewEvent();
     };
-
-    // Initialize Sitecore Send
-    initializeSend();
   }, []);
 
   const footerProps = {

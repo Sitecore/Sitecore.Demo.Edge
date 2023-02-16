@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views
 import Head from 'next/head';
-// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
-import {
-  Placeholder,
-  getPublicUrl,
-  LayoutServiceData,
-  LayoutServicePageState,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification
+import { Placeholder, getPublicUrl, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 // DEMO TEAM CUSTOMIZATION - CDP and Sitecore Send integration
 import { closeCurrentSession, logQRCodeEvent, shouldCloseSession } from './services/CdpService';
 import { trackViewEvent } from './services/TrackingService';
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
+import { isEditingOrPreviewingPage } from './helpers/LayoutServiceHelper';
 // END CUSTOMIZATION
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
@@ -42,11 +38,9 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Add CSS classes when Sitecore editors are active
-  const isExperienceEditorActiveCssClass =
-    context.pageState === LayoutServicePageState.Edit ||
-    context.pageState === LayoutServicePageState.Preview
-      ? 'experience-editor-active'
-      : '';
+  const isExperienceEditorActiveCssClass = isEditingOrPreviewingPage(context.pageState)
+    ? 'experience-editor-active'
+    : '';
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Use event name from context as the page title
