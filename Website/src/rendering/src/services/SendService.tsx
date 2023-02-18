@@ -1,4 +1,4 @@
-import { LayoutServiceContext  } from '@sitecore-jss/sitecore-jss-nextjs';
+import { LayoutServiceContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { isEditingOrPreviewingPage } from '../helpers/LayoutServiceHelper';
 
