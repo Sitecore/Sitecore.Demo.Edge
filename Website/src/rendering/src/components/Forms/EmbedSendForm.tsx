@@ -30,7 +30,10 @@ const EmbedSendForm = (props: EmbedSendFormProps): JSX.Element => {
       <section className="section">
         <div className="section-content col-content container">
           <p className="section-content-p">Sitecore Send Form Component</p>
-          <p>Switch to preview mode to view the form</p>
+          <p>
+            Sitecore Send tracking is disabled in Experience Editor and Preview mode - publish and
+            view the form on the website
+          </p>
         </div>
       </section>
     );
