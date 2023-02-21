@@ -9,7 +9,7 @@ SharedFields:
   Value: EmbedSendForm
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: office/32x32/html_tag.png
+  Value: "edgeicons/32x32/form-embeded.png"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: 
@@ -29,4 +29,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "31a278fe-7d70-4af3-b46a-b0f2932a3ae1"
+      Value: "4f5dd554-290c-49fd-ac04-95b5390106f4"

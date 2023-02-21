@@ -9,7 +9,7 @@ SharedFields:
   Value: SubpageList
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/32x32/elements_tree.png
+  Value: edgeicons/32x32/subpagelist.png
 - ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
   Hint: Rendering Contents Resolver
   Value: "{4D45DA3E-8128-422C-AFDA-E10672117E15}"
@@ -20,4 +20,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "09127078-12e1-4b88-ae17-a8ed8dd8d5cd"
+      Value: "e3e9e067-ce29-4c14-9150-3548dfef0c26"
