@@ -1,0 +1,21 @@
+﻿---
+ID: "e6a43e5d-f12e-40eb-9f4f-8fa0a12a4d87"
+Parent: "e9c6e28f-77d7-4bcd-88a8-217dcc63444e"
+Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Page with Send Form/$name/Page Components/Landing Page Hero
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: "-50"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "7f1d47cf-4525-5f3e-b8fe-4c6ddbcefa39"
+      Hint: hero
+      Value: |
+        <image mediaid="{08DB49A9-9B48-42FE-8E62-882CC6346891}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8e95b8e5-5bd0-45d6-9942-2cacb2ec3402"
