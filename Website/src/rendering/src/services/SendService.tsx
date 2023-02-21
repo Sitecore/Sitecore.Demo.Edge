@@ -1,4 +1,4 @@
-import { LayoutServiceContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { LayoutServicePageState } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
 import { isEditingOrPreviewingPage } from '../helpers/LayoutServiceHelper';
 
@@ -25,14 +25,14 @@ export const SendScripts: JSX.Element | undefined = isSendConfigured ? (
   </>
 ) : undefined;
 
-export function initialize(context?: LayoutServiceContext): void {
+export function initialize(pageState?: LayoutServicePageState): void {
   if (isSendInitialized) {
     return;
   }
 
   if (
     isSendConfigured &&
-    (typeof context === 'undefined' || !isEditingOrPreviewingPage(context?.pageState))
+    (typeof pageState === 'undefined' || !isEditingOrPreviewingPage(pageState))
   ) {
     // tracker has to be initialized otherwise it will generate warnings and wont sendtracking events
     window.mootrack('init', SEND_WEBSITE_ID);
