@@ -6,7 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/Section/__Standard Values
 SharedFields:
 - ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
   Hint: __Default workflow
-  Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -14,4 +14,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5fce308f-d244-4302-9ef1-db0d25808987"
+      Value: "83d1ef67-13fb-4220-83ab-518113cb6fac"

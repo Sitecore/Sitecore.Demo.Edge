@@ -1,0 +1,32 @@
+﻿---
+ID: "d6693bb7-c464-4a71-96f4-61b6dc603261"
+Parent: "b4005e94-e62d-5529-8236-a6dccee2d630"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Page Components/Page Content"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Landing Pages
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: Here is a list of all currently available landing pages.
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "94b347ed-6538-42df-9643-150485a5d58a"
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: "left-full"
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: light

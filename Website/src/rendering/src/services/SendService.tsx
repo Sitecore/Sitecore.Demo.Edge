@@ -1,8 +1,11 @@
+import { LayoutServiceContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import Script from 'next/script';
+import { isEditingOrPreviewingPage } from '../helpers/LayoutServiceHelper';
 
 const SEND_WEBSITE_ID = process.env.NEXT_PUBLIC_SEND_WEBSITE_ID || '';
 export const isSendConfigured = !!SEND_WEBSITE_ID;
 let isSendInitialized = false;
+let cancelDelayedFunctions = false;
 
 declare global {
   interface Window {
@@ -20,8 +23,11 @@ export const SendScripts: JSX.Element | undefined = isSendConfigured ? (
   </>
 ) : undefined;
 
-export function initialize(): void {
-  if (isSendConfigured) {
+export function initialize(context?: LayoutServiceContext): void {
+  if (
+    isSendConfigured &&
+    (typeof context === 'undefined' || !isEditingOrPreviewingPage(context?.pageState))
+  ) {
     // tracker has to be initialized otherwise it will generate warnings and wont sendtracking events
     window.mootrack('init', SEND_WEBSITE_ID);
 
@@ -29,10 +35,11 @@ export function initialize(): void {
     const pushState = history.pushState;
     history.pushState = (...rest) => {
       pushState.apply(history, rest);
-      window.mootrack('init', SEND_WEBSITE_ID);
     };
 
     isSendInitialized = true;
+  } else {
+    cancelDelayedFunctions = true;
   }
 }
 
@@ -41,7 +48,7 @@ export function initialize(): void {
 // before the Send library had finished initializing.
 // ****************************************************************************
 function delayUntilSendIsInitialized(functionToDelay: () => unknown) {
-  if (!isSendConfigured) {
+  if (!isSendConfigured || cancelDelayedFunctions) {
     return;
   }
 
@@ -57,19 +64,15 @@ function delayUntilSendIsInitialized(functionToDelay: () => unknown) {
 }
 
 export function trackViewEvent(): void {
-  if (isSendConfigured) {
-    delayUntilSendIsInitialized(() => window.mootrack('trackPageView'));
-  }
+  delayUntilSendIsInitialized(() => window.mootrack('trackPageView'));
 }
 
 export function identifyVisitor(email: string, firstName?: string, lastName?: string): void {
-  if (isSendConfigured) {
-    delayUntilSendIsInitialized(function () {
-      if (firstName && lastName) {
-        window.mootrack('identify', email, `${firstName} ${lastName}`);
-      } else {
-        window.mootrack('identify', email);
-      }
-    });
-  }
+  delayUntilSendIsInitialized(function () {
+    if (firstName && lastName) {
+      window.mootrack('identify', email, `${firstName} ${lastName}`);
+    } else {
+      window.mootrack('identify', email);
+    }
+  });
 }

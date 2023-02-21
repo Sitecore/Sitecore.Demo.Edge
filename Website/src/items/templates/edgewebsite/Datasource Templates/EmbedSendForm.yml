@@ -1,0 +1,20 @@
+﻿---
+ID: "2dd0f7b4-0c1f-4e9e-9323-34eab267baf8"
+Parent: "66eda0b9-ab0e-4525-b990-754bce8f67e1"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/edgewebsite/Datasource Templates/EmbedSendForm
+SharedFields:
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Value: "{8CA06D6A-B353-44E8-BC31-B528C7306971}"
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{7D6A2506-A172-4796-9982-C6280B0EE2BD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "efcb2e35-ed38-4ec7-a460-9ff2fd6bec48"
