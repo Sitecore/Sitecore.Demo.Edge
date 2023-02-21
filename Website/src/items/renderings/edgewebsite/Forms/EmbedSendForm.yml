@@ -12,16 +12,16 @@ SharedFields:
   Value: "edgeicons/32x32/form-embeded.png"
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: 
+  Value: /sitecore/templates/Project/edgewebsite/EmbedSendForm
 - ID: "7d8ae35f-9ed1-43b5-96a2-0a5f040d4e4e"
   Hint: Open Properties after Add
   Value: 1
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
-  Value: "{2DD0F7B4-0C1F-4E9E-9323-34EAB267BAF8}"
+  Value: 
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: 
+  Value: ./Page Components|/sitecore/content/EdgeWebsite/Data/Components/EmbedSendForm
 Languages:
 - Language: en
   Versions:
@@ -29,4 +29,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4f5dd554-290c-49fd-ac04-95b5390106f4"
+      Value: "42146328-d513-4c42-aa86-fa1fee6fd88a"
