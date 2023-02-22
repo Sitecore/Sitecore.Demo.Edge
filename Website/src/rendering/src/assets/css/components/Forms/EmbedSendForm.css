@@ -11,7 +11,7 @@
     @apply inline-block;
 
     &-editing {
-      @apply border border-black p-1;
+      @apply border border-black p-1 pr-5;
     }
   }
 

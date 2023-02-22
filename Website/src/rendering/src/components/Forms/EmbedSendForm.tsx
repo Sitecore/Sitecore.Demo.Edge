@@ -20,14 +20,11 @@ const EmbedSendForm = (props: EmbedSendFormProps): JSX.Element => {
     const isEditing = sitecoreContext.pageEditing;
     const formIdCssClass = `form-id ${isEditing ? 'form-id-editing' : ''}`;
 
-    // Note: The fragment is required to keep the className on the p element. Otherwise, the className is set to the element following the editWarning.
     const editWarning = isEditing && (
-      <>
-        <p className="edit-warning">
-          <span>Note:</span> Editing this ID will affect all the components that use the same
-          datasource item, if any.
-        </p>
-      </>
+      <p className="edit-warning">
+        <span>Note:</span> Editing this ID will affect all the other components that use the same
+        datasource item, if any.
+      </p>
     );
 
     return (
@@ -36,14 +33,15 @@ const EmbedSendForm = (props: EmbedSendFormProps): JSX.Element => {
           <p className="component-title">Sitecore Send Form Component</p>
           <p>
             <label>Sitecore Send Form ID: </label>
-            <div className={formIdCssClass}>
+            <span className={formIdCssClass}>
               <Text field={props.fields.sendFormId} />
-            </div>
+            </span>
           </p>
           {editWarning}
           <p>
-            Sitecore Send is disabled in edit and preview mode. Please publish to view the form on
-            the website.
+            Sitecore Send is disabled in edit and preview mode. You can view the form using a
+            rendering host connected to the master database or by publishing and looking at the
+            production website.
           </p>
         </div>
       </section>
