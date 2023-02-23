@@ -83,7 +83,7 @@ if (-not $ready) {
 	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
 
     # Create custom backup admin user
-    .\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername "superadmin" -SitecoreAdminPassword $SitecoreAdminPassword
+    .\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername "sitecore\superadmin" -SitecoreAdminPassword $SitecoreAdminPassword
 
     # Create Minnie user and placeholder role
     .\CreateSitecoreAuthorUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAuthorUsername "sitecore\Minnie" -SitecoreAuthorPassword $SitecoreUserPassword -SitecoreAuthorRolename "sitecore\Demo Content Creator" -SitecoreAuthorProfilePropertyNames 'Portrait:S:0:24:FullName:S:24:6:ProfileItemId:S:30:38:SerializedData:B:0:2354:' -SitecoreAuthorProfilePropertyValueString 'office/16x16/woman_4.pngMinnie{AE4C4969-5B7E-4B4E-9042-B2D8701CE214}'
