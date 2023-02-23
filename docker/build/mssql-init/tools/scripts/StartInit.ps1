@@ -82,9 +82,12 @@ if (-not $ready) {
     # Create custom admin user
 	.\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername $SitecoreAdminUsername -SitecoreAdminPassword $SitecoreAdminPassword
 
+    # Create custom backup admin user
+    .\CreateSitecoreAdminUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAdminUsername "superadmin" -SitecoreAdminPassword $SitecoreAdminPassword
+
     # Create Minnie user and placeholder role
     .\CreateSitecoreAuthorUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAuthorUsername "sitecore\Minnie" -SitecoreAuthorPassword $SitecoreUserPassword -SitecoreAuthorRolename "sitecore\Demo Content Creator" -SitecoreAuthorProfilePropertyNames 'Portrait:S:0:24:FullName:S:24:6:ProfileItemId:S:30:38:SerializedData:B:0:2354:' -SitecoreAuthorProfilePropertyValueString 'office/16x16/woman_4.pngMinnie{AE4C4969-5B7E-4B4E-9042-B2D8701CE214}'
-    
+
     # Create Pete user and placeholder role
 	.\CreateSitecoreAuthorUser.ps1 -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword -SitecoreAuthorUsername "sitecore\Pete" -SitecoreAuthorPassword $SitecoreUserPassword -SitecoreAuthorRolename "sitecore\Demo Content Approver" -SitecoreAuthorProfilePropertyNames 'Portrait:S:0:22:FullName:S:22:4:ProfileItemId:S:26:38:SerializedData:B:0:1502:' -SitecoreAuthorProfilePropertyValueString 'office/16x16/man_5.pngPete{AE4C4969-5B7E-4B4E-9042-B2D8701CE214}'
 
