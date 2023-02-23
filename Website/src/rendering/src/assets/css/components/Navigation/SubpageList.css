@@ -1,13 +1,11 @@
-.component.navigation {
-  &.subpage-navigation {
-    @apply p-0;
+.subpage-list {
+  @apply p-0;
 
-    ul {
-      @apply pl-8 list-[circle];
-    }
+  ul {
+    @apply pl-8 list-[circle];
+  }
 
-    a {
-      @apply hover:underline;
-    }
+  a {
+    @apply hover:underline;
   }
 }
