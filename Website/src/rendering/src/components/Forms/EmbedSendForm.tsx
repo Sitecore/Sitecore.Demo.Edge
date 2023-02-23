@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Field,
-  LayoutServicePageState,
-  Text,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Field, Text, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { isEditingOrPreviewingPage } from '../../helpers/LayoutServiceHelper';
 
 type EmbedSendFormProps = {
@@ -34,7 +29,7 @@ const EmbedSendForm = (props: EmbedSendFormProps): JSX.Element => {
           <p>
             <label>Sitecore Send Form ID: </label>
             <span className={formIdCssClass}>
-              <Text field={props.fields.sendFormId} />
+              <Text field={props?.fields?.sendFormId} />
             </span>
           </p>
           {editWarning}
