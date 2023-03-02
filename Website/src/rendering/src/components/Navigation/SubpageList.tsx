@@ -6,29 +6,32 @@ type SubpageListProps = ComponentProps & {
   fields: {
     items: SitecoreItem[];
   };
-  url: string;
 };
 
 const SubpageList = (props: SubpageListProps): JSX.Element => {
   const hasSubpages = !!props?.fields?.items?.length;
 
-  const subpageItems =
-    props.fields.items &&
-    props.fields.items.map((item, index) => (
+  if (!hasSubpages) {
+    return <></>;
+  }
+
+  const subpageItems = props.fields.items.map((item, index) =>
+    item ? (
       <li key={index}>
-        <Link key={index} href={item.url} passHref>
-          <a className="subitem">{item?.name}</a>
+        <Link href={item.url} passHref>
+          <a className="subitem">{item.name || item.url}</a>
         </Link>
       </li>
-    ));
+    ) : (
+      <></>
+    )
+  );
 
-  const subpageList = hasSubpages && (
-    <div className="component navigation subpage-navigation">
+  return (
+    <div className="subpage-list">
       <ul>{subpageItems}</ul>
     </div>
   );
-
-  return <>{subpageList}</>;
 };
 
 export default SubpageList;

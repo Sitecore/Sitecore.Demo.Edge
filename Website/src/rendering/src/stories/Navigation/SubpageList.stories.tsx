@@ -1,5 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import SubpageList from '../../components/Navigation/SubpageList';
 import { SitecoreItem } from 'src/types/sitecoreItem';
 
@@ -29,5 +30,19 @@ export const Default = Template.bind({});
 Default.args = {
   fields: {
     items: [item1, item2, item3],
+  },
+};
+
+export const ZeroSubItems = Template.bind({});
+ZeroSubItems.args = {
+  fields: {
+    items: [],
+  },
+};
+
+export const UndefinedSubItems = Template.bind({});
+UndefinedSubItems.args = {
+  fields: {
+    items: undefined,
   },
 };
