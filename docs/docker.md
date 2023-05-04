@@ -1,6 +1,6 @@
 # 🐳 Docker
 
-The PLAY! Summit demo comes with a `docker-compose` environment for a Sitecore XM1 topology.
+The PLAY! Summit demo comes with a Docker compose environment for a Sitecore XM1 topology.
 
 The included `docker-compose.yml` is a stock XM1 environment from the Sitecore Container Support Package. All changes/additions for this solution are located in the `docker-compose.override.yml` file.
 
@@ -19,9 +19,9 @@ Ensure you have installed and followed the [global prerequisites](prerequisites.
 
 1. Ensure you are running Windows containers:
    1. From the Docker Desktop taskbar icon contextual menu (right click), you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select "Switch to Windows containers..." to use Windows containers.
-2. Ensure the Windows Docker engine experimental features are enabled and Docker Compose V2 is disabled:
+2. Ensure the Windows Docker engine experimental features and Docker Compose V2 are enabled:
 
-   > Experimental features must be enabled to allow the Linux mssql container to run at the same time as the Windows containers. Docker Compose V2 must be disabled as this project is not compatible with this version.
+   > Experimental features must be enabled to allow the Linux mssql container to run at the same time as the Windows containers. Docker Compose V2 must be enabled as this project is only compatible with this version.
 
    1. From the Docker Desktop taskbar icon contextual menu (right click), choose "Settings".
    2. In the left tab group, navigate to the "Docker Engine" tab.
@@ -37,7 +37,7 @@ Ensure you have installed and followed the [global prerequisites](prerequisites.
       ```
 
    6. In the left tab group, navigate to the "General" tab.
-   7. Ensure that the "Use Docker Compose V2" option is not checked.
+   7. Ensure that the "Use Docker Compose V2" option is checked.
    8. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
 ### Environment Initialization
@@ -89,7 +89,7 @@ In an elevated PowerShell terminal:
 
 ## Stopping the Containers
 
-The Linux MSSQL container is super slow to terminate when using the `docker-compose down` command. We created a script to speed up containers termination. In an elevated PowerShell terminal:
+The Linux MSSQL container is super slow to terminate when using the `docker compose down` command. We created a script to speed up containers termination. In an elevated PowerShell terminal:
 
 ```ps1
 .\down.ps1
