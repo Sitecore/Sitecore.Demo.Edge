@@ -16,8 +16,8 @@ services:
     healthcheck:
       test: ["CMD", "traefik", "healthcheck", "--ping"]
     volumes:
-      - source: \\.\pipe\docker_engine
-        target: \\.\pipe\docker_engine
+      - source: \\.\pipe\docker_engine\
+        target: \\.\pipe\docker_engine\
         type: npipe
       # DEMO TEAM CUSTOMIZATION - Removed default volume with host folder ./traefik
     depends_on:
