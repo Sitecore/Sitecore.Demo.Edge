@@ -56,6 +56,9 @@ RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.D
 COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
 
+# Copy Product Hotfixes
+COPY --from=deltaAssetImage /platform/cm ./
+
 # Copy additinal files to container
 COPY ./Data/ /inetpub/wwwroot/
 
@@ -64,9 +67,6 @@ COPY ./tools/ /tools/
 
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
-
-# Copy Product Hotfixes
-COPY --from=deltaAssetImage /platform/cm ./
 
 # Copy website images to allow displaying them in Horizon without EnableRelativeLinkProcessing
 COPY --from=solution /artifacts/src/rendering/public ./
