@@ -8,6 +8,7 @@ ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
 ARG EXPERIENCE_EDGE_ASSETS_IMAGE
+ARG DELTA_ASSET_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
@@ -16,6 +17,7 @@ FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${EXPERIENCE_EDGE_ASSETS_IMAGE} AS edge_assets
+FROM ${DELTA_ASSET_IMAGE} as deltaAssetImage
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -62,6 +64,9 @@ COPY ./tools/ /tools/
 
 # Copy solution website files
 COPY --from=solution /artifacts/sitecore/ ./
+
+# Copy Product Hotfixes
+COPY --from=deltaAssetImage /platform/cm ./
 
 # Copy website images to allow displaying them in Horizon without EnableRelativeLinkProcessing
 COPY --from=solution /artifacts/src/rendering/public ./
