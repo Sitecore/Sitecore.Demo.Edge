@@ -27,7 +27,7 @@ if ($currentNodeJsVersion -ne $requiredNodeJsVersion) {
 # END CUSTOMIZATION
 
 # Double check whether init has been run
-$envCheckVariable = "HOST_LICENSE_FOLDER"
+$envCheckVariable = "SITECORE_ADMIN_PASSWORD"
 $envCheck = Get-Content .env -Encoding UTF8 | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
     # DEMO TEAM CUSTOMIZATION - Auto run init.ps1 if not run.
