@@ -6,14 +6,21 @@ The included `docker-compose.yml` is a stock XM1 environment from the Sitecore C
 
 The environment has some extra containers:
 
-- **Rendering Host**: A Next.js rendering host container to render the main website. It runs the website in development mode with hot reloading.
-- **Init Container**: It runs some startup jobs (mostly when deployed to AKS and Vercel) and warms up the main website.
+- **rendering**: A Next.js rendering host container to render the main website. It runs the website in development mode with hot reloading.
+- **init**: An initialization container that runs some startup jobs (mostly when deployed to AKS and Vercel) and warms up the main website.
+- **headstart-middleware, headstart-seller, cosmos, and headstart-storage**: Set of containers to run the OrderCloud Headstart seller UI when demoing PLAY! Shop.
 
 ## Prerequisites
 
 Do these prerequisites before you start the main website or the kiosk projects.
 
 Ensure you have installed and followed the [global prerequisites](prerequisites.md).
+
+### Installing Docker Desktop
+
+[Docker Desktop](https://docs.docker.com/desktop/release-notes/#4180) version 4.18.0 maximum must be installed.
+
+**Note:** Docker Desktop v4.19.0+ contains Docker Engine v23.0+ which does not have the experimental support for Linux containers on Windows (LCOW) anymore. This demo uses this Docker Engine feature. Source: [https://docs.docker.com/engine/deprecated/#linux-containers-on-windows-lcow-experimental](https://docs.docker.com/engine/deprecated/#linux-containers-on-windows-lcow-experimental)
 
 ### Preparing Docker
 
