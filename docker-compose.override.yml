@@ -17,10 +17,11 @@ services:
       args:
         PARENT_IMAGE: mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
         NODEJS_VERSION: ${NODEJS_VERSION}
-    scale: 0
+    deploy:
+      replicas: 0
 
   # The solution build image is added here so it can be referenced as a build dependency
-  # for the images which use its output. Setting "scale: 0" means docker-compose will not
+  # for the images which use its output. Setting "replicas: 0" means Docker compose will not
   # include it in the running environment. See Dockerfile for more details.
   solution:
     # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
@@ -31,7 +32,8 @@ services:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         # DEMO TEAM CUSTOMIZATION - to prevent TLS issues we implemented the solution described here: https://sitecore.stackexchange.com/a/29558/171
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
-    scale: 0
+    deploy:
+      replicas: 0
 
   rendering:
     # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
@@ -265,7 +267,7 @@ services:
       ## Disable Edge Publishing until Edge provisioning is implemented
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""
-    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
+    entrypoint: powershell.exe -Command "& C:/tools/entrypoints/iis/Development.ps1"
 
   # OrderCloud Headstart
   headstart-middleware:
@@ -273,7 +275,8 @@ services:
     isolation: default
     ports:
       - 43005:80
-    scale: ${OC_HEADSTART_ENABLED}
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
     environment:
       ASPNETCORE_ENVIRONMENT: ${BUILD_CONFIGURATION}
       ApplicationInsightsSettings_InstrumentationKey: "${ApplicationInsightsSettings_InstrumentationKey}"
@@ -378,7 +381,8 @@ services:
   headstart-seller:
     image: adoprog/headstart-seller:${OC_HEADSTART_VERSION}-linux
     isolation: default
-    scale: ${OC_HEADSTART_ENABLED}
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
     environment:
       SELLER_CLIENT_ID: ${ORDERCLOUD_SELLER_CLIENT_ID}
       MIDDLEWARE_URL: https://${API_HOST}
@@ -396,7 +400,8 @@ services:
     image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     mem_limit: 3g
     cpu_count: 2
-    scale: ${OC_HEADSTART_ENABLED}
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
     environment:
       AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 10
       AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "false"
@@ -413,7 +418,8 @@ services:
     image: mcr.microsoft.com/azure-storage/azurite:${AZUREITE_TAG}
     volumes:
       - ./docker/data/storage:/data
-    scale: ${OC_HEADSTART_ENABLED}
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
     environment:
       blobHost: 0.0.0.0
       queueHost: 0.0.0.0
