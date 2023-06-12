@@ -126,20 +126,6 @@ services:
     volumes:
       - ./docker/traefik:C:/etc/traefik
 
-  # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
-  # module data added. See Dockerfile for details.
-  mssql:
-    # DEMO TEAM CUSTOMIZATION - Switch to a Linux version of MSSQL server to support both AKS and local environments
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    healthcheck:
-      test: ["CMD", "dir"]
-    # DEMO TEAM CUSTOMIZATION - More RAM
-    mem_limit: 2GB
-    volumes:
-      - type: bind
-        source: .\docker\data\sql
-        target: /var/opt/mssql/data
-
   # DEMO TEAM CUSTOMIZATION - Custom mssql init
   mssql-init:
     image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
