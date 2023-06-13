@@ -96,7 +96,7 @@ Set the following environment variables to the values received from the /seed en
 - ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET
 - ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS (should be equal to ORDERCLOUD_SELLER_CLIENT_ID)
 
-Run `docker compose up -d`.
+Run `docker compose -f .\docker-compose.linux.yml up -d`.
 
 Headstart services will be available at the following urls:
 
