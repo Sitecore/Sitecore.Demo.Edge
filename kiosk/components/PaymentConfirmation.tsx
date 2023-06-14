@@ -33,10 +33,7 @@ const PaymentConfirmation = (props: PaymentConfirmationProps): JSX.Element => {
       return;
     }
 
-    // Encode email to preserve any special characters (e.g. +, &)
-    const encodedEmail = encodeURIComponent(email);
-
-    const personalLinkToWebsite = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/?email=${encodedEmail}`;
+    const personalLinkToWebsite = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/?email=${email}`;
     copyTextToClipboard(personalLinkToWebsite);
   };
 
