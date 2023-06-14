@@ -84,21 +84,27 @@ If you haven't yet hosted your application and want to enable single sign on whi
 
 ### Running Headstart Seller UI and Middleware locally
 
-Switch to Linux containers
+1. Switch to Linux containers
 
-Set OC_HEADSTART_ENABLED environment variable to **1**
+2. Set OC_HEADSTART_ENABLED environment variable to **1**
 
-Set the following environment variables to the values received from the /seed endpoint (see [Headstart Seeding](#headstart-seeding)):
+3. Set the following environment variables to the values received from the /seed endpoint (see [Headstart Seeding](#headstart-seeding)):
 
-- ORDERCLOUD_BUYER_CLIENT_ID
-- ORDERCLOUD_SELLER_CLIENT_ID
-- ORDERCLOUD_MIDDLEWARE_CLIENT_ID
-- ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET
-- ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS (should be equal to ORDERCLOUD_SELLER_CLIENT_ID)
+   - ORDERCLOUD_BUYER_CLIENT_ID
+   - ORDERCLOUD_SELLER_CLIENT_ID
+   - ORDERCLOUD_MIDDLEWARE_CLIENT_ID
+   - ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET
+   - ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS (should be equal to ORDERCLOUD_SELLER_CLIENT_ID)
 
-Run `docker compose -f .\docker-compose.linux.yml up -d`.
+4. Run `docker compose -f .\docker-compose.linux.yml up -d`.
 
-Headstart services will be available at the following urls:
+Headstart services will be available at the following URLs:
 
 - [http://localhost:43010](http://localhost:43010) (Seller UI, username & password are set during the seeinng process)
 - [http://localhost:43005](http://localhost:43005) (Middleware API)
+
+### Stopping the Headstart Seller UI and Middleware containers
+
+1. Switch to Linux containers
+
+2. Run `docker compose -f .\docker-compose.linux.yml down`.
