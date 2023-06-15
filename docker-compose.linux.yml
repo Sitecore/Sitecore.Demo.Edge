@@ -1,0 +1,145 @@
+services:
+  # OrderCloud Headstart
+  headstart-middleware:
+    image: adoprog/headstart-middleware:${OC_HEADSTART_VERSION}-linux
+    isolation: default
+    ports:
+      - 43005:80
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${BUILD_CONFIGURATION}
+      ApplicationInsightsSettings_InstrumentationKey: "${ApplicationInsightsSettings_InstrumentationKey}"
+
+      AvalaraSettings_AccountID: "${AvalaraSettings_AccountID}"
+      AvalaraSettings_CompanyCode: "${AvalaraSettings_CompanyCode}"
+      AvalaraSettings_CompanyID: "${AvalaraSettings_CompanyID}"
+      AvalaraSettings_LicenseKey: "${AvalaraSettings_LicenseKey}"
+      AvalaraSettings_BaseApiUrl: "${AvalaraSettings_BaseApiUrl}"
+
+      CardConnectSettings_Authorization: "${CardConnectSettings_Authorization}"
+      CardConnectSettings_AuthorizationCad: "${CardConnectSettings_AuthorizationCad}"
+      CardConnectSettings_BaseUrl: "${CardConnectSettings_BaseUrl}"
+      CardConnectSettings_CadMerchantID: "${CardConnectSettings_CadMerchantID}"
+      CardConnectSettings_Site: "${CardConnectSettings_Site}"
+      CardConnectSettings_UsdMerchantID: "${CardConnectSettings_UsdMerchantID}"
+
+      CosmosSettings_DatabaseName: "${CosmosSettings_DatabaseName}"
+      CosmosSettings_EndpointUri: "${CosmosSettings_EndpointUri}"
+      CosmosSettings_PrimaryKey: "${CosmosSettings_PrimaryKey}"
+      CosmosSettings_RequestTimeoutInSeconds: "${CosmosSettings_RequestTimeoutInSeconds}"
+
+      EasyPostSettings_APIKey: "${EasyPostSettings_APIKey}"
+      EasyPostSettings_FedexAccountId: "${EasyPostSettings_FedexAccountId}"
+      EasyPostSettings_FreeShippingTransitDays: "${EasyPostSettings_FreeShippingTransitDays}"
+      EasyPostSettings_NoRatesFallbackCost: "${EasyPostSettings_NoRatesFallbackCost}"
+      EasyPostSettings_NoRatesFallbackTransitDays: "${EasyPostSettings_NoRatesFallbackTransitDays}"
+      EasyPostSettings_USPSAccountId: "${EasyPostSettings_USPSAccountId}"
+
+      EnvironmentSettings_BuildNumber: "${EnvironmentSettings_BuildNumber}"
+      EnvironmentSettings_Commit: "${EnvironmentSettings_Commit}"
+      EnvironmentSettings_Environment: "${EnvironmentSettings_Environment}"
+      EnvironmentSettings_MiddlewareBaseUrl: "${API_HOST}"
+      EnvironmentSettings_TaxProvider: "${EnvironmentSettings_TaxProvider}"
+
+      FlurlSettings_TimeoutInSeconds: "${FlurlSettings_TimeoutInSeconds}"
+
+      JobSettings_CaptureCreditCardsAfterDate: "${JobSettings_CaptureCreditCardsAfterDate}"
+      JobSettings_ShouldCaptureCreditCardPayments: "${JobSettings_ShouldCaptureCreditCardPayments}"
+      JobSettings_ShouldRunZoho: "${JobSettings_ShouldRunZoho}"
+
+      OrderCloudSettings_ApiUrl: "${OrderCloudSettings_ApiUrl}"
+      OrderCloudSettings_ClientIDsWithAPIAccess: "${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS}"
+      OrderCloudSettings_IncrementorPrefix: "${OrderCloudSettings_IncrementorPrefix}"
+      OrderCloudSettings_MarketplaceID: ""
+      OrderCloudSettings_MarketplaceName: "${OrderCloudSettings_MarketplaceName}"
+      OrderCloudSettings_MiddlewareClientID: "${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}"
+      OrderCloudSettings_MiddlewareClientSecret: "${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}"
+      OrderCloudSettings_WebhookHashKey: "${ORDERCLOUD_WEBHOOK_HASH_KEY}"
+
+      SendGridSettings_ApiKey: "${SendGridSettings_ApiKey}"
+      SendgridSettings_BillingEmail: "${SendgridSettings_BillingEmail}"
+      SendgridSettings_CriticalSupportEmails: "${SendgridSettings_CriticalSupportEmails}"
+      SendgridSettings_CriticalSupportTemplateID: "${SendgridSettings_CriticalSupportTemplateID}"
+      SendgridSettings_FromEmail: "${SendgridSettings_FromEmail}"
+      SendgridSettings_LineItemStatusChangeTemplateID: "${SendgridSettings_LineItemStatusChangeTemplateID}"
+      SendgridSettings_NewUserTemplateID: "${SendgridSettings_NewUserTemplateID}"
+      SendgridSettings_OrderApprovalTemplateID: "${SendgridSettings_OrderApprovalTemplateID}"
+      SendgridSettings_OrderSubmitTemplateID: "${SendgridSettings_OrderSubmitTemplateID}"
+      SendgridSettings_PasswordResetTemplateID: "${SendgridSettings_PasswordResetTemplateID}"
+      SendgridSettings_ProductInformationRequestTemplateID: "${SendgridSettings_ProductInformationRequestTemplateID}"
+      SendgridSettings_QuoteOrderSubmitTemplateID: "${SendgridSettings_QuoteOrderSubmitTemplateID}"
+      SendgridSettings_SupportCaseEmail: "${SendgridSettings_SupportCaseEmail}"
+
+      ServiceBusSettings_ConnectionString: "${ServiceBusSettings_ConnectionString}"
+      ServiceBusSettings_ZohoQueueName: "${ServiceBusSettings_ZohoQueueName}"
+
+      SmartyStreetSettings_AuthID: "${SmartyStreetSettings_AuthID}"
+      SmartyStreetSettings_AuthToken: "${SmartyStreetSettings_AuthToken}"
+      SmartyStreetSettings_RefererHost: "${SmartyStreetSettings_RefererHost}"
+      SmartyStreetSettings_SmartyEnabled: "${SmartyStreetSettings_SmartyEnabled}"
+      SmartyStreetSettings_WebsiteKey: "${SmartyStreetSettings_WebsiteKey}"
+
+      StorageAccountSettings_ConnectionString: "${StorageAccountSettings_ConnectionString}"
+      StorageAccountSettings_HostUrl: "${StorageAccountSettings_HostUrl}"
+      StorageAccountSettings_Key: "${StorageAccountSettings_Key}"
+      StorageAccountSettings_ContainerNameQueue: "${StorageAccountSettings_ContainerNameQueue}"
+      StorageAccountSettings_ContainerNameCache: "${StorageAccountSettings_ContainerNameCache}"
+      StorageAccountSettings_BlobContainerNameExchangeRates: "${StorageAccountSettings_ContainerNameExchangeRates}"
+      StorageAccountSettings_ContainerNameTranslations: "${StorageAccountSettings_ContainerNameTranslations}"
+
+      UI_BaseAdminUrl: "http://${SELLER_HOST}"
+
+      ZohoSettings_AccessToken: "${ZohoSettings_AccessToken}"
+      ZohoSettings_ClientId: "${ZohoSettings_ClientId}"
+      ZohoSettings_ClientSecret: "${ZohoSettings_ClientSecret}"
+      ZohoSettings_OrgID: "${ZohoSettings_OrgID}"
+      ZohoSettings_PerformOrderSubmitTasks: "${ZohoSettings_PerformOrderSubmitTasks}"
+    depends_on:
+      cosmos:
+        condition: service_healthy
+
+  headstart-seller:
+    image: adoprog/headstart-seller:${OC_HEADSTART_VERSION}-linux
+    isolation: default
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
+    environment:
+      SELLER_CLIENT_ID: ${ORDERCLOUD_SELLER_CLIENT_ID}
+      MIDDLEWARE_URL: http://${API_HOST}
+      TRANSLATE_BLOB_URL: https://four51.blob.core.windows.net/ngx-translate/i18n/
+      BLOB_STORAGE_URL: https://four51.blob.core.windows.net
+    ports:
+      - 43010:80
+
+  cosmos:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    mem_limit: 3g
+    cpu_count: 2
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
+    environment:
+      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 10
+      AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "false"
+    ports:
+      - 8081:8081
+      - 10251:10251
+      - 10252:10252
+      - 10253:10253
+      - 10254:10254
+    healthcheck:
+       test: ["CMD-SHELL", "exit 0"]
+
+  headstart-storage:
+    image: mcr.microsoft.com/azure-storage/azurite:${AZUREITE_TAG}
+    volumes:
+      - ./docker/data/storage:/data
+    deploy:
+      replicas: ${OC_HEADSTART_ENABLED}
+    environment:
+      blobHost: 0.0.0.0
+      queueHost: 0.0.0.0
+      blobPort: 10000
+    ports:
+      - 10000:10000
+      - 10001:10001
