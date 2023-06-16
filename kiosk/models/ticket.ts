@@ -9,7 +9,11 @@ export interface Ticket {
 
 export interface TicketItem {
   id: string;
-  type: string;
+  type: `${TicketTypes}`;
   name: string;
   price: number;
+}
+
+export enum TicketTypes {
+  Ticket = 'Ticket',
 }
