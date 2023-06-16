@@ -14,6 +14,12 @@ export interface TicketItem {
   price: number;
 }
 
-export enum TicketTypes {
-  Ticket = 'Ticket',
+export interface TicketOrder {
+  id: string;
+  total: number;
+}
+
+export interface TicketPayment {
+  type: 'Card';
+  cardType: 'Visa';
 }
