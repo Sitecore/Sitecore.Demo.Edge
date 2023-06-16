@@ -1,8 +1,8 @@
 import { FormEvent, useState } from 'react';
 import Router from 'next/router';
-import { Ticket } from '../models/ticket';
+import { Ticket, TicketItem, TicketTypes } from '../models/ticket';
 import TicketView from './Ticket';
-import { identifyVisitor, logTicketPurchase } from '../services/CdpService';
+import { identifyVisitor, logAddToCart, logTicketPurchase } from '../services/CdpService';
 
 type PaymentFormProps = {
   ticket: Ticket;
@@ -21,16 +21,26 @@ const PaymentForm = ({ ticket }: PaymentFormProps): JSX.Element => {
       return;
     }
 
-    // Encode email to preserve any special characters (e.g. +, &)
-    const encodedEmail = encodeURIComponent(email);
+    // Create ticketItem for the ADD CDP event
+    const ticketItem: TicketItem = {
+      type: TicketTypes.Ticket,
+      id: ticket.id,
+      name: ticket.name,
+      price: ticket.price,
+    };
 
-    return await identifyVisitor(email, firstName, lastName)
-      .then(() => logTicketPurchase(parseInt(ticket.id)))
-      .then(() => Router.push(`/payment/confirmed/${ticket.id}?email=${encodedEmail}`))
-      .catch((e) => {
-        console.log(e);
-        alert('An error occurred while processing the purchase.');
-      });
+    try {
+      await identifyVisitor(email, firstName, lastName);
+      await logAddToCart(ticketItem, 1);
+      await logTicketPurchase(parseInt(ticket.id));
+
+      // Encode email to preserve any special characters (e.g. +, &)
+      const encodedEmail = encodeURIComponent(email);
+      Router.push(`/payment/confirmed/${ticket.id}?email=${encodedEmail}`);
+    } catch (e) {
+      console.log(e);
+      alert('An error occurred while processing the purchase.');
+    }
   };
 
   return (
