@@ -7,6 +7,8 @@ import {
   saveDataExtension,
 } from './BoxeverService';
 import { TICKETS } from '../models/mock-tickets';
+import { AddToCartPayload } from '../models/cdp/AddToCartPayload';
+import { TicketItem } from '../models/ticket';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
@@ -60,4 +62,25 @@ export async function logTicketPurchase(ticketId: number): Promise<unknown> {
 
   await logEvent('TICKET_PURCHASED', eventPayload);
   return saveDataExtension(dataExtensionName, dataExtensionPayload);
+}
+
+/**
+ * Logs an ADD (add to cart) event
+ */
+export function logAddToCart(item: TicketItem, quantity: number): Promise<unknown> {
+  const addToCartPayload: AddToCartPayload = {
+    product: {
+      quantity,
+      type: item.type.toUpperCase(),
+      item_id: item.id,
+      name: item.name,
+      orderedAt: new Date().toISOString(),
+      price: item.price,
+      productId: item.id,
+      currency: 'USD',
+      referenceId: item.id,
+    },
+  };
+
+  return logEvent('ADD', addToCartPayload);
 }
