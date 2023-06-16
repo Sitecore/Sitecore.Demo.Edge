@@ -57,15 +57,16 @@ const PaymentAndBillingForm = (): JSX.Element => {
       },
     };
 
-    await logAddToCart(ticketLineItem, 1);
-    await logOrderCheckout(ticketOrder, [ticketLineItem], [ticketPayment]);
+    try {
+      await logAddToCart(ticketLineItem, 1);
+      await logOrderCheckout(ticketOrder, [ticketLineItem], [ticketPayment]);
+      await logTicketPurchase(parseInt(ticketId));
 
-    return await logTicketPurchase(parseInt(ticketId))
-      .then(() => Router.push(`/tickets/payment/confirmed?ticket=${ticketId}`))
-      .catch((e) => {
-        console.log(e);
-        alert('An error occured while processing the purchase.');
-      });
+      Router.push(`/tickets/payment/confirmed?ticket=${ticketId}`);
+    } catch (e) {
+      console.log(e);
+      alert('An error occured while processing the purchase.');
+    }
   };
 
   return (
