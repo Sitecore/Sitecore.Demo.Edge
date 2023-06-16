@@ -8,7 +8,8 @@ import {
 } from './BoxeverService';
 import { TICKETS } from '../models/mock-tickets';
 import { AddToCartPayload } from '../models/cdp/AddToCartPayload';
-import { TicketItem } from '../models/ticket';
+import { TicketItem, TicketOrder, TicketPayment } from '../models/ticket';
+import { OrderCheckoutPayload, OrderItem } from '../models/cdp/OrderCheckoutPayload';
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
 
@@ -83,4 +84,41 @@ export function logAddToCart(item: TicketItem, quantity: number): Promise<unknow
   };
 
   return logEvent('ADD', addToCartPayload);
+}
+
+/**
+ * Logs an ORDER_CHECKOUT event
+ */
+export function logOrderCheckout(
+  order: TicketOrder,
+  item: TicketItem,
+  payment: TicketPayment
+): Promise<unknown> {
+  const orderItems: OrderItem[] = [
+    {
+      type: item.name,
+      referenceId: item.id,
+      orderedAt: new Date().toISOString(),
+      status: 'PURCHASED',
+      currencyCode: 'USD',
+      price: item.price,
+      name: item.name,
+      productId: item.id,
+      quantity: 1,
+    },
+  ];
+
+  const orderCheckoutPayload: OrderCheckoutPayload = {
+    order: {
+      orderItems,
+      referenceId: order.id,
+      orderedAt: new Date().toISOString(),
+      status: 'PURCHASED',
+      currencyCode: 'USD',
+      price: order.total,
+      paymentType: payment.type,
+      cardType: payment.cardType,
+    },
+  };
+  return logEvent('ORDER_CHECKOUT', orderCheckoutPayload);
 }
