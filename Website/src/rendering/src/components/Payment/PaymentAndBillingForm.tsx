@@ -1,6 +1,8 @@
 import { FormEvent } from 'react';
 import Router from 'next/router';
-import { logTicketPurchase } from '../../services/CdpService';
+import { logAddToCart, logOrderCheckout, logTicketPurchase } from '../../services/CdpService';
+import { TICKETS } from '../../models/mock-tickets';
+import { DLineItem } from '../../models/ordercloud/DLineItem';
 
 const PaymentAndBillingForm = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -17,6 +19,27 @@ const PaymentAndBillingForm = (): JSX.Element => {
       );
       return;
     }
+
+    const ticket = TICKETS[parseInt(ticketId)];
+
+    // Create ticketLineItem for the ADD CDP event
+    const ticketLineItem: DLineItem = {
+      ID: ticketId,
+      ProductID: ticketId,
+      Product: {
+        Name: ticket.name,
+        xp: {
+          ProductUrl: '',
+          ProductGroup: '',
+          ProductType: 'Ticket',
+        },
+      },
+      UnitPrice: ticket.price,
+      Quantity: 1,
+      DateAdded: new Date().toISOString(),
+    };
+
+    await logAddToCart(ticketLineItem, 1);
 
     return await logTicketPurchase(parseInt(ticketId))
       .then(() => Router.push(`/tickets/payment/confirmed?ticket=${ticketId}`))
