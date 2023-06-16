@@ -3,6 +3,8 @@ import Router from 'next/router';
 import { logAddToCart, logOrderCheckout, logTicketPurchase } from '../../services/CdpService';
 import { TICKETS } from '../../models/mock-tickets';
 import { DLineItem } from '../../models/ordercloud/DLineItem';
+import { DOrder } from '../../models/ordercloud/DOrder';
+import { DPayment } from '../../models/ordercloud/DPayment';
 
 const PaymentAndBillingForm = (): JSX.Element => {
   const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -39,7 +41,24 @@ const PaymentAndBillingForm = (): JSX.Element => {
       DateAdded: new Date().toISOString(),
     };
 
+    // Create ticketOrder and ticketPayment for the ORDER_CHECKOUT CDP event
+    const ticketOrder: DOrder = {
+      ID: ticketId,
+      DateSubmitted: new Date().toISOString(),
+      Total: ticket.price + ticket.fees,
+    };
+
+    const ticketPayment: DPayment = {
+      Type: 'PurchaseOrder',
+      xp: {
+        CreditCard: {
+          CardType: 'Visa',
+        },
+      },
+    };
+
     await logAddToCart(ticketLineItem, 1);
+    await logOrderCheckout(ticketOrder, [ticketLineItem], [ticketPayment]);
 
     return await logTicketPurchase(parseInt(ticketId))
       .then(() => Router.push(`/tickets/payment/confirmed?ticket=${ticketId}`))
