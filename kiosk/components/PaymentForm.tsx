@@ -1,8 +1,13 @@
 import { FormEvent, useState } from 'react';
 import Router from 'next/router';
-import { Ticket, TicketItem, TicketTypes } from '../models/ticket';
+import { Ticket, TicketItem, TicketOrder, TicketPayment } from '../models/ticket';
 import TicketView from './Ticket';
-import { identifyVisitor, logAddToCart, logTicketPurchase } from '../services/CdpService';
+import {
+  identifyVisitor,
+  logAddToCart,
+  logOrderCheckout,
+  logTicketPurchase,
+} from '../services/CdpService';
 
 type PaymentFormProps = {
   ticket: Ticket;
@@ -23,15 +28,27 @@ const PaymentForm = ({ ticket }: PaymentFormProps): JSX.Element => {
 
     // Create ticketItem for the ADD CDP event
     const ticketItem: TicketItem = {
-      type: TicketTypes.Ticket,
+      type: 'Ticket',
       id: ticket.id,
       name: ticket.name,
       price: ticket.price,
     };
 
+    // Create ticketOrder and ticketPayment for the ORDER_CHECKOUT CDP event
+    const ticketOrder: TicketOrder = {
+      id: ticket.id,
+      total: ticket.price,
+    };
+
+    const ticketPayment: TicketPayment = {
+      type: 'Card',
+      cardType: 'Visa',
+    };
+
     try {
       await identifyVisitor(email, firstName, lastName);
       await logAddToCart(ticketItem, 1);
+      await logOrderCheckout(ticketOrder, ticketItem, ticketPayment);
       await logTicketPurchase(parseInt(ticket.id));
 
       // Encode email to preserve any special characters (e.g. +, &)
