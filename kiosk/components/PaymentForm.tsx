@@ -8,7 +8,7 @@ type PaymentFormProps = {
   ticket: Ticket;
 };
 
-const PaymentForm = (props: PaymentFormProps): JSX.Element => {
+const PaymentForm = ({ ticket }: PaymentFormProps): JSX.Element => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -25,8 +25,8 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
     const encodedEmail = encodeURIComponent(email);
 
     return await identifyVisitor(email, firstName, lastName)
-      .then(() => logTicketPurchase(parseInt(props.ticket.id)))
-      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${encodedEmail}`))
+      .then(() => logTicketPurchase(parseInt(ticket.id)))
+      .then(() => Router.push(`/payment/confirmed/${ticket.id}?email=${encodedEmail}`))
       .catch((e) => {
         console.log(e);
         alert('An error occurred while processing the purchase.');
@@ -39,7 +39,7 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
 
       <div className="panel">
         <div className="ticket">
-          <TicketView ticket={props.ticket} activeCssClass="" />
+          <TicketView ticket={ticket} activeCssClass="" />
         </div>
         <div className="payment">
           <form onSubmit={handleFormSubmit}>
