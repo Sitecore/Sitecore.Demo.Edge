@@ -8,8 +8,8 @@ export interface Ticket {
 }
 
 export interface TicketItem {
+  type: 'Ticket';
   id: string;
-  type: `${TicketTypes}`;
   name: string;
   price: number;
 }
