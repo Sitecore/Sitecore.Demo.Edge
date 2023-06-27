@@ -39,7 +39,7 @@ function getSessionsToDisplay(
   }
 
   const currentAndNextSessions = allSessions.filter(
-    (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
+    (session) => session.day === selectedDay && session.sortOrder >= selectedTime
   );
   let currentSession: Session | null = null;
   let nextSession: Session | null = null;
