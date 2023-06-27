@@ -21,7 +21,33 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
 
   const handleNextSessionQrCodeClick = () => {
     navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`);
-  };
+  const currentSessionQRCode = useMemo(
+    () => (
+      <AwesomeQRCode
+        options={{
+          text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
+          size: 255,
+          logoImage: qrLogo.src,
+        }}
+        onStateChange={() => undefined}
+      />
+    ),
+    [currentSession?.id]
+  );
+
+  const nextSessionQRCode = useMemo(
+    () => (
+      <AwesomeQRCode
+        options={{
+          text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
+          size: 255,
+          logoImage: qrLogo.src,
+        }}
+        onStateChange={() => undefined}
+      />
+    ),
+    [nextSession?.id]
+  );
 
   return (
     <div className="roomDisplay">
@@ -43,13 +69,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 title="Click to copy QR code link"
                 onClick={() => handleCurrentSessionQrCodeClick()}
               >
-                <AwesomeQRCode
-                  options={{
-                    text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
-                    size: 255,
-                    logoImage: qrLogo.src,
-                  }}
-                />
+                {currentSessionQRCode}
               </div>
             </div>
           </>
@@ -104,13 +124,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                   title="Click to copy QR code link"
                   onClick={() => handleNextSessionQrCodeClick()}
                 >
-                  <AwesomeQRCode
-                    options={{
-                      text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
-                      size: 255,
-                      logoImage: qrLogo.src,
-                    }}
-                  />
+                  {nextSessionQRCode}
                 </div>
               </div>
             </div>
