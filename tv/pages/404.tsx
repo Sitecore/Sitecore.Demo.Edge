@@ -1,8 +1,8 @@
 import React from 'react';
 import ErrorTv from '../components/ErrorTv';
 
-const custom404 = (): JSX.Element => {
+const Custom404 = (): JSX.Element => {
   return <ErrorTv />;
 };
 
-export default custom404;
+export default Custom404;
