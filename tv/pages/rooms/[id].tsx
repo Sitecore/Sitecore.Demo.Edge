@@ -65,7 +65,7 @@ function getSessionsToDisplay(
   };
 }
 
-export default function RoomPage(props: RoomProps) {
+const RoomPage = (props: RoomProps) => {
   const router = useRouter();
   const dayTimeContext = useContext(DayTimeContext);
 
@@ -105,7 +105,7 @@ export default function RoomPage(props: RoomProps) {
       </div>
     </>
   );
-}
+};
 
 // This function gets called at build time
 export async function getStaticPaths() {
@@ -139,3 +139,5 @@ export const getStaticProps = async ({ params }: RoomParams) => {
     revalidate: 10,
   };
 };
+
+export default RoomPage;
