@@ -21,9 +21,12 @@ const PaymentForm = (props: PaymentFormProps): JSX.Element => {
       return;
     }
 
+    // Encode email to preserve any special characters (e.g. +, &)
+    const encodedEmail = encodeURIComponent(email);
+
     return await identifyVisitor(email, firstName, lastName)
       .then(() => logTicketPurchase(parseInt(props.ticket.id)))
-      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${email}`))
+      .then(() => Router.push(`/payment/confirmed/${props.ticket.id}?email=${encodedEmail}`))
       .catch((e) => {
         console.log(e);
         alert('An error occurred while processing the purchase.');

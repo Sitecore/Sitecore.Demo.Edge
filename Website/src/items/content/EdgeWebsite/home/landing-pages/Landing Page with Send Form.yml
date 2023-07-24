@@ -45,9 +45,9 @@ SharedFields:
         <r
           uid="{43E1AAAD-B334-4916-AF9F-1F0D01277D5A}"
           p:after="r[@uid='{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}']"
-          s:ds=""
+          s:ds="{0150E3A6-7FB3-41B3-9305-F5F25C9478EE}"
           s:id="{3D79BF8E-1E92-45B1-AA08-31F956C9C69F}"
-          s:par="CacheClearingBehavior=Clear+on+publish&amp;sendFormId"
+          s:par=""
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
@@ -72,7 +72,7 @@ Languages:
       Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "4e107c79-932f-4b1d-8ed5-6c5005bbb473"
+      Value: "6e5b05e9-adee-44c0-832d-977a477b846f"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: Landing Page with Send Form

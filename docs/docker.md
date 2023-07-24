@@ -1,13 +1,14 @@
 # 🐳 Docker
 
-The PLAY! Summit demo comes with a `docker-compose` environment for a Sitecore XM1 topology.
+The PLAY! Summit demo comes with a Docker compose environment for a Sitecore XM1 topology.
 
 The included `docker-compose.yml` is a stock XM1 environment from the Sitecore Container Support Package. All changes/additions for this solution are located in the `docker-compose.override.yml` file.
 
 The environment has some extra containers:
 
-- **Rendering Host**: A Next.js rendering host container to render the main website. It runs the website in development mode with hot reloading.
-- **Init Container**: It runs some startup jobs (mostly when deployed to AKS and Vercel) and warms up the main website.
+- **rendering**: A Next.js rendering host container to render the main website. It runs the website in development mode with hot reloading.
+- **init**: An initialization container that runs some startup jobs (mostly when deployed to AKS and Vercel) and warms up the main website.
+- **headstart-middleware, headstart-seller, cosmos, and headstart-storage**: Set of containers to run the OrderCloud Headstart seller UI when demoing PLAY! Shop.
 
 ## Prerequisites
 
@@ -15,30 +16,19 @@ Do these prerequisites before you start the main website or the kiosk projects.
 
 Ensure you have installed and followed the [global prerequisites](prerequisites.md).
 
+### Installing Docker Desktop
+
+[Docker Desktop](https://docs.docker.com/desktop/release-notes/) must be installed.
+
 ### Preparing Docker
 
 1. Ensure you are running Windows containers:
    1. From the Docker Desktop taskbar icon contextual menu (right click), you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select "Switch to Windows containers..." to use Windows containers.
-2. Ensure the Windows Docker engine experimental features are enabled and Docker Compose V2 is disabled:
-
-   > Experimental features must be enabled to allow the Linux mssql container to run at the same time as the Windows containers. Docker Compose V2 must be disabled as this project is not compatible with this version.
-
+2. Ensure that Docker Compose V2 is enabled:
    1. From the Docker Desktop taskbar icon contextual menu (right click), choose "Settings".
-   2. In the left tab group, navigate to the "Docker Engine" tab.
-   3. In the JSON block, locate the `"experimental"` key.
-      1. If you do not have an `"experimental"` key, add it after the existing ones. Ensure you add a comma (`,`) after the previous key/value pair.
-   4. Ensure the value of the `"experimental"` key is set to `true`.
-   5. At the end, the JSON block should have at least:
-
-      ```json
-      {
-        "experimental": true
-      }
-      ```
-
-   6. In the left tab group, navigate to the "General" tab.
-   7. Ensure that the "Use Docker Compose V2" option is not checked.
-   8. Click the "Apply & Restart" button to restart your Windows Docker engine.
+   2. In the left tab group, navigate to the "General" tab.
+   3. Ensure that the "Use Docker Compose V2" option is checked.
+   4. Click the "Apply & Restart" button to restart your Windows Docker engine.
 
 ### Environment Initialization
 
@@ -89,7 +79,7 @@ In an elevated PowerShell terminal:
 
 ## Stopping the Containers
 
-The Linux MSSQL container is super slow to terminate when using the `docker-compose down` command. We created a script to speed up containers termination. In an elevated PowerShell terminal:
+In an elevated PowerShell terminal:
 
 ```ps1
 .\down.ps1

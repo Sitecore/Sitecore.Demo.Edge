@@ -9,7 +9,7 @@ SharedFields:
   Value: Office/16x16/document_tag.png
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 1450
+  Value: 4100
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
   Value: "{41307BC2-6C8D-4E28-8A72-B7A062BD3073}"
@@ -20,4 +20,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "eb2db9cb-f286-4920-9582-41155dd91290"
+      Value: "c75b9b41-2b94-4a15-8efd-05c18621f6d5"

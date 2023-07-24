@@ -21,8 +21,8 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
 
   // DEMO TEAM CUSTOMIZATION - Sitecore Send integration
   useEffect(() => {
-    initializeSend(layoutData.sitecore.context);
-  }, [layoutData.sitecore.context]);
+    initializeSend(layoutData.sitecore.context.pageState);
+  }, [layoutData.sitecore.context.pageState]);
   // END CUSTOMIZATION
 
   if (notFound || !layoutData.sitecore.route) {

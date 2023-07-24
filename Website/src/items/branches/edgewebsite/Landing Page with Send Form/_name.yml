@@ -42,9 +42,9 @@ SharedFields:
         <r
           uid="{43E1AAAD-B334-4916-AF9F-1F0D01277D5A}"
           p:after="r[@uid='{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}']"
-          s:ds=""
+          s:ds="{C95AB142-2E98-4878-8D88-4EBDC56E92A6}"
           s:id="{3D79BF8E-1E92-45B1-AA08-31F956C9C69F}"
-          s:par="CacheClearingBehavior=Clear+on+publish&amp;sendFormId"
+          s:par=""
           s:ph="/jss-main"
           s:ccb="Clear on publish" />
         <r
@@ -60,4 +60,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "01e636eb-15c0-4108-ae24-b9ea6aeca425"
+      Value: "4c7a3f48-bca3-4f72-b34b-cdac501b27df"

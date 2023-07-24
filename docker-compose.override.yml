@@ -17,10 +17,11 @@ services:
       args:
         PARENT_IMAGE: mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
         NODEJS_VERSION: ${NODEJS_VERSION}
-    scale: 0
+    deploy:
+      replicas: 0
 
   # The solution build image is added here so it can be referenced as a build dependency
-  # for the images which use its output. Setting "scale: 0" means docker-compose will not
+  # for the images which use its output. Setting "replicas: 0" means Docker compose will not
   # include it in the running environment. See Dockerfile for more details.
   solution:
     # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
@@ -31,7 +32,8 @@ services:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         # DEMO TEAM CUSTOMIZATION - to prevent TLS issues we implemented the solution described here: https://sitecore.stackexchange.com/a/29558/171
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
-    scale: 0
+    deploy:
+      replicas: 0
 
   rendering:
     # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
@@ -124,20 +126,6 @@ services:
     volumes:
       - ./docker/traefik:C:/etc/traefik
 
-  # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
-  # module data added. See Dockerfile for details.
-  mssql:
-    # DEMO TEAM CUSTOMIZATION - Switch to a Linux version of MSSQL server to support both AKS and local environments
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    healthcheck:
-      test: ["CMD", "dir"]
-    # DEMO TEAM CUSTOMIZATION - More RAM
-    mem_limit: 2GB
-    volumes:
-      - type: bind
-        source: .\docker\data\sql
-        target: /var/opt/mssql/data
-
   # DEMO TEAM CUSTOMIZATION - Custom mssql init
   mssql-init:
     image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -222,6 +210,8 @@ services:
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:20.0.0-${NANOSERVER_VERSION}
+        # DEMO TEAM CUSTOMIZATION - Product Hotfixes
+        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xm1-assets:10.3.1.009332.420-10.0.17763.4377-1809
     depends_on:
       - solution
     volumes:
@@ -263,159 +253,4 @@ services:
       ## Disable Edge Publishing until Edge provisioning is implemented
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""
-    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
-
-  # OrderCloud Headstart
-  headstart-middleware:
-    image: adoprog/headstart-middleware:${OC_HEADSTART_VERSION}-linux
-    isolation: default
-    ports:
-      - 43005:80
-    scale: ${OC_HEADSTART_ENABLED}
-    environment:
-      ASPNETCORE_ENVIRONMENT: ${BUILD_CONFIGURATION}
-      ApplicationInsightsSettings_InstrumentationKey: "${ApplicationInsightsSettings_InstrumentationKey}"
-
-      AvalaraSettings_AccountID: "${AvalaraSettings_AccountID}"
-      AvalaraSettings_CompanyCode: "${AvalaraSettings_CompanyCode}"
-      AvalaraSettings_CompanyID: "${AvalaraSettings_CompanyID}"
-      AvalaraSettings_LicenseKey: "${AvalaraSettings_LicenseKey}"
-      AvalaraSettings_BaseApiUrl: "${AvalaraSettings_BaseApiUrl}"
-
-      CardConnectSettings_Authorization: "${CardConnectSettings_Authorization}"
-      CardConnectSettings_AuthorizationCad: "${CardConnectSettings_AuthorizationCad}"
-      CardConnectSettings_BaseUrl: "${CardConnectSettings_BaseUrl}"
-      CardConnectSettings_CadMerchantID: "${CardConnectSettings_CadMerchantID}"
-      CardConnectSettings_Site: "${CardConnectSettings_Site}"
-      CardConnectSettings_UsdMerchantID: "${CardConnectSettings_UsdMerchantID}"
-
-      CosmosSettings_DatabaseName: "${CosmosSettings_DatabaseName}"
-      CosmosSettings_EndpointUri: "${CosmosSettings_EndpointUri}"
-      CosmosSettings_PrimaryKey: "${CosmosSettings_PrimaryKey}"
-      CosmosSettings_RequestTimeoutInSeconds: "${CosmosSettings_RequestTimeoutInSeconds}"
-
-      EasyPostSettings_APIKey: "${EasyPostSettings_APIKey}"
-      EasyPostSettings_FedexAccountId: "${EasyPostSettings_FedexAccountId}"
-      EasyPostSettings_FreeShippingTransitDays: "${EasyPostSettings_FreeShippingTransitDays}"
-      EasyPostSettings_NoRatesFallbackCost: "${EasyPostSettings_NoRatesFallbackCost}"
-      EasyPostSettings_NoRatesFallbackTransitDays: "${EasyPostSettings_NoRatesFallbackTransitDays}"
-      EasyPostSettings_USPSAccountId: "${EasyPostSettings_USPSAccountId}"
-
-      EnvironmentSettings_BuildNumber: "${EnvironmentSettings_BuildNumber}"
-      EnvironmentSettings_Commit: "${EnvironmentSettings_Commit}"
-      EnvironmentSettings_Environment: "${EnvironmentSettings_Environment}"
-      EnvironmentSettings_MiddlewareBaseUrl: "${API_HOST}"
-      EnvironmentSettings_TaxProvider: "${EnvironmentSettings_TaxProvider}"
-
-      FlurlSettings_TimeoutInSeconds: "${FlurlSettings_TimeoutInSeconds}"
-
-      JobSettings_CaptureCreditCardsAfterDate: "${JobSettings_CaptureCreditCardsAfterDate}"
-      JobSettings_ShouldCaptureCreditCardPayments: "${JobSettings_ShouldCaptureCreditCardPayments}"
-      JobSettings_ShouldRunZoho: "${JobSettings_ShouldRunZoho}"
-
-      OrderCloudSettings_ApiUrl: "${OrderCloudSettings_ApiUrl}"
-      OrderCloudSettings_ClientIDsWithAPIAccess: "${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS}"
-      OrderCloudSettings_IncrementorPrefix: "${OrderCloudSettings_IncrementorPrefix}"
-      OrderCloudSettings_MarketplaceID: ""
-      OrderCloudSettings_MarketplaceName: "${OrderCloudSettings_MarketplaceName}"
-      OrderCloudSettings_MiddlewareClientID: "${ORDERCLOUD_MIDDLEWARE_CLIENT_ID}"
-      OrderCloudSettings_MiddlewareClientSecret: "${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}"
-      OrderCloudSettings_WebhookHashKey: "${ORDERCLOUD_WEBHOOK_HASH_KEY}"
-
-      SendGridSettings_ApiKey: "${SendGridSettings_ApiKey}"
-      SendgridSettings_BillingEmail: "${SendgridSettings_BillingEmail}"
-      SendgridSettings_CriticalSupportEmails: "${SendgridSettings_CriticalSupportEmails}"
-      SendgridSettings_CriticalSupportTemplateID: "${SendgridSettings_CriticalSupportTemplateID}"
-      SendgridSettings_FromEmail: "${SendgridSettings_FromEmail}"
-      SendgridSettings_LineItemStatusChangeTemplateID: "${SendgridSettings_LineItemStatusChangeTemplateID}"
-      SendgridSettings_NewUserTemplateID: "${SendgridSettings_NewUserTemplateID}"
-      SendgridSettings_OrderApprovalTemplateID: "${SendgridSettings_OrderApprovalTemplateID}"
-      SendgridSettings_OrderSubmitTemplateID: "${SendgridSettings_OrderSubmitTemplateID}"
-      SendgridSettings_PasswordResetTemplateID: "${SendgridSettings_PasswordResetTemplateID}"
-      SendgridSettings_ProductInformationRequestTemplateID: "${SendgridSettings_ProductInformationRequestTemplateID}"
-      SendgridSettings_QuoteOrderSubmitTemplateID: "${SendgridSettings_QuoteOrderSubmitTemplateID}"
-      SendgridSettings_SupportCaseEmail: "${SendgridSettings_SupportCaseEmail}"
-
-      ServiceBusSettings_ConnectionString: "${ServiceBusSettings_ConnectionString}"
-      ServiceBusSettings_ZohoQueueName: "${ServiceBusSettings_ZohoQueueName}"
-
-      SmartyStreetSettings_AuthID: "${SmartyStreetSettings_AuthID}"
-      SmartyStreetSettings_AuthToken: "${SmartyStreetSettings_AuthToken}"
-      SmartyStreetSettings_RefererHost: "${SmartyStreetSettings_RefererHost}"
-      SmartyStreetSettings_SmartyEnabled: "${SmartyStreetSettings_SmartyEnabled}"
-      SmartyStreetSettings_WebsiteKey: "${SmartyStreetSettings_WebsiteKey}"
-
-      StorageAccountSettings_ConnectionString: "${StorageAccountSettings_ConnectionString}"
-      StorageAccountSettings_HostUrl: "${StorageAccountSettings_HostUrl}"
-      StorageAccountSettings_Key: "${StorageAccountSettings_Key}"
-      StorageAccountSettings_ContainerNameQueue: "${StorageAccountSettings_ContainerNameQueue}"
-      StorageAccountSettings_ContainerNameCache: "${StorageAccountSettings_ContainerNameCache}"
-      StorageAccountSettings_BlobContainerNameExchangeRates: "${StorageAccountSettings_ContainerNameExchangeRates}"
-      StorageAccountSettings_ContainerNameTranslations: "${StorageAccountSettings_ContainerNameTranslations}"
-
-      UI_BaseAdminUrl: "http://${SELLER_HOST}"
-
-      ZohoSettings_AccessToken: "${ZohoSettings_AccessToken}"
-      ZohoSettings_ClientId: "${ZohoSettings_ClientId}"
-      ZohoSettings_ClientSecret: "${ZohoSettings_ClientSecret}"
-      ZohoSettings_OrgID: "${ZohoSettings_OrgID}"
-      ZohoSettings_PerformOrderSubmitTasks: "${ZohoSettings_PerformOrderSubmitTasks}"
-    depends_on:
-      cosmos:
-        condition: service_healthy
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.headstart-middleware-secure.entrypoints=websecure"
-      - "traefik.http.routers.headstart-middleware-secure.rule=Host(`${API_HOST}`)"
-      - "traefik.http.routers.headstart-middleware-secure.tls=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.headstart-middleware-secure.middlewares=force-STS-Header"
-      - "traefik.http.services.headstart-middleware.loadbalancer.server.port=80"
-
-  headstart-seller:
-    image: adoprog/headstart-seller:${OC_HEADSTART_VERSION}-linux
-    isolation: default
-    scale: ${OC_HEADSTART_ENABLED}
-    environment:
-      SELLER_CLIENT_ID: ${ORDERCLOUD_SELLER_CLIENT_ID}
-      MIDDLEWARE_URL: https://${API_HOST}
-      TRANSLATE_BLOB_URL: https://four51.blob.core.windows.net/ngx-translate/i18n/
-      BLOB_STORAGE_URL: https://four51.blob.core.windows.net
-    ports:
-      - 43010:80
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.headstart-seller-secure.entrypoints=websecure"
-      - "traefik.http.routers.headstart-seller-secure.rule=Host(`${SELLER_HOST}`)"
-      - "traefik.http.routers.headstart-seller-secure.tls=true"
-
-  cosmos:
-    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
-    mem_limit: 3g
-    cpu_count: 2
-    scale: ${OC_HEADSTART_ENABLED}
-    environment:
-      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 10
-      AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: "false"
-    ports:
-      - 8081:8081
-      - 10251:10251
-      - 10252:10252
-      - 10253:10253
-      - 10254:10254
-    healthcheck:
-       test: ["CMD-SHELL", "exit 0"]
-
-  headstart-storage:
-    image: mcr.microsoft.com/azure-storage/azurite:${AZUREITE_TAG}
-    volumes:
-      - ./docker/data/storage:/data
-    scale: ${OC_HEADSTART_ENABLED}
-    environment:
-      blobHost: 0.0.0.0
-      queueHost: 0.0.0.0
-      blobPort: 10000
-    ports:
-      - 10000:10000
-      - 10001:10001
+    entrypoint: powershell.exe -Command "& C:/tools/entrypoints/iis/Development.ps1"
