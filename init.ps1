@@ -38,7 +38,7 @@ Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Gr
 
 # Check for Sitecore Gallery
 Import-Module PowerShellGet
-$SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://nuget.sitecore.com/resources/v3/index.json" }
+$SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery"}
 if (-not $SitecoreGallery) {
     Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green 
     # DEMO TEAM CUSTOMIZATION - Sync with XM Cloud. Unregister the repository
