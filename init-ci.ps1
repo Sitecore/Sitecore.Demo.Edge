@@ -116,10 +116,10 @@ Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Gr
 Import-Module PowerShellGet
 
 # Set default SitecoreGallery
-$SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://nuget.sitecore.com/resources/v3" }
+$SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://nuget.sitecore.com/resources/v3/index.json" }
 if (-not $SitecoreGallery) {
     Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green 
-    Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v3 -InstallationPolicy Trusted
+    Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v3/index.json -InstallationPolicy Trusted
     $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
 
