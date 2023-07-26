@@ -3,7 +3,7 @@
 - Windows 1809 or higher (version 1909 is preferred)
 - At least 16 Gb of memory (32 Gb or more is preferred)
 - A valid Sitecore 10 license file (preferrably located at `C:\license\license.xml` on the host system)
-- Docker Desktop, with Windows containers enabled
+- [Docker Desktop](https://docs.docker.com/desktop/release-notes/), with Windows containers enabled
 - Nodejs 14.17.x and npm 6.14.x
 - .NET Core 3.1 SDK
 - .NET Framework 4.8 SDK

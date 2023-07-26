@@ -3,8 +3,8 @@ Role: |
   sitecore\Demo Content Approver
 MemberOf:
   Role: |
+    sitecore\Author
+  Role: |
     sitecore\Designer
   Role: |
     sitecore\Sitecore Client Translating
-  Role: |
-    sitecore\Author

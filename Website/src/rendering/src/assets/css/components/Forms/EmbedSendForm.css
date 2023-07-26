@@ -1,0 +1,25 @@
+.section.embed-send-form {
+  p {
+    @apply w-full text-center;
+  }
+
+  .component-title {
+    @apply font-bold pb-3;
+  }
+
+  .form-id {
+    @apply inline-block;
+
+    &-editing {
+      @apply border border-black p-1 pr-5;
+    }
+  }
+
+  .edit-warning {
+    @apply text-sm pb-3;
+
+    span {
+      @apply font-bold;
+    }
+  }
+}

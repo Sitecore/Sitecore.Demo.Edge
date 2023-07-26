@@ -8,13 +8,17 @@ import { isCommerceEnabled } from '../../helpers/CommerceHelper';
 import { Provider } from 'react-redux';
 import reduxStore from '../../redux/store';
 import OcProvider from '../../redux/ocProvider';
-import { DiscoverService } from '../../services/DiscoverService';
+import { initialize as initializeDiscover } from '../../services/DiscoverService';
 import { trackViewEvent } from '../../services/TrackingService';
-
-DiscoverService();
+import { initialize as initializeSend } from '../../services/SendService';
 
 export const ShopLayout = (props: PropsWithChildren<unknown>): JSX.Element => {
+  initializeDiscover();
+
   useEffect(() => {
+    // Initialize Sitecore Send
+    initializeSend();
+
     trackViewEvent();
     // Log a page view on route change
     const pushState = history.pushState;

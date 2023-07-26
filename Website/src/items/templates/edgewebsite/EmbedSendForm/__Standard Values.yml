@@ -1,0 +1,13 @@
+﻿---
+ID: "7d6a2506-a172-4796-9982-c6280b0ee2bd"
+Parent: "2dd0f7b4-0c1f-4e9e-9323-34eab267baf8"
+Template: "2dd0f7b4-0c1f-4e9e-9323-34eab267baf8"
+Path: /sitecore/templates/Project/edgewebsite/EmbedSendForm/__Standard Values
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "819ef145-5ef0-40a6-b72f-7e9e4375930f"

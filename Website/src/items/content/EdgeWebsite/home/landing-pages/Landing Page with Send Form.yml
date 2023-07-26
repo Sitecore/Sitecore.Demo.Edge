@@ -1,0 +1,78 @@
+﻿---
+ID: "d52f190d-4272-4ab7-bd02-48175023143c"
+Parent: "42003282-4089-5022-8df0-a199796b19f0"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page with Send Form"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{0761E527-92C1-596B-914B-DD9C282DA709}">
+          <p:d />
+        </r>
+        <r
+          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}">
+          <p:d />
+        </r>
+        <r
+          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}">
+          <p:d />
+        </r>
+        <r
+          uid="{F068578D-1252-4EEA-8C58-7E25D721BFD1}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:ds="{1A7965F0-4C6B-4BFC-9A00-34F8A10F9C73}"
+          s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}"
+          p:after="r[@uid='{F068578D-1252-4EEA-8C58-7E25D721BFD1}']"
+          s:ds="{F71BB900-BB87-492A-BCD0-8EE861B53991}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{43E1AAAD-B334-4916-AF9F-1F0D01277D5A}"
+          p:after="r[@uid='{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}']"
+          s:ds="{0150E3A6-7FB3-41B3-9305-F5F25C9478EE}"
+          s:id="{3D79BF8E-1E92-45B1-AA08-31F956C9C69F}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}">
+          <p:d />
+        </r>
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{ABC4DE3E-5F3E-4650-90D6-2892D1645A8D}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{836E0687-CDFF-4087-9E3B-C8ECAFE11746}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6e5b05e9-adee-44c0-832d-977a477b846f"
+    - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
+      Hint: pageTitle
+      Value: Landing Page with Send Form

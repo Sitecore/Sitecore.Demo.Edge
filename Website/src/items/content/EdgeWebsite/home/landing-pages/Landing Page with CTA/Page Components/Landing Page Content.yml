@@ -1,0 +1,38 @@
+﻿---
+ID: "da7387ed-ba73-4f9b-8ad9-25bebe1c4e58"
+Parent: "96f0ef27-2b2c-4e2f-9b9e-737c6409d307"
+Template: "1f476f1c-822a-5a88-8f7e-2431b77d1b70"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page with CTA/Page Components/Landing Page Content"
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 50
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{56A02F5F-D100-4488-8B49-92FE04781798}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "05607296-e17f-567f-898f-46bb9665d619"
+      Hint: title
+      Value: Lorem ipsum dolor sit amet
+    - ID: "348777e9-0329-5c42-a43d-3db7d8a7a748"
+      Hint: content
+      Value: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+    - ID: "3df1996f-e6b3-52c9-82c7-c8ba54147c1f"
+      Hint: callToActionLink
+      Value: |
+        <link text="Call to Action Button" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "54da25f2-6522-4afb-9ef5-17e578b535f4"
+    - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
+      Hint: cssClass
+      Value: "left-full"
+    - ID: "c33a502b-efa9-5058-a491-317ee68f743d"
+      Hint: brightness
+      Value: light

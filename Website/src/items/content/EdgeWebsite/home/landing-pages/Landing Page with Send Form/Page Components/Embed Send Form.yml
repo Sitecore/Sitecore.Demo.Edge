@@ -1,0 +1,19 @@
+﻿---
+ID: "0150e3a6-7fb3-41b3-9305-f5f25c9478ee"
+Parent: "feb9fafe-36a9-4b4a-a976-926a94871ee8"
+Template: "2dd0f7b4-0c1f-4e9e-9323-34eab267baf8"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page with Send Form/Page Components/Embed Send Form"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "1abc57a4-b3a3-4c84-b285-c4b545bba8c9"
+      Hint: sendFormId
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1a8dfa9e-b6f2-4355-830e-1744626aaa4a"

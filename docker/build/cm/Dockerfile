@@ -8,6 +8,7 @@ ARG HEADLESS_SERVICES_IMAGE
 ARG SPE_ASSETS_IMAGE
 ARG CONTENTHUB_ASSETS_IMAGE
 ARG EXPERIENCE_EDGE_ASSETS_IMAGE
+ARG DELTA_ASSET_IMAGE
 
 FROM ${SOLUTION_IMAGE} as solution
 FROM ${TOOLS_IMAGE} as tools
@@ -16,6 +17,7 @@ FROM ${HEADLESS_SERVICES_IMAGE} AS headless_services
 FROM ${SPE_ASSETS_IMAGE} AS spe_assets
 FROM ${CONTENTHUB_ASSETS_IMAGE} AS ch_assets
 FROM ${EXPERIENCE_EDGE_ASSETS_IMAGE} AS edge_assets
+FROM ${DELTA_ASSET_IMAGE} as deltaAssetImage
 FROM ${PARENT_IMAGE}
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
@@ -53,6 +55,9 @@ COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
 RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.DiagnosticSource.dll);if ($lastexitcode -eq 0){write-host "Robocopy succeeded"}else{write-host $lastexitcode};
 COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
+
+# Copy Product Hotfixes
+COPY --from=deltaAssetImage /platform/cm/inetpub/wwwroot/ /inetpub/wwwroot/
 
 # Copy additinal files to container
 COPY ./Data/ /inetpub/wwwroot/

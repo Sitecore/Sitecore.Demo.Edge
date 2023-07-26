@@ -84,19 +84,27 @@ If you haven't yet hosted your application and want to enable single sign on whi
 
 ### Running Headstart Seller UI and Middleware locally
 
-Set OC_HEADSTART_ENABLED environment variable to **1**
+1. Switch to Linux containers
 
-Set the following environment variables to the values received from the /seed endpoint (see [Headstart Seeding](#headstart-seeding)):
+2. Set OC_HEADSTART_ENABLED environment variable to **1**
 
-- ORDERCLOUD_BUYER_CLIENT_ID
-- ORDERCLOUD_SELLER_CLIENT_ID
-- ORDERCLOUD_MIDDLEWARE_CLIENT_ID
-- ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET
-- ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS (should be equal to ORDERCLOUD_SELLER_CLIENT_ID)
+3. Set the following environment variables to the values received from the /seed endpoint (see [Headstart Seeding](#headstart-seeding)):
 
-Run `docker-compose up -d` if the project is already running, or proceed with up.ps1 as usually if not.
+   - ORDERCLOUD_BUYER_CLIENT_ID
+   - ORDERCLOUD_SELLER_CLIENT_ID
+   - ORDERCLOUD_MIDDLEWARE_CLIENT_ID
+   - ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET
+   - ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS (should be equal to ORDERCLOUD_SELLER_CLIENT_ID)
 
-Headstart services will be available at the following urls:
+4. Run `docker compose -f .\docker-compose.linux.yml up -d`.
 
-- [https://seller.edge.localhost](https://seller.edge.localhost) (Seller UI, username & password are set during the seeinng process)
-- [https://api.edge.localhost](https://api.edge.localhost) (Middleware API)
+Headstart services will be available at the following URLs:
+
+- [http://localhost:43010](http://localhost:43010) (Seller UI, username & password are set during the seeinng process)
+- [http://localhost:43005](http://localhost:43005) (Middleware API)
+
+### Stopping the Headstart Seller UI and Middleware containers
+
+1. Switch to Linux containers
+
+2. Run `docker compose -f .\docker-compose.linux.yml down`.

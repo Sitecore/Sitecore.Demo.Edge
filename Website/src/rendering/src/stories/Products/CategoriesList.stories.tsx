@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import CategoriesList from '../../components/Products/CategoriesList';
-import { DiscoverService } from '../../services/DiscoverService';
+import { initialize as initializeDiscover } from '../../services/DiscoverService';
 import { mockDiscoverData } from '../mock-discover-data';
 
 export default {
@@ -12,7 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof CategoriesList> = (args) => <CategoriesList {...args} />;
 
-DiscoverService({
+initializeDiscover({
   isStorybook: true,
 });
 

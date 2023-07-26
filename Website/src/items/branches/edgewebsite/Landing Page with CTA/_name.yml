@@ -1,0 +1,55 @@
+﻿---
+ID: "c8d00935-fb95-4ba2-93b6-c4292307c85c"
+Parent: "063288be-ddce-4d7e-beab-170f601e4b10"
+Template: "6db09cef-64a8-52a3-a980-38408109c4d7"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Page with CTA/$name
+SharedFields:
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:p="p" xmlns:s="s"
+      p:p="1">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+        <r
+          uid="{0761E527-92C1-596B-914B-DD9C282DA709}">
+          <p:d />
+        </r>
+        <r
+          uid="{DC2D2F9B-A6D1-5B5E-816E-4B402551810C}">
+          <p:d />
+        </r>
+        <r
+          uid="{42BDCB96-CB9C-4508-B697-FAD233747A8F}"
+          p:after="r[@uid='{7CDC810E-AE54-5B4B-BA7D-128CF6F96EDA}']"
+          s:ds="{3824EECF-1ECA-416E-96EA-0751A9D2D9CC}"
+          s:id="{2C13DBC0-415C-5DAA-A7D9-56928F1271C4}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{5ED0A33A-5A27-4EA6-A3D8-C1C3959246D8}"
+          p:after="r[@uid='{42BDCB96-CB9C-4508-B697-FAD233747A8F}']"
+          s:ds="{56A02F5F-D100-4488-8B49-92FE04781798}"
+          s:id="{2F9D05FD-8E58-56CC-B586-41A3EC155CD7}"
+          s:par=""
+          s:ph="/jss-main"
+          s:ccb="Clear on publish" />
+        <r
+          uid="{63AC6E75-5365-5E24-9E53-508B20613F45}">
+          <p:d />
+        </r>
+        <r
+          uid="{05991ACA-495A-5CED-B24C-2BC1F1D55D1A}">
+          <p:d />
+        </r>
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1a08c1f1-1dc3-4e29-899f-f064f042054a"

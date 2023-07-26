@@ -1,0 +1,24 @@
+﻿---
+ID: "520ce8f6-778f-486d-b40b-56898b872e65"
+Parent: "233cc3ab-ef68-4167-adaa-391c3ff1e907"
+Template: "ce8e28f6-c530-4bd5-9ca5-00d7d42c26c0"
+Path: /sitecore/content/EdgeWebsite/Data/Navigation/Footer/Pages/Landing Pages
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "1ec51625-5f86-4a18-8cf0-e80d33da041c"
+      Hint: Title
+      Value: Landing Pages
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9df8ebff-fd3e-43b7-89d8-4b3bf5496218"
+    - ID: "a277748b-2c48-44a6-a99f-c9f353933027"
+      Hint: Link
+      Value: |
+        <link text="" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{42003282-4089-5022-8DF0-A199796B19F0}" />

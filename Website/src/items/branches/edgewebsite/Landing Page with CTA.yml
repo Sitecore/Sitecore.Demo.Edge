@@ -1,0 +1,17 @@
+﻿---
+ID: "063288be-ddce-4d7e-beab-170f601e4b10"
+Parent: "415db244-afd5-4995-baf1-932bc18890a0"
+Template: "35e75c72-4985-4e09-88c3-0eac6cd1e64f"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Page with CTA
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Apps/16x16/routes.png
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "51675854-7b2b-479c-b415-3fd1b8081f18"

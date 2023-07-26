@@ -1,0 +1,26 @@
+﻿---
+ID: "96f0ef27-2b2c-4e2f-9b9e-737c6409d307"
+Parent: "9c2ed962-837b-4635-840e-d47b5439ef80"
+Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
+Path: "/sitecore/content/EdgeWebsite/home/landing-pages/Landing Page with CTA/Page Components"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/32x32/box_into.png
+- ID: "a791f095-2521-4b4d-bef9-21dda221f608"
+  Hint: __Style
+  Value: "font-style:italic; font-size:0.85em; color: gray;"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 100
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{F52A73CC-0CCB-4903-A3AB-13D417D3F228}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "ba33ed78-a41e-4f85-b4e1-124dfd8924ee"

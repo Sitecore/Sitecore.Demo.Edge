@@ -1,0 +1,23 @@
+﻿---
+ID: "bc2faa3a-c822-4adc-a61e-09e484e42535"
+Parent: "75c438f6-65fd-4e65-95bb-7a12ce6ea229"
+Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
+Path: /sitecore/layout/Renderings/Project/edgewebsite/Navigation/SubpageList
+SharedFields:
+- ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
+  Hint: componentName
+  Value: SubpageList
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: edgeicons/32x32/subpagelist.png
+- ID: "b0b15510-b138-470e-8f33-8da2e228aafe"
+  Hint: Rendering Contents Resolver
+  Value: "{4D45DA3E-8128-422C-AFDA-E10672117E15}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e3e9e067-ce29-4c14-9150-3548dfef0c26"

@@ -1,0 +1,26 @@
+﻿---
+ID: "2dd0f7b4-0c1f-4e9e-9323-34eab267baf8"
+Parent: "59c21fbf-d36e-5462-9847-c8c0bf7786ab"
+Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
+Path: /sitecore/templates/Project/edgewebsite/EmbedSendForm
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: Office/16x16/document_tag.png
+- ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
+  Hint: __Base template
+  Value: "{8CA06D6A-B353-44E8-BC31-B528C7306971}"
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 950
+- ID: "f7d48a55-2158-4f02-9356-756654404f73"
+  Hint: __Standard values
+  Value: "{7D6A2506-A172-4796-9982-C6280B0EE2BD}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "93787330-8e0a-49f9-9628-6e2519b6b107"
