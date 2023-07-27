@@ -52,7 +52,7 @@ export const DiscoverService = (): void => {
     type: WidgetDataType.PREVIEW_SEARCH,
     options: {
       preRender: true,
-      properties: {
+      props: {
         initial: {
           redirectUrl: '/shop/products?q=',
           inputQuerySelector: '#search-input',
@@ -65,7 +65,7 @@ export const DiscoverService = (): void => {
     component: SimilarProducts,
     type: WidgetDataType.RECOMMENDATION,
     options: {
-      properties: {
+      props: {
         initial: {
           totalItems: 4,
         },
@@ -77,7 +77,7 @@ export const DiscoverService = (): void => {
     component: TrendingProducts,
     type: WidgetDataType.RECOMMENDATION,
     options: {
-      properties: {
+      props: {
         initial: {
           totalItems: 4,
         },
@@ -89,7 +89,7 @@ export const DiscoverService = (): void => {
     component: RecommendedForYou,
     type: WidgetDataType.RECOMMENDATION,
     options: {
-      properties: {
+      props: {
         initial: {
           totalItems: 4,
         },
@@ -101,7 +101,7 @@ export const DiscoverService = (): void => {
     component: RecentlyViewedProducts,
     type: WidgetDataType.RECOMMENDATION,
     options: {
-      properties: {
+      props: {
         initial: {
           totalItems: 4,
         },
@@ -113,7 +113,7 @@ export const DiscoverService = (): void => {
     component: CustomersAlsoBought,
     type: WidgetDataType.RECOMMENDATION,
     options: {
-      properties: {
+      props: {
         initial: {
           totalItems: 4,
         },

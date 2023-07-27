@@ -14,9 +14,7 @@ export default {
 
 const Template: ComponentStory<typeof ShopNavigation> = (args) => <ShopNavigation {...args} />;
 
-DiscoverService({
-  isStorybook: true,
-});
+DiscoverService();
 
 export const Default = Template.bind({});
 Default.args = {

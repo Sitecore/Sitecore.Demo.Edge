@@ -12,9 +12,7 @@ export default {
 
 const Template: ComponentStory<typeof CategoriesList> = (args) => <CategoriesList {...args} />;
 
-DiscoverService({
-  isStorybook: true,
-});
+DiscoverService();
 
 export const Default = Template.bind({});
 Default.args = {

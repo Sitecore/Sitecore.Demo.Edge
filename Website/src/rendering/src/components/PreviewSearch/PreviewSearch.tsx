@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef, useState } from 'react';
-import { PreviewSearchWidgetProps } from '@sitecore-discover/ui';
 import { Action } from '@sitecore-discover/react';
-import { PreviewSearchActions } from '@sitecore-discover/widgets';
+import { PreviewSearchActionTypes } from '@sitecore-discover/widgets';
 import ClickOutside from '../ShopCommon/ClickOutside';
 import LeftColumn from './LeftColumn';
 import RightColumn from './RightColumn';
@@ -9,8 +9,17 @@ import debounce from '../../helpers/Debounce';
 import SearchInput from './SearchInput';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
 
-export interface PreviewSearchProps extends PreviewSearchWidgetProps {
+export interface PreviewSearchProps {
   rfkId: string;
+  loaded: boolean;
+  loading: boolean;
+  products: any;
+  keyphrase: any;
+  trendingCategories: any;
+  categories: any;
+  suggestions: any;
+  redirectUrl: string;
+  dispatch: any;
 }
 
 const PreviewSearch = ({
@@ -29,7 +38,7 @@ const PreviewSearch = ({
   const changeKeyphrase: (text: string) => void = debounce(
     (text) => {
       const changeKeyphraseAction: Action = {
-        type: PreviewSearchActions.KEYPHRASE_CHANGED,
+        type: PreviewSearchActionTypes.KEYPHRASE_CHANGED,
         payload: { keyphrase: text || '' },
       };
       dispatch(changeKeyphraseAction);
@@ -52,13 +61,13 @@ const PreviewSearch = ({
 
       // HACK: Clear the keyphrase before changing the category to display all the products of that category
       const changeKeyphraseAction: Action = {
-        type: PreviewSearchActions.KEYPHRASE_CHANGED,
+        type: PreviewSearchActionTypes.KEYPHRASE_CHANGED,
         payload: { keyphrase: '' },
       };
       dispatch(changeKeyphraseAction);
 
       const changeCategoryAction: Action = {
-        type: PreviewSearchActions.CATEGORY_CHANGED,
+        type: PreviewSearchActionTypes.CATEGORY_CHANGED,
         payload: { category: category.name },
       };
       dispatch(changeCategoryAction);
@@ -77,7 +86,7 @@ const PreviewSearch = ({
 
       // TODO: This event does not currently trigger a suggested product fetch call. Set the viewAll URL when it will update the products.
       const changeTrendingCategoryAction: Action = {
-        type: PreviewSearchActions.TRENDING_CATEGORY_CHANGED,
+        type: PreviewSearchActionTypes.TRENDING_CATEGORY_CHANGED,
         payload: { trendingCategory: category.name },
       };
       dispatch(changeTrendingCategoryAction);
@@ -89,7 +98,7 @@ const PreviewSearch = ({
   const changeSuggestion = debounce(
     (suggestion: string) => {
       const changeSuggestionAction: Action = {
-        type: PreviewSearchActions.SUGGESTION_CHANGED,
+        type: PreviewSearchActionTypes.SUGGESTION_CHANGED,
         payload: { suggestion },
       };
       dispatch(changeSuggestionAction);
