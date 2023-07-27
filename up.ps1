@@ -160,7 +160,7 @@ if (-not $SkipInit) {
     $SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery"}
     if (-not $SitecoreGallery) {
         Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
-        Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v3/index.json -InstallationPolicy Trusted
+        Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v2 -InstallationPolicy Trusted
         $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
     }
 

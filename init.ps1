@@ -43,7 +43,7 @@ if (-not $SitecoreGallery) {
     Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green 
     # DEMO TEAM CUSTOMIZATION - Sync with XM Cloud. Unregister the repository
     Unregister-PSRepository -Name SitecoreGallery -ErrorAction SilentlyContinue
-    Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v3/index.json -InstallationPolicy Trusted
+    Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v2 -InstallationPolicy Trusted
     $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
 }
 
