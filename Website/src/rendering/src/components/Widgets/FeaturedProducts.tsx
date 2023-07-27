@@ -1,7 +1,6 @@
-import { RecommendationWidgetProps } from '@sitecore-discover/ui';
 import RecommendedProducts from './RecommendedProducts';
 
-interface SimilarProductsProps extends RecommendationWidgetProps {
+interface SimilarProductsProps {
   rfkId: string;
 }
 

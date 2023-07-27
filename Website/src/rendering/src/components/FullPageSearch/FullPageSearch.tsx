@@ -74,7 +74,6 @@ export const FullPageSearch = ({ rfkId }: FullPageSearchResultsProps): JSX.Eleme
       // onClearFilters();
       onSearchInputChange('');
       onSortChange({
-        rfkId,
         sortType: 'featured',
         sortDirection: 'desc',
       });
