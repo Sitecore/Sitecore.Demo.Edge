@@ -147,10 +147,10 @@ function isBoxeverConfiguredInBrowser(): boolean {
   );
 }
 
-function getConfigWithCurrentPage(config: Record<string, unknown>) {
+function getConfigWithCurrentPage(config: Record<string, unknown>, page?: string) {
   return Object.assign(
     {
-      page: window.location.pathname + window.location.search,
+      page: page || window.location.pathname + window.location.search,
     },
     config
   );
@@ -209,7 +209,7 @@ function delayUntilBoxeverIsReady(functionToDelay: () => unknown) {
   }
 }
 
-function sendEventCreate(eventConfig: Record<string, unknown>) {
+function sendEventCreate(eventConfig: Record<string, unknown>, page?: string) {
   if (typeof window === 'undefined' || !isBoxeverConfiguredInBrowser()) {
     return new Promise<void>(function (resolve) {
       resolve();
@@ -217,7 +217,7 @@ function sendEventCreate(eventConfig: Record<string, unknown>) {
   }
 
   // Set the page now as the location might have already changed when createEventPayload will be executed.
-  const eventWithCurrentPage = getConfigWithCurrentPage(eventConfig);
+  const eventWithCurrentPage = getConfigWithCurrentPage(eventConfig, page);
 
   return new Promise(function (resolve, reject) {
     try {
@@ -279,7 +279,10 @@ function callFlows(flowConfig: Record<string, unknown>) {
 }
 
 // Boxever view page tracking
-export function logViewEvent(additionalData?: Record<string, unknown>): Promise<unknown> {
+export function logViewEvent(
+  additionalData?: Record<string, unknown>,
+  page?: string
+): Promise<unknown> {
   const eventConfig = Object.assign(
     {
       type: 'VIEW',
@@ -287,7 +290,7 @@ export function logViewEvent(additionalData?: Record<string, unknown>): Promise<
     additionalData
   );
 
-  return sendEventCreate(eventConfig);
+  return sendEventCreate(eventConfig, page);
 }
 
 export function logEvent(eventName: string, payload?: Record<string, unknown>): Promise<unknown> {
@@ -660,26 +663,20 @@ export function getDynamicWelcomeMessage(
   ipAddress: string,
   language: string
 ): Promise<WelcomeMessage> {
-  const dataExtensionName = 'PersonalInformation';
-
-  const dataExtensionPayload = {
-    key: dataExtensionName,
-    ipAddress,
-    language,
-  };
-  return saveDataExtension(dataExtensionName, dataExtensionPayload).then(
-    () =>
-      callFlows({
-        friendlyId: 'dynamic_welcome_message',
-      }) as Promise<WelcomeMessage>
-  );
+  return callFlows({
+    params: {
+      ipAddress,
+      browserLanguage: language,
+    },
+    friendlyId: 'dynamic_welcome_message',
+  }) as Promise<WelcomeMessage>;
 }
 
 // ***************************
 // Used to determine if the session should be closed
 // in case of a QR code scan from the TV app
 // ***************************
-interface ShouldCloseSessionResponse {
+export interface ShouldCloseSessionResponse {
   shouldCloseCurrentSession: string;
 }
 

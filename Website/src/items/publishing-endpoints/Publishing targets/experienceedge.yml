@@ -1,0 +1,38 @@
+﻿---
+ID: "1310cf18-34e2-4eb7-bb14-427de4292b19"
+Parent: "d9e44555-02a6-407a-b4fc-96b9026caadd"
+Template: "e130c748-c13b-40d5-b6c6-4b150dc3fab3"
+Path: /sitecore/system/Publishing targets/experienceedge
+SharedFields:
+- ID: "39ecfd90-55d2-49d8-b513-99d15573de41"
+  Hint: Target database
+  Value: experienceedge
+- ID: "73328647-4afe-43a2-bbda-afb4f6b9ad46"
+  Hint: Publish to Experience Edge
+  Value: 1
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20220803T212359Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\superuser
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\superuser
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "604ab8cb-f311-4004-829a-9d7eefa7afcd"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\superuser
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20220803T212402Z

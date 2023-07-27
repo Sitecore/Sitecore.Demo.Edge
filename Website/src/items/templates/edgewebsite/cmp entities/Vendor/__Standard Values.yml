@@ -103,6 +103,9 @@ Languages:
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{C55B483C-EA7F-4E76-A066-985F7D9396CA}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "acec74b9-7ce4-4644-8bf0-3e30b59213ae"
     - ID: "a73286b1-7c15-46cf-b3c1-af1dc7e43afe"
       Hint: LogoTransformation
       Value: medium

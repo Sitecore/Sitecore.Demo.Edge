@@ -18,6 +18,9 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link text="Discover More" linktype="external" url="/shop" anchor="" target="" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "23de8f0b-1e08-4fa9-adb8-bb7bb95ac6ca"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "section-products"

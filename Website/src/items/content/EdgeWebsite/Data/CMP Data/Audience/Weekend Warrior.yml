@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "0a78c55f-dec9-4c46-9f17-41c710b93e4a"
     - ID: "af5cfb2c-4e9f-4425-9bfd-2a333801288c"
       Hint: Name
       Value: Weekend Warrior

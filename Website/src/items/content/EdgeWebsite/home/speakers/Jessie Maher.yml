@@ -22,6 +22,9 @@ Languages:
     - ID: "5d58f635-d21c-4635-8efd-93448b2799c2"
       Hint: Vendors
       Value: "{E67E1029-D58F-45E7-B85F-0E7E0086099E}"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "371d5f07-c851-48f6-b98c-5d0f343c76c9"
     - ID: "94f8d6fc-b9c3-41dc-8cdf-5e967d108a40"
       Hint: Company
       Value: "PLAY! Summit"

@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "da925af5-98bc-4dc8-a3d8-55862019ed2b"
     - ID: "af5cfb2c-4e9f-4425-9bfd-2a333801288c"
       Hint: Name
       Value: Fitness Fanatic

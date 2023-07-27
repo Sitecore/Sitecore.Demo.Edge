@@ -12,6 +12,7 @@ import { faHistory } from '@fortawesome/free-solid-svg-icons';
 import { logAddToCart } from '../../services/CdpService';
 import Skeleton from 'react-loading-skeleton';
 import { getImageUrl, getProductSpecs } from '../../helpers/LineItemsHelpers';
+import { addTransformation } from '../../helpers/ImageHelper';
 import Link from 'next/link';
 
 type LineItemCardProps = {
@@ -63,9 +64,14 @@ const LineItemCard = (props: LineItemCardProps): JSX.Element => {
     [dispatch, props.lineItem]
   );
 
+  const productImageUrlFromLineItem = getImageUrl(props.lineItem);
   const productImage = (
     <img
-      src={getImageUrl(props.lineItem) || '/assets/img/shop/category-placeholder.png'}
+      src={
+        productImageUrlFromLineItem
+          ? addTransformation(productImageUrlFromLineItem, 'w320')
+          : '/assets/img/shop/category-placeholder.png'
+      }
       alt={props.lineItem.Product.Name}
     ></img>
   );

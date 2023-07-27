@@ -12,6 +12,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "84dc1bc1-ea99-47c9-be3b-7e2381d6ed9f"
     - ID: "bf52b591-6456-4189-b1cc-4a50b2647017"
       Hint: Fontawesome Icon Name
       Value: faInstagram

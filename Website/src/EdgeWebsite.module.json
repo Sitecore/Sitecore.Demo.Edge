@@ -46,6 +46,17 @@
             {
                 "name": "enable-language-fallback-default",
                 "path": "/sitecore/templates/System/Templates/Sections/Advanced/Advanced/__Enable item fallback"
+            },
+            {
+                "name": "publishing-endpoints",
+                "path": "/sitecore/system/Publishing targets",
+                "scope": "descendantsOnly",
+                "rules": [
+                  {
+                    "path": "/Internet",
+                    "scope": "ignored"
+                  }
+                ]
             }
         ]
     }

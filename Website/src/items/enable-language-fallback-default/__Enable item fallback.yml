@@ -31,3 +31,7 @@ Languages:
     Value: Display item from fallback language if no language version exists.
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b7ce6c0a-09c5-4666-9e1e-8ff5e2e7c133"

@@ -1,0 +1,21 @@
+﻿---
+ID: "3824eecf-1eca-416e-96ea-0751a9d2d9cc"
+Parent: "f52a73cc-0ccb-4903-a3ab-13d417d3f228"
+Template: "3ee5e476-e843-51f1-a351-d2c3b198475a"
+Path: /sitecore/templates/Branches/Project/edgewebsite/Landing Page with CTA/$name/Page Components/Landing Page Hero
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: "-50"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "7f1d47cf-4525-5f3e-b8fe-4c6ddbcefa39"
+      Hint: hero
+      Value: |
+        <image mediaid="{08DB49A9-9B48-42FE-8E62-882CC6346891}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8e95b8e5-5bd0-45d6-9942-2cacb2ec3402"

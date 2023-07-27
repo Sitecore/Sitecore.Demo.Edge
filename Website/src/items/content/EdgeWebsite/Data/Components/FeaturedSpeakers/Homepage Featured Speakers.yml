@@ -11,3 +11,6 @@ Languages:
     - ID: "82cffd14-a277-4e1c-9aec-8c99c6f29d05"
       Hint: NumberOfSpeakers
       Value: 6
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c493978b-1de8-4ce9-949a-15fffc26769d"

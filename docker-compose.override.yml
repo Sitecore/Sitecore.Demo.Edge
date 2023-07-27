@@ -17,10 +17,11 @@ services:
       args:
         PARENT_IMAGE: mcr.microsoft.com/windows/nanoserver:${NANOSERVER_VERSION}
         NODEJS_VERSION: ${NODEJS_VERSION}
-    scale: 0
+    deploy:
+      replicas: 0
 
   # The solution build image is added here so it can be referenced as a build dependency
-  # for the images which use its output. Setting "scale: 0" means docker-compose will not
+  # for the images which use its output. Setting "replicas: 0" means Docker compose will not
   # include it in the running environment. See Dockerfile for more details.
   solution:
     # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
@@ -31,7 +32,8 @@ services:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         # DEMO TEAM CUSTOMIZATION - to prevent TLS issues we implemented the solution described here: https://sitecore.stackexchange.com/a/29558/171
         BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
-    scale: 0
+    deploy:
+      replicas: 0
 
   rendering:
     # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
@@ -68,6 +70,7 @@ services:
       ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET: ${ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET}
       OC_API_CLIENTS_WITH_ACCESS: ${ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst#user-verification
       OC_WEBHOOK_HASH_KEY: ${ORDERCLOUD_WEBHOOK_HASH_KEY} # Not referenced in our code but used by the catalyst library https://github.com/ordercloud-api/ordercloud-javascript-catalyst/blob/main/README.md#webhook-verification
+      NEXT_PUBLIC_SEND_WEBSITE_ID : ${SEND_WEBSITE_ID}
       # Auth0 - Not referenced in our code but used by the @auth0/nextjs-auth0 library
       AUTH0_SECRET: ${AUTH0_SECRET}
       AUTH0_BASE_URL: ${AUTH0_BASE_URL}
@@ -123,20 +126,6 @@ services:
     volumes:
       - ./docker/traefik:C:/etc/traefik
 
-  # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
-  # module data added. See Dockerfile for details.
-  mssql:
-    # DEMO TEAM CUSTOMIZATION - Switch to a Linux version of MSSQL server to support both AKS and local environments
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    healthcheck:
-      test: ["CMD", "dir"]
-    # DEMO TEAM CUSTOMIZATION - More RAM
-    mem_limit: 2GB
-    volumes:
-      - type: bind
-        source: .\docker\data\sql
-        target: /var/opt/mssql/data
-
   # DEMO TEAM CUSTOMIZATION - Custom mssql init
   mssql-init:
     image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
@@ -145,7 +134,7 @@ services:
       args:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-mssql-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
     environment:
@@ -193,8 +182,8 @@ services:
     build:
       context: ./docker/build/id
       args:
-        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id6:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-id7:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.2-${SITECORE_ASSET_NANOSERVER_VERSION}
     volumes:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
@@ -214,14 +203,15 @@ services:
         PARENT_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
         # DEMO TEAM CUSTOMIZATION - demo subfolder, custom tag
         SOLUTION_IMAGE: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-solution:${SITECORE_VERSION}-${NANOSERVER_VERSION}-${DEMO_VERSION}
-        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:${SITECORE_VERSION}-${SITECORE_ASSET_NANOSERVER_VERSION}
+        TOOLS_IMAGE: ${SITECORE_DOCKER_REGISTRY}tools/sitecore-docker-tools-assets:10.2-${SITECORE_ASSET_NANOSERVER_VERSION}
         # DEMO TEAM CUSTOMIZATION - Add modules
         MANAGEMENT_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-management-services-xm1-assets:4.0.0-${SITECORE_ASSET_NANOSERVER_VERSION}
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:20.0.1-${LEGACY_NANOSERVER_VERSION}
-        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.3-${SITECORE_ASSET_NANOSERVER_VERSION}
+        SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:20.0.0-${NANOSERVER_VERSION}
-        HORIZON_INTEGRATION_ASSETS: ${SITECORE_DOCKER_REGISTRY}sxp/modules/horizon-integration-xm1-assets:3.0-${NANOSERVER_VERSION}
+        # DEMO TEAM CUSTOMIZATION - Product Hotfixes
+        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xm1-assets:10.3.1.009332.420-10.0.17763.4377-1809
     depends_on:
       - solution
     volumes:
@@ -233,7 +223,6 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       JSS_EdgeWebsite_DEPLOYMENT_SECRET: ${JSS_EdgeWebsite_DEPLOYMENT_SECRET}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      Sitecore_Horizon_ClientHost: https://${SH_HOST}
       SITECORE_APPSETTINGS_ROLE:DEFINE: Standalone
       ## Development Environment Optimizations
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff,RobotDetectionOff
@@ -264,46 +253,4 @@ services:
       ## Disable Edge Publishing until Edge provisioning is implemented
       ## Sitecore_ExperienceEdge_PublishingTargetId: "{8E080626-DDC3-4EF4-A1D1-F0BE4A200254}"
       Sitecore_ExperienceEdge_PublishingTargetId: ""
-    entrypoint: powershell.exe -Command "& C:\tools\entrypoints\iis\Development.ps1"
-
-  # Horizon
-  authoringhost:
-    image: ${REGISTRY}demo/${COMPOSE_PROJECT_NAME}-authoringhost:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}-${DEMO_VERSION}
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/healthz/live"]
-    build:
-      context: ./docker/build/authoringhost
-      args:
-        BASE_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-horizon:3.0-${WINDOWSSERVERCORE_VERSION}
-    isolation: ${ISOLATION}
-    volumes:
-      - ${HOST_LICENSE_FOLDER}:c:\license
-    environment:
-      SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      Sitecore_FederatedUI__HostBaseUrl: http://authoringhost
-      Sitecore_SitecorePlatform__ContentManagementUrl: https://${CM_HOST}
-      Sitecore_SitecorePlatform__ContentManagementInternalUrl: http://cm
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__RequireHttpsMetadata: "false"
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__Authority: https://${ID_HOST}
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__CallbackAuthority: https://${SH_HOST}
-      Sitecore_Sitecore__Authentication__OpenIdConnectOptions__InternalAuthority: http://id
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__Authority: https://${ID_HOST}
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__InternalAuthority: http://id
-      Sitecore_Sitecore__Authentication__BearerAuthenticationOptions__RequireHttpsMetadata: "false"
-      Sitecore_Plugins__Filters__ExperienceAccelerator: +SXA
-      Sitecore_Plugins__Filters__ContentHub: +ContentHub
-      Sitecore_Sitecore__Logging__Serilog__MinimumLevel__Default: Debug
-    depends_on:
-      id:
-        condition: service_healthy
-      cm:
-        condition: service_started
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.forceSTSHeader=true"
-      - "traefik.http.middlewares.force-STS-Header.headers.stsSeconds=31536000"
-      - "traefik.http.routers.sh-secure.entrypoints=websecure"
-      - "traefik.http.routers.sh-secure.rule=Host(`${SH_HOST}`)"
-      - "traefik.http.routers.sh-secure.tls=true"
-      - "traefik.http.routers.sh-secure.middlewares=force-STS-Header"
-      - "traefik.http.services.sh.loadbalancer.server.port=80"
+    entrypoint: powershell.exe -Command "& C:/tools/entrypoints/iis/Development.ps1"

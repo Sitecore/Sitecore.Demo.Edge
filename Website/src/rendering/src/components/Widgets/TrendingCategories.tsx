@@ -5,6 +5,7 @@ import debounce from '../../helpers/Debounce';
 import { Action } from '@sitecore-discover/react';
 import Link from 'next/link';
 import { getCategoryByUrlPath } from '../../helpers/CategoriesDataHelper';
+import { addTransformation } from '../../helpers/ImageHelper';
 
 type Category = {
   id: string;
@@ -60,7 +61,7 @@ const TrendingCategories = ({
       {trendingCategories?.map((category: Category) => {
         const categoryInformation = getCategoryByUrlPath(category.url);
         const image = categoryInformation?.image_url
-          ? categoryInformation.image_url
+          ? addTransformation(categoryInformation.image_url, 'w480')
           : '/assets/img/shop/category-placeholder.png';
 
         return (

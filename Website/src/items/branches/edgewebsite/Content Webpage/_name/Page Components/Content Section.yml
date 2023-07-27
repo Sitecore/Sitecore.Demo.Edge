@@ -24,6 +24,9 @@ Languages:
       Hint: callToActionLink
       Value: |
         <link text="Action Link" anchor="" linktype="internal" class="" title="" target="" querystring="" id="{2D1D7ACA-9597-5CA6-85B2-9B04907E4298}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1c057199-fa91-420b-83da-1acfa41c45d7"
     - ID: "c274d170-774b-58b5-9081-55c07aa74e5e"
       Hint: cssClass
       Value: "left-full"

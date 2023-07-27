@@ -1,0 +1,11 @@
+.subpage-list {
+  @apply p-0;
+
+  ul {
+    @apply pl-8 list-[circle];
+  }
+
+  a {
+    @apply hover:underline;
+  }
+}

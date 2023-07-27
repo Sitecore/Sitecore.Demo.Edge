@@ -29,7 +29,7 @@ This can be done by:
 
 ### Target Branch
 
-Pull requests must use the `contrib` branch as the target branch.
+Pull requests must use the `develop` branch as the target branch.
 
 ### Title
 

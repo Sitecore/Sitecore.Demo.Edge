@@ -11,6 +11,8 @@ import {
   getGuestEmail as boxeverGetGuestEmail,
   getGuestFirstName as boxeverGetGuestFirstName,
   getGuestLastName as boxeverGetGuestLastName,
+  shouldCloseSession as boxeverShouldCloseSession,
+  ShouldCloseSessionResponse,
 } from './BoxeverService';
 import { RouteData } from '@sitecore-jss/sitecore-jss-nextjs';
 import { TICKETS } from '../models/mock-tickets';
@@ -24,6 +26,8 @@ import { DPayment } from '../models/ordercloud/DPayment';
 export const isCdpConfigured = boxeverIsCdpConfigured;
 
 export const CdpScripts: JSX.Element | undefined = BoxeverScripts;
+
+export type { WelcomeMessage } from './BoxeverService';
 
 type viewEventAdditionalData = {
   sitecoreTemplateName?: string;
@@ -185,4 +189,8 @@ export async function getGuestFirstName(): Promise<string> {
 
 export async function getGuestLastName(): Promise<string> {
   return boxeverGetGuestLastName();
+}
+
+export function shouldCloseSession(): Promise<ShouldCloseSessionResponse> {
+  return boxeverShouldCloseSession();
 }

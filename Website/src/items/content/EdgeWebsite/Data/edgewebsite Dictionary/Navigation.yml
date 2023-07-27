@@ -15,3 +15,7 @@ Languages:
     Value: Navigation
   Versions:
   - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "63b4081e-8815-4cb6-8442-4bd9fba3bcd3"

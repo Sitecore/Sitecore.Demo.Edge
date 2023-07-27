@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views in CDP
+import React, { useEffect } from 'react'; // DEMO TEAM CUSTOMIZATION - Log page views
 import Head from 'next/head';
-// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification, Add LayoutServicePageState
-import {
-  Placeholder,
-  getPublicUrl,
-  LayoutServiceData,
-  LayoutServicePageState,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { closeCurrentSession, logQRCodeEvent, logViewEvent } from './services/CdpService'; // DEMO TEAM CUSTOMIZATION - CDP integration
+// DEMO TEAM CUSTOMIZATION - Remove VisitorIdentification
+import { Placeholder, getPublicUrl, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
+// DEMO TEAM CUSTOMIZATION - CDP and Sitecore Send integration
+import { closeCurrentSession, logQRCodeEvent, shouldCloseSession } from './services/CdpService';
+import { trackViewEvent } from './services/TrackingService';
 import HeaderCdpMessageBar from './components/HeaderCdpMessageBar';
-import { shouldCloseSession } from './services/BoxeverService';
+import { isEditingOrPreviewingPage } from './helpers/LayoutServiceHelper';
+// END CUSTOMIZATION
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
 // If you're not supporting the Experience Editor, you can remove this.
@@ -22,7 +20,7 @@ interface LayoutProps {
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route, context } = layoutData.sitecore; // DEMO TEAM CUSTOMIZATION - Add context to destructuring
 
-  // DEMO TEAM CUSTOMIZATION - Log page views in CDP
+  // DEMO TEAM CUSTOMIZATION - Log page views and code scans
   useEffect(() => {
     (async () => {
       if (typeof window !== 'undefined' && window.location.search.includes('qr-code-scan')) {
@@ -34,17 +32,15 @@ const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
         }
         await logQRCodeEvent('QR Code TV Scan');
       }
-      await logViewEvent(route);
+      await trackViewEvent(route);
     })();
   }, [route]);
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Add CSS classes when Sitecore editors are active
-  const isExperienceEditorActiveCssClass =
-    context.pageState === LayoutServicePageState.Edit ||
-    context.pageState === LayoutServicePageState.Preview
-      ? 'experience-editor-active'
-      : '';
+  const isExperienceEditorActiveCssClass = isEditingOrPreviewingPage(context.pageState)
+    ? 'experience-editor-active'
+    : '';
   // END CUSTOMIZATION
 
   // DEMO TEAM CUSTOMIZATION - Use event name from context as the page title

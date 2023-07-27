@@ -67,7 +67,6 @@ function getSessionsToDisplay(
 
 export default function RoomPage(props: RoomProps) {
   const router = useRouter();
-  const initialPageLoad = useRef(true);
   const dayTimeContext = useContext(DayTimeContext);
 
   // Added useRef to allow use of dayTimeContextRef as a dependency in useEffect (required by linting rules)
@@ -77,18 +76,13 @@ export default function RoomPage(props: RoomProps) {
     getSessionsToDisplay(props.sessions, dayTimeContext.dayTime, router, props.room.name)
   );
   useEffect(() => {
-    // Do not get the sessions on first page load as they come from the props.
-    if (!initialPageLoad.current) {
-      dayTimeContextRef.current.showLoading();
-      getSessionsByRoom(props.roomId, parseInt(dayTimeContext.dayTime.day)).then((data) => {
-        setSessions(
-          getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router, props.room.name)
-        );
-        dayTimeContextRef.current.hideLoading();
-      });
-    }
-
-    initialPageLoad.current = false;
+    dayTimeContextRef.current.showLoading();
+    getSessionsByRoom(props.roomId, parseInt(dayTimeContext.dayTime.day)).then((data) => {
+      setSessions(
+        getSessionsToDisplay(data.sessions, dayTimeContext.dayTime, router, props.room.name)
+      );
+      dayTimeContextRef.current.hideLoading();
+    });
   }, [props.roomId, dayTimeContext.dayTime, dayTimeContextRef, router, props.room.name]);
 
   return (

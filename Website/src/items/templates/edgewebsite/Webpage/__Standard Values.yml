@@ -6,9 +6,7 @@ Path: /sitecore/templates/Project/edgewebsite/Webpage/__Standard Values
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
-  Value: |
-    {4AFA104F-090A-438E-AF07-8134D5D27DD9}
-    {6DB09CEF-64A8-52A3-A980-38408109C4D7}
+  Value: "{4AFA104F-090A-438E-AF07-8134D5D27DD9}"
 - ID: "ca9b9f52-4fb0-4f87-a79f-24dea62cda65"
   Hint: __Default workflow
   Value: "{8F0E1432-3729-462B-AD20-DAF067694BCB}"
@@ -99,6 +97,9 @@ Languages:
   Versions:
   - Version: 1
     Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "78e8cf99-b9ab-4f68-80e7-b64a24ccc93f"
     - ID: "ed69eacf-5eb2-5050-9d5b-997812318dde"
       Hint: pageTitle
       Value: $name
