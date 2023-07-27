@@ -157,10 +157,10 @@ finally {
 if (-not $SkipInit) {
     # Check for Sitecore Gallery
     Import-Module PowerShellGet
-    $SitecoreGallery = Get-PSRepository | Where-Object { $_.SourceLocation -eq "https://sitecore.myget.org/F/sc-powershell/api/v2" }
+    $SitecoreGallery = Get-PSRepository | Where-Object { $_.Name -eq "SitecoreGallery"}
     if (-not $SitecoreGallery) {
         Write-Host "Adding Sitecore PowerShell Gallery..." -ForegroundColor Green
-        Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/sc-powershell/api/v2 -InstallationPolicy Trusted
+        Register-PSRepository -Name SitecoreGallery -SourceLocation https://nuget.sitecore.com/resources/v3/index.json -InstallationPolicy Trusted
         $SitecoreGallery = Get-PSRepository -Name SitecoreGallery
     }
 
