@@ -211,7 +211,7 @@ services:
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
         EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:20.0.0-${NANOSERVER_VERSION}
         # DEMO TEAM CUSTOMIZATION - Product Hotfixes
-        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xm1-assets:10.3.1.009093.381-10.0.17763.4131-1809
+        DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xm1-assets:10.3.1.009332.420-10.0.17763.4377-1809
     depends_on:
       - solution
     volumes:

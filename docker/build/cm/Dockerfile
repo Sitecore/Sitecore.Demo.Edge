@@ -57,7 +57,8 @@ COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/tran
 COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
 
 # Copy Product Hotfixes
-COPY --from=deltaAssetImage /platform/cm/inetpub/wwwroot/ /inetpub/wwwroot/
+# Enabled this if there is a hotfix package available for current version of Sitecore
+# COPY --from=deltaAssetImage /platform/cm/inetpub/wwwroot/ /inetpub/wwwroot/
 
 # Copy additinal files to container
 COPY ./Data/ /inetpub/wwwroot/
