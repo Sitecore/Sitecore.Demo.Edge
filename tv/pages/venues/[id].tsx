@@ -12,9 +12,9 @@ export declare type VenueParams = {
   [param: string]: Params;
 };
 
-export default function VenuePage(props: VenueProps) {
+const VenuePage = (props: VenueProps) => {
   return <Venue venue={props.venue} />;
-}
+};
 
 export async function getStaticPaths() {
   const { venues } = await getVenues();
@@ -37,3 +37,5 @@ export const getStaticProps = async ({ params }: VenueParams) => {
     revalidate: 10,
   };
 };
+
+export default VenuePage;

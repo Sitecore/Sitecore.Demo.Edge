@@ -83,8 +83,8 @@ export interface Session {
   speaker: string | undefined;
   timeslot: string;
   sortOrder: number;
-  Day: string;
-  ShortDay: string;
+  day: string;
+  shortDay: string;
   type: string;
   isPremium: boolean;
 }
