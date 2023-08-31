@@ -64,25 +64,25 @@
       ![After page targeting](After-page-targeting.png)
 
 7. Filter
-    1. Under "Filter", click the "Add" button.
+   1. Under "Filter", click the "Add" button.
 
        ![Filter empty](/docs/cdp-personalize/experiments/web/Filter-empty.png)
 
-    2. Click on "Add condition".
+   2. Click on "Add condition".
 
        ![Filter templates](/docs/cdp-personalize/experiments/web/Filter-templates.png)
 
-    3. Click on "Create".
+   3. Click on "Create".
 
        ![Filter editor](/docs/cdp-personalize/experiments/web/Filter-editor.png)
 
-    4. Click "Edit" and replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Subscribe%20to%20update%20emails%20campaign/Show%20Sign%20Up%20For%20Session%20Updates%20form%20to%20guests%20every%205,%2010,%2020%20etc.%20session%20page%20views%20condition.js).
-    5. Click the "Save" button.
-    6. Click the "Close" button.
+   4. Click "Edit" and replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Subscribe%20to%20update%20emails%20campaign/Show%20Sign%20Up%20For%20Session%20Updates%20form%20to%20guests%20every%205,%2010,%2020%20etc.%20session%20page%20views%20condition.js).
+   5. Click the "Save" button.
+   6. Click the "Close" button.
 
        ![Filter custom](/docs/cdp-personalize/experiments/web/Filter-custom.png)
 
-    7. Close the filter side panel.
+   7. Close the filter side panel.
 
        ![After filter](After-filter.png)
 
