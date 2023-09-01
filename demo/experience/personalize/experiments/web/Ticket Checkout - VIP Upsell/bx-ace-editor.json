@@ -1,0 +1,240 @@
+{
+  "clientKey": "Redacted",
+  "href": "https://api-us.boxever.com/v3/flowDefinitions/8eb5b9e6-c4bb-472f-b528-47313e6d7288",
+  "ref": "8eb5b9e6-c4bb-472f-b528-47313e6d7288",
+  "name": "Ticket Checkout - VIP Upsell",
+  "modifiedByRef": "auth0|63f77553c538c12a3133ea90",
+  "modifiedAt": "2023-09-01T10:32:51.064Z",
+  "revision": 135,
+  "archived": false,
+  "friendlyId": "ticket_checkout_vip_upsell",
+  "type": "INTERACTIVE_WEB_FLOW",
+  "subtype": "EXPERIMENT",
+  "channels": ["WEB"],
+  "triggers": [],
+  "referenceLinks": [],
+  "dashboardLinks": [],
+  "target": {
+    "script": "// Use client-side JavaScript to more specifically target users\n// NOTE: When your targeting conditions are met you must call targetingPassed() \n\nvar regularTicketPaymentPageRegexp = /.+\\/tickets\\/payment\\?ticket=1/i;\n\nfunction evaluateTarget() {\n    if (regularTicketPaymentPageRegexp.test(window.location.href)) {\n        targetingPassed();\n    }\n}\n\n(function () {\n    evaluateTarget();\n    var pushState = history.pushState;\n    history.pushState = function() {\n        pushState.apply(history, arguments);\n        evaluateTarget();\n    };\n})();",
+    "targetPages": []
+  },
+  "goals": {
+    "primary": {
+      "type": "pageViewGoal",
+      "name": "VIEW",
+      "friendlyId": "view",
+      "ref": "5abfdfee-93f9-4bc4-9185-04e5c693fc49",
+      "description": "Purchase of a VIP ticket",
+      "goalCalculation": {
+        "type": "binary",
+        "calculation": "INCREASE",
+        "target": "conversionPerSession"
+      },
+      "pageParameters": [
+        {
+          "matchCondition": "Regex",
+          "parameterString": ".+/tickets/payment/confirmed\\?ticket=2"
+        }
+      ]
+    }
+  },
+  "tags": ["migrated", "Production"],
+  "businessProcess": "interactive_v1",
+  "traffic": {
+    "type": "simpleTraffic",
+    "weightingAlgorithm": "USER_DEFINED",
+    "modifiedAt": "2023-09-01T10:32:44.905Z",
+    "allocation": 100,
+    "splits": [
+      {
+        "ref": "549b8acc-f20e-485a-a6e4-108dee66d77e",
+        "split": 50
+      },
+      {
+        "ref": "dab434d2-04d4-41c5-9eab-dc5fe36dbd92",
+        "split": 50
+      }
+    ],
+    "coupled": true
+  },
+  "variants": [
+    {
+      "ref": "549b8acc-f20e-485a-a6e4-108dee66d77e",
+      "name": "Variant 1 - Popup takeover - Drifting Rally Car",
+      "isControl": true,
+      "previewUrl": "https://edge-nightly-website.sitecoredemo.com/sessions",
+      "assets": {
+        "css": "#bx-{{ref}} #bx-modal_overlay {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  z-index: 999999;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: rgba(0,0,0,0.4);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content {\n  display: flex;\n  flex-direction: row;\n  position:relative;\n  background: #fff;\n  border-radius: 4px;\n  box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);\n  width: 1020px;\n  min-height: 380px;\n  border: none;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_left {\n  margin: 0;\n  width: 450px;\n  min-height: 380px;\n  background-image: url(https://ch.sitecoredemo.com/api/public/content/df200f3123164dacba7bb6d71f0ccf24?v=0862bf49);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 570px;\n  padding: 38px;\n  font-size: .875rem;\n  line-height: 1.25rem;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right>:not([hidden])~:not([hidden]) {\n    --tw-space-y-reverse: 0;\n  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content h3 {\n  font-size: 1.5rem;\n  line-height: 2rem;\n  font-weight: bold;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul {\n  list-style-type: none;\n  text-indent: -40px;\n  margin-left: 40px;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul svg {\n  margin-right: .75rem;\n  --tw-text-opacity: 1;\n  color: rgba(0, 110, 249, var(--tw-text-opacity));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_button-wrapper {\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n\n/* close button */\n#bx-{{ref}} .bx-modal__btn-close-icon {\n  background: transparent;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  margin-top: 15px;\n  margin-right: 15px;\n  position: absolute;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:after {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  position: absolute;\n  margin: auto;\n  transform: rotate(45deg);\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:before {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  margin: auto;\n  position: absolute;\n  transform: rotate(-45deg);\n}",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<div id=\"bx-modal_overlay\">\n    <div class=\"bx-modal_content\">\n        <div class=\"bx-modal_left\"></div>\n        <div class=\"bx-modal_right\">\n            <h3>[[ Title Text | string | Upgrade to a VIP Ticket | { required: true, group: Title, groupOrder: 2, order: 1 } ]]</h3>\n            <p>\n                We have noticed your interest in some Premium sessions!\n                <br/>\n                Premium sessions are available to all VIP ticket holders.\n            </p>\n            <p>For only <b>$200</b> more, you could get the following benefits:</p>\n            <ul>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    All access <b>VIP</b> pass\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>VIP</b> access to exclusive workshops and special keynotes\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>20%</b> off all vendor goods (10% more)\n                </li>\n            </ul>\n            <p>You would save <b>$100</b> from the regular VIP ticket price (<b>$499</b>) by buying now during the early bird <b>20%</b> offer!</p>\n            <div class=\"bx-modal_button-wrapper text-base\">\n                <a href=\"/tickets/payment?ticket=2\" class=\"btn--main btn--main--round\">\n                    [[ Button title | string | Upgrade to a VIP ticket now! | {required:true, group: Button, groupOrder: 4, order: 1 }]]\n                </a>\n            </div>\n        </div>\n        <div class=\"bx-modal__btn-close-icon\"></div>\n    </div>\n</div>",
+        "js": "function showPopup() {\n    // Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\n    var styleTag = document.getElementById('style-' + variant.ref);\n    if (styleTag) {\n        styleTag.innerHTML = compiledCSS;\n    }\n    // End Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    \n    // make space in the body for the experience\n    insertHTMLBefore('body');\n    document.querySelector('#bx-modal_overlay').style.display = 'flex';\n    document.body.classList.add('bx-modal_content');\n    var bxCardClose = document.querySelector('.bx-modal__btn-close-icon');\n    bxCardClose.onclick = function () {\n      document.querySelector('#bx-modal_overlay').style.display = 'none';\n    };\n}\n\nsetTimeout(showPopup, 5000);"
+      },
+      "templateVariables": {
+        "Title Text": "Upgrade to a VIP Ticket",
+        "Button title": "Upgrade to a VIP ticket now!"
+      },
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#-- Construct the API response using Freemarker -->\n<#-- For your Experience to run your API tab must have, at a minimum, open and closing brackets -->\n{  <#-- Freemarker will go here -->   }"
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "friendlyId": "guest_has_viewed_a_premium_content_page_condition",
+                "ruleData": {
+                  "expression": "// Use server-side JavaScript to filter your audience further\r\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\r\n// Any truthy return value will pass the audience filter, it is recommended to return an object\r\n// The value returned can be accessed from the variant API response as 'filter'\r\n\r\n// Returns true if the guest has ever viewed a premium content page. Returns false otherwise.\r\n(function () {\r\n    for (var sessionIndex = 0; sessionIndex < guest.sessions.length; sessionIndex++) {\r\n        var session = guest.sessions[sessionIndex];\r\n\r\n        for (var eventIndex = 0; eventIndex < session.events.length; eventIndex++) {\r\n            var event = session.events[eventIndex];\r\n\r\n            if (event.type === \"VIEW\" && event.arbitraryData && event.arbitraryData.premiumContent) {\r\n                return true;\r\n            }\r\n        }\r\n    }\r\n    return false;\r\n})();"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "render": true
+    },
+    {
+      "ref": "dab434d2-04d4-41c5-9eab-dc5fe36dbd92",
+      "name": "Variant 2 - Popup takeover - Celebrating Player",
+      "isControl": false,
+      "previewUrl": "https://edge-nightly-website.sitecoredemo.com/sessions",
+      "assets": {
+        "css": "#bx-{{ref}} #bx-modal_overlay {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  z-index: 999999;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: rgba(0,0,0,0.4);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content {\n  display: flex;\n  flex-direction: row;\n  position:relative;\n  background: #fff;\n  border-radius: 4px;\n  box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);\n  width: 1020px;\n  min-height: 380px;\n  border: none;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_left {\n  margin: 0;\n  width: 450px;\n  min-height: 380px;\n  background-image: url(https://ch.sitecoredemo.com/api/public/content/acd83edb64ea4b448d53bf254f752657?v=b9b5ac37);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 570px;\n  padding: 38px;\n  font-size: .875rem;\n  line-height: 1.25rem;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right>:not([hidden])~:not([hidden]) {\n    --tw-space-y-reverse: 0;\n  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content h3 {\n  font-size: 1.5rem;\n  line-height: 2rem;\n  font-weight: bold;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul {\n  list-style-type: none;\n  text-indent: -40px;\n  margin-left: 40px;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul svg {\n  margin-right: .75rem;\n  --tw-text-opacity: 1;\n  color: rgba(0, 110, 249, var(--tw-text-opacity));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_button-wrapper {\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n\n/* close button */\n#bx-{{ref}} .bx-modal__btn-close-icon {\n  background: transparent;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  margin-top: 15px;\n  margin-right: 15px;\n  position: absolute;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:after {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  position: absolute;\n  margin: auto;\n  transform: rotate(45deg);\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:before {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  margin: auto;\n  position: absolute;\n  transform: rotate(-45deg);\n}",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<div id=\"bx-modal_overlay\">\n    <div class=\"bx-modal_content\">\n        <div class=\"bx-modal_left\"></div>\n        <div class=\"bx-modal_right\">\n            <h3>[[ Title Text | string | Upgrade to a VIP Ticket | { required: true, group: Title, groupOrder: 2, order: 1 } ]]</h3>\n            <p>\n                We have noticed your interest in some Premium sessions!\n                <br/>\n                Premium sessions are available to all VIP ticket holders.\n            </p>\n            <p>For only <b>$200</b> more, you could get the following benefits:</p>\n            <ul>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    All access <b>VIP</b> pass\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>VIP</b> access to exclusive workshops and special keynotes\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>20%</b> off all vendor goods (10% more)\n                </li>\n            </ul>\n            <p>You would save <b>$100</b> from the regular VIP ticket price (<b>$499</b>) by buying now during the early bird <b>20%</b> offer!</p>\n            <div class=\"bx-modal_button-wrapper text-base\">\n                <a href=\"/tickets/payment?ticket=2\" class=\"btn--main btn--main--round\">\n                    [[ Button title | string | Upgrade to a VIP ticket now! | {required:true, group: Button, groupOrder: 4, order: 1 }]]\n                </a>\n            </div>\n        </div>\n        <div class=\"bx-modal__btn-close-icon\"></div>\n    </div>\n</div>",
+        "js": "function showPopup() {\n    // Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\n    var styleTag = document.getElementById('style-' + variant.ref);\n    if (styleTag) {\n        styleTag.innerHTML = compiledCSS;\n    }\n    // End Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    \n    // make space in the body for the experience\n    insertHTMLBefore('body');\n    document.querySelector('#bx-modal_overlay').style.display = 'flex';\n    document.body.classList.add('bx-modal_content');\n    var bxCardClose = document.querySelector('.bx-modal__btn-close-icon');\n    bxCardClose.onclick = function () {\n      document.querySelector('#bx-modal_overlay').style.display = 'none';\n    };\n}\n\nsetTimeout(showPopup, 5000);"
+      },
+      "templateVariables": {
+        "Title Text": "Upgrade to a VIP Ticket",
+        "Button title": "Upgrade to a VIP ticket now!"
+      },
+      "tasks": [
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "friendlyId": "guest_has_viewed_a_premium_content_page_condition",
+                "ruleData": {
+                  "expression": "// Use server-side JavaScript to filter your audience further\r\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\r\n// Any truthy return value will pass the audience filter, it is recommended to return an object\r\n// The value returned can be accessed from the variant API response as 'filter'\r\n\r\n// Returns true if the guest has ever viewed a premium content page. Returns false otherwise.\r\n(function () {\r\n    for (var sessionIndex = 0; sessionIndex < guest.sessions.length; sessionIndex++) {\r\n        var session = guest.sessions[sessionIndex];\r\n\r\n        for (var eventIndex = 0; eventIndex < session.events.length; eventIndex++) {\r\n            var event = session.events[eventIndex];\r\n\r\n            if (event.type === \"VIEW\" && event.arbitraryData && event.arbitraryData.premiumContent) {\r\n                return true;\r\n            }\r\n        }\r\n    }\r\n    return false;\r\n})();"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#-- Construct the API response using Freemarker -->\n<#-- For your Experience to run your API tab must have, at a minimum, open and closing brackets -->\n{  <#-- Freemarker will go here -->   }"
+          }
+        }
+      ],
+      "render": true
+    }
+  ],
+  "transpiledVariants": [
+    {
+      "ref": "549b8acc-f20e-485a-a6e4-108dee66d77e",
+      "name": "Variant 1 - Popup takeover - Drifting Rally Car",
+      "isControl": true,
+      "previewUrl": "https://edge-nightly-website.sitecoredemo.com/sessions",
+      "assets": {
+        "css": "#bx-{{ref}} #bx-modal_overlay {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  z-index: 999999;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: rgba(0,0,0,0.4);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content {\n  display: flex;\n  flex-direction: row;\n  position:relative;\n  background: #fff;\n  border-radius: 4px;\n  box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);\n  width: 1020px;\n  min-height: 380px;\n  border: none;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_left {\n  margin: 0;\n  width: 450px;\n  min-height: 380px;\n  background-image: url(https://ch.sitecoredemo.com/api/public/content/df200f3123164dacba7bb6d71f0ccf24?v=0862bf49);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 570px;\n  padding: 38px;\n  font-size: .875rem;\n  line-height: 1.25rem;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right>:not([hidden])~:not([hidden]) {\n    --tw-space-y-reverse: 0;\n  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content h3 {\n  font-size: 1.5rem;\n  line-height: 2rem;\n  font-weight: bold;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul {\n  list-style-type: none;\n  text-indent: -40px;\n  margin-left: 40px;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul svg {\n  margin-right: .75rem;\n  --tw-text-opacity: 1;\n  color: rgba(0, 110, 249, var(--tw-text-opacity));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_button-wrapper {\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n\n/* close button */\n#bx-{{ref}} .bx-modal__btn-close-icon {\n  background: transparent;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  margin-top: 15px;\n  margin-right: 15px;\n  position: absolute;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:after {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  position: absolute;\n  margin: auto;\n  transform: rotate(45deg);\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:before {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  margin: auto;\n  position: absolute;\n  transform: rotate(-45deg);\n}",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<div id=\"bx-modal_overlay\">\n    <div class=\"bx-modal_content\">\n        <div class=\"bx-modal_left\"></div>\n        <div class=\"bx-modal_right\">\n            <h3>Upgrade to a VIP Ticket</h3>\n            <p>\n                We have noticed your interest in some Premium sessions!\n                <br/>\n                Premium sessions are available to all VIP ticket holders.\n            </p>\n            <p>For only <b>$200</b> more, you could get the following benefits:</p>\n            <ul>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    All access <b>VIP</b> pass\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>VIP</b> access to exclusive workshops and special keynotes\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>20%</b> off all vendor goods (10% more)\n                </li>\n            </ul>\n            <p>You would save <b>$100</b> from the regular VIP ticket price (<b>$499</b>) by buying now during the early bird <b>20%</b> offer!</p>\n            <div class=\"bx-modal_button-wrapper text-base\">\n                <a href=\"/tickets/payment?ticket=2\" class=\"btn--main btn--main--round\">\n                    Upgrade to a VIP ticket now!\n                </a>\n            </div>\n        </div>\n        <div class=\"bx-modal__btn-close-icon\"></div>\n    </div>\n</div>",
+        "js": "function showPopup() {\n    // Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\n    var styleTag = document.getElementById('style-' + variant.ref);\n    if (styleTag) {\n        styleTag.innerHTML = compiledCSS;\n    }\n    // End Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    \n    // make space in the body for the experience\n    insertHTMLBefore('body');\n    document.querySelector('#bx-modal_overlay').style.display = 'flex';\n    document.body.classList.add('bx-modal_content');\n    var bxCardClose = document.querySelector('.bx-modal__btn-close-icon');\n    bxCardClose.onclick = function () {\n      document.querySelector('#bx-modal_overlay').style.display = 'none';\n    };\n}\n\nsetTimeout(showPopup, 5000);"
+      },
+      "templateVariables": {
+        "Title Text": "Upgrade to a VIP Ticket",
+        "Button title": "Upgrade to a VIP ticket now!"
+      },
+      "tasks": [
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#-- Construct the API response using Freemarker -->\n<#-- For your Experience to run your API tab must have, at a minimum, open and closing brackets -->\n{  <#-- Freemarker will go here -->   }"
+          }
+        },
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "friendlyId": "guest_has_viewed_a_premium_content_page_condition",
+                "ruleData": {
+                  "expression": "\n\n// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest has ever viewed a premium content page. Returns false otherwise.\n(function () {\n    for (var sessionIndex = 0; sessionIndex < guest.sessions.length; sessionIndex++) {\n        var session = guest.sessions[sessionIndex];\n\n        for (var eventIndex = 0; eventIndex < session.events.length; eventIndex++) {\n            var event = session.events[eventIndex];\n\n            if (event.type === \"VIEW\" && event.arbitraryData && event.arbitraryData.premiumContent) {\n                return true;\n            }\n        }\n    }\n    return false;\n})();"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "ref": "dab434d2-04d4-41c5-9eab-dc5fe36dbd92",
+      "name": "Variant 2 - Popup takeover - Celebrating Player",
+      "isControl": false,
+      "previewUrl": "https://edge-nightly-website.sitecoredemo.com/sessions",
+      "assets": {
+        "css": "#bx-{{ref}} #bx-modal_overlay {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  z-index: 999999;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: rgba(0,0,0,0.4);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content {\n  display: flex;\n  flex-direction: row;\n  position:relative;\n  background: #fff;\n  border-radius: 4px;\n  box-shadow: 0 2px 10px 6px rgba(0,0,0,0.3);\n  width: 1020px;\n  min-height: 380px;\n  border: none;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_left {\n  margin: 0;\n  width: 450px;\n  min-height: 380px;\n  background-image: url(https://ch.sitecoredemo.com/api/public/content/acd83edb64ea4b448d53bf254f752657?v=b9b5ac37);\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 570px;\n  padding: 38px;\n  font-size: .875rem;\n  line-height: 1.25rem;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content .bx-modal_right>:not([hidden])~:not([hidden]) {\n    --tw-space-y-reverse: 0;\n  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));\n  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content h3 {\n  font-size: 1.5rem;\n  line-height: 2rem;\n  font-weight: bold;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul {\n  list-style-type: none;\n  text-indent: -40px;\n  margin-left: 40px;\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_content ul svg {\n  margin-right: .75rem;\n  --tw-text-opacity: 1;\n  color: rgba(0, 110, 249, var(--tw-text-opacity));\n}\n\n#bx-{{ref}} #bx-modal_overlay .bx-modal_button-wrapper {\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.5rem;\n}\n\n/* close button */\n#bx-{{ref}} .bx-modal__btn-close-icon {\n  background: transparent;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  margin-top: 15px;\n  margin-right: 15px;\n  position: absolute;\n  margin: auto;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  cursor: pointer;\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:after {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  position: absolute;\n  margin: auto;\n  transform: rotate(45deg);\n}\n\n#bx-{{ref}} .bx-modal__btn-close-icon:before {\n  background: transparent;\n  content: \"\";\n  height: 24px;\n  border-left: 3px solid #8A8F98;\n  margin: auto;\n  position: absolute;\n  transform: rotate(-45deg);\n}",
+        "html": "<!-- Use dynamic Guest variables, type ctrl+space or guest to explore available entities.-->\n<!-- Type \"d\" to see decisioning helpers -->\n<div id=\"bx-modal_overlay\">\n    <div class=\"bx-modal_content\">\n        <div class=\"bx-modal_left\"></div>\n        <div class=\"bx-modal_right\">\n            <h3>Upgrade to a VIP Ticket</h3>\n            <p>\n                We have noticed your interest in some Premium sessions!\n                <br/>\n                Premium sessions are available to all VIP ticket holders.\n            </p>\n            <p>For only <b>$200</b> more, you could get the following benefits:</p>\n            <ul>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    All access <b>VIP</b> pass\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>VIP</b> access to exclusive workshops and special keynotes\n                </li>\n                <li>\n                    <svg aria-hidden=\"true\" focusable=\"false\" data-prefix=\"fas\" data-icon=\"check\" class=\"svg-inline--fa fa-check fa-w-16 \" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><path fill=\"currentColor\" d=\"M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z\"></path></svg>\n                    <b>20%</b> off all vendor goods (10% more)\n                </li>\n            </ul>\n            <p>You would save <b>$100</b> from the regular VIP ticket price (<b>$499</b>) by buying now during the early bird <b>20%</b> offer!</p>\n            <div class=\"bx-modal_button-wrapper text-base\">\n                <a href=\"/tickets/payment?ticket=2\" class=\"btn--main btn--main--round\">\n                    Upgrade to a VIP ticket now!\n                </a>\n            </div>\n        </div>\n        <div class=\"bx-modal__btn-close-icon\"></div>\n    </div>\n</div>",
+        "js": "function showPopup() {\n    // Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    var compiledCSS = Boxever.templating.compile(variant.assets.css)(variant);\n    var styleTag = document.getElementById('style-' + variant.ref);\n    if (styleTag) {\n        styleTag.innerHTML = compiledCSS;\n    }\n    // End Adds a unique variant identifier to CSS when deployed to ensure CSS does not impact styling of other elements.\n    \n    // make space in the body for the experience\n    insertHTMLBefore('body');\n    document.querySelector('#bx-modal_overlay').style.display = 'flex';\n    document.body.classList.add('bx-modal_content');\n    var bxCardClose = document.querySelector('.bx-modal__btn-close-icon');\n    bxCardClose.onclick = function () {\n      document.querySelector('#bx-modal_overlay').style.display = 'none';\n    };\n}\n\nsetTimeout(showPopup, 5000);"
+      },
+      "templateVariables": {
+        "Title Text": "Upgrade to a VIP Ticket",
+        "Button title": "Upgrade to a VIP ticket now!"
+      },
+      "tasks": [
+        {
+          "implementation": "conditionsTask",
+          "input": {
+            "inputType": "conditionsTaskInput",
+            "rules": [
+              {
+                "id": "scriptCondition",
+                "friendlyId": "guest_has_viewed_a_premium_content_page_condition",
+                "ruleData": {
+                  "expression": "\n\n// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest has ever viewed a premium content page. Returns false otherwise.\n(function () {\n    for (var sessionIndex = 0; sessionIndex < guest.sessions.length; sessionIndex++) {\n        var session = guest.sessions[sessionIndex];\n\n        for (var eventIndex = 0; eventIndex < session.events.length; eventIndex++) {\n            var event = session.events[eventIndex];\n\n            if (event.type === \"VIEW\" && event.arbitraryData && event.arbitraryData.premiumContent) {\n                return true;\n            }\n        }\n    }\n    return false;\n})();"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "implementation": "templateRenderTask",
+          "input": {
+            "inputType": "templateRenderTaskInput",
+            "type": "application/json",
+            "template": "<#-- Construct the API response using Freemarker -->\n<#-- For your Experience to run your API tab must have, at a minimum, open and closing brackets -->\n{  <#-- Freemarker will go here -->   }"
+          }
+        }
+      ]
+    }
+  ],
+  "audienceTemplateVariables": {},
+  "status": "PRODUCTION",
+  "schedule": {
+    "type": "simpleSchedule",
+    "startDate": "2023-09-01T10:32:44.484Z"
+  },
+  "revisions": {
+    "href": "https://api-us.boxever.com/v3/flowDefinitions/8eb5b9e6-c4bb-472f-b528-47313e6d7288/revisions"
+  },
+  "sampleSizeConfig": {
+    "baseValue": 0.15,
+    "minimumDetectableDifference": 0.02,
+    "confidenceLevel": 0.95
+  }
+}
