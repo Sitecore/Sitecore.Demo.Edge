@@ -1,18 +1,16 @@
 {
-  "clientKey": "dpsbx91fh7b0ve3qbfuoa0f7brme513i",
+  "clientKey": "Redacted",
   "href": "https://api-us.boxever.com/v3/flowDefinitions/aebaa206-edb8-4915-9c24-3858a09cd4c7",
   "ref": "aebaa206-edb8-4915-9c24-3858a09cd4c7",
   "name": "Premium Session Page - VIP Ticket Upgrade",
-  "modifiedByRef": "076f36a8-bb38-4812-a339-2359a2dbbe10",
-  "modifiedAt": "2022-03-04T19:57:01.041Z",
-  "revision": 32,
+  "modifiedByRef": "auth0|63f77553c538c12a3133ea90",
+  "modifiedAt": "2023-09-01T12:15:40.41Z",
+  "revision": 41,
   "archived": false,
   "friendlyId": "premium_session_page__vip_ticket_upgrade_experiment",
   "type": "INTERACTIVE_WEB_FLOW",
   "subtype": "EXPERIMENT",
-  "channels": [
-    "WEB"
-  ],
+  "channels": ["WEB"],
   "triggers": [],
   "referenceLinks": [],
   "dashboardLinks": [],
@@ -40,14 +38,12 @@
       ]
     }
   },
-  "tags": [
-    "Production"
-  ],
+  "tags": ["Production"],
   "businessProcess": "interactive_v1",
   "traffic": {
     "type": "simpleTraffic",
     "weightingAlgorithm": "USER_DEFINED",
-    "modifiedAt": "2022-03-04T19:56:54.419Z",
+    "modifiedAt": "2023-09-01T12:15:40.642Z",
     "allocation": 100,
     "splits": [
       {
@@ -91,16 +87,16 @@
             "inputType": "conditionsTaskInput",
             "rules": [
               {
-                "id": "scriptCondition",
-                "name": "Custom Real-Time Audience",
-                "ruleData": {
-                  "expression": "// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest owns a regular ticket. Returns false otherwise.\n(function () {\n    var TICKET_DATA_EXTENSION_NAME = \"Ticket\";\n    var REGULAR_TICKET_ID = 1;\n    var REGULAR_TICKET_NAME = \"Regular Ticket\";\n\n    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {\n        var dataExtension = guest.dataExtensions[dataExtensionIndex];\n        \n        if (dataExtension.name === TICKET_DATA_EXTENSION_NAME) {\n            return dataExtension.values.ticketId === REGULAR_TICKET_ID || dataExtension.values.ticketName === REGULAR_TICKET_NAME;\n        }\n    }\n\n    return false;\n})();"
-                }
-              },
-              {
                 "id": "segmentCondition",
                 "ruleData": {
                   "expression": ""
+                }
+              },
+              {
+                "id": "scriptCondition",
+                "friendlyId": "guest_owns_a_regular_ticket_condition",
+                "ruleData": {
+                  "expression": "// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest owns a regular ticket. Returns false otherwise.\n(function () {\n    var TICKET_DATA_EXTENSION_NAME = \"Ticket\";\n    var REGULAR_TICKET_ID = 1;\n    var REGULAR_TICKET_NAME = \"Regular Ticket\";\n\n    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {\n        var dataExtension = guest.dataExtensions[dataExtensionIndex];\n        \n        if (dataExtension.name === TICKET_DATA_EXTENSION_NAME) {\n            return dataExtension.values.ticketId === REGULAR_TICKET_ID || dataExtension.values.ticketName === REGULAR_TICKET_NAME;\n        }\n    }\n\n    return false;\n})();"
                 }
               }
             ]
@@ -139,7 +135,7 @@
             "rules": [
               {
                 "id": "scriptCondition",
-                "name": "Custom Real-Time Audience",
+                "friendlyId": "guest_owns_a_regular_ticket_condition",
                 "ruleData": {
                   "expression": "// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest owns a regular ticket. Returns false otherwise.\n(function () {\n    var TICKET_DATA_EXTENSION_NAME = \"Ticket\";\n    var REGULAR_TICKET_ID = 1;\n    var REGULAR_TICKET_NAME = \"Regular Ticket\";\n\n    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {\n        var dataExtension = guest.dataExtensions[dataExtensionIndex];\n        \n        if (dataExtension.name === TICKET_DATA_EXTENSION_NAME) {\n            return dataExtension.values.ticketId === REGULAR_TICKET_ID || dataExtension.values.ticketName === REGULAR_TICKET_NAME;\n        }\n    }\n\n    return false;\n})();"
                 }
@@ -181,16 +177,16 @@
             "inputType": "conditionsTaskInput",
             "rules": [
               {
-                "id": "scriptCondition",
-                "name": "Custom Real-Time Audience",
-                "ruleData": {
-                  "expression": "\n\n// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest owns a regular ticket. Returns false otherwise.\n(function () {\n    var TICKET_DATA_EXTENSION_NAME = \"Ticket\";\n    var REGULAR_TICKET_ID = 1;\n    var REGULAR_TICKET_NAME = \"Regular Ticket\";\n\n    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {\n        var dataExtension = guest.dataExtensions[dataExtensionIndex];\n\n        if (dataExtension.name === TICKET_DATA_EXTENSION_NAME) {\n            return dataExtension.values.ticketId === REGULAR_TICKET_ID || dataExtension.values.ticketName === REGULAR_TICKET_NAME;\n        }\n    }\n\n    return false;\n})();"
-                }
-              },
-              {
                 "id": "segmentCondition",
                 "ruleData": {
                   "expression": ""
+                }
+              },
+              {
+                "id": "scriptCondition",
+                "friendlyId": "guest_owns_a_regular_ticket_condition",
+                "ruleData": {
+                  "expression": "\n\n// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest owns a regular ticket. Returns false otherwise.\n(function () {\n    var TICKET_DATA_EXTENSION_NAME = \"Ticket\";\n    var REGULAR_TICKET_ID = 1;\n    var REGULAR_TICKET_NAME = \"Regular Ticket\";\n\n    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {\n        var dataExtension = guest.dataExtensions[dataExtensionIndex];\n\n        if (dataExtension.name === TICKET_DATA_EXTENSION_NAME) {\n            return dataExtension.values.ticketId === REGULAR_TICKET_ID || dataExtension.values.ticketName === REGULAR_TICKET_NAME;\n        }\n    }\n\n    return false;\n})();"
                 }
               }
             ]
@@ -228,7 +224,7 @@
             "rules": [
               {
                 "id": "scriptCondition",
-                "name": "Custom Real-Time Audience",
+                "friendlyId": "guest_owns_a_regular_ticket_condition",
                 "ruleData": {
                   "expression": "\n\n// Use server-side JavaScript to filter your audience further\n// You have full access to the guest context which can be accessed under guest, e.g. guest.email\n// Any truthy return value will pass the audience filter, it is recommended to return an object\n// The value returned can be accessed from the variant API response as 'filter'\n\n// Returns true if the guest owns a regular ticket. Returns false otherwise.\n(function () {\n    var TICKET_DATA_EXTENSION_NAME = \"Ticket\";\n    var REGULAR_TICKET_ID = 1;\n    var REGULAR_TICKET_NAME = \"Regular Ticket\";\n\n    for (var dataExtensionIndex = 0; dataExtensionIndex < guest.dataExtensions.length; dataExtensionIndex++) {\n        var dataExtension = guest.dataExtensions[dataExtensionIndex];\n\n        if (dataExtension.name === TICKET_DATA_EXTENSION_NAME) {\n            return dataExtension.values.ticketId === REGULAR_TICKET_ID || dataExtension.values.ticketName === REGULAR_TICKET_NAME;\n        }\n    }\n\n    return false;\n})();"
                 }
@@ -243,7 +239,7 @@
   "status": "PRODUCTION",
   "schedule": {
     "type": "simpleSchedule",
-    "startDate": "2022-03-04T19:56:54.013Z"
+    "startDate": "2023-09-01T12:15:40.150Z"
   },
   "revisions": {
     "href": "https://api-us.boxever.com/v3/flowDefinitions/aebaa206-edb8-4915-9c24-3858a09cd4c7/revisions"
