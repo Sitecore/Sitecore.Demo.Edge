@@ -3,16 +3,14 @@
   "href": "https://api-us.boxever.com/v3/flowDefinitions/d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee",
   "ref": "d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee",
   "name": "Session Browse Abandonment",
-  "modifiedByRef": "e9c7b09d-00ba-447e-95f9-d8a6b17f4ce5",
-  "modifiedAt": "2022-02-08T13:40:01.491Z",
-  "revision": 99,
+  "modifiedByRef": "auth0|63f77553c538c12a3133ea90",
+  "modifiedAt": "2023-08-29T10:23:02.718Z",
+  "revision": 103,
   "archived": false,
   "friendlyId": "session_browse_abandonment",
   "type": "TRIGGERED_V3",
   "subtype": "EXPERIENCE",
-  "channels": [
-    "WEB"
-  ],
+  "channels": ["EMAIL"],
   "triggers": [
     {
       "name": "Session Closed",
@@ -32,14 +30,15 @@
   "traffic": {
     "type": "simpleTraffic",
     "weightingAlgorithm": "USER_DEFINED",
-    "modifiedAt": "2022-02-08T13:40:01.453Z",
+    "modifiedAt": "2023-08-29T10:23:02.613Z",
     "allocation": 100,
     "splits": [
       {
         "ref": "12009612-0815-4c33-954f-e98d992f664b",
         "split": 100
       }
-    ]
+    ],
+    "coupled": true
   },
   "variants": [
     {
@@ -125,7 +124,8 @@
             "rules": [
               {
                 "id": "scriptCondition",
-                "name": "Custom Real-Time Audience",
+                "friendlyId": "custom_condition_session_browse_abandonment",
+                "name": "Custom Condition_Session Browse Abandonment",
                 "ruleData": {
                   "expression": "(function () {\r\n\r\n    if(!guest.email){\r\n        return false;\r\n    }\r\n    \r\n    if (guest.dataExtensions.length < 1){\r\n        return true;\r\n    }\r\n    \r\n    for(var i = 0; i < guest.dataExtensions.length; i++){\r\n        if (guest.dataExtensions[i].name === \"Ticket\"){\r\n            return false;\r\n        }\r\n    }\r\n    \r\n    return true;\r\n})();"
                 }
@@ -137,9 +137,7 @@
           "implementation": "decisionModelTask",
           "input": {
             "inputType": "decisionModelTaskInput",
-            "decisionModelRefs": [
-              "de798499-8b1e-4074-815f-65e2817161d1"
-            ]
+            "decisionModelRefs": ["de798499-8b1e-4074-815f-65e2817161d1"]
           }
         }
       ],
@@ -231,7 +229,8 @@
             "rules": [
               {
                 "id": "scriptCondition",
-                "name": "Custom Real-Time Audience",
+                "friendlyId": "custom_condition_session_browse_abandonment",
+                "name": "Custom Condition_Session Browse Abandonment",
                 "ruleData": {
                   "expression": "\n\n(function () {\n\n    if (!guest.email) {\n        return false;\n    }\n\n    if (guest.dataExtensions.length < 1) {\n        return true;\n    }\n\n    for (var i = 0; i < guest.dataExtensions.length; i++) {\n        if (guest.dataExtensions[i].name === \"Ticket\") {\n            return false;\n        }\n    }\n\n    return true;\n})();"
                 }
@@ -243,9 +242,7 @@
           "implementation": "decisionModelTask",
           "input": {
             "inputType": "decisionModelTaskInput",
-            "decisionModelRefs": [
-              "de798499-8b1e-4074-815f-65e2817161d1"
-            ]
+            "decisionModelRefs": ["de798499-8b1e-4074-815f-65e2817161d1"]
           }
         }
       ],
@@ -256,7 +253,7 @@
   "status": "PRODUCTION",
   "schedule": {
     "type": "simpleSchedule",
-    "startDate": "2022-02-08T13:40:17.855Z"
+    "startDate": "2023-08-29T10:23:01.014Z"
   },
   "revisions": {
     "href": "https://api-us.boxever.com/v3/flowDefinitions/d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee/revisions"
