@@ -1,6 +1,6 @@
 # Web Experiment - Premium Session Page - VIP Ticket Upgrade
 
-[Serialized assets](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade)
+[Serialized assets](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/)
 
 ## How to Replicate
 
@@ -16,7 +16,7 @@
 
    |Field|Value|
    |-|-|
-   |Name|Premium Session Page - VIP Ticket Upgrade|
+   |Name|Ticket Checkout - VIP Upsell|
 
 4. Click the "Create" button.
 
@@ -34,10 +34,10 @@
    3. In the top-left corner, change the name of the variant.
       1. From: Variant 1
       2. To: Variant 2 - Popup takeover - Celebrating Player
-   4. In the HTML tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.html).
-   5. In the CSS tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.css).
-   6. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.js).
-   7. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.txt).
+   4. In the HTML tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.html).
+   5. In the CSS tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.css).
+   6. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.js).
+   7. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%202%20-%20Popup%20takeover%20-%20Celebrating%20Player.txt).
    8. Click the "Save" button.
    9. Click the "Close" button.
 
@@ -51,10 +51,10 @@
    2. In the top-left corner, change the name of the variant.
       1. From: Original
       2. To: Variant 1 - Popup takeover - Drifting Rally Car
-   3. In the HTML tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.html).
-   4. In the CSS tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.css).
-   5. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.js).
-   6. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.txt).
+   3. In the HTML tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.html).
+   4. In the CSS tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.css).
+   5. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.js).
+   6. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Variant%201%20-%20Popup%20takeover%20-%20Drifting%20Rally%20Car.txt).
    7. Click the "Save" button.
    8. Click the "Close" button.
 
@@ -97,7 +97,7 @@
 
        ![Filter editor](/docs/cdp-personalize/experiments/web/Filter-editor.png)
 
-   4. Click "Edit" and replace the content with the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Guest%20owns%20a%20regular%20ticket%20condition.js).
+   4. Click "Edit" and replace the content with the content of [this file](/demo/experience/personalize/experiments/web/Ticket%20Checkout%20-%20VIP%20Upsell/Guest%20has%20viewed%20a%20premium%20content%20page%20condition.js).
    5. Click the "Save" button.
    6. Click the "Close" button.
 
@@ -121,9 +121,9 @@
       |Field|Value|
       |-|-|
       |Goal name|VIEW|
-      |Description|Purchase of a Regular to VIP ticket upgrade|
+      |Description|Purchase of a VIP ticket|
       |Match condition|Regex|
-      |String|`.+/tickets/payment/confirmed\?ticket=3`|
+      |String|`.+/tickets/payment/confirmed\?ticket=2`|
 
    4. Click the "Save" button.
 

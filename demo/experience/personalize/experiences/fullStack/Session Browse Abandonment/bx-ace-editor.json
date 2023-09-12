@@ -4,8 +4,8 @@
   "ref": "d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee",
   "name": "Session Browse Abandonment",
   "modifiedByRef": "auth0|63f77553c538c12a3133ea90",
-  "modifiedAt": "2023-08-29T10:23:02.718Z",
-  "revision": 103,
+  "modifiedAt": "2023-08-31T10:32:44.819Z",
+  "revision": 107,
   "archived": false,
   "friendlyId": "session_browse_abandonment",
   "type": "TRIGGERED_V3",
@@ -30,7 +30,7 @@
   "traffic": {
     "type": "simpleTraffic",
     "weightingAlgorithm": "USER_DEFINED",
-    "modifiedAt": "2023-08-29T10:23:02.613Z",
+    "modifiedAt": "2023-08-31T10:32:45.135Z",
     "allocation": 100,
     "splits": [
       {
@@ -124,8 +124,7 @@
             "rules": [
               {
                 "id": "scriptCondition",
-                "friendlyId": "custom_condition_session_browse_abandonment",
-                "name": "Custom Condition_Session Browse Abandonment",
+                "friendlyId": "identified_guests_without_purchased_ticket_condition",
                 "ruleData": {
                   "expression": "(function () {\r\n\r\n    if(!guest.email){\r\n        return false;\r\n    }\r\n    \r\n    if (guest.dataExtensions.length < 1){\r\n        return true;\r\n    }\r\n    \r\n    for(var i = 0; i < guest.dataExtensions.length; i++){\r\n        if (guest.dataExtensions[i].name === \"Ticket\"){\r\n            return false;\r\n        }\r\n    }\r\n    \r\n    return true;\r\n})();"
                 }
@@ -229,8 +228,7 @@
             "rules": [
               {
                 "id": "scriptCondition",
-                "friendlyId": "custom_condition_session_browse_abandonment",
-                "name": "Custom Condition_Session Browse Abandonment",
+                "friendlyId": "identified_guests_without_purchased_ticket_condition",
                 "ruleData": {
                   "expression": "\n\n(function () {\n\n    if (!guest.email) {\n        return false;\n    }\n\n    if (guest.dataExtensions.length < 1) {\n        return true;\n    }\n\n    for (var i = 0; i < guest.dataExtensions.length; i++) {\n        if (guest.dataExtensions[i].name === \"Ticket\") {\n            return false;\n        }\n    }\n\n    return true;\n})();"
                 }
@@ -253,7 +251,7 @@
   "status": "PRODUCTION",
   "schedule": {
     "type": "simpleSchedule",
-    "startDate": "2023-08-29T10:23:01.014Z"
+    "startDate": "2023-08-31T10:32:44.492Z"
   },
   "revisions": {
     "href": "https://api-us.boxever.com/v3/flowDefinitions/d4ee4452-51dc-4926-8c1c-5e3e0f62d4ee/revisions"
