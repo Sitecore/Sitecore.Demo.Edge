@@ -1,3 +1,9 @@
 {
-  "decisionOffers": ${toJSON(offers)}
+  "decisionOffers": ${toJSON(offers)},
+  "imageUrl": "${offers[0].attributes.imageUrl}",
+  "title":"${offers[0].attributes.title}",
+  "subtitle":"${offers[0].attributes.subtitle}",
+  "buttonText":"${offers[0].attributes.buttonText}",
+  "buttonColor":"${offers[0].attributes.buttonColor}",
+  "buttonUrl":"${offers[0].attributes.buttonUrl}"
 }
