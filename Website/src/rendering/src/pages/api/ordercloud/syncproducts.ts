@@ -10,10 +10,12 @@ import {
   PriceSchedules,
   Product,
   Products,
+  Spec,
   Specs,
   Tokens,
   Variant,
 } from 'ordercloud-javascript-sdk';
+
 import {
   PUBLIC_BUYER_NAME,
   PUBLIC_HEADSTART_CATALOG_ID,
@@ -274,28 +276,32 @@ async function createProductAssignments(
 }
 
 async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
+  // Store the spec-related promises in order to run them all together in parallel
+  const specPromises: (() => Promise<Spec>)[] = [];
+  const specOptionPromises: (() => Promise<void>)[] = [];
+  const specProductAssignmentPromises: (() => Promise<void>)[] = [];
+
   const possibleSpecs: string[] = ['Color', 'Size'];
-
   const productIds = productIdToVariantRowsMap.keys();
-  for (const productId of productIds) {
-    let specListOrder = 1;
 
-    for (const specName of possibleSpecs) {
-      let specOptionListOrder = 1;
-
+  Array.from(productIds).forEach((productId, specListOrder) => {
+    possibleSpecs.forEach((specName, specOptionListOrder) => {
       if (productIdToVariantRowsMap.get(productId)[0][specName.toLowerCase() as keyof VariantRow]) {
         const specID = `${productId}-${specName}`;
         console.log(`Creating spec with ID ${specID}`);
-        await Specs.Save(`${productId}-${specName}`, {
-          ID: specID,
-          Name: specName,
-          Required: true,
-          DefinesVariant: true,
-          ListOrder: specListOrder,
-        });
+        specPromises.push(() =>
+          Specs.Save(`${productId}-${specName}`, {
+            ID: specID,
+            Name: specName,
+            Required: true,
+            DefinesVariant: true,
+            ListOrder: ++specListOrder,
+          })
+        );
 
         const existingSpecOptionValues: string[] = [];
         const variantRows = productIdToVariantRowsMap.get(productId);
+
         for (const variantRow of variantRows) {
           // If the spec option already exists we skip this iteration
           if (
@@ -306,19 +312,31 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>)
             continue;
           }
           // Create a spec option of this spec for each variant of this specific product
-          await createSpecOption(productId, specName, variantRow, specOptionListOrder);
+          specOptionPromises.push(() =>
+            createSpecOption(productId, specName, variantRow, ++specOptionListOrder)
+          );
           existingSpecOptionValues.push(
             variantRow[specName.toLowerCase() as keyof typeof variantRow]
           );
-          specOptionListOrder++;
         }
 
         // Assign this product to the spec
-        await createSpecProductAssignment(productId, specName);
+        specProductAssignmentPromises.push(() => createSpecProductAssignment(productId, specName));
       }
-      specListOrder++;
-    }
-  }
+    });
+  });
+
+  await Promise.all(specPromises.map((specPromise) => specPromise()));
+  // Necessary to avoid "Object not found" errors
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  await Promise.all(specOptionPromises.map((specOptionPromise) => specOptionPromise()));
+  // Necessary to avoid "Invalid spec configuration" errors
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  await Promise.all(
+    specProductAssignmentPromises.map((specProductAssignmentPromise) =>
+      specProductAssignmentPromise()
+    )
+  );
 }
 
 async function createSpecOption(
@@ -326,8 +344,12 @@ async function createSpecOption(
   specName: string,
   variantRow: VariantRow,
   listOrder: number
-) {
-  console.log(`Saving spec option ${`${productId}-${specName}`} to product ${productId}`);
+): Promise<void> {
+  console.log(
+    `Saving spec option ${productId}-${specName}-${
+      variantRow[specName.toLowerCase() as keyof typeof variantRow]
+    }`
+  );
   await Specs.SaveOption(
     `${productId}-${specName}`,
     `${productId}-${specName}-${variantRow[specName.toLowerCase() as keyof typeof variantRow]}`,
@@ -341,7 +363,7 @@ async function createSpecOption(
   );
 }
 
-async function createSpecProductAssignment(productId: string, specName: string) {
+async function createSpecProductAssignment(productId: string, specName: string): Promise<void> {
   const specID = `${productId}-${specName}`;
   console.log(`Assigning spec ${specID} to ${productId}`);
   await Specs.SaveProductAssignment({
@@ -351,15 +373,23 @@ async function createSpecProductAssignment(productId: string, specName: string) 
 }
 
 async function generateVariants(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
+  // Store the variant promises in order to run them all together in parallel
+  const variantPromises = [];
+
   const productIds = productIdToVariantRowsMap.keys();
   for (const productId of productIds) {
     // Generate the variants for this specific product
     console.log(`Generating variants for ${productId}`);
-    await Products.GenerateVariants(productId, { overwriteExisting: true });
+    variantPromises.push(() => Products.GenerateVariants(productId, { overwriteExisting: true }));
   }
+
+  return Promise.all(variantPromises.map((variantPromise) => variantPromise()));
 }
 
 async function updateVariants(productIdToVariantRowsMap: Map<string, VariantRow[]>) {
+  // Store the variant promises in order to run them all together in parallel
+  const variantPromises = [];
+
   const productIds = productIdToVariantRowsMap.keys();
   for (const productId of productIds) {
     // Retrieve the variants for this specific product
@@ -369,31 +399,35 @@ async function updateVariants(productIdToVariantRowsMap: Map<string, VariantRow[
 
     // Update the variants (IDs, imageUrls) of this specific product
     for (const variant of productVariants) {
-      const variantRow: VariantRow = productIdToVariantRowsMap.get(productId)?.pop();
-      const additionalSkuImageUrls: { Url: string; ThumbnailUrl: string }[] =
-        variantRow.additional_sku_image_urls.length > 0
-          ? variantRow.additional_sku_image_urls.split('|').map((imgUrl: string) => ({
-              Url: imgUrl,
-              ThumbnailUrl: '',
-            }))
-          : [];
+      variantPromises.push(async () => {
+        const variantRow: VariantRow = productIdToVariantRowsMap.get(productId)?.pop();
+        const additionalSkuImageUrls: { Url: string; ThumbnailUrl: string }[] =
+          variantRow.additional_sku_image_urls.length > 0
+            ? variantRow.additional_sku_image_urls.split('|').map((imgUrl: string) => ({
+                Url: imgUrl,
+                ThumbnailUrl: '',
+              }))
+            : [];
 
-      console.log(`Updating variant ${variant.ID} for product ${productId}`);
-      await Products.PatchVariant(productId, variant.ID, {
-        ID: variantRow.sku,
-        xp: {
-          Images: [
-            {
-              Url: variantRow.sku_image_url,
-              ThumbnailUrl: '',
-            },
-            ...additionalSkuImageUrls,
-          ],
-          SkuUrl: variantRow.sku_url,
-        },
+        console.log(`Updating variant ${variant.ID} for product ${productId}`);
+        await Products.PatchVariant(productId, variant.ID, {
+          ID: variantRow.sku,
+          xp: {
+            Images: [
+              {
+                Url: variantRow.sku_image_url,
+                ThumbnailUrl: '',
+              },
+              ...additionalSkuImageUrls,
+            ],
+            SkuUrl: variantRow.sku_url,
+          },
+        });
       });
     }
   }
+
+  return Promise.all(variantPromises.map((variantPromise) => variantPromise()));
 }
 
 export default handler;
