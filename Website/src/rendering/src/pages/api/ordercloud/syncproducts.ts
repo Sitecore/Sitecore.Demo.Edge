@@ -329,12 +329,14 @@ async function createSpecs(productIdToVariantRowsMap: Map<string, VariantRow[]>)
   await Promise.all(specPromises.map((specPromise) => specPromise()));
   // Necessary to avoid "Object not found" errors
   await new Promise((resolve) => setTimeout(resolve, 300));
-  await Promise.all([
-    ...specOptionPromises.map((specOptionPromise) => specOptionPromise()),
-    ...specProductAssignmentPromises.map((specProductAssignmentPromise) =>
+  await Promise.all(specOptionPromises.map((specOptionPromise) => specOptionPromise()));
+  // Necessary to avoid "Invalid spec configuration" errors
+  await new Promise((resolve) => setTimeout(resolve, 300));
+  await Promise.all(
+    specProductAssignmentPromises.map((specProductAssignmentPromise) =>
       specProductAssignmentPromise()
-    ),
-  ]);
+    )
+  );
 }
 
 async function createSpecOption(
