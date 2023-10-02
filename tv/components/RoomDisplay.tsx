@@ -5,6 +5,7 @@ import logo from '../public/p_logo_transparent.png';
 import qrLogo from '../public/p_logo_transparent_square.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
 import { AwesomeQRCode } from '@awesomeqr/react';
+import { useCallback, useMemo } from 'react';
 
 type RoomProps = {
   room: string;
@@ -13,15 +14,43 @@ type RoomProps = {
 };
 
 const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Element => {
-  const handleCurrentSessionQrCodeClick = () => {
+  const handleCurrentSessionQrCodeClick = useCallback(() => {
     navigator.clipboard.writeText(
       `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`
     );
-  };
+  }, [currentSession?.id]);
 
-  const handleNextSessionQrCodeClick = () => {
+  const handleNextSessionQrCodeClick = useCallback(() => {
     navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`);
-  };
+  }, [nextSession?.id]);
+
+  const currentSessionQRCode = useMemo(
+    () => (
+      <AwesomeQRCode
+        options={{
+          text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
+          size: 255,
+          logoImage: qrLogo.src,
+        }}
+        onStateChange={() => undefined}
+      />
+    ),
+    [currentSession?.id]
+  );
+
+  const nextSessionQRCode = useMemo(
+    () => (
+      <AwesomeQRCode
+        options={{
+          text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
+          size: 255,
+          logoImage: qrLogo.src,
+        }}
+        onStateChange={() => undefined}
+      />
+    ),
+    [nextSession?.id]
+  );
 
   return (
     <div className="roomDisplay">
@@ -43,13 +72,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                 title="Click to copy QR code link"
                 onClick={() => handleCurrentSessionQrCodeClick()}
               >
-                <AwesomeQRCode
-                  options={{
-                    text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
-                    size: 255,
-                    logoImage: qrLogo.src,
-                  }}
-                />
+                {currentSessionQRCode}
               </div>
             </div>
           </>
@@ -104,13 +127,7 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
                   title="Click to copy QR code link"
                   onClick={() => handleNextSessionQrCodeClick()}
                 >
-                  <AwesomeQRCode
-                    options={{
-                      text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
-                      size: 255,
-                      logoImage: qrLogo.src,
-                    }}
-                  />
+                  {nextSessionQRCode}
                 </div>
               </div>
             </div>

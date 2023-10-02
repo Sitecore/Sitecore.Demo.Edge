@@ -50,11 +50,11 @@ const formattedSession = function (
   }
 
   if (day != null) {
-    session.Day = day.taxonomyName;
-    session.ShortDay = day.sortOrder;
+    session.day = day.taxonomyName;
+    session.shortDay = day.sortOrder;
   } else if (sessionResult?.dayToSession?.results?.length > 0) {
-    session.ShortDay = sessionResult.dayToSession.results[0].sortOrder;
-    session.Day = sessionResult.dayToSession.results[0]?.taxonomyName;
+    session.shortDay = sessionResult.dayToSession.results[0].sortOrder;
+    session.day = sessionResult.dayToSession.results[0]?.taxonomyName;
   }
 
   if (time != null) {

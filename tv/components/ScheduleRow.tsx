@@ -22,7 +22,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
             <Link
               key={index}
               href={
-                '/rooms/' + session.roomId + '?d=' + session.ShortDay + '&t=' + session.sortOrder
+                '/rooms/' + session.roomId + '?d=' + session.shortDay + '&t=' + session.sortOrder
               }
               passHref
             >

@@ -39,7 +39,7 @@ function getSessionsToDisplay(
   }
 
   const currentAndNextSessions = allSessions.filter(
-    (session) => session.Day === selectedDay && session.sortOrder >= selectedTime
+    (session) => session.day === selectedDay && session.sortOrder >= selectedTime
   );
   let currentSession: Session | null = null;
   let nextSession: Session | null = null;
@@ -65,7 +65,7 @@ function getSessionsToDisplay(
   };
 }
 
-export default function RoomPage(props: RoomProps) {
+const RoomPage = (props: RoomProps) => {
   const router = useRouter();
   const dayTimeContext = useContext(DayTimeContext);
 
@@ -105,7 +105,7 @@ export default function RoomPage(props: RoomProps) {
       </div>
     </>
   );
-}
+};
 
 // This function gets called at build time
 export async function getStaticPaths() {
@@ -139,3 +139,5 @@ export const getStaticProps = async ({ params }: RoomParams) => {
     revalidate: 10,
   };
 };
+
+export default RoomPage;

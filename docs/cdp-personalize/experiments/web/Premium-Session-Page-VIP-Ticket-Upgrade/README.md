@@ -84,28 +84,28 @@
 
       ![After page targeting](After-page-targeting.png)
 
-8. Audience
-   1. Under "Audience", click the "Add" button.
+8. Filter
+   1. Under "Filter", click the "Add" button.
 
-      ![Audience empty](/docs/cdp-personalize/experiments/web/Audience-empty.png)
+       ![Filter empty](/docs/cdp-personalize/experiments/web/Filter-empty.png)
 
-   2. Click on "Real-time Audience".
+   2. Click on "Add condition".
 
-      ![Audience templates](/docs/cdp-personalize/experiments/web/Audience-templates.png)
+       ![Filter templates](/docs/cdp-personalize/experiments/web/Filter-templates.png)
 
-   3. After the audience templates list, click the "Add Custom Code" link.
+   3. Click on "Create".
 
-      ![Audience editor](/docs/cdp-personalize/experiments/web/Audience-editor.png)
+       ![Filter editor](/docs/cdp-personalize/experiments/web/Filter-editor.png)
 
-   4. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Custom%20Real-Time%20Audience.js).
+   4. Click "Edit" and replace the content with the content of [this file](/demo/experience/personalize/experiments/web/Premium%20Session%20Page%20-%20VIP%20Ticket%20Upgrade/Guest%20owns%20a%20regular%20ticket%20condition.js).
    5. Click the "Save" button.
    6. Click the "Close" button.
 
-      ![Audience custom](/docs/cdp-personalize/experiments/web/Audience-custom.png)
+       ![Filter custom](/docs/cdp-personalize/experiments/web/Filter-custom.png)
 
-   7. Close the audience side panel.
+   7. Close the filter side panel.
 
-      ![After audience](After-audience.png)
+       ![After filter](After-filter.png)
 
 9. Goals
    1. Under "Goals", click the "Add" button.

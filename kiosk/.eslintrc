@@ -46,7 +46,7 @@
     "prettier/prettier": "error",
     // needed for NextJS's in order to use jsx without react import
     "react/react-in-jsx-scope": "off",
-    "no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "error",
     "jsx-quotes": ["error", "prefer-double"],
     "@typescript-eslint/explicit-module-boundary-types": "off"
   }
