@@ -632,9 +632,6 @@ function getGuestEmailInGuestResponse(guestResponse: GuestProfileResponse): stri
     return undefined;
   }
 
-  console.log(data.email);
-  console.log(data.email.replaceAll(' ', '+'));
-
   return data.email.replaceAll(' ', '+');
 }
 
