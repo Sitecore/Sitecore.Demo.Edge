@@ -632,7 +632,10 @@ function getGuestEmailInGuestResponse(guestResponse: GuestProfileResponse): stri
     return undefined;
   }
 
-  return data.email;
+  console.log(data.email);
+  console.log(data.email.replaceAll(' ', '+'));
+
+  return data.email.replaceAll(' ', '+');
 }
 
 export function getGuestEmail(guestRef?: GuestRef): Promise<string | undefined> {
