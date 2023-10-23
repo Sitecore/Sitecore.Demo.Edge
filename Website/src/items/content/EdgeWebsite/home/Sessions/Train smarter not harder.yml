@@ -30,7 +30,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38039" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38039/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a218d495616043568a73c79f05143a93?v=cf7bb555" mediaid="" stylelabs-content-type="Image" alt="Fitness tracker 2" height="4912" width="7360" />
+        <image stylelabs-content-id="38039" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38039/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a218d495616043568a73c79f05143a93?v=cf7bb555&amp;t=web" mediaid="" stylelabs-content-type="Image" alt="Fitness tracker 2" height="4912" width="7360" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"

@@ -25,7 +25,7 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="64622" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/64622/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/02c53b1a2a554448912a93421ada3777?v=b5b9be95" mediaid="" stylelabs-content-type="Image" alt="logo fruitful black" height="1000" width="1000" />
+        <image stylelabs-content-id="64622" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/64622/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/02c53b1a2a554448912a93421ada3777?v=b5b9be95&amp;t=medium" mediaid="" stylelabs-content-type="Image" alt="logo fruitful black" height="1000" width="1000" />
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{A39F9FBC-DA18-473D-BD74-47429B695614}|{7A6E3432-E82B-4F09-A2AE-5D13646E0BD6}"
