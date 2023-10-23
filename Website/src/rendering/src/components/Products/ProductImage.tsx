@@ -36,7 +36,7 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
     [activeImg, uniqueImages]
   );
 
-  const getActiveImage = useMemo(() => {
+  const activeImage = useMemo(() => {
     if (props.loading) {
       return <Skeleton height="100%" />;
     } else if (activeImg || uniqueImages[0]) {
@@ -62,7 +62,7 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
       <div className="product-image">
         <div className="image-active">
           <div>
-            {getActiveImage}
+            {activeImage}
             {productOffer}
           </div>
         </div>
