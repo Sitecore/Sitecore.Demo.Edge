@@ -10,41 +10,41 @@ type ProductImageProps = {
 };
 
 const ProductImage = (props: ProductImageProps): JSX.Element => {
-  const [activeImg, setActiveImg] = useState(null);
+  const [activeImgSrc, setActiveImgSrc] = useState(null);
 
   const uniqueImages = useMemo(
     () => [...new Map(props.images.map((image) => [image['Url'], image])).values()],
     [props.images]
   );
 
-  useEffect(() => setActiveImg(null), [props]);
+  useEffect(() => setActiveImgSrc(null), [props]);
 
   const thumbnails = useMemo(
     () =>
       uniqueImages.length > 1 && (
         <div className="image-secondary">
           {uniqueImages.map((img, i) => {
-            const isActive = activeImg ? img.Url === activeImg : i === 0;
+            const isActive = activeImgSrc ? img.Url === activeImgSrc : i === 0;
             return (
               <div key={img.Url} className={isActive ? 'active' : ''}>
-                <img src={`${img.Url}&t=w320`} alt="" onClick={() => setActiveImg(img.Url)} />
+                <img src={`${img.Url}&t=w320`} alt="" onClick={() => setActiveImgSrc(img.Url)} />
               </div>
             );
           })}
         </div>
       ),
-    [activeImg, uniqueImages]
+    [activeImgSrc, uniqueImages]
   );
 
   const activeImage = useMemo(() => {
     if (props.loading) {
       return <Skeleton height="100%" />;
-    } else if (activeImg || uniqueImages[0]) {
+    } else if (activeImgSrc || uniqueImages[0]) {
       return (
         <img
           src={
-            activeImg
-              ? addTransformation(activeImg, 'w800')
+            activeImgSrc
+              ? addTransformation(activeImgSrc, 'w800')
               : addTransformation(uniqueImages[0].Url, 'w800')
           }
           alt=""
@@ -53,7 +53,7 @@ const ProductImage = (props: ProductImageProps): JSX.Element => {
     } else {
       return null;
     }
-  }, [activeImg, props.loading, uniqueImages]);
+  }, [activeImgSrc, props.loading, uniqueImages]);
 
   const productOffer = !props.loading && <span className="product-offer">Best Seller</span>;
 
