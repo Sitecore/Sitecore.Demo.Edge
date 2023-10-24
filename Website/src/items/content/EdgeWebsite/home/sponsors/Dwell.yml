@@ -22,7 +22,7 @@ Languages:
     - ID: "079a4b3e-3819-4d92-9191-2c86bffa049e"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33940" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670" mediaid="" stylelabs-content-type="Image" alt="Dwell Logo" height="1001" width="1001" ></image>
+        <image stylelabs-content-id="33940" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33940/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d36ffc990c78429a91756d3d040b578b?v=16deb670&amp;t=medium" mediaid="" stylelabs-content-type="Image" alt="Dwell Logo" height="1001" width="1001" ></image>
     - ID: "5a1f6707-d155-4618-b051-966216449b1c"
       Hint: Description
       Value: |

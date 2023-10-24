@@ -30,7 +30,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="54356" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/54356/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/8fb7fe8350b44cf781bba42d1ce34a27?v=46859a0a" mediaid="" stylelabs-content-type="Image" alt="Chris Williams Inspire" height="1390" width="2200" />
+        <image stylelabs-content-id="54356" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/54356/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/8fb7fe8350b44cf781bba42d1ce34a27?v=46859a0a&amp;t=web" mediaid="" stylelabs-content-type="Image" alt="Chris Williams Inspire" height="1390" width="2200" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{F7B3C20A-6F02-40E3-A4F9-901E1BF420F8}"

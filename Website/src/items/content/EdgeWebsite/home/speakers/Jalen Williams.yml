@@ -56,4 +56,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49451" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49451/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/df54130b412f44f99aa22ff9fa9872d7?v=a2c486a8" mediaid="" stylelabs-content-type="Image" alt="Jalen Williams - No background" height="5655" width="5655" />
+        <image stylelabs-content-id="49451" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49451/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/df54130b412f44f99aa22ff9fa9872d7?v=a2c486a8&amp;t=profile" mediaid="" stylelabs-content-type="Image" alt="Jalen Williams - No background" height="5655" width="5655" />

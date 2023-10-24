@@ -34,7 +34,7 @@ Languages:
     - ID: "5f02c96d-6606-4508-8b81-4d4758e06291"
       Hint: Logo
       Value: |
-        <image stylelabs-content-id="33954" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33954/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f11314c7d09e43e0a645185a255c99cf?v=537a6046" mediaid="" stylelabs-content-type="Image" alt="Gameday Logo" height="1001" width="1001" />
+        <image stylelabs-content-id="33954" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/33954/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/f11314c7d09e43e0a645185a255c99cf?v=537a6046&amp;t=medium" mediaid="" stylelabs-content-type="Image" alt="Gameday Logo" height="1001" width="1001" />
     - ID: "6a7f0807-1669-4c5b-bcd7-db9fc0bc86b3"
       Hint: Sessions
       Value: "{F31705C9-7A5A-42DB-8651-B0665EEEC77B}"
