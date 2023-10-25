@@ -126,17 +126,17 @@ If you want the website to use Commerce, you must configure Sitecore OrderCloud,
 
 4. Save the file.
 
-| Variable                                  | Description                                                                                                                                                                                        |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ORDERCLOUD_BUYER_CLIENT_ID`              | Your buyer application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured to allow anonymous shopping.                                             |
-| `ORDERCLOUD_BASE_API_URL`                 | The base URL for accessing the ordercloud api. Generally in the shape https://{region}-{environment}.ordercloud.io. Access in portal when viewing your Marketplace.                                |
-| `ORDERCLOUD_MIDDLEWARE_CLIENT_ID`         | Your middleware application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured with `AllowSeller=true` as well as with a `DefaultContextUsername`  |
-| `ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET`     | Your middleware application ClientSecret                                                                                                                                                           |
-| `ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS` | A comma delimited list of API ClientIDs that should be allowed to call out to them middleware endpoints. Generally this should be just `ORDERCLOUD_BUYER_CLIENT_ID`                                |
-| `ORDERCLOUD_WEBHOOK_HASH_KEY`             | A long secret value used to encrypt and validate webhook requests. You can generate a suitable string using openssl rand -hex 32 on the command line                                               |
-| `DISCOVER_CUSTOMER_KEY`                   | Your Discover Customer Key. In the Discover CEC under Developer Resources > API Access                                                                                                             |
-| `DISCOVER_API_KEY`                        | Your Discover API Key. In the Discover CEC under Developer Resources > API Access                                                                                                                  |
-| `AUTH0_ENABLED`                           | `true` to enable Auth0 authentication                                                                                                                                                              |
+| Variable                                  | Description                                                                                                                                                                                       |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ORDERCLOUD_BUYER_CLIENT_ID`              | Your buyer application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured to allow anonymous shopping.                                            |
+| `ORDERCLOUD_BASE_API_URL`                 | The base URL for accessing the ordercloud api. Generally in the shape https://{region}-{environment}.ordercloud.io. Access in portal when viewing your Marketplace.                               |
+| `ORDERCLOUD_MIDDLEWARE_CLIENT_ID`         | Your middleware application ClientID. This [API Client](https://ordercloud.io/knowledge-base/api-clients) should be configured with `AllowSeller=true` as well as with a `DefaultContextUsername` |
+| `ORDERCLOUD_MIDDLEWARE_CLIENT_SECRET`     | Your middleware application ClientSecret                                                                                                                                                          |
+| `ORDERCLOUD_MIDDLEWARE_ALLOWED_CLIENTIDS` | A comma delimited list of API ClientIDs that should be allowed to call out to them middleware endpoints. Generally this should be just `ORDERCLOUD_BUYER_CLIENT_ID`                               |
+| `ORDERCLOUD_WEBHOOK_HASH_KEY`             | A long secret value used to encrypt and validate webhook requests. You can generate a suitable string using openssl rand -hex 32 on the command line                                              |
+| `DISCOVER_CUSTOMER_KEY`                   | Your Discover Customer Key. In the Discover CEC under Developer Resources > API Access                                                                                                            |
+| `DISCOVER_API_KEY`                        | Your Discover API Key. In the Discover CEC under Developer Resources > API Access                                                                                                                 |
+| `AUTH0_ENABLED`                           | `true` to enable Auth0 authentication                                                                                                                                                             |
 
 ### Optional: Custom Auth0 Configuration
 
@@ -161,15 +161,15 @@ The shop section of the demo comes with a default Auth0 configuration that works
 
 4. Save the file.
 
-| Variable                        | Description                                                                                                                                                                                |
-|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `AUTH0_SECRET`                  | A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line                                                  |
-| `AUTH0_BASE_URL`                | The base URL of your application. Used to redirect the user after logout.                                                                                                                  |
-| `AUTH0_ISSUER_BASE_URL`         | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
-| `AUTH0_CLIENT_ID`               | Your Auth0 application's Client ID                                                                                                                                                         |
-| `AUTH0_CLIENT_SECRET`           | Your Auth0 application's Client Secret                                                                                                                                                     |
-| `AUTH0_ENABLED`                 | `true` or `false` indicating whether or not auth0 is configured, must be true for profiled user features to appear                                                                         |
-| `ORDERCLOUD_OPENID_CONNECT_ID`  | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |
+| Variable                       | Description                                                                                                                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `AUTH0_SECRET`                 | A long secret value used to encrypt the session cookie. You can generate a suitable string using openssl rand -hex 32 on the command line                                                  |
+| `AUTH0_BASE_URL`               | The base URL of your application. Used to redirect the user after logout.                                                                                                                  |
+| `AUTH0_ISSUER_BASE_URL`        | The URL of your Auth0 tenant domain. If you are using a Custom Domain with Auth0, set this to the value of your Custom Domain instead of the value reflected in the "Settings" tab         |
+| `AUTH0_CLIENT_ID`              | Your Auth0 application's Client ID                                                                                                                                                         |
+| `AUTH0_CLIENT_SECRET`          | Your Auth0 application's Client Secret                                                                                                                                                     |
+| `AUTH0_ENABLED`                | `true` or `false` indicating whether or not auth0 is configured, must be true for profiled user features to appear                                                                         |
+| `ORDERCLOUD_OPENID_CONNECT_ID` | The ID of the [OpenID Connect Configuration](https://ordercloud.io/api-reference/authentication-and-authorization/open-id-connects/save) that should be used for single sign on with auth0 |
 
 ## Running the Website
 
@@ -209,7 +209,7 @@ To add new icons to the EdgeIcons pack download your selected icons in a `.png` 
 
 #### Generating the ZIP file
 
-In order to be able to use the icons as rendering icons they need to be in a `.zip` format with the following structure: `EdgeIcons.zip\EdgeIcons\[size]x[size]`. To create a zip file right-click the EdgeIcons folder and select *Send to > Compressed (zipped) folder*.
+In order to be able to use the icons as rendering icons they need to be in a `.zip` format with the following structure: `EdgeIcons.zip\EdgeIcons\[size]x[size]`. To create a zip file right-click the EdgeIcons folder and select _Send to > Compressed (zipped) folder_.
 
 #### Quick Deploy and Test Icons
 
@@ -245,7 +245,7 @@ The content of the project is mapped to the Rendering container using a Docker v
 
 #### Debugging the Rendering Next.js Project
 
-Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured *Attach to Process* VS Code launch configuration.
+Debugging of the Next.js application is possible by using the `start:connected` or `start` scripts (they do the same thing) from the Next.js `package.json`, and the pre-configured _Attach to Process_ VS Code launch configuration.
 
 #### Building the Rendering Next.js Project Locally
 
