@@ -260,6 +260,48 @@ When you are done:
 
 1. Start the "rendering" Docker container.
 
+#### Creating new website front-end components
+
+##### Create components by name
+
+You can create new website components with the scaffolding script providing only the name for your component. In order to do so, open a terminal window in the root directory of the JSS application and run `jss scaffold ComponentName` or `npm run scaffold ComponentName`. This command will create the component inside `src/components` and also create the respective component story inside `src/stories`.
+
+##### Create components by path
+
+If you want to group your components in sub-directories of the folder src/components, you can create components with the scaffolding script providing the directory path and name for the component. In order to do so, open a terminal window in the root directory of the JSS application and run `jss scaffold some/new/path/ComponentName` or `npm run scaffold some/new/path/ComponentName`. This command will create the component inside `src/components/some/new/path/` and also create the respective component story inside `src/stories/some/new/path`.
+
+##### Removing the withDatasourceCheck() higher order component
+
+You should remove the withDatasourceCheck() HOC and just export the component itself in these cases below:
+
+1. Components that will use the Sitecore context item as source
+2. Components without any props
+3. Components that live in the NonSitecore subfolder
+
+##### Avoiding logic in the JSX
+
+It is good practice to avoid using conditional logic in the JSX return statement, therefore you should prefer using consts for pieces of code the execution of which differs based on conditions and then reference those consts in the return statement.
+
+##### Styling the component
+
+If you want to add some styling to the newly created component then you should create a file named `ComponentName.css` either inside `src/assets/css/components` if you previously created the component by name or inside `src/assets/css/components/some/new/path` if you previosuly created the component by path. The parent class should be named after the component and all children selectors should be inside this one e.g.
+
+```css
+.component-name {
+  h1 {
+    ...;
+  }
+
+  &-grid {
+    ...;
+
+    &-item {
+      ...;
+    }
+  }
+}
+```
+
 ### Items Serialization
 
 If you change Sitecore content tree items, you must serialize these items using the Sitecore CLI and Sitecore Content Serialization (SCS). We created a PowerShell script to help with this. In an elevated PowerShell terminal:
