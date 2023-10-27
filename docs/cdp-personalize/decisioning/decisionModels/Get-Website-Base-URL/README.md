@@ -14,9 +14,9 @@
 
 3. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Title|Get Website Base URL|
+   | Field | Value                |
+   | ----- | -------------------- |
+   | Title | Get Website Base URL |
 
 4. Click the "Create" button.
 
@@ -28,9 +28,9 @@
 
 6. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Title|v1|
+   | Field | Value |
+   | ----- | ----- |
+   | Title | v1    |
 
    The variant will be displayed in the draft column.
 
@@ -61,10 +61,12 @@
 
     ![Draft variant](/docs/cdp-personalize/decisioning/decisionModels/Draft-variant.png)
 
-15. Drag the v1 variant to the production column.
+15. Make sure you reconfigure the decision templates of the decision models after importing the XML files, if needed, because offers have different IDs in the replicated tenant.
+16. Make sure to delete and re-add connections after importing the decision models XML files, if needed, because connections have different IDs in the replicated tenant.
+17. Drag the v1 variant to the production column.
 
     ![Move to production](/docs/cdp-personalize/decisioning/decisionModels/Move-to-production.png)
 
-16. Click the "Move to Production" button.
+18. Click the "Move to Production" button.
 
     ![Production](/docs/cdp-personalize/decisioning/decisionModels/Production.png)
