@@ -1,3 +1,6 @@
-if (variant.context.decisionOffers.length > 0 && document.getElementById('cdp-audience-based-hero')) {
-	replaceHTML('cdp-audience-based-hero');
+if (
+  variant.context.decisionOffers.length > 0 &&
+  document.getElementById("cdp-audience-based-home-page-hero")
+) {
+  replaceHTMLExact("#cdp-audience-based-home-page-hero");
 }
