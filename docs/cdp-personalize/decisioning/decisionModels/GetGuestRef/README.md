@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the decision models page.
+1. Navigate to the decision models page by clicking on Decisioning.
 
    ![Decision models page](/docs/cdp-personalize/decisioning/decisionModels/Decision-models-page.png)
 
