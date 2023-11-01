@@ -18,9 +18,9 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Session Browse Abandonment|
+   | Field | Value                      |
+   | ----- | -------------------------- |
+   | Name  | Session Browse Abandonment |
 
 5. Click the "Create" button.
 
@@ -30,13 +30,14 @@
 
    ![Triggered full stack experience API tab](/docs/cdp-personalize/experiences/fullStack/Triggered-full-stack-experience-api-tab.png)
 
-7. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/fullStack/Session%20Browse%20Abandonment/Personalisation.txt).
+7. In the API tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/fullStack/Session%20Browse%20Abandonment/Personalisation.txt).
 8. Click the "Save" button.
 9. Click the "Close" button.
 
    ![After API](After-api.png)
 
 10. Trigger
+
     1. Under "Trigger", click the "Add" button.
 
        ![Choose trigger](/docs/cdp-personalize/experiences/fullStack/Triggered-triggers-list.png)
@@ -47,6 +48,7 @@
        ![After trigger](After-trigger.png)
 
 11. Filter
+
     1. Under "Filter", click the "Add" button.
 
        ![Filter empty](/docs/cdp-personalize/experiments/web/Filter-empty.png)
@@ -70,6 +72,7 @@
        ![After filter](After-filter.png)
 
 12. Decisioning
+
     1. Under "Decisioning", click the "Add" button.
 
        ![Decision model sidebar](/docs/cdp-personalize/experiences/fullStack/Choose-decision-model.png)
@@ -86,4 +89,4 @@
 
     ![Start](/docs/cdp-personalize/experiments/web/Start.png)
 
-14. Click the "Run Experience" button.
+14. Click the "Start" button.
