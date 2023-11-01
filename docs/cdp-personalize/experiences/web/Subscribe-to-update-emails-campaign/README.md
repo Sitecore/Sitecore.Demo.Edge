@@ -14,16 +14,17 @@
 
 3. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Subscribe to update emails campaign|
+   | Field | Value                               |
+   | ----- | ----------------------------------- |
+   | Name  | Subscribe to update emails campaign |
 
 4. click the "Create" button.
 
    ![Create variant](/docs/cdp-personalize/experiments/web/Add-variant.png)
 
 5. Variant 1 - Email Capture Corner
-   1. In the create variant sidebar, choose "New Empty Template".
+
+   1. In the create variant sidebar, choose "Create template".
 
       ![New empty variant](/docs/cdp-personalize/experiments/web/New-empty-variant.png)
 
@@ -40,17 +41,18 @@
       ![After variant 1](After-variant-1.png)
 
 6. Page Targeting
-   1. Under "Page Targeting", click the "Add" button.
+
+   1. Under "Page Targeting", click the "Specific Pages" and then the "Add conditions" button.
 
       ![Page Targeting](/docs/cdp-personalize/experiments/web/Page-targeting-empty.png)
 
-   2. Next to "Advanced targeting", click the "Add" button.
+   2. Under "Advanced targeting", click the "Add script" button.
 
       ![Advanced targeting editor](/docs/cdp-personalize/experiments/web/Advanced-targeting-editor.png)
 
    3. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Subscribe%20to%20update%20emails%20campaign/Advanced%20targeting%20Script.js).
    4. Click the "Save" button.
-   5. Click the "Close" button.
+   5. Click the back button.
 
       ![Page targeting advanced](/docs/cdp-personalize/experiments/web/Page-targeting-advanced.png)
 
@@ -64,30 +66,31 @@
       ![After page targeting](After-page-targeting.png)
 
 7. Filter
-   1. Under "Filter", click the "Add" button.
 
-       ![Filter empty](/docs/cdp-personalize/experiments/web/Filter-empty.png)
+   1. Under "Filter", click the "Add filter" button.
+
+      ![Filter empty](/docs/cdp-personalize/experiments/web/Filter-empty.png)
 
    2. Click on "Add condition".
 
-       ![Filter templates](/docs/cdp-personalize/experiments/web/Filter-templates.png)
+      ![Filter templates](/docs/cdp-personalize/experiments/web/Filter-templates.png)
 
    3. Click on "Create".
 
-       ![Filter editor](/docs/cdp-personalize/experiments/web/Filter-editor.png)
+      ![Filter editor](/docs/cdp-personalize/experiments/web/Filter-editor.png)
 
    4. Click "Edit" and replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Subscribe%20to%20update%20emails%20campaign/Show%20Sign%20Up%20For%20Session%20Updates%20form%20to%20guests%20every%205,%2010,%2020%20etc.%20session%20page%20views%20condition.js).
    5. Click the "Save" button.
    6. Click the "Close" button.
 
-       ![Filter custom](/docs/cdp-personalize/experiments/web/Filter-custom.png)
+      ![Filter custom](/docs/cdp-personalize/experiments/web/Filter-custom.png)
 
    7. Close the filter side panel.
 
-       ![After filter](After-filter.png)
+      ![After filter](After-filter.png)
 
 8. At the top of the page, click the "Start" button.
 
    ![Start](/docs/cdp-personalize/experiments/web/Start.png)
 
-9. Click the "Run Experience" button.
+9. Click the "Start" button.

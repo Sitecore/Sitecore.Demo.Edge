@@ -14,16 +14,17 @@
 
 3. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Website - Message Bar Below Header|
+   | Field | Value                              |
+   | ----- | ---------------------------------- |
+   | Name  | Website - Message Bar Below Header |
 
 4. click the "Create" button.
 
    ![Create variant](/docs/cdp-personalize/experiments/web/Add-variant.png)
 
 5. Message Bar
-   1. In the create variant sidebar, choose "New Empty Template".
+
+   1. In the create variant sidebar, choose "Create template".
 
       ![New empty variant](/docs/cdp-personalize/experiments/web/New-empty-variant.png)
 
@@ -40,17 +41,18 @@
       ![After variant 1](After-variant-1.png)
 
 6. Page Targeting
-   1. Under "Page Targeting", click the "Add" button.
+
+   1. Under "Page Targeting", click the "Specific Pages" and then the "Add conditions" button.
 
       ![Page Targeting](/docs/cdp-personalize/experiments/web/Page-targeting-empty.png)
 
-   2. Next to "Advanced targeting", click the "Add" button.
+   2. Under "Advanced targeting", click the "Add script" button.
 
       ![Advanced targeting editor](/docs/cdp-personalize/experiments/web/Advanced-targeting-editor.png)
 
    3. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Website%20-%20Audience-based%20website%20home%20page%20hero%20V2/Advanced%20targeting%20Script.js).
    4. Click the "Save" button.
-   5. Click the "Close" button.
+   5. Click the back button.
 
       ![Page targeting advanced](/docs/cdp-personalize/experiments/web/Page-targeting-advanced.png)
 
