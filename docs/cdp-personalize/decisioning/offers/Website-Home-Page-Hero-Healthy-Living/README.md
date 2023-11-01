@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the offers page.
+1. Navigate to the offers page under Library.
 
    ![Offers page](/docs/cdp-personalize/decisioning/offers/Offers-page.png)
 
