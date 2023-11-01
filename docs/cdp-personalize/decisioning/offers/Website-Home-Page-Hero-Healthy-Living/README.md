@@ -18,12 +18,15 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Website Home Page Hero - Healthy Living|
-   |Description|Website Home Page Hero for the Healthy Living audience|
-   |imageUrl|`https://ch.sitecoredemo.com/api/public/content/a2c273bef3f8482f919f1e9bb0259fb3?v=d068a332`|
-   |title|shape your health|
-   |subtitle|Join us in person or online - your PLAY! Summit, your way.|
+   | Field       | Value                                                                                        |
+   | ----------- | -------------------------------------------------------------------------------------------- |
+   | Name        | Website Home Page Hero - Healthy Living                                                      |
+   | Description | Website Home Page Hero for the Healthy Living audience                                       |
+   | imageUrl    | `https://ch.sitecoredemo.com/api/public/content/a2c273bef3f8482f919f1e9bb0259fb3?v=d068a332` |
+   | title       | shape your health                                                                            |
+   | subtitle    | Join us in person or online - your PLAY! Summit, your way.                                   |
+   | buttonText  | healthy                                                                                      |
+   | buttonColor | yellow                                                                                       |
+   | buttonUrl   | /healthy                                                                                     |
 
 5. Click the "Save" button.
