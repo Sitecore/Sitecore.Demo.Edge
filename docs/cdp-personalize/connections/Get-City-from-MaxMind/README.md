@@ -4,11 +4,11 @@
 
 ## How to Replicate
 
-1. Navigate to the connections listing page.
+1. Navigate to the connections listing page under Developer Center.
 
    ![Connections listing page](/docs/cdp-personalize/connections/Connections-listing-page.png)
 
-2. Click the "Add Connection" button.
+2. Click the "Create connection" button.
 
    ![Add Connection](/docs/cdp-personalize/connections/Add-connection.png)
 
