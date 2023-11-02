@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the offers page.
+1. Navigate to the offers page under Library.
 
    ![Offers page](/docs/cdp-personalize/decisioning/offers/Offers-page.png)
 
@@ -18,9 +18,9 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Full Stack Experience Offer|
-   |Description|Empty offer for full stack experiences that do not have any other offer|
+   | Field       | Value                                                                   |
+   | ----------- | ----------------------------------------------------------------------- |
+   | Name        | Full Stack Experience Offer                                             |
+   | Description | Empty offer for full stack experiences that do not have any other offer |
 
 5. Click the "Save" button.

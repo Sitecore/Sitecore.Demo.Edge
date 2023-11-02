@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the offers page.
+1. Navigate to the offers page under Library.
 
    ![Offers page](/docs/cdp-personalize/decisioning/offers/Offers-page.png)
 
@@ -18,12 +18,15 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Website Home Page Hero - Fitness Fanatic|
-   |Description|Website Home Page Hero for the Fitness Fanatic audience|
-   |imageUrl|`https://ch.sitecoredemo.com/api/public/content/86773ebe74b9446da869f6211b1599c6?v=205d4b59`|
-   |title|fuel your fitness|
-   |subtitle|Claim your place in person or online at the fifth annual PLAY! Summit.|
+   | Field       | Value                                                                                        |
+   | ----------- | -------------------------------------------------------------------------------------------- |
+   | Name        | Website Home Page Hero - Fitness Fanatic                                                     |
+   | Description | Website Home Page Hero for the Fitness Fanatic audience                                      |
+   | imageUrl    | `https://ch.sitecoredemo.com/api/public/content/86773ebe74b9446da869f6211b1599c6?v=205d4b59` |
+   | title       | fuel your fitness                                                                            |
+   | subtitle    | Claim your place in person or online at the fifth annual PLAY! Summit.                       |
+   | buttonText  | fitness                                                                                      |
+   | buttonColor | yellow                                                                                       |
+   | buttonUrl   | /fitness                                                                                     |
 
 5. Click the "Save" button.

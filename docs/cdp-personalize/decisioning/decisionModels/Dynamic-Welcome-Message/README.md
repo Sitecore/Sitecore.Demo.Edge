@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the decision models page.
+1. Navigate to the decision models page by clicking on Decisioning.
 
    ![Decision models page](/docs/cdp-personalize/decisioning/decisionModels/Decision-models-page.png)
 
@@ -14,9 +14,9 @@
 
 3. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Title|Dynamic Welcome Message|
+   | Field | Value                   |
+   | ----- | ----------------------- |
+   | Title | Dynamic Welcome Message |
 
 4. Click the "Create" button.
 
@@ -28,9 +28,9 @@
 
 6. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Title|v1|
+   | Field | Value |
+   | ----- | ----- |
+   | Title | v1    |
 
    The variant will be displayed in the draft column.
 
@@ -54,10 +54,10 @@
 11. Edit the file in a text editor.
 12. Search for the `Redacted` word and replace the occurences following these instructions:
 
-    |`Redacted` occurrences|Replacement|
-    |-|-|
-    |`"authType":"BASIC","username":"Redacted"`|Replace `Redacted` by your MaxMind account ID.|
-    |`"name":"Ocp-Apim-Subscription-Key","value":"Redacted"`|Replace `Redacted` by one of your Azure Translation service key (See screenshot below).|
+    | `Redacted` occurrences                                  | Replacement                                                                             |
+    | ------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+    | `"authType":"BASIC","username":"Redacted"`              | Replace `Redacted` by your MaxMind account ID.                                          |
+    | `"name":"Ocp-Apim-Subscription-Key","value":"Redacted"` | Replace `Redacted` by one of your Azure Translation service key (See screenshot below). |
 
     ![Azure Translation service key](/docs/cdp-personalize/connections/Azure-Translation/Azure-translation-key.png)
 

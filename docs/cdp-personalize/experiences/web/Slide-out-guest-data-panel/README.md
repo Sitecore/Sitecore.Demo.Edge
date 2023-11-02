@@ -24,7 +24,7 @@
 
 5. Slide out guest data panel
 
-   1. In the create variant sidebar, choose "New Empty Template".
+   1. In the create variant sidebar, choose "Create template".
 
       ![New empty variant](/docs/cdp-personalize/experiments/web/New-empty-variant.png)
 
@@ -39,17 +39,17 @@
 
 6. Page Targeting
 
-   1. Under "Page Targeting", click the "Add" button.
+   1. Under "Page Targeting", click the "Specific Pages" and then the "Add conditions" button.
 
       ![Page Targeting](/docs/cdp-personalize/experiments/web/Page-targeting-empty.png)
 
-   2. Next to "Advanced targeting", click the "Add" button.
+   2. Under "Advanced targeting", click the "Add script" button.
 
       ![Advanced targeting editor](/docs/cdp-personalize/experiments/web/Advanced-targeting-editor.png)
 
    3. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20guest%20data%20panel/Advanced%20targeting%20Script.js).
    4. Click the "Save" button.
-   5. Click the "Close" button.
+   5. Click the back button.
 
       ![Page targeting advanced](/docs/cdp-personalize/experiments/web/Page-targeting-advanced.png)
 
@@ -67,4 +67,4 @@
 
    ![Start](/docs/cdp-personalize/experiments/web/Start.png)
 
-8. Click the "Run Experience" button.
+8. Click the "Start" button.

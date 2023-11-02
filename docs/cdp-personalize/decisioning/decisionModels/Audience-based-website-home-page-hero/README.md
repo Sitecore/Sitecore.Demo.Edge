@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the decision models page.
+1. Navigate to the decision models page by clicking on Decisioning.
 
    ![Decision models page](/docs/cdp-personalize/decisioning/decisionModels/Decision-models-page.png)
 
@@ -14,9 +14,9 @@
 
 3. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Title|Audience-based website home page hero|
+   | Field | Value                                 |
+   | ----- | ------------------------------------- |
+   | Title | Audience-based website home page hero |
 
 4. Click the "Create" button.
 
@@ -28,9 +28,9 @@
 
 6. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Title|v1|
+   | Field | Value |
+   | ----- | ----- |
+   | Title | v1    |
 
    The variant will be displayed in the draft column.
 

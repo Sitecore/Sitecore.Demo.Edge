@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 const DynamicWelcomeMessage = (): JSX.Element => {
   const DEFAULT_MESSAGE = 'Welcome to PLAY! Summit.';
 
-  const [message, SetMessage] = useState('');
+  const [message, setMessage] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -19,9 +19,9 @@ const DynamicWelcomeMessage = (): JSX.Element => {
     getIpAddress()
       .then((ipAddress) => getDynamicWelcomeMessage(ipAddress, language))
       .then((content: WelcomeMessage) =>
-        SetMessage(content.message ? content.message : DEFAULT_MESSAGE)
+        setMessage(content.message ? content.message : DEFAULT_MESSAGE)
       )
-      .catch(() => SetMessage(DEFAULT_MESSAGE));
+      .catch(() => setMessage(DEFAULT_MESSAGE));
   }, [router.locale]);
 
   const messageContent = message && (
