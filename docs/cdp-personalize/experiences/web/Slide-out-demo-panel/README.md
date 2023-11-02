@@ -24,14 +24,14 @@
 
 5. Slide out demo panel
 
-   1. In the create variant sidebar, choose "New Empty Template".
+   1. In the create variant sidebar, click "Create template".
 
       ![New empty variant](/docs/cdp-personalize/experiments/web/New-empty-variant.png)
 
-   2. In the HTML tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.html).
-   3. In the CSS tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.css).
-   4. In the JavaScript tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.js).
-   5. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.txt).
+   2. In the HTML tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.html).
+   3. In the CSS tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.css).
+   4. In the JavaScript tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.js).
+   5. In the API tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/web/Slide%20out%20demo%20panel/Variant%201.txt).
    6. Click the "Save" button.
    7. Click the "Close" button.
 
@@ -41,4 +41,4 @@
 
    ![Start](/docs/cdp-personalize/experiments/web/Start.png)
 
-7. Click the "Run Experience" button.
+7. Click the "Start" button.

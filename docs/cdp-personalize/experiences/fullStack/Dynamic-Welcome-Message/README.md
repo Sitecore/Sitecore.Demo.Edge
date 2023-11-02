@@ -18,11 +18,11 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Dynamic Welcome Message|
+   | Field | Value                   |
+   | ----- | ----------------------- |
+   | Name  | Dynamic Welcome Message |
 
-5. Above the name text box, ensure the generated ID is exactly "dynamic_welcome_message".
+5. Ensure the generated ID is exactly "dynamic_welcome_message".
 6. Click the "Create" button.
 
    ![API tab](/docs/cdp-personalize/experiences/fullStack/Interactive-full-stack-experience-api-tab.png)
@@ -30,13 +30,14 @@
 7. In the top-left corner, change the name of the variant.
    1. From: Personalisation
    2. To: Welcome Message
-8. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/fullStack/Dynamic%20Welcome%20Message/Welcome%20Message.txt).
+8. In the API tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/fullStack/Dynamic%20Welcome%20Message/Welcome%20Message.txt).
 9. Click the "Save" button.
 10. Click the "Close" button.
 
     ![After API](After-api.png)
 
 11. Decisioning
+
     1. Under "Decisioning", click the "Add" button.
 
        ![Decision model sidebar](/docs/cdp-personalize/experiences/fullStack/Choose-decision-model.png)
@@ -53,4 +54,4 @@
 
     ![Start](/docs/cdp-personalize/experiments/web/Start.png)
 
-13. Click the "Run Experience" button.
+13. Click the "Start" button.

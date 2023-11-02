@@ -37,7 +37,7 @@ Languages:
     - ID: "f3204d80-07b0-4680-8939-15c2c2f82dcb"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="38142" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee" mediaid="" stylelabs-content-type="Image" alt="Mountain biking 3" height="2832" width="4256" />
+        <image stylelabs-content-id="38142" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/38142/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/d896d75cea754445aad0d1e645ba37e6?v=7a4806ee&amp;t=postcard" mediaid="" stylelabs-content-type="Image" alt="Mountain biking 3" height="2832" width="4256" />
     - ID: "f7d201d9-0ae6-4afa-8c5c-777f0504ebc3"
       Hint: Content
       Value: |

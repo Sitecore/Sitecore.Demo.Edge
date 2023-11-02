@@ -4,11 +4,11 @@
 
 ## How to Replicate
 
-1. Navigate to the connections listing page.
+1. Navigate to the connections listing page under Developer Center.
 
    ![Connections listing page](/docs/cdp-personalize/connections/Connections-listing-page.png)
 
-2. Click the "Add Connection" button.
+2. Click the "Create connection" button.
 
    ![Add Connection](/docs/cdp-personalize/connections/Add-connection.png)
 
@@ -18,11 +18,11 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Get City From MaxMind|
-   |Description|Get the city of an IP address using MaxMind geolocation api|
-   |Icon|Other|
+   | Field       | Value                                                       |
+   | ----------- | ----------------------------------------------------------- |
+   | Name        | Get City From MaxMind                                       |
+   | Description | Get the city of an IP address using MaxMind geolocation api |
+   | Icon        | Other                                                       |
 
 5. Click the "Next" button.
 6. For authentication, select basic.
@@ -31,10 +31,10 @@
 
 7. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Username|Your MaxMind account ID|
-   |Password|Your MaxMind API key|
+   | Field    | Value                    |
+   | -------- | ------------------------ |
+   | Username | Your MaxMind account ID  |
+   | Password | Your MaxMind license key |
 
 8. Click the "Next" button.
 
@@ -42,18 +42,18 @@
 
 9. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Request Method|GET|
-   |Request URL|`https://geolite.info/geoip/v2.1/city/${ipAddress}`|
-   |Headers|See below for headers|
-   |Connection Timeout|1000|
-   |Read Timeout|1000|
+   | Field              | Value                                               |
+   | ------------------ | --------------------------------------------------- |
+   | Request Method     | GET                                                 |
+   | Request URL        | `https://geolite.info/geoip/v2.1/city/${ipAddress}` |
+   | Headers            | See below for headers                               |
+   | Connection Timeout | 1000                                                |
+   | Read Timeout       | 1000                                                |
 
-   |Header Name|Header Value|
-   |-|-|
-   |Accept|application/json|
-   |Accept-Encoding|gzip|
+   | Header Name     | Header Value     |
+   | --------------- | ---------------- |
+   | Accept          | application/json |
+   | Accept-Encoding | gzip             |
 
 10. Go to [https://www.whatismyip.com/](https://www.whatismyip.com/) and copy your public IP address.
 11. Back in Sitecore Personalize, click the "Test Request" button.
@@ -62,9 +62,9 @@
 
 12. Enter the following information:
 
-    |Field|Value|
-    |-|-|
-    |ipAddress|Paste your public IP address|
+    | Field     | Value                        |
+    | --------- | ---------------------------- |
+    | ipAddress | Paste your public IP address |
 
 13. Click the "Run Test" button.
 14. Ensure the response box contains a valid response with a `statusCode` of `200`.
@@ -77,22 +77,22 @@
 
 16. Set the following input configuration:
 
-    |Key|Label|
-    |-|-|
-    |ipAddress|IP Address|
+    | Key       | Label      |
+    | --------- | ---------- |
+    | ipAddress | IP Address |
 
 17. Set the following output configuration:
 
-    |Key|Label|Enabled|
-    |-|-|-|
-    |city|City|Yes|
-    |continent||No|
-    |country|Country|Yes|
-    |location|Location|Yes|
-    |postal||No|
-    |registered_country||No|
-    |subdivisions|Subdivisions|Yes|
-    |traits||No|
+    | Key                | Label        | Enabled |
+    | ------------------ | ------------ | ------- |
+    | city               | City         | Yes     |
+    | continent          |              | No      |
+    | country            | Country      | Yes     |
+    | location           | Location     | Yes     |
+    | postal             |              | No      |
+    | registered_country |              | No      |
+    | subdivisions       | Subdivisions | Yes     |
+    | traits             |              | No      |
 
 18. Click the "Next" button.
 19. In the "Review & Save" step, click the "Save" button.

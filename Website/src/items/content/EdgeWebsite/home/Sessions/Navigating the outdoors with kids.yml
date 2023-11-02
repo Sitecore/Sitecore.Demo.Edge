@@ -37,7 +37,7 @@ Languages:
     - ID: "4b2d1962-60eb-4cd1-b8e9-a2c2762ec04c"
       Hint: Image
       Value: |
-        <image stylelabs-content-id="53269" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/53269/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/3db5cea1caaf4cc6b4e6596ef5e1fb52?v=c16aa6d2" mediaid="" stylelabs-content-type="Image" alt="Get Outdoors - Kids" height="2240" width="3360" />
+        <image stylelabs-content-id="53269" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/53269/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/3db5cea1caaf4cc6b4e6596ef5e1fb52?v=c16aa6d2&amp;t=web" mediaid="" stylelabs-content-type="Image" alt="Get Outdoors - Kids" height="2240" width="3360" />
     - ID: "51084853-806c-4e3d-90a3-0eaec3faa3ac"
       Hint: Day
       Value: "{A9D94EEC-ED13-45CD-A103-F8860781E38E}"

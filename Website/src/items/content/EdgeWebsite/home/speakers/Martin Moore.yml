@@ -53,4 +53,4 @@ Languages:
     - ID: "f5eb0181-f3ab-4edb-a8f2-630e72f555d9"
       Hint: Picture
       Value: |
-        <image stylelabs-content-id="49458" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49458/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a241ebe4a45d4e0b9473474f16ad43fc?v=45418130" mediaid="" stylelabs-content-type="Image" alt="Martin Moore - No background" height="3778" width="3777" />
+        <image stylelabs-content-id="49458" thumbnailsrc="https://playsummit.sitecoresandbox.cloud/api/gateway/49458/thumbnail" src="https://playsummit.sitecoresandbox.cloud/api/public/content/a241ebe4a45d4e0b9473474f16ad43fc?v=45418130&amp;t=profile" mediaid="" stylelabs-content-type="Image" alt="Martin Moore - No background" height="3778" width="3777" />

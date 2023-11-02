@@ -4,7 +4,7 @@
 
 ## How to Replicate
 
-1. Navigate to the offers page.
+1. Navigate to the offers page under Library.
 
    ![Offers page](/docs/cdp-personalize/decisioning/offers/Offers-page.png)
 
@@ -18,12 +18,15 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Website Home Page Hero - Default|
-   |Description|Default home page hero|
-   |imageUrl|`https://playsummit.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=5ae3562e&t=web`|
-   |title|RAISE YOUR GAME|
-   |subtitle|Join us in person or online for the fifth annual PLAY! Summit.|
+   | Field       | Value                                                                                                           |
+   | ----------- | --------------------------------------------------------------------------------------------------------------- |
+   | Name        | Website Home Page Hero - Default                                                                                |
+   | Description | Default home page hero                                                                                          |
+   | imageUrl    | `https://playsummit.sitecoresandbox.cloud/api/public/content/95619f8c034947a2aa2ce5b39146ccf5?v=5ae3562e&t=web` |
+   | title       | RAISE YOUR GAME                                                                                                 |
+   | subtitle    | Join us in person or online for the fifth annual PLAY! Summit.                                                  |
+   | buttonText  | Book Tickets                                                                                                    |
+   | buttonColor | yellow                                                                                                          |
+   | buttonUrl   | /tickets                                                                                                        |
 
 5. Click the "Save" button.

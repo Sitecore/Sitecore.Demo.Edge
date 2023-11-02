@@ -18,9 +18,9 @@
 
 4. Enter the following information:
 
-   |Field|Value|
-   |-|-|
-   |Name|Subscribe to update emails|
+   | Field | Value                      |
+   | ----- | -------------------------- |
+   | Name  | Subscribe to update emails |
 
 5. Click the "Create" button.
 
@@ -30,13 +30,14 @@
 
    ![Triggered full stack experience API tab](/docs/cdp-personalize/experiences/fullStack/Triggered-full-stack-experience-api-tab.png)
 
-7. In the API tab, replace the content by the content of [this file](/demo/experience/personalize/experiences/fullStack/Subscribe%20to%20update%20emails/Personalisation.txt).
+7. In the API tab, replace the content with the content of [this file](/demo/experience/personalize/experiences/fullStack/Subscribe%20to%20update%20emails/Personalisation.txt).
 8. Click the "Save" button.
 9. Click the "Close" button.
 
    ![After API](After-api.png)
 
 10. Trigger
+
     1. Under "Trigger", click the "Add" button.
     2. In the trigger sidebar, choose the "Custom Trigger" option.
 
@@ -44,18 +45,19 @@
 
     3. Enter the following information:
 
-       |Field|Value|
-       |-|-|
-       |Name|SUBSCRIBE_TO_UPDATES_IDENTITY|
-       |Description|Subscribe to update emails|
-       |Event Identifier Operator|Equals|
-       |Event Identifier Value|SUBSCRIBE_TO_UPDATES_IDENTITY|
+       | Field                     | Value                         |
+       | ------------------------- | ----------------------------- |
+       | Name                      | SUBSCRIBE_TO_UPDATES_IDENTITY |
+       | Description               | Subscribe to update emails    |
+       | Event Identifier Operator | Equals                        |
+       | Event Identifier Value    | SUBSCRIBE_TO_UPDATES_IDENTITY |
 
     4. Click the "Save" button.
 
        ![After trigger](After-trigger.png)
 
 11. Decisioning
+
     1. Under "Decisioning", click the "Add" button.
 
        ![Decision model sidebar](/docs/cdp-personalize/experiences/fullStack/Choose-decision-model.png)
@@ -72,4 +74,4 @@
 
     ![Start](/docs/cdp-personalize/experiments/web/Start.png)
 
-13. Click the "Run Experience" button.
+13. Click the "Start" button.
