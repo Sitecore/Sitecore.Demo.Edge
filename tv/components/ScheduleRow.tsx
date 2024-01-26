@@ -12,7 +12,7 @@ const ScheduleRow = (props: ScheduleRowProps): JSX.Element => {
   return (
     <>
       <div className="schedule-time">{props.timeslot}</div>
-      <div className="w-full flex-row flex gap-4 p-4">
+      <div className="schedule-card">
         {props.sessions.map((session, index) => {
           const premiumClass = session.isPremium ? ' premium-session ' : '';
           const keynoteClass = session.type?.toLowerCase() === 'keynote' ? ' keynote-session ' : '';
