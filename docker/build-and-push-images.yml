@@ -27,7 +27,7 @@ stages:
       steps:
         - task: NodeTool@0
           inputs:
-            versionSpec: '14.x'
+            versionSpec: '18.x'
           displayName: 'Install Node.js'
         - task: Cache@2
           displayName: "Cache npm packages"
@@ -59,7 +59,7 @@ stages:
       steps:
         - task: NodeTool@0
           inputs:
-            versionSpec: '14.x'
+            versionSpec: '18.x'
           displayName: 'Install Node.js'
         - task: Cache@2
           displayName: "Cache npm packages"
@@ -91,7 +91,7 @@ stages:
       steps:
         - task: NodeTool@0
           inputs:
-            versionSpec: '14.x'
+            versionSpec: '18.x'
           displayName: 'Install Node.js'
         - task: Cache@2
           displayName: "Cache npm packages"
