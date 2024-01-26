@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { Session } from '../interfaces/session';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';

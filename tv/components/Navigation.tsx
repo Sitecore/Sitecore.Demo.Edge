@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
