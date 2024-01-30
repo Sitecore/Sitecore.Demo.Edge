@@ -23,6 +23,10 @@ type NextPageWithLayout = NextPage & {
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
+  pageProps: {
+    dictionary: Record<string, string>;
+    locale: string;
+  };
 };
 // END CUSTOMIZATION
 
@@ -49,7 +53,7 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
   });
   // END CUSTOMIZATION
 
-  const { dictionary, ...rest } = pageProps;
+  const { dictionary, locale, ...rest } = pageProps;
 
   // DEMO TEAM CUSTOMIZATION - Per page layouts
   const getLayout = Component.getLayout ?? ((page) => page);
@@ -79,7 +83,7 @@ function App({ Component, pageProps, router }: AppPropsWithLayout): JSX.Element 
         Note Next.js does not (currently) provide anything for translation, only i18n routing.
         If your app is not multilingual, next-localization and references to it can be removed.
       */}
-      <I18nProvider lngDict={dictionary} locale={pageProps.locale}>
+      <I18nProvider lngDict={dictionary} locale={locale}>
         {/* DEMO TEAM CUSTOMIZATION (next line) - Per page layouts */}
         {component}
       </I18nProvider>

@@ -65,15 +65,23 @@
               width: 21%;
             }
 
+            .schedule-card {
+              @apply w-full flex-row flex gap-4 p-4;
+
+              a {
+                @apply w-full;
+              }
+            }
+
             .schedule-sessions {
-              @apply flex-1 text-white relative cursor-pointer overflow-hidden;
+              @apply text-white relative cursor-pointer overflow-hidden flex flex-row;
 
               &.premium-session {
-                @apply bg-orange flex flex-row;
+                @apply bg-orange;
               }
 
               &.keynote-session {
-                @apply bg-blue-light text-white flex flex-row;
+                @apply bg-blue-light;
               }
 
               .session-image {
@@ -81,6 +89,8 @@
               }
 
               &.show-image {
+                @apply h-full;
+
                 .session-image {
                   @apply md:hidden;
                   @apply xl:flex-1 xl:block bg-cover bg-center;

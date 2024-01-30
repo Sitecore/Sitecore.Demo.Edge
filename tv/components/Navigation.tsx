@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { getSchema } from '../api/queries/getSchema';
 import { DayResult, VenueResult } from '../interfaces/schema';
 import { TimeslotResult } from '../interfaces/timeslot';
@@ -117,17 +117,15 @@ const Navigation = (): JSX.Element => {
         <div className="menu-button toggle-button">+</div>
         <div className="menu-content">
           <div className="menu-logo">
-            <Link href="/">
-              <a>
-                <Image
-                  loader={contentHubImageLoader}
-                  src="c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
-                  layout="fixed"
-                  width="336"
-                  height="95"
-                  alt="PLAY! Summit logo"
-                />
-              </a>
+            <Link passHref href="/">
+              <Image
+                loader={contentHubImageLoader}
+                src="c78f4095acc746a98146aaa38f57a04f?v=cf5688ab"
+                layout="fixed"
+                width="336"
+                height="95"
+                alt="PLAY! Summit logo"
+              />
             </Link>
           </div>
           <div className="menu-navigation">
@@ -136,9 +134,7 @@ const Navigation = (): JSX.Element => {
               schema.venues.map((venue, venueIndex) => (
                 <div key={venueIndex}>
                   <div className="navigation-venue">
-                    <Link href={`/venues/${venue.id}`}>
-                      <a>{venue.name}</a>
-                    </Link>
+                    <Link href={`/venues/${venue.id}`}>{venue.name}</Link>
                   </div>
                   <select value="0" onChange={handleRoomChange}>
                     <option value="0">Choose a room...</option>
