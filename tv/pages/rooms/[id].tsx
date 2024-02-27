@@ -130,7 +130,7 @@ export const getStaticProps = async ({ params }: RoomParams) => {
     props: {
       sessions,
       room,
-      roomId: params?.id,
+      roomId: params?.id ?? null,
     },
     revalidate: 10,
   };
