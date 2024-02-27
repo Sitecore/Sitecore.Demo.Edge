@@ -153,7 +153,7 @@ export const getSessionsByRoom = async (
 
   return {
     sessions: sessions.sort((a, b) => a.sortOrder - b.sortOrder),
-    room: currentRoom,
+    room: currentRoom ?? null,
   };
 };
 
