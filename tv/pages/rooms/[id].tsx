@@ -126,10 +126,6 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({ params }: RoomParams) => {
   const { sessions, room } = await getSessionsByRoom(params?.id, parseInt(dayDefaultValue));
 
-  // if (typeof window !== 'undefined') {
-  //   document.querySelectorAll('.menu-button,.refresh-button')[0].classList.remove('active');
-  // }
-
   return {
     props: {
       sessions,

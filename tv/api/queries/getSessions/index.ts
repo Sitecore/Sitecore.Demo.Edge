@@ -69,12 +69,12 @@ const formattedSession = function (
 };
 
 export const getSessionsByRoom = async (
-  room: string,
+  roomID: string,
   day: number
 ): Promise<{ sessions: Session[]; room: Room }> => {
   const SessionByRoomQuery = `
   query {
-    allDemo_Room(where: { id_eq: "${room}" }) {
+    allDemo_Room(where: { id_eq: "${roomID}" }) {
       results {
         id
         name
