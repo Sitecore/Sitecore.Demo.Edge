@@ -1,10 +1,10 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { Session } from '../interfaces/session';
 import bg from '../public/room-bg.jpg';
 import logo from '../public/p_logo_transparent.png';
 import qrLogo from '../public/p_logo_transparent_square.png';
 import { contentHubImageLoader } from '../utilities/contentHubImageLoader';
-import { AwesomeQRCode } from '@awesomeqr/react';
+import { QRCodeSVG } from 'qrcode.react';
 import { useCallback, useMemo } from 'react';
 
 type RoomProps = {
@@ -26,13 +26,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
 
   const currentSessionQRCode = useMemo(
     () => (
-      <AwesomeQRCode
-        options={{
-          text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`,
-          size: 255,
-          logoImage: qrLogo.src,
+      <QRCodeSVG
+        value={`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${currentSession?.id}`}
+        size={160}
+        bgColor={'#ffffff'}
+        fgColor={'#000000'}
+        level={'H'}
+        includeMargin={true}
+        imageSettings={{
+          src: qrLogo.src,
+          height: 32,
+          width: 32,
+          excavate: true,
         }}
-        onStateChange={() => undefined}
       />
     ),
     [currentSession?.id]
@@ -40,13 +46,19 @@ const RoomDisplay = ({ room, currentSession, nextSession }: RoomProps): JSX.Elem
 
   const nextSessionQRCode = useMemo(
     () => (
-      <AwesomeQRCode
-        options={{
-          text: `${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`,
-          size: 255,
-          logoImage: qrLogo.src,
+      <QRCodeSVG
+        value={`${process.env.NEXT_PUBLIC_WEBSITE_URL}?chid=${nextSession?.id}`}
+        size={115}
+        bgColor={'#ffffff'}
+        fgColor={'#000000'}
+        level={'H'}
+        includeMargin={true}
+        imageSettings={{
+          src: qrLogo.src,
+          height: 32,
+          width: 32,
+          excavate: true,
         }}
-        onStateChange={() => undefined}
       />
     ),
     [nextSession?.id]

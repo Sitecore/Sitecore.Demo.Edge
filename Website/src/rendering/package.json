@@ -50,7 +50,7 @@
     "graphql": "~15.4.0",
     "graphql-tag": "^2.11.0",
     "lodash": "^4.17.21",
-    "next": "^12.1.0",
+    "next": "^12.3.3",
     "next-localization": "^0.10.0",
     "nprogress": "~0.2.0",
     "ordercloud-javascript-sdk": "^4.10.0",
@@ -71,11 +71,12 @@
     "@graphql-codegen/typescript-resolvers": "^1.17.10",
     "@graphql-typed-document-node/core": "^3.1.0",
     "@sitecore-jss/sitecore-jss-cli": "^20.0.3",
-    "@storybook/addon-actions": "^6.5.10",
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/addon-links": "^6.5.10",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "^6.5.10",
+    "@storybook/addon-actions": "^7.6.10",
+    "@storybook/addon-essentials": "^7.6.10",
+    "@storybook/addon-links": "^7.6.10",
+    "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/nextjs": "^7.6.10",
+    "@storybook/react": "^7.6.10",
     "@types/auth0": "^2.34.18",
     "@types/cors": "^2.8.12",
     "@types/deep-equal": "^1.0.1",
@@ -95,6 +96,7 @@
     "chromatic": "^6.2.0",
     "constant-case": "^3.0.4",
     "cross-env": "~6.0.3",
+    "css-loader": "^6.9.1",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
     "eslint-config-prettier": "^6.15.0",
@@ -103,8 +105,11 @@
     "graphql-let": "^0.16.2",
     "npm-run-all": "~4.1.5",
     "postcss": "^8.4.8",
+    "postcss-loader": "^8.0.0",
     "prettier": "^2.1.2",
+    "storybook": "^7.6.10",
     "storybook-addon-breakpoints": "^1.0.0",
+    "style-loader": "^3.3.4",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "tailwindcss": "^3.0.23",
@@ -113,8 +118,9 @@
     "yaml-loader": "^0.6.0"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s ./public",
+    "storybook": "storybook dev -p 6006 -s ./public",
+    "prebuild-storybook": "npm run bootstrap",
+    "build-storybook": "storybook build -s ./public",
     "eslint": "eslint ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts",
     "stylelint": "stylelint ./src/**/*.css",
     "build:local": "cross-env NEXT_PUBLIC_DISCOVER_CUSTOMER_KEY=0-0 NEXT_PUBLIC_DISCOVER_API_KEY=0-0-0 NEXT_PUBLIC_ORDERCLOUD_BUYER_CLIENT_ID=00000000-0000-0000-0000-000000000000 NEXT_PUBLIC_ORDERCLOUD_BASE_API_URL=https://sandboxapi.ordercloud.io npm-run-all build",
@@ -134,3 +140,4 @@
     "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
   }
 }
+

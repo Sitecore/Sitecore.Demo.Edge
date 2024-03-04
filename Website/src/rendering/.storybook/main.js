@@ -1,23 +1,42 @@
 const path = require('path');
 
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "storybook-addon-breakpoints",
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    'storybook-addon-breakpoints',
+    '@storybook/addon-styling-webpack',
     {
-      name: "@storybook/addon-postcss",
+      name: '@storybook/addon-styling-webpack',
+
       options: {
-        postcssLoaderOptions: {
-          implementation: require("postcss"),
-        },
+        rules: [
+          {
+            test: /\.css$/,
+            sideEffects: true,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  implementation: require.resolve('postcss'),
+                },
+              },
+            ],
+          },
+        ],
       },
     },
   ],
+
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\,css&/,
@@ -30,13 +49,22 @@ module.exports = {
               require('tailwindcss/nesting'),
               require('postcss-sassy-mixins'),
               require('tailwindcss'),
-              require('autoprefixer')
-            ]
-          }
-        }
+              require('autoprefixer'),
+            ],
+          },
+        },
       ],
       include: path.resolve(__dirname, '../'),
     });
-    return config
-  }
-}
+    return config;
+  },
+
+  framework: {
+    name: '@storybook/nextjs',
+    options: {},
+  },
+
+  docs: {
+    autodocs: false,
+  },
+};

@@ -1,7 +1,7 @@
 import ScheduleRow from './ScheduleRow';
 import { ScheduleSlot } from '../interfaces/schedule';
 import React, { useEffect } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import hallImage from '../public/conference-hall.jpg';
 
 type ScheduleForDayProps = {

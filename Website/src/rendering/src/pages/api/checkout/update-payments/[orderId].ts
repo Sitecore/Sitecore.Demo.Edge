@@ -3,7 +3,12 @@ import { DPayment } from 'src/models/ordercloud/DPayment';
 import { Orders, Payments, RequiredDeep } from 'ordercloud-javascript-sdk';
 import { DOrder } from 'src/models/ordercloud/DOrder';
 import { getUserToken, initializeOrderCloudMiddlewareClient } from 'src/edge/utils';
-import { CatalystBaseError, withOcErrorHandler, withOcUserAuth } from '@ordercloud/catalyst';
+import {
+  ApiHandler,
+  CatalystBaseError,
+  withOcErrorHandler,
+  withOcUserAuth,
+} from '@ordercloud/catalyst';
 
 /**
  * This endpoint is called by the buyer app when needing to update payments it will receive the expected payments
@@ -211,4 +216,4 @@ async function updatePurchaseOrderPayment(
   }
 }
 
-export default withOcErrorHandler(withOcUserAuth(routeHandler));
+export default withOcErrorHandler(withOcUserAuth(routeHandler as ApiHandler));

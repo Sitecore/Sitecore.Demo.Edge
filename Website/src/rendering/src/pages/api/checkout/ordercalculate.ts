@@ -1,7 +1,7 @@
 import { NextApiHandler } from 'next';
 import { DOrderCheckoutIntegrationEvent } from 'src/models/ordercloud/DOrderCheckoutIntegrationEvent';
 import { DOrderCalculateResponse } from 'src/models/ordercloud/DOrderCalculateResponse';
-import { withOcWebhookAuth } from '@ordercloud/catalyst';
+import { ApiHandler, withOcWebhookAuth } from '@ordercloud/catalyst';
 
 // withOCWebhookAuth needs the raw body in order to validate the payload is coming from ordercloud
 export const config = {
@@ -26,4 +26,4 @@ const routeHandler: NextApiHandler<DOrderCalculateResponse> = async (request, re
   });
 };
 
-export default withOcWebhookAuth(routeHandler);
+export default withOcWebhookAuth(routeHandler as ApiHandler);

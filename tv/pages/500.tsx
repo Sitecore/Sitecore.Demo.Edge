@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import staticImage from '../public/tv-static.gif';
 
 const Custom500 = (): JSX.Element => {
