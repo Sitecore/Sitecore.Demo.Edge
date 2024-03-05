@@ -110,7 +110,8 @@ const RoomPage = (props: RoomProps) => {
 // This function gets called at build time
 export async function getStaticPaths() {
   // Call an external API endpoint to get rooms
-  const { rooms } = await getRooms();
+  let { rooms } = await getRooms();
+  rooms = rooms.filter((room) => room.id);
 
   // Get the paths we want to pre-render based on rooms
   const paths = rooms.map((room) => ({
@@ -129,7 +130,7 @@ export const getStaticProps = async ({ params }: RoomParams) => {
   return {
     props: {
       sessions,
-      room: room ?? null,
+      room: room?.id ? room : { name: '', id: '', venue: '' },
       roomId: params?.id ?? null,
     },
     revalidate: 10,
