@@ -126,12 +126,11 @@ export async function getStaticPaths() {
 // This also gets called at build time
 export const getStaticProps = async ({ params }: RoomParams) => {
   const { sessions, room } = await getSessionsByRoom(params?.id, parseInt(dayDefaultValue));
-  console.log(room);
 
   return {
     props: {
       sessions,
-      room: room?.id ? room : null,
+      room: room?.id ? room : { name: '', id: '', venue: '' },
       roomId: params?.id ?? null,
     },
     revalidate: 10,
