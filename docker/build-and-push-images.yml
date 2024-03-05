@@ -29,10 +29,17 @@ stages:
           inputs:
             versionSpec: '20.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/tv/package-lock.json'
+            path: '$(Build.SourcesDirectory)/tv/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: tv
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -54,10 +61,17 @@ stages:
           inputs:
             versionSpec: '20.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/kiosk/package-lock.json'
+            path: '$(Build.SourcesDirectory)/kiosk/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: kiosk
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -79,10 +93,17 @@ stages:
           inputs:
             versionSpec: '20.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/Website/src/rendering/package-lock.json'
+            path: '$(Build.SourcesDirectory)/Website/src/rendering/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run lint
           displayName: 'npm run lint'
@@ -104,10 +125,17 @@ stages:
           inputs:
             versionSpec: '20.x'
           displayName: 'Install Node.js'
+        - task: Cache@2
+          displayName: "Cache npm packages"
+          inputs:
+            key: 'npm | "$(Agent.OS)" | $(Build.SourcesDirectory)/Website/src/rendering/package-lock.json'
+            path: '$(Build.SourcesDirectory)/Website/src/rendering/node_modules'
+            cacheHitVar: 'CacheRestored'
         - script: |
             npm install
           displayName: 'npm install'
           workingDirectory: Website/src/rendering
+          condition: ne(variables['CacheRestored'],'true')
         - script: |
             npm run build-storybook
           displayName: 'npm run build-storybook'
