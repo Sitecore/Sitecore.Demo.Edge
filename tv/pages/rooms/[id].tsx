@@ -113,6 +113,8 @@ export async function getStaticPaths() {
   let { rooms } = await getRooms();
   rooms = rooms.filter((room) => room.id);
 
+  console.log(rooms);
+
   // Get the paths we want to pre-render based on rooms
   const paths = rooms.map((room) => ({
     params: { id: room.id },
