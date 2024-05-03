@@ -130,10 +130,10 @@ export const getStaticProps = async ({ params }: RoomParams) => {
       props: {
         sessions: [],
         room: {
-          id: 'empty',
-          name: 'empty',
+          id: '',
+          name: '',
           venue: {
-            name: 'empty',
+            name: '',
           },
         },
         roomId: params?.id,
