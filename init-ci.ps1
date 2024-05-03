@@ -16,7 +16,7 @@ Param (
   ,
   [Parameter(
     HelpMessage = "Sitecore version")]
-  [string]$SitecoreVersion = "10.3"
+  [string]$SitecoreVersion = "10.4"
   ,
   [Parameter(
     HelpMessage = "Internal Sitecore NuGet source")]
