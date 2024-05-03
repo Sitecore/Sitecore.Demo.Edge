@@ -1,5 +1,5 @@
 export interface Room {
-  id: string;
+  id: string | undefined;
   name: string;
   venue: {
     name: string;
