@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import Router, { NextRouter, useRouter } from 'next/router';
 import { getSessionsByRoom } from '../../api/queries/getSessions';
-import { getRooms } from '../../api/queries/getRooms';
 import { Session } from '../../interfaces/session';
 import { Params } from '../../interfaces';
 import RoomDisplay from '../../components/RoomDisplay';

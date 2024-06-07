@@ -2,7 +2,7 @@ import { Params } from '../../interfaces';
 import { VenueResult } from '../../interfaces/schema';
 import React from 'react';
 import Venue from '../../components/Venue';
-import { getVenueById, getVenues } from '../../api/queries/getVenues';
+import { getVenueById } from '../../api/queries/getVenues';
 
 type VenueProps = {
   venue: VenueResult;
