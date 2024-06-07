@@ -17,13 +17,13 @@ const VenuePage = (props: VenueProps) => {
 };
 
 export async function getStaticPaths() {
-  const { venues } = await getVenues();
-
-  const paths = venues.map((venue) => ({
-    params: { id: venue.id },
-  }));
-
-  return { paths, fallback: false };
+  // Return empty paths because we don't want to generate anything on build
+  // { fallback: blocking } will server-render pages
+  // on-demand if the path doesn't exist.
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
 }
 
 // This also gets called at build time
