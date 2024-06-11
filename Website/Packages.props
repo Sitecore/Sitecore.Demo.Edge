@@ -6,7 +6,7 @@
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PlatformVersion>10.3.0-r*</PlatformVersion>
+    <PlatformVersion>10.4.0</PlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Update="Sitecore.Kernel" Version="$(PlatformVersion)" />
@@ -19,5 +19,6 @@
     <PackageReference Update="Sitecore.Connector.CMP" Version="3.1.0" />
     <PackageReference Update="Sitecore.Services.GraphQL" Version="6.0.0" />
     <PackageReference Update="Sitecore.Services.GraphQL.EdgeSchema" Version="6.0.0" />
+    <PackageReference Update="HtmlAgilityPack" Version="1.4.9.5" />
   </ItemGroup>
 </Project>
