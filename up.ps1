@@ -22,7 +22,7 @@ $requiredNodeJsVersion = Get-Content .env -Encoding UTF8 | Where-Object { $_ -im
 $requiredNodeJsVersion = $requiredNodeJsVersion.substring(15)
 
 if ($currentNodeJsVersion -ne $requiredNodeJsVersion) {
-    throw "ERROR: You are currently running NodeJs $currentNodeJsVersion and this project requires a different version. Please switch to NodeJs $($requiredNodeJsVersion). Then delete the /Website/src/rendering/node_modules folder. Then run this script again."
+    Write-Warning "ERROR: You are currently running NodeJs $currentNodeJsVersion and this project requires a different version. Please switch to NodeJs $($requiredNodeJsVersion). Then delete the /Website/src/rendering/node_modules folder. Then run this script again."
 }
 # END CUSTOMIZATION
 

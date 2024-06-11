@@ -1,4 +1,3 @@
-import profile from '../../../public/assets/img/news/profile-pic.jpg';
 import Link from 'next/link';
 import {
   Image,
@@ -63,7 +62,7 @@ const NewsGrid = (props: NewsGridProps): JSX.Element => {
         <div className="tweet-content">
           <div className="tweet-profile">
             <Image
-              src={profile}
+              src="/assets/img/news/profile-pic.jpg"
               alt="News"
               width="60px"
               className="tweet-profile-pic"

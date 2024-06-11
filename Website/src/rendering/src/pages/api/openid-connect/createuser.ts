@@ -1,5 +1,5 @@
 import { NextApiHandler } from 'next';
-import { withOcWebhookAuth } from '@ordercloud/catalyst';
+import { ApiHandler, withOcWebhookAuth } from '@ordercloud/catalyst';
 import {
   Configuration,
   OpenIdConnectPayload,
@@ -103,4 +103,4 @@ const routeHandler: NextApiHandler<OpenIdConnectResponse> = async (request, resp
   }
 };
 
-export default withOcWebhookAuth(routeHandler);
+export default withOcWebhookAuth(routeHandler as ApiHandler);
