@@ -209,7 +209,7 @@ services:
         HEADLESS_SERVICES_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-headless-services-xm1-assets:22.0-${LEGACY_NANOSERVER_VERSION}
         SPE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-spe-assets:6.4-${SITECORE_ASSET_NANOSERVER_VERSION}
         CONTENTHUB_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-chub-xm1-assets:4.0.0-${NANOSERVER_VERSION}
-        EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:21.0-${NANOSERVER_VERSION}
+        EXPERIENCE_EDGE_ASSETS_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp/modules/sitecore-experience-edge-connector-xm1-assets:22.0-${NANOSERVER_VERSION}
         # DEMO TEAM CUSTOMIZATION - Product Hotfixes
         DELTA_ASSET_IMAGE: ${SITECORE_DOCKER_REGISTRY}sxp-pre/sitecore-xm1-assets:10.3.1.009332.420-10.0.17763.4377-1809
     depends_on:
