@@ -39,6 +39,10 @@ Param (
   [string]$NugetPassword = ""
   ,
   [Parameter(
+    HelpMessage = "Windows image version")]
+  [string]$WindowsVersion = "ltsc2019"
+  ,
+  [Parameter(
     HelpMessage = "Switch to use public sources and ignore internal environment variables.")]
   [switch]$PreRelease
 )
@@ -234,7 +238,12 @@ if ($PreRelease) {
   }
 }
 
+$NanoserverVersion = $(if ($WindowsVersion -eq "ltsc2019") { "1809" } else { $WindowsVersion })
+
 Set-DockerComposeEnvFileVariable "DEMO_VERSION" -Value $DemoVersion
 Set-DockerComposeEnvFileVariable "SITECORE_VERSION" -Value $SitecoreVersion
+Set-DockerComposeEnvFileVariable "WINDOWSSERVERCORE_VERSION" -Value $WindowsVersion
+Set-DockerComposeEnvFileVariable "NANOSERVER_VERSION" -Value $NanoserverVersion
+Set-DockerComposeEnvFileVariable "SITECORE_ASSET_NANOSERVER_VERSION" -Value $NanoserverVersion
 
 Write-Host "Done!" -ForegroundColor Green

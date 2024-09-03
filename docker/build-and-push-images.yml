@@ -23,7 +23,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022'
       steps:
         - task: NodeTool@0
           inputs:
@@ -55,7 +55,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022'
       steps:
         - task: NodeTool@0
           inputs:
@@ -87,7 +87,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022' 
       steps:
         - task: NodeTool@0
           inputs:
@@ -119,7 +119,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022'
       steps:
         - task: NodeTool@0
           inputs:
@@ -162,7 +162,7 @@ stages:
     timeoutInMinutes: 120
     displayName: 'Build Windows Docker Images'
     pool:
-      name: 'docker-ltsc2019-agents'
+      vmImage: 'windows-2022'
     steps:
     - task: UseDotNet@2
       inputs:
@@ -191,7 +191,7 @@ stages:
           $params.Add("DemoTeamRegistry","$(REGISTRY)")
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
-
+          $params.Add("WindowsVersion", "ltsc2022")
 
           if ("true" -eq "$(preRelease)"){
             $params.Add("PreRelease", $true)
