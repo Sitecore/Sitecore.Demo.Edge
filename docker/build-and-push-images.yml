@@ -208,12 +208,12 @@ stages:
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker-compose build $(no.cache) --parallel solution nodejs
+          docker compose build $(no.cache) --parallel solution nodejs
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build --parallel solution nodejs
+            docker compose build --parallel solution nodejs
           }
 
           ### Build Demo images
@@ -221,20 +221,20 @@ stages:
           # Reset demo version to correct tag without build id
 
           $env:DEMO_VERSION = "$(tag)"
-          $services = ([System.Collections.ArrayList] $(docker-compose config --services))
+          $services = ([System.Collections.ArrayList] $(docker compose config --services))
 
           # Remove services already built in previous step
           $services.Remove("solution")
           $services.Remove("nodejs")
 
-          docker-compose build $(no.cache) --parallel $services
-          docker-compose push $services
+          docker compose build $(no.cache) --parallel $services
+          docker compose push $services
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build --parallel $services
-            docker-compose push $services
+            docker compose build --parallel $services
+            docker compose push $services
           }
 
 - stage: Release_Notes
