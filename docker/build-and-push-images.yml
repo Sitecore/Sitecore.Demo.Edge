@@ -161,8 +161,16 @@ stages:
   - job: Build_Headless
     timeoutInMinutes: 120
     displayName: 'Build Windows Docker Images'
+    strategy:
+      matrix:
+        ltsc2019:
+          vmImage: "windows-2019"
+          osVersion: "ltsc2019"
+        ltsc2022:
+          vmImage: "windows-2022"
+          osVersion: "ltsc2022"
     pool:
-      vmImage: 'windows-2022'
+      vmImage: $(vmImage)
     steps:
     - task: UseDotNet@2
       inputs:
@@ -191,7 +199,7 @@ stages:
           $params.Add("DemoTeamRegistry","$(REGISTRY)")
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
-          $params.Add("WindowsVersion", "ltsc2022")
+          $params.Add("WindowsVersion", "$(osVersion)")
 
           if ("true" -eq "$(preRelease)"){
             $params.Add("PreRelease", $true)
