@@ -45,14 +45,14 @@ COPY --from=headless_services C:\module\tools C:\module\tools
 
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
     C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
-    Remove-Item -Path C:\module -Recurse -Force;
+    Remove-Item -Path C:\module\cm -Recurse -Force; Remove-Item -Path C:\module\xdt -Recurse -Force
 
 # Copy the SPE Module
 COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 
 # Copy the Content Hub Connector Module
 COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
-COPY --from=ch_assets C:\module\cm\content\App_Data\Transforms\scch C:\module\xdt
+COPY --from=ch_assets C:\module\cm\content\App_Data\Transforms\scch\xdts C:\module\xdt
 
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
     C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
