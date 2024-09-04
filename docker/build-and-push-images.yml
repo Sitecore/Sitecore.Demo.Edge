@@ -216,12 +216,12 @@ stages:
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker compose build $(no.cache) --parallel solution nodejs
+          docker compose build $(no.cache) solution nodejs
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker compose build --parallel solution nodejs
+            docker compose build solution nodejs
           }
 
           ### Build Demo images
@@ -235,13 +235,13 @@ stages:
           $services.Remove("solution")
           $services.Remove("nodejs")
 
-          docker compose build $(no.cache) --parallel $services
+          docker compose build $(no.cache) $services
           docker compose push $services
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker compose build --parallel $services
+            docker compose build $services
             docker compose push $services
           }
 
