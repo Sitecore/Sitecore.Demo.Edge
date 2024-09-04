@@ -43,12 +43,14 @@ COPY --from=edge_assets C:\module\cm\xdt C:\module\xdt
 COPY --from=headless_services C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=headless_services C:\module\tools C:\module\tools
 
-RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
-    C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
-    Remove-Item -Path C:\module\cm -Recurse -Force; Remove-Item -Path C:\module\xdt -Recurse -Force
-
 # Copy the SPE Module
 COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
+
+RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
+    C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
+    Remove-Item -Path C:\module -Recurse -Force;
+
+COPY --from=headless_services C:\module\tools C:\module\tools
 
 # Copy the Content Hub Connector Module
 COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
@@ -78,9 +80,5 @@ COPY --from=solution /artifacts/src/rendering/public ./
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
     ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\web.config' -XdtPath $_.FullName `
     -XdtDllPath 'C:\\tools\\bin\\Microsoft.Web.XmlTransform.dll'; };
-
-RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/App_Config/ConnectionStrings*.xdt' -Recurse ) | `
-    ForEach-Object { & '/tools/scripts/Invoke-XdtTransform.ps1' -Path '/inetpub/wwwroot/app_config/ConnectionStrings.config' -XdtPath $_.FullName `
-    -XdtDllPath '/tools/bin/Microsoft.Web.XmlTransform.dll'; };
 
 ENTRYPOINT [ "powershell.exe", "C:\\tools\\entrypoints\\aks\\boot.ps1" ]
