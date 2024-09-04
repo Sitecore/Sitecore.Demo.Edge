@@ -31,7 +31,7 @@ services:
       args:
         BUILD_CONFIGURATION: ${BUILD_CONFIGURATION}
         # DEMO TEAM CUSTOMIZATION - to prevent TLS issues we implemented the solution described here: https://sitecore.stackexchange.com/a/29558/171
-        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-ltsc2019
+        BUILD_IMAGE: mcr.microsoft.com/dotnet/framework/sdk:4.8-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     deploy:
       replicas: 0
 
