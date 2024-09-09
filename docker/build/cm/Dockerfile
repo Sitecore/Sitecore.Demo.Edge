@@ -54,7 +54,7 @@ COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=headless_services C:\module\tools C:\module\tools
 
 # Copy the Content Hub Connector Module
-COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
+COPY --from=ch_assets C:\module\cm\content C:\inetpub\wwwroot
 COPY --from=ch_assets C:\module\cm\content\App_Data\Transforms\scch\xdts C:\module\xdt
 
 RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
