@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <!-- DEMO TEAM CUSTOMIZATION - Enable CMP and DAM from an XDT -->
+    <add key="cmpEnabled:define" value="yes" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+    <add key="damEnabled:define" value="yes" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+    <!-- END CUSTOMIZATION -->
+  </appSettings>
   <location>
     <system.webServer>
       <httpProtocol>

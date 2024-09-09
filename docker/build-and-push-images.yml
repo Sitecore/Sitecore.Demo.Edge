@@ -23,7 +23,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022'
       steps:
         - task: NodeTool@0
           inputs:
@@ -55,7 +55,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022'
       steps:
         - task: NodeTool@0
           inputs:
@@ -87,7 +87,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022' 
       steps:
         - task: NodeTool@0
           inputs:
@@ -119,7 +119,7 @@ stages:
   jobs:
     - job: Build
       pool:
-        name: 'docker-ltsc2019-agents'
+        vmImage: 'windows-2022'
       steps:
         - task: NodeTool@0
           inputs:
@@ -161,8 +161,16 @@ stages:
   - job: Build_Headless
     timeoutInMinutes: 120
     displayName: 'Build Windows Docker Images'
+    strategy:
+      matrix:
+        ltsc2019:
+          vmImage: "windows-2019"
+          osVersion: "ltsc2019"
+        ltsc2022:
+          vmImage: "windows-2022"
+          osVersion: "ltsc2022"
     pool:
-      name: 'docker-ltsc2019-agents'
+      vmImage: $(vmImage)
     steps:
     - task: UseDotNet@2
       inputs:
@@ -191,7 +199,7 @@ stages:
           $params.Add("DemoTeamRegistry","$(REGISTRY)")
           $params.Add("SitecoreRegistry","$sitecoreRegistry")
           $params.Add("SitecoreVersion","$(SITECORE_VERSION)")
-
+          $params.Add("WindowsVersion", "$(osVersion)")
 
           if ("true" -eq "$(preRelease)"){
             $params.Add("PreRelease", $true)
@@ -208,12 +216,12 @@ stages:
           # Reset demo version to correct tag without build id
           $env:DEMO_VERSION = "$(tag)"
 
-          docker-compose build $(no.cache) --parallel solution nodejs
+          docker compose build $(no.cache) solution nodejs
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build --parallel solution nodejs
+            docker compose build solution nodejs
           }
 
           ### Build Demo images
@@ -221,20 +229,20 @@ stages:
           # Reset demo version to correct tag without build id
 
           $env:DEMO_VERSION = "$(tag)"
-          $services = ([System.Collections.ArrayList] $(docker-compose config --services))
+          $services = ([System.Collections.ArrayList] $(docker compose config --services))
 
           # Remove services already built in previous step
           $services.Remove("solution")
           $services.Remove("nodejs")
 
-          docker-compose build $(no.cache) --parallel $services
-          docker-compose push $services
+          docker compose build $(no.cache) $services
+          docker compose push $services
 
           $primaryBuild = $(if ([string]::IsNullOrEmpty("$(additionalImageTags)")) { $false } else { $true })
           if ($primaryBuild) {
             $env:DEMO_VERSION = "$(additionalImageTags)"
-            docker-compose build --parallel $services
-            docker-compose push $services
+            docker compose build $services
+            docker compose push $services
           }
 
 - stage: Release_Notes
