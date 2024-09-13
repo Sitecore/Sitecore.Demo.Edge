@@ -131,7 +131,7 @@ try {
         Write-Error "Serialization push failed, see errors above."
     }
     # DEMO TEAM CUSTOMIZATION - Split pushing and publishing operations.
-    dotnet sitecore publish
+    dotnet sitecore publish --pt 'Internet'
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Serialization publish failed, see errors above."
     }

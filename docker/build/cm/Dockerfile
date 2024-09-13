@@ -50,11 +50,16 @@ RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
 # Copy the SPE Module
 COPY --from=spe_assets C:\module\cm\content C:\inetpub\wwwroot
 
+# Copy tools from Headless Services Module
+COPY --from=headless_services C:\module\tools C:\module\tools
+
 # Copy the Content Hub Connector Module
-COPY --from=ch_assets C:\module\cm\content C:\module\ch_assets
-RUN (robocopy C:\module\ch_assets C:\inetpub\wwwroot /S /XF System.Diagnostics.DiagnosticSource.dll);if ($lastexitcode -eq 0){write-host "Robocopy succeeded"}else{write-host $lastexitcode};
-COPY --from=ch_assets /module/transforms/cm/web.config.xdt /inetpub/wwwroot/transforms/web.config.chub.xdt
-COPY --from=ch_assets /module/transforms/cm/App_Config/ConnectionStrings.config.xdt  /inetpub/wwwroot/transforms/App_Config/ConnectionStrings.config.chub.xdt
+COPY --from=ch_assets C:\module\cm\content C:\inetpub\wwwroot
+COPY --from=ch_assets C:\module\cm\content\App_Data\Transforms\scch\xdts C:\module\xdt
+
+RUN C:\module\tools\Initialize-Content.ps1 -TargetPath C:\inetpub\wwwroot; `
+    C:\module\tools\xdt\Invoke-XdtTransformations.ps1 -TargetPath C:\inetpub\wwwroot -XdtPath C:\module\xdt; `
+    Remove-Item -Path C:\module -Recurse -Force;
 
 # Copy Product Hotfixes
 # Enabled this if there is a hotfix package available for current version of Sitecore
@@ -76,9 +81,5 @@ COPY --from=solution /artifacts/src/rendering/public ./
 RUN (Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\transforms\\web*.xdt' -Recurse ) | `
     ForEach-Object { & 'C:\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path 'C:\\inetpub\\wwwroot\\web.config' -XdtPath $_.FullName `
     -XdtDllPath 'C:\\tools\\bin\\Microsoft.Web.XmlTransform.dll'; };
-
-RUN (Get-ChildItem -Path '/inetpub/wwwroot/transforms/App_Config/ConnectionStrings*.xdt' -Recurse ) | `
-    ForEach-Object { & '/tools/scripts/Invoke-XdtTransform.ps1' -Path '/inetpub/wwwroot/app_config/ConnectionStrings.config' -XdtPath $_.FullName `
-    -XdtDllPath '/tools/bin/Microsoft.Web.XmlTransform.dll'; };
 
 ENTRYPOINT [ "powershell.exe", "C:\\tools\\entrypoints\\aks\\boot.ps1" ]

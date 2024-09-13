@@ -61,16 +61,6 @@ if ($deployDatabases) {
             -DatabaseUsers $DatabaseUsers -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
         .\SetSitecoreAdminPassword.ps1 -ResourcesDirectory $ResourcesDirectory -SitecoreAdminPassword $SitecoreAdminPassword -SqlServer $SqlServer -SqlAdminUser $SqlAdminUser -SqlAdminPassword $SqlAdminPassword  -SqlDatabasePrefix:$SqlDatabasePrefix
     }
-
-    Write-Host "Installing SPE assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\spe_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
-
-    Write-Host "Installing Content Hub Connector assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\ch_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
-
-    Write-Host "Installing JSS assets"
-    .\DeployDatabases.ps1 -ResourcesDirectory C:\jss_data -SqlServer:$SqlServer -SqlAdminUser:$SqlAdminUser -SqlAdminPassword:$SqlAdminPassword -EnableContainedDatabaseAuth -SkipStartingServer -SqlElasticPoolName $SqlElasticPoolName -DatabasesToDeploy $DatabasesToDeploy -SqlDatabasePrefix:$SqlDatabasePrefix -SqlCustomDatabasePrefixUpdateFrom:$SqlCustomDatabasePrefixUpdateFrom
-
 }
 
 $ready = Invoke-Sqlcmd -ServerInstance $SqlServer -Username $SqlAdminUser -Password $SqlAdminPassword -Query "select name from sys.databases where name = 'platform_init_ready'" -TrustServerCertificate
