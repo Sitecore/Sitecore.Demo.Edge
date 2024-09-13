@@ -47,10 +47,7 @@ namespace Sitecore.Demo.Init.Jobs
             Console.WriteLine(cmd.Run(
                 $"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t"));
             Console.WriteLine(cmd.Run($"dotnet sitecore ser push"));
-            Console.WriteLine(cmd.Run($"dotnet sitecore publish -t"));
-
-            // Publish twice to ensure all items are published correctly. There's been a few cases when API key did not get published.
-            Console.WriteLine(cmd.Run($"dotnet sitecore publish"));
+            Console.WriteLine(cmd.Run($"dotnet sitecore publish -t --pt \"Internet\""));
 
             await Complete();
 		}
