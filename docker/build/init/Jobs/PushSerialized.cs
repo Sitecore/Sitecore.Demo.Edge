@@ -47,7 +47,7 @@ namespace Sitecore.Demo.Init.Jobs
             Console.WriteLine(cmd.Run(
                 $"dotnet sitecore login --client-credentials true --auth {id} --cm {cm} --allow-write true --client-id \"Demo_Automation\" --client-secret \"{token}\" -t"));
             Console.WriteLine(cmd.Run($"dotnet sitecore ser push"));
-            Console.WriteLine(cmd.Run($"dotnet sitecore publish -t --pt \"Internet\""));
+            Console.WriteLine(cmd.Run($"dotnet sitecore publish --pt \"Internet\""));
 
             await Complete();
 		}
