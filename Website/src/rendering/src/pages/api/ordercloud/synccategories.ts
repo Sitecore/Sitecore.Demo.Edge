@@ -97,7 +97,6 @@ async function postCategories(catalogID: string) {
 
   // Store the category promises in order to run them all together in parallel
   const categoryPromises = [];
-  const categoryPromisesWithParents = [];
 
   for (const row of categoryFeed) {
     categoryPromises.push(() => postCategory(row.ccid, row.name, null, catalogID));
@@ -108,12 +107,8 @@ async function postCategories(catalogID: string) {
   await Promise.all(categoryPromises.map((categoryPromise) => categoryPromise()));
 
   for (const row of categoryFeed) {
-    categoryPromisesWithParents.push(() =>
-      postCategory(row.ccid, row.name, row.parent_ccid, catalogID)
-    );
+    await postCategory(row.ccid, row.name, row.parent_ccid, catalogID);
   }
-
-  return await Promise.all(categoryPromisesWithParents.map((categoryPromise) => categoryPromise()));
 }
 
 async function postCategory(
