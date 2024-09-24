@@ -3,7 +3,7 @@
     "silent": true
   },
   "functions": {
-    "pages/api/**/*": {
+    "*": {
       "maxDuration": 30
     }
   }
