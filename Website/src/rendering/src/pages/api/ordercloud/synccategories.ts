@@ -95,21 +95,13 @@ async function postCategories(catalogID: string) {
     includeColumns: /ccid|^name$/,
   }).fromString(csvStr);
 
-  // Store the category promises in order to run them all together in parallel
-  const categoryPromises = [];
-  const categoryPromisesWithParents = [];
-
   for (const row of categoryFeed) {
-    categoryPromises.push(() => postCategory(row.ccid, row.name, null, catalogID));
-    categoryPromisesWithParents.push(() =>
-      postCategory(row.ccid, row.name, row.parent_ccid, catalogID)
-    );
+    await postCategory(row.ccid, row.name, null, catalogID);
   }
 
-  // First run the category promises without the parent ccids in parallel and then update them
-  // with the parent ccids (for faster execution)
-  await Promise.all(categoryPromises.map((categoryPromise) => categoryPromise()));
-  return await Promise.all(categoryPromisesWithParents.map((categoryPromise) => categoryPromise()));
+  for (const row of categoryFeed) {
+    await postCategory(row.ccid, row.name, row.parent_ccid, catalogID);
+  }
 }
 
 async function postCategory(
