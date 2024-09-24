@@ -1,5 +1,10 @@
 {
   "github": {
     "silent": true
+  },
+  "functions": {
+    "pages/api/**/*": {
+      "maxDuration": 20
+    }
   }
 }
