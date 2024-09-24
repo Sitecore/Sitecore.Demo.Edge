@@ -4,7 +4,7 @@
   },
   "functions": {
     "pages/api/**/*": {
-      "maxDuration": 20
+      "maxDuration": 30
     }
   }
 }
