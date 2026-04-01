@@ -163,9 +163,6 @@ stages:
     displayName: 'Build Windows Docker Images'
     strategy:
       matrix:
-        ltsc2019:
-          vmImage: "windows-2019"
-          osVersion: "ltsc2019"
         ltsc2022:
           vmImage: "windows-2022"
           osVersion: "ltsc2022"
