@@ -42,7 +42,7 @@ services:
         target: c:\data
   solr:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.11.2-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/nonproduction/solr:8.11.4-${WINDOWSSERVERCORE_VERSION}
     ports:
       - "8984:8983"
     # DEMO TEAM CUSTOMIZATION - Removed default volume
@@ -52,7 +52,7 @@ services:
       test: ["CMD", "powershell", "-command", "try { $$statusCode = (iwr http://solr:8983/solr/admin/cores?action=STATUS -UseBasicParsing).StatusCode; if ($$statusCode -eq 200) { exit 0 } else { exit 1} } catch { exit 1 }"]
   solr-init:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-solr-init:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-solr-init:10.4.0-${WINDOWSSERVERCORE_VERSION}
     environment:
       SITECORE_SOLR_CONNECTION_STRING: http://solr:8983/solr
       SOLR_CORE_PREFIX_NAME: ${SOLR_CORE_PREFIX_NAME}
@@ -85,7 +85,7 @@ services:
       - "traefik.http.routers.id-secure.tls=true"
   cm:
     isolation: ${ISOLATION}
-    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:${SITECORE_VERSION}-${WINDOWSSERVERCORE_VERSION}
+    image: ${SITECORE_DOCKER_REGISTRY}sxp/sitecore-xm1-cm:10.4.0-${WINDOWSSERVERCORE_VERSION}
     depends_on:
       mssql-init:
         condition: service_healthy
