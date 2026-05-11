@@ -14,6 +14,7 @@ using Sitecore.Data.Items;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Managers;
 using Sitecore.Globalization;
+using Sitecore.Security.Accounts;
 
 /// <summary>
 /// Summary description for ExtractorHandler
@@ -36,6 +37,9 @@ public class ExtractorHandler : IHttpHandler
         {
             switch (action.ToLowerInvariant())
             {
+                case "validateuseradministrator":
+                    context.Response.Write(ValidateUserAdministrator());
+                    break;
                 case "getuserticket":
                     var ticket = GetUserTicket(requestQueries["username"]);
                     var cookie = new HttpCookie("sitecore_userticket", ticket);
@@ -50,8 +54,11 @@ public class ExtractorHandler : IHttpHandler
                 case "getalllanguages":
                     context.Response.Write(GetAllLanguages(database));
                     break;
-                case "getsitedescendantids":
-                    context.Response.Write(GetSiteDescendantIds(requestQueries["siteName"], language, database));
+                case "getsiteitem":
+                    context.Response.Write(GetSiteItem(requestQueries["siteName"], language, database));
+                    break;
+                case "getsitechildren":
+                    context.Response.Write(GetSiteChildren(requestQueries["itemId"], language, database));
                     break;
                 case "parsehtml":
                     string htmlContent = string.Empty;
@@ -81,6 +88,7 @@ public class ExtractorHandler : IHttpHandler
         }
     }
 
+    #region GetAllSiteNames
     public string GetAllSiteNames()
     {
         var allSites = Sitecore.Configuration.Factory.GetSiteInfoList()
@@ -114,7 +122,9 @@ public class ExtractorHandler : IHttpHandler
         };
         return internalSitesList.Contains(siteName);
     }
+    #endregion
 
+    #region GetAllLanguages
     public string GetAllLanguages(string database)
     {
         var db = Sitecore.Configuration.Factory.GetDatabase(database);
@@ -124,63 +134,86 @@ public class ExtractorHandler : IHttpHandler
 
         return JsonConvert.SerializeObject(allLanguages, Formatting.Indented);
     }
+    #endregion
 
-    #region GetSiteDescendantIds
-    public string GetSiteDescendantIds(string siteName, string language, string database)
+    #region GetSiteItem
+    public string GetSiteItem(string siteName, string language, string database)
     {
-        if(string.IsNullOrEmpty(siteName))
+        if (string.IsNullOrEmpty(siteName))
         {
             throw new InputException("siteName must be provided");
         }
+
         var db = Sitecore.Configuration.Factory.GetDatabase(database);
         var languageItem = Sitecore.Globalization.Language.Parse(language);
-
         var site = Sitecore.Configuration.Factory.GetSite(siteName);
-        if (site != null)
-        {
-            var siteInfo = site.SiteInfo;
-            var siteItem = db.GetItem(siteInfo.RootPath, languageItem);
-            if(siteItem != null)
-            {
-                var siteObj = new SiteItem
-                {
-                    SiteName = siteName,
-                    SitePath = siteItem.Paths.FullPath,
-                    Language = language,
-                    Database = database,
-                    Descendants = GetDescendantsWithRootRendering(siteItem, languageItem)
-                };
-                return JsonConvert.SerializeObject(siteObj, Formatting.Indented);
-            }
-        }
-        return JsonConvert.SerializeObject(null, Formatting.Indented);
-    }
 
-    private List<string> GetDescendantsWithRootRendering(Item item, Language languageItem)
-    {
-        // Use Sitecore's optimized Axes API for descendant traversal
-        // This is significantly faster than manual traversal as it uses database-optimized queries
-        var db = item.Database;
-        var descendants = item.Axes.GetDescendants();
-        // Convert to List for compatibility with existing code
-        return descendants.Where( d =>
+        if (site == null)
         {
-            var child = db.GetItem(d.ID, languageItem);
-            return child != null && child.Versions.Count > 0 && HasRootRendering(child);
+            return JsonConvert.SerializeObject(null, Formatting.Indented);
         }
-        ).Select(d => d.ID.ToString()).ToList();
+
+        var siteRootItem = db.GetItem(site.SiteInfo.RootPath, languageItem);
+
+        if (siteRootItem == null)
+        {
+            return JsonConvert.SerializeObject(null, Formatting.Indented);
+        }
+
+        var siteObj = new SiteItem
+        {
+            SiteName = siteName,
+            SitePath = siteRootItem.Paths.FullPath,
+            Language = language,
+            Database = database,
+            RootId = siteRootItem.ID.ToString(),
+            Descendants = new List<string>()
+        };
+
+        return JsonConvert.SerializeObject(siteObj, Formatting.Indented);
+    }
+    #endregion
+
+    #region GetSiteChildren
+    public string GetSiteChildren(string itemId, string language, string database)
+    {
+        if (string.IsNullOrEmpty(itemId))
+        {
+            throw new InputException("itemId must be provided");
+        }
+
+        var db = Sitecore.Configuration.Factory.GetDatabase(database);
+        var languageItem = Sitecore.Globalization.Language.Parse(language);
+        var item = db.GetItem(itemId, languageItem);
+
+        if (item == null)
+        {
+            return JsonConvert.SerializeObject(new List<SiteChildItem>(), Formatting.Indented);
+        }
+
+        var children = item.Children
+            .Select(child => new SiteChildItem
+            {
+                Id = child.ID.ToString(),
+                HasPresentation = child.Versions.Count > 0 && HasRootRendering(child),
+                HasChildren = child.HasChildren
+            })
+            .ToList();
+
+        return JsonConvert.SerializeObject(children, Formatting.Indented);
     }
 
     private bool HasRootRendering(Item item)
     {
         if (item == null)
+        {
             return false;
+        }
+
         try
         {
-            // Get the layout field
             var layoutField = item.Fields[Sitecore.FieldIDs.LayoutField];
-            // Check if there's any layout definition
-            return layoutField != null && !string.IsNullOrEmpty(layoutField.Value);
+            return layoutField != null && string.IsNullOrEmpty(layoutField.Value) == false;
         }
         catch (Exception)
         {
@@ -212,6 +245,7 @@ public class ExtractorHandler : IHttpHandler
         }
         #endregion
 
+        #region BuildPageOutput
         var db = Sitecore.Configuration.Factory.GetDatabase(database);
         var languageItem = Sitecore.Globalization.Language.Parse(language);
 
@@ -272,10 +306,12 @@ public class ExtractorHandler : IHttpHandler
             Renderings = GetRenderingsFromHtml(db, language, pageId, htmlContent, sitePath,  renderingFieldValue, finalRenderingFieldValue, deviceId, skipExpandedRendering, partialDesignsRenderingFields, expandedPartialDesigns),
             Template = GetTemplate(item)
         };
+        #endregion
 
         return JsonConvert.SerializeObject(pageObject, Formatting.Indented);
     }
 
+    #region ParseHTML Helpers
     private List<ItemRendering> GetRenderingsFromHtml(Database db, string language, string pageId, string pageHtml, string sitePath, string renderingFields, string finalRenderingFields, string deviceId, bool skipExpandedRendering, List<PartialDesignRenderingFields> partialDesignsRenderingFields, List<ExpandedItem> expandedPartialDesigns)
     {
         var renderings = new List<ItemRendering>();
@@ -1185,7 +1221,7 @@ public class ExtractorHandler : IHttpHandler
 
         foreach (var guid in guids)
         {
-            expandedItems.Add(GetExpandedItem(db, language, guid, sitePath, depth + 1, maxDepth));
+            expandedItems.Add(GetExpandedItem(db, language, guid, sitePath, depth, maxDepth));
         }
 
         return expandedItems.Count > 0 ? expandedItems : null;
@@ -1239,6 +1275,8 @@ public class ExtractorHandler : IHttpHandler
     }
     #endregion
 
+    #endregion
+
     #region GetUserTicket
     public string GetUserTicket(string username)
     {
@@ -1253,6 +1291,19 @@ public class ExtractorHandler : IHttpHandler
         var ticket = Sitecore.Web.Authentication.TicketManager.CreateTicket(username, baseUrl, true);
 
         return ticket;
+    }
+    #endregion
+
+    #region ValidateUserAdministrator
+    public string ValidateUserAdministrator()
+    {
+        var user = Sitecore.Context.User;
+        if (user == null)
+        {
+            return JsonConvert.SerializeObject(new { IsAdministrator = false }, Formatting.None);
+        }
+
+        return JsonConvert.SerializeObject(new { IsAdministrator = user.IsAdministrator }, Formatting.None);
     }
     #endregion
 
@@ -1273,8 +1324,20 @@ public class SiteItem
     public string Language { get; set; }
     [JsonProperty("database")]
     public string Database { get; set; }
+    [JsonProperty("rootId")]
+    public string RootId { get; set; }
     [JsonProperty("descendants")]
     public List<string> Descendants { get; set; }
+}
+
+public class SiteChildItem
+{
+    [JsonProperty("id")]
+    public string Id { get; set; }
+    [JsonProperty("hasPresentation")]
+    public bool HasPresentation { get; set; }
+    [JsonProperty("hasChildren")]
+    public bool HasChildren { get; set; }
 }
 
 public class DeviceInfo
